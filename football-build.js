@@ -299,30 +299,148 @@ body {
   min-height: 100vh;
 }
 .site-header {
-  background: linear-gradient(135deg, #0d2818 0%, #1a472a 40%, #2d6a4f 100%);
-  border-bottom: 3px solid #c9a84c;
   position: relative;
   overflow: hidden;
+  border-bottom: 3px solid #c9a84c;
+  /* Night pitch gradient - green-black at night */
+  background: linear-gradient(170deg,
+    #0a110a 0%,
+    #0d1a0f 20%,
+    #0f1a10 50%,
+    #0c150d 75%,
+    #080c08 100%
+  );
 }
+/* ── Football panel pattern (hexagons) ── */
 .site-header::before {
   content: '';
   position: absolute;
-  top: -50%;
-  right: -5%;
-  width: 600px;
-  height: 600px;
-  background: radial-gradient(circle, rgba(201,168,76,0.07) 0%, transparent 70%);
-  border-radius: 50%;
+  inset: 0;
+  opacity: 0.04;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='60' height='52' viewBox='0 0 60 52'%3E%3Cpath d='M30 0L60 15v22L30 52 0 37V15z' fill='none' stroke='%23c9a84c' stroke-width='1'/%3E%3Cpath d='M30 0L15 7.5v7.5l15 7.5 15-7.5V7.5z' fill='none' stroke='%23c9a84c' stroke-width='0.8'/%3E%3C/svg%3E");
+  background-size: 52px 48px;
+  z-index: 1;
 }
+/* ── Floodlight beam from upper-right ── */
 .site-header::after {
   content: '';
   position: absolute;
-  bottom: -20%;
-  left: 10%;
+  top: -40%;
+  right: -5%;
+  width: 550px;
+  height: 900px;
+  background: linear-gradient(
+    175deg,
+    rgba(255,220,140,0.08) 0%,
+    rgba(201,168,76,0.04) 30%,
+    transparent 65%
+  );
+  transform: rotate(-12deg);
+  z-index: 1;
+}
+/* ── Floodlight beam from upper-left (secondary) ── */
+.site-header .beam-left {
+  position: absolute;
+  top: -35%;
+  left: -5%;
   width: 400px;
-  height: 400px;
-  background: radial-gradient(circle, rgba(255,255,255,0.03) 0%, transparent 60%);
+  height: 700px;
+  background: linear-gradient(
+    185deg,
+    rgba(255,220,140,0.05) 0%,
+    rgba(201,168,76,0.02) 25%,
+    transparent 60%
+  );
+  transform: rotate(12deg);
+  z-index: 1;
+  pointer-events: none;
+}
+/* ── Pitch center circle ── */
+.site-header .pitch-circle {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 420px;
+  height: 420px;
+  border: 2px solid rgba(201,168,76,0.07);
   border-radius: 50%;
+  z-index: 1;
+  pointer-events: none;
+}
+/* Center spot */
+.site-header .pitch-circle::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 12px;
+  height: 12px;
+  background: rgba(201,168,76,0.12);
+  border-radius: 50%;
+}
+/* Inner circle */
+.site-header .pitch-circle-inner {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 280px;
+  height: 280px;
+  border: 1px solid rgba(201,168,76,0.05);
+  border-radius: 50%;
+  z-index: 1;
+  pointer-events: none;
+}
+/* ── Halfway line ── */
+.site-header .halfway-line {
+  position: absolute;
+  top: 20%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 1px;
+  height: 60%;
+  background: linear-gradient(
+    180deg,
+    transparent,
+    rgba(201,168,76,0.06) 20%,
+    rgba(201,168,76,0.06) 80%,
+    transparent
+  );
+  z-index: 1;
+  pointer-events: none;
+}
+/* ── Goal net texture (bottom-right corner) ── */
+.site-header .net-texture {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 300px;
+  height: 200px;
+  opacity: 0.03;
+  background-image:
+    linear-gradient(90deg, rgba(255,255,255,0.5) 1px, transparent 1px),
+    linear-gradient(0deg, rgba(255,255,255,0.5) 1px, transparent 1px);
+  background-size: 18px 18px;
+  z-index: 1;
+  pointer-events: none;
+}
+/* ── Warm bottom glow ── */
+.site-header .bottom-glow {
+  position: absolute;
+  bottom: -15%;
+  left: 20%;
+  width: 500px;
+  height: 250px;
+  background: radial-gradient(
+    ellipse at center,
+    rgba(201,168,76,0.06) 0%,
+    transparent 70%
+  );
+  z-index: 1;
+  pointer-events: none;
+  animation: glowPulse 5s ease-in-out infinite;
 }
 .stat-bubble {
   display: inline-flex;
@@ -436,6 +554,11 @@ body {
 <body>
 
 <header class="site-header">
+  <div class="beam-left"></div>
+  <div class="pitch-circle"><div class="pitch-circle-inner"></div></div>
+  <div class="halfway-line"></div>
+  <div class="net-texture"></div>
+  <div class="bottom-glow"></div>
   <div class="relative z-10 max-w-6xl mx-auto px-6 py-12 sm:py-16">
     <div class="flex items-center gap-4 mb-3">
       <div class="w-12 h-12 rounded-xl overflow-hidden flex-shrink-0 border-2 border-gold/30 shadow-lg shadow-gold/10">
