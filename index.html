@@ -37,149 +37,30 @@ body {
   min-height: 100vh;
 }
 .site-header {
+  background: linear-gradient(135deg, #0d2818 0%, #1a472a 40%, #2d6a4f 100%);
+  border-bottom: 3px solid #c9a84c;
   position: relative;
   overflow: hidden;
-  border-bottom: 3px solid #c9a84c;
-  /* Night pitch gradient - green-black at night */
-  background: linear-gradient(170deg,
-    #0a110a 0%,
-    #0d1a0f 20%,
-    #0f1a10 50%,
-    #0c150d 75%,
-    #080c08 100%
-  );
 }
-/* ── Football panel pattern (hexagons) ── */
 .site-header::before {
   content: '';
   position: absolute;
-  inset: 0;
-  opacity: 0.04;
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='60' height='52' viewBox='0 0 60 52'%3E%3Cpath d='M30 0L60 15v22L30 52 0 37V15z' fill='none' stroke='%23c9a84c' stroke-width='1'/%3E%3Cpath d='M30 0L15 7.5v7.5l15 7.5 15-7.5V7.5z' fill='none' stroke='%23c9a84c' stroke-width='0.8'/%3E%3C/svg%3E");
-  background-size: 52px 48px;
-  z-index: 1;
+  top: -50%;
+  right: -5%;
+  width: 600px;
+  height: 600px;
+  background: radial-gradient(circle, rgba(201,168,76,0.07) 0%, transparent 70%);
+  border-radius: 50%;
 }
-/* ── Floodlight beam from upper-right ── */
 .site-header::after {
   content: '';
   position: absolute;
-  top: -40%;
-  right: -5%;
-  width: 550px;
-  height: 900px;
-  background: linear-gradient(
-    175deg,
-    rgba(255,220,140,0.08) 0%,
-    rgba(201,168,76,0.04) 30%,
-    transparent 65%
-  );
-  transform: rotate(-12deg);
-  z-index: 1;
-}
-/* ── Floodlight beam from upper-left (secondary) ── */
-.site-header .beam-left {
-  content: '';
-  position: absolute;
-  top: -35%;
-  left: -5%;
+  bottom: -20%;
+  left: 10%;
   width: 400px;
-  height: 700px;
-  background: linear-gradient(
-    185deg,
-    rgba(255,220,140,0.05) 0%,
-    rgba(201,168,76,0.02) 25%,
-    transparent 60%
-  );
-  transform: rotate(12deg);
-  z-index: 1;
-  pointer-events: none;
-}
-/* ── Pitch center circle ── */
-.site-header .pitch-circle {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  width: 420px;
-  height: 420px;
-  border: 2px solid rgba(201,168,76,0.07);
+  height: 400px;
+  background: radial-gradient(circle, rgba(255,255,255,0.03) 0%, transparent 60%);
   border-radius: 50%;
-  z-index: 1;
-  pointer-events: none;
-}
-/* Center spot */
-.site-header .pitch-circle::after {
-  content: '';
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  width: 12px;
-  height: 12px;
-  background: rgba(201,168,76,0.12);
-  border-radius: 50%;
-}
-/* Inner circle */
-.site-header .pitch-circle-inner {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  width: 280px;
-  height: 280px;
-  border: 1px solid rgba(201,168,76,0.05);
-  border-radius: 50%;
-  z-index: 1;
-  pointer-events: none;
-}
-/* ── Halfway line ── */
-.site-header .halfway-line {
-  position: absolute;
-  top: 20%;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 1px;
-  height: 60%;
-  background: linear-gradient(
-    180deg,
-    transparent,
-    rgba(201,168,76,0.06) 20%,
-    rgba(201,168,76,0.06) 80%,
-    transparent
-  );
-  z-index: 1;
-  pointer-events: none;
-}
-/* ── Goal net texture (bottom-right corner) ── */
-.site-header .net-texture {
-  position: absolute;
-  bottom: 0;
-  right: 0;
-  width: 300px;
-  height: 200px;
-  opacity: 0.03;
-  background-image:
-    linear-gradient(90deg, rgba(255,255,255,0.5) 1px, transparent 1px),
-    linear-gradient(0deg, rgba(255,255,255,0.5) 1px, transparent 1px);
-  background-size: 18px 18px;
-  z-index: 1;
-  pointer-events: none;
-}
-/* ── Warm bottom glow ── */
-.site-header .bottom-glow {
-  position: absolute;
-  bottom: -15%;
-  left: 20%;
-  width: 500px;
-  height: 250px;
-  background: radial-gradient(
-    ellipse at center,
-    rgba(201,168,76,0.06) 0%,
-    transparent 70%
-  );
-  z-index: 1;
-  pointer-events: none;
-  animation: glowPulse 5s ease-in-out infinite;
 }
 .stat-bubble {
   display: inline-flex;
@@ -284,7 +165,6 @@ body {
 .site-footer { text-align: center; padding: 30px 20px; color: rgba(255,255,255,0.25); font-size: 0.8rem; border-top: 1px solid rgba(255,255,255,0.06); margin-top: 50px; background: #070a07; }
 .card-enter { animation: cardFadeIn 0.4s ease forwards; }
 @keyframes cardFadeIn { from { opacity: 0; transform: translateY(16px); } to { opacity: 1; transform: translateY(0); } }
-@keyframes glowPulse { 0%, 100% { opacity: 0.6; } 50% { opacity: 1; } }
 .rank-number { display: inline-flex; align-items: center; justify-content: center; width: 28px; height: 28px; border-radius: 50%; font-size: 0.78rem; font-weight: 700; background: rgba(201,168,76,0.12); color: #c9a84c; flex-shrink: 0; }
 .rank-1 { background: rgba(255,215,0,0.2); color: #ffd700; }
 .rank-2 { background: rgba(192,192,192,0.15); color: #c0c0c0; }
@@ -294,11 +174,6 @@ body {
 <body>
 
 <header class="site-header">
-  <div class="beam-left"></div>
-  <div class="pitch-circle"><div class="pitch-circle-inner"></div></div>
-  <div class="halfway-line"></div>
-  <div class="net-texture"></div>
-  <div class="bottom-glow"></div>
   <div class="relative z-10 max-w-6xl mx-auto px-6 py-12 sm:py-16">
     <div class="flex items-center gap-4 mb-3">
       <div class="w-12 h-12 rounded-xl overflow-hidden flex-shrink-0 border-2 border-gold/30 shadow-lg shadow-gold/10">
@@ -360,12 +235,20 @@ body {
   </div>
 
   <div class="section-divider" style="margin-top:60px;"><span class="section-title">📐 评分体系</span></div>
-  <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-3 mb-4">
-    <div class="bg-white/4 border border-white/8 rounded-xl p-4 text-center"><div class="text-2xl font-bold text-pitch-400">90+</div><div class="text-xs text-gray-500 mt-1">冠军热门</div></div>
-    <div class="bg-white/4 border border-white/8 rounded-xl p-4 text-center"><div class="text-2xl font-bold text-pitch-300">80-89</div><div class="text-xs text-gray-500 mt-1">一流强队</div></div>
-    <div class="bg-white/4 border border-white/8 rounded-xl p-4 text-center"><div class="text-2xl font-bold text-yellow-400">70-79</div><div class="text-xs text-gray-500 mt-1">二线劲旅</div></div>
-    <div class="bg-white/4 border border-white/8 rounded-xl p-4 text-center"><div class="text-2xl font-bold text-orange-400">60-69</div><div class="text-xs text-gray-500 mt-1">具备出线实力</div></div>
-    <div class="bg-white/4 border border-white/8 rounded-xl p-4 text-center"><div class="text-2xl font-bold text-red-400">&lt;60</div><div class="text-xs text-gray-500 mt-1">搅局者/鱼腩</div></div>
+  <div class="grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-7 gap-2 mb-4">
+    <div class="bg-white/4 border border-white/8 rounded-lg p-3 text-center"><div class="text-lg font-bold text-emerald-400">A+</div><div class="text-xs text-gray-500">87-100</div></div>
+    <div class="bg-white/4 border border-white/8 rounded-lg p-3 text-center"><div class="text-lg font-bold text-emerald-300">A</div><div class="text-xs text-gray-500">83-87</div></div>
+    <div class="bg-white/4 border border-white/8 rounded-lg p-3 text-center"><div class="text-lg font-bold text-emerald-200">A-</div><div class="text-xs text-gray-500">80-83</div></div>
+    <div class="bg-white/4 border border-white/8 rounded-lg p-3 text-center"><div class="text-lg font-bold text-yellow-400">B+</div><div class="text-xs text-gray-500">77-80</div></div>
+    <div class="bg-white/4 border border-white/8 rounded-lg p-3 text-center"><div class="text-lg font-bold text-yellow-300">B</div><div class="text-xs text-gray-500">73-77</div></div>
+    <div class="bg-white/4 border border-white/8 rounded-lg p-3 text-center"><div class="text-lg font-bold text-yellow-200">B-</div><div class="text-xs text-gray-500">70-73</div></div>
+    <div class="bg-white/4 border border-white/8 rounded-lg p-3 text-center"><div class="text-lg font-bold text-orange-400">C+</div><div class="text-xs text-gray-500">67-70</div></div>
+    <div class="bg-white/4 border border-white/8 rounded-lg p-3 text-center"><div class="text-lg font-bold text-orange-300">C</div><div class="text-xs text-gray-500">63-67</div></div>
+    <div class="bg-white/4 border border-white/8 rounded-lg p-3 text-center"><div class="text-lg font-bold text-orange-200">C-</div><div class="text-xs text-gray-500">60-63</div></div>
+    <div class="bg-white/4 border border-white/8 rounded-lg p-3 text-center"><div class="text-lg font-bold text-red-400">D+</div><div class="text-xs text-gray-500">50-60</div></div>
+    <div class="bg-white/4 border border-white/8 rounded-lg p-3 text-center"><div class="text-lg font-bold text-red-300">D</div><div class="text-xs text-gray-500">40-50</div></div>
+    <div class="bg-white/4 border border-white/8 rounded-lg p-3 text-center"><div class="text-lg font-bold text-red-200">D-</div><div class="text-xs text-gray-500">30-40</div></div>
+    <div class="bg-white/4 border border-white/8 rounded-lg p-3 text-center"><div class="text-lg font-bold text-gray-400">E</div><div class="text-xs text-gray-500">0-30</div></div>
   </div>
 </main>
 
@@ -376,7 +259,7 @@ body {
   </div>
 </footer>
 
-<script id="teams-data" type="application/json">[{"name":"法国","flag":"🇫🇷","file":"WorldCup2026/法国-2026-world-cup-report.html","score":87.4,"rating":"A","accent":"#c0392b"},{"name":"巴西","flag":"🇧🇷","file":"WorldCup2026/巴西-2026-world-cup-report.html","score":85.3,"rating":"A","accent":"#009739"},{"name":"葡萄牙","flag":"🇵🇹","file":"WorldCup2026/葡萄牙-2026-world-cup-report.html","score":83.45,"rating":"A","accent":"#DA291C"},{"name":"日本","flag":"🇯🇵","file":"WorldCup2026/日本-2026-world-cup-report.html","score":82.5,"rating":"A","accent":"#003f8a"},{"name":"比利时","flag":"🇧🇪","file":"WorldCup2026/比利时-2026-world-cup-report.html","score":79.25,"rating":"B","accent":"#DC2626"},{"name":"克罗地亚","flag":"🇭🇷","file":"WorldCup2026/克罗地亚-2026-world-cup-report.html","score":79.1,"rating":"B+","accent":"#c8102e"},{"name":"韩国","flag":"🇰🇷","file":"WorldCup2026/韩国-2026-world-cup-report.html","score":64.85,"rating":"C","accent":"#e6002e"},{"name":"奥地利","flag":"🇦🇹","file":"WorldCup2026/奥地利-2026-world-cup-report.html","score":61.45,"rating":"C+","accent":"#cc0000"},{"name":"民主刚果","flag":"🇨🇩","file":"WorldCup2026/民主刚果-2026-world-cup-report.html","score":44.05,"rating":"D+","accent":"#006838"},{"name":"佛得角","flag":"🇨🇻","file":"WorldCup2026/佛得角-2026-world-cup-report.html","score":42,"rating":"D+","accent":"#003893"}]</script>
+<script id="teams-data" type="application/json">[{"name":"法国","flag":"🇫🇷","file":"WorldCup2026/法国-2026-world-cup-report.html","score":87.4,"rating":"A+","accent":"#c0392b"},{"name":"巴西","flag":"🇧🇷","file":"WorldCup2026/巴西-2026-world-cup-report.html","score":85.3,"rating":"A","accent":"#009739"},{"name":"葡萄牙","flag":"🇵🇹","file":"WorldCup2026/葡萄牙-2026-world-cup-report.html","score":83.45,"rating":"A","accent":"#DA291C"},{"name":"日本","flag":"🇯🇵","file":"WorldCup2026/日本-2026-world-cup-report.html","score":82.5,"rating":"A-","accent":"#003f8a"},{"name":"比利时","flag":"🇧🇪","file":"WorldCup2026/比利时-2026-world-cup-report.html","score":79.25,"rating":"B+","accent":"#DC2626"},{"name":"克罗地亚","flag":"🇭🇷","file":"WorldCup2026/克罗地亚-2026-world-cup-report.html","score":79.1,"rating":"B+","accent":"#c8102e"},{"name":"韩国","flag":"🇰🇷","file":"WorldCup2026/韩国-2026-world-cup-report.html","score":64.85,"rating":"C","accent":"#e6002e"},{"name":"奥地利","flag":"🇦🇹","file":"WorldCup2026/奥地利-2026-world-cup-report.html","score":61.45,"rating":"C-","accent":"#cc0000"},{"name":"民主刚果","flag":"🇨🇩","file":"WorldCup2026/民主刚果-2026-world-cup-report.html","score":44.05,"rating":"D","accent":"#006838"},{"name":"佛得角","flag":"🇨🇻","file":"WorldCup2026/佛得角-2026-world-cup-report.html","score":42,"rating":"D","accent":"#003893"}]</script>
 
 <script>
 (function() {

@@ -94,9 +94,108 @@ function extractRating(content) {
   return null;
 }
 
+// ─── Compute rating from score ────────────────────────────────────
+// 总分→评级映射规则：
+// [87,100] A+  [83,87) A   [80,83) A-  [77,80) B+  [73,77) B
+// [70,73) B-  [67,70) C+  [63,67) C   [60,63) C-  [50,60) D+
+// [40,50) D   [30,40) D-  [0,30)  E
+function computeRating(score) {
+  if (score == null) return '?';
+  if (score >= 87) return 'A+';
+  if (score >= 83) return 'A';
+  if (score >= 80) return 'A-';
+  if (score >= 77) return 'B+';
+  if (score >= 73) return 'B';
+  if (score >= 70) return 'B-';
+  if (score >= 67) return 'C+';
+  if (score >= 63) return 'C';
+  if (score >= 60) return 'C-';
+  if (score >= 50) return 'D+';
+  if (score >= 40) return 'D';
+  if (score >= 30) return 'D-';
+  return 'E';
+}
+
+// ─── Description for each rating ──────────────────────────────────
+function ratingDescription(rating) {
+  const map = {
+    'A+': '顶级强队，冠军热门',
+    'A':  '一流强队，四强有力竞争者',
+    'A-': '准一流强队，八强水准',
+    'B+': '二线劲旅，淘汰赛有力争夺者',
+    'B':  '二线劲旅，具备出线实力',
+    'B-': '准二线，小组出线有希望',
+    'C+': '中游球队，争取出线',
+    'C':  '中游球队，小组搅局者',
+    'C-': '中下游，出线难度较大',
+    'D+': '实力有限，争取搅局',
+    'D':  '鱼腩球队，重在参与',
+    'D-': '实力悬殊，难求一胜',
+    'E':  '陪跑角色',
+  };
+  return map[rating] || '';
+}
+
 // ─── Extract team name from filename ──────────────────────────────
 function extractTeamName(fileName) {
   return fileName.replace(/-2026-world-cup-report\.html$/i, '').trim();
+}
+
+// ─── Update rating display in report HTML ─────────────────────────
+function updateReportRating(absPath, oldContent, newRating) {
+  let content = oldContent;
+  const desc = ratingDescription(newRating);
+  let changed = false;
+
+  // Pattern 1: 实力评级：<span class="...">OLD</span>（旧描述）
+  let m = content.match(/(实力评级[：:][^<]*<[^>]*>)[A-D][+-]?(E)?(<\/[^>]*>)([^<]*)/);
+  if (m && !changed) {
+    content = content.replace(m[0], m[1] + newRating + m[3] + '（' + desc + '）');
+    changed = true;
+  }
+
+  // Pattern 2: 评级：OLD — 旧描述（韩国格式）
+  if (!changed) {
+    m = content.match(/(评级[：:]\s*)[A-D][+-]?(E)?(\s*[—–].*)/);
+    if (m) {
+      content = content.replace(m[0], m[1] + newRating + m[3]);
+      changed = true;
+    }
+  }
+
+  // Pattern 3: <div class="rating-X ...">X 级</div>（法国格式）
+  if (!changed) {
+    m = content.match(/(class="[^"]*rating-)[A-D]([^"]*"[^>]*>\s*)[A-D](\s*级<\/div>)/);
+    if (m) {
+      const base = newRating[0];
+      content = content.replace(m[0], m[1] + base + m[2] + newRating + m[3]);
+      changed = true;
+    }
+  }
+
+  // Pattern 4: <strong>OLD级（日本格式）
+  if (!changed) {
+    m = content.match(/(<strong>)[A-D][+-]?(E)?(\s*级[^<]*<\/strong>)/);
+    if (m) {
+      content = content.replace(m[0], m[1] + newRating + m[3]);
+      changed = true;
+    }
+  }
+
+  // Pattern 5: rating-badge">OLD级 — 描述</span>（比利时格式）
+  if (!changed) {
+    m = content.match(/(rating-badge[^>]*>)[A-D][+-]?(E)?(\s*级\s*[—–]\s*[^<]*<\/span>)/);
+    if (m) {
+      content = content.replace(m[0], m[1] + newRating + m[3]);
+      changed = true;
+    }
+  }
+
+  if (changed) {
+    fs.writeFileSync(absPath, content, 'utf-8');
+    return true;
+  }
+  return false;
 }
 
 // ─── Scan teams ───────────────────────────────────────────────────
@@ -117,8 +216,9 @@ function scanTeams() {
     const relPath = 'WorldCup2026/' + file;
 
     const score = extractScore(content);
-    const rating = extractRating(content);
     const name = extractTeamName(file);
+    const computedRating = computeRating(score);
+    const rawRating = extractRating(content);
 
     if (!name) {
       console.warn(`   ⚠️  无法识别球队名: ${file}`);
@@ -132,10 +232,10 @@ function scanTeams() {
       console.warn(`   ⚠️  未知球队 "${name}"，请在 config.json 的 football.teamFlags 中添加`);
     }
 
-    teams.push({ name, flag, file: relPath, score, rating, accent });
+    teams.push({ name, flag, file: relPath, score, rating: computedRating, accent, rawRating });
     const scoreStr = score != null ? `${score}分` : '??分';
-    const ratingStr = rating || '?';
-    console.log(`   ${flag} ${name}: ${scoreStr} [${ratingStr}]`);
+    const logOld = rawRating ? ` (原:${rawRating})` : '';
+    console.log(`   ${flag} ${name}: ${scoreStr} [${computedRating}]${logOld}`);
   }
 
   return teams;
@@ -154,7 +254,7 @@ function generateIndex(teams, scores) {
     flag: t.flag,
     file: t.file,
     score: t.score,
-    rating: t.rating || '?',
+    rating: t.rating,
     accent: t.accent,
   })));
 
@@ -397,12 +497,20 @@ body {
   </div>
 
   <div class="section-divider" style="margin-top:60px;"><span class="section-title">📐 评分体系</span></div>
-  <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-3 mb-4">
-    <div class="bg-white/4 border border-white/8 rounded-xl p-4 text-center"><div class="text-2xl font-bold text-pitch-400">90+</div><div class="text-xs text-gray-500 mt-1">冠军热门</div></div>
-    <div class="bg-white/4 border border-white/8 rounded-xl p-4 text-center"><div class="text-2xl font-bold text-pitch-300">80-89</div><div class="text-xs text-gray-500 mt-1">一流强队</div></div>
-    <div class="bg-white/4 border border-white/8 rounded-xl p-4 text-center"><div class="text-2xl font-bold text-yellow-400">70-79</div><div class="text-xs text-gray-500 mt-1">二线劲旅</div></div>
-    <div class="bg-white/4 border border-white/8 rounded-xl p-4 text-center"><div class="text-2xl font-bold text-orange-400">60-69</div><div class="text-xs text-gray-500 mt-1">具备出线实力</div></div>
-    <div class="bg-white/4 border border-white/8 rounded-xl p-4 text-center"><div class="text-2xl font-bold text-red-400">&lt;60</div><div class="text-xs text-gray-500 mt-1">搅局者/鱼腩</div></div>
+  <div class="grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-7 gap-2 mb-4">
+    <div class="bg-white/4 border border-white/8 rounded-lg p-3 text-center"><div class="text-lg font-bold text-emerald-400">A+</div><div class="text-xs text-gray-500">87-100</div></div>
+    <div class="bg-white/4 border border-white/8 rounded-lg p-3 text-center"><div class="text-lg font-bold text-emerald-300">A</div><div class="text-xs text-gray-500">83-87</div></div>
+    <div class="bg-white/4 border border-white/8 rounded-lg p-3 text-center"><div class="text-lg font-bold text-emerald-200">A-</div><div class="text-xs text-gray-500">80-83</div></div>
+    <div class="bg-white/4 border border-white/8 rounded-lg p-3 text-center"><div class="text-lg font-bold text-yellow-400">B+</div><div class="text-xs text-gray-500">77-80</div></div>
+    <div class="bg-white/4 border border-white/8 rounded-lg p-3 text-center"><div class="text-lg font-bold text-yellow-300">B</div><div class="text-xs text-gray-500">73-77</div></div>
+    <div class="bg-white/4 border border-white/8 rounded-lg p-3 text-center"><div class="text-lg font-bold text-yellow-200">B-</div><div class="text-xs text-gray-500">70-73</div></div>
+    <div class="bg-white/4 border border-white/8 rounded-lg p-3 text-center"><div class="text-lg font-bold text-orange-400">C+</div><div class="text-xs text-gray-500">67-70</div></div>
+    <div class="bg-white/4 border border-white/8 rounded-lg p-3 text-center"><div class="text-lg font-bold text-orange-300">C</div><div class="text-xs text-gray-500">63-67</div></div>
+    <div class="bg-white/4 border border-white/8 rounded-lg p-3 text-center"><div class="text-lg font-bold text-orange-200">C-</div><div class="text-xs text-gray-500">60-63</div></div>
+    <div class="bg-white/4 border border-white/8 rounded-lg p-3 text-center"><div class="text-lg font-bold text-red-400">D+</div><div class="text-xs text-gray-500">50-60</div></div>
+    <div class="bg-white/4 border border-white/8 rounded-lg p-3 text-center"><div class="text-lg font-bold text-red-300">D</div><div class="text-xs text-gray-500">40-50</div></div>
+    <div class="bg-white/4 border border-white/8 rounded-lg p-3 text-center"><div class="text-lg font-bold text-red-200">D-</div><div class="text-xs text-gray-500">30-40</div></div>
+    <div class="bg-white/4 border border-white/8 rounded-lg p-3 text-center"><div class="text-lg font-bold text-gray-400">E</div><div class="text-xs text-gray-500">0-30</div></div>
   </div>
 </main>
 
@@ -586,6 +694,23 @@ function main() {
     } catch { console.warn(`   ⚠️  注入失败: ${t.name}`); }
   }
 
+  // Update rating display in report HTML files
+  console.log('\n⭐ 更新报告评级...');
+  let ratingUpdated = 0, ratingSkipped = 0;
+  for (const t of teams) {
+    const fn = path.basename(t.file);
+    const absPath = path.join(TEAMS_DIR, fn);
+    try {
+      const content = fs.readFileSync(absPath, 'utf-8');
+      if (updateReportRating(absPath, content, t.rating)) {
+        ratingUpdated++;
+        console.log(`   ✅ ${t.name}: ${t.rawRating || '?'} → ${t.rating}`);
+      } else {
+        ratingSkipped++;
+      }
+    } catch { console.warn(`   ⚠️  评级更新失败: ${t.name}`); }
+  }
+
   const sizeKb = (Buffer.byteLength(html, 'utf-8') / 1024).toFixed(1);
   const avg = scores.length ? (scores.reduce((a,b)=>a+b,0)/scores.length).toFixed(1) : '--';
   const max = scores.length ? Math.max(...scores).toFixed(1) : '--';
@@ -597,6 +722,7 @@ function main() {
   console.log(`   🏆 ${teams.length} 支国家队`);
   console.log(`   📊 平均 ${avg} | 最高 ${max} | 最低 ${min}`);
   console.log(`   🔗 返回按钮: ${injected} 份注入 (${skipped} 份已有)`);
+  console.log(`   ⭐ 评级更新: ${ratingUpdated} 份 (${ratingSkipped} 份跳过)`);
   console.log('\n🌐 打开 index.html 即可浏览');
   console.log('💡 后续添加球队: node football-build.js');
 }
