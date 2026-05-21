@@ -1,0 +1,504 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>克罗地亚 · 2026世界杯实力评估报告</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+tailwind.config = {
+  theme: {
+    extend: {
+      colors: {
+        hr: {
+          red: '#D42027',
+          blue: '#003C9D',
+          white: '#FFFFFF',
+          gold: '#FFD700',
+          chess: '#1a1a2e',
+          lightgray: '#f8f9fa'
+        }
+      },
+      fontFamily: {
+        'kai': ['KaiTi', 'STKaiti', 'SimKai', 'serif'],
+        'serif': ['Times New Roman', 'serif']
+      }
+    }
+  }
+}
+</script>
+<style>
+  body { font-family: KaiTi, STKaiti, SimKai, 'Times New Roman', serif; font-size: 11pt; }
+  .container { max-width: 1100px; margin: 0 auto; padding: 20px; }
+  h1 { font-size: 2em; }
+  h2 { font-size: 1.5em; border-bottom: 3px solid #D42027; padding-bottom: 8px; margin-top: 30px; }
+  h3 { font-size: 1.2em; margin-top: 20px; }
+  table { width: 100%; border-collapse: collapse; font-size: 11pt; }
+  th, td { border: 1px solid #ddd; padding: 8px 12px; text-align: left; }
+  th { background-color: #003C9D; color: white; font-weight: bold; }
+  tr:nth-child(even) { background-color: #f8f9fa; }
+  .score-bar { height: 20px; border-radius: 10px; background: #eee; overflow: hidden; }
+  .score-fill { height: 100%; border-radius: 10px; transition: width 1s ease; }
+  .dimension-card { background: white; border-radius: 12px; padding: 20px; margin-bottom: 20px; box-shadow: 0 2px 8px rgba(0,0,0,0.08); border-left: 5px solid #D42027; }
+  .subitem { margin: 12px 0; padding: 12px; background: #f8f9fa; border-radius: 8px; }
+  .subitem h4 { color: #003C9D; font-weight: bold; margin-bottom: 6px; }
+  .summary-box { background: linear-gradient(135deg, #003C9D, #D42027); color: white; border-radius: 16px; padding: 25px; margin: 20px 0; }
+  .badge { display: inline-block; padding: 2px 10px; border-radius: 12px; font-size: 0.85em; font-weight: bold; }
+  .badge-gk { background: #4CAF50; color: white; }
+  .badge-df { background: #2196F3; color: white; }
+  .badge-mf { background: #FF9800; color: white; }
+  .badge-fw { background: #f44336; color: white; }
+</style>
+</head>
+<body class="bg-gray-50">
+
+<div class="container">
+
+<!-- ==================== HEADER ==================== -->
+<div class="section text-center bg-white rounded-2xl shadow-lg p-8 mb-8">
+  <img src="https://hns.family/static/images/logo01.png"
+       alt="克罗地亚足协队徽"
+       style="height:90px;width:auto;display:block;margin:0 auto 10px;"
+       onerror="this.style.display='none';document.getElementById('logo-fb').style.display='block';" />
+  <div id="logo-fb" style="display:none;font-size:4em;margin-bottom:10px;">🇭🇷</div>
+  <h1 class="text-4xl font-bold text-hr-red mt-4">克罗地亚 · 2026世界杯实力评估报告</h1>
+  <p class="text-gray-500 mt-2">报告生成日期：2026年5月21日 · 2026美加墨世界杯</p>
+</div>
+
+<!-- ==================== 基本信息 ==================== -->
+<h2 class="text-hr-blue">（一）球队基本信息</h2>
+
+<div class="bg-white rounded-xl shadow p-6 mb-6">
+  <div class="grid md:grid-cols-2 gap-4">
+    <div>
+      <p><strong>主教练：</strong>兹拉特科·达利奇（Zlatko Dalić）</p>
+      <p><strong>队长：</strong>卢卡·莫德里奇（Luka Modrić） — 40岁，第5届世界杯</p>
+      <p><strong>世界杯参赛次数：</strong>第7次（1998年首次参赛）</p>
+      <p><strong>世界杯最佳成绩：</strong><span class="font-bold">亚军 🥈（2018年）</span></p>
+      <p><strong>近两届成绩：</strong>2018年亚军 🥈 → 2022年季军 🥉</p>
+      <p><strong>上届（2022）成绩：</strong>季军（2-1击败摩洛哥获第三名）</p>
+    </div>
+    <div>
+      <p><strong>小组赛：</strong>L组</p>
+      <p><strong>同组对手：</strong>英格兰 🏴󠁧󠁢󠁥󠁮󠁧󠁿、巴拿马 🇵🇦、加纳 🇬🇭</p>
+      <p><strong>首战：</strong>6月17日 vs 英格兰（阿灵顿AT&T体育场）</p>
+      <p><strong>次战：</strong>6月23日 vs 巴拿马（多伦多BMO球场）</p>
+      <p><strong>末轮：</strong>6月27日 vs 加纳（费城林肯金融体育场）</p>
+      <div class="mt-2 p-2 bg-blue-50 rounded">
+        <p class="text-sm"><strong>📅 球队历史轨迹：</strong>1998🥉 → 2002小组 → 2006小组 → 2014小组 → 2018🥈 → 2022🥉 → 2026❓</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ==================== 26人大名单 ==================== -->
+<h3 class="text-xl font-bold text-hr-red">26人大名单（3 GK + 7 DF + 10 MF + 6 FW）</h3>
+<p class="text-gray-500 text-sm mb-3">* 5月18日公布 · 中场人数惊人的10人 · 莫德里奇戴防护面罩备战</p>
+
+<div class="bg-white rounded-xl shadow p-6 mb-6">
+  <table>
+    <thead>
+      <tr>
+        <th>位置</th>
+        <th>球员姓名</th>
+        <th>英文名</th>
+        <th>所属俱乐部</th>
+        <th>联赛</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr><td><span class="badge badge-gk">GK</span></td><td>多米尼克·利瓦科维奇</td><td>Dominik Livaković</td><td>萨格勒布迪纳摩</td><td>克甲</td></tr>
+      <tr><td><span class="badge badge-gk">GK</span></td><td>多米尼克·科塔尔斯基</td><td>Dominik Kotarski</td><td>哥本哈根</td><td>丹超</td></tr>
+      <tr><td><span class="badge badge-gk">GK</span></td><td>伊沃·潘杜尔</td><td>Ivor Pandur</td><td>赫尔城</td><td>英冠</td></tr>
+      <tr><td><span class="badge badge-df">DF</span></td><td><strong>⭐ 约什科·格瓦迪奥尔</strong></td><td><strong>Joško Gvardiol</strong></td><td><strong>曼城</strong></td><td>英超</td></tr>
+      <tr><td><span class="badge badge-df">DF</span></td><td>杜耶·卡莱塔-卡尔</td><td>Duje Ćaleta-Car</td><td>皇家社会</td><td>西甲</td></tr>
+      <tr><td><span class="badge badge-df">DF</span></td><td>约西普·舒塔洛</td><td>Josip Šutalo</td><td>阿贾克斯</td><td>荷甲</td></tr>
+      <tr><td><span class="badge badge-df">DF</span></td><td>约西普·斯塔尼希奇</td><td>Josip Stanišić</td><td>拜仁慕尼黑</td><td>德甲</td></tr>
+      <tr><td><span class="badge badge-df">DF</span></td><td>马林·庞格拉契奇</td><td>Marin Pongračić</td><td>佛罗伦萨</td><td>意甲</td></tr>
+      <tr><td><span class="badge badge-df">DF</span></td><td>马丁·埃尔利奇</td><td>Martin Erlić</td><td>中日德兰</td><td>丹超</td></tr>
+      <tr><td><span class="badge badge-df">DF</span></td><td>卢卡·武什科维奇</td><td>Luka Vušković</td><td>汉堡</td><td>德乙</td></tr>
+      <tr><td><span class="badge badge-mf">MF</span></td><td><strong>⭐ 卢卡·莫德里奇 (C)</strong></td><td><strong>Luka Modrić</strong></td><td><strong>AC米兰</strong></td><td>意甲</td></tr>
+      <tr><td><span class="badge badge-mf">MF</span></td><td><strong>马特奥·科瓦契奇</strong></td><td><strong>Mateo Kovačić</strong></td><td><strong>曼城</strong></td><td>英超</td></tr>
+      <tr><td><span class="badge badge-mf">MF</span></td><td>马里奥·帕萨利奇</td><td>Mario Pašalić</td><td>亚特兰大</td><td>意甲</td></tr>
+      <tr><td><span class="badge badge-mf">MF</span></td><td>尼古拉·弗拉希奇</td><td>Nikola Vlašić</td><td>都灵</td><td>意甲</td></tr>
+      <tr><td><span class="badge badge-mf">MF</span></td><td>卢卡·苏契奇</td><td>Luka Sučić</td><td>皇家社会</td><td>西甲</td></tr>
+      <tr><td><span class="badge badge-mf">MF</span></td><td>马丁·巴图里纳</td><td>Martin Baturina</td><td>科莫</td><td>意甲</td></tr>
+      <tr><td><span class="badge badge-mf">MF</span></td><td>克里斯蒂安·亚基奇</td><td>Kristijan Jakić</td><td>奥格斯堡</td><td>德甲</td></tr>
+      <tr><td><span class="badge badge-mf">MF</span></td><td>佩塔尔·苏契奇</td><td>Petar Sučić</td><td>国际米兰</td><td>意甲</td></tr>
+      <tr><td><span class="badge badge-mf">MF</span></td><td>尼古拉·莫罗</td><td>Nikola Moro</td><td>博洛尼亚</td><td>意甲</td></tr>
+      <tr><td><span class="badge badge-mf">MF</span></td><td>托尼·弗鲁克</td><td>Toni Fruk</td><td>里耶卡</td><td>克甲</td></tr>
+      <tr><td><span class="badge badge-fw">FW</span></td><td><strong>伊万·佩里西奇</strong></td><td><strong>Ivan Perišić</strong></td><td><strong>PSV埃因霍温</strong></td><td>荷甲</td></tr>
+      <tr><td><span class="badge badge-fw">FW</span></td><td>安德雷·克拉马里奇</td><td>Andrej Kramarić</td><td>霍芬海姆</td><td>德甲</td></tr>
+      <tr><td><span class="badge badge-fw">FW</span></td><td><strong>安特·布迪米尔</strong></td><td><strong>Ante Budimir</strong></td><td><strong>奥萨苏纳</strong></td><td>西甲</td></tr>
+      <tr><td><span class="badge badge-fw">FW</span></td><td>马尔科·帕萨利奇</td><td>Marco Pašalić</td><td>奥兰多城</td><td>美职联</td></tr>
+      <tr><td><span class="badge badge-fw">FW</span></td><td>佩塔尔·穆萨</td><td>Petar Musa</td><td>达拉斯FC</td><td>美职联</td></tr>
+      <tr><td><span class="badge badge-fw">FW</span></td><td>伊戈尔·马塔诺维奇</td><td>Igor Matanović</td><td>弗赖堡</td><td>德甲</td></tr>
+    </tbody>
+  </table>
+  <div class="mt-3 p-3 bg-yellow-50 rounded-lg border border-yellow-200">
+    <p class="text-sm"><strong>⚠️ 伤病动态：</strong>莫德里奇4月颧骨骨折，戴防护面罩训练中 ✅ | 格瓦迪奥尔1月腿骨折，5月13日首次首发复出 ✅ | 佩里西奇37岁但状态保持良好 ✅ | 布迪米尔本赛季西甲第三射手（17球）🔥</p>
+  </div>
+</div>
+
+<!-- ==================== 七维度评分 ==================== -->
+<h2 class="text-hr-blue">（二）逐项评分明细（七维度深度拆解）</h2>
+
+<!-- 维度一 -->
+<div class="dimension-card">
+  <h3 class="text-xl font-bold text-hr-red">维度一：阵容实力（权重30%）｜ 得分：76分 × 30% = 22.8分</h3>
+
+  <div class="subitem">
+    <h4>1.1 球星质量与个人能力 —— 78分</h4>
+    <table class="text-sm mb-2">
+      <tr><th>指标</th><th>数据</th></tr>
+      <tr><td>世界级/准世界级球星</td><td>3-4人（莫德里奇🌟、格瓦迪奥尔、科瓦契奇、布迪米尔🔥）</td></tr>
+      <tr><td>五大联赛主力球员数</td><td>12+人（曼城2人、AC米兰、拜仁、亚特兰大、皇家社会、奥萨苏纳等）</td></tr>
+      <tr><td>金球奖得主/候选</td><td>莫德里奇—2018金球奖得主（史上唯一）</td></tr>
+      <tr><td>Game-changer级别</td><td>莫德里奇（节奏控制）、格瓦迪奥尔（后场出球+推进）</td></tr>
+    </table>
+    <p>克罗地亚的阵容星光以"中场三核"为核心辐射全队。卢卡·莫德里奇虽已40岁，但作为2018年金球奖得主和5届世界杯元老，他的比赛阅读能力、传球精度和节奏控制仍是世界顶级——本赛季在AC米兰33场2球的数据虽不亮眼，但他在场上创造的空间和控球安全感是数据无法体现的。马特奥·科瓦契奇在曼城度过了又一个成功的英超赛季，他的盘带推进和抗压出球能力是克罗地亚中场不可或缺的"润滑油"。后防线上，格瓦迪奥尔是当今足坛最具天赋的年轻中卫之一，防守意识、出球推进和带球前插能力俱佳——但1月腿骨折后5月才复出，状态恢复程度是最大变量。锋线上最大的惊喜来自安特·布迪米尔——这位33岁的奥萨苏纳前锋本赛季西甲攻入17球，排名射手榜第三（仅次于莱万多夫斯基和姆巴佩），堪称克罗地亚近年最可靠的中锋终结者。</p>
+  </div>
+
+  <div class="subitem">
+    <h4>1.2 各位置均衡度 —— 72分</h4>
+    <p>克罗地亚的阵容呈现出典型的"中场过剩、锋线单薄"特征。10名中场的配置在32强中独一无二——这既是传统（克罗地亚1912年以来的足球基因就是中场控制）也是无奈（锋线人才断层）。中场名将如云：莫德里奇（节拍器）、科瓦契奇（推进器）、马里奥·帕萨利奇（插上得分）、弗拉希奇（突破）、苏契奇（潜力新星）、巴图里纳（创造力）……从中场的数量和多样性来看，克罗地亚可排32强前六。后防线上7人配置基本合理，但存在两个隐忧：一是左后卫位置没有明确的顶级人选（格瓦迪奥尔更多踢中卫，斯塔尼希奇主要踢右路）；二是中卫组合中除格瓦迪奥尔外，舒塔洛（阿贾克斯）、卡莱塔-卡尔（皇家社会）、庞格拉契奇（佛罗伦萨）均非俱乐部绝对主力。锋线是最薄弱的环节——6人格中，布迪米尔是唯一稳定的得分点，克拉马里奇已沦为霍芬海姆替补，佩里西奇37岁主打边路而非中锋。一旦布迪米尔状态不佳或被针对性限制，克罗地亚的进球能力将严重下滑。</p>
+  </div>
+
+  <div class="subitem">
+    <h4>1.3 板凳深度 —— 72分</h4>
+    <p>克罗地亚的替补深度在中场位置堪称奢华——10名中场中至少有6-7人可以胜任首发级别，莫德里奇和科瓦契奇之外，巴图里纳（科莫）、苏契奇（皇家社会）、弗拉西奇（都灵）都具备改变比赛节奏的能力。这种"中场换人后实力不降级"的奢侈是大多数球队不具备的。但后防和锋线的轮换深度明显不足：后防7人中，如果格瓦迪奥尔不能打满全部比赛，卡莱塔-卡尔或庞格拉契奇的中卫替补方案缺乏大赛检验；边后卫位置上斯塔尼希奇可以左右兼顾但无专职替补。锋线替补更为窘迫——布迪米尔之后，唯一正牌中锋是穆萨（美职联达拉斯FC），效率远不如西甲前锋；边路替补中佩里西奇年事已高，马塔诺维奇在弗赖堡出场时间有限。全队真正的"可靠替换"在14-15人左右。</p>
+  </div>
+
+  <div class="subitem">
+    <h4>1.4 总身价与年龄结构 —— 70分</h4>
+    <table class="text-sm mb-2">
+      <tr><th>指标</th><th>数据</th></tr>
+      <tr><td>全队总身价（估计）</td><td>约3.2亿欧元（32强中上游）</td></tr>
+      <tr><td>平均年龄</td><td>约28.5岁（核心球员严重偏大）</td></tr>
+      <tr><td>核心球员年龄</td><td>莫德里奇40岁⚠️、佩里西奇37岁⚠️、克拉马里奇35岁、科瓦契奇32岁</td></tr>
+      <tr><td>年轻力量</td><td>格瓦迪奥尔24岁✅、巴图里纳24岁✅、卢卡·苏契奇23岁✅、佩塔尔·苏契奇22岁✅</td></tr>
+    </table>
+    <p>克罗地亚的全队总身价约3.2亿欧元，在32强中排名大约第12-15位。年龄结构呈现明显的"双峰分布"——以莫德里奇（40岁）和佩里西奇（37岁）为代表的"2018功勋一代"已进入职业生涯末期，而以格瓦迪奥尔（24岁）、巴图里纳（24岁）、卢卡·苏契奇（23岁）为代表的"新生代"正快速崛起。这种"老带新"的结构在短期内有战术价值（经验传承），但也意味着本届世界杯很可能是莫德里奇和佩里西奇的最后一届大赛。值得担忧的是，2018年亚军的核心成员中，目前仍在欧洲顶级联赛踢主力的只剩下莫德里奇、科瓦契奇和格瓦迪奥尔三人——其余的老将（拉基蒂奇、曼朱基奇、洛夫伦等）已全部退役或淡出国家队。</p>
+  </div>
+
+  <div class="score-bar mt-3"><div class="score-fill" style="width:76%;background:linear-gradient(90deg,#003C9D,#D42027);"></div></div>
+  <p class="text-right text-sm text-gray-500 mt-1">维度一总评：<strong>76分</strong> × 30% = <strong>22.8分</strong></p>
+</div>
+
+<!-- 维度二 -->
+<div class="dimension-card">
+  <h3 class="text-xl font-bold text-hr-red">维度二：战术体系与教练（权重20%）｜ 得分：82分 × 20% = 16.4分</h3>
+
+  <div class="subitem">
+    <h4>2.1 主帅战术哲学与大赛履历 —— 85分</h4>
+    <p>兹拉特科·达利奇已经是克罗地亚足球史上最成功的教练——带领小国在2018年获得亚军、2022年获得季军，连续两届世界杯站上领奖台。他的战术哲学核心是："用技术型中场吃掉比赛时间"——克罗地亚的比赛风格不是西班牙式的极致传控，也不是英格兰式的高位冲击，而是"控球但不着急、压迫但不冒进"的务实主义。达利奇的球队在淘汰赛中以"耐受力"著称——2018年连续三场淘汰赛加时（丹麦、俄罗斯、英格兰），2022年又两场点球大战（日本、巴西）晋级，展现了恐怖的体能和意志力。他的弱点是对年轻球员的信任度偏保守——2022世界杯时他过于依赖老将，导致部分比赛中球队的跑动能力明显不足。本届世界杯他将如何平衡"老将经验"和"年轻活力"是一个关键看点。</p>
+  </div>
+
+  <div class="subitem">
+    <h4>2.2 阵型适配性与球员契合度 —— 80分</h4>
+    <p>达利奇在克罗地亚主打4-3-3阵型，中场三人组（莫德里奇-科瓦契奇-布罗佐维奇/帕萨利奇）是体系运转的核心。但2026年世界杯的变数是——布罗佐维奇已退居沙特联赛且未入选大名单，这让克罗地亚缺少了2018和2022两届的"防线前的第一道屏障"。达利奇在本届的解决方案很可能是让科瓦契奇拖后、莫德里奇靠右、帕萨利奇居左的"技术型三中场"，但这种配置的防守硬度不如之前。4-3-3阵型对边锋的要求很高，而克罗地亚的两翼（佩里西奇37岁、克拉马里奇35岁、马尔科·帕萨利奇美职联）的冲击力与2018年不可同日而语。达利奇的B方案可能是变阵4-2-3-1或3-5-2，利用中场人数优势弥补边路速度不足。布迪米尔作为西甲第三射手的崛起，为达利奇提供了一名可靠的正印中锋——这是克罗地亚近年罕见的中锋优势。</p>
+  </div>
+
+  <div class="subitem">
+    <h4>2.3 攻守转换效率 —— 80分</h4>
+    <p>克罗地亚的攻守转换风格不是"闪电战"而是"温水煮青蛙"——靠中场控制和耐心传导消耗对手的体能和耐心，然后在对手防线出现细微松动时突然加速。这种风格在淘汰赛（尤其加时赛）中特别有效：2018年16强对丹麦、8强对俄罗斯、半决赛对英格兰都在加时赛发力；2022年更是在1/4决赛中拖垮了巴西。定位球方面，克罗地亚在2022世界杯上通过角球打入了3球，格瓦迪奥尔和布迪米尔的头球能力值得信赖。一个令人担忧的变化是：缺少了布罗佐维奇的"防守覆盖"后，克罗地亚在由攻转守时的退防速度可能下降——布罗佐维奇曾是世界上最好的"6号位跑动型中场"之一，在没有他的情况下，克罗地亚中场的防守宽度将受到考验。</p>
+  </div>
+
+  <div class="subitem">
+    <h4>2.4 临场指挥与换人策略 —— 82分</h4>
+    <p>达利奇在淘汰赛中的临场调整能力已经过两次世界杯的检验。他换人策略的特点非常鲜明：上半场求稳、中场调整、60-70分钟开始发力。2018年半决赛对阵英格兰，他换上的曼朱基奇在第109分钟打入制胜球；2022年对阵巴西，他换上的佩特科维奇在第117分钟扳平比分——这两个经典案例证明了"达利奇的换人可以在最关键时刻改变比赛"。他偏爱在淘汰赛中将格瓦迪奥尔推上左后卫以增强进攻宽度，利用中场的传球能力压迫对手边路。他的弱项是——当球队需要"强攻"时（如2022年半决赛对阿根廷，克罗地亚0-3落后），他的进攻调整方案有限，缺乏边路爆点的储备。不过，布迪米尔本赛季的爆发可能改善这个问题——一个联赛顶级射手作为战术支点，提供了达利奇过去两届世界杯都没有的"长传找中锋"选项。</p>
+  </div>
+
+  <div class="score-bar mt-3"><div class="score-fill" style="width:82%;background:linear-gradient(90deg,#003C9D,#D42027);"></div></div>
+  <p class="text-right text-sm text-gray-500 mt-1">维度二总评：<strong>82分</strong> × 20% = <strong>16.4分</strong></p>
+</div>
+
+<!-- 维度三 -->
+<div class="dimension-card">
+  <h3 class="text-xl font-bold text-hr-red">维度三：近期竞技状态（权重15%）｜ 得分：72分 × 15% = 10.8分</h3>
+
+  <div class="subitem">
+    <h4>3.1 近12个月正式比赛战绩 —— 70分</h4>
+    <p>克罗地亚在欧洲区预选赛中表现稳健但不惊艳。他们在小组赛中取得了6胜3平1负的战绩，以小组第二身份直接晋级——这一成绩背后有一些隐忧：客场0-1输给了北爱尔兰（FIFA排名60+），主场1-1被芬兰逼平，表明克罗地亚在"应赢的比赛"中有时会出现注意力不集中的问题。在2024-25赛季的欧国联中，克罗地亚在A级联赛中与波兰、威尔士、芬兰同组，取得2胜2平2负，成功保级A级但表现属于中游。整体来看，克罗地亚在近12个月的比赛中"虐菜不够稳、强强对话尚可"——面对实力相近或更弱的对手时有丢分，但面对顶级强队（如法国2-2平、葡萄牙1-0胜）时又展现了竞争力。这种"遇强不弱、遇弱不强"的特点与克罗地亚的球队基因高度吻合。</p>
+  </div>
+
+  <div class="subitem">
+    <h4>3.2 预选赛出线含金量 —— 72分</h4>
+    <p>克罗地亚在欧洲区预选赛中与土耳其、北爱尔兰、芬兰等队同组，最终以第二名身份直接出线（第一名应该是输给了土耳其的净胜球）。欧洲区预选赛的强度不低，但克罗地亚的出线过程缺乏"让人信服"的表现——输给北爱尔兰是一场让人意外的失利，好在主场2-0击败土耳其的关键战确保了直接晋级资格。一个积极的信号是：克罗地亚在主场的战斗力仍然可靠（4胜1平），且预选赛期间的进球分布较为分散（没有过度依赖单一球员）。但在出线含金量方面，克罗地亚所在的预选赛小组整体实力在欧洲区属于中游，出线的"压力测试"不如葡萄牙、法国等队所经历的高强度考验。</p>
+  </div>
+
+  <div class="subitem">
+    <h4>3.3 核心球员俱乐部状态走势 —— 74分</h4>
+    <table class="text-sm mb-2">
+      <tr><th>球员</th><th>2025-26赛季俱乐部表现</th><th>状态评级</th></tr>
+      <tr><td>莫德里奇（AC米兰）</td><td>意甲33场2球4助攻，赛季末段体能保持良好</td><td>✅ 稳定</td></tr>
+      <tr><td>格瓦迪奥尔（曼城）</td><td>1月腿骨折，5月13日首发复出，下半赛季仅10场</td><td>⚠️ 恢复中</td></tr>
+      <tr><td>科瓦契奇（曼城）</td><td>英超29场2球3助攻，轮换主力，传球成功率91%</td><td>✅ 稳定</td></tr>
+      <tr><td>布迪米尔（奥萨苏纳）</td><td>西甲17球🌈，射手榜第三，生涯最佳赛季</td><td>🔥 火热</td></tr>
+      <tr><td>佩里西奇（PSV）</td><td>荷甲22场4球6助攻，边路威胁尚在</td><td>✅ 稳定</td></tr>
+      <tr><td>克拉马里奇（霍芬海姆）</td><td>德甲18场4球，相比巅峰期的12+球大幅下滑</td><td>⬇️ 下滑</td></tr>
+      <tr><td>利瓦科维奇（萨格勒布迪纳摩）</td><td>克甲23场零封10次，稳定的门线表现</td><td>✅ 稳定</td></tr>
+    </table>
+    <p>克罗地亚核心球员的俱乐部状态最积极的信号来自锋线——布迪米尔以17球位列西甲射手榜第三，仅落后莱万和姆巴佩，这对于以"中场强前锋弱"著称的克罗地亚而言是里程碑式的变化。最令人担忧的是格瓦迪奥尔——1月腿骨折后错过了曼城大部分赛季，5月13日才首次首发复出，世界杯首战（6月17日）距他真正恢复比赛状态只有约5周时间。莫德里奇和科瓦契奇的稳定性无需担心——莫德里奇在意甲的"退休前赛季"保持了大半健康，科瓦契奇继续在瓜迪奥拉的体系中扮演重要轮换角色。佩里西奇在PSV的表现"够用但不惊艳"，37岁的他已不再是能以个人能力改变比赛的边锋。</p>
+  </div>
+
+  <div class="score-bar mt-3"><div class="score-fill" style="width:72%;background:linear-gradient(90deg,#003C9D,#D42027);"></div></div>
+  <p class="text-right text-sm text-gray-500 mt-1">维度三总评：<strong>72分</strong> × 15% = <strong>10.8分</strong></p>
+</div>
+
+<!-- 维度四 -->
+<div class="dimension-card">
+  <h3 class="text-xl font-bold text-hr-red">维度四：大赛经验与心理素质（权重10%）｜ 得分：92分 × 10% = 9.2分</h3>
+
+  <div class="subitem">
+    <h4>4.1 世界杯/洲际杯历史战绩 —— 92分</h4>
+    <p>如果论"世界杯经验与人口比值"，克罗地亚绝对是世界第一——400万人口的国家能在1998、2018、2022三届世界杯上获得奖牌（一银两铜），这是足球史上最惊人的成就之一。近两届世界杯连续登上领奖台（2018亚军→2022季军），意味着这届球队中有7-8名球员拥有"世界杯决赛"和"世界杯三四名决赛"的实战经验——这种大赛"肌肉记忆"是绝大多数球队不具备的。在欧洲杯层面，克罗地亚的表现不如世界杯亮眼（2024欧洲杯16强、2020欧洲杯16强），但这也从侧面证明了这支球队的"世界杯属性"——他们在单场淘汰制的世界杯赛制中似乎总能找到额外的能量。</p>
+  </div>
+
+  <div class="subitem">
+    <h4>4.2 核心球员大赛经验值 —— 95分</h4>
+    <p>克罗地亚阵中的"大赛积累"在32强中几乎无人能及。莫德里奇将参加第5届世界杯（2006、2014、2018、2022、2026）——这是他第5次参加世界杯，追平了C罗此前保持的纪录。佩里西奇参加第4届世界杯（2014、2018、2022、2026），科瓦契奇参加第4届（2014、2018、2022、2026）。利瓦科维奇是2022世界杯的"扑点英雄"（对阵日本扑出3个点球、对阵巴西扑出1个），他的点球大战经验和心理素质在关键时刻可能再次成为克罗地亚的"核武器"。全队的大赛总出场次数（世界杯+欧洲杯）在32强中排名前五，即使没有超级巨星，克罗地亚在"如何踢世界杯淘汰赛"这件事上的知识积累是顶级中的顶级。</p>
+  </div>
+
+  <div class="subitem">
+    <h4>4.3 抗压与逆境应对 —— 90分</h4>
+    <p>克罗地亚的"逆风球"能力可能是本届世界杯上最强的——2018年连续三场加时赛、2022年又两场点球大战，这支球队在"绝境"中的表现令人震惊。2022年1/4决赛对阵巴西——夺冠大热门在上半场完全压制了克罗地亚，但克罗地亚没有崩盘，而是在第117分钟由佩特科维奇扳平比分，最终点球淘汰巴西。这种"落后时不急不躁、按计划踢到最后一刻"的心理素质，是达利奇4年两届世界杯锻造出来的。点球大战方面，克罗地亚在世界杯上的记录是3战全胜（2018对丹麦、2018对俄罗斯、2022对日本、2022对巴西……实际上是4次！）。利瓦科维奇在2022世界杯上连续两场点球大战成为英雄。如果本届世界杯再次进入点球大战，克罗地亚的心理优势将是巨大的。</p>
+  </div>
+
+  <div class="score-bar mt-3"><div class="score-fill" style="width:92%;background:linear-gradient(90deg,#003C9D,#D42027);"></div></div>
+  <p class="text-right text-sm text-gray-500 mt-1">维度四总评：<strong>92分</strong> × 10% = <strong>9.2分</strong></p>
+</div>
+
+<!-- 维度五 -->
+<div class="dimension-card">
+  <h3 class="text-xl font-bold text-hr-red">维度五：分组及赛程影响（权重10%）｜ 得分：78分 × 10% = 7.8分</h3>
+
+  <div class="subitem">
+    <h4>5.1 小组赛对手分析 —— 78分</h4>
+    <table class="text-sm mb-2">
+      <tr><th>对手</th><th>FIFA排名（约）</th><th>风格特点</th><th>克罗地亚胜率预估</th></tr>
+      <tr><td>英格兰 🏴󠁧󠁢󠁥󠁮󠁧󠁿</td><td>4-5名</td><td>青春风暴，速度冲击，中场升级（贝林厄姆等）</td><td>35-40%</td></tr>
+      <tr><td>巴拿马 🇵🇦</td><td>45-50名</td><td>中北美粗犷派，身体对抗强</td><td>65-70%</td></tr>
+      <tr><td>加纳 🇬🇭</td><td>55-65名</td><td>非洲身体流，球员个人能力突出</td><td>55-60%</td></tr>
+    </table>
+    <p>L组的竞争格局相对清晰：英格兰是纸面实力最强的队伍，克罗地亚和加纳争夺小组第二，巴拿马力争搅局。首战对阵英格兰是决定性的——如果克罗地亚能拿分（平局或胜），则出线前景光明；如果输球，后面的两场比赛不容有失。英格兰的风格与克罗地亚存在有趣的对比：英格兰的体能和冲击力更强（贝林厄姆、萨卡、福登），但克罗地亚的中场控制力和大赛经验占优。巴拿马和加纳是两种不同风格的挑战——巴拿马的粗犷防守可能让克罗地亚的中场传导受阻，而加纳的个人天赋和身体素质可能给克罗地亚老化的防线带来麻烦。好在克罗地亚对非洲球队的交战历史不俗（2018曾2-0击败尼日利亚）。</p>
+  </div>
+
+  <div class="subitem">
+    <h4>5.2 淘汰赛晋级路线预判 —— 75分</h4>
+    <p>如果克罗地亚以L组第二出线（击败巴拿马和加纳、输给英格兰，6分），16强将对阵K组第一（大概率葡萄牙）。葡萄牙拥有世界级的中场和C罗——这对克罗地亚而言将是一场艰苦但可战的比赛。如果以小组第一出线（出人意料击败英格兰，7-9分），16强将对阵K组第二（大概率哥伦比亚），将更有利晋级。一旦进入8强，潜在对手包括法国、荷兰等强队——但克罗地亚在2022年已经证明，他们在淘汰赛中"不怕强队"。整体来看，克罗地亚的淘汰赛路线不算极端困难——只要避开英格兰所在半区的顶级强队，以克罗地亚的中场控制力和大赛经验，他们有能力与任何对手周旋。</p>
+  </div>
+
+  <div class="subitem">
+    <h4>5.3 旅途与气候因素 —— 82分</h4>
+    <p>克罗地亚的三场小组赛分布在三个不同国家：首战在德克萨斯州阿灵顿（室内球场，舒适），次战在加拿大多伦多（BMO球场，6月气温约25°C，舒适），末战在费城（室外球场，6月底气温约28-32°C）。跨国家旅行的挑战在这三场比赛中是真实存在的——从美国南部到加拿大再到美国东部，行程较为分散。不过克罗地亚球员的职业素养和足协的后勤经验（经历了2018俄罗斯和2022卡塔尔两次长途跋涉的大赛）足以应对这种安排。首战对英格兰后到次战对巴拿马之间有6天休息时间，这是小组赛中最理想节奏——达利奇有足够时间调整战术和恢复体能。</p>
+  </div>
+
+  <div class="score-bar mt-3"><div class="score-fill" style="width:78%;background:linear-gradient(90deg,#003C9D,#D42027);"></div></div>
+  <p class="text-right text-sm text-gray-500 mt-1">维度五总评：<strong>78分</strong> × 10% = <strong>7.8分</strong></p>
+</div>
+
+<!-- 维度六 -->
+<div class="dimension-card">
+  <h3 class="text-xl font-bold text-hr-red">维度六：团队凝聚力与场外环境（权重10%）｜ 得分：85分 × 10% = 8.5分</h3>
+
+  <div class="subitem">
+    <h4>6.1 更衣室团结度 —— 88分</h4>
+    <p>克罗地亚国家队的更衣室文化是足球界最受尊敬的之一。莫德里奇作为队长，其职业态度、领导力和公平精神得到了全队上下的极高尊重——他在2018年获得金球奖后仍保持谦逊，为年轻球员树立了榜样。达利奇在更衣室中建立了"家庭式"管理风格——老将和新人之间不存在"帮派"或派系。来自不同联赛的球员在回到国家队后都展现出强烈的归属感和自豪感。这种高度的团队凝聚力是克罗地亚能连续两届世界杯登上领奖台的重要原因——在单场淘汰赛中，彼此信任、为队友拼搏的团队精神，有时比战术能力更关键。</p>
+  </div>
+
+  <div class="subitem">
+    <h4>6.2 足协稳定性与管理 —— 85分</h4>
+    <p>克罗地亚足协（HNS）在达利奇时期保持了高度的稳定性和支持力度。达利奇自2017年接手以来已连续执教9年，是32强中在任时间最长的教练之一——这种连续性在世界杯赛场上是一项巨大资产。足协为球队提供了欧洲一流水平的后勤保障，包括专门的训练基地、数据分析团队和运动科学支持。克罗地亚国家队备战2026世界杯的预算较以往有所增加，足协在迈阿密附近预定了训练营场地，确保球队在比赛间隙有高质量的恢复设施。球队的备战安排合理，世界杯前安排了与瑞典的热身赛用于检验状态。</p>
+  </div>
+
+  <div class="subitem">
+    <h4>6.3 国内舆论与媒体压力 —— 82分</h4>
+    <p>克罗地亚国内对国家队的世界杯期望值处于"高但不极端"的水平。经历了2018年的银牌和2022年的铜牌，克罗地亚球迷已经习惯了"享受每一场淘汰赛"的心态，而非"必须夺冠"的焦虑。国内媒体对达利奇的评价总体正面（虽然也有人质疑他的用人保守），球队在国际大赛中背负的心理压力比英格兰（"58年冠军荒"）或巴西（"20年无冠"）轻得多。格瓦迪奥尔的伤势恢复进度是近期媒体的关注焦点，但尚未演变成负面舆论。整体而言，克罗地亚的舆论环境对球队发挥是有利的——既有足够的信心和支持，又不过度加压。</p>
+  </div>
+
+  <div class="score-bar mt-3"><div class="score-fill" style="width:85%;background:linear-gradient(90deg,#003C9D,#D42027);"></div></div>
+  <p class="text-right text-sm text-gray-500 mt-1">维度六总评：<strong>85分</strong> × 10% = <strong>8.5分</strong></p>
+</div>
+
+<!-- 维度七 -->
+<div class="dimension-card">
+  <h3 class="text-xl font-bold text-hr-red">维度七：体能储备与伤病控制（权重5%）｜ 得分：72分 × 5% = 3.6分</h3>
+
+  <div class="subitem">
+    <h4>7.1 赛季疲劳度评估 —— 72分</h4>
+    <p>克罗地亚球员的赛季消耗分布不均。科瓦契奇和格瓦迪奥尔在曼城经历了英超+欧冠的多线作战（虽然格瓦迪奥尔因伤缺席下半赛季大部分时间），莫德里奇在AC米兰的赛程密度合理（意甲+意杯）。布迪米尔在西甲的出场时间超过3000分钟，是中锋位置上消耗最大的球员之一。利瓦科维奇在萨格勒布迪纳摩的赛程相对轻松（克甲+欧战资格赛），体能储备应该处于较好水平。好消息是克罗地亚10名中场中至少有6人可以轮流首发——这种"奢侈"给了达利奇在小组赛中轮换中场的条件，让核心（莫德里奇）在淘汰赛阶段保持体能。布罗佐维奇的缺席实际上也让克罗地亚被迫适应了"无专职防守后腰"的节奏——不再需要为他保留一个固定位置。</p>
+  </div>
+
+  <div class="subitem">
+    <h4>7.2 关键伤病与恢复情况 —— 68分</h4>
+    <p>这是克罗地亚本届世界杯最大的不确定因素——两条核心支柱都经历了重大伤病。格瓦迪奥尔：1月腿骨骨折，5月13日首发复出（1场），距世界杯首战仅5周。虽然入选名单说明他恢复了训练和比赛，但"腿骨折"这种严重伤势需要更长的心理和身体适应期——在世界杯的高强度对抗中，他的爆发力、抢断信心是否100%恢复是个问号。莫德里奇：4月颧骨骨折，正在佩戴防护面罩训练和比赛——面部的保护措施会影响他的视野，尤其是在争顶高空球和转身观察时。虽然达利奇和莫德里奇本人都表示"没问题"，但面部伤势的恢复和佩戴面罩的舒适度仍是一个变量。好消息是除了这两人之外，其他球员均无重大伤病报告，全队的健康状态整体可用。</p>
+  </div>
+
+  <div class="subitem">
+    <h4>7.3 医疗团队与保障水平 —— 78分</h4>
+    <p>克罗地亚的医疗团队在欧洲属于中上水平。在2022世界杯上，克罗地亚的伤病管理流程获得了球员的普遍认可——没有出现因恢复不当导致伤病复发的情况。达利奇与体能教练Luka Milanović长期合作，对每位球员的身体状态有精确的跟踪数据。2026世界杯备战期间，球队为格瓦迪奥尔制定了"个性化复健+高强度负荷"的方案，莫德里奇的面罩训练也是医疗团队和牙科专家合作的定制方案。与顶级豪门（英法德）相比，克罗地亚在运动科学和康复设备方面的投入仍有差距，但他们的"精打细算"风格在这方面的表现同样不差。</p>
+  </div>
+
+  <div class="score-bar mt-3"><div class="score-fill" style="width:72%;background:linear-gradient(90deg,#003C9D,#D42027);"></div></div>
+  <p class="text-right text-sm text-gray-500 mt-1">维度七总评：<strong>72分</strong> × 5% = <strong>3.6分</strong></p>
+</div>
+
+<!-- ==================== 综合评分 ==================== -->
+<h2 class="text-hr-blue">（三）综合总分与评级</h2>
+
+<div class="summary-box text-center">
+  <p class="text-2xl font-bold">加权总分：79.1 / 100</p>
+  <p class="text-xl mt-2">实力评级：<span class="text-hr-gold font-bold text-3xl">B+</span>（二线劲旅 / 传统黑马 / 八强硬实力）</p>
+</div>
+
+<div class="bg-white rounded-xl shadow p-6 mb-6">
+  <h3 class="text-lg font-bold mb-3">七维度雷达数据</h3>
+  <table>
+    <tr><th>维度</th><th>得分</th><th>权重</th><th>加权贡献</th></tr>
+    <tr><td>① 阵容实力</td><td>76</td><td>30%</td><td>22.80</td></tr>
+    <tr><td>② 战术体系与教练</td><td>82</td><td>20%</td><td>16.40</td></tr>
+    <tr><td>③ 近期竞技状态</td><td>72</td><td>15%</td><td>10.80</td></tr>
+    <tr><td>④ 大赛经验与心理素质</td><td><strong>92 🏆</strong></td><td>10%</td><td><strong>9.20</strong></td></tr>
+    <tr><td>⑤ 分组及赛程影响</td><td>78</td><td>10%</td><td>7.80</td></tr>
+    <tr><td>⑥ 团队凝聚力与场外环境</td><td>85</td><td>10%</td><td>8.50</td></tr>
+    <tr><td>⑦ 体能储备与伤病控制</td><td>72</td><td>5%</td><td>3.60</td></tr>
+    <tr style="font-weight:bold;background: #fff3e0;"><td colspan="3">总分</td><td>79.10</td></tr>
+  </table>
+</div>
+
+<!-- ==================== 深度球评 ==================== -->
+<h2 class="text-hr-blue">（四）深度球评</h2>
+
+<div class="bg-white rounded-xl shadow p-6 mb-6">
+  <h3 class="text-lg font-bold text-green-700">核心优势</h3>
+  <ul class="list-disc pl-6 space-y-3 mt-2">
+    <li><strong>世界杯淘汰赛的"心理统治者"——没有球队比克罗地亚更懂"如何赢下一场单场定生死的比赛"。</strong>过去两届世界杯的淘汰赛数据：2018年打了3场加时赛（全部晋级），2022年打了2场点球大战（全部晋级）。这种"到了淘汰赛就自动升级"的特质不是战术可以解释的——它是球队文化、心理素质和领导力的综合产物。莫德里奇的冷静、科瓦契奇的控球、利瓦科维奇的点球——这些元素构成了克罗地亚在淘汰赛中的"护身符"。</li>
+    <li><strong>世界顶级的中场控制力仍然在线。</strong>虽然缺少了布罗佐维奇，但莫德里奇+科瓦契奇+帕萨利奇的中场三人组在技术完整性和比赛经验上仍然可以跟任何对手抗衡。加上巴图里纳、苏契奇等年轻球员的加入，克罗地亚的中场在"控制节奏-创造机会-防守覆盖"三个维度上依然维持着高水准。布迪米尔的西甲17球是锦上添花——克罗地亚第一次拥有一名联赛射手榜前三的正印中锋。</li>
+  </ul>
+</div>
+
+<div class="bg-white rounded-xl shadow p-6 mb-6">
+  <h3 class="text-lg font-bold text-red-700">致命短板</h3>
+  <ul class="list-disc pl-6 space-y-3 mt-2">
+    <li><strong>"2018一代"的最后谢幕——体能和速度可能跟不上年轻球队。</strong>莫德里奇40岁、佩里西奇37岁、克拉马里奇35岁——三位老将加起来112岁，但他们在克罗地亚体系中依然承担着核心角色。面对英格兰（平均年龄约26岁）或加纳（身体爆发力强）时，克罗地亚的老将可能在比赛末段出现体能断层。2022年半决赛对阵阿根廷时，克罗地亚在35分钟后被阿根廷的年轻中场（恩佐、德保罗等）全面压制——这个画面可能在2026年再次出现。</li>
+    <li><strong>锋线和中场的防守覆盖"双重降级"。</strong>布罗佐维奇的缺席意味着克罗地亚失去了"防线前的第一道屏障"。他在2018和2022两届世界杯上承担着全队最多的跑动距离——2022年他场均跑动12.7公里，是克罗地亚中场防守的"隐形功臣"。本届克罗地亚没有一个同类型的防守型中场——科瓦契奇偏技术、帕萨利奇偏进攻、苏契奇偏组织。这意味着克罗地亚的中场在面对快速反击时可能更容易被穿透。</li>
+  </ul>
+</div>
+
+<div class="bg-white rounded-xl shadow p-6 mb-6">
+  <h3 class="text-lg font-bold text-hr-red">关键先生</h3>
+  <div class="grid md:grid-cols-2 gap-4 mt-3">
+    <div class="border-l-4 border-blue-600 pl-4">
+      <p class="font-bold text-lg">🇭🇷 卢卡·莫德里奇</p>
+      <p class="text-sm text-gray-600">"不老的节拍器"。40岁第5次征战世界杯，2018年金球奖得主的传奇仍在续写。颧骨骨折后戴着防护面罩训练——他脸上那道面罩就像克罗地亚足球精神的隐喻：哪怕受伤、哪怕不被看好，也绝不退缩。莫德里奇的每一脚传球都是克罗地亚进攻的"第一推动力"，他的存在让10名中场能够有条不紊地运转。</p>
+    </div>
+    <div class="border-l-4 border-green-600 pl-4">
+      <p class="font-bold text-lg">🇭🇷 约什科·格瓦迪奥尔</p>
+      <p class="text-sm text-gray-600">克罗地亚防线的未来与现在。腿骨折后的恢复进度是本届世界杯的最大变量——如果他能以100%状态出战，克罗地亚的防线可以从"中游偏上"升级到"一流水准"。他的出球推进能力是克罗地亚由守转攻的重要武器，而他在左中卫位置上的活动范围直接影响达利奇是三中卫还是四后卫。</p>
+    </div>
+    <div class="border-l-4 border-red-600 pl-4">
+      <p class="font-bold text-lg">🇭🇷 安特·布迪米尔</p>
+      <p class="text-sm text-gray-600">西甲第三射手的"平民英雄"。33岁的职业生涯巅峰之作——17粒西甲进球让他成为克罗地亚历史上单赛季进球效率最高的中锋之一。他的身体对抗（1米90、85公斤）和禁区内的终结能力，为克罗地亚提供了过去两届世界杯都没有的"长传-争顶-做球"战术选项。</p>
+    </div>
+    <div class="border-l-4 border-orange-500 pl-4">
+      <p class="font-bold text-lg">🇭🇷 多米尼克·利瓦科维奇</p>
+      <p class="text-sm text-gray-600">"点球之王"。2022年卡塔尔世界杯上，他在对阵日本（3个点球）和巴西（1个点球）中的神级表现，是克罗地亚进入四强的最大功臣之一。在克罗地亚4战全胜的世界杯点球大战历史中，利瓦科维奇是"最后的保险"。如果克罗地亚再次进入点球大战，对手的心理压力可能比他更大。</p>
+    </div>
+    <div class="border-l-4 border-purple-600 pl-4">
+      <p class="font-bold text-lg">🇭🇷 马特奥·科瓦契奇</p>
+      <p class="text-sm text-gray-600">莫德里奇之后的"中场第二核心"。从皇马到切尔西再到曼城，科瓦契奇在顶级豪门的中场积累了丰富的经验和自信。他的盘带推进和变向摆脱是克罗地亚在受压时"把球安全地摘出来"的关键技能。在布罗佐维奇缺席的情况下，科瓦契奇的组织责任将比前两届更重。</p>
+    </div>
+    <div class="border-l-4 border-yellow-600 pl-4">
+      <p class="font-bold text-lg">🇭🇷 马丁·巴图里纳</p>
+      <p class="text-sm text-gray-600">克罗地亚中场的"新生力量"。24岁，科莫（意甲）的主力创造型中场，本赛季意甲4球7助攻。他是克罗地亚在本届世界杯"需要提速时的备用引擎"——当莫德里奇体能下降后，巴图里纳的向前传球和直塞能力可以给克罗地亚的进攻带来"另一种节奏"。</p>
+    </div>
+  </div>
+</div>
+
+<div class="bg-white rounded-xl shadow p-6 mb-6">
+  <h3 class="text-lg font-bold">小组赛预判</h3>
+  <table class="mt-2">
+    <tr><th>对手</th><th>预判结果</th><th>理由</th></tr>
+    <tr><td>英格兰 🏴󠁧󠁢󠁥󠁮󠁧󠁿</td><td>克罗地亚 1-1 平 或 1-2 负</td><td>英格兰体能和冲击力占优，克罗地亚中场控制力可拼平局</td></tr>
+    <tr><td>巴拿马 🇵🇦</td><td>克罗地亚 2-0 胜</td><td>技术碾压，中场控制确保胜利</td></tr>
+    <tr><td>加纳 🇬🇭</td><td>克罗地亚 2-1 胜</td><td>最艰难一战但克罗地亚大赛经验占优</td></tr>
+  </table>
+  <p class="mt-2"><strong>小组赛综合：2胜1平或2胜1负，积5-7分，小组出线概率75%。</strong></p>
+</div>
+
+<div class="bg-white rounded-xl shadow p-6 mb-6">
+  <h3 class="text-lg font-bold">淘汰赛路线推演</h3>
+  <div class="space-y-2 mt-2">
+    <p><strong>16强（以小组第二出线）：</strong> vs K组第一（大概率葡萄牙）</p>
+    <p class="pl-6 text-gray-700">→ 胜率预估：45%（克罗地亚的中场vs葡萄牙的中场——五五开之战）</p>
+    <p><strong>1/4决赛：</strong> vs 法国/荷兰所在半区胜者</p>
+    <p class="pl-6 text-gray-700">→ 若遇法国：胜率30%｜若遇荷兰：胜率40%</p>
+    <p><strong>半决赛：</strong> 需连续爆冷</p>
+    <p class="pl-6 text-gray-700">→ 对克罗地亚而言，从16强到4强每一步都是硬仗，但他们已经在两届世界杯上证明了"不喜欢被看好但擅长被低估"</p>
+  </div>
+  <p class="mt-3 p-3 bg-blue-50 rounded-lg"><strong>核心判断：</strong>"黄金一代"最后的探戈。莫德里奇的第5届世界杯——也是佩里西奇、克拉马里奇等2018功勋的谢幕之战。克罗地亚的上限是"八强到四强之间"，下限是"小组出局"（如果输给英格兰后对阵加纳翻车）。布迪米尔的突然爆发、格瓦迪奥尔的伤愈复出是这支球队的最大变量——如果这两个条件同时兑现，克罗地亚有能力在淘汰赛中再次上演"造冷"奇迹。但如果老将的体能短板在小组赛中被加纳和巴拿马的跑动能力暴露，克罗地亚可能在首战英格兰后陷入被动。一个400万人口的国家，连续三届世界杯进入八强乃至四强？这支"足球界的奇迹制造机"还有最后一颗子弹。</p>
+</div>
+
+<div class="bg-white rounded-xl shadow p-6 mb-6 text-center">
+  <h3 class="text-lg font-bold text-hr-red">大师结语</h3>
+  <p class="text-xl italic mt-3 text-gray-700">"格子军团的世界杯绝唱——莫德里奇戴上面罩、格瓦迪奥尔推着伤腿、布迪米尔扛着西甲银靴——三个39岁的白发比肩而立，用中场编织最后一张华丽的地图。400万人口的地图上，红白格子旗已在2018和2022升起过两次，这次，他们想看看命运的第三次涨潮能有多高。"</p>
+</div>
+
+<!-- Footer -->
+<div class="text-center text-gray-400 text-sm py-6 border-t">
+  <p>© 2026 足球战力分析 · Powered by WorkBuddy AI｜数据截至2026年5月21日</p>
+  <p class="mt-1">数据来源：Olympics.com、USA Today、SPORTbible、FIFA官网等综合报道</p>
+</div>
+
+</div>
+
+
+<!-- HuaFootball: back-to-home button -->
+<a href="../index.html" class="huafootball-back-btn" target="_self">
+  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M19 12H5"/><path d="M12 19l-7-7 7-7"/>
+  </svg>
+  返回首页
+</a>
+<style>
+  .huafootball-back-btn {
+    position: fixed !important;
+    bottom: 28px !important;
+    right: 28px !important;
+    z-index: 99999 !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    gap: 6px !important;
+    padding: 10px 22px !important;
+    background: rgba(26, 71, 42, 0.85) !important;
+    color: #c9a84c !important;
+    border: 1px solid rgba(201, 168, 76, 0.3) !important;
+    border-radius: 999px !important;
+    font-family: "Inter", "Noto Sans SC", system-ui, sans-serif !important;
+    font-size: 13px !important;
+    font-weight: 600 !important;
+    text-decoration: none !important;
+    backdrop-filter: blur(8px) !important;
+    -webkit-backdrop-filter: blur(8px) !important;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.3) !important;
+    transition: all 0.25s ease !important;
+    cursor: pointer !important;
+    user-select: none !important;
+  }
+  .huafootball-back-btn:hover {
+    background: rgba(26, 71, 42, 0.95) !important;
+    border-color: rgba(201, 168, 76, 0.5) !important;
+    box-shadow: 0 6px 28px rgba(201, 168, 76, 0.2) !important;
+    transform: translateY(-2px) !important;
+  }
+  .huafootball-back-btn svg {
+    transition: transform 0.2s ease !important;
+  }
+  .huafootball-back-btn:hover svg {
+    transform: translateX(-3px) !important;
+  }
+</style>
+
+</body>
+</html>

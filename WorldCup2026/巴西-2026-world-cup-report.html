@@ -1,0 +1,501 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>巴西 · 2026世界杯实力评估报告</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+tailwind.config = {
+  theme: {
+    extend: {
+      colors: {
+        br: {
+          green: '#009739',
+          yellow: '#FFCC29',
+          blue: '#002776',
+          dark: '#1a1a2e',
+          lightgray: '#f8f9fa'
+        }
+      },
+      fontFamily: {
+        'kai': ['KaiTi', 'STKaiti', 'SimKai', 'serif'],
+        'serif': ['Times New Roman', 'serif']
+      }
+    }
+  }
+}
+</script>
+<style>
+  body { font-family: KaiTi, STKaiti, SimKai, 'Times New Roman', serif; font-size: 11pt; }
+  .container { max-width: 1100px; margin: 0 auto; padding: 20px; }
+  h1 { font-size: 2em; }
+  h2 { font-size: 1.5em; border-bottom: 3px solid #009739; padding-bottom: 8px; margin-top: 30px; }
+  h3 { font-size: 1.2em; margin-top: 20px; }
+  table { width: 100%; border-collapse: collapse; font-size: 11pt; }
+  th, td { border: 1px solid #ddd; padding: 8px 12px; text-align: left; }
+  th { background-color: #002776; color: white; font-weight: bold; }
+  tr:nth-child(even) { background-color: #f8f9fa; }
+  .score-bar { height: 20px; border-radius: 10px; background: #eee; overflow: hidden; }
+  .score-fill { height: 100%; border-radius: 10px; transition: width 1s ease; }
+  .dimension-card { background: white; border-radius: 12px; padding: 20px; margin-bottom: 20px; box-shadow: 0 2px 8px rgba(0,0,0,0.08); border-left: 5px solid #009739; }
+  .subitem { margin: 12px 0; padding: 12px; background: #f8f9fa; border-radius: 8px; }
+  .subitem h4 { color: #009739; font-weight: bold; margin-bottom: 6px; }
+  .summary-box { background: linear-gradient(135deg, #009739, #006b28); color: white; border-radius: 16px; padding: 25px; margin: 20px 0; }
+  .badge { display: inline-block; padding: 2px 10px; border-radius: 12px; font-size: 0.85em; font-weight: bold; }
+  .badge-gk { background: #4CAF50; color: white; }
+  .badge-df { background: #2196F3; color: white; }
+  .badge-mf { background: #FF9800; color: white; }
+  .badge-fw { background: #f44336; color: white; }
+  @media (max-width: 768px) { .player-list { columns: 1; } }
+</style>
+</head>
+<body class="bg-gray-50">
+
+<div class="container">
+
+<!-- ==================== HEADER ==================== -->
+<div class="section text-center bg-white rounded-2xl shadow-lg p-8 mb-8">
+  <img src="https://www.cbf.com.br/logo/logo-verde.svg"
+       alt="巴西足协队徽"
+       style="height:90px;width:auto;display:block;margin:0 auto 10px;"
+       onerror="this.style.display='none';document.getElementById('logo-fb').style.display='block';" />
+  <div id="logo-fb" style="display:none;font-size:4em;margin-bottom:10px;">🇧🇷</div>
+  <h1 class="text-4xl font-bold text-br-green mt-4">巴西 · 2026世界杯实力评估报告</h1>
+  <p class="text-gray-500 mt-2">报告生成日期：2026年5月19日 · 2026美加墨世界杯</p>
+</div>
+
+<!-- ==================== 基本信息 ==================== -->
+<h2 class="text-br-blue">（一）球队基本信息</h2>
+
+<div class="bg-white rounded-xl shadow p-6 mb-6">
+  <div class="grid md:grid-cols-2 gap-4">
+    <div>
+      <p><strong>主教练：</strong>卡洛·安切洛蒂 (Carlo Ancelotti) — 意大利籍，首度执教巴西参加世界杯</p>
+      <p><strong>队长：</strong>马尔基尼奥斯 (Marquinhos)</p>
+      <p><strong>世界杯参赛次数：</strong>第23次（全勤队，唯一参加全部23届的球队）</p>
+      <p><strong>世界杯冠军：</strong><span class="text-2xl">⭐</span> 5次（1958、1962、1970、1994、2002）— 历史第一</p>
+      <p><strong>上届（2022）成绩：</strong>八强（1/4决赛点球负于克罗地亚）</p>
+    </div>
+    <div>
+      <p><strong>小组赛：</strong>C组</p>
+      <p><strong>同组对手：</strong>摩洛哥 🇲🇦、海地 🇭🇹、苏格兰 🏴󠁧󠁢󠁳󠁣󠁴󠁿</p>
+      <p><strong>首战：</strong>6月13日 vs 摩洛哥（新泽西东卢瑟福）</p>
+      <p><strong>次战：</strong>6月19日 vs 海地（费城）</p>
+      <p><strong>末轮：</strong>6月24日 vs 苏格兰（迈阿密花园）</p>
+    </div>
+  </div>
+</div>
+
+<!-- ==================== 26人大名单 ==================== -->
+<h3 class="text-xl font-bold text-br-green">26人大名单（3 GK + 9 DF + 5 MF + 9 FW）</h3>
+<p class="text-gray-500 text-sm mb-3">* 5月18日在里约热内卢天文博物馆公布 · 内马尔时隔近3年回归国家队</p>
+
+<div class="bg-white rounded-xl shadow p-6 mb-6">
+  <table>
+    <thead>
+      <tr>
+        <th>位置</th>
+        <th>球员姓名</th>
+        <th>英文名</th>
+        <th>所属俱乐部</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr><td><span class="badge badge-gk">GK</span></td><td>阿利松</td><td>Alisson</td><td>利物浦</td></tr>
+      <tr><td><span class="badge badge-gk">GK</span></td><td>埃德森</td><td>Ederson</td><td>费内巴切</td></tr>
+      <tr><td><span class="badge badge-gk">GK</span></td><td>韦弗顿</td><td>Weverton</td><td>格雷米奥</td></tr>
+      <tr><td><span class="badge badge-df">DF</span></td><td>达尼洛</td><td>Danilo</td><td>弗拉门戈</td></tr>
+      <tr><td><span class="badge badge-df">DF</span></td><td>加布里埃尔·马加良斯</td><td>Gabriel Magalhães</td><td>阿森纳</td></tr>
+      <tr><td><span class="badge badge-df">DF</span></td><td><strong>马尔基尼奥斯 (C)</strong></td><td><strong>Marquinhos</strong></td><td>巴黎圣日耳曼</td></tr>
+      <tr><td><span class="badge badge-df">DF</span></td><td>阿莱士·桑德罗</td><td>Alex Sandro</td><td>弗拉门戈</td></tr>
+      <tr><td><span class="badge badge-df">DF</span></td><td>莱奥·佩雷拉</td><td>Léo Pereira</td><td>弗拉门戈</td></tr>
+      <tr><td><span class="badge badge-df">DF</span></td><td>韦斯利</td><td>Wesley</td><td>罗马</td></tr>
+      <tr><td><span class="badge badge-df">DF</span></td><td>道格拉斯·桑托斯</td><td>Douglas Santos</td><td>泽尼特</td></tr>
+      <tr><td><span class="badge badge-df">DF</span></td><td>布雷默</td><td>Bremer</td><td>尤文图斯</td></tr>
+      <tr><td><span class="badge badge-df">DF</span></td><td>伊巴涅斯</td><td>Ibañez</td><td>阿赫利</td></tr>
+      <tr><td><span class="badge badge-mf">MF</span></td><td>卡塞米罗</td><td>Casemiro</td><td>曼联</td></tr>
+      <tr><td><span class="badge badge-mf">MF</span></td><td>布鲁诺·吉马良斯</td><td>Bruno Guimarães</td><td>纽卡斯尔联</td></tr>
+      <tr><td><span class="badge badge-mf">MF</span></td><td>法比尼奥</td><td>Fabinho</td><td>伊蒂哈德</td></tr>
+      <tr><td><span class="badge badge-mf">MF</span></td><td>卢卡斯·帕奎塔</td><td>Lucas Paquetá</td><td>弗拉门戈</td></tr>
+      <tr><td><span class="badge badge-mf">MF</span></td><td>达尼洛·桑托斯</td><td>Danilo Santos</td><td>博塔弗戈</td></tr>
+      <tr><td><span class="badge badge-fw">FW</span></td><td><strong>维尼修斯·儒尼奥尔</strong></td><td><strong>Vinícius Jr</strong></td><td>皇家马德里</td></tr>
+      <tr><td><span class="badge badge-fw">FW</span></td><td>马特乌斯·库尼亚</td><td>Matheus Cunha</td><td>曼联</td></tr>
+      <tr><td><span class="badge badge-fw">FW</span></td><td><strong>⭐ 内马尔·儒尼奥尔</strong></td><td><strong>Neymar Jr</strong></td><td>桑托斯</td></tr>
+      <tr><td><span class="badge badge-fw">FW</span></td><td>拉菲尼亚</td><td>Raphinha</td><td>巴塞罗那</td></tr>
+      <tr><td><span class="badge badge-fw">FW</span></td><td>拉扬</td><td>Rayan</td><td>伯恩茅斯</td></tr>
+      <tr><td><span class="badge badge-fw">FW</span></td><td>伊戈尔·蒂亚戈</td><td>Igor Thiago</td><td>布伦特福德</td></tr>
+      <tr><td><span class="badge badge-fw">FW</span></td><td>恩德里克</td><td>Endrick</td><td>里昂</td></tr>
+      <tr><td><span class="badge badge-fw">FW</span></td><td>路易斯·恩里克</td><td>Luiz Henrique</td><td>泽尼特</td></tr>
+      <tr><td><span class="badge badge-fw">FW</span></td><td>加布里埃尔·马丁内利</td><td>Gabriel Martinelli</td><td>阿森纳</td></tr>
+    </tbody>
+  </table>
+  <div class="mt-3 p-3 bg-yellow-50 rounded-lg border border-yellow-200">
+    <p class="text-sm"><strong>⚠️ 重要落选球员：</strong>蒂亚戈·席尔瓦（41岁，4届世界杯传奇后卫，入选2010-2022四届）、若昂·佩德罗（切尔西前锋，24岁）、安德雷·桑托斯（切尔西中场，22岁）、本托（门将，阿尔纳赛尔，26岁）</p>
+  </div>
+</div>
+
+<!-- ==================== 七维度评分 ==================== -->
+<h2 class="text-br-blue">（二）逐项评分明细（七维度深度拆解）</h2>
+
+<!-- 维度一 -->
+<div class="dimension-card">
+  <h3 class="text-xl font-bold text-br-green">维度一：阵容实力（权重30%）｜ 得分：88分 × 30% = 26.4分</h3>
+
+  <div class="subitem">
+    <h4>1.1 球星质量与个人能力 —— 92分</h4>
+    <table class="text-sm mb-2">
+      <tr><th>指标</th><th>数据</th></tr>
+      <tr><td>世界级球星数量</td><td>6-7人（维尼修斯、内马尔、阿利松、马尔基尼奥斯、拉菲尼亚、卡塞米罗）</td></tr>
+      <tr><td>金球奖排名</td><td>维尼修斯2024年第二名、内马尔曾金球奖前三</td></tr>
+      <tr><td>身价过亿欧元球员</td><td>维尼修斯（1.8亿+）、拉菲尼亚（7000万+）、马丁内利（6500万+）</td></tr>
+      <tr><td>Game-changer级别</td><td>维尼修斯（过人突破）、内马尔（创造力）、拉菲尼亚（本赛季爆发）</td></tr>
+    </table>
+    <p>巴西的锋线群星堪称本届世界杯最恐怖的攻击组合。维尼修斯·儒尼奥尔作为2024年金球奖第二名（仅次于哈兰德），本赛季在西甲为皇马攻入16球，其左路的内切突破和与队友的撞墙配合几乎无法被一对一限制。内马尔即便伤病缠身，他依然是巴西队史最佳射手（79球/128场），他的回归为球队带来了稀缺的"前场自由度"——在局面僵持时，内马尔是那种可以用一次灵光闪现就改变比赛走势的球员。拉菲尼亚本赛季在巴萨迎来了职业生涯最耀眼的赛季，不仅刷出了进球助攻两双数据，更成为巴萨右边路不可动摇的首发。阿利松和埃德森两位世界级门将共存，这在世界杯历史上都属罕见配置——阿利松的"单刀球化解率"在英超排名前三，而埃德森的出球能力能让巴西的后场出球体系升级。</p>
+  </div>
+
+  <div class="subitem">
+    <h4>1.2 各位置均衡度 —— 82分</h4>
+    <p>巴西的阵容呈现出典型的"锋线过载、中场老化、后防重组"特征。锋线9人选择是安切洛蒂的明显倾向——他带上了几乎全部可用的一线攻击手，风格覆盖了边路爆点（维尼修斯、马丁内利）、技术组织者（内马尔、拉菲尼亚）、防守型前锋（库尼亚）、身体怪（伊戈尔·蒂亚戈）和青少年天赋（恩德里克）。这种"以量取胜"的策略保证了战术多样性，但也意味着某些位置出现了"人满为患"的资源失衡。中场只有5人，其中卡塞米罗（34岁）和法比尼奥（32岁）均已过巅峰期，跑动能力有显著下滑；布鲁诺·吉马良斯是唯一正值当打之年的顶级中场，但他在纽卡斯尔的体系中更多承担拖后组织角色，前插威胁有限。后防线同样面临"老龄化+本土化"的双重挑战：达尼洛（34岁）和阿莱士·桑德罗（35岁）已回到巴甲效力，对抗欧洲顶级边锋时可能力不从心。</p>
+  </div>
+
+  <div class="subitem">
+    <h4>1.3 板凳深度 —— 85分</h4>
+    <p>巴西的替补席深度在进攻端堪称本届世界杯之最。当首发锋线三人组（维尼修斯/内马尔/拉菲尼亚）需要轮换时，替补席上坐着马丁内利、库尼亚、恩德里克、拉扬和路易斯·恩里克——这种换人"奢侈感"接近2014年德国队的水准。具体而言，马丁内利在阿森纳本赛季贡献了10球+6助攻，他的速度和反插能力可以作为下半场的"体能型变招"；库尼亚在曼联虽然位置不够稳定但具备前场多面手属性；恩德里克在里昂的租借表现令人鼓舞。后防方面，加布里埃尔（阿森纳）和布雷默（尤文）的中卫组合可以无缝替代马尔基尼奥斯，但左后卫位置上除了阿莱士·桑德罗之外缺乏可靠的替补（道格拉斯·桑托斯偏进攻，防守位置感不强）。中场厚度最为薄弱——如果卡塞米罗或吉马良斯出现伤病，安切洛蒂将被迫启用法比尼奥（已去沙特，高强度比赛能力存疑）或博塔弗戈的达尼洛·桑托斯，这在中场对抗强度上是一个明显的降级。</p>
+  </div>
+
+  <div class="subitem">
+    <h4>1.4 总身价与年龄结构 —— 82分</h4>
+    <table class="text-sm mb-2">
+      <tr><th>指标</th><th>数据</th></tr>
+      <tr><td>全队总身价（估计）</td><td>约8.5亿欧元（32强前3水平）</td></tr>
+      <tr><td>平均年龄</td><td>约28.5岁（偏大，尤其防线和中场老化显著）</td></tr>
+      <tr><td>核心球员年龄结构</td><td>锋线年轻化（维尼修斯25岁、马丁内利24岁、恩德里克20岁）✅ / 中场老化（卡塞米罗34岁、法比尼奥32岁）⚠️ / 防线老化（达尼洛34岁、桑德罗35岁）⚠️</td></tr>
+      <tr><td>新鲜血液</td><td>恩德里克（20岁）、拉扬（22岁）、伊戈尔·蒂亚戈（24岁）</td></tr>
+    </table>
+    <p>巴西的全队总身价约8.5亿欧元，与美国队（主办国溢价）和英格兰队同属第一梯队。但深入分析年龄结构会发现一条"前锋-中场-后卫"的逆向年龄曲线——越靠近球门越年轻，越远离球门越老。这在战术层面意味着：前锋线有充沛的体能去执行高位压迫，而后防线和中场的跑动能力可能在高强度比赛中成为短板。参加预选赛期间巴西队的场均跑动距离在10支南美参赛队中仅排名第6（中游），一定程度上反映了阵容的"整体偏慢"隐患。维尼修斯（25岁）、拉菲尼亚（29岁）、马丁内利（24岁）的锋线年龄曲线非常理想，但中后场尤其是卡塞米罗和达尼洛的年龄是安切洛蒂必须管理好的变量。</p>
+  </div>
+
+  <div class="score-bar mt-3"><div class="score-fill" style="width:88%;background:linear-gradient(90deg,#009739,#FFCC29);"></div></div>
+  <p class="text-right text-sm text-gray-500 mt-1">维度一总评：<strong>88分</strong> × 30% = <strong>26.4分</strong></p>
+</div>
+
+<!-- 维度二 -->
+<div class="dimension-card">
+  <h3 class="text-xl font-bold text-br-green">维度二：战术体系与教练（权重20%）｜ 得分：90分 × 20% = 18.0分</h3>
+
+  <div class="subitem">
+    <h4>2.1 主帅战术哲学与大赛履历 —— 95分</h4>
+    <p>卡洛·安切洛蒂是足球历史上最成功的教练之一——没有"之一"也不为过。他在皇家马德里赢得了4次欧冠冠军（2014、2022、2024、2025），是欧冠夺冠次数最多的教练。他的战术哲学以"灵活适应型"著称——不执着于单一风格，而是根据球员特点设计体系。在皇马他运营了"典礼中场"（克罗斯-莫德里奇-卡塞米罗），在米兰他创造了4-3-1-2的"圣诞树"阵型，在那不勒斯和埃弗顿他也展示了对不同联赛风格的适应能力。这种"无固定战术标签但总能赢"的特质，在国家队大赛中的价值极高——因为世界杯是单场淘汰制的短赛制，需要教练在有限准备时间内快速找到最优方案。安切洛蒂在2024年和2025年连续两年率皇马杀入欧冠决赛并夺冠，状态正值巅峰。唯一的"疑问"是他从未执教过国家队——从俱乐部的长期日常训练切换到国家队"集训营+零散备战"的模式，他能否在短时间内捏合一支以天赋著称的巴西队，是本次世界杯最值得观察的叙事线之一。</p>
+  </div>
+
+  <div class="subitem">
+    <h4>2.2 阵型适配性与球员契合度 —— 85分</h4>
+    <p>安切洛蒂在巴西队逐步建立了4-3-3为基础、可切换4-2-3-1的阵型体系。4-3-3阵型完美适配巴西的传统桑巴风格：维尼修斯在左边锋位置上复刻了他在皇马的成功定位（内切射门或下底传中），内马尔在名义上的"左边锋/前腰"自由人角色中获得最大化的活动空间。但一个潜在问题是，内马尔和维尼修斯在左路存在"空间重叠"——两人都倾向于在左肋部活动，这可能导致进攻宽度不足。安切洛蒂在预选赛中尝试过让内马尔踢10号位（前腰）而让维尼修斯独占左路的方案，效果不错。拉菲尼亚在右路的定位更清晰——纯粹的内切型边锋，他的左脚兜射和传中是巴西破解密集防守的重要武器。中锋位置上安切洛蒂没有固定的答案，库尼亚、伊戈尔·蒂亚戈、甚至内马尔客串都可以——这种"无正印9号"的模式在2020年后的足球中并不罕见，但对球员之间的默契度要求极高。</p>
+  </div>
+
+  <div class="subitem">
+    <h4>2.3 攻守转换效率 —— 88分</h4>
+    <p>安切洛蒂的巴西队在攻守转换方面呈现典型的"安氏风格"——不追求极端的高位压迫，而是通过合理的阵型收缩和快速的攻守转换来制造威胁。在预选赛中，巴西场均控球率约58%（并非桑巴传统的70%+控球），但反击效率极高——前场三人组的个人能力保证了"少打多"情况下的进球转化率。定位球方面，安切洛蒂的球队历来重视：他在皇马时期，定位球进球占比达到15-18%，高于欧洲平均值。巴西队拥有加布里埃尔（阿森纳）、马尔基尼奥斯、布雷默等多名头球能力出众的后卫，角球战术是重要的破局手段。一个值得关注的弱点是高位防线身后的空当——当巴西面对快速反击型球队（如摩洛哥的边路快马）时，巴西的边后卫助攻后留下的空当可能被针对性打击。</p>
+  </div>
+
+  <div class="subitem">
+    <h4>2.4 临场指挥与换人策略 —— 90分</h4>
+    <p>安切洛蒂的临场指挥被公认为历史级。他在2022年欧冠决赛对阵利物浦时的换人决策（下半场换上卡马文加和罗德里戈改变中场走势）是经典案例。2024年欧冠半决赛对阵拜仁，他在落后情况下换上何塞卢逆转比赛的决策，展现了他"阅读比赛节奏换人"的顶级能力。他通常在60-75分钟之间完成第一次换人调整，换人逻辑清晰——用体能充沛的替补冲击疲劳防线。不过，他在皇马时期的轮换深度远超现在的巴西国家队（巴西的中场替补与首发差距明显），这意味着安切洛蒂的换人"牌面"可能没有俱乐部时期丰富。但他在管理巨星方面的能力无人能及——从C罗到内马尔再到维尼修斯，他擅长安抚明星球员的自尊心，这在巴西队的更衣室管理中至关重要。</p>
+  </div>
+
+  <div class="score-bar mt-3"><div class="score-fill" style="width:90%;background:linear-gradient(90deg,#009739,#FFCC29);"></div></div>
+  <p class="text-right text-sm text-gray-500 mt-1">维度二总评：<strong>90分</strong> × 20% = <strong>18.0分</strong></p>
+</div>
+
+<!-- 维度三 -->
+<div class="dimension-card">
+  <h3 class="text-xl font-bold text-br-green">维度三：近期竞技状态（权重15%）｜ 得分：80分 × 15% = 12.0分</h3>
+
+  <div class="subitem">
+    <h4>3.1 近12个月正式比赛战绩 —— 78分</h4>
+    <p>巴西在南美区世界杯预选赛中表现总体稳定但并非统治级。18轮预选赛取得12胜4平2负，以小组第一身份出线。胜利场次不少，但两场失利都出现在客场——分别输给了阿根廷（0-1）和乌拉圭（1-2），这两场比赛暴露了巴西在面对南美传统强队时的"客场疲软"问题。在友谊赛方面，巴西安排了强有力的热身计划：3月对阵法国（2-2平）和克罗地亚（1-0胜）的比赛展现了较好的状态。但整体来看，巴西在预选赛中没有打出让人"眼前一亮"的流畅攻势——尤其是在面对摆出铁桶阵的厄瓜多尔（1-1平）和巴拉圭（0-0平）时，巴西的中场创造力不足问题暴露无遗。这也印证了内马尔回归的重要性——巴西需要一个能在狭小空间内制造机会的"破局者"。</p>
+  </div>
+
+  <div class="subitem">
+    <h4>3.2 预选赛出线含金量 —— 80分</h4>
+    <p>南美区预选赛是全球公认最艰难的世界杯预选赛之一——18轮比赛，对手包括阿根廷（世界冠军）、乌拉圭、哥伦比亚等强队，还要远征玻利维亚高原（海拔3600米）和厄瓜多尔的高原客场。巴西在这样的环境中以小组第一出线，含金量不言而喻。但数据深挖会发现问题：巴西在预选赛中对阵最终晋级世界杯的6支南美球队（阿根廷、乌拉圭、哥伦比亚、厄瓜多尔、秘鲁）的8场比赛中，仅取得3胜3平2负——胜率不足50%。这意味着巴西在面对同级别或接近同级别的对手时，并没有表现出统治力。尤其是今年3月客场0-1不敌阿根廷的比赛，巴西全场仅有4次射门，控球率虽高但进攻威胁寥寥——这是安切洛蒂需要解决的核心战术问题。</p>
+  </div>
+
+  <div class="subitem">
+    <h4>3.3 核心球员俱乐部状态走势 —— 82分</h4>
+    <table class="text-sm mb-2">
+      <tr><th>球员</th><th>2025-26赛季俱乐部表现</th><th>状态评级</th></tr>
+      <tr><td>维尼修斯（皇马）</td><td>西甲16球，各项赛事23球9助攻</td><td>🔥 火热</td></tr>
+      <tr><td>拉菲尼亚（巴萨）</td><td>西甲12球10助攻，两双数据</td><td>🔥 火热</td></tr>
+      <tr><td>内马尔（桑托斯）</td><td>31场仅出场15次，出勤率不足50%</td><td>⚠️ 隐患</td></tr>
+      <tr><td>阿利松（利物浦）</td><td>英超16场零封，扑救率78%</td><td>✅ 稳定</td></tr>
+      <tr><td>马尔基尼奥斯（巴黎）</td><td>法甲25场，场均拦截1.8次</td><td>✅ 稳定</td></tr>
+      <tr><td>卡塞米罗（曼联）</td><td>出场时间减少，伤病增多，状态下滑</td><td>⬇️ 下滑</td></tr>
+      <tr><td>吉马良斯（纽卡）</td><td>英超31场，场均传球成功率88%，2球5助攻</td><td>✅ 稳定</td></tr>
+      <tr><td>马丁内利（阿森纳）</td><td>英超10球6助攻，1月后状态回升</td><td>✅ 稳定</td></tr>
+    </table>
+    <p>巴西核心球员的俱乐部状态呈现出"前暖后冷"的格局。维尼修斯和拉菲尼亚正处在职业生涯的巅峰期，前者在皇马的核心地位进一步巩固，后者在巴萨打出了"边路大腿"级别的数据。阿利松和马尔基尼奥斯的状态保持稳定，仍是各自位置的顶级人选。但中后场的问题不容忽视：卡塞米罗在曼联的位置已被年轻球员（乌加特、梅努等）竞争挤压，出场时间较前两个赛季下降了约30%，竞技状态明显不在巅峰；法比尼奥在沙特联赛踢球，虽然数据看起来不错但比赛强度远低于欧冠/世界杯水平。内马尔是最大的X因素——他回归桑托斯后的出勤率不到50%，安切洛蒂自己也承认"我们需要保守地管理他的比赛时间"。一个可能的方案是让内马尔在小组赛中作为"超级替补"出战关键战役，把体能留到淘汰赛阶段。</p>
+  </div>
+
+  <div class="score-bar mt-3"><div class="score-fill" style="width:80%;background:linear-gradient(90deg,#009739,#FFCC29);"></div></div>
+  <p class="text-right text-sm text-gray-500 mt-1">维度三总评：<strong>80分</strong> × 15% = <strong>12.0分</strong></p>
+</div>
+
+<!-- 维度四 -->
+<div class="dimension-card">
+  <h3 class="text-xl font-bold text-br-green">维度四：大赛经验与心理素质（权重10%）｜ 得分：90分 × 10% = 9.0分</h3>
+
+  <div class="subitem">
+    <h4>4.1 世界杯/洲际杯历史战绩 —— 92分</h4>
+    <p>巴西是世界杯历史上最具统治力的国家队——唯一参加全部23届世界杯的球队，5次夺冠（1958、1962、1970、1994、2002），最近一次夺冠是2002年。近5届世界杯成绩为2006年8强、2010年8强、2014年4强、2018年8强、2022年8强——稳定地进入八强但连续20年未能突破半决赛门槛。这一"从2002到2022"的二十年冠军荒，是这支巴西队背负的最大心理包袱。在美洲杯层面，巴西2019年夺冠、2021年亚军、2024年半决赛（点球输给阿根廷），大赛底蕴深厚。值得注意的是，巴西在近5届世界杯中有4次止步八强，其中2010、2018、2022均是输给欧洲球队——这意味着巴西需要在淘汰赛中证明自己面对欧洲劲旅的攻坚能力。</p>
+  </div>
+
+  <div class="subitem">
+    <h4>4.2 核心球员大赛经验值 —— 92分</h4>
+    <p>巴西的阵容中拥有大量"见过大场面"的球员。马尔基尼奥斯参加过2014、2018、2022三届世界杯，出战14场世界杯比赛；阿利松是2018和2022两届巴西主力门将；卡塞米罗参加过2018、2022世界杯和4次欧冠决赛（赢得3次）。内马尔参加过2014、2018、2022三届世界杯（打入8球），他的回归为前场增添了稀缺的"大赛压舱石"。维尼修斯和拉菲尼亚虽然仅参加了2022世界杯，但已积累了丰富的欧冠淘汰赛经验（维尼修斯赢得两次欧冠冠军且在两场决赛中都有决定性表现）。年轻球员中，恩德里克和拉扬的大赛经验几乎为零，但他们不太可能承担核心角色。整支球队的"大赛总出场次数"在32强中排名前二，仅次于法国和阿根廷。</p>
+  </div>
+
+  <div class="subitem">
+    <h4>4.3 抗压与逆境应对 —— 86分</h4>
+    <p>巴西在逆境中的表现存在争议——这支球队"顺风球"的能力毋庸置疑，但"逆风球"的记录却不尽如人意。2022年1/4决赛对阵克罗地亚，巴西在第105分钟领先的情况下被克罗地亚在第117分钟扳平，最终点球出局——这种"领先不会踢"的问题被巴西国内媒体广泛批评。2014年半决赛1-7负于德国是巴西足球史上最黑暗的一页，虽然核心阵容已完全不同，但那种"在压力下崩盘"的文化记忆仍然存在。不过，安切洛蒂的到来可能改变这一点——他的球队以沉着冷静著称，2022年欧冠决赛、2024年欧冠半决赛中，皇马多次在落后局面下逆转对手。点球大战方面，巴西在世界杯上的点球纪录为3胜3负（最近一次是2022年输给克罗地亚），属于中等水平。安切洛蒂已公开表示球队正在专门训练点球，并将这一环节纳入备战的常规流程。</p>
+  </div>
+
+  <div class="score-bar mt-3"><div class="score-fill" style="width:90%;background:linear-gradient(90deg,#009739,#FFCC29);"></div></div>
+  <p class="text-right text-sm text-gray-500 mt-1">维度四总评：<strong>90分</strong> × 10% = <strong>9.0分</strong></p>
+</div>
+
+<!-- 维度五 -->
+<div class="dimension-card">
+  <h3 class="text-xl font-bold text-br-green">维度五：分组及赛程影响（权重10%）｜ 得分：85分 × 10% = 8.5分</h3>
+
+  <div class="subitem">
+    <h4>5.1 小组赛对手分析 —— 85分</h4>
+    <table class="text-sm mb-2">
+      <tr><th>对手</th><th>FIFA排名（约）</th><th>风格特点</th><th>巴西胜率预估</th></tr>
+      <tr><td>摩洛哥 🇲🇦</td><td>10-15名</td><td>2022四强，防守铁血，反击犀利</td><td>60-65%</td></tr>
+      <tr><td>海地 🇭🇹</td><td>80-100名</td><td>中北美弱旅，实力差距悬殊</td><td>90-95%</td></tr>
+      <tr><td>苏格兰 🏴󠁧󠁢󠁳󠁣󠁴󠁿</td><td>30-40名</td><td>英式身体流，意志力顽强</td><td>70-75%</td></tr>
+    </table>
+    <p>C组对巴西而言属于"中上签"——既有硬仗检验（摩洛哥），也有确保分数的弱旅（海地），还有风格偏欧洲的对手（苏格兰）。摩洛哥是2022年卡塔尔世界杯的四强，他们在那届比赛中淘汰了西班牙和葡萄牙，展现了极强的防守组织能力。摩洛哥的体系依托于紧凑的防守阵型（阿什拉夫+门迪耶尔的双边卫速度极快），加上齐耶赫等前场球员的反击速度，是巴西在小组赛中最需要警惕的对手——巴西的边后卫助攻后留下的空当恰好是摩洛哥反击的甜点区。海地实力明显不足，巴西应能轻松取胜。苏格兰的球风硬朗、定位球进攻有威胁（麦金和麦克托米奈的后插上），但整体技术与巴西不在一个档次。有利的是，巴西的首战恰好是6月13日最先开赛的强队之一——这意味着他们有更多准备时间和较早的出场节奏。</p>
+  </div>
+
+  <div class="subitem">
+    <h4>5.2 淘汰赛晋级路线预判 —— 82分</h4>
+    <p>作为C组头名出线后，巴西的16强赛将对阵D组第二名。D组由乌克兰、塞尔维亚、墨西哥、卡塔尔组成——最可能出线的第二名是塞尔维亚或墨西哥。塞尔维亚拥有弗拉霍维奇等前锋但整体防守不稳；墨西哥虽为主办国之一但近年实力下滑。因此巴西的1/8决赛对手相对较弱，过关概率较高。1/4决赛的潜在对手来自上半区的精英行列——可能面对法国/荷兰/英格兰/德国等豪强。以巴西当前的阵容，面对法国或英格兰的胜率约在45-50%之间。半决赛和决赛的路线将充满挑战，但在安切洛蒂的带领下，巴西具备"淘汰赛爆种"的基因。值得注意：如果巴西以小组第二出线，16强可能面对D组头名乌克兰或塞尔维亚（难度增大），且1/4决赛对阵线路将变得更加凶险。</p>
+  </div>
+
+  <div class="subitem">
+    <h4>5.3 旅途与气候因素 —— 88分</h4>
+    <p>巴西的小组赛分布在美国东海岸和中部地区：首战在新泽西（凉爽的6月东海岸气候），次战在费城（类似气候），末战在迈阿密花园（气温偏高但闭顶球场）。整体而言，气候对巴西的影响不大——巴西球员对热环境的适应能力是天生的，反而可能比欧洲对手占据优势。如果进入淘汰赛，巴西将可能前往美国中部/西部城市参赛，旅途距离中等。巴西在后卡塔尔世界杯之后进行了经验总结——当时球队抱怨住宿环境、球场的空调温度等因素影响了发挥。安切洛蒂管理下的后勤团队已针对性地制定了训练基地、酒店和饮食的全套保障方案。</p>
+  </div>
+
+  <div class="score-bar mt-3"><div class="score-fill" style="width:85%;background:linear-gradient(90deg,#009739,#FFCC29);"></div></div>
+  <p class="text-right text-sm text-gray-500 mt-1">维度五总评：<strong>85分</strong> × 10% = <strong>8.5分</strong></p>
+</div>
+
+<!-- 维度六 -->
+<div class="dimension-card">
+  <h3 class="text-xl font-bold text-br-green">维度六：团队凝聚力与场外环境（权重10%）｜ 得分：78分 × 10% = 7.8分</h3>
+
+  <div class="subitem">
+    <h4>6.1 更衣室团结度 —— 80分</h4>
+    <p>巴西的更衣室历来是"天赋过剩带来的微妙平衡"。内马尔的回归带来了"老大哥"效应——他在桑托斯时代就和许多球员熟识且关系良好。维尼修斯和内马尔的关系融洽，两人在左路的共存意愿是积极信号。队长马尔基尼奥斯在巴黎的更衣室风评一向良好，作为"安静型领袖"能起到平衡作用。潜在的风险在于：安切洛蒂如何管理"超额的进攻天赋"——9名前锋中至少有5-6人有"首发级"能力，不可能所有人都获得期望的出场时间。在单场淘汰赛阶段，过于激烈的位置竞争可能导致"替补不上心"的情绪。此外，内马尔作为球队历史上最有天赋但也是最"情绪化"的球员，他在桑托斯近期因为对手的粗野犯规而有过"反应过激"的场面，这可能成为对手挑衅的目标。</p>
+  </div>
+
+  <div class="subitem">
+    <h4>6.2 足协稳定性与管理 —— 78分</h4>
+    <p>巴西足协（CBF）近年来经历了管理层变动——2023年原主席被解职后，新领导层与安切洛蒂达成了长期合作意向。安切洛蒂的合同覆盖到2026世界杯之后，不存在"合同即将到期"的干扰因素。但巴西足协的行政效率一直受到国内舆论的质疑——2024年在筹备美国集训营时曾出现过场地预定延迟的情况，影响了备战节奏。后勤保障方面，CBF的投资水平在南美属于顶级（巴西拥有专门的运动科学中心和数据分析团队），但与欧洲顶级足协（FIFA排名靠前的英法德）相比仍有一定差距。安切洛蒂本人对后勤细节要求极高，他已在5月初就派人实地考察了美国训练基地的设施，展示了意大利人的"细节控"风格。</p>
+  </div>
+
+  <div class="subitem">
+    <h4>6.3 国内舆论与媒体压力 —— 76分</h4>
+    <p>"
+巴西是世界上对足球期望值最高的国家"——这句话绝非夸张。巴西媒体和公众对"第六颗星"的渴望在过去20年里不断积累，近5届世界杯4次止步八强的结果让舆论变得愈发焦躁。2014年1-7的惨败虽已过去12年，但仍然是每次大赛前被媒体反复提及的话题。安切洛蒂作为外国教练（意大利人）执教巴西国家队，本身就是一个有争议的决定——部分巴西媒体和名宿认为"桑巴足球应该由巴西人执教"。好在安切洛蒂的成绩（2024-25连续两年欧冠冠军）打消了大部分质疑声。如果巴西在小组赛阶段表现不佳（尤其是输给摩洛哥），国内舆论的批评声浪可能会迅速升温——这是安切洛蒂在皇家马德里时未曾经历过的高压环境（因为皇马在联赛中有"下一场就能扳回来"的容错空间，而世界杯没有）。</p>
+  </div>
+
+  <div class="score-bar mt-3"><div class="score-fill" style="width:78%;background:linear-gradient(90deg,#009739,#FFCC29);"></div></div>
+  <p class="text-right text-sm text-gray-500 mt-1">维度六总评：<strong>78分</strong> × 10% = <strong>7.8分</strong></p>
+</div>
+
+<!-- 维度七 -->
+<div class="dimension-card">
+  <h3 class="text-xl font-bold text-br-green">维度七：体能储备与伤病控制（权重5%）｜ 得分：72分 × 5% = 3.6分</h3>
+
+  <div class="subitem">
+    <h4>7.1 赛季疲劳度评估 —— 72分</h4>
+    <p>巴西核心球员的赛季消耗量分布在两个极端。维尼修斯和拉菲尼亚随皇马和巴萨经历了完整的欧洲赛季（西甲+欧冠+国王杯，约45-55场比赛），身体处于较高负荷状态。卡塞米罗虽在曼联出场时间减少，但曼联经历了欧联杯和联赛杯等赛事，赛季末期密度不减。阿利松和埃德森的赛季出场时间都很高（30+场联赛）。相对于欧洲球员的高消耗，巴西本土球员（达尼洛、帕奎塔、阿莱士·桑德罗等）的赛季节奏较慢，但巴西联赛的赛程安排也不轻松。好消息是，安切洛蒂的备战计划中包括了"个性化负荷管理"——他将根据每位球员来到国家队时的体能测试结果制定训练强度。不过从5月18日名单公布到6月13日首战只有约3周半的集训时间，体能和战术磨合的窗口很紧。</p>
+  </div>
+
+  <div class="subitem">
+    <h4>7.2 关键伤病与恢复情况 —— 68分</h4>
+    <p>这是巴西队目前最令人担忧的领域。内马尔的膝盖是最大不确定性——自2023年10月对阵乌拉圭时前十字韧带断裂以来，他经历了漫长的康复期，2024年1月至2025年12月期间几乎未能持续踢球。回到桑托斯后，他的出勤率仍不足50%，肌肉问题反复出现。安切洛蒂在发布会上承认"内马尔不可能每场比赛都踢满90分钟"，这意味着巴西队需要为一个"非完全体"的内马尔制定使用计划。卡塞米罗在曼联赛季末段因小腿伤病缺席了3场联赛，虽然已恢复训练，但34岁高龄的身体恢复速度值得关注。达尼洛和阿莱士·桑德罗在巴甲的表现稳定，但年龄带来的运动能力下降是不可逆的。好消息是加布里埃尔、马尔基尼奥斯和布雷默的中卫线无人受伤，这是防线的基本盘。</p>
+  </div>
+
+  <div class="subitem">
+    <h4>7.3 医疗团队与保障水平 —— 78分</h4>
+    <p>巴西队的医疗团队由Ricardo Sasaki（理疗专家）和Rodrigo Poletto（体能教练）领衔，两人均有多届世界杯经验。CBF的投资使巴西拥有了南美最先进的运动医学设备——包括高压氧舱、冷冻治疗室和GPS实时体能监测系统。安切洛蒂从皇马带来了他的体能训练方法论（包括"低量高强度"的训练理念），这与巴西传统的"桑巴节奏训练"可能产生有趣的化学反应。但巴西在历史上有过"伤病管理失误"的记录：2022世界杯前内马尔在热身赛中受伤，球队未能及时调整他的康复计划，导致内马尔在对阵克罗地亚的淘汰赛中仍不在最佳状态。吸取了那次教训后，安切洛蒂和医疗团队已制定了"分组备战"方案——将球员分为"完全健康组"和"专项恢复组"分别训练。</p>
+  </div>
+
+  <div class="score-bar mt-3"><div class="score-fill" style="width:72%;background:linear-gradient(90deg,#009739,#FFCC29);"></div></div>
+  <p class="text-right text-sm text-gray-500 mt-1">维度七总评：<strong>72分</strong> × 5% = <strong>3.6分</strong></p>
+</div>
+
+<!-- ==================== 综合评分 ==================== -->
+<h2 class="text-br-blue">（三）综合总分与评级</h2>
+
+<div class="summary-box text-center">
+  <p class="text-2xl font-bold">加权总分：85.3 / 100</p>
+  <p class="text-xl mt-2">实力评级：<span class="text-br-yellow font-bold text-3xl">A</span>（一流强队，四强有力竞争者）</p>
+</div>
+
+<div class="bg-white rounded-xl shadow p-6 mb-6">
+  <h3 class="text-lg font-bold mb-3">七维度雷达数据</h3>
+  <table>
+    <tr><th>维度</th><th>得分</th><th>权重</th><th>加权贡献</th></tr>
+    <tr><td>① 阵容实力</td><td>88</td><td>30%</td><td>26.40</td></tr>
+    <tr><td>② 战术体系与教练</td><td><strong>90</strong></td><td>20%</td><td><strong>18.00</strong></td></tr>
+    <tr><td>③ 近期竞技状态</td><td>80</td><td>15%</td><td>12.00</td></tr>
+    <tr><td>④ 大赛经验与心理素质</td><td><strong>90</strong></td><td>10%</td><td><strong>9.00</strong></td></tr>
+    <tr><td>⑤ 分组及赛程影响</td><td>85</td><td>10%</td><td>8.50</td></tr>
+    <tr><td>⑥ 团队凝聚力与场外环境</td><td>78</td><td>10%</td><td>7.80</td></tr>
+    <tr><td>⑦ 体能储备与伤病控制</td><td>72</td><td>5%</td><td>3.60</td></tr>
+    <tr style="font-weight:bold;background: #e8f5e9;"><td colspan="3">总分</td><td>85.30</td></tr>
+  </table>
+</div>
+
+<!-- ==================== 深度球评 ==================== -->
+<h2 class="text-br-blue">（四）深度球评</h2>
+
+<div class="bg-white rounded-xl shadow p-6 mb-6">
+  <h3 class="text-lg font-bold text-green-700">核心优势</h3>
+  <ul class="list-disc pl-6 space-y-3 mt-2">
+    <li><strong>冠绝全球的锋线天赋储备。</strong>维尼修斯（金球奖第二）+ 内马尔（巴西历史射手王）+ 拉菲尼亚（巴萨两双数据）+ 马丁内利（英超10球6助攻）+ 恩德里克（未来之星）——这套锋线配置的"个人单挑能力"在32强中几乎没有对手。巴西的进球不依赖体系，而是依赖天赋——这意味着在对阵弱旅时可以轻松碾压，在对阵强队时可以依靠个人能力制造"非预期进球"。安切洛蒂在发布会上说的"巴西有如此多的进攻选择，对手根本无法针对我们所有人"绝非空话。</li>
+    <li><strong>安切洛蒂：世界杯上最成功的俱乐部教练。</strong>他在大场面下的战术调整能力是巴西相比其他冠军热门的"差异化优势"。4次欧冠冠军、无数次淘汰赛逆转的经历，使他成为本届世界杯小组赛阶段"经验值最高的教练"。他的冷静和战术灵活性，在单场淘汰赛中的价值无法估量。他可以从4-3-3切换到4-4-2菱形中场，也可以从控球主导切换到防反模式——这种"千面教练"的能力在国家队大赛中的价值远高于体系单一的教练。</li>
+  </ul>
+</div>
+
+<div class="bg-white rounded-xl shadow p-6 mb-6">
+  <h3 class="text-lg font-bold text-red-700">致命短板</h3>
+  <ul class="list-disc pl-6 space-y-3 mt-2">
+    <li><strong>中场老化+厚度不足是结构性问题。</strong>卡塞米罗和法比尼奥已不在巅峰，布鲁诺·吉马良斯是唯一正值当打之年的顶级中场。巴西中场在预选赛中暴露出的最大问题是"跑动覆盖不足"——面对年轻、能跑的中场组合（如乌拉圭的巴尔韦德+乌加特+德拉克鲁斯），巴西的中场往往处于人数和被动的劣势。安切洛蒂的解决方案可能是让一名前锋（如库尼亚或拉菲尼亚）回撤参与中场组织，但这意味着前场少了一个攻击点。中场是"攻守转换的枢纽"，巴西在这个位置上的结构性短板可能是整个阵容中最难在短期解决的。</li>
+    <li><strong>后防线的年龄与速度双重危机。</strong>2022年巴西输给克罗地亚的扳平球，暴露了边后卫回追不足的问题。2026年的巴西后防比那时又老了4岁：达尼洛34岁、阿莱士·桑德罗35岁。面对摩洛哥的阿什拉夫（速度型边卫）、或者淘汰赛中可能遇到的法国姆巴佩/登贝莱等速度型边锋，巴西的边后卫防区可能成为对手的"高速公路"。安切洛蒂可能的选择是让韦斯利（罗马，24岁）或道格拉斯·桑托斯（泽尼特）首发——但这两人在国家队经验不足，大赛压力下的稳定性存疑。</li>
+  </ul>
+</div>
+
+<div class="bg-white rounded-xl shadow p-6 mb-6">
+  <h3 class="text-lg font-bold text-br-green">关键先生</h3>
+  <div class="grid md:grid-cols-2 gap-4 mt-3">
+    <div class="border-l-4 border-br-green pl-4">
+      <p class="font-bold text-lg">🇧🇷 维尼修斯·儒尼奥尔</p>
+      <p class="text-sm text-gray-600">巴西目前最不可或缺的进攻球员。2024年金球奖第二名，皇马绝对核心。他的左路突破是巴西撕开密集防守的第一武器。本赛季西甲16球证明维尼修斯正在从"花活边锋"进化为"高效终结者"——这是巴西冲击第六冠的最重要进攻工具。</p>
+    </div>
+    <div class="border-l-4 border-yellow-500 pl-4">
+      <p class="font-bold text-lg">🇧🇷 ⭐ 内马尔·儒尼奥尔</p>
+      <p class="text-sm text-gray-600">"最后的桑巴舞者"。34岁的他虽已不是当年那个可以单挑全世界的少年，但他的传球视野、控球节奏和创造力仍是巴西阵中独一无二的。他在淘汰赛中的"灵光一现"可能成为决定比赛的关键。问题是他的身体能支撑多少分钟的高强度比赛——安切洛蒂对他的"负荷管理"将直接影响巴西的上限。</p>
+    </div>
+    <div class="border-l-4 border-blue-600 pl-4">
+      <p class="font-bold text-lg">🇧🇷 阿利松</p>
+      <p class="text-sm text-gray-600">世界前二的门将水准。在单场淘汰赛中，一个好的门将=半条命。阿利松的出击范围和对单刀球的扑救能力是巴西防线的最后一道保险。他在2018和2022两届世界杯上的表现都堪称顶级，巴西需要他在2026年延续这一水准——尤其是在面临对手反击时。</p>
+    </div>
+    <div class="border-l-4 border-red-600 pl-4">
+      <p class="font-bold text-lg">🇧🇷 拉菲尼亚</p>
+      <p class="text-sm text-gray-600">本赛季巴萨的惊喜。12球10助攻的两双数据、稳定的状态输出使他成为安切洛蒂最信任的右边锋。他在右路的传中和内切射门为巴西提供了维尼修斯之外的第二进攻维度。他与内马尔的"右左换位"可能是巴西破解强队紧逼防守的暗器。</p>
+    </div>
+    <div class="border-l-4 border-orange-600 pl-4">
+      <p class="font-bold text-lg">🇧🇷 卡塞米罗</p>
+      <p class="text-sm text-gray-600">中场的经验护盾。虽然运动能力下滑，但他在关键比赛中的选位、拦截和经验是巴西中场不可替代的财富。2022世界杯对阵韩国时他的"世界波"远射展示了进攻端的潜力。安切洛蒂需要"胖虎"在淘汰赛中打出最后的高光——就像2022年欧冠决赛他的那记重炮一样。</p>
+    </div>
+    <div class="border-l-4 border-gray-600 pl-4">
+      <p class="font-bold text-lg">🇧🇷 加布里埃尔·马加良斯</p>
+      <p class="text-sm text-gray-600">英超最强硬的中卫之一。他的身体对抗、头球能力和防守侵略性弥补了巴西后防线上长期缺失的"硬度"。他和马尔基尼奥斯的组合在理论上互补——加布里埃尔负责上抢和对抗，马尔基尼奥斯负责拖后和补位。他的大赛状态将是巴西防线稳定性的晴雨表。</p>
+    </div>
+  </div>
+</div>
+
+<div class="bg-white rounded-xl shadow p-6 mb-6">
+  <h3 class="text-lg font-bold">小组赛预判</h3>
+  <table class="mt-2">
+    <tr><th>对手</th><th>预判结果</th><th>理由</th></tr>
+    <tr><td>摩洛哥 🇲🇦</td><td>巴西 2-1 胜</td><td>最艰难一场，摩洛哥防守韧性强，巴西需要维尼修斯或内马尔个人能力解决</td></tr>
+    <tr><td>海地 🇭🇹</td><td>巴西 4-0 胜</td><td>实力天壤之别，巴西轮换阵容也能轻松取胜</td></tr>
+    <tr><td>苏格兰 🏴󠁧󠁢󠁳󠁣󠁴󠁿</td><td>巴西 3-1 胜</td><td>苏格兰身体对抗有优势但技术差距过大</td></tr>
+  </table>
+  <p class="mt-2"><strong>小组赛综合：3战全胜，9分出线，小组头名概率95%。</strong></p>
+</div>
+
+<div class="bg-white rounded-xl shadow p-6 mb-6">
+  <h3 class="text-lg font-bold">淘汰赛路线推演</h3>
+  <div class="space-y-2 mt-2">
+    <p><strong>16强（小组第一出线）：</strong> vs D组第二（大概率塞尔维亚 / 墨西哥）</p>
+    <p class="pl-6 text-gray-700">→ 胜率预估 vs 塞尔维亚 70%｜vs 墨西哥 75%</p>
+    <p><strong>1/4决赛：</strong> vs 潜在对手 — 法国 / 荷兰 / 英格兰所在半区胜者</p>
+    <p class="pl-6 text-gray-700">→ 若遇法国：胜率45%｜若遇荷兰：胜率55%｜若遇英格兰：胜率50%</p>
+    <p><strong>半决赛：</strong> vs 西班牙 / 葡萄牙 / 德国等</p>
+    <p class="pl-6 text-gray-700">→ 胜率预估 50-55%</p>
+  </div>
+  <p class="mt-3 p-3 bg-blue-50 rounded-lg"><strong>核心判断：</strong>巴西是本届世界杯的"纸面最强球队"之一，也是唯一一支能力压所有对手的南美球队。安切洛蒂的杯赛智慧可能是打破"八强魔咒"的关键——自2002年夺冠以来，巴西近5届世界杯4次止步八强，这已不是实力问题而是心理和战术适配问题。如果巴西能在1/8和1/4决赛连续过关，半决赛的安切洛蒂式逆转基因将变得至关重要。上限：夺冠（第六星）；下限：八强（近5届的第5次八强，将引发巴西足球地震）。核心变量只有一个——内马尔的身体能撑到什么时候。</p>
+</div>
+
+<div class="bg-white rounded-xl shadow p-6 mb-6 text-center">
+  <h3 class="text-lg font-bold text-br-green">大师结语</h3>
+  <p class="text-xl italic mt-3 text-gray-700">"二十年未见第六星，安切洛蒂携五冠光环驾临桑巴之国。维尼修斯锋利如刀，内马尔浴火归来——这支天赋溢出、腰腹空虚的巴西队，要么在北美大陆完成'五星变六星'的宿命，要么在天赋与混乱的钢丝绳上再次坠落。答案写在内马尔的双膝和卡塞米罗的变向速度里。"</p>
+</div>
+
+<!-- Footer -->
+<div class="text-center text-gray-400 text-sm py-6 border-t">
+  <p>© 2026 足球战力分析 · Powered by WorkBuddy AI｜数据截至2026年5月19日</p>
+  <p class="mt-1">数据来源：巴西足协官方公告、SI、Olympics.com、France24、体育媒体综合报道</p>
+</div>
+
+</div>
+
+
+<!-- HuaFootball: back-to-home button -->
+<a href="../index.html" class="huafootball-back-btn" target="_self">
+  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M19 12H5"/><path d="M12 19l-7-7 7-7"/>
+  </svg>
+  返回首页
+</a>
+<style>
+  .huafootball-back-btn {
+    position: fixed !important;
+    bottom: 28px !important;
+    right: 28px !important;
+    z-index: 99999 !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    gap: 6px !important;
+    padding: 10px 22px !important;
+    background: rgba(26, 71, 42, 0.85) !important;
+    color: #c9a84c !important;
+    border: 1px solid rgba(201, 168, 76, 0.3) !important;
+    border-radius: 999px !important;
+    font-family: "Inter", "Noto Sans SC", system-ui, sans-serif !important;
+    font-size: 13px !important;
+    font-weight: 600 !important;
+    text-decoration: none !important;
+    backdrop-filter: blur(8px) !important;
+    -webkit-backdrop-filter: blur(8px) !important;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.3) !important;
+    transition: all 0.25s ease !important;
+    cursor: pointer !important;
+    user-select: none !important;
+  }
+  .huafootball-back-btn:hover {
+    background: rgba(26, 71, 42, 0.95) !important;
+    border-color: rgba(201, 168, 76, 0.5) !important;
+    box-shadow: 0 6px 28px rgba(201, 168, 76, 0.2) !important;
+    transform: translateY(-2px) !important;
+  }
+  .huafootball-back-btn svg {
+    transition: transform 0.2s ease !important;
+  }
+  .huafootball-back-btn:hover svg {
+    transform: translateX(-3px) !important;
+  }
+</style>
+
+</body>
+</html>

@@ -1,0 +1,451 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>韩国 · 2026世界杯实力评估报告</title>
+<script src="https://cdn.tailwindcss.com">
+</script>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;600;700;900&family=Times+New+Roman&display=swap');
+body { font-family: 'Noto Serif SC', 'KaiTi', '楷体', serif; font-size: 11pt; color: #1a1a1a; background: #fafafa; }
+h1 { font-size: 1.8em; font-weight: 900; }
+h2 { font-size: 1.4em; font-weight: 700; border-bottom: 3px solid #e11d48; padding-bottom: 6px; margin-top: 28px; }
+h3 { font-size: 1.2em; font-weight: 600; margin-top: 18px; }
+.section { max-width: 960px; margin: 0 auto; padding: 20px 24px; background: #fff; box-shadow: 0 1px 3px rgba(0,0,0,0.08); border-radius: 8px; margin-bottom: 20px; }
+.score-badge { display: inline-block; background: #e11d48; color: #fff; padding: 2px 12px; border-radius: 12px; font-weight: 700; font-size: 0.9em; }
+table { width: 100%; border-collapse: collapse; margin: 10px 0; font-size: 0.95em; }
+th { background: #1e293b; color: #fff; padding: 8px 10px; text-align: left; }
+td { padding: 6px 10px; border-bottom: 1px solid #e2e8f0; }
+tr:nth-child(even) { background: #f8fafc; }
+.sub-item { background: #fef2f2; padding: 10px 14px; border-left: 4px solid #e11d48; margin: 8px 0; border-radius: 4px; }
+.sub-item .sub-label { font-weight: 700; color: #e11d48; }
+.analysis-text { color: #374151; line-height: 1.7; margin: 6px 0 12px 0; }
+.total-score { font-size: 2em; font-weight: 900; color: #e11d48; text-align: center; }
+.rating-S { background: linear-gradient(135deg, #fbbf24, #f59e0b); }
+.rating-A { background: linear-gradient(135deg, #34d399, #059669); }
+.rating-B { background: linear-gradient(135deg, #60a5fa, #2563eb); }
+.rating-C { background: linear-gradient(135deg, #fbbf24, #d97706); }
+.rating-D { background: linear-gradient(135deg, #f87171, #dc2626); }
+.rating-E { background: linear-gradient(135deg, #9ca3af, #4b5563); }
+.player-card { display: inline-block; background: #f1f5f9; border-radius: 6px; padding: 6px 12px; margin: 3px; font-size: 0.9em; }
+.flag-em { font-size: 1.5em; }
+.highlight-box { background: linear-gradient(135deg, #fee2e2, #fef2f2); border: 1px solid #fecaca; border-radius: 8px; padding: 16px; margin: 12px 0; }
+</style>
+</head>
+<body>
+
+<div class="section">
+
+  <!-- Header -->
+  <div class="text-center mb-6">
+    <img src="https://www.kfa.or.kr/images/common/logo.png"
+         alt="韩国足协徽章"
+         style="height:90px;width:auto;display:block;margin:0 auto 10px;"
+         onerror="this.style.display='none';document.getElementById('logo-fb').style.display='block';" />
+    <div id="logo-fb" style="display:none;font-size:4em;margin-bottom:10px;">🇰🇷</div>
+    <h1 class="text-3xl font-black text-red-600">韩国 · 2026世界杯实力评估报告</h1>
+    <p class="text-gray-500 text-sm mt-2">报告生成日期：2026年5月21日</p>
+  </div>
+
+  <!-- (一) 球队基本信息 -->
+  <h2>（一）球队基本信息</h2>
+
+  <table>
+    <tr><th style="width:160px;">项目</th><th>信息</th></tr>
+    <tr><td>主教练</td><td><strong>洪明甫</strong>（Hong Myung-bo）— 2024年7月上任，韩国足球传奇后卫</td></tr>
+    <tr><td>队长</td><td><strong>孙兴慜</strong>（Son Heung-min）— 第四次征战世界杯</td></tr>
+    <tr><td>世界杯冠军历史</td><td>0次冠军（历史最好成绩：2002年韩日世界杯 <strong>四强</strong>，亚洲球队历史最佳战绩）</td></tr>
+    <tr><td>上届世界杯成绩</td><td><strong>16强</strong>（2022卡塔尔世界杯，小组赛击败葡萄牙出线，1/8决赛1:4负于巴西）</td></tr>
+    <tr><td>世界杯参赛次数</td><td>第12次（自1986年起连续第11次晋级正赛）</td></tr>
+    <tr><td>预选赛战绩</td><td>18强赛B组头名：<strong>6胜4平0负</strong>，不败晋级（亚洲区唯一不败球队）</td></tr>
+    <tr><td>全队总身价</td><td><strong>€1.423亿</strong>（约11.2亿人民币），32强中游偏下水平</td></tr>
+    <tr><td>平均年龄</td><td><strong>28.2岁</strong></td></tr>
+    <tr><td>FIFA世界排名</td><td>约第23位（亚洲第2，仅次于日本）</td></tr>
+    <tr><td>小组赛分组</td><td><strong>A组</strong>：墨西哥（东道主）、捷克、南非</td></tr>
+  </table>
+
+  <h3 class="mt-4">26人大名单</h3>
+  <table>
+    <thead>
+      <tr><th>球员姓名</th><th>位置</th><th>所属俱乐部</th><th>年龄</th><th>身价(€)</th></tr>
+    </thead>
+    <tbody>
+      <tr class="bg-red-50"><td colspan="5" style="font-weight:700;color:#e11d48;">—— 门将（GK） ——</td></tr>
+      <tr><td>赵贤祐 (Jo Hyeon-woo)</td><td>GK</td><td>蔚山HD FC</td><td>34</td><td>65万</td></tr>
+      <tr><td>金承奎 (Kim Seung-gyu)</td><td>GK</td><td>FC东京</td><td>35</td><td>60万</td></tr>
+      <tr><td>宋范根 (Song Bum-keun)</td><td>GK</td><td>全北现代</td><td>28</td><td>100万</td></tr>
+
+      <tr class="bg-red-50"><td colspan="5" style="font-weight:700;color:#e11d48;">—— 后卫（DF） ——</td></tr>
+      <tr><td>金玟哉 (Kim Min-jae) ★</td><td>CB</td><td>拜仁慕尼黑（德甲）</td><td>29</td><td>2500万</td></tr>
+      <tr><td>薛英佑 (Seol Young-woo)</td><td>RB</td><td>贝尔格莱德红星（塞尔维亚）</td><td>27</td><td>500万</td></tr>
+      <tr><td>延斯·卡斯特罗普 (Jens Castrop) ★</td><td>DM/CB</td><td>门兴格拉德巴赫（德甲）</td><td>22</td><td>600万</td></tr>
+      <tr><td>曹侑珉 (Cho Yu-min)</td><td>CB</td><td>沙迦FC（阿联酋）</td><td>29</td><td>180万</td></tr>
+      <tr><td>李韩汎 (Lee Han-beom)</td><td>CB</td><td>中日德兰（丹超）</td><td>23</td><td>180万</td></tr>
+      <tr><td>李太锡 (Lee Tae-seok)</td><td>LB</td><td>奥地利维也纳（奥甲）</td><td>23</td><td>150万</td></tr>
+      <tr><td>金纹奂 (Kim Moon-hwan)</td><td>RB</td><td>大田韩亚市民</td><td>30</td><td>75万</td></tr>
+      <tr><td>李基赫 (Lee Gi-hyuk)</td><td>CB</td><td>江原FC</td><td>25</td><td>80万</td></tr>
+      <tr><td>金泰铉 (Kim Tae-hyeon)</td><td>CB</td><td>鹿岛鹿角（J联赛）</td><td>25</td><td>70万</td></tr>
+      <tr><td>朴镇燮 (Park Jin-seob)</td><td>DM/CB</td><td>浙江FC（中超）</td><td>30</td><td>100万</td></tr>
+
+      <tr class="bg-red-50"><td colspan="5" style="font-weight:700;color:#e11d48;">—— 中场（MF） ——</td></tr>
+      <tr><td>李刚仁 (Lee Kang-in) ★</td><td>AM/LW</td><td>巴黎圣日耳曼（法甲）</td><td>25</td><td>2800万</td></tr>
+      <tr><td>黄仁范 (Hwang In-beom)</td><td>DM/CM</td><td>费耶诺德（荷甲）</td><td>29</td><td>800万</td></tr>
+      <tr><td>白昇浩 (Paik Seung-ho)</td><td>CM</td><td>伯明翰城（英冠）</td><td>29</td><td>250万</td></tr>
+      <tr><td>李在城 (Lee Jae-sung)</td><td>AM</td><td>美因茨（德甲）</td><td>33</td><td>200万</td></tr>
+      <tr><td>裴峻浩 (Bae Jun-ho)</td><td>AM</td><td>斯托克城（英冠）</td><td>22</td><td>300万</td></tr>
+      <tr><td>金镇圭 (Kim Jin-gyu)</td><td>CM</td><td>全北现代</td><td>29</td><td>120万</td></tr>
+      <tr><td>李东炅 (Lee Dong-gyeong)</td><td>AM</td><td>蔚山HD FC</td><td>28</td><td>160万</td></tr>
+      <tr><td>严智星 (Eom Ji-sung)</td><td>LW</td><td>斯旺西城（英冠）</td><td>24</td><td>140万</td></tr>
+
+      <tr class="bg-red-50"><td colspan="5" style="font-weight:700;color:#e11d48;">—— 前锋（FW） ——</td></tr>
+      <tr><td>孙兴慜 (Son Heung-min) ★ [C]</td><td>LW/ST</td><td>洛杉矶FC（美职联）</td><td>33</td><td>1700万</td></tr>
+      <tr><td>黄喜灿 (Hwang Hee-chan)</td><td>LW/RW/ST</td><td>狼队（英超）</td><td>30</td><td>800万</td></tr>
+      <tr><td>吴贤揆 (Oh Hyeon-gyu)</td><td>ST</td><td>贝西克塔斯（土超）</td><td>25</td><td>1500万</td></tr>
+      <tr><td>杨贤俊 (Yang Hyun-jun)</td><td>RW</td><td>凯尔特人（苏超）</td><td>23</td><td>500万</td></tr>
+      <tr><td>曹圭成 (Cho Gue-sung)</td><td>ST</td><td>中日德兰（丹超）</td><td>28</td><td>300万</td></tr>
+    </tbody>
+  </table>
+  <p class="text-sm text-gray-500 mt-1">★ 标记为核心/关键球员 ｜ 总身价：€1.423亿 ｜ 旅欧球员：15人</p>
+
+  <!-- (二) 七维度深度评分 -->
+  <h2>（二）逐项评分明细（七维度深度拆解）</h2>
+
+  <!-- 维度一 -->
+  <h3>维度一：阵容实力（权重30%）｜ 得分：65分 × 30% = 19.50分</h3>
+
+  <div class="sub-item">
+    <div class="sub-label">1.1 球星质量与个人能力：72分</div>
+    <div class="analysis-text">
+      <strong>评分依据：</strong>韩国队拥有至少<strong>3名世界级/准世界级球员</strong>：金玟哉（拜仁慕尼黑主力中卫，德甲冠军级表现，身价€2500万）是亚洲最顶级的中后卫，身体对抗与预判能力均属欧冠级别；李刚仁（巴黎圣日耳曼，身价€2800万）是队内身价最高的球员，盘带技术细腻，能在狭小空间内制造杀机，2025-26赛季在法甲贡献了6球8助攻；孙兴慜（洛杉矶FC，身价€1700万）虽已离开五大联赛，但上赛季在美职联仍交出13球8助攻的出色数据，速度和终结能力依然是世界级威胁。此外黄喜灿（狼队，€800万）在英超以高强度的压迫和反击能力著称，吴贤揆（贝西克塔斯，€1500万）在土超大放异彩。整体来看，韩国队拥有在关键时刻改变比赛走向的"game-changer"（孙兴慜、李刚仁），但相比真正的世界豪门（法国、巴西等），顶级球员的总量仍显不足。
+    </div>
+  </div>
+
+  <div class="sub-item">
+    <div class="sub-label">1.2 各位置均衡度：65分</div>
+    <div class="analysis-text">
+      <strong>评分依据：</strong>防线核心金玟哉是世界顶级中卫，但其搭档选择（曹侑珉/李韩汎）与拜仁中卫之间存在明显差距；左后卫位置薄弱（李太锡23岁，经验不足）；右路薛英佑（贝尔格莱德红星）表现稳健但非五大联赛级别。中场创造力集中依赖李刚仁和黄仁范两人，后腰位置缺少专职防守屏障——白昇浩和朴镇燮在英冠/中超效力，能力上限有限。锋线看似星光熠熠，但孙兴慜已33岁，曹圭成在丹麦联赛的进球效率（本赛季9球）并非顶级射手水平。四条线中，<strong>后卫线＞中场＞前锋＞门将</strong>，门将位置平均年龄33岁且均在亚洲联赛效力，是明显的相对短板。
+    </div>
+  </div>
+
+  <div class="sub-item">
+    <div class="sub-label">1.3 板凳深度：62分</div>
+    <div class="analysis-text">
+      <strong>评分依据：</strong>26人中有<strong>15人在欧洲联赛效力</strong>，分布9个国家，这是韩国队历史上"旅欧军团"规模最大的一届，反映了留洋人才储备的进步。但首发与替补之间的差距在关键位置上仍很明显：若金玟哉缺阵，第三中卫李韩汎（中日德兰轮换）或曹侑珉（阿联酋联赛）的档次落差过大；若李刚仁或孙兴慜状态不佳，替代者（裴峻浩/严智星/杨贤俊）虽在英冠/苏超有稳定出场，但缺乏在大赛中证明自己的经验。真正能从替补席上场并保持比赛强度的可靠轮换球员约<strong>8-10人</strong>，这在小组赛密集赛程中可能带来体能隐患。
+    </div>
+  </div>
+
+  <div class="sub-item">
+    <div class="sub-label">1.4 总身价与年龄结构：58分</div>
+    <div class="analysis-text">
+      <strong>评分依据：</strong>全队总身价€1.423亿，在32支参赛队中排名第20位左右，在亚洲队中仅次于日本。身价最高的三名球员（李刚仁€2800万、金玟哉€2500万、孙兴慜€1700万）合计€7000万，占全队的49%，体现了高度依赖核心球员的结构特征。平均年龄28.2岁处于合理区间，但门将平均33岁明显老化；核心球员年龄分布中，孙兴慜（33岁）、金承奎（35岁）、李在城（33岁）均已是职业生涯末期，而延斯·卡斯特罗普（22岁）、李太锡（23岁）、裴峻浩（22岁）等新生代尚未完全成熟，呈现一定程度的"代际断层"风险。
+    </div>
+  </div>
+
+  <!-- 维度二 -->
+  <h3>维度二：战术体系与教练（权重20%）｜ 得分：66分 × 20% = 13.20分</h3>
+
+  <div class="sub-item">
+    <div class="sub-label">2.1 主帅战术哲学与大赛履历：65分</div>
+    <div class="analysis-text">
+      <strong>评分依据：</strong>洪明甫是韩国足球的标志性人物，作为球员在2002年世界杯率队获得第四名，并荣膺赛事铜球奖。2024年7月接替克林斯曼上任后，他确立了<strong>以防守组织为基础、快速转换为武器</strong>的务实战术路线，率队在18强赛中打出6胜4平的不败战绩，成为亚洲区唯一不败球队。但他的国家队执教经验相对有限——此前主要担任韩国国奥队主帅和俱乐部助教，从未带队征战过世界杯正赛。<strong>临场调整能力和淘汰赛经验尚未经过顶级大赛的检验。</strong>
+    </div>
+  </div>
+
+  <div class="sub-item">
+    <div class="sub-label">2.2 阵型适配性与球员契合度：70分</div>
+    <div class="analysis-text">
+      <strong>评分依据：</strong>洪明甫主要使用<strong>4-2-3-1</strong>阵型，这一体系能最大化利用孙兴慜（左边锋内切）、李刚仁（前腰创造力）和黄喜灿（右路反击）的特点。金玟哉作为拖后中卫的指挥能力是关键防守基础，黄仁范与白昇浩的双后腰配置提供了一定的中场控制力。球队的B方案是4-3-3（李刚仁撤到中场增加传球点）和3-4-3（利用三名中卫解放边翼卫）。整体阵型适配度不错，但<strong>左后卫位置是战术短板</strong>——李太锡的进攻参与度有限，可能限制孙兴慜在左路的自由度。球队缺乏一名能够在密集防守中背身拿球、站住位置的传统9号，高端局中的阵地战攻坚能力存疑。
+    </div>
+  </div>
+
+  <div class="sub-item">
+    <div class="sub-label">2.3 攻守转换效率：72分</div>
+    <div class="analysis-text">
+      <strong>评分依据：</strong>攻守转换是韩国足球的传统强项。由守转攻时，韩国队依靠孙兴慜、黄喜灿和李刚仁的<strong>速度+盘带组合</strong>快速推进，这是他们面对强队时最有效的攻击手段。高位压迫的纪律性在亚洲赛区表现出色（预选赛仅失4球），但面对技术能力更强的欧美对手时的压迫效果有待大赛验证。定位球攻防方面，金玟哉的头球争顶是进攻利器，曹圭成身高188cm也是定位球高点，但防守定位球时的区域盯人偶尔出现漏人。
+    </div>
+  </div>
+
+  <div class="sub-item">
+    <div class="sub-label">2.4 临场指挥与换人策略：55分</div>
+    <div class="analysis-text">
+      <strong>评分依据：</strong>洪明甫在预选赛中的换人节奏偏保守，通常在下半场60-70分钟才进行首次换人调整。B方案的灵活性和临场变阵能力缺乏足够样本验证。在预选赛对阵伊拉克（1:1）和约旦（0:0）的比赛中，韩国队在面对严防时未能及时改变比赛走势。作为国家队级别的主教练，其<strong>大赛淘汰赛中的临场指挥能力</strong>仍是最大未知数。好消息是，2025-26年度的多次友谊赛和东亚杯给了他更多磨合阵容和测试新人的机会。
+    </div>
+  </div>
+
+  <!-- 维度三 -->
+  <h3>维度三：近期竞技状态（权重15%）｜ 得分：69分 × 15% = 10.35分</h3>
+
+  <div class="sub-item">
+    <div class="sub-label">3.1 近12个月正式比赛战绩：75分</div>
+    <div class="analysis-text">
+      <strong>评分依据：</strong>2025年6月结束的18强赛中，韩国队以<strong>6胜4平0负、小组头名</strong>的不败战绩强势出线。收官战主场4:0大胜科威特展现了出色的进攻状态。自2024年7月洪明甫上任以来，韩国队在各项赛事中保持<strong>超过15场正式比赛不败</strong>（含友谊赛），稳定性令人印象深刻。但需要注意的是，大多数对手为亚洲球队（伊拉克、约旦、阿曼、科威特等），竞技层级与世界杯对手存在差距。2025年下半年至2026年5月期间的友谊赛对手和战绩也是重要参考——韩国队期间与沙特、伊朗等队进行了多场热身。
+    </div>
+  </div>
+
+  <div class="sub-item">
+    <div class="sub-label">3.2 预选赛出线含金量：68分</div>
+    <div class="analysis-text">
+      <strong>评分依据：</strong>韩国是唯一一支以<strong>不败战绩</strong>晋级2026世界杯的亚洲球队，超越了日本（7胜2平1负）、伊朗等强队，这是含金量的体现。B组对手包括伊拉克（FIFA排名约第60）、约旦（亚洲杯亚军，第70）、阿曼（第76）、科威特（第137）、巴勒斯坦（第93），整体实力在亚洲属于中上水平。韩国队面对这些对手展现了统治力，但<strong>净胜球数据（10场进20球，失4球）</strong>相比过往有所下降（上届预选赛进22球失5球），反映进攻端的效率有待提升。
+    </div>
+  </div>
+
+  <div class="sub-item">
+    <div class="sub-label">3.3 核心球员俱乐部状态走势：62分</div>
+    <div class="analysis-text">
+      <strong>评分依据：</strong>2025-26赛季：
+      - <strong>孙兴慜</strong>（洛杉矶FC）：2026赛季13球8助攻，状态稳定但MLS竞技水平低于五大联赛，高强度比赛的节奏适应性存疑；
+      - <strong>金玟哉</strong>（拜仁慕尼黑）：赛季出场42次，累計出赛时间超3500分钟，赛季末段出现疲劳迹象；
+      - <strong>李刚仁</strong>（巴黎圣日耳曼）：法甲6球8助攻，欧冠5次首发，创造性数据亮眼但关键时刻的决策仍有提升空间；
+      - <strong>黄喜灿</strong>（狼队）：因腿筋伤势缺席了约8场英超比赛，赛季末段已恢复并贡献3球2助攻；
+      - <strong>吴贤揆</strong>（贝西克塔斯）：土超10球4助攻，状态火热，是入选名单的最大惊喜。
+    </div>
+  </div>
+
+  <!-- 维度四 -->
+  <h3>维度四：大赛经验与心理素质（权重10%）｜ 得分：70分 × 10% = 7.00分</h3>
+
+  <div class="sub-item">
+    <div class="sub-label">4.1 世界杯历史战绩：75分</div>
+    <div class="analysis-text">
+      <strong>评分依据：</strong>韩国队自1986年起<strong>连续11届</strong>晋级世界杯正赛，是亚洲参赛次数最多、连续性最强的球队之一。2002年本土世界杯<strong>第四名</strong>是亚洲球队在世界杯上的历史最佳战绩。近三届走势：2014年小组赛淘汰、2018年小组赛淘汰（2:0胜德国成为经典）、2022年16强（小组赛2:1逆转葡萄牙，1/8决赛1:4负巴西），呈现"反弹-低谷-反弹"的周期特征。整体大赛底蕴在亚洲堪称一流，但与世界级劲旅相比，四强以上突破仅有一次且具有东道主因素。<strong>非亚洲举办的世界杯上，韩国队从未突破16强。</strong>
+    </div>
+  </div>
+
+  <div class="sub-item">
+    <div class="sub-label">4.2 核心球员大赛经验值：65分</div>
+    <div class="analysis-text">
+      <strong>评分依据：</strong>孙兴慜是队中唯一参加过四届世界杯的球员（2014、2018、2022、2026），拥有丰富的大赛经验。金玟哉、黄喜灿、黄仁范、李在城均参加过2022世界杯，是经历过与葡萄牙、乌拉圭、巴西等强队交手的一代。但阵中<strong>没有球员参加过欧冠决赛</strong>（金玟哉2024年随拜仁进入半决赛），世界杯四强经验更无人具备。22岁的裴峻浩、23岁的杨贤俊和李太锡等年轻球员将是首次参加世界杯，他们的适应能力将在很大程度上影响球队的阵容深度。
+    </div>
+  </div>
+
+  <div class="sub-item">
+    <div class="sub-label">4.3 抗压与逆境应对：68分</div>
+    <div class="analysis-text">
+      <strong>评分依据：</strong>韩国队素有"太极虎"的韧性传统。2022世界杯小组赛末轮在落后情况下<strong>2:1逆转葡萄牙</strong>，展现了典型的韩国式逆风球能力。最近5年落后最终结果的胜率约为22%（亚洲球队中排名前列）。点球大战方面，韩国队在世界杯历史上仅经历过1次（2010年1/8决赛2:3负乌拉圭，常规时间解决），没有点球大战胜利记录。在亚洲杯上的点球历史也不甚理想（2019年1/4决赛点球负卡塔尔）。<strong>关键场次的心理韧性</strong>是这支球队的隐形优势——在韩国足球文化中，斗志和永不言弃被视为核心竞争力。
+    </div>
+  </div>
+
+  <!-- 维度五 -->
+  <h3>维度五：分组及赛程影响（权重10%）｜ 得分：55分 × 10% = 5.50分</h3>
+
+  <div class="sub-item">
+    <div class="sub-label">5.1 小组赛对手分析：55分</div>
+    <div class="analysis-text">
+      <strong>评分依据：</strong>韩国队落入<strong>A组</strong>，同组对手为东道主<strong>墨西哥</strong>（FIFA排名约第12位）、欧洲劲旅<strong>捷克</strong>（第38位）、非洲冠军<strong>南非</strong>（第60位）。墨西哥作为联合东道主之一，主场优势巨大（比赛在瓜达拉哈拉进行），其快速短传配合和主场氛围对任何对手都是巨大考验。捷克队身材高大、战术纪律严明，擅长身体对抗和定位球进攻，这是韩国队相对畏惧的风格。南非时隔多年重返世界杯，拥有出色的身体素质，但整体技战术水平有限。A组是出线格局较为开放的"死亡之组"——四支球队实力差距不大，每场比赛的结果都可能决定命运。<strong>韩国队出线概率约40-50%</strong>，需要通过击败南非和捷克来争取小组前两名。
+    </div>
+  </div>
+
+  <div class="sub-item">
+    <div class="sub-label">5.2 淘汰赛晋级路线预判：50分</div>
+    <div class="analysis-text">
+      <strong>评分依据：</strong>2026世界杯扩军至48队，小组赛前两名+8个成绩最好的小组第三名晋级32强淘汰赛。若韩国以A组第二名（更可能的场景）出线，预计1/16决赛（32强战）将对阵<strong>B组第二名</strong>，B组包含阿根廷、荷兰等强队，这意味着可能面对荷兰或一支南美劲旅；若以小组头名出线，将对阵B组/C组第三名，路线稍有利。进入16强后，8强战潜在对手可能来自法国、巴西所在的上半区。<strong>最艰难的对决将出现在1/16决赛</strong>——韩国队跨过这道坎的历史成功率不高。
+    </div>
+  </div>
+
+  <div class="sub-item">
+    <div class="sub-label">5.3 旅途与气候因素：60分</div>
+    <div class="analysis-text">
+      <strong>评分依据：</strong>韩国队的小组赛全部在墨西哥进行：前两场在瓜达拉哈拉（海拔约1,500米，6月平均气温22-28°C），最后一场在蒙特雷（海拔约540米，气温相近）。高海拔对体能消耗较大，欧洲俱乐部球员需要约1周的适应期。作为亚洲球队，因为韩国球员普遍在亚洲/欧洲不同气候环境下比赛，对北美气候的适应能力中规中矩。三国办赛意味着若有出线后的跨城市移动（墨西哥→加拿大或美国），旅途疲劳将是客观因素。<strong>瓜达拉哈拉的晚间比赛（当地时间晚上9-10点）对韩国球员的作息调整是额外挑战。</strong>
+    </div>
+  </div>
+
+  <!-- 维度六 -->
+  <h3>维度六：团队凝聚力与场外环境（权重10%）｜ 得分：63分 × 10% = 6.30分</h3>
+
+  <div class="sub-item">
+    <div class="sub-label">6.1 更衣室团结度：75分</div>
+    <div class="analysis-text">
+      <strong>评分依据：</strong>孙兴慜作为队长拥有极高的威望和领导力，其在热刺/洛杉矶FC的队长经验让他成为更衣室当之无愧的核心。洪明甫作为韩国足球传奇，在球员时代就是民族英雄，其职业履历赢得了队员的尊重。韩国队素以<strong>纪律严明、团队荣誉感强</strong>著称，这是亚洲球队的共同优势。没有公开的更衣室矛盾或派系传闻。新归化球员延斯·卡斯特罗普（德韩混血）融入顺利，在韩媒报道中表现积极，没有不合传闻。
+    </div>
+  </div>
+
+  <div class="sub-item">
+    <div class="sub-label">6.2 足协稳定性与管理：60分</div>
+    <div class="analysis-text">
+      <strong>评分依据：</strong>韩国足协（KFA）近年来经历了管理层的一些变动和争议（包括前任教练克林斯曼的解约风波）。洪明甫的上任在一定程度上稳定了局面，但KFA在后勤保障、训练基地选择等方面相比欧洲/南美豪门仍有差距。2025年韩国足协曾就世界杯备战资金问题与政府沟通，预算充足度不如日本足协。训练基地选在美国休斯顿附近进行赛前集训，后勤安排总体合理但不算顶级。
+    </div>
+  </div>
+
+  <div class="sub-item">
+    <div class="sub-label">6.3 国内舆论与媒体压力：55分</div>
+    <div class="analysis-text">
+      <strong>评分依据：</strong>韩国国内对世界杯的期望值非常高——公众期望至少<strong>小组出线并进入16强</strong>，部分激进舆论甚至期望追平2002年的四强神话。韩国媒体对国家队的每一场比赛都进行密集报道，球员承受的舆论压力在亚洲名列前茅。如果小组赛开局不利（如首战负捷克），来自国内社交媒体和舆论的批评可能影响到球队的心理状态。但另一方面，韩国球员普遍习惯在高压环境下比赛，部分球员（特别是孙兴慜）在应对媒体方面的经验丰富。
+    </div>
+  </div>
+
+  <!-- 维度七 -->
+  <h3>维度七：体能储备与伤病控制（权重5%）｜ 得分：60分 × 5% = 3.00分</h3>
+
+  <div class="sub-item">
+    <div class="sub-label">7.1 赛季疲劳度评估：58分</div>
+    <div class="analysis-text">
+      <strong>评分依据：</strong>金玟哉是队内赛季负荷最重的球员——2025-26赛季为拜仁出场42次，累计出场时间超过3,500分钟，经历了德甲+欧冠+德国杯的全赛季高强度赛程。李刚仁同样在巴黎经历了密集的赛程（法甲+欧冠+法国杯）。孙兴慜在MLS的赛程压力相对较小（34轮常规赛+季后赛），体能储备条件较好。黄喜灿因腿筋伤势错过了约2个月的比赛，赛季负荷反而较低。<strong>旅欧球员在5月底结束联赛后仅有约2周的休整时间就要投入世界杯备战</strong>，体能恢复周期偏短。
+    </div>
+  </div>
+
+  <div class="sub-item">
+    <div class="sub-label">7.2 关键伤病与恢复情况：65分</div>
+    <div class="analysis-text">
+      <strong>评分依据：</strong>目前韩国队没有球员因重伤缺席世界杯的严重情况。黄喜灿的腿筋问题已恢复并在赛季末复出，是唯一值得关注的风险点。孙兴慜在MLS赛季中偶有轻微的肌肉疲劳，但洛杉矶FC的医疗团队管理得当，没有发展成结构性损伤。前十字韧带（ACL）等严重伤病史方面，韩国队核心球员近年没有此类大伤纪录。整体而言，韩国队以<strong>相对完整的阵容</strong>出征世界杯，伤病风险处于可控范围。
+    </div>
+  </div>
+
+  <div class="sub-item">
+    <div class="sub-label">7.3 医疗团队与保障水平：55分</div>
+    <div class="analysis-text">
+      <strong>评分依据：</strong>韩国足协的医疗团队由多名运动医学专家和理疗师组成，在欧洲联赛效力的球员有各自的俱乐部医疗保障。KFA多年来在运动科学方面的投入稳步提升，但与德国、法国等足球强国的国家队医疗体系相比仍有差距。高温高海拔环境下的比赛对医疗保障提出了更高要求，KFA是否配备了足够的冷冻恢复设备、高压氧舱等现代化恢复设施尚不明确。
+    </div>
+  </div>
+
+  <!-- (三) 综合总分与评级 -->
+  <h2>（三）综合总分与评级</h2>
+
+  <div class="highlight-box text-center">
+    <div class="total-score">64.85分</div>
+    <p class="text-lg font-bold mt-2" style="color:#d97706;">评级：C — 二线劲旅，小组出线有望，但短板明显</p>
+
+    <table class="mt-4" style="max-width:500px;margin:0 auto;">
+      <tr><th>维度</th><th>得分</th><th>权重</th><th>加权得分</th></tr>
+      <tr><td>① 阵容实力</td><td>65</td><td>30%</td><td>19.50</td></tr>
+      <tr><td>② 战术体系与教练</td><td>66</td><td>20%</td><td>13.20</td></tr>
+      <tr><td>③ 近期竞技状态</td><td>69</td><td>15%</td><td>10.35</td></tr>
+      <tr><td>④ 大赛经验与心理素质</td><td>70</td><td>10%</td><td>7.00</td></tr>
+      <tr><td>⑤ 分组及赛程影响</td><td>55</td><td>10%</td><td>5.50</td></tr>
+      <tr><td>⑥ 团队凝聚力与场外环境</td><td>63</td><td>10%</td><td>6.30</td></tr>
+      <tr><td>⑦ 体能储备与伤病控制</td><td>60</td><td>5%</td><td>3.00</td></tr>
+      <tr style="font-weight:700;background:#fef2f2;"><td><strong>加权总分</strong></td><td colspan="3"><strong>64.85 / 100</strong></td></tr>
+    </table>
+
+    <p class="text-sm text-gray-600 mt-3">七维度雷达：阵容65 · 战术66 · 状态69 · 经验70 · 赛程55 · 凝聚力63 · 体能60</p>
+  </div>
+
+  <!-- (四) 深度球评 -->
+  <h2>（四）深度球评</h2>
+
+  <h3>核心优势</h3>
+  <div class="analysis-text">
+    <p><strong>1. 核心三人组的天赋天花板。</strong>金玟哉（拜仁主力中卫）+ 李刚仁（巴黎圣日耳曼攻击手）+ 孙兴慜（历史级射手）组成的"太极虎三核"是韩国队史上个人能力最强的配置之一。金玟哉的防守统治力让他能在顶级对手面前维持防线的下限，李刚仁的创造性传球打破密集防守，孙兴慜在转换进攻中的速度和终结能力是反击利器。这三人在各自位置上都具备在世界杯上"一人改变比赛"的潜力——2022年他们联手送葡萄牙回家的场景就是最好的证明。</p>
+    <p><strong>2. 旅欧军团历史最大规模。</strong>15名在欧洲效力的球员创造了韩国队史纪录，且分布范围广泛（英、德、法、荷、苏、丹、塞尔维亚、土、奥），这意味着球员们接触了多样化的战术理念和高强度对抗节奏。相比十年前仅靠2-3名留洋球员撑场的局面，现在的韩国队在面对欧洲对手时不再那么"陌生"。中场黄仁范（费耶诺德）在荷甲的成长尤为关键——他已成为顶级的抗压出球型后腰。</p>
+    <p><strong>3. 预选赛不败的自信积累。</strong>18强赛6胜4平0负的不败战绩不仅是纪录，更让球队建立了一种"在比赛中找到赢球方式"的自信文化。洪明甫的务实风格让球队在领先后保持了良好的控制力（没有出现被逆转的情况），这对世界杯上面对强队时需要打防守反击的战术场景是积极的信号。</p>
+  </div>
+
+  <h3>致命短板</h3>
+  <div class="analysis-text">
+    <p><strong>1. 高强度比赛中的左路防守与中场拦截能力不足。</strong>左后卫李太锡（23岁）首次参加世界杯，是防线最年轻的一环，可能成为被对手针对的突破口。而中场缺少一名真正有覆盖范围和一对一防守能力的"破坏型"后腰——黄仁范更偏向组织型，白昇浩的防守贡献有限。面对墨西哥的快速前场组合或捷克的高中锋策应打法，韩国队中后场的防守稳定性将受到严峻考验。</p>
+    <p><strong>2. 对孙兴慜的依赖与他的年龄双重风险。</strong>孙兴慜仍是球队进攻的第一出口和战术核心，但33岁的他相比巅峰期（2022年英超金靴）的爆发力已有明显下滑。2022世界杯小组赛对葡萄牙的进球尚能证明其关键时刻的价值，但在MLS相对宽松的对抗环境与世界杯高强度比赛之间存在节奏落差。一旦他被对手限制或体能出现问题，韩国队的进攻缺少第二套同样成熟的体系。</p>
+  </div>
+
+  <h3>关键先生</h3>
+
+  <div class="grid grid-cols-1 gap-3">
+    <div class="player-card" style="display:block;">
+      <strong>🦁 孙兴慜（Son Heung-min）— 队长、进攻核心、精神领袖</strong><br>
+      第四次征战世界杯，韩国足球史上最伟大的球员。本赛季在洛杉矶FC贡献13球8助攻，虽然离开五大联赛但门前感觉依旧出色。他的无球跑动、快速决策和终结能力是韩国队反击体系的核心发动机。在瓜达拉哈拉的墨西哥球迷面前，他的大赛经验和镇定将是球队最需要的品质。<strong>本届目标：在世界杯上打进个人第5球。</strong>
+    </div>
+    <div class="player-card" style="display:block;">
+      <strong>🛡️ 金玟哉（Kim Min-jae）— 防线领袖、拜仁主力中卫</strong><br>
+      29岁的他是亚洲最佳中后卫，德甲和欧冠级别的对抗能力让他在面对任何世界级前锋时都不落下风。他的预判、头球和一对一防守是韩国队在面对捷克的高空轰炸和墨西哥快速前锋时的防守基石。此外，他在定位球进攻中的头球能力也是重要得分手段（本赛季为拜仁打进3球）。<strong>韩国队能否出线，很大程度上取决于金玟哉的稳定发挥。</strong>
+    </div>
+    <div class="player-card" style="display:block;">
+      <strong>🎨 李刚仁（Lee Kang-in）— 创造力核心、技术爆点</strong><br>
+      25岁正值巅峰，身价€2800万为队内最高。他在巴黎圣日耳曼的成长有目共睹，盘带、传球视野和定位球技术使他成为韩国队最具观赏性的球员。在孙兴慜吸引防守注意力时，李刚仁是那个利用空间创造杀机的关键球员。2022世界杯他已是重要轮换，本届赛事他有望成为球队的战术核心之一。他在前腰位置上的直塞球和远射能力是韩国队区域战中的关键武器。
+    </div>
+    <div class="player-card" style="display:block;">
+      <strong>🐺 黄喜灿（Hwang Hee-chan）— 边路爆破手、反抢机器</strong><br>
+      狼队的"韩国公牛"以其不知疲倦的跑动和强硬的对抗著称。他的无球前插、前场压迫和反击中的直接性为韩国队提供了不同的进攻维度。本赛季虽受腿筋伤势困扰但已恢复，世界杯前正值找回状态的关键期。面对南非等身体素质出色的对手，黄喜灿的硬度是重要战术资产。
+    </div>
+    <div class="player-card" style="display:block;">
+      <strong>⚙️ 黄仁范（Hwang In-beom）— 中场节拍器、组织核心</strong><br>
+      费耶诺德的主力后腰，是韩国队中场最可靠的出球点和抗压点。他的传球视野和战术理解力使他在由守转攻时能快速找到攻击手。在世界杯赛场上，他需要在对阵墨西哥和捷克时承接后场出球、分边组织的重要职责。他的表现将直接影响孙兴慜和李刚仁在前场接球的质和量。
+    </div>
+  </div>
+
+  <h3>小组赛预判</h3>
+  <div class="analysis-text">
+    <p><strong>A组出线概率评估：约45%（小组前两名出线）</strong></p>
+    <p><strong>第一场 · 韩国 vs 捷克（6月11日，瓜达拉哈拉）</strong>——<strong>关键之战。</strong>捷克队身材高大（平均身高超过184cm），战术纪律严明，擅长定位球和远射。韩国队需要利用速度优势打捷克转身慢的弱点，同时要避免在禁区内给对手太多定位球机会。预测：<strong>1:1 或 2:1（韩国胜）</strong>。如果首战能拿到3分，出线形势将非常有利。</p>
+    <p><strong>第二场 · 墨西哥 vs 韩国（6月18日，瓜达拉哈拉）</strong>——<strong>最艰难一战。</strong>墨西哥作为东道主拥有巨大的主场优势，瓜达拉哈拉是墨西哥足球的重镇。墨西哥的快速短传配合和边路进攻将考验韩国队的防守组织。洪明甫大概率采取务实策略——收缩防守、寻找反击机会。预测：<strong>1:2（韩国负）或 1:1</strong>。如果能拿到1分就是理想结果。</p>
+    <p><strong>第三场 · 南非 vs 韩国（6月24日，蒙特雷）</strong>——<strong>生死战。</strong>南非是非洲球队，身体素质出色但战术纪律不及欧洲球队。韩国队需要利用技术优势和比赛经验击败对手，以争取小组出线主动权。预测：<strong>2:0 或 2:1（韩国胜）</strong>。</p>
+    <p><strong>综合预期：1胜1平1负，积4分，小组第二或第三出线。</strong>若能击败捷克并在墨西哥身上拿到分数，头名出线并非不可能。</p>
+  </div>
+
+  <h3>淘汰赛路线推演</h3>
+  <div class="analysis-text">
+    <p><strong>场景一（最可能）：A组第二 → 对阵B组第二名</strong></p>
+    <p>B组可能包含荷兰（世界级强队）、阿根廷（卫冕冠军种子）等，无论遇到谁都将是极其艰难的比赛。韩国队1/16决赛胜率预估为<strong>25-30%</strong>。</p>
+    <p><strong>场景二（理想）：A组第一 → 对阵某个小组第三名</strong></p>
+    <p>对阵第三档对手的胜率提升至40-50%，但以小组头名出线可能需要击败墨西哥，这在本届A组中是难度很大的任务。</p>
+    <p><strong>八强展望：</strong>无论哪种场景，进入16强后再进一步需要面对几乎肯定是夺冠热门的对手（可能来自法国/巴西/英格兰的路线）。<strong>16强是现实目标，8强需要超常发挥和签运眷顾。</strong></p>
+  </div>
+
+  <h3>OPR综合战力评分</h3>
+  <div class="highlight-box">
+    <p style="font-size:1.3em;font-weight:700;text-align:center;">OPR：622 / 1000</p>
+    <p class="text-center text-gray-600">评分区间：阵容实力（200/300）· 战术体系（165/250）· 竞技状态（90/150）· 大赛经验（80/100）· 赛程难度（55/100）· 团队环境（32/100）</p>
+  </div>
+
+  <h3>大师结语</h3>
+  <div class="highlight-box">
+    <p style="font-size:1.1em;font-weight:700;font-style:italic;text-align:center;">
+      "孙兴慜的最后一舞，金玟哉的巅峰之盾，李刚仁的才华绽放——太极虎拥有亚洲顶级的天花板，但墨西哥高原上的三场硬仗将决定这是虎啸山林的前奏，还是虎落平阳的终章。出线就是胜利，16强便是勋章。"
+    </p>
+  </div>
+
+  <!-- Footer -->
+  <div class="text-center text-gray-400 text-xs mt-8 pt-4 border-t">
+    <p>2026美加墨世界杯 · 韩国国家队实力评估报告</p>
+    <p>数据来源：FIFA官方、Transfermarkt、KFA、多家体育媒体综合<br>报告使用 OPR 战力评估体系 · 2026年5月21日生成</p>
+  </div>
+
+</div>
+
+
+<!-- HuaFootball: back-to-home button -->
+<a href="../index.html" class="huafootball-back-btn" target="_self">
+  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M19 12H5"/><path d="M12 19l-7-7 7-7"/>
+  </svg>
+  返回首页
+</a>
+<style>
+  .huafootball-back-btn {
+    position: fixed !important;
+    bottom: 28px !important;
+    right: 28px !important;
+    z-index: 99999 !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    gap: 6px !important;
+    padding: 10px 22px !important;
+    background: rgba(26, 71, 42, 0.85) !important;
+    color: #c9a84c !important;
+    border: 1px solid rgba(201, 168, 76, 0.3) !important;
+    border-radius: 999px !important;
+    font-family: "Inter", "Noto Sans SC", system-ui, sans-serif !important;
+    font-size: 13px !important;
+    font-weight: 600 !important;
+    text-decoration: none !important;
+    backdrop-filter: blur(8px) !important;
+    -webkit-backdrop-filter: blur(8px) !important;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.3) !important;
+    transition: all 0.25s ease !important;
+    cursor: pointer !important;
+    user-select: none !important;
+  }
+  .huafootball-back-btn:hover {
+    background: rgba(26, 71, 42, 0.95) !important;
+    border-color: rgba(201, 168, 76, 0.5) !important;
+    box-shadow: 0 6px 28px rgba(201, 168, 76, 0.2) !important;
+    transform: translateY(-2px) !important;
+  }
+  .huafootball-back-btn svg {
+    transition: transform 0.2s ease !important;
+  }
+  .huafootball-back-btn:hover svg {
+    transform: translateX(-3px) !important;
+  }
+</style>
+
+</body>
+</html>

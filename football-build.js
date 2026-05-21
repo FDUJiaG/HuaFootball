@@ -1,0 +1,604 @@
+#!/usr/bin/env node
+
+/**
+ * HuaFootball Build Script
+ * ========================
+ * Scans WorldCup2026/ for team reports, extracts OPR scores & ratings,
+ * then generates the full index.html from scratch.
+ *
+ * Usage: node football-build.js
+ *
+ * After adding a new team report to WorldCup2026/:
+ *   node football-build.js
+ *
+ * That's it — index.html is fully regenerated with the new team.
+ */
+
+const fs = require('fs');
+const path = require('path');
+
+const ROOT = __dirname;
+const CONFIG_PATH = path.join(ROOT, 'config.json');
+const INDEX_PATH = path.join(ROOT, 'index.html');
+const TEAMS_DIR = path.join(ROOT, 'WorldCup2026');
+
+const FLAG_FALLBACK = '🏳️';
+const COLOR_FALLBACK = '#6b7280';
+
+// ─── Load config ──────────────────────────────────────────────────
+let config = {};
+try {
+  config = JSON.parse(fs.readFileSync(CONFIG_PATH, 'utf-8'));
+} catch { /* ignore */ }
+
+const FC = config.football || {};
+const TEAM_FLAGS = FC.teamFlags || {};
+const TEAM_COLORS = FC.teamColors || {};
+
+// ─── Extract score from report HTML ───────────────────────────────
+// Supports multiple formats across all reports
+function extractScore(content) {
+  // 1. "加权总分：42.0 / 100"
+  let m = content.match(/加权总分[：:]\s*([\d.]+)\s*\/\s*100/);
+  if (m) return parseFloat(m[1]);
+
+  // 2. "加权总分计算：... = 82.5分"
+  m = content.match(/加权总分计算[^=]*=\s*<strong>([\d.]+)\s*分/);
+  if (m) return parseFloat(m[1]);
+
+  // 3. "加权总分" label + nearby number (法国格式: <p>87.4</p> right after)
+  m = content.match(/加权总分<\/p>\s*\n?\s*<p[^>]*>([\d.]+)/);
+  if (m) return parseFloat(m[1]);
+
+  // 4. <div class="total-score">79.25 / 100</div> or <div class="total-score">64.85分</div>
+  m = content.match(/<div\s+class="[^"]*\btotal-score\b[^"]*"[^>]*>\s*([\d.]+)\s*(?:\/|\u5206)/);
+  if (m) return parseFloat(m[1]);
+
+  // 5. <div class="score">82.5 分</div>
+  m = content.match(/<div\s+class="[^"]*\bscore\b[^"]*"[^>]*>\s*([\d.]+)\s*\u5206/);
+  if (m) return parseFloat(m[1]);
+
+  // 6. Table cell: "加权总分" row → <td><strong>64.85 / 100</strong></td>
+  m = content.match(/加权总分[^<]*<td[^>]*>[^<]*<strong>([\d.]+)\s*\/\s*100/);
+  if (m) return parseFloat(m[1]);
+
+  return null;
+}
+
+// ─── Extract rating from report HTML ──────────────────────────────
+function extractRating(content) {
+  // 1. 实力评级：<span ...>A+</span>
+  let m = content.match(/实力评级[：:][^<]*<[^>]*>([A-D][+-]?)<\/[^>]*>/);
+  if (m) return m[1];
+
+  // 2. 评级：C — 二线劲旅（韩国格式）
+  m = content.match(/评级[：:]\s*([A-D][+-]?)\s*[—–]/);
+  if (m) return m[1];
+
+  // 3. A 级 / A+级 after 实力评级 or inside rating div
+  m = content.match(/实力评级[：:][^，,。]*?([A-D][+-]?)\s*级/);
+  if (m) return m[1];
+
+  // 4. 法国格式: <div class="rating-A ...">A 级</div>
+  m = content.match(/class="[^"]*rating-([A-D])[^"]*"[^>]*>\s*\1\s*级/);
+  if (m) return m[1];
+
+  // 5. 日本格式: <strong>A级（80-89分区间）</strong>
+  m = content.match(/<strong>([A-D][+-]?)\s*级/);
+  if (m) return m[1];
+
+  // 6. rating-badge: <span class="rating-badge">B级 — 二线劲旅</span>
+  m = content.match(/rating-badge[^>]*>([A-D][+-]?)\s*级/);
+  if (m) return m[1];
+
+  return null;
+}
+
+// ─── Extract team name from filename ──────────────────────────────
+function extractTeamName(fileName) {
+  return fileName.replace(/-2026-world-cup-report\.html$/i, '').trim();
+}
+
+// ─── Scan teams ───────────────────────────────────────────────────
+function scanTeams() {
+  if (!fs.existsSync(TEAMS_DIR)) {
+    console.log(`⚠️  目录不存在: ${TEAMS_DIR}`);
+    return [];
+  }
+
+  const files = fs.readdirSync(TEAMS_DIR)
+    .filter(f => /\.html$/i.test(f) && f !== 'index.html')
+    .sort();
+
+  const teams = [];
+  for (const file of files) {
+    const absPath = path.join(TEAMS_DIR, file);
+    const content = fs.readFileSync(absPath, 'utf-8');
+    const relPath = 'WorldCup2026/' + file;
+
+    const score = extractScore(content);
+    const rating = extractRating(content);
+    const name = extractTeamName(file);
+
+    if (!name) {
+      console.warn(`   ⚠️  无法识别球队名: ${file}`);
+      continue;
+    }
+
+    const flag = TEAM_FLAGS[name] || FLAG_FALLBACK;
+    const accent = TEAM_COLORS[name] || COLOR_FALLBACK;
+
+    if (!TEAM_FLAGS[name]) {
+      console.warn(`   ⚠️  未知球队 "${name}"，请在 config.json 的 football.teamFlags 中添加`);
+    }
+
+    teams.push({ name, flag, file: relPath, score, rating, accent });
+    const scoreStr = score != null ? `${score}分` : '??分';
+    const ratingStr = rating || '?';
+    console.log(`   ${flag} ${name}: ${scoreStr} [${ratingStr}]`);
+  }
+
+  return teams;
+}
+
+// ─── Generate full index.html ─────────────────────────────────────
+function generateIndex(teams, scores) {
+  const avg = scores.length > 0
+    ? (scores.reduce((a, b) => a + b, 0) / scores.length).toFixed(1)
+    : '--';
+  const max = scores.length > 0 ? Math.max(...scores).toFixed(1) : '--';
+  const min = scores.length > 0 ? Math.min(...scores).toFixed(1) : '--';
+
+  const teamsJSON = JSON.stringify(teams.map(t => ({
+    name: t.name,
+    flag: t.flag,
+    file: t.file,
+    score: t.score,
+    rating: t.rating || '?',
+    accent: t.accent,
+  })));
+
+  const year = new Date().getFullYear();
+
+  return `<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="HuaFootball — 专业AI足球战力分析平台，覆盖2026世界杯各队OPR综合评分与赛事分析" />
+<link rel="icon" href="favicon.jpg" type="image/jpeg" />
+<title>HuaFootball · 足球战力分析平台</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+tailwind.config = {
+  theme: {
+    extend: {
+      colors: {
+        pitch: { 50: '#f0fdf4', 100: '#dcfce7', 200: '#bbf7d0', 300: '#86efac', 400: '#4ade80', 500: '#22c55e', 600: '#16a34a', 700: '#15803d', 800: '#166534', 900: '#14532d', 950: '#052e16' },
+        leather: { DEFAULT: '#8B4513', light: '#A0522D', dark: '#5C2E00' },
+        field: { DEFAULT: '#1a472a', light: '#2d6a4f', dark: '#0d2818' },
+        gold: { DEFAULT: '#c9a84c', light: '#dfc06a', dark: '#a8882e' },
+      },
+      fontFamily: {
+        display: ['"Noto Serif SC"', '"Source Han Serif SC"', 'Georgia', 'serif'],
+        body: ['"Inter"', '"Noto Sans SC"', 'system-ui', 'sans-serif'],
+      },
+    }
+  }
+}
+</script>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Noto+Serif+SC:wght@400;600;700;900&display=swap" rel="stylesheet" />
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body {
+  font-family: 'Inter', 'Noto Sans SC', system-ui, sans-serif;
+  background: #0a0e0a;
+  color: #e0e7e0;
+  min-height: 100vh;
+}
+.site-header {
+  background: linear-gradient(135deg, #0d2818 0%, #1a472a 40%, #2d6a4f 100%);
+  border-bottom: 3px solid #c9a84c;
+  position: relative;
+  overflow: hidden;
+}
+.site-header::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  right: -5%;
+  width: 600px;
+  height: 600px;
+  background: radial-gradient(circle, rgba(201,168,76,0.07) 0%, transparent 70%);
+  border-radius: 50%;
+}
+.site-header::after {
+  content: '';
+  position: absolute;
+  bottom: -20%;
+  left: 10%;
+  width: 400px;
+  height: 400px;
+  background: radial-gradient(circle, rgba(255,255,255,0.03) 0%, transparent 60%);
+  border-radius: 50%;
+}
+.stat-bubble {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 5px 16px;
+  border-radius: 999px;
+  font-size: 0.82rem;
+  font-weight: 500;
+}
+.sort-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 20px;
+  border-radius: 10px;
+  font-size: 0.88rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.25s ease;
+  border: 1.5px solid rgba(201,168,76,0.3);
+  background: rgba(201,168,76,0.08);
+  color: #c9a84c;
+  user-select: none;
+}
+.sort-btn:hover { background: rgba(201,168,76,0.18); border-color: #c9a84c; }
+.sort-btn .arrow { transition: transform 0.3s ease; display: inline-block; }
+.sort-btn .arrow.desc { transform: rotate(180deg); }
+.search-wrapper { position: relative; }
+.search-input {
+  width: 100%;
+  padding: 10px 16px 10px 40px;
+  border: 1.5px solid rgba(255,255,255,0.1);
+  border-radius: 10px;
+  font-size: 0.9rem;
+  outline: none;
+  transition: all 0.2s ease;
+  background: rgba(255,255,255,0.06);
+  color: #e0e7e0;
+}
+.search-input:focus { border-color: #c9a84c; box-shadow: 0 0 0 3px rgba(201,168,76,0.12); background: rgba(255,255,255,0.1); }
+.search-input::placeholder { color: rgba(255,255,255,0.3); }
+.search-icon {
+  position: absolute;
+  left: 14px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: rgba(255,255,255,0.3);
+  pointer-events: none;
+}
+.filter-tab {
+  padding: 7px 18px;
+  border-radius: 999px;
+  font-size: 0.82rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  border: 1.5px solid transparent;
+  background: rgba(255,255,255,0.06);
+  color: rgba(255,255,255,0.5);
+  user-select: none;
+}
+.filter-tab:hover { background: rgba(255,255,255,0.1); color: rgba(255,255,255,0.7); }
+.filter-tab.active { background: rgba(201,168,76,0.15); color: #c9a84c; border-color: rgba(201,168,76,0.4); }
+.team-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 18px;
+}
+@media (max-width: 480px) { .team-grid { grid-template-columns: 1fr; } }
+.team-card {
+  background: linear-gradient(145deg, #111811 0%, #0f1f0f 100%);
+  border-radius: 16px;
+  overflow: hidden;
+  transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+  border: 1px solid rgba(255,255,255,0.06);
+  position: relative;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+}
+.team-card:hover { transform: translateY(-5px); box-shadow: 0 16px 40px rgba(0,0,0,0.4); border-color: rgba(201,168,76,0.2); }
+.card-accent { height: 5px; flex-shrink: 0; }
+.card-body { padding: 22px 22px 20px; flex: 1; display: flex; flex-direction: column; }
+.card-flag { font-size: 2.4rem; line-height: 1; margin-bottom: 8px; }
+.card-name { font-family: 'Noto Serif SC', 'Source Han Serif SC', Georgia, serif; font-size: 1.15rem; font-weight: 700; color: #f0f7f0; margin-bottom: 4px; }
+.card-filename { font-size: 0.72rem; color: rgba(255,255,255,0.25); font-family: 'SF Mono', 'Fira Code', monospace; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; margin-bottom: 14px; }
+.card-stats { display: flex; align-items: center; gap: 16px; padding-top: 14px; border-top: 1px solid rgba(255,255,255,0.06); }
+.score-display { font-size: 2rem; font-weight: 800; line-height: 1; letter-spacing: -0.5px; }
+.score-display .decimal { font-size: 1rem; font-weight: 500; opacity: 0.6; }
+.rating-badge { display: inline-flex; align-items: center; justify-content: center; width: 38px; height: 38px; border-radius: 10px; font-size: 1rem; font-weight: 800; }
+.section-divider { display: flex; align-items: center; gap: 16px; margin: 40px 0 24px; }
+.section-divider::after { content: ''; flex: 1; height: 1px; background: linear-gradient(to right, rgba(201,168,76,0.3), transparent); }
+.section-title { font-family: 'Noto Serif SC', 'Source Han Serif SC', Georgia, serif; font-size: 1.3rem; font-weight: 700; color: #c9a84c; }
+.games-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 16px; }
+.game-card { background: rgba(255,255,255,0.04); border: 1px dashed rgba(255,255,255,0.1); border-radius: 14px; padding: 28px 24px; text-align: center; transition: all 0.3s ease; }
+.game-card:hover { background: rgba(255,255,255,0.07); border-color: rgba(201,168,76,0.2); }
+.game-card .icon { font-size: 2.2rem; margin-bottom: 10px; }
+.game-card .label { font-size: 0.95rem; color: rgba(255,255,255,0.6); font-weight: 500; }
+.game-card .sub { font-size: 0.8rem; color: rgba(255,255,255,0.3); margin-top: 6px; }
+.empty-state { text-align: center; padding: 60px 20px; color: rgba(255,255,255,0.3); }
+.site-footer { text-align: center; padding: 30px 20px; color: rgba(255,255,255,0.25); font-size: 0.8rem; border-top: 1px solid rgba(255,255,255,0.06); margin-top: 50px; background: #070a07; }
+.card-enter { animation: cardFadeIn 0.4s ease forwards; }
+@keyframes cardFadeIn { from { opacity: 0; transform: translateY(16px); } to { opacity: 1; transform: translateY(0); } }
+.rank-number { display: inline-flex; align-items: center; justify-content: center; width: 28px; height: 28px; border-radius: 50%; font-size: 0.78rem; font-weight: 700; background: rgba(201,168,76,0.12); color: #c9a84c; flex-shrink: 0; }
+.rank-1 { background: rgba(255,215,0,0.2); color: #ffd700; }
+.rank-2 { background: rgba(192,192,192,0.15); color: #c0c0c0; }
+.rank-3 { background: rgba(205,127,50,0.15); color: #cd7f32; }
+</style>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="relative z-10 max-w-6xl mx-auto px-6 py-12 sm:py-16">
+    <div class="flex items-center gap-4 mb-3">
+      <div class="w-12 h-12 rounded-xl overflow-hidden flex-shrink-0 border-2 border-gold/30 shadow-lg shadow-gold/10">
+        <img src="favicon.jpg" alt="HuaFootball" class="w-full h-full object-cover" />
+      </div>
+      <div>
+        <h1 class="text-2xl sm:text-3xl font-bold text-white font-display tracking-wide">HuaFootball</h1>
+        <p class="text-gold/70 text-sm font-medium">国仕足球 · 战力分析平台</p>
+      </div>
+    </div>
+    <p class="text-gray-400 text-sm max-w-xl">OPR综合战力评分体系 · 基于七维度深度拆解的世界杯国家队实力评估与赛事分析</p>
+    <div class="mt-6 flex flex-wrap gap-3" id="stats-bar">
+      <span class="stat-bubble bg-white/8 text-gray-300 border border-white/8">⚽ 共 <strong id="total-count">${teams.length}</strong> 支国家队</span>
+      <span class="stat-bubble bg-white/8 text-gray-300 border border-white/8">📊 平均 <strong id="avg-score">${avg}</strong> 分</span>
+      <span class="stat-bubble bg-white/8 text-gray-300 border border-white/8">🏆 最高 <strong id="max-score">${max}</strong> 分</span>
+      <span class="stat-bubble bg-white/8 text-gray-300 border border-white/8">📉 最低 <strong id="min-score">${min}</strong> 分</span>
+    </div>
+  </div>
+</header>
+
+<main class="max-w-6xl mx-auto px-4 sm:px-6 py-8">
+
+  <div class="flex flex-col sm:flex-row sm:items-center gap-4 mb-6">
+    <div class="flex items-center gap-3 flex-wrap">
+      <button class="sort-btn" id="sort-btn">
+        <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M3 7h6M3 12h10M3 17h14" /></svg>
+        <span id="sort-label">最高优先</span>
+        <span class="arrow desc" id="sort-arrow">▼</span>
+      </button>
+      <div class="flex flex-wrap gap-1.5" id="rating-filters">
+        <button class="filter-tab active" data-filter="all">全部</button>
+        <button class="filter-tab" data-filter="A">A 级</button>
+        <button class="filter-tab" data-filter="B">B 级</button>
+        <button class="filter-tab" data-filter="C">C 级</button>
+        <button class="filter-tab" data-filter="D">D 级</button>
+      </div>
+    </div>
+    <div class="search-wrapper sm:ml-auto sm:w-56">
+      <svg class="search-icon w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" /></svg>
+      <input class="search-input" type="text" placeholder="搜索球队…" id="search-input" />
+    </div>
+  </div>
+
+  <div class="section-divider"><span class="section-title">🏆 国家队战力排行</span></div>
+  <div id="teams-grid" class="team-grid"></div>
+  <div id="empty-state" class="empty-state hidden">
+    <svg class="w-16 h-16 mx-auto mb-4 opacity-30" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" /></svg>
+    <p class="text-lg font-medium">未找到匹配的球队</p>
+    <p class="text-sm mt-1">试试其他分类或关键词</p>
+  </div>
+
+  <div class="section-divider" style="margin-top:60px;"><span class="section-title">🎮 对局分析</span></div>
+  <div id="games-section">
+    <div class="games-grid">
+      <div class="game-card"><div class="icon">⚔️</div><div class="label">对局分析</div><div class="sub">将比赛分析HTML放入 Games/ 文件夹</div></div>
+      <div class="game-card"><div class="icon">📊</div><div class="label">数据驱动</div><div class="sub">基于OPR评分体系赛前深度拆解</div></div>
+      <div class="game-card" style="cursor:pointer" onclick="window.open('Games/','_blank')"><div class="icon">📂</div><div class="label">浏览文件夹</div><div class="sub">查看所有已分析对局</div></div>
+    </div>
+  </div>
+
+  <div class="section-divider" style="margin-top:60px;"><span class="section-title">📐 评分体系</span></div>
+  <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-3 mb-4">
+    <div class="bg-white/4 border border-white/8 rounded-xl p-4 text-center"><div class="text-2xl font-bold text-pitch-400">90+</div><div class="text-xs text-gray-500 mt-1">冠军热门</div></div>
+    <div class="bg-white/4 border border-white/8 rounded-xl p-4 text-center"><div class="text-2xl font-bold text-pitch-300">80-89</div><div class="text-xs text-gray-500 mt-1">一流强队</div></div>
+    <div class="bg-white/4 border border-white/8 rounded-xl p-4 text-center"><div class="text-2xl font-bold text-yellow-400">70-79</div><div class="text-xs text-gray-500 mt-1">二线劲旅</div></div>
+    <div class="bg-white/4 border border-white/8 rounded-xl p-4 text-center"><div class="text-2xl font-bold text-orange-400">60-69</div><div class="text-xs text-gray-500 mt-1">具备出线实力</div></div>
+    <div class="bg-white/4 border border-white/8 rounded-xl p-4 text-center"><div class="text-2xl font-bold text-red-400">&lt;60</div><div class="text-xs text-gray-500 mt-1">搅局者/鱼腩</div></div>
+  </div>
+</main>
+
+<footer class="site-footer">
+  <div class="max-w-3xl mx-auto">
+    <p class="text-xs leading-relaxed"><strong>HuaFootball</strong> · OPR综合战力评分体系 · 数据来源：Transfermarkt、各足协官方公告、体育媒体综合报道</p>
+    <p class="mt-3 text-xs">&copy; ${year} 国仕无双 · HuaResearch Platform &nbsp;|&nbsp; Powered by WorkBuddy AI</p>
+  </div>
+</footer>
+
+<script id="teams-data" type="application/json">${teamsJSON}</script>
+
+<script>
+(function() {
+  'use strict';
+  const teams = JSON.parse(document.getElementById('teams-data').textContent);
+  const grid = document.getElementById('teams-grid');
+  const emptyState = document.getElementById('empty-state');
+  const totalCountEl = document.getElementById('total-count');
+  const avgScoreEl = document.getElementById('avg-score');
+  const maxScoreEl = document.getElementById('max-score');
+  const minScoreEl = document.getElementById('min-score');
+  const sortBtn = document.getElementById('sort-btn');
+  const sortLabel = document.getElementById('sort-label');
+  const sortArrow = document.getElementById('sort-arrow');
+  const searchInput = document.getElementById('search-input');
+  const filterTabs = document.querySelectorAll('.filter-tab');
+
+  let sortOrder = 'desc';
+  let currentFilter = 'all';
+  let currentSearch = '';
+
+  function updateStats(data) {
+    if (!data.length) { totalCountEl.textContent = '0'; return; }
+    const scores = data.map(t => t.score).filter(s => s != null);
+    totalCountEl.textContent = data.length;
+    if (avgScoreEl) avgScoreEl.textContent = scores.length ? (scores.reduce((a,b)=>a+b,0)/scores.length).toFixed(1) : '--';
+    if (maxScoreEl) maxScoreEl.textContent = scores.length ? Math.max(...scores).toFixed(1) : '--';
+    if (minScoreEl) minScoreEl.textContent = scores.length ? Math.min(...scores).toFixed(1) : '--';
+  }
+
+  function render() {
+    let filtered = teams;
+    if (currentFilter !== 'all') filtered = filtered.filter(t => (t.rating||'').startsWith(currentFilter));
+    if (currentSearch.trim()) {
+      const q = currentSearch.trim().toLowerCase();
+      filtered = filtered.filter(t => t.name.toLowerCase().includes(q) || (t.rating||'').toLowerCase().includes(q));
+    }
+    filtered.sort((a, b) => sortOrder === 'desc' ? (b.score||0) - (a.score||0) : (a.score||0) - (b.score||0));
+    updateStats(filtered);
+    if (filtered.length === 0) { emptyState.classList.remove('hidden'); grid.innerHTML = ''; return; }
+    emptyState.classList.add('hidden');
+
+    grid.innerHTML = filtered.map((t, i) => {
+      const rank = i + 1;
+      let rc = 'rank-number';
+      if (rank === 1) rc += ' rank-1';
+      else if (rank === 2) rc += ' rank-2';
+      else if (rank === 3) rc += ' rank-3';
+      const si = Math.floor(t.score||0);
+      const sd = t.score != null ? (t.score % 1).toFixed(2).slice(1) : '.00';
+      let rcol = '#22c55e';
+      const rt = (t.rating||'')[0];
+      if (rt === 'B') rcol = '#eab308';
+      else if (rt === 'C') rcol = '#f97316';
+      else if (rt === 'D') rcol = '#ef4444';
+      return \`<div class="team-card card-enter" style="animation-delay:\${Math.min(i*40,320)}ms" onclick="window.open('\${t.file}','_blank')">
+        <div class="card-accent" style="background:\${t.accent}"></div>
+        <div class="card-body">
+          <div class="flex items-start justify-between mb-2">
+            <div><span class="card-flag">\${t.flag}</span><h3 class="card-name">\${t.name}</h3></div>
+            <div class="\${rc}">\${rank}</div>
+          </div>
+          <div class="card-filename" title="\${t.file}">\${t.file}</div>
+          <div class="card-stats">
+            <div><span class="score-display">\${si}<span class="decimal">\${sd}</span></span></div>
+            <div class="rating-badge" style="background:\${rcol}22;color:\${rcol};border:1px solid \${rcol}44;">\${t.rating||'?'}</div>
+            <a href="\${t.file}" target="_blank" class="ml-auto inline-flex items-center gap-1 text-xs font-medium text-gray-500 hover:text-gold transition-colors px-3 py-1.5 rounded-lg bg-white/5 hover:bg-white/10" onclick="event.stopPropagation()">查看详情<svg class="w-3 h-3" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" /></svg></a>
+          </div>
+        </div>
+      </div>\`;
+    }).join('');
+  }
+
+  sortBtn.addEventListener('click', function() {
+    sortOrder = sortOrder === 'desc' ? 'asc' : 'desc';
+    sortLabel.textContent = sortOrder === 'desc' ? '最高优先' : '最低优先';
+    sortArrow.classList.toggle('desc', sortOrder === 'desc');
+    render();
+  });
+  filterTabs.forEach(tab => {
+    tab.addEventListener('click', function() {
+      filterTabs.forEach(t => t.classList.remove('active'));
+      this.classList.add('active');
+      currentFilter = this.dataset.filter;
+      render();
+    });
+  });
+  searchInput.addEventListener('input', function() { currentSearch = this.value; render(); });
+  render();
+})();
+</script>
+</body>
+</html>`;
+}
+
+// ─── Inject back button into team report ──────────────────────────
+function injectBackButton(fileName) {
+  const absPath = path.join(TEAMS_DIR, fileName);
+  let content = fs.readFileSync(absPath, 'utf-8');
+  if (content.indexOf('huafootball-back-btn') !== -1 || content.indexOf('huafuture-back-btn') !== -1) return false;
+
+  const btnHTML =
+    '\n<!-- HuaFootball: back-to-home button -->\n' +
+    '<a href="../index.html" class="huafootball-back-btn" target="_self">\n' +
+    '  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5"/><path d="M12 19l-7-7 7-7"/></svg>\n' +
+    '  返回首页\n' +
+    '</a>\n' +
+    '<style>\n' +
+    '.huafootball-back-btn {\n' +
+    '  position:fixed!important;bottom:28px!important;right:28px!important;z-index:99999!important;\n' +
+    '  display:inline-flex!important;align-items:center!important;gap:6px!important;\n' +
+    '  padding:10px 22px!important;background:rgba(26,71,42,0.85)!important;color:#c9a84c!important;\n' +
+    '  border:1px solid rgba(201,168,76,0.3)!important;border-radius:999px!important;\n' +
+    '  font-family:"Inter","Noto Sans SC",system-ui,sans-serif!important;font-size:13px!important;\n' +
+    '  font-weight:600!important;text-decoration:none!important;\n' +
+    '  backdrop-filter:blur(8px)!important;-webkit-backdrop-filter:blur(8px)!important;\n' +
+    '  box-shadow:0 4px 20px rgba(0,0,0,0.3)!important;transition:all .25s ease!important;\n' +
+    '  cursor:pointer!important;user-select:none!important;\n' +
+    '}\n' +
+    '.huafootball-back-btn:hover {\n' +
+    '  background:rgba(26,71,42,0.95)!important;border-color:rgba(201,168,76,0.5)!important;\n' +
+    '  box-shadow:0 6px 28px rgba(201,168,76,0.2)!important;transform:translateY(-2px)!important;\n' +
+    '}\n' +
+    '.huafootball-back-btn svg { transition:transform .2s ease!important; }\n' +
+    '.huafootball-back-btn:hover svg { transform:translateX(-3px)!important; }\n' +
+    '</style>\n';
+
+  const pos = content.lastIndexOf('</body>');
+  if (pos !== -1) {
+    content = content.slice(0, pos) + btnHTML + '\n' + content.slice(pos);
+  } else {
+    const p = content.lastIndexOf('</html>');
+    if (p === -1) return false;
+    content = content.slice(0, p) + btnHTML + '\n' + content.slice(p);
+  }
+  fs.writeFileSync(absPath, content, 'utf-8');
+  return true;
+}
+
+// ─── Main ─────────────────────────────────────────────────────────
+function main() {
+  console.log('⚽ HuaFootball 构建脚本');
+  console.log('━━━━━━━━━━━━━━━━━━━━━━\n');
+  console.log('🔄 扫描 WorldCup2026/ 目录...');
+  const teams = scanTeams();
+  if (teams.length === 0) {
+    console.log('\n⚠️  未找到任何球队报告');
+    return;
+  }
+
+  // Sort by score desc
+  teams.sort((a, b) => (b.score||0) - (a.score||0));
+  console.log(`\n📊 共发现 ${teams.length} 支国家队`);
+
+  // Generate index.html
+  console.log('\n📝 生成 index.html...');
+  const scores = teams.map(t => t.score).filter(s => s != null);
+  const html = generateIndex(teams, scores);
+  fs.writeFileSync(INDEX_PATH, html, 'utf-8');
+  console.log('   ✅ index.html 已生成');
+
+  // Inject back buttons
+  console.log('\n🔗 注入返回首页按钮...');
+  let injected = 0, skipped = 0;
+  for (const t of teams) {
+    const fn = path.basename(t.file);
+    try {
+      if (injectBackButton(fn)) { injected++; console.log(`   ✅ ${t.name}`); }
+      else { skipped++; }
+    } catch { console.warn(`   ⚠️  注入失败: ${t.name}`); }
+  }
+
+  const sizeKb = (Buffer.byteLength(html, 'utf-8') / 1024).toFixed(1);
+  const avg = scores.length ? (scores.reduce((a,b)=>a+b,0)/scores.length).toFixed(1) : '--';
+  const max = scores.length ? Math.max(...scores).toFixed(1) : '--';
+  const min = scores.length ? Math.min(...scores).toFixed(1) : '--';
+
+  console.log('\n━━━━━━━━━━━━━━━━━━━━━━');
+  console.log('✅ 构建完成！');
+  console.log(`   📄 index.html (${sizeKb} KB)`);
+  console.log(`   🏆 ${teams.length} 支国家队`);
+  console.log(`   📊 平均 ${avg} | 最高 ${max} | 最低 ${min}`);
+  console.log(`   🔗 返回按钮: ${injected} 份注入 (${skipped} 份已有)`);
+  console.log('\n🌐 打开 index.html 即可浏览');
+  console.log('💡 后续添加球队: node football-build.js');
+}
+
+main();

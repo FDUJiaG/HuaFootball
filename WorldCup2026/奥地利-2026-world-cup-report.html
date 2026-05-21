@@ -1,0 +1,474 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>奥地利 · 2026世界杯实力评估报告</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+tailwind.config = {
+  theme: {
+    extend: {
+      colors: {
+        at: {
+          red: '#ED2939',
+          white: '#FFFFFF',
+          dark: '#1a1a2e',
+          gold: '#C8A951',
+          lightgray: '#f8f9fa'
+        }
+      },
+      fontFamily: {
+        'kai': ['KaiTi', 'STKaiti', 'SimKai', 'serif'],
+        'serif': ['Times New Roman', 'serif']
+      }
+    }
+  }
+}
+</script>
+<style>
+  body { font-family: KaiTi, STKaiti, SimKai, 'Times New Roman', serif; font-size: 11pt; }
+  .container { max-width: 1100px; margin: 0 auto; padding: 20px; }
+  h1 { font-size: 2em; }
+  h2 { font-size: 1.5em; border-bottom: 3px solid #ED2939; padding-bottom: 8px; margin-top: 30px; }
+  h3 { font-size: 1.2em; margin-top: 20px; }
+  table { width: 100%; border-collapse: collapse; font-size: 11pt; }
+  th, td { border: 1px solid #ddd; padding: 8px 12px; text-align: left; }
+  th { background-color: #ED2939; color: white; font-weight: bold; }
+  tr:nth-child(even) { background-color: #f8f9fa; }
+  .score-bar { height: 20px; border-radius: 10px; background: #eee; overflow: hidden; }
+  .score-fill { height: 100%; border-radius: 10px; transition: width 1s ease; }
+  .dimension-card { background: white; border-radius: 12px; padding: 20px; margin-bottom: 20px; box-shadow: 0 2px 8px rgba(0,0,0,0.08); border-left: 5px solid #ED2939; }
+  .subitem { margin: 12px 0; padding: 12px; background: #f8f9fa; border-radius: 8px; }
+  .subitem h4 { color: #ED2939; font-weight: bold; margin-bottom: 6px; }
+  .summary-box { background: linear-gradient(135deg, #ED2939, #8b0000); color: white; border-radius: 16px; padding: 25px; margin: 20px 0; }
+  .badge { display: inline-block; padding: 2px 10px; border-radius: 12px; font-size: 0.85em; font-weight: bold; }
+  .badge-gk { background: #4CAF50; color: white; }
+  .badge-df { background: #2196F3; color: white; }
+  .badge-mf { background: #FF9800; color: white; }
+  .badge-fw { background: #f44336; color: white; }
+</style>
+</head>
+<body class="bg-gray-50">
+
+<div class="container">
+
+<!-- ==================== HEADER ==================== -->
+<div class="section text-center bg-white rounded-2xl shadow-lg p-8 mb-8">
+  <img src="https://www.oefb.at/assets/oefb3/images/menu-logo_2025.png"
+       alt="奥地利足协队徽"
+       style="height:90px;width:auto;display:block;margin:0 auto 10px;"
+       onerror="this.style.display='none';document.getElementById('logo-fb').style.display='block';" />
+  <div id="logo-fb" style="display:none;font-size:4em;margin-bottom:10px;">🇦🇹</div>
+  <h1 class="text-4xl font-bold text-at-red mt-4">奥地利 · 2026世界杯实力评估报告</h1>
+  <p class="text-gray-500 mt-2">报告生成日期：2026年5月21日 · 2026美加墨世界杯</p>
+  <div class="mt-3 p-2 inline-block bg-red-50 rounded-lg border border-red-200">
+    <p class="text-sm"><strong>⏰ 28年等待：</strong>自1998年法国世界杯以来，奥地利首次重返世界杯舞台</p>
+  </div>
+</div>
+
+<!-- ==================== 基本信息 ==================== -->
+<h2 class="text-at-red">（一）球队基本信息</h2>
+
+<div class="bg-white rounded-xl shadow p-6 mb-6">
+  <div class="grid md:grid-cols-2 gap-4">
+    <div>
+      <p><strong>主教练：</strong>拉尔夫·朗尼克（Ralf Rangnick）— 德国人，"高位压迫教父"</p>
+      <p><strong>队长：</strong>大卫·阿拉巴（David Alaba）— 皇家马德里，4次欧冠冠军</p>
+      <p><strong>FIFA排名：</strong>约第25位</p>
+      <p><strong>世界杯参赛次数：</strong>第8次（含2026年）</p>
+      <p><strong>世界杯最佳成绩：</strong>季军 🥉（1954年瑞士世界杯）</p>
+      <p><strong>上届（2022）成绩：</strong>未晋级（上次参赛为1998年）</p>
+    </div>
+    <div>
+      <p><strong>小组赛：</strong>J组</p>
+      <p><strong>同组对手：</strong>阿根廷 🇦🇷（卫冕冠军）、阿尔及利亚 🇩🇿、约旦 🇯🇴（首次参赛）</p>
+      <p><strong>首战：</strong>6月16日 vs 约旦（圣克拉拉李维斯体育场）</p>
+      <p><strong>次战：</strong>6月22日 vs 阿根廷（阿灵顿AT&T体育场）</p>
+      <p><strong>末轮：</strong>6月27日 vs 阿尔及利亚（堪萨斯城箭头体育场）</p>
+      <div class="mt-2 p-2 bg-blue-50 rounded">
+        <p class="text-sm"><strong>🧠 朗尼克效应：</strong>2022年接手后彻底改造奥地利——从"传统德奥风格"转型为"高位压迫+快速转换"体系</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ==================== 26人大名单 ==================== -->
+<h3 class="text-xl font-bold text-at-red">26人大名单（3 GK + 9 DF + 11 MF + 3 FW）</h3>
+<p class="text-gray-500 text-sm mb-3">* 5月18-19日公布 · 德甲军团16人 · 中场11人为32强中场配置比例最高之一</p>
+
+<div class="bg-white rounded-xl shadow p-6 mb-6">
+  <table>
+    <thead>
+      <tr>
+        <th>位置</th>
+        <th>球员姓名</th>
+        <th>英文名</th>
+        <th>所属俱乐部</th>
+        <th>联赛</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr><td><span class="badge badge-gk">GK</span></td><td>帕特里克·彭茨</td><td>Patrick Pentz</td><td>布隆德比</td><td>丹超</td></tr>
+      <tr><td><span class="badge badge-gk">GK</span></td><td>亚历山大·施拉格尔</td><td>Alexander Schlager</td><td>萨尔茨堡红牛</td><td>奥超</td></tr>
+      <tr><td><span class="badge badge-gk">GK</span></td><td>弗洛里安·维格勒</td><td>Florian Wiegele</td><td>比尔森胜利</td><td>捷甲</td></tr>
+      <tr><td><span class="badge badge-df">DF</span></td><td>大卫·阿芬格鲁伯</td><td>David Affengruber</td><td>埃尔切</td><td>西乙</td></tr>
+      <tr><td><span class="badge badge-df">DF</span></td><td><strong>⭐ 大卫·阿拉巴 (C)</strong></td><td><strong>David Alaba</strong></td><td><strong>皇家马德里</strong></td><td>西甲</td></tr>
+      <tr><td><span class="badge badge-df">DF</span></td><td><strong>凯文·丹索</strong></td><td><strong>Kevin Danso</strong></td><td><strong>托特纳姆热刺</strong></td><td>英超</td></tr>
+      <tr><td><span class="badge badge-df">DF</span></td><td>马尔科·弗里德尔</td><td>Marco Friedl</td><td>云达不莱梅</td><td>德甲</td></tr>
+      <tr><td><span class="badge badge-df">DF</span></td><td>菲利普·林哈特</td><td>Philipp Lienhart</td><td>弗赖堡</td><td>德甲</td></tr>
+      <tr><td><span class="badge badge-df">DF</span></td><td>菲利普·姆韦内</td><td>Phillipp Mwene</td><td>美因茨</td><td>德甲</td></tr>
+      <tr><td><span class="badge badge-df">DF</span></td><td>斯特凡·波施</td><td>Stefan Posch</td><td>科莫</td><td>意甲</td></tr>
+      <tr><td><span class="badge badge-df">DF</span></td><td>亚历山大·普拉斯</td><td>Alexander Prass</td><td>霍芬海姆</td><td>德甲</td></tr>
+      <tr><td><span class="badge badge-df">DF</span></td><td>米夏埃尔·斯沃博达</td><td>Michael Svoboda</td><td>威尼斯</td><td>意甲</td></tr>
+      <tr><td><span class="badge badge-mf">MF</span></td><td><strong>⭐ 克里斯托夫·鲍姆加特纳</strong></td><td><strong>Christoph Baumgartner</strong></td><td><strong>RB莱比锡</strong></td><td>德甲</td></tr>
+      <tr><td><span class="badge badge-mf">MF</span></td><td>卡尼·楚克维梅卡</td><td>Carney Chukwuemeka</td><td>多特蒙德</td><td>德甲</td></tr>
+      <tr><td><span class="badge badge-mf">MF</span></td><td>弗洛里安·格里利奇</td><td>Florian Grillitsch</td><td>布拉加</td><td>葡超</td></tr>
+      <tr><td><span class="badge badge-mf">MF</span></td><td><strong>⭐ 康拉德·莱默尔</strong></td><td><strong>Konrad Laimer</strong></td><td><strong>拜仁慕尼黑</strong></td><td>德甲</td></tr>
+      <tr><td><span class="badge badge-mf">MF</span></td><td><strong>⭐ 马塞尔·萨比策</strong></td><td><strong>Marcel Sabitzer</strong></td><td><strong>多特蒙德</strong></td><td>德甲</td></tr>
+      <tr><td><span class="badge badge-mf">MF</span></td><td>克萨韦尔·施拉格尔</td><td>Xaver Schlager</td><td>RB莱比锡</td><td>德甲</td></tr>
+      <tr><td><span class="badge badge-mf">MF</span></td><td>尼古拉斯·塞瓦尔德</td><td>Nicolas Seiwald</td><td>RB莱比锡</td><td>德甲</td></tr>
+      <tr><td><span class="badge badge-mf">MF</span></td><td>罗马诺·施密德</td><td>Romano Schmid</td><td>云达不莱梅</td><td>德甲</td></tr>
+      <tr><td><span class="badge badge-mf">MF</span></td><td>亚历山德罗·舍普夫</td><td>Alessandro Schöpf</td><td>沃尔夫斯贝格</td><td>奥超</td></tr>
+      <tr><td><span class="badge badge-mf">MF</span></td><td>保罗·万纳</td><td>Paul Wanner</td><td>PSV埃因霍温</td><td>荷甲</td></tr>
+      <tr><td><span class="badge badge-mf">MF</span></td><td>帕特里克·维默</td><td>Patrick Wimmer</td><td>沃尔夫斯堡</td><td>德甲</td></tr>
+      <tr><td><span class="badge badge-fw">FW</span></td><td><strong>⭐ 马尔科·阿瑙托维奇</strong></td><td><strong>Marko Arnautović</strong></td><td><strong>贝尔格莱德红星</strong></td><td>塞超</td></tr>
+      <tr><td><span class="badge badge-fw">FW</span></td><td>米夏埃尔·格雷戈里奇</td><td>Michael Gregoritsch</td><td>布隆德比</td><td>丹超</td></tr>
+      <tr><td><span class="badge badge-fw">FW</span></td><td>萨沙·卡拉伊季奇</td><td>Saša Kalajdžić</td><td>狼队</td><td>英冠</td></tr>
+    </tbody>
+  </table>
+  <div class="mt-3 p-3 bg-yellow-50 rounded-lg border border-yellow-200">
+    <p class="text-sm"><strong>🇩🇪 德甲血脉：</strong>全队16人效力德甲（莱比锡3人、多特2人、不莱梅2人、霍芬海姆2人、拜仁1人、弗赖堡1人、美因茨1人、狼堡1人）— 32强中最显著的"单联赛集中度"之一 | 阿拉巴（皇马）和丹索（热刺）提供西甲/英超元素</p>
+  </div>
+</div>
+
+<!-- ==================== 七维度评分 ==================== -->
+<h2 class="text-at-red">（二）逐项评分明细（七维度深度拆解）</h2>
+
+<!-- 维度一 -->
+<div class="dimension-card">
+  <h3 class="text-xl font-bold text-at-red">维度一：阵容实力（权重30%）｜ 得分：56分 × 30% = 16.8分</h3>
+
+  <div class="subitem">
+    <h4>1.1 球星质量与个人能力 —— 58分</h4>
+    <table class="text-sm mb-2">
+      <tr><th>指标</th><th>数据</th></tr>
+      <tr><td>世界级/准世界级球星</td><td>2-3人（阿拉巴🌟、萨比策、莱默尔）</td></tr>
+      <tr><td>欧冠冠军得主</td><td>阿拉巴（4次）、莱默尔（1次，拜仁2025？）</td></tr>
+      <tr><td>五大联赛球员数</td><td>18+人（德甲16人+英超2人+意甲2人）</td></tr>
+      <tr><td>国家队史射手王</td><td>阿瑙托维奇（47球/132场）</td></tr>
+    </table>
+    <p>奥地利阵容的核心资产是"德甲中上游军团"——全队26人中16人效力德国足球甲级联赛，包括RB莱比锡的鲍姆加特纳、克萨韦尔·施拉格尔、塞瓦尔德，多特蒙德的萨比策和楚克维梅卡，拜仁的莱默尔。这套"德甲体系"的最大优势是战术统一性——球员们在同一个联赛氛围中成长，对高位压迫和快速转换的理解几乎不需要磨合。大卫·阿拉巴是皇马的传奇左后卫/中卫，4次欧冠冠军的履历在32强中也是顶级的——但他的伤病历史是一个不容忽视的隐患（近两个赛季在皇马因伤病缺席了约40%的比赛）。萨比策在多特蒙德经历了复苏赛季，莱默尔在拜仁的中场展现了顶级的跑动覆盖和侵略性。锋线上，阿瑙托维奇（37岁）是奥地利历史最佳射手（47球），但他已远离五大联赛（贝尔格莱德红星），速度和爆发力较巅峰期有明显下滑。整体来看，奥地利的"球星质量"在欧洲球队中属于中等偏上——有单点世界级（阿拉巴），有体系级（萨比策+莱默尔+鲍姆加特纳），但缺乏能"一个人解决比赛"的超级巨星。</p>
+  </div>
+
+  <div class="subitem">
+    <h4>1.2 各位置均衡度 —— 55分</h4>
+    <p>奥地利的阵容呈现出"头重脚轻、前场空旷"的极端特征。中场11人是32强中最多的配置之一——RB莱比锡系的萨比策、鲍姆加特纳、施拉格尔提供技术深度，拜仁的莱默尔提供硬度，多特蒙德的楚克维梅卡提供年轻活力，不莱梅的施密德提供创造力。这种"中场过剩"是朗尼克体系的必然结果——他的高位压迫系统需要大量的中场跑动者来执行前场反抢。后防线9人配置基本合理：阿拉巴（皇马）+ 丹索（热刺）+ 林哈特（弗赖堡）+ 弗里德尔（不莱梅）的中卫组合在德甲/英超级别上具备竞争力；边后卫位置上的姆韦内（美因茨）和普拉斯（霍芬海姆）以跑动能力见长，但传中质量一般。最致命的短板是锋线——仅3名前锋，与民主刚果并列32强锋线最少的配置之一。阿瑙托维奇（37岁）是唯一有大赛经验的中锋，格雷戈里奇（布隆德比/丹超）和卡拉伊季奇（狼队/英冠）的进球效率均不高。在朗尼克的高位压迫体系中，中锋需要承担大量的前场逼抢和无球跑动——3名前锋能否在小组赛三场比赛中保持体能和效率，是一个巨大的问号。</p>
+  </div>
+
+  <div class="subitem">
+    <h4>1.3 板凳深度 —— 52分</h4>
+    <p>奥地利的替补深度在中场位置属于欧洲中上游——11名中场中至少有8人可以胜任首发级别，这意味着在小组赛密集赛程中，朗尼克可以对中场进行大幅轮换而不显著降级。但后防和锋线的深度就非常有限了。后防线上，阿拉巴和丹索是无可争议的首发中卫组合；替补中卫林哈特和弗里德尔虽然也是德甲中上游水平，但与首发之间仍存在差距。边后卫位置上，姆韦内和普拉斯的替补只有斯沃博达（威尼斯）一人——他更多踢中卫而非边卫。锋线替补的"降级"最令人担忧：阿瑙托维奇之后，格雷戈里奇（丹超6球）和卡拉伊季奇（英冠3球）的进球效率在面对阿根廷和阿尔及利亚的防线时可能难以制造威胁。全队可信赖的核心轮换在15人左右，低于顶级强队的18-20人标准。</p>
+  </div>
+
+  <div class="subitem">
+    <h4>1.4 总身价与年龄结构 —— 58分</h4>
+    <table class="text-sm mb-2">
+      <tr><th>指标</th><th>数据</th></tr>
+      <tr><td>全队总身价（估计）</td><td>约2.2亿欧元（32强中游偏上）</td></tr>
+      <tr><td>身价前三</td><td>阿拉巴（约3000万）、萨比策（约2500万）、莱默尔（约2500万）</td></tr>
+      <tr><td>平均年龄</td><td>约27.3岁（合理）</td></tr>
+      <tr><td>老将与新星</td><td>阿瑙托维奇37岁⚠️、阿拉巴34岁 / 楚克维梅卡22岁✅、万纳20岁✅</td></tr>
+    </table>
+    <p>奥地利全队总身价约2.2亿欧元，在32强中排名大约第16-18位——低于传统豪门但高于鱼腩球队。身价最高的阿拉巴（约3000万欧）虽因年龄和伤病有所下滑，但他的"欧冠冠军光环"和领导力无法用身价衡量。年龄结构存在"老中青"三级分布：以阿瑙托维奇（37岁）和阿拉巴（34岁）为代表的老将是经验和稳定性的来源；萨比策（31岁）、莱默尔（29岁）、鲍姆加特纳（26岁）的中生代构成了即战力核心；楚克维梅卡（22岁）、万纳（20岁）等年轻人代表着未来的希望。值得注意的是，奥地利阵中有一半以上的球员处于25-30岁的"黄金年龄区间"，这意味着朗尼克的球队在身体条件和比赛经验之间找到了一个不错的平衡点。</p>
+  </div>
+
+  <div class="score-bar mt-3"><div class="score-fill" style="width:56%;background:linear-gradient(90deg,#ED2939,#8b0000);"></div></div>
+  <p class="text-right text-sm text-gray-500 mt-1">维度一总评：<strong>56分</strong> × 30% = <strong>16.8分</strong></p>
+</div>
+
+<!-- 维度二 -->
+<div class="dimension-card">
+  <h3 class="text-xl font-bold text-at-red">维度二：战术体系与教练（权重20%）｜ 得分：74分 × 20% = 14.8分</h3>
+
+  <div class="subitem">
+    <h4>2.1 主帅战术哲学与大赛履历 —— 80分</h4>
+    <p>拉尔夫·朗尼克是全球足球战术史上"被低估最多"的教练之一。他是德国高位压迫体系（Gegenpressing）的理论奠基人之一，影响了克洛普、图赫尔、纳格尔斯曼等一大批德国顶级教练——因此被称为"教父中的教父"。朗尼克在执教曼联（2021-22赛季 interim）时的经历不算成功（英超胜率仅50%），但在接手奥地利国家队后，他迅速将这支传统上"偏技术、偏慢"的球队改造为"高压迫、快节奏、强对抗"的体系。2024年欧洲杯上，奥地利在他的带领下打出了令人瞩目的表现，小组赛击败荷兰、战平法国，最终进入16强——朗尼克在欧洲杯上的战术布置获得了广泛好评。朗尼克的比赛理念简单而有效：全场高位压迫、得球后快速向前传递、不断在对手半场制造局部人数优势。他的弱项是临场调整的"弹性"——他的球队在领先时控制节奏的能力一般，有时会被对手的"慢节奏"所克制。</p>
+  </div>
+
+  <div class="subitem">
+    <h4>2.2 阵型适配性与球员契合度 —— 70分</h4>
+    <p>朗尼克在奥地利主要使用4-2-3-1或4-4-2阵型——两种阵型的核心都是"压迫"和"转换"。4-2-3-1阵型完美适配奥地利的中场深度：萨比策在10号位提供创造力和后插上得分能力，莱默尔和施拉格尔/塞瓦尔德组成双后腰提供跑动覆盖和防守硬度，鲍姆加特纳在边路/前腰位置游弋。4-4-2阵型则是朗尼克的B方案——让阿瑙托维奇和格雷戈里奇/卡拉伊季奇搭档双前锋，利用身体对抗和空中优势冲击对手防线。这两个阵型的问题在于对边锋的依赖——奥地利在边路球员方面有些"青黄不接"：维默（沃尔夫斯堡）和万纳（PSV）有速度但决策能力不足，普拉斯和姆韦内更多是边后卫而非边锋。对阵阿根廷时，朗尼克很可能会采取保守策略——收缩阵型、诱敌深入、利用快速转换打击对手——这正是他在2024欧洲杯上对阵法国时的成功策略。</p>
+  </div>
+
+  <div class="subitem">
+    <h4>2.3 攻守转换效率 —— 75分</h4>
+    <p>奥地利在朗尼克体系下的攻守转换效率在欧洲杯上得到了验证——他们在2024欧洲杯上平均每场比赛的高位压迫次数为18次（排名赛事前5），由压迫直接导致的进球有2个（对阵荷兰）。由守转攻时，奥地利的核心理念是"纵向传球优先于横向控球"——萨比策和鲍姆加特纳都有出色的穿越球能力。定位球方面，阿拉巴的任意球和角球是重要武器——他在皇马的定位球命中率约为5%，在这个级别属于不错的数据。但面对阿根廷这种顶级传控球队时（梅西等），奥地利的高位压迫可能面临一个"压迫陷阱"——过度前压可能被阿根廷的中场转移到身后空当，这是朗尼克在制定战术时最需要警惕的。</p>
+  </div>
+
+  <div class="subitem">
+    <h4>2.4 临场指挥与换人策略 —— 72分</h4>
+    <p>朗尼克在2024欧洲杯上的换人策略获得了不少赞誉。他通常在第60-70分钟进行第一次换人，优先换上体能充沛的边路球员和前锋——他对比赛节奏的感知相当敏锐，能在对手防线出现松动时及时换上进攻球员。一个经典的案例是2024欧洲杯小组赛对阵荷兰——他在第63分钟换上鲍姆加特纳后，奥地利的右路进攻立刻活跃起来，最终2-0领先。朗尼克在落后时倾向于"增加前场人数"而非"维持阵型稳定"——他会撤下一名后卫，增加一名前锋或攻击型中场，这种"搏命"风格有时候能奏效，但偶尔也会导致后防空虚被对手扩大比分。</p>
+  </div>
+
+  <div class="score-bar mt-3"><div class="score-fill" style="width:74%;background:linear-gradient(90deg,#ED2939,#8b0000);"></div></div>
+  <p class="text-right text-sm text-gray-500 mt-1">维度二总评：<strong>74分</strong> × 20% = <strong>14.8分</strong></p>
+</div>
+
+<!-- 维度三 -->
+<div class="dimension-card">
+  <h3 class="text-xl font-bold text-at-red">维度三：近期竞技状态（权重15%）｜ 得分：65分 × 15% = 9.75分</h3>
+
+  <div class="subitem">
+    <h4>3.1 近12个月正式比赛战绩 —— 65分</h4>
+    <p>奥地利在欧洲区预选赛中表现稳健，以小组第二身份直接晋级。他们在预选赛中的战绩为6胜2平2负——输给比利时（1-2）和瑞典（0-1）是仅有的两场失利，均在客场。小组赛阶段，奥地利展现了对阵中下游球队的稳定性（双杀阿塞拜疆、击败爱沙尼亚），但在两场对阵比利时的比赛中都未能取胜（1平1负），说明他们与欧洲一线强队之间仍有实力差距。在2024-25赛季的欧国联中，奥地利在B级联赛中发挥不错（与塞尔维亚、挪威同组，排名小组前列），保持了比赛的强度和竞争力。整体来看，奥地利在近12个月中最大的亮点是"能赢该赢的比赛，面对强队不崩盘"——这对一支28年后再战世界杯的球队来说是一个积极的心理基础。</p>
+  </div>
+
+  <div class="subitem">
+    <h4>3.2 预选赛出线含金量 —— 62分</h4>
+    <p>奥地利所在的欧洲区预选赛小组中有比利时（传统强队）和瑞典（有一定实力的北欧劲旅），整体难度属于中等偏上。奥地利在主场1-1战平比利时的比赛中表现出了不错的竞争力——那场比赛奥地利以高位压迫打乱了比利时的出球节奏，控球率虽然只有42%但制造了更多射门机会。输给瑞典的客场比赛是一个教训——瑞典利用定位球得分，暴露了奥地利在防守中对抗北欧球队空中优势时的弱点。从宏观数据来看，奥地利在预选赛中打进18球失8球，净胜球+10，进攻火力在欧洲区中游偏上。出线的含金量属于"实至名归"——既没有爆冷晋级也不是依靠弱组运气。</p>
+  </div>
+
+  <div class="subitem">
+    <h4>3.3 核心球员俱乐部状态走势 —— 68分</h4>
+    <table class="text-sm mb-2">
+      <tr><th>球员</th><th>2025-26赛季俱乐部表现</th><th>状态评级</th></tr>
+      <tr><td>阿拉巴（皇马）</td><td>西甲22场，因伤缺席约15场，状态有起伏</td><td>⚠️ 伤病史</td></tr>
+      <tr><td>萨比策（多特蒙德）</td><td>德甲28场7球6助攻，复苏赛季</td><td>🔥 火热</td></tr>
+      <tr><td>莱默尔（拜仁）</td><td>德甲25场3球4助攻，跑动覆盖出色</td><td>✅ 稳定</td></tr>
+      <tr><td>鲍姆加特纳（莱比锡）</td><td>德甲26场6球5助攻，状态上佳</td><td>🔥 火热</td></tr>
+      <tr><td>丹索（热刺）</td><td>英超23场，中卫的主力轮换</td><td>✅ 稳定</td></tr>
+      <tr><td>阿瑙托维奇（红星）</td><td>塞超18场10球，联赛射手榜前列</td><td>✅ 稳定</td></tr>
+      <tr><td>克萨韦尔·施拉格尔（莱比锡）</td><td>德甲20场，中场防守屏障</td><td>✅ 稳定</td></tr>
+    </table>
+    <p>奥地利核心球员的俱乐部状态整体偏正面。萨比策和鲍姆加特纳是本赛季德甲表现最出色的奥地利球员——萨比策在多特蒙德找回了2019-20赛季在莱比锡时的状态（7球6助攻），鲍姆加特纳则在莱比锡延续了"冰壶场铁人"的风格（场均跑动11.8公里）。莱默尔在拜仁虽然因中场竞争未能锁定绝对主力，但他的出场时间和比赛影响力仍然维持在高水平。阿拉巴的伤病史是最令人担忧的——他在皇马的两个赛季中共缺席了约35场比赛，肌肉问题反复出现。虽然他入选大名单没有问题，但能否在6月的高温+密集赛程中保持连续3场的高光表现，是一个巨大的未知数。阿瑙托维奇在红星队的进球效率不错（18场10球），但塞超的防守强度与世界杯不可同日而语。</p>
+  </div>
+
+  <div class="score-bar mt-3"><div class="score-fill" style="width:65%;background:linear-gradient(90deg,#ED2939,#8b0000);"></div></div>
+  <p class="text-right text-sm text-gray-500 mt-1">维度三总评：<strong>65分</strong> × 15% = <strong>9.75分</strong></p>
+</div>
+
+<!-- 维度四 -->
+<div class="dimension-card">
+  <h3 class="text-xl font-bold text-at-red">维度四：大赛经验与心理素质（权重10%）｜ 得分：55分 × 10% = 5.5分</h3>
+
+  <div class="subitem">
+    <h4>4.1 世界杯/洲际杯历史战绩 —— 40分</h4>
+    <p>奥地利在世界杯历史上的最佳成绩是1954年瑞士世界杯的季军——那是二战后的第一届世界杯，竞争格局与今天完全不同，参考价值有限。自1954年以来，奥地利在世界杯上的最佳成绩仅为小组出线（1978年和1982年进入第二轮小组赛），1998年是他们最近一次参加世界杯，小组赛排名第三未出线。2026年是奥地利时隔28年的世界杯回归，因此全队没有一名球员有过世界杯出场经验——这与克罗地亚（连续获奖牌）形成鲜明对比。在欧洲杯层面，奥地利在2024年欧洲杯表现不俗（16强输给土耳其），2020年欧洲杯也进入了16强（输给意大利）。欧洲杯的正面经验是奥地利心理层面的"储备"——虽然世界杯和欧洲杯的氛围有差异，但至少证明这支球队在"单场淘汰制大赛"中不是一张白纸。</p>
+  </div>
+
+  <div class="subitem">
+    <h4>4.2 核心球员大赛经验值 —— 58分</h4>
+    <p>奥地利阵中"见过大场面"的球员集中在几名核心球员身上。阿拉巴参加过4次欧冠决赛（赢得3次），2020年欧冠冠军、4次西甲冠军——他的大赛经验在奥地利队中是断层级的，但他需要用德语将这种"如何赢重要比赛"的经验传递给队友。萨比策在莱比锡和多特蒙德积累了欧冠淘汰赛经验（半决赛对阵巴黎），莱默尔随拜仁经历了欧冠大战。鲍姆加特纳、施拉格尔、塞瓦尔德等莱比锡系球员也有欧冠小组赛和欧联杯的经验。但在国家队层面，全队没有任何人感受过"世界杯开场时的紧张感"——从球员入场仪式到国歌奏响到8万人欢呼的压力管理，对奥地利全队来说都是一次全新的体验。这一点在面对阿根廷（世界杯卫冕冠军）时可能成为一个心理劣势。</p>
+  </div>
+
+  <div class="subitem">
+    <h4>4.3 抗压与逆境应对 —— 62分</h4>
+    <p>朗尼克执教的奥地利在逆境应对方面有一些亮眼案例。2024年欧洲杯小组赛对阵法国——奥地利在落后一球的情况下不慌不乱，继续执行高位压迫，最终将法国队压制到仅控球率42%（对于法国来说极低），虽然最终输球但过程赢得了尊重。2024欧洲杯16强对阵土耳其——奥地利在1-2落后的情况下发起猛攻，创造了多次机会但未能扳平，最终遗憾出局——那场比赛证明了奥地利球员在逆境中"不崩盘"的心理韧性。但另一方面，奥地利在预选赛客场0-1输给瑞典的比赛中表现得很糟糕——全场只有3次射门，面对瑞典的密集防守毫无办法——这表明当奥地利遇到"破铁桶阵"的难题时，他们的技术和耐心可能不足。</p>
+  </div>
+
+  <div class="score-bar mt-3"><div class="score-fill" style="width:55%;background:linear-gradient(90deg,#ED2939,#8b0000);"></div></div>
+  <p class="text-right text-sm text-gray-500 mt-1">维度四总评：<strong>55分</strong> × 10% = <strong>5.5分</strong></p>
+</div>
+
+<!-- 维度五 -->
+<div class="dimension-card">
+  <h3 class="text-xl font-bold text-at-red">维度五：分组及赛程影响（权重10%）｜ 得分：52分 × 10% = 5.2分</h3>
+
+  <div class="subitem">
+    <h4>5.1 小组赛对手分析 —— 52分</h4>
+    <table class="text-sm mb-2">
+      <tr><th>对手</th><th>FIFA排名（约）</th><th>风格特点</th><th>奥地利胜率预估</th></tr>
+      <tr><td>阿根廷 🇦🇷</td><td>1-2名</td><td>卫冕冠军，传控+梅西魔法</td><td>15-20%</td></tr>
+      <tr><td>阿尔及利亚 🇩🇿</td><td>35-45名</td><td>北非技术流，快速反击犀利</td><td>40-45%</td></tr>
+      <tr><td>约旦 🇯🇴</td><td>70-80名</td><td>首次参赛，防守硬朗</td><td>60-65%</td></tr>
+    </table>
+    <p>J组的实力梯度：阿根廷毫无疑问是小组头号热门（作为卫冕冠军），奥地利和阿尔及利亚将争夺小组第二，约旦首次参赛主要任务是学习。奥地利的关键赛事是对阵阿尔及利亚——这几乎是一场"谁赢谁出线"的生死战。阿尔及利亚是2022世界杯的参赛队，拥有马赫雷斯等老将和一批在法国/欧洲踢球的球员，技术细腻且反击速度快——这对奥地利的高位压迫战术构成了有趣的风格碰撞。对阵约旦的首战至关重要——奥地利若想带着出线主动权进入后两场，必须在约旦身上拿到3分。首战对约旦的另一个意义是"找回世界杯的节奏感"——28年后的第一场世界杯比赛，球员们需要在前20分钟克服紧张情绪。阿根廷一役则更多是"战略性压力测试"——如果奥地利能在对阵卫冕冠军时打出有竞争力的表现，将为对阵阿尔及利亚积累巨大的信心。</p>
+  </div>
+
+  <div class="subitem">
+    <h4>5.2 淘汰赛晋级路线预判 —— 45分</h4>
+    <p>如果奥地利以J组第二出线（击败约旦和阿尔及利亚、输给阿根廷），16强将面对I组第一（潜在对手——根据I组球队判断）。I组中大概率是法国/西班牙/荷兰等强队——无论面对谁都是超级硬仗，奥地利对战胜率不超过30%。如果爆冷以小组第一身份出线（击败或逼平阿根廷），16强将面对I组第二，路线会相对有利。但更现实的情况是——奥地利如果能从J组出线（需要击败阿尔及利亚），16强本身就是球队在大赛成绩上的突破（上一次世界杯16强还要追溯到1982年？实际上1978和1982年进入过第二轮小组赛）。</p>
+  </div>
+
+  <div class="subitem">
+    <h4>5.3 旅途与气候因素 —— 58分</h4>
+    <p>奥地利的赛程分布在美国西海岸-中南部-中西部：首战在圣克拉拉（加州，6月气温约22°C，舒适），次战在阿灵顿（德州，室内空调球场），末战在堪萨斯城（密苏里，室内/室外混合）。从圣克拉拉到阿灵顿再到堪萨斯城的旅途距离适中，不会给球员造成严重的体力负担。气候方面，奥地利对温带气候的适应能力不差——大部分球员在德甲踢球，德国的气候条件与美国比赛城市相近。唯一需要注意的可能是堪萨斯城6月底的湿度（偏高），但室内球场的选择会缓解这个问题。</p>
+  </div>
+
+  <div class="score-bar mt-3"><div class="score-fill" style="width:52%;background:linear-gradient(90deg,#ED2939,#8b0000);"></div></div>
+  <p class="text-right text-sm text-gray-500 mt-1">维度五总评：<strong>52分</strong> × 10% = <strong>5.2分</strong></p>
+</div>
+
+<!-- 维度六 -->
+<div class="dimension-card">
+  <h3 class="text-xl font-bold text-at-red">维度六：团队凝聚力与场外环境（权重10%）｜ 得分：65分 × 10% = 6.5分</h3>
+
+  <div class="subitem">
+    <h4>6.1 更衣室团结度 —— 65分</h4>
+    <p>奥地利国家队的更衣室文化在朗尼克任期内得到了重塑。朗尼克以"严格、直接、高压"的管理风格著称——他要求球员在训练和比赛中100%投入，对战术纪律的要求极为严苛。这种风格在曼联时曾引发一些球员的不满，但在奥地利国家队中，球员们对朗尼克的战术体系表现出了高度的尊重和执行——2024欧洲杯上球员们的积极反馈证明了这一点。阿拉巴作为队长，其职业态度和经验在更衣室内起到了"压舱石"的作用。德甲军团（16人）的文化同质性也有助于减少语言和文化隔阂——大多数球员说德语，在国家队中的交流几乎没有障碍。潜在的风险是：部分年轻球员（如楚克维梅卡、万纳）的国际比赛经验有限，可能在关键时刻因紧张而犯错。</p>
+  </div>
+
+  <div class="subitem">
+    <h4>6.2 足协稳定性与管理 —— 65分</h4>
+    <p>奥地利足协（ÖFB）在朗尼克任期内保持了高度的稳定性和支持力度。朗尼克在2022年与ÖFB签约至2026年世界杯后，获得了充分的战略自主权——包括对青年队体系的改革、训练设施升级等。ÖFB为2026世界杯的备战制定了详实的计划——包括在美国提前设立训练营、安排对阵瑞士和挪威的热身赛。ÖFB在后勤方面的投入虽然不如英法德等顶级足协，但在欧洲中上游国家中是"模范生"级别的。球队在世界杯期间将在洛杉矶附近驻扎，使用当地俱乐部的训练设施——条件应能满足备战需求。</p>
+  </div>
+
+  <div class="subitem">
+    <h4>6.3 国内舆论与媒体压力 —— 65分</h4>
+    <p>奥地利国内对国家队的世界杯之旅充满了"期待但不苛求"的情绪。作为28年后的回归，奥地利媒体和球迷的主流叙事是"享受比赛、展示进步"——而非"不出线就是失败"。朗尼克在2024欧洲杯上的成功赢得了国内舆论的高度信任——媒体普遍认为"即使小组出局，只要打出朗尼克的风格就是成功"。这种相对低压的舆论环境对球员的心理状态有利——他们不必像阿根廷那样背负"卫冕冠军必须赢"的沉重包袱。但另一方面，奥地利国内对足球的关注度在冰球和滑雪之后只排第三，国家队的热度在小组赛阶段可能不如其他足球强国那么高——这既是减压也是"动力不足"。</p>
+  </div>
+
+  <div class="score-bar mt-3"><div class="score-fill" style="width:65%;background:linear-gradient(90deg,#ED2939,#8b0000);"></div></div>
+  <p class="text-right text-sm text-gray-500 mt-1">维度六总评：<strong>65分</strong> × 10% = <strong>6.5分</strong></p>
+</div>
+
+<!-- 维度七 -->
+<div class="dimension-card">
+  <h3 class="text-xl font-bold text-at-red">维度七：体能储备与伤病控制（权重5%）｜ 得分：58分 × 5% = 2.9分</h3>
+
+  <div class="subitem">
+    <h4>7.1 赛季疲劳度评估 —— 58分</h4>
+    <p>奥地利球员的赛季消耗量在德甲高强度环境中处于正常水平。16名德甲球员都经历了完整的德甲赛季（34轮+德国杯+部分欧战），赛季出场时间普遍在2000-3000分钟之间。萨比策、莱默尔、鲍姆加特纳和克萨韦尔·施拉格尔的赛季出场时间均超过2500分钟，体能消耗较大。阿拉巴在皇马因伤缺席了部分比赛，赛季出场时间约1800分钟——"既没消耗太多也没找到最佳节奏"是一个微妙的中间状态。好消息是，朗尼克的高位压迫体系对体能要求极高，而球员们在德甲早已适应了这种高节奏——他们的"体能底座"比许多非德甲体系的球队更扎实。朗尼克在备战期安排了针对性的体能训练，以确保球员在6月的美国能打出预期的压迫强度。</p>
+  </div>
+
+  <div class="subitem">
+    <h4>7.2 关键伤病与恢复情况 —— 55分</h4>
+    <p>阿拉巴的伤病史是奥地利本届世界杯最大的X因素。他自2023年以来在皇马经历了多次肌肉伤情——大腿后侧肌群反复出现问题。朗尼克在新闻发布会上表示阿拉巴"已100%恢复训练"，但对于一个34岁、有大面积伤病史的球员来说，"训练状态"和"世界杯比赛状态"之间可能存在差距。其他球员的重大伤病报告较少——萨比策、莱默尔、鲍姆加特纳等核心球员均健康完成了赛季。卡拉伊季奇（狼队）在2023年曾经历过严重膝伤，但2025-26赛季未出现复发——他的1米98身高是奥地利面对阿根廷中卫线时的重要武器</p>
+  </div>
+
+  <div class="subitem">
+    <h4>7.3 医疗团队与保障水平 —— 62分</h4>
+    <p>奥地利足协的医疗和体能保障属于欧洲中上水平。与德国足协的密切合作关系使ÖFB能够分享部分运动科学资源。球队配备了4-5人的医疗团队（队医+理疗师+体能教练），并引入了GPS运动监测系统用于跟踪球员在训练和比赛中的体能数据。朗尼克非常重视"压迫数据"——他在训练中设置了一系列针对性的体能和对抗训练，确保球员在高强度比赛中能维持预期的压迫频率。</p>
+  </div>
+
+  <div class="score-bar mt-3"><div class="score-fill" style="width:58%;background:linear-gradient(90deg,#ED2939,#8b0000);"></div></div>
+  <p class="text-right text-sm text-gray-500 mt-1">维度七总评：<strong>58分</strong> × 5% = <strong>2.9分</strong></p>
+</div>
+
+<!-- ==================== 综合评分 ==================== -->
+<h2 class="text-at-red">（三）综合总分与评级</h2>
+
+<div class="summary-box text-center">
+  <p class="text-2xl font-bold">加权总分：61.45 / 100</p>
+  <p class="text-xl mt-2">实力评级：<span class="text-at-gold font-bold text-3xl">C+</span>（中游劲旅 / 黑马潜质 / 小组出线可期）</p>
+</div>
+
+<div class="bg-white rounded-xl shadow p-6 mb-6">
+  <h3 class="text-lg font-bold mb-3">七维度雷达数据</h3>
+  <table>
+    <tr><th>维度</th><th>得分</th><th>权重</th><th>加权贡献</th></tr>
+    <tr><td>① 阵容实力</td><td>56</td><td>30%</td><td>16.80</td></tr>
+    <tr><td>② 战术体系与教练</td><td>74</td><td>20%</td><td>14.80</td></tr>
+    <tr><td>③ 近期竞技状态</td><td>65</td><td>15%</td><td>9.75</td></tr>
+    <tr><td>④ 大赛经验与心理素质</td><td>55</td><td>10%</td><td>5.50</td></tr>
+    <tr><td>⑤ 分组及赛程影响</td><td>52</td><td>10%</td><td>5.20</td></tr>
+    <tr><td>⑥ 团队凝聚力与场外环境</td><td>65</td><td>10%</td><td>6.50</td></tr>
+    <tr><td>⑦ 体能储备与伤病控制</td><td>58</td><td>5%</td><td>2.90</td></tr>
+    <tr style="font-weight:bold;background: #fff3e0;"><td colspan="3">总分</td><td>61.45</td></tr>
+  </table>
+</div>
+
+<!-- ==================== 深度球评 ==================== -->
+<h2 class="text-at-red">（四）深度球评</h2>
+
+<div class="bg-white rounded-xl shadow p-6 mb-6">
+  <h3 class="text-lg font-bold text-green-700">核心优势</h3>
+  <ul class="list-disc pl-6 space-y-3 mt-2">
+    <li><strong>朗尼克体系——32强中最具辨识度的战术风格之一。</strong>奥地利不只是一支球队，它是一套"哲学"的载体。朗尼克的高位压迫体系在过去三年里被球员们深度理解和执行——全队在前场反抢、快速转换、局部人数优势方面的默契程度，可能超过阵中个别球星的天赋上限。对阵阿根廷时，奥地利将成为本届世界杯第一个用"高强度、高压迫"考验卫冕冠军的球队——这种"不畏强敌"的战术气质是朗尼克注入这支球队最宝贵的资产。</li>
+    <li><strong>德甲体系的战术统一性——不需要"化学反应"时间。</strong>16名德甲球员意味着奥地利在战术执行效率上有天然优势——球员们对高位压迫、防守转换、快速出球等概念的理解几乎不需要翻译。小组赛备战期通常只有3-4周，在如此有限的时间内，战术统一性比天赋更关键。奥地利在这方面的优势在面对阿尔及利亚和约旦时会体现得尤为明显——他们能以更少的赛前准备时间达到更高的战术执行度。</li>
+  </ul>
+</div>
+
+<div class="bg-white rounded-xl shadow p-6 mb-6">
+  <h3 class="text-lg font-bold text-red-700">致命短板</h3>
+  <ul class="list-disc pl-6 space-y-3 mt-2">
+    <li><strong>锋线仅3人——进攻端缺乏"容错空间"。</strong>与民主刚果一样，3名前锋的配置意味着奥地利在进攻端几乎没有"变招空间"。如果阿瑙托维奇状态不佳或被对手限制，朗尼克的唯一选择是格雷戈里奇或卡拉伊季奇——这两位在丹超和英冠的进球效率都属于"中锋替补"级别。对阵阿尔及利亚这个"小组出线关键战"，如果奥地利需要进球但阿瑙托维奇体能下降，朗尼克将面临"无牌可打"的窘境。</li>
+    <li><strong>28年的世界杯空白——"会踢欧洲杯"不等于"会踢世界杯"。</strong>虽然奥地利在2020和2024两届欧洲杯上积累了正赛经验，但世界杯的氛围、对手的尊重度、媒体关注度和比赛的"不可逆转性"与欧洲杯完全不同。阿拉巴虽然在大赛中见多识广，但连他也没有在世界杯赛场上踢过哪怕一分钟。对阵阿根廷时，比赛第一个丢球可能发生在奥地利球员还处于"我们在踢世界杯"的震撼中——这种"经验税"是奥地利必须用实际比赛来支付的。</li>
+  </ul>
+</div>
+
+<div class="bg-white rounded-xl shadow p-6 mb-6">
+  <h3 class="text-lg font-bold text-at-red">关键先生</h3>
+  <div class="grid md:grid-cols-2 gap-4 mt-3">
+    <div class="border-l-4 border-red-600 pl-4">
+      <p class="font-bold text-lg">🇦🇹 大卫·阿拉巴 (C)</p>
+      <p class="text-sm text-gray-600">奥地利足球史上的"最伟大球员"——4次欧冠冠军、皇马核心。他不只是后防领袖，更是这支球队的"比赛管理者"。他在场上对于比赛节奏的理解、在关键时刻的决策（何时前压、何时回收）是奥地利最稀缺的"战术智慧"。他的健康状态直接决定奥地利防线的上限——如果他能100%出战，奥地利足以防住阿尔及利亚的快速反击。</p>
+    </div>
+    <div class="border-l-4 border-black pl-4">
+      <p class="font-bold text-lg">🇦🇹 马塞尔·萨比策</p>
+      <p class="text-sm text-gray-600">奥地利阵中的"进攻自由人"。在多特蒙德复苏的赛季证明了他仍然是一个能在欧冠级别的比赛中创造机会的中场球员。他的后插上远射、定位球和穿透性传球是奥地利进攻端最可靠的"非常规武器"。对阵阿尔及利亚的关键战中，萨比策的"黄金左脚"可能成为打破僵局的钥匙。</p>
+    </div>
+    <div class="border-l-4 border-orange-500 pl-4">
+      <p class="font-bold text-lg">🇦🇹 康拉德·莱默尔</p>
+      <p class="text-sm text-gray-600">朗尼克体系中的"压迫引擎"。在拜仁慕尼黑的经历使他的比赛阅读和跑位选择达到了顶级水平——他的跑动覆盖和防守侵略性是奥地利高位压迫的第一道防线。对阵阿根廷时，他将承担"切断梅西/中场连线"的艰巨任务——如果莱默尔能限制住阿根廷的中场传递，奥地利就有机会制造冷门。</p>
+    </div>
+    <div class="border-l-4 border-blue-600 pl-4">
+      <p class="font-bold text-lg">🇦🇹 克里斯托夫·鲍姆加特纳</p>
+      <p class="text-sm text-gray-600">RB莱比锡的"冰壶场铁人"——场均跑动11.8公里是朗尼克体系的完美执行者。他的前插得分能力和无球跑动是奥地利进攻端最大的"惊喜制造机"。本赛季德甲6球5助攻的数据证明他不仅是一名工兵——他能在最关键的比赛中用进球改变比赛走向。</p>
+    </div>
+  </div>
+</div>
+
+<div class="bg-white rounded-xl shadow p-6 mb-6">
+  <h3 class="text-lg font-bold">小组赛预判</h3>
+  <table class="mt-2">
+    <tr><th>对手</th><th>预判结果</th><th>理由</th></tr>
+    <tr><td>约旦 🇯🇴</td><td>奥地利 2-0 胜</td><td>实力和体系差距明显，奥地利高位压迫主导比赛</td></tr>
+    <tr><td>阿根廷 🇦🇷</td><td>奥地利 0-2 负</td><td>卫冕冠军实力碾压，奥地利拼出过程但难拿分</td></tr>
+    <tr><td>阿尔及利亚 🇩🇿</td><td>奥地利 2-1 胜</td><td>生死战，朗尼克的战术体系将决定比赛</td></tr>
+  </table>
+  <p class="mt-2"><strong>小组赛综合：2胜1负，积6分，小组出线概率约55-60%。</strong></p>
+</div>
+
+<div class="bg-white rounded-xl shadow p-6 mb-6">
+  <h3 class="text-lg font-bold">淘汰赛路线推演</h3>
+  <div class="space-y-2 mt-2">
+    <p><strong>16强（以小组第二出线）：</strong> 大概率面对I组头名（可能法国/比利时/荷兰等）</p>
+    <p class="pl-6 text-gray-700">→ 胜率预估：20-30%</p>
+    <p><strong>1/4决赛：</strong> 几乎不可能（需要连续爆冷）</p>
+  </div>
+  <p class="mt-3 p-3 bg-blue-50 rounded-lg"><strong>核心判断：</strong>奥地利是J组中"最有可能挑战阿根廷第二"的球队——但不是因为他们有多强，而是因为阿尔及利亚的不稳定性。朗尼克的战术体系在"赢下该赢的比赛"方面具有高度可靠性——首战对阵约旦几乎锁定3分。末轮对阵阿尔及利亚是"足球哲学之战"——朗尼克的高位压迫对阵北非的技术流反击。如果奥地利能在这场对决中取胜，16强无论面对谁都是"免费的附加赛"——毕竟28年后重返世界杯，能进淘汰赛就已经是巨大成功。这支球队的上限是16强，下限是小组第三（输阿尔及利亚），一切取决于6月27日堪萨斯城的那场生死对决。</p>
+</div>
+
+<div class="bg-white rounded-xl shadow p-6 mb-6 text-center">
+  <h3 class="text-lg font-bold text-at-red">大师结语</h3>
+  <p class="text-xl italic mt-3 text-gray-700">"28年——一代人的成长周期。从1998年的夏至到2026年的芒种，奥地利足球经历了漫长的缺席。朗尼克带着他的压迫哲学和16个德甲球员，从因斯布鲁克的原野走向北美的镁光灯下。他们不必战胜阿根廷来证明自己——只要在堪萨斯城的那一晚，红白红旗帜能骄傲地飘扬在阿尔及利亚人面前，就已经完成了一场跨越四分之一个世纪的回归。"</p>
+</div>
+
+<!-- Footer -->
+<div class="text-center text-gray-400 text-sm py-6 border-t">
+  <p>© 2026 足球战力分析 · Powered by WorkBuddy AI｜数据截至2026年5月21日</p>
+  <p class="mt-1">数据来源：Olympics.com、USA Today、SoccerGraph、FIFA官网等综合报道</p>
+</div>
+
+</div>
+
+
+<!-- HuaFootball: back-to-home button -->
+<a href="../index.html" class="huafootball-back-btn" target="_self">
+  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5"/><path d="M12 19l-7-7 7-7"/></svg>
+  返回首页
+</a>
+<style>
+.huafootball-back-btn {
+  position:fixed!important;bottom:28px!important;right:28px!important;z-index:99999!important;
+  display:inline-flex!important;align-items:center!important;gap:6px!important;
+  padding:10px 22px!important;background:rgba(26,71,42,0.85)!important;color:#c9a84c!important;
+  border:1px solid rgba(201,168,76,0.3)!important;border-radius:999px!important;
+  font-family:"Inter","Noto Sans SC",system-ui,sans-serif!important;font-size:13px!important;
+  font-weight:600!important;text-decoration:none!important;
+  backdrop-filter:blur(8px)!important;-webkit-backdrop-filter:blur(8px)!important;
+  box-shadow:0 4px 20px rgba(0,0,0,0.3)!important;transition:all .25s ease!important;
+  cursor:pointer!important;user-select:none!important;
+}
+.huafootball-back-btn:hover {
+  background:rgba(26,71,42,0.95)!important;border-color:rgba(201,168,76,0.5)!important;
+  box-shadow:0 6px 28px rgba(201,168,76,0.2)!important;transform:translateY(-2px)!important;
+}
+.huafootball-back-btn svg { transition:transform .2s ease!important; }
+.huafootball-back-btn:hover svg { transform:translateX(-3px)!important; }
+</style>
+
+</body>
+</html>

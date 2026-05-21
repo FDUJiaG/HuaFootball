@@ -1,0 +1,494 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>民主刚果 · 2026世界杯实力评估报告</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+tailwind.config = {
+  theme: {
+    extend: {
+      colors: {
+        drc: {
+          blue: '#007FFF',
+          yellow: '#F7D917',
+          red: '#CE1021',
+          gold: '#FFD700',
+          dark: '#1a1a2e',
+          lightgray: '#f8f9fa'
+        }
+      },
+      fontFamily: {
+        'kai': ['KaiTi', 'STKaiti', 'SimKai', 'serif'],
+        'serif': ['Times New Roman', 'serif']
+      }
+    }
+  }
+}
+</script>
+<style>
+  body { font-family: KaiTi, STKaiti, SimKai, 'Times New Roman', serif; font-size: 11pt; }
+  .container { max-width: 1100px; margin: 0 auto; padding: 20px; }
+  h1 { font-size: 2em; }
+  h2 { font-size: 1.5em; border-bottom: 3px solid #CE1021; padding-bottom: 8px; margin-top: 30px; }
+  h3 { font-size: 1.2em; margin-top: 20px; }
+  table { width: 100%; border-collapse: collapse; font-size: 11pt; }
+  th, td { border: 1px solid #ddd; padding: 8px 12px; text-align: left; }
+  th { background-color: #007FFF; color: white; font-weight: bold; }
+  tr:nth-child(even) { background-color: #f8f9fa; }
+  .score-bar { height: 20px; border-radius: 10px; background: #eee; overflow: hidden; }
+  .score-fill { height: 100%; border-radius: 10px; transition: width 1s ease; }
+  .dimension-card { background: white; border-radius: 12px; padding: 20px; margin-bottom: 20px; box-shadow: 0 2px 8px rgba(0,0,0,0.08); border-left: 5px solid #CE1021; }
+  .subitem { margin: 12px 0; padding: 12px; background: #f8f9fa; border-radius: 8px; }
+  .subitem h4 { color: #007FFF; font-weight: bold; margin-bottom: 6px; }
+  .summary-box { background: linear-gradient(135deg, #007FFF, #CE1021); color: white; border-radius: 16px; padding: 25px; margin: 20px 0; }
+  .badge { display: inline-block; padding: 2px 10px; border-radius: 12px; font-size: 0.85em; font-weight: bold; }
+  .badge-gk { background: #4CAF50; color: white; }
+  .badge-df { background: #2196F3; color: white; }
+  .badge-mf { background: #FF9800; color: white; }
+  .badge-fw { background: #f44336; color: white; }
+</style>
+</head>
+<body class="bg-gray-50">
+
+<div class="container">
+
+<!-- ==================== HEADER ==================== -->
+<div class="section text-center bg-white rounded-2xl shadow-lg p-8 mb-8">
+  <img src="https://assets.football-logos.cc/logos/congo-dr/1500x1500/congo-dr-national-team.6307a41b.png"
+       alt="民主刚果足协队徽"
+       style="height:90px;width:auto;display:block;margin:0 auto 10px;"
+       onerror="this.style.display='none';document.getElementById('logo-fb').style.display='block';" />
+  <div id="logo-fb" style="display:none;font-size:4em;margin-bottom:10px;">🇨🇩</div>
+  <h1 class="text-4xl font-bold text-drc-red mt-4">民主刚果 · 2026世界杯实力评估报告</h1>
+  <p class="text-gray-500 mt-2">报告生成日期：2026年5月21日 · 2026美加墨世界杯</p>
+  <div class="mt-3 p-2 inline-block bg-yellow-50 rounded-lg border border-yellow-200">
+    <p class="text-sm"><strong>⚡ 非洲雄狮归来：</strong>1974年以"扎伊尔"之名参赛后，时隔52年重返世界杯</p>
+  </div>
+</div>
+
+<!-- ==================== 基本信息 ==================== -->
+<h2 class="text-drc-blue">（一）球队基本信息</h2>
+
+<div class="bg-white rounded-xl shadow p-6 mb-6">
+  <div class="grid md:grid-cols-2 gap-4">
+    <div>
+      <p><strong>主教练：</strong>塞巴斯蒂安·德萨布雷（Sébastien Desabre）— 法国人，2022年上任</p>
+      <p><strong>队长：</strong>尚塞尔·姆本巴（Chancel Mbemba）— 里尔中卫</p>
+      <p><strong>足协：</strong>FECOFA（刚果足球协会联合会）</p>
+      <p><strong>世界杯参赛次数：</strong>第2次（1974年以"扎伊尔"名义 + 2026年）</p>
+      <p><strong>世界杯最佳成绩：</strong>小组赛（1974年三战全败）</p>
+      <p><strong>上届（2022）成绩：</strong>未晋级</p>
+    </div>
+    <div>
+      <p><strong>小组赛：</strong>K组</p>
+      <p><strong>同组对手：</strong>葡萄牙 🇵🇹、哥伦比亚 🇨🇴、乌兹别克斯坦 🇺🇿</p>
+      <p><strong>首战：</strong>6月17日 vs 葡萄牙（休斯顿NRG体育场）</p>
+      <p><strong>次战：</strong>6月23日 vs 哥伦比亚（瓜达拉哈拉体育场）</p>
+      <p><strong>末轮：</strong>6月27日 vs 乌兹别克斯坦（亚特兰大）</p>
+      <div class="mt-2 p-2 bg-red-50 rounded">
+        <p class="text-sm"><strong>📜 历史之最：</strong>1974年扎伊尔0-9负南斯拉夫，是世界杯历史上最大分差失利之一</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ==================== 26人大名单 ==================== -->
+<h3 class="text-xl font-bold text-drc-red">26人大名单（3 GK + 9 DF + 10 MF + 4 FW）</h3>
+<p class="text-gray-500 text-sm mb-3">* 5月18日公布 · 10人中场堪称"非洲版中场大队" · 英超元素：万-比萨卡+维萨+图安泽贝</p>
+
+<div class="bg-white rounded-xl shadow p-6 mb-6">
+  <table>
+    <thead>
+      <tr>
+        <th>位置</th>
+        <th>球员姓名</th>
+        <th>英文名</th>
+        <th>所属俱乐部</th>
+        <th>联赛</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr><td><span class="badge badge-gk">GK</span></td><td>马蒂厄·埃波洛</td><td>Matthieu Epolo</td><td>标准列日</td><td>比甲</td></tr>
+      <tr><td><span class="badge badge-gk">GK</span></td><td>蒂莫西·法尤卢</td><td>Timothy Fayulu</td><td>诺亚</td><td>亚美超</td></tr>
+      <tr><td><span class="badge badge-gk">GK</span></td><td>莱昂内尔·姆帕西</td><td>Lionel Mpasi</td><td>勒阿弗尔</td><td>法甲</td></tr>
+      <tr><td><span class="badge badge-df">DF</span></td><td>迪伦·巴图宾西卡</td><td>Dylan Batubinsika</td><td>拉里萨</td><td>希超</td></tr>
+      <tr><td><span class="badge badge-df">DF</span></td><td>罗基·布什里</td><td>Rocky Bushiri</td><td>希伯尼安</td><td>苏超 ⚠️伤疑</td></tr>
+      <tr><td><span class="badge badge-df">DF</span></td><td>热东·卡卢卢</td><td>Gedoon Kalulu</td><td>阿里斯利马索尔</td><td>塞浦甲</td></tr>
+      <tr><td><span class="badge badge-df">DF</span></td><td>史蒂夫·卡普阿迪</td><td>Steve Kapuadi</td><td>维泽夫洛兹</td><td>波超</td></tr>
+      <tr><td><span class="badge badge-df">DF</span></td><td>若里斯·卡延贝</td><td>Joris Kayembe</td><td>根克</td><td>比甲</td></tr>
+      <tr><td><span class="badge badge-df">DF</span></td><td>阿瑟·马苏亚库</td><td>Arthur Masuaku</td><td>朗斯</td><td>法甲</td></tr>
+      <tr><td><span class="badge badge-df">DF</span></td><td><strong>⭐ 尚塞尔·姆本巴 (C)</strong></td><td><strong>Chancel Mbemba</strong></td><td><strong>里尔</strong></td><td>法甲</td></tr>
+      <tr><td><span class="badge badge-df">DF</span></td><td>阿克塞尔·图安泽贝</td><td>Axel Tuanzebe</td><td>伯恩利</td><td>英冠</td></tr>
+      <tr><td><span class="badge badge-df">DF</span></td><td><strong>⭐ 亚伦·万-比萨卡</strong></td><td><strong>Aaron Wan-Bissaka</strong></td><td><strong>西汉姆联</strong></td><td>英超</td></tr>
+      <tr><td><span class="badge badge-mf">MF</span></td><td>泰奥·邦贡达</td><td>Theo Bongonda</td><td>莫斯科斯巴达</td><td>俄超</td></tr>
+      <tr><td><span class="badge badge-mf">MF</span></td><td>布里安·西彭加</td><td>Brian Cipenga</td><td>卡斯特利翁</td><td>西乙</td></tr>
+      <tr><td><span class="badge badge-mf">MF</span></td><td>梅沙克·埃利亚</td><td>Meshack Elia</td><td>阿拉尼亚体育</td><td>土超</td></tr>
+      <tr><td><span class="badge badge-mf">MF</span></td><td>盖尔·卡库塔</td><td>Gael Kakuta</td><td>拉里萨</td><td>希超</td></tr>
+      <tr><td><span class="badge badge-mf">MF</span></td><td>埃多·卡延贝</td><td>Edo Kayembe</td><td>沃特福德</td><td>英冠</td></tr>
+      <tr><td><span class="badge badge-mf">MF</span></td><td>纳撒纳埃尔·姆布库</td><td>Nathanael Mbuku</td><td>蒙彼利埃</td><td>法甲</td></tr>
+      <tr><td><span class="badge badge-mf">MF</span></td><td>萨穆埃尔·穆图萨米</td><td>Samuel Moutoussamy</td><td>阿特罗米托斯</td><td>希超</td></tr>
+      <tr><td><span class="badge badge-mf">MF</span></td><td>恩加莱·穆考</td><td>Ngal'ayel Mukau</td><td>里尔</td><td>法甲</td></tr>
+      <tr><td><span class="badge badge-mf">MF</span></td><td>查尔斯·皮克尔</td><td>Charles Pickel</td><td>西班牙人</td><td>西甲</td></tr>
+      <tr><td><span class="badge badge-mf">MF</span></td><td>诺亚·萨迪基</td><td>Noah Sadiki</td><td>桑德兰</td><td>英冠</td></tr>
+      <tr><td><span class="badge badge-fw">FW</span></td><td><strong>⭐ 塞德里克·巴坎布</strong></td><td><strong>Cedric Bakambu</strong></td><td><strong>皇家贝蒂斯</strong></td><td>西甲</td></tr>
+      <tr><td><span class="badge badge-fw">FW</span></td><td>西蒙·班扎</td><td>Simon Banza</td><td>阿尔贾兹拉</td><td>阿联酋联</td></tr>
+      <tr><td><span class="badge badge-fw">FW</span></td><td>菲斯顿·马耶莱</td><td>Fiston Mayele</td><td>金字塔</td><td>埃超</td></tr>
+      <tr><td><span class="badge badge-fw">FW</span></td><td><strong>⭐ 约阿内·维萨</strong></td><td><strong>Yoane Wissa</strong></td><td><strong>纽卡斯尔联</strong></td><td>英超</td></tr>
+    </tbody>
+  </table>
+  <div class="mt-3 p-3 bg-yellow-50 rounded-lg border border-yellow-200">
+    <p class="text-sm"><strong>🔀 归化动态：</strong>万-比萨卡（前英格兰U21国脚）于2025年8月转换国籍代表民主刚果，已出场9次 | 卡库塔（前切尔西）时隔2年重返国家队 | 维萨去年从布伦特福德转会纽卡斯尔</p>
+  </div>
+</div>
+
+<!-- ==================== 七维度评分 ==================== -->
+<h2 class="text-drc-blue">（二）逐项评分明细（七维度深度拆解）</h2>
+
+<!-- 维度一 -->
+<div class="dimension-card">
+  <h3 class="text-xl font-bold text-drc-red">维度一：阵容实力（权重30%）｜ 得分：40分 × 30% = 12.0分</h3>
+
+  <div class="subitem">
+    <h4>1.1 球星质量与个人能力 —— 42分</h4>
+    <table class="text-sm mb-2">
+      <tr><th>指标</th><th>数据</th></tr>
+      <tr><td>五大联赛球员数</td><td>9人（姆本巴/里尔、马苏亚库/朗斯、万-比萨卡/西汉姆、巴坎布/贝蒂斯、维萨/纽卡等）</td></tr>
+      <tr><td>英超球员数</td><td>3人（万-比萨卡、维萨、图安泽贝）</td></tr>
+      <tr><td>世界级/准世界级球员</td><td>0人（无效力于顶级豪门的球员）</td></tr>
+      <tr><td>Game-changer级别</td><td>万-比萨卡（边路防守+一对一）、巴坎布（速度反击）</td></tr>
+    </table>
+    <p>民主刚果的阵容与葡萄牙、哥伦比亚同组，天赋差距是明显的，但作为非洲球队的配备在中游偏下水平。全队没有效力于皇马、曼城、拜仁级别的球员，但万-比萨卡（西汉姆联主力右后卫）是英超长期证明过自己的防守型边后卫，他的"一对一防守能力"在英超右后卫中属于顶级——这将是民主刚果在面对葡萄牙的莱奥/内托或哥伦比亚的迪亚斯时的重要武器。尚塞尔·姆本巴（里尔队长）是法甲中卫中的老牌劲旅，他的领导力和防守经验是防线的基石。锋线上，塞德里克·巴坎布（前比利亚雷亚尔、北京国安、皇家贝蒂斯）是一名29球的国家级射手，速度和跑位在非洲层面属于上乘；约阿内·维萨在纽卡斯尔本赛季贡献了7个英超进球，展示了他从"平民前锋"到"英超轮换前锋"的跨越。但整体而言，民主刚果缺乏一名能"以个人能力改变比赛"的超级球星——万-比萨卡的防守属性大于进攻，巴坎布和维萨的稳定性不足以在对阵葡萄牙、哥伦比亚时单挑防线。</p>
+  </div>
+
+  <div class="subitem">
+    <h4>1.2 各位置均衡度 —— 42分</h4>
+    <p>民主刚果的阵容呈现出极端的"中前场倒挂"——10名中场是全队三线中最拥挤的位置，但仅4名前锋是32强中锋线人数最少的配置之一。后防线的配置相对均衡：9名后卫中既有英超级别的边路（万-比萨卡）、法甲级别的中卫（姆本巴、马苏亚库），也有在比利时、希腊等国联赛效力的轮换球员。中场10人中，德萨布雷选择了很多"技术型+偏进攻"的中场（邦贡达、卡库塔、姆布库、穆考），防守型中场只有皮克尔（西班牙人）和穆图萨米（希腊）两人——这意味着民主刚果的中场可能在对抗葡萄牙的B费/维蒂尼亚等技术型中场时硬度不足。最致命的短板是锋线——仅4人，其中西蒙·班扎已去阿联酋联赛、马耶莱在埃及联赛，真正有五大联赛级别的只有巴坎布和维萨两人。一旦其中一人状态不佳或受伤，民主刚果的进攻火力将"断崖式下降"。</p>
+  </div>
+
+  <div class="subitem">
+    <h4>1.3 板凳深度 —— 35分</h4>
+    <p>民主刚果的替补深度非常有限，尤其是在锋线和门将位置。4名前锋的配置意味着甚至连"替补前锋"的选择都非常有限——如果巴坎布或维萨中一人被换下，接替者将是阿联酋联赛的班扎或埃及联赛的马耶莱，这个差距在面对强队时几乎是致命的。中场虽然人数多（10人），但真正能改变比赛节奏的替补不多——卡库塔（34岁，希腊联赛）有天赋但已过巅峰，萨迪基（桑德兰/英冠）和西彭加（西乙）年资尚浅。后防线上，如果万-比萨卡或姆本巴因伤缺席，替补的图安泽贝（伯恩利，英冠）和布什里（希伯尼安，苏超且跟腱伤疑）的档次差距明显。全队真正值得信赖的核心轮换不超过13-14人——在三天一场的世界杯小组赛密集赛程中，这个深度是一个潜在的隐患。</p>
+  </div>
+
+  <div class="subitem">
+    <h4>1.4 总身价与年龄结构 —— 40分</h4>
+    <table class="text-sm mb-2">
+      <tr><th>指标</th><th>数据</th></tr>
+      <tr><td>全队总身价（估计）</td><td>约6500-8000万欧元（32强倒数第5-8）</td></tr>
+      <tr><td>身价最高球员</td><td>万-比萨卡（约2000万欧）、维萨（约1800万欧）</td></tr>
+      <tr><td>平均年龄</td><td>约27.2岁（合理偏年轻）</td></tr>
+      <tr><td>老将与新星</td><td>卡库塔34岁、巴坎布35岁 / 穆考21岁、萨迪基21岁、西彭加22岁</td></tr>
+    </table>
+    <p>民主刚果的全队总身价约6500-8000万欧元，在32强中排名大约第26-28位——高于海地、佛得角等队，但与同组的葡萄牙（约8亿）和哥伦比亚（约3亿）相差一至两个数量级。身价最高的万-比萨卡（约2000万欧）在英超只能算"中游主力"级别，在全队却占据了约四分之一的总身价，说明阵容的"扎堆"效应明显——少数几名五大联赛球员的身价占比过高。年龄结构较为健康：平均年龄27.2岁，3名21-22岁的年轻球员（穆考、萨迪基、西彭加）具备未来潜力，但他们在本届世界杯上还难以成为即战力。巴坎布（35岁）和卡库塔（34岁）是队中经验最丰富的球员，但这可能真的是他们的"最后一届"了。</p>
+  </div>
+
+  <div class="score-bar mt-3"><div class="score-fill" style="width:40%;background:linear-gradient(90deg,#007FFF,#CE1021);"></div></div>
+  <p class="text-right text-sm text-gray-500 mt-1">维度一总评：<strong>40分</strong> × 30% = <strong>12.0分</strong></p>
+</div>
+
+<!-- 维度二 -->
+<div class="dimension-card">
+  <h3 class="text-xl font-bold text-drc-red">维度二：战术体系与教练（权重20%）｜ 得分：48分 × 20% = 9.6分</h3>
+
+  <div class="subitem">
+    <h4>2.1 主帅战术哲学与大赛履历 —— 50分</h4>
+    <p>塞巴斯蒂安·德萨布雷是一位法国出生的非洲足球专家，自2022年起执教民主刚果。他的执教履历主要集中在非洲俱乐部（乌干达的坎帕拉城、摩洛哥的怀达德卡萨布兰卡等）和乌干达国家队（2017-2019）。2022年接手民主刚果后，他成功率队晋级2023年非洲杯并进入了四分之一决赛——这是民主刚果近年来在非洲杯上的较好成绩。在2026年世界杯预选赛中，他带领球队以稳定的表现历史性晋级。德萨布雷的战术风格以务实的防守反击为主——他不对控球率有执念，而是强调阵型紧凑度和快速转换。但他从未在世界杯级别的比赛中执教过——他的战术体系在非洲层面有效，但面对葡萄牙的罗伯托·马丁内斯（欧洲杯四强）或哥伦比亚的洛伦佐（南美经验丰富）时，其大赛调整能力将面临严峻考验。</p>
+  </div>
+
+  <div class="subitem">
+    <h4>2.2 阵型适配性与球员契合度 —— 48分</h4>
+    <p>德萨布雷在民主刚果主要采用4-3-3或4-2-3-1阵型。4-3-3阵型试图最大化中场的"人数优势"——在万-比萨卡和姆本巴提供后场稳定性的基础上，让10名中场轮换球员在三条线之间建立联系。但这种配置的问题是：当中场人数过多时，前场仅剩巴坎布和维萨两人（4-3-3需要3名前锋），导致了锋线和禁区内的"人数劣势"。如果变阵4-2-3-1，可以让维萨踢边路、巴坎布突前，但需要牺牲一名中场——这又降低了中场的控制力。在非洲杯上，德萨布雷曾成功使用过"三中卫+双前锋"的3-5-2阵型，利用了姆本巴和马苏亚库的出球能力——这个阵型可能更适合本届世界杯，既保护了边后卫的防守弱点，又将万-比萨卡推上边翼卫位置发挥其进攻端的体能优势。</p>
+  </div>
+
+  <div class="subitem">
+    <h4>2.3 攻守转换效率 —— 46分</h4>
+    <p>民主刚果的进攻套路依赖于"防守-抢断-快速出球给前锋"的简单模式。巴坎布和维萨的速度在中前场是主要武器，但问题是中场的传球精度和决策速度能否支撑这个体系。对阵葡萄牙和哥伦比亚时，民主刚果很可能长时间处于"无球状态"——场均控球率可能只有35-40%。在这种情况下，球队能否在有限的控球时间内制造威胁，取决于中场的抗压出球能力（皮克尔和穆考是关键人选）。定位球方面，民主刚果拥有姆本巴和马苏亚库等身高和头球能力不错的球员，定位球进攻将是他们最主要的得分手段之一——在非洲杯上，民主刚果的定位球进球比例约30%。</p>
+  </div>
+
+  <div class="subitem">
+    <h4>2.4 临场指挥与换人策略 —— 48分</h4>
+    <p>德萨布雷在非洲杯上的换人记录显示，他偏向于在第60-70分钟进行换人，优先调整的是边路球员和前锋。他在落后局面下有"增加前锋搏命"的魄力——2023年非洲杯四分之一决赛中，他在0-1落后的情况下连续换上3名攻击手，最终1-1扳平后进入加时赛。这种"不轻易认输"的态度值得肯定。但世界杯的舞台与非洲杯完全不同——对阵葡萄牙时如果前30分钟就0-2落后，德萨布雷需要做出"死守少输"还是"搏命一拼"的艰难抉择，而他在这种高压下的决策经验是空白的。</p>
+  </div>
+
+  <div class="score-bar mt-3"><div class="score-fill" style="width:48%;background:linear-gradient(90deg,#007FFF,#CE1021);"></div></div>
+  <p class="text-right text-sm text-gray-500 mt-1">维度二总评：<strong>48分</strong> × 20% = <strong>9.6分</strong></p>
+</div>
+
+<!-- 维度三 -->
+<div class="dimension-card">
+  <h3 class="text-xl font-bold text-drc-red">维度三：近期竞技状态（权重15%）｜ 得分：53分 × 15% = 7.95分</h3>
+
+  <div class="subitem">
+    <h4>3.1 近12个月正式比赛战绩 —— 55分</h4>
+    <p>民主刚果在2025-26年度的表现可以概括为"非洲层面可圈可点、国际层面缺少验证"。在世界杯非洲区预选赛中，民主刚果以小组头名身份晋级——他们在小组中力压加蓬、苏丹等队，表现稳健。在2026年初的非洲杯预选赛中，民主刚果1胜2平1负，表现中规中矩。友谊赛方面，他们安排了与科特迪瓦（1-1平）和赞比亚（2-0胜）的热身赛，成绩尚可。但这些比赛的结果需要放在非洲足球的语境中理解——民主刚果在非洲层面是一支有竞争力的球队（FIFA排名约65-70），但面对欧洲和南美强队时，他们的表现缺乏参考数据。近12个月最让人担心的一场比赛是客场0-3输给摩洛哥——摩洛哥也是非洲球队，那场比赛暴露了民主刚果在面对"组织严密、技术细腻"的对手时缺乏应对方案。</p>
+  </div>
+
+  <div class="subitem">
+    <h4>3.2 预选赛出线含金量 —— 55分</h4>
+    <p>民主刚果从非洲区预选赛中突围是值得肯定的成就——非洲区的9个名额竞争激烈，民主刚果能从众多对手中脱颖而出证明了他们的实力。但与非洲强队（摩洛哥、塞内加尔、尼日利亚等）相比，民主刚果在预选赛中的小组对手整体实力偏弱（加蓬、苏丹等），他们并没有经历"死亡之组"级别的考验。民主刚果在预选赛中的净胜球为+7（打进11球失4球），数据不错但缺乏"压力测试"。因此，出线的含金量属于"正常发挥"而非"超常表现"。</p>
+  </div>
+
+  <div class="subitem">
+    <h4>3.3 核心球员俱乐部状态走势 —— 50分</h4>
+    <table class="text-sm mb-2">
+      <tr><th>球员</th><th>2025-26赛季俱乐部表现</th><th>状态评级</th></tr>
+      <tr><td>万-比萨卡（西汉姆联）</td><td>英超28场，场均1.8次抢断，防守稳健</td><td>✅ 稳定</td></tr>
+      <tr><td>姆本巴（里尔）</td><td>法甲25场，场均1.5次拦截，后防领袖</td><td>✅ 稳定</td></tr>
+      <tr><td>维萨（纽卡斯尔）</td><td>英超29场7球，轮换前锋</td><td>✅ 稳定</td></tr>
+      <tr><td>巴坎布（皇家贝蒂斯）</td><td>西甲22场5球，轮换主力</td><td>✅ 稳定</td></tr>
+      <tr><td>卡库塔（拉里萨）</td><td>希超18场4球3助攻，核心</td><td>⬆️ 回暖</td></tr>
+      <tr><td>穆考（里尔）</td><td>法甲20场2球，21岁新星</td><td>⬆️ 上升</td></tr>
+      <tr><td>布什里（希伯尼安）</td><td>苏超22场，跟腱伤势疑</td><td>⚠️ 伤疑</td></tr>
+    </table>
+    <p>民主刚果的核心球员俱乐部状态"稳但不亮"。万-比萨卡在西汉姆联度过了一个稳定的英超赛季，虽然进攻端贡献有限（0球2助攻），但防守端的"一对一"能力仍然是英超右后卫中的佼佼者。维萨在纽卡斯尔打入7个英超进球，证明了自己在换帅后仍能在轮换阵容中保持效率。姆本巴在里尔长期担任队长，是法甲最稳定的中卫之一。巴坎布在贝蒂斯出场时间不多但效率在线。让人眼前一亮的是21岁的恩加莱·穆考——他在里尔的中场扮演了越来越重要的角色，可能会成为民主刚果在本届世界杯上的"惊喜球员"。最大的隐患是布什里的跟腱伤势——他在苏超最后一轮疑似跟腱受伤退场，虽入选大名单但能否在密集赛程中保持健康存疑。</p>
+  </div>
+
+  <div class="score-bar mt-3"><div class="score-fill" style="width:53%;background:linear-gradient(90deg,#007FFF,#CE1021);"></div></div>
+  <p class="text-right text-sm text-gray-500 mt-1">维度三总评：<strong>53分</strong> × 15% = <strong>7.95分</strong></p>
+</div>
+
+<!-- 维度四 -->
+<div class="dimension-card">
+  <h3 class="text-xl font-bold text-drc-red">维度四：大赛经验与心理素质（权重10%）｜ 得分：32分 × 10% = 3.2分</h3>
+
+  <div class="subitem">
+    <h4>4.1 世界杯/洲际杯历史战绩 —— 20分</h4>
+    <p>民主刚果（当时国号扎伊尔）仅参加过1974年西德世界杯，三战全败—0-2苏格兰、0-9南斯拉夫、0-3巴西。那届世界杯留给足球史的不是成绩，而是后卫伊伦加在任意球防守中从人墙中跑出将球踢开的"经典迷惑行为"——那张照片成为世界杯历史上的经典画面。在非洲杯层面，民主刚果的历史还算不错——1968年和1974年两次夺冠（作为扎伊尔），近年来在2023年非洲杯进入了四分之一决赛。但2026年是民主刚果"国号恢复后"首次参加世界杯，全队没有任何一名球员拥有世界杯出场经验——这是最大的经验短板。52年的间隔，让这支民主刚果在世界杯上是一支完全的"新军"。</p>
+  </div>
+
+  <div class="subitem">
+    <h4>4.2 核心球员大赛经验值 —— 38分</h4>
+    <p>民主刚果阵中的大赛经验主要来自非洲杯和欧洲联赛。姆本巴（里尔队长）具备欧冠经验（2021-22赛季里尔出线），万-比萨卡参加过欧联杯半决赛（曼联时期），维萨和卡库塔也有一定的欧洲赛事出场记录。但这些"俱乐部级"的大赛经验与世界杯正赛的压力并不相同——8万名观众、全球数十亿电视观众、面对C罗/B费/J罗等熟悉的面孔作为对手，这些"非足球因素"可能对民主刚果球员产生心理冲击。非洲杯的经历是一个"模拟器"——但非洲杯的受关注度和竞技强度与世界杯差了几个等级。队中没有一个此前参加过世界杯的球员，这在K组中是一个明显的劣势（葡萄牙有C罗等老将、哥伦比亚有J罗等经验丰富的球员）。</p>
+  </div>
+
+  <div class="subitem">
+    <h4>4.3 抗压与逆境应对 —— 38分</h4>
+    <p>民主刚果在非洲杯上展现过一定的逆境韧性——2023年非洲杯四分之一决赛对阵法国的比赛中，他们在0-1落后的情况下在第90分钟扳平比分，将比赛拖入加时赛最终点球大战失利。但同时也需要看到，他们在世界杯预选赛中客场0-3输给摩洛哥是一场全面的溃败——面对战术执行力强的对手时，民主刚果缺乏"就算输也不能崩盘"的纪律性。鉴于1974年0-9惨败的历史教训，民主刚果在本届世界杯上如果早早丢球，能否保持阵型不乱、避免"第二次0-9"将是对球队心理素质的最大考验。C罗、B费等葡萄牙攻击手的"杀手本能"不会在领先后收手——民主刚果需要做好"被暴揍时仍保持清醒"的心理准备。</p>
+  </div>
+
+  <div class="score-bar mt-3"><div class="score-fill" style="width:32%;background:linear-gradient(90deg,#007FFF,#CE1021);"></div></div>
+  <p class="text-right text-sm text-gray-500 mt-1">维度四总评：<strong>32分</strong> × 10% = <strong>3.2分</strong></p>
+</div>
+
+<!-- 维度五 -->
+<div class="dimension-card">
+  <h3 class="text-xl font-bold text-drc-red">维度五：分组及赛程影响（权重10%）｜ 得分：37分 × 10% = 3.7分</h3>
+
+  <div class="subitem">
+    <h4>5.1 小组赛对手分析 —— 35分</h4>
+    <table class="text-sm mb-2">
+      <tr><th>对手</th><th>FIFA排名（约）</th><th>风格特点</th><th>民主刚果胜率预估</th></tr>
+      <tr><td>葡萄牙 🇵🇹</td><td>5-8名</td><td>技术型传控，中场世界级</td><td>8-12%</td></tr>
+      <tr><td>哥伦比亚 🇨🇴</td><td>15-20名</td><td>南美技术流，个人能力强</td><td>15-20%</td></tr>
+      <tr><td>乌兹别克斯坦 🇺🇿</td><td>70-80名</td><td>亚洲技术派，防守硬朗</td><td>35-40%</td></tr>
+    </table>
+    <p>K组的实力梯度非常清晰：葡萄牙是毫无疑问的小组头号热门，哥伦比亚是第二档有出线实力的强队，民主刚果和乌兹别克斯坦将争夺"搅局者"角色。民主刚果的关键赛事是对阵乌兹别克斯坦的最后一轮——这场比赛几乎将决定两队谁能在K组中"带着荣誉回家"。面对葡萄牙和哥伦比亚，民主刚果的目标应是"少输当赢"——如果能在这两场比赛中拿到一场平局（理想）或只输1球（可接受），就已经是超常发挥了。葡萄牙的中场控制力（维蒂尼亚+B费）将给民主刚果的中场带来巨大压力，而哥伦比亚的路易斯·迪亚斯（利物浦边锋）的突破能力将是万-比萨卡在本届世界杯上最严峻的一对一考验。</p>
+  </div>
+
+  <div class="subitem">
+    <h4>5.2 淘汰赛晋级路线预判 —— 25分</h4>
+    <p>民主刚果从K组出线的概率不超过10%。需要满足以下条件中的至少两项：击败或逼平葡萄牙（几乎不可能）、击败或逼平哥伦比亚（极难）、击败乌兹别克斯坦（唯一现实的目标）+ 葡萄牙和哥伦比亚都击败乌兹别克斯坦（大概率）+ 净胜球不落后太多。现实地说，民主刚果在本届世界杯上的主要目标不是"出线"而是"证明自己配得上世界杯"——拿到一场平局甚至一场胜利（对阵乌兹别克斯坦），避免出现"1974年式的惨案"。如果他们能以1-0击败乌兹别克斯坦，带着3分和1个净胜球回家，就已经是民主刚果足球的"历史性突破"了。</p>
+  </div>
+
+  <div class="subitem">
+    <h4>5.3 旅途与气候因素 —— 50分</h4>
+    <p>民主刚果的三场比赛分布在三个城市：首战在休斯顿（室内空调球场）、次战在墨西哥瓜达拉哈拉（海拔约1500米，需要适应）、末战在亚特兰大（室内球场）。瓜达拉哈拉的海拔是一个值得关注的变量——对习惯非洲热带平原环境的民主刚果球员来说，1500米的海拔虽不极端但会影响比赛初期的表现（尤其是下半场体能下降时）。前往墨西哥的旅程也增加了跨国移动的复杂性。备战方面，民主刚果足协在休斯顿安排了集训营地，后勤条件相比1974年已有天壤之别——至少球员能享受现代化的训练和恢复设施。</p>
+  </div>
+
+  <div class="score-bar mt-3"><div class="score-fill" style="width:37%;background:linear-gradient(90deg,#007FFF,#CE1021);"></div></div>
+  <p class="text-right text-sm text-gray-500 mt-1">维度五总评：<strong>37分</strong> × 10% = <strong>3.7分</strong></p>
+</div>
+
+<!-- 维度六 -->
+<div class="dimension-card">
+  <h3 class="text-xl font-bold text-drc-red">维度六：团队凝聚力与场外环境（权重10%）｜ 得分：51分 × 10% = 5.1分</h3>
+
+  <div class="subitem">
+    <h4>6.1 更衣室团结度 —— 50分</h4>
+    <p>民主刚果的更衣室存在一个"结构性特点"——大量球员出生或成长于法国和比利时，拥有刚果血统但文化背景与本土球员有所不同。万-比萨卡（伦敦出生）、维萨（法国出生）、卡库塔（法国出生）、姆布库（法国出生）等"海外刚果人"构成了球队的骨干——他们的职业训练背景和足球理念与本土出身的球员可能存在差异。不过，姆本巴作为队长，在里尔的队长经历使他具备了团结多元文化背景球员的领导能力。2023年非洲杯期间，这种"海外+本土"的融合表现良好——球员们展现了强烈的"为刚果而战"的归属感。但世界杯的更高压力可能放大任何微小的文化隔阂。</p>
+  </div>
+
+  <div class="subitem">
+    <h4>6.2 足协稳定性与管理 —— 48分</h4>
+    <p>民主刚果足协（FECOFA）历史上经历过一些管理动荡，包括财务问题和选举争议。但近年来FECOFA在德萨布雷的任期内维持了相对稳定——足协为备战世界杯投入了专项资金，包括在美国设立集训营、安排热身赛等。然而，与欧洲和南美足协相比，FECOFA在运动科学、数据分析、医疗保障等方面的投入明显不足。球队在世界杯期间的后勤保障大概率是"够用但不奢侈"的水平——他们不会因为没有训练场地或酒店而困扰，但也期待不上英法德那种"五星级"的备战条件。</p>
+  </div>
+
+  <div class="subitem">
+    <h4>6.3 国内舆论与媒体压力 —— 55分</h4>
+    <p>民主刚果国内对世界杯的态度可以概括为"自豪但不苛求"。时隔52年重返世界杯，国内媒体和球迷的主流情绪是"享受比赛、展示国家形象"——这与葡萄牙"不出线就是失败"的压力形成鲜明对比。在刚果（金），足球是第一运动，但民众对国家队在世界杯上的成绩预期是理性的——他们清楚自己的实力与葡萄牙、哥伦比亚的差距。如果民主刚果能在对阵乌兹别克斯坦时拿到一场胜利，他们就会被国内媒体塑造成"民族英雄"。这种"低压"环境可能让球员们在场上更放松地发挥——但同时也可能缺乏"必胜"的动力。</p>
+  </div>
+
+  <div class="score-bar mt-3"><div class="score-fill" style="width:51%;background:linear-gradient(90deg,#007FFF,#CE1021);"></div></div>
+  <p class="text-right text-sm text-gray-500 mt-1">维度六总评：<strong>51分</strong> × 10% = <strong>5.1分</strong></p>
+</div>
+
+<!-- 维度七 -->
+<div class="dimension-card">
+  <h3 class="text-xl font-bold text-drc-red">维度七：体能储备与伤病控制（权重5%）｜ 得分：50分 × 5% = 2.5分</h3>
+
+  <div class="subitem">
+    <h4>7.1 赛季疲劳度评估 —— 55分</h4>
+    <p>民主刚果球员的赛季消耗量在欧洲五大联赛和非主流联赛之间分布不均。万-比萨卡和维萨在英超经历了强度最高的赛季（38轮联赛+杯赛），赛季出场时间均超过2500分钟，体能消耗较大。姆本巴在法甲同样经历了三线作战。而巴坎布在贝蒂斯的出场时间较为节制（约1500分钟），体力储备相对充沛。非五大联赛球员（希腊、塞浦路斯、土耳其联赛等）的赛程密度较低，体能储备应处于较好水平。民主刚果的非洲球员以"身体素质好"著称——在世界杯上，他们的体能和爆发力可能反而是对阵葡萄牙时的"相对优势"（虽然技术和战术不如）。</p>
+  </div>
+
+  <div class="subitem">
+    <h4>7.2 关键伤病与恢复情况 —— 48分</h4>
+    <p>布什里的跟腱伤势是主要的伤病隐患——如果他在小组赛首战前无法达到100%的比赛状态，民主刚果在右中卫/右后卫位置上的替补深度将受到影响。其他球员没有重大伤病报告——万-比萨卡、姆本巴、维萨、巴坎布都如常完成了赛季。但考虑到非洲球队在历史上往往因伤病管理不当导致核心球员在世界杯期间状态下滑——民主刚果的医疗团队能否确保球员在高强度快节奏的比赛中保持健康，是一个无法预判的变量。</p>
+  </div>
+
+  <div class="subitem">
+    <h4>7.3 医疗团队与保障水平 —— 48分</h4>
+    <p>民主刚果的医疗和体能保障处于32强中的下游水平。FECOFA为世界杯配备了3-4人的医疗团队（队医+理疗师+体能教练），这个配置在非洲球队中属于"常规操作"，但与欧洲顶级球队（8-10人团队+现代化设备）相比差距显著。球队在休斯顿的集训营中使用了当地租借的康复设施——这比在非洲本土的设施好不少，但仍是"借用"而非"自有"。对于民主刚果而言，"有限的资源用在刀刃上"是他们的生存哲学——历史已经证明，非洲球队在大赛中经常因为体能恢复不足而在第三场小组赛中表现下滑，德萨布雷需要特别注意这一点。</p>
+  </div>
+
+  <div class="score-bar mt-3"><div class="score-fill" style="width:50%;background:linear-gradient(90deg,#007FFF,#CE1021);"></div></div>
+  <p class="text-right text-sm text-gray-500 mt-1">维度七总评：<strong>50分</strong> × 5% = <strong>2.5分</strong></p>
+</div>
+
+<!-- ==================== 综合评分 ==================== -->
+<h2 class="text-drc-blue">（三）综合总分与评级</h2>
+
+<div class="summary-box text-center">
+  <p class="text-2xl font-bold">加权总分：44.05 / 100</p>
+  <p class="text-xl mt-2">实力评级：<span class="text-drc-yellow font-bold text-3xl">D+</span>（实力有限/重在参与，争取搅局）</p>
+</div>
+
+<div class="bg-white rounded-xl shadow p-6 mb-6">
+  <h3 class="text-lg font-bold mb-3">七维度雷达数据</h3>
+  <table>
+    <tr><th>维度</th><th>得分</th><th>权重</th><th>加权贡献</th></tr>
+    <tr><td>① 阵容实力</td><td>40</td><td>30%</td><td>12.00</td></tr>
+    <tr><td>② 战术体系与教练</td><td>48</td><td>20%</td><td>9.60</td></tr>
+    <tr><td>③ 近期竞技状态</td><td>53</td><td>15%</td><td>7.95</td></tr>
+    <tr><td>④ 大赛经验与心理素质</td><td>32</td><td>10%</td><td>3.20</td></tr>
+    <tr><td>⑤ 分组及赛程影响</td><td>37</td><td>10%</td><td>3.70</td></tr>
+    <tr><td>⑥ 团队凝聚力与场外环境</td><td>51</td><td>10%</td><td>5.10</td></tr>
+    <tr><td>⑦ 体能储备与伤病控制</td><td>50</td><td>5%</td><td>2.50</td></tr>
+    <tr style="font-weight:bold;background: #e3f2fd;"><td colspan="3">总分</td><td>44.05</td></tr>
+  </table>
+</div>
+
+<!-- ==================== 深度球评 ==================== -->
+<h2 class="text-drc-blue">（四）深度球评</h2>
+
+<div class="bg-white rounded-xl shadow p-6 mb-6">
+  <h3 class="text-lg font-bold text-green-700">核心优势</h3>
+  <ul class="list-disc pl-6 space-y-3 mt-2">
+    <li><strong>英超级的边路防守配置。</strong>万-比萨卡（西汉姆联）是英超公认的"一对一防守专家"——他的抢断成功率和单防能力在面对顶级边锋时极具价值。哥伦比亚有路易斯·迪亚斯（利物浦）、葡萄牙有莱奥/内托——万-比萨卡在边路的防守硬度可能是民主刚果避免"被打花"的关键保障。加上姆本巴（里尔队长）在中路的指挥，民主刚果的后防在纸面上具备一定的抗压能力。</li>
+    <li><strong>非洲身体素质的天然优势。</strong>民主刚果球员的身体对抗能力、爆发力和跑动能力在面对技术型球队时可能成为"搅局武器"。葡萄牙的中场以技术见长但身体对抗并非强项——如果民主刚果能在中场利用身体优势打乱葡萄牙的节奏，将控球率维持在可接受范围内，并非完全没有机会。对阵乌兹别克斯坦时，身体素质的优势可能更为明显——中亚球队在对抗强度上通常不及非洲球队。</li>
+  </ul>
+</div>
+
+<div class="bg-white rounded-xl shadow p-6 mb-6">
+  <h3 class="text-lg font-bold text-red-700">致命短板</h3>
+  <ul class="list-disc pl-6 space-y-3 mt-2">
+    <li><strong>锋线深度"令人窒息"——只有4名前锋。</strong>在32支世界杯参赛队中，只带4名前锋是极其罕见的配置（大多数球队都带6-8名）。这不仅意味着战术变化极其有限（没有"高中锋战术"或"双前锋变阵"的选择），更意味着如果巴坎布或维萨在比赛中受伤或状态不佳，德萨布雷将面临"无锋可用"的局面。世界杯小组赛的密集赛程（3场10天）加上可能的伤病，4名前锋的配置存在巨大的"不安全边际"。</li>
+    <li><strong>"52年空白"的代价——全队零世界杯经验。</strong>民主刚果没有一名球员参加过世界杯。面对葡萄牙（C罗第6届）、哥伦比亚（J罗等老将）这样的大赛经验丰富的对手，民主刚果可能在比赛的关键时刻（如开局前15分钟、丢球后的5分钟、比赛最后10分钟）出现"经验真空"——不知道如何管理比赛、不知道如何抑制对手的节奏、不知道如何在逆境中保持战术纪律。在世界杯上，"会踢比赛"与"会赢比赛"之间的差距往往就是经验的差距。</li>
+  </ul>
+</div>
+
+<div class="bg-white rounded-xl shadow p-6 mb-6">
+  <h3 class="text-lg font-bold text-drc-red">关键先生</h3>
+  <div class="grid md:grid-cols-2 gap-4 mt-3">
+    <div class="border-l-4 border-blue-600 pl-4">
+      <p class="font-bold text-lg">🇨🇩 亚伦·万-比萨卡</p>
+      <p class="text-sm text-gray-600">民主刚果最大牌的球员。前曼联边卫、西汉姆联主力，英超"铲球之王"。他的任务是"锁死对手的边路王牌"——对葡萄牙时要限制莱奥/内托，对哥伦比亚时要面对迪亚斯。如果他能在这些对抗中占据上风，民主刚果就有了"制造意外"的基础。</p>
+    </div>
+    <div class="border-l-4 border-red-600 pl-4">
+      <p class="font-bold text-lg">🇨🇩 塞德里克·巴坎布</p>
+      <p class="text-sm text-gray-600">35岁的老将，国家队射手榜前列的杀手。他的速度和反跑是民主刚果在反击中的"唯一指望"。对阵乌兹别克斯坦的那场"可能决定历史"的比赛，巴坎布的经验和终结效率可能是最关键的决定因素。他也经历了2018年北京国安的辉煌时期，对亚洲足球的风格不陌生。</p>
+    </div>
+    <div class="border-l-4 border-green-600 pl-4">
+      <p class="font-bold text-lg">🇨🇩 尚塞尔·姆本巴 (C)</p>
+      <p class="text-sm text-gray-600">队长、后防核心、精神领袖。在里尔的长期队长经历和法甲比赛中积累的顶级比赛经验，使他成为民主刚果阵中最"见过世面"的球员之一。他的任务是——在0-2落后的情况下，不让队友的心态崩盘；在对手疯狂进攻时，保持防线的组织纪律性。</p>
+    </div>
+    <div class="border-l-4 border-orange-500 pl-4">
+      <p class="font-bold text-lg">🇨🇩 约阿内·维萨</p>
+      <p class="text-sm text-gray-600">纽卡斯尔前锋，本赛季7个英超进球的"实用型杀手"。他的无球跑动、对第二落点的判断和门前嗅觉，是民主刚果在阵地战中为数不多的得分手段。面对乌兹别克斯坦的关键战，维萨能否把英超的进球感觉带到世界杯赛场上，将决定民主刚果能不能带着一场胜利离开美国。</p>
+    </div>
+  </div>
+</div>
+
+<div class="bg-white rounded-xl shadow p-6 mb-6">
+  <h3 class="text-lg font-bold">小组赛预判</h3>
+  <table class="mt-2">
+    <tr><th>对手</th><th>预判结果</th><th>理由</th></tr>
+    <tr><td>葡萄牙 🇵🇹</td><td>民主刚果 0-3 负</td><td>技术和经验全方位碾压，少输当赢</td></tr>
+    <tr><td>哥伦比亚 🇨🇴</td><td>民主刚果 1-2 负</td><td>南美技术流稍占上风，民主刚果可能进球但输球</td></tr>
+    <tr><td>乌兹别克斯坦 🇺🇿</td><td>民主刚果 2-1 胜</td><td>身体对抗优势+反击效率决定胜负</td></tr>
+  </table>
+  <p class="mt-2"><strong>小组赛综合：1胜2负，积3分，小组第三概率75%。如果击败乌兹别克斯坦，将创造民主刚果世界杯首胜的历史。</strong></p>
+</div>
+
+<div class="bg-white rounded-xl shadow p-6 mb-6">
+  <h3 class="text-lg font-bold">淘汰赛路线推演</h3>
+  <div class="space-y-2 mt-2">
+    <p class="p-3 bg-red-50 rounded-lg"><strong>客观评估：</strong>民主刚果从K组出线的概率不超过10%。唯一的"奇迹路线"是：逼平哥伦比亚（或葡萄牙）+ 击败乌兹别克斯坦拿到4分，然后祈祷另一组的比赛结果有利于他们成为"成绩最好的小组第三"之一。但这需要太多条件同时成立。民主刚果在本届世界杯上的"胜利指标"应该是：① 世界杯首胜（对阵乌兹别克斯坦是黄金机会，约40%概率）；② 世界杯首球（如果无法取胜，至少打入世界杯历史第一球）；③ 避免1974年式的惨案（0-9的阴影——本届目标：不输4球以上）。</p>
+  </div>
+  <p class="mt-3 p-3 bg-blue-50 rounded-lg"><strong>核心判断：</strong>民主刚果是一支"有亮点但整体不足"的非洲新军。万-比萨卡和姆本巴的防守能力为他们提供了"不被打花"的基础，但4名前锋的配置、零世界杯经验和有限的战术储备，决定了他们很难在K组中扮演比"搅局者"更重要的角色。对于非洲足球而言，民主刚果的参赛本身就是一种胜利——在一个拥有超过5000种矿物的国家（"地质学奇迹"），足球是他们向世界展示自己的最亮眼的名片。如果能击败乌兹别克斯坦，他们就可以昂首回家。</p>
+</div>
+
+<div class="bg-white rounded-xl shadow p-6 mb-6 text-center">
+  <h3 class="text-lg font-bold text-drc-red">大师结语</h3>
+  <p class="text-xl italic mt-3 text-gray-700">"五十二年的等待——从蒙博托的扎伊尔到今天的民主刚果，同一个国家、不同的名字、同一个足球梦想。万-比萨卡从伦敦带着英超的铲断技艺回到非洲父亲的故乡，巴坎布拖着35岁的双腿追逐最后一个世界杯进球。K组的每一步都是历史，而击败乌兹别克斯坦的那一脚，可能是刚果足球半个世纪以来最响亮的一次心跳。"</p>
+</div>
+
+<!-- Footer -->
+<div class="text-center text-gray-400 text-sm py-6 border-t">
+  <p>© 2026 足球战力分析 · Powered by WorkBuddy AI｜数据截至2026年5月21日</p>
+  <p class="mt-1">数据来源：SoccerGraph、Kawowo、CAF官网、 Olympics.com等综合报道</p>
+</div>
+
+</div>
+
+
+<!-- HuaFootball: back-to-home button -->
+<a href="../index.html" class="huafootball-back-btn" target="_self">
+  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M19 12H5"/><path d="M12 19l-7-7 7-7"/>
+  </svg>
+  返回首页
+</a>
+<style>
+  .huafootball-back-btn {
+    position: fixed !important;
+    bottom: 28px !important;
+    right: 28px !important;
+    z-index: 99999 !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    gap: 6px !important;
+    padding: 10px 22px !important;
+    background: rgba(26, 71, 42, 0.85) !important;
+    color: #c9a84c !important;
+    border: 1px solid rgba(201, 168, 76, 0.3) !important;
+    border-radius: 999px !important;
+    font-family: "Inter", "Noto Sans SC", system-ui, sans-serif !important;
+    font-size: 13px !important;
+    font-weight: 600 !important;
+    text-decoration: none !important;
+    backdrop-filter: blur(8px) !important;
+    -webkit-backdrop-filter: blur(8px) !important;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.3) !important;
+    transition: all 0.25s ease !important;
+    cursor: pointer !important;
+    user-select: none !important;
+  }
+  .huafootball-back-btn:hover {
+    background: rgba(26, 71, 42, 0.95) !important;
+    border-color: rgba(201, 168, 76, 0.5) !important;
+    box-shadow: 0 6px 28px rgba(201, 168, 76, 0.2) !important;
+    transform: translateY(-2px) !important;
+  }
+  .huafootball-back-btn svg {
+    transition: transform 0.2s ease !important;
+  }
+  .huafootball-back-btn:hover svg {
+    transform: translateX(-3px) !important;
+  }
+</style>
+
+</body>
+</html>

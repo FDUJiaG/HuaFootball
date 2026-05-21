@@ -1,0 +1,494 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>佛得角 · 2026世界杯实力评估报告</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+tailwind.config = {
+  theme: {
+    extend: {
+      colors: {
+        cv: {
+          blue: '#003399',
+          red: '#D42027',
+          white: '#FFFFFF',
+          gold: '#FFD700',
+          dark: '#1a1a2e',
+          lightgray: '#f8f9fa'
+        }
+      },
+      fontFamily: {
+        'kai': ['KaiTi', 'STKaiti', 'SimKai', 'serif'],
+        'serif': ['Times New Roman', 'serif']
+      }
+    }
+  }
+}
+</script>
+<style>
+  body { font-family: KaiTi, STKaiti, SimKai, 'Times New Roman', serif; font-size: 11pt; }
+  .container { max-width: 1100px; margin: 0 auto; padding: 20px; }
+  h1 { font-size: 2em; }
+  h2 { font-size: 1.5em; border-bottom: 3px solid #003399; padding-bottom: 8px; margin-top: 30px; }
+  h3 { font-size: 1.2em; margin-top: 20px; }
+  table { width: 100%; border-collapse: collapse; font-size: 11pt; }
+  th, td { border: 1px solid #ddd; padding: 8px 12px; text-align: left; }
+  th { background-color: #003399; color: white; font-weight: bold; }
+  tr:nth-child(even) { background-color: #f8f9fa; }
+  .score-bar { height: 20px; border-radius: 10px; background: #eee; overflow: hidden; }
+  .score-fill { height: 100%; border-radius: 10px; transition: width 1s ease; }
+  .dimension-card { background: white; border-radius: 12px; padding: 20px; margin-bottom: 20px; box-shadow: 0 2px 8px rgba(0,0,0,0.08); border-left: 5px solid #003399; }
+  .subitem { margin: 12px 0; padding: 12px; background: #f8f9fa; border-radius: 8px; }
+  .subitem h4 { color: #003399; font-weight: bold; margin-bottom: 6px; }
+  .summary-box { background: linear-gradient(135deg, #003399, #001a4d); color: white; border-radius: 16px; padding: 25px; margin: 20px 0; }
+  .badge { display: inline-block; padding: 2px 10px; border-radius: 12px; font-size: 0.85em; font-weight: bold; }
+  .badge-gk { background: #4CAF50; color: white; }
+  .badge-df { background: #2196F3; color: white; }
+  .badge-mf { background: #FF9800; color: white; }
+  .badge-fw { background: #f44336; color: white; }
+  .debut-badge { display: inline-block; padding: 4px 14px; background: linear-gradient(135deg, #FFD700, #FFA500); color: #333; border-radius: 20px; font-weight: bold; font-size: 0.9em; }
+</style>
+</head>
+<body class="bg-gray-50">
+
+<div class="container">
+
+<!-- ==================== HEADER ==================== -->
+<div class="section text-center bg-white rounded-2xl shadow-lg p-8 mb-8">
+  <img src="https://www.cafonline.com/media/ux0ptlz5/cape-verde.png"
+       alt="佛得角足协队徽"
+       style="height:90px;width:auto;display:block;margin:0 auto 10px;"
+       onerror="this.style.display='none';document.getElementById('logo-fb').style.display='block';" />
+  <div id="logo-fb" style="display:none;font-size:4em;margin-bottom:10px;">🇨🇻</div>
+  <h1 class="text-4xl font-bold text-cv-blue mt-4">佛得角 · 2026世界杯实力评估报告</h1>
+  <p class="text-gray-500 mt-2">报告生成日期：2026年5月21日 · 2026美加墨世界杯</p>
+  <div class="mt-3"><span class="debut-badge">🏆 首次参赛 · 历史突破</span></div>
+</div>
+
+<!-- ==================== 基本信息 ==================== -->
+<h2 class="text-cv-blue">（一）球队基本信息</h2>
+
+<div class="bg-white rounded-xl shadow p-6 mb-6">
+  <div class="grid md:grid-cols-2 gap-4">
+    <div>
+      <p><strong>国家：</strong>佛得角（Cabo Verde / Cape Verde）</p>
+      <p><strong>绰号：</strong>蓝鲨队（The Blue Sharks / Tubarões Azuis）</p>
+      <p><strong>主教练：</strong>佩德罗·"布比斯塔"·布里托（Pedro "Bubista" Brito）</p>
+      <p><strong>队长：</strong>瑞安·门德斯（Ryan Mendes）</p>
+      <p><strong>FIFA世界排名：</strong>第69位</p>
+      <p><strong>人口：</strong>约56万（2026世界杯32强中人口最少国家之一）</p>
+    </div>
+    <div>
+      <p><strong>世界杯参赛历史：</strong>首次参赛（2026年是历史第一遭）</p>
+      <p><strong>世界杯最佳成绩：</strong>不适用（新军）</p>
+      <p><strong>上届（2022）成绩：</strong>未参赛</p>
+      <p><strong>晋级历程：</strong>2025年10月13日，主场3-0击败斯威士兰锁定名额</p>
+      <p><strong>小组赛：</strong>H组</p>
+      <p><strong>同组对手：</strong>西班牙 🇪🇸、乌拉圭 🇺🇾、沙特阿拉伯 🇸🇦</p>
+    </div>
+  </div>
+  <div class="mt-3 p-3 bg-blue-50 rounded-lg">
+    <p class="text-sm"><strong>🏝️ 岛国奇迹：</strong>佛得角是一个位于大西洋中部的岛国，人口仅56万，国土由10个火山岛组成。他们成为2026世界杯上人口最少的参赛国之一，也是继塞内加尔之后又一个在世界杯舞台上亮相的西非岛国/沿海小国。</p>
+  </div>
+</div>
+
+<!-- ==================== 26人大名单 ==================== -->
+<h3 class="text-xl font-bold text-cv-blue">26人大名单（3 GK + 9 DF + 6 MF + 8 FW）</h3>
+<p class="text-gray-500 text-sm mb-3">* 2026年5月中旬公布 · 7名球员效力于葡萄牙联赛</p>
+
+<div class="bg-white rounded-xl shadow p-6 mb-6">
+  <table>
+    <thead>
+      <tr>
+        <th>位置</th>
+        <th>球员姓名</th>
+        <th>英文名</th>
+        <th>所属俱乐部</th>
+        <th>联赛等级</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr><td><span class="badge badge-gk">GK</span></td><td>沃齐尼亚</td><td>Vozinha (Josimar Dias)</td><td>查维斯</td><td>葡超</td></tr>
+      <tr><td><span class="badge badge-gk">GK</span></td><td>马尔西奥·达罗萨</td><td>Márcio da Rosa</td><td>蒙大拿</td><td>保甲</td></tr>
+      <tr><td><span class="badge badge-gk">GK</span></td><td>卡洛斯·桑托斯</td><td>Carlos Santos</td><td>圣地亚哥FC</td><td>美职联</td></tr>
+      <tr><td><span class="badge badge-df">DF</span></td><td>史蒂文·莫雷拉</td><td>Steven Moreira</td><td>哥伦布机员</td><td>美职联</td></tr>
+      <tr><td><span class="badge badge-df">DF</span></td><td>瓦格纳·皮纳</td><td>Wagner Pina</td><td>特拉布宗体育</td><td>土超</td></tr>
+      <tr><td><span class="badge badge-df">DF</span></td><td>若昂·保罗·费尔南德斯</td><td>João Paulo Fernandes</td><td>FCSB</td><td>罗甲</td></tr>
+      <tr><td><span class="badge badge-df">DF</span></td><td>西德尼·卡布拉尔</td><td>Sidny Cabral</td><td>本菲卡</td><td>葡超</td></tr>
+      <tr><td><span class="badge badge-df">DF</span></td><td><strong>洛根·科斯塔</strong></td><td><strong>Logan Costa</strong></td><td><strong>比利亚雷亚尔</strong></td><td><strong>西甲 ⭐</strong></td></tr>
+      <tr><td><span class="badge badge-df">DF</span></td><td>罗伯托·洛佩斯</td><td>Roberto Lopes "Pico"</td><td>沙姆洛克流浪者</td><td>爱超</td></tr>
+      <tr><td><span class="badge badge-df">DF</span></td><td>凯尔文·皮雷斯</td><td>Kelvin Pires</td><td>SJK塞伊奈约基</td><td>芬超</td></tr>
+      <tr><td><span class="badge badge-df">DF</span></td><td>斯托皮拉</td><td>Stopira (Ianique Tavares)</td><td>托雷恩斯</td><td>葡甲</td></tr>
+      <tr><td><span class="badge badge-df">DF</span></td><td>迪内·博尔热斯</td><td>Diney Borges</td><td>阿尔巴塔赫</td><td>阿联酋联</td></tr>
+      <tr><td><span class="badge badge-mf">MF</span></td><td><strong>雅米罗·蒙特罗</strong></td><td><strong>Jamiro Monteiro</strong></td><td><strong>PEC兹沃勒</strong></td><td>荷甲</td></tr>
+      <tr><td><span class="badge badge-mf">MF</span></td><td>特尔莫·阿尔坎若</td><td>Telmo Arcanjo</td><td>吉马良斯</td><td>葡超</td></tr>
+      <tr><td><span class="badge badge-mf">MF</span></td><td>亚尼克·塞梅多</td><td>Yannick Semedo</td><td>法伦斯</td><td>葡超</td></tr>
+      <tr><td><span class="badge badge-mf">MF</span></td><td>拉罗斯·杜阿尔特</td><td>Laros Duarte</td><td>普斯卡什学院</td><td>匈甲</td></tr>
+      <tr><td><span class="badge badge-mf">MF</span></td><td>德罗伊·杜阿尔特</td><td>Deroy Duarte</td><td>卢多戈雷茨</td><td>保甲</td></tr>
+      <tr><td><span class="badge badge-mf">MF</span></td><td>凯文·皮纳</td><td>Kevin Pina</td><td>克拉斯诺达尔</td><td>俄超</td></tr>
+      <tr><td><span class="badge badge-fw">FW</span></td><td><strong>瑞安·门德斯 (C)</strong></td><td><strong>Ryan Mendes</strong></td><td>伊迪尔</td><td>土甲</td></tr>
+      <tr><td><span class="badge badge-fw">FW</span></td><td>威利·塞梅多</td><td>Willy Semedo</td><td>奥莫尼亚</td><td>塞浦甲</td></tr>
+      <tr><td><span class="badge badge-fw">FW</span></td><td>加里·罗德里格斯</td><td>Garry Rodrigues</td><td>阿波罗利马索尔</td><td>塞浦甲</td></tr>
+      <tr><td><span class="badge badge-fw">FW</span></td><td>若瓦内·卡布拉尔</td><td>Jovane Cabral</td><td>埃斯特雷拉阿马多拉</td><td>葡超</td></tr>
+      <tr><td><span class="badge badge-fw">FW</span></td><td>努诺·达科斯塔</td><td>Nuno Da Costa</td><td>伊斯坦布尔巴萨克赛尔</td><td>土超</td></tr>
+      <tr><td><span class="badge badge-fw">FW</span></td><td><strong>代隆·利夫拉门托</strong></td><td><strong>Dailon Livramento</strong></td><td>卡萨皮亚</td><td>葡超</td></tr>
+      <tr><td><span class="badge badge-fw">FW</span></td><td>吉尔森·本希莫尔</td><td>Gilson Benchimol</td><td>阿克伦托里亚蒂</td><td>俄超</td></tr>
+      <tr><td><span class="badge badge-fw">FW</span></td><td>埃利奥·瓦雷拉</td><td>Hélio Varela</td><td>特拉维夫马卡比</td><td>以超</td></tr>
+    </tbody>
+  </table>
+  <div class="mt-3 p-3 bg-yellow-50 rounded-lg border border-yellow-200">
+    <p class="text-sm"><strong>🌍 球员分布：</strong>葡萄牙联赛7人 | 土耳其3人 | 塞浦路斯2人 | 美国2人 | 俄罗斯2人 | 荷兰、西班牙、保加利亚、罗马尼亚、爱尔兰、芬兰、匈牙利、阿联酋、以色列各1人</p>
+  </div>
+</div>
+
+<!-- ==================== 七维度评分 ==================== -->
+<h2 class="text-cv-blue">（二）逐项评分明细（七维度深度拆解）</h2>
+
+<!-- 维度一 -->
+<div class="dimension-card">
+  <h3 class="text-xl font-bold text-cv-blue">维度一：阵容实力（权重30%）｜ 得分：34分 × 30% = 10.2分</h3>
+
+  <div class="subitem">
+    <h4>1.1 球星质量与个人能力 —— 32分</h4>
+    <table class="text-sm mb-2">
+      <tr><th>指标</th><th>数据</th></tr>
+      <tr><td>五大联赛现役球员数</td><td>1人（洛根·科斯塔，比利亚雷亚尔—西甲）</td></tr>
+      <tr><td>世界级/准世界级球员</td><td>0人（全队无人效力于顶级豪门）</td></tr>
+      <tr><td>身价最高球员</td><td>洛根·科斯塔（约400-600万欧）</td></tr>
+      <tr><td>Game-changer级别</td><td>无</td></tr>
+    </table>
+    <p>佛得角是本届世界杯32强中整体天赋最有限的球队之一。全队唯一效力于五大联赛的球员是24岁的后卫洛根·科斯塔（比利亚雷亚尔），身高1米91的他是一名身体条件出色的中卫，在西甲有一定的出场时间，但他的身价估算仅400-600万欧元——这在顶级球队里只是"边缘球员"的水平。其余球员分布极为分散：7人在葡萄牙联赛（但大多是葡超中下游或葡甲球队），3人在土耳其，2人在塞浦路斯，2人在美职联。队中没有任何球员参加过欧冠淘汰赛级别的比赛，也没有球员效力于欧洲传统豪门。佛得角队的最强球员——队长瑞安·门德斯（36岁，土甲球队）和加里·罗德里格斯（35岁，塞浦路斯联赛）均已处于职业生涯末期。整体而言，佛得角的阵容实力与H组其他三队（西班牙、乌拉圭、沙特）存在巨大差距。</p>
+  </div>
+
+  <div class="subitem">
+    <h4>1.2 各位置均衡度 —— 40分</h4>
+    <p>佛得角在三线配置上呈现出"守强攻弱"的特征。后防线是相对最可靠的环节——洛根·科斯塔（比利亚雷亚尔）在中卫位置上提供了稀缺的五大联赛档次和身高优势（1米91的争顶能力），搭配经验丰富的罗伯托·洛佩斯（沙姆洛克流浪者，欧战常客），形成了"一高一快"的组合。史蒂文·莫雷拉在美职联哥伦布机员担任主力右后卫，防守位置感好，但缺乏顶级比赛的冲击经验。中场方面，雅米罗·蒙特罗是唯一具备荷甲主力水平的球员（PEC兹沃勒），他的拿球能力和传球视野是佛得角为数不多的技术亮点。但其他中场球员大多来自保加利亚、芬兰、匈牙利等非主流联赛，对抗能力和技术精度面对西班牙、乌拉圭的中场时将是巨大的考验。前锋线的得分能力最令人担忧——努诺·达科斯塔在土超的进球效率平平，代隆·利夫拉门托在葡超卡萨皮亚本赛季只有4球入账，加里·罗德里格斯和威利·塞梅多均已年过30且状态下滑。</p>
+  </div>
+
+  <div class="subitem">
+    <h4>1.3 板凳深度 —— 28分</h4>
+    <p>佛得角的替补席深度是这支球队最脆弱的环节。首发阵容与替补的实力差距极大——11名首发球员已经勉强拼凑出有一定竞争力的阵容，但替补席上坐着的基本是来自葡甲、芬超、塞浦路斯联赛等非主流联赛的球员。具体来看，门将位置是唯一相对有深度的位置——沃齐尼亚（葡超查维斯）是经验丰富的老将，卡洛斯·桑托斯（美职联圣地亚哥FC）也有一定的实力。但在中前场，一旦主力出现伤病或体能不支，替补球员的能力降级将是断崖式的。例如，如果雅米罗·蒙特罗（中场核心）缺阵，接替他的将是凯尔文·皮纳（芬超SJK）或德罗伊·杜阿尔特（保加利亚联赛）——这种"从荷甲到芬兰联赛"的降级幅度，在面对西班牙的罗德里/佩德里级别的中场时几乎是灾难性的。全队真正可信赖的轮换球员不超过12-13人。</p>
+  </div>
+
+  <div class="subitem">
+    <h4>1.4 总身价与年龄结构 —— 35分</h4>
+    <table class="text-sm mb-2">
+      <tr><th>指标</th><th>数据</th></tr>
+      <tr><td>全队总身价（估计）</td><td>约1500-2000万欧元（32强中倒数）</td></tr>
+      <tr><td>平均年龄</td><td>约29.5岁（经验够但偏大）</td></tr>
+      <tr><td>核心球员年龄</td><td>瑞安·门德斯36岁、加里·罗德里格斯35岁、沃齐尼亚37岁、罗伯托·洛佩斯34岁</td></tr>
+      <tr><td>年轻球员希望</td><td>代隆·利夫拉门托24岁、埃利奥·瓦雷拉24岁、洛根·科斯塔24岁</td></tr>
+    </table>
+    <p>佛得角的全队总身价估算约1500-2000万欧元——这个数字大约相当于维尼修斯一个人的身价的十分之一。在全队26名球员中，没有任何一人身价超过1000万欧元。平均年龄29.5岁在32强中属于偏老，但这更多反映了"老将撑场"的现实——由于缺乏成熟的青训出口体系，佛得角必须依靠那些已经证明过自己但正在走下坡路的归化/海外球员。积极的方面是，队中有一批24岁左右的年轻球员正在成长（利夫拉门托、瓦雷拉、科斯塔），但他们在2026年世界杯上的角色更多是"学习的体验者"，而非即战力。全队整体身价在32强中大概率排名第28-30位，仅高于海地等极少数球队。</p>
+  </div>
+
+  <div class="score-bar mt-3"><div class="score-fill" style="width:34%;background:linear-gradient(90deg,#003399,#D42027);"></div></div>
+  <p class="text-right text-sm text-gray-500 mt-1">维度一总评：<strong>34分</strong> × 30% = <strong>10.2分</strong></p>
+</div>
+
+<!-- 维度二 -->
+<div class="dimension-card">
+  <h3 class="text-xl font-bold text-cv-blue">维度二：战术体系与教练（权重20%）｜ 得分：44分 × 20% = 8.8分</h3>
+
+  <div class="subitem">
+    <h4>2.1 主帅战术哲学与大赛履历 —— 45分</h4>
+    <p>布比斯塔是佛得角足球的"历史创造者"。这位本土教练自2022年起执掌教鞭，带领佛得角在2025年10月以3-0击败斯威士兰，历史性地首次晋级世界杯决赛圈。他的战术哲学以"防守务实主义"为核心——不追求控球率，而是通过紧凑的防守阵型和快速的攻防转换来制造威胁。他的球队在非洲杯预选赛中展现出了不错的纪律性和组织性，尤其是在客场面对强队时能保持阵型不乱。但布比斯塔从未在非洲杯正赛或任何国际大赛中执教过，世界杯的赛场压力、对手的战术复杂性和媒体的关注度都是他从未经历过的。与H组其他三位教练相比（西班牙的路易斯·德拉富恩特、乌拉圭的马塞洛·贝尔萨），布比斯塔在战术积累和大赛经验上的差距是明显的。</p>
+  </div>
+
+  <div class="subitem">
+    <h4>2.2 阵型适配性与球员契合度 —— 48分</h4>
+    <p>布比斯塔在佛得角主要使用4-4-2或4-3-3阵型，根据对手强弱灵活切换。面对西班牙、乌拉圭这样的强队，他很可能会采用5-4-1或5-3-2的防守阵型（三中卫体系），以求在后场堆积人数、压缩空间。这一策略与佛得角的球员资源是匹配的：球队拥有多名身高体壮的中卫（洛根·科斯塔1米91、罗伯托·洛佩斯1米88），在禁区内的防空能力不会太差。边路防守是薄弱环节——史蒂文·莫雷拉和瓦格纳·皮纳在面对顶级边锋（如西班牙的尼科·威廉姆斯、乌拉圭的佩利斯特里）时可能被速度碾压。进攻端，布比斯塔依赖"双前锋反击"——努诺·达科斯塔和代隆·利夫拉门托的速度是主要武器，但这种"打身后"的套路在面对西班牙的高位防线时尚且有效，面对乌拉圭的紧凑防守时则可能失效。</p>
+  </div>
+
+  <div class="subitem">
+    <h4>2.3 攻守转换效率 —— 40分</h4>
+    <p>佛得角的进攻策略非常直接：得球后迅速通过中场，利用前场几名速度型前锋的速度冲击对手防线。在非洲区预选赛中，他们的定位球进攻是一个得分亮点——角球和任意球占总进球的约35%。但面对西班牙和乌拉圭这种顶级强队，佛得角在由守转攻时的传球成功率将是关键——如果中场球员（雅米罗·蒙特罗是唯一具备稳定出球能力的人选）被压迫失误，佛得角将陷入"只能大脚解围"的被动局面。由攻转守时，球队的整体退防速度尚可，但边后卫前插后留下的边路空当容易被对手利用。面对西班牙这种擅长边路渗透的球队，佛得角的边路防守将面临极限考验。</p>
+  </div>
+
+  <div class="subitem">
+    <h4>2.4 临场指挥与换人策略 —— 42分</h4>
+    <p>布比斯塔在预选赛和非洲杯预赛中的换人记录显示，他倾向于在第65-75分钟之间进行第一次换人，换人逻辑偏保守——优先补充体能消耗最大的边路球员。在非洲区的比赛中，他曾在平局局面下换上额外的前锋（拼3分），这种"敢于冒险"的气质值得肯定。但世界杯的比赛中，布比斯塔将面临两种完全不同的处境：面对西班牙和乌拉圭时，他需要做出"死守保分"还是"搏命抢分"的抉择；面对沙特时则是"争取历史首胜"的机会。他的决策将直接影响佛得角在这届世界杯上的最终定位。</p>
+  </div>
+
+  <div class="score-bar mt-3"><div class="score-fill" style="width:44%;background:linear-gradient(90deg,#003399,#D42027);"></div></div>
+  <p class="text-right text-sm text-gray-500 mt-1">维度二总评：<strong>44分</strong> × 20% = <strong>8.8分</strong></p>
+</div>
+
+<!-- 维度三 -->
+<div class="dimension-card">
+  <h3 class="text-xl font-bold text-cv-blue">维度三：近期竞技状态（权重15%）｜ 得分：50分 × 15% = 7.5分</h3>
+
+  <div class="subitem">
+    <h4>3.1 近12个月正式比赛战绩 —— 55分</h4>
+    <p>佛得角在2025年10月完成了历史性的世界杯晋级任务——在非洲区第二轮预选赛中，他们与布基纳法索、斯威士兰和毛里塔尼亚同组，最终以小组第一身份直接出线。关键战役是2025年10月13日主场3-0大胜斯威士兰——这场胜利锁定了世界杯门票。此后在2026年初的非洲杯预选赛中，佛得角的表现有起有伏：他们2-1战胜了安哥拉，但也1-3输给了喀麦隆。整体来看，佛得角在近12个月对阵非洲球队的战绩为6胜3平3负，属于非洲中上游水平。但需要指出的是，这些对手的整体实力远不如世界杯H组的西班牙和乌拉圭——"非洲级表现"与"世界杯级表现"之间的差距可能是巨大的。</p>
+  </div>
+
+  <div class="subitem">
+    <h4>3.2 预选赛出线含金量 —— 52分</h4>
+    <p>佛得角的晋级历程确实值得尊敬——在非洲区预选赛中突围本身就是一项艰巨成就。非洲区只有9个名额（加上可能的洲际附加赛），佛得角能从布基纳法索（近年来实力上升的非洲劲旅）手中抢到小组第一，证明了他们具备一定的竞争力。但客观来说，佛得角在预选赛中的小组对手没有超级强队——没有遇到塞内加尔、摩洛哥、尼日利亚、科特迪瓦这些非洲顶级球队。如果他们被分到"死亡之组"，未必能顺利出线。因此，佛得角的晋级更多是"达到了非洲中上游球队的应有水平"，而非"超常发挥"。话虽如此，对于一个人口仅56万的小岛国来说，晋级世界杯本身就是了不起的成就——佛得角也成为2026世界杯上人口最少的参赛国之一。</p>
+  </div>
+
+  <div class="subitem">
+    <h4>3.3 核心球员俱乐部状态走势 —— 43分</h4>
+    <table class="text-sm mb-2">
+      <tr><th>球员</th><th>2025-26赛季俱乐部表现</th><th>状态评级</th></tr>
+      <tr><td>洛根·科斯塔（比利亚雷亚尔）</td><td>西甲15场1球，轮换中卫</td><td>✅ 稳定</td></tr>
+      <tr><td>雅米罗·蒙特罗（PEC兹沃勒）</td><td>荷甲28场3球5助攻，中场核心</td><td>✅ 稳定</td></tr>
+      <tr><td>瑞安·门德斯（伊迪尔）</td><td>土甲24场5球3助攻，球队队长</td><td>✅ 稳定</td></tr>
+      <tr><td>努诺·达科斯塔（伊斯坦布尔巴萨克赛尔）</td><td>土超20场5球，主要替补</td><td>⬇️ 一般</td></tr>
+      <tr><td>代隆·利夫拉门托（卡萨皮亚）</td><td>葡超26场4球1助攻</td><td>⬆️ 上升</td></tr>
+      <tr><td>加里·罗德里格斯（阿波罗利马索尔）</td><td>塞浦甲18场3球，状态下滑</td><td>⬇️ 下滑</td></tr>
+      <tr><td>沃齐尼亚（查维斯）</td><td>葡超12场，30岁+老将</td><td>✅ 稳定</td></tr>
+    </table>
+    <p>佛得角核心球员的俱乐部状态分布较为均匀——没有状态特别火热的人，也没有伤病缠身的"定时炸弹"。雅米罗·蒙特罗在荷甲PEC兹沃勒是当之无愧的中场核心，3球5助攻的数据在荷甲中游球队中属于中上水平。洛根·科斯塔在比利亚雷亚尔虽然不是绝对主力（西甲出场15次），但能在西甲球队获得稳定的轮换位置本身就证明了实力。代隆·利夫拉门托是队中状态处于"上升曲线"的球员——24岁的他本赛季在葡超出场26次打入4球，虽然效率不算高，但他的速度和跑位有所进步。令人担忧的是加里·罗德里格斯——这位35岁的老将在塞浦路斯联赛的状态已大不如前，但布比斯塔依然将他带到了世界杯，更可能是看重他的大赛经验而非即战力。</p>
+  </div>
+
+  <div class="score-bar mt-3"><div class="score-fill" style="width:50%;background:linear-gradient(90deg,#003399,#D42027);"></div></div>
+  <p class="text-right text-sm text-gray-500 mt-1">维度三总评：<strong>50分</strong> × 15% = <strong>7.5分</strong></p>
+</div>
+
+<!-- 维度四 -->
+<div class="dimension-card">
+  <h3 class="text-xl font-bold text-cv-blue">维度四：大赛经验与心理素质（权重10%）｜ 得分：28分 × 10% = 2.8分</h3>
+
+  <div class="subitem">
+    <h4>4.1 世界杯/洲际杯历史战绩 —— 10分</h4>
+    <p>佛得角在2026年之前从未参加过任何一届世界杯，这是他们的"处子秀"。在非洲杯层面，佛得角的最好成绩是2022年非洲杯的16强（1/8决赛负于塞内加尔），以及2013年非洲杯的8强——这也是他们在非洲足球顶级赛事中的最好成绩。换句话说，佛得角国家队在国际大赛中的"经验储备"是32强中最薄弱的之一——他们不仅没有世界杯经验，在非洲杯中的成绩也平平。这意味着球队在世界杯面对西班牙、乌拉圭这样的传统豪强时，球员的心理层面将承受巨大的"未知压力"——从入场仪式到比赛节奏到媒体关注，一切都将是全新的。</p>
+  </div>
+
+  <div class="subitem">
+    <h4>4.2 核心球员大赛经验值 —— 30分</h4>
+    <p>虽然佛得角国家队整体缺乏大赛经验，但个别球员在俱乐部层面积累了一些"硬仗经验"。洛根·科斯塔随比利亚雷亚尔参加过欧联杯，有一定的欧战淘汰赛经历。雅米罗·蒙特罗在荷甲踢过阿贾克斯、埃因霍温等强队，对高压比赛有一定的适应力。罗伯托·洛佩斯在沙姆洛克流浪者是欧战常客（参加过欧冠资格赛和欧协联小组赛），这些经历虽然与世界杯正赛的强度无法相提并论，但至少不是"从零开始"。大部分球员（尤其是来自塞浦路斯、芬兰、保加利亚联赛的球员）几乎没有在高水平比赛中对抗世界级对手的经历——在面对西班牙的罗德里、佩德里、尼科·威廉姆斯时，他们可能第一次感受到"什么叫真正的顶级足球"。</p>
+  </div>
+
+  <div class="subitem">
+    <h4>4.3 抗压与逆境应对 —— 45分</h4>
+    <p>佛得角在预选赛中的逆境作战能力有一定亮点：在客场对阵布基纳法索的比赛中，他们在先丢一球的情况下连扳两球逆转取胜，展现了"不轻易放弃"的心理韧性。但问题在于——面对西班牙或乌拉圭时，佛得角可能面对的"逆境"与预选赛完全不同：他们可能在前20分钟就丢球，甚至半场落后2-3球。在这种情况下，球队是否能够保持纪律性（不崩盘）、是否还能坚持战术纪律，是衡量抗压能力的真正标尺。佛得角队内没有任何球员经历过世界杯级别的"被碾压"——这是他们这个维度得分偏低的核心原因。</p>
+  </div>
+
+  <div class="score-bar mt-3"><div class="score-fill" style="width:28%;background:linear-gradient(90deg,#003399,#D42027);"></div></div>
+  <p class="text-right text-sm text-gray-500 mt-1">维度四总评：<strong>28分</strong> × 10% = <strong>2.8分</strong></p>
+</div>
+
+<!-- 维度五 -->
+<div class="dimension-card">
+  <h3 class="text-xl font-bold text-cv-blue">维度五：分组及赛程影响（权重10%）｜ 得分：33分 × 10% = 3.3分</h3>
+
+  <div class="subitem">
+    <h4>5.1 小组赛对手分析 —— 32分</h4>
+    <table class="text-sm mb-2">
+      <tr><th>对手</th><th>FIFA排名</th><th>风格特点</th><th>佛得角胜率预估</th></tr>
+      <tr><td>西班牙 🇪🇸</td><td>8名</td><td>传控大师，技术碾压</td><td>5-10%</td></tr>
+      <tr><td>乌拉圭 🇺🇾</td><td>12-15名</td><td>南美硬朗派，身体对抗强</td><td>10-15%</td></tr>
+      <tr><td>沙特阿拉伯 🇸🇦</td><td>50-55名</td><td>亚洲技术流，体能好</td><td>35-45%</td></tr>
+    </table>
+    <p>佛得角在H组的签运可以用"艰巨"来形容。西班牙是传统豪门，2022世界杯16强、2024欧洲杯冠军，拥有成熟的传控体系和世界级球员储备；乌拉圭虽处于新老交替阶段，但南美传统三强的底蕴不可动摇——2022世界杯小组出线、2024美洲杯四强，阵中仍有巴尔韦德/努涅斯等顶级球星。唯一的"机会"来自沙特阿拉伯——沙特在2022年世界杯小组赛2-1击败了最终的冠军阿根廷，证明了亚洲球队在南美/欧洲强队面前也能创造奇迹。而且沙特的FIFA排名（约50-55）与佛得角（69）较为接近，这场比赛也是佛得角争取"世界杯历史第一分/第一胜"的最佳（也是唯一的）机会。</p>
+  </div>
+
+  <div class="subitem">
+    <h4>5.2 淘汰赛晋级路线预判 —— 20分</h4>
+    <p>坦率地说，佛得角从H组出线的概率极低——需要击败西班牙或乌拉圭中的至少一支，同时拿下沙特。以佛得角目前的实力，击败西班牙或乌拉圭的可能性不超过10%。除非沙特在2022年世界杯2-1击败阿根廷的"奇迹"在佛得角身上重演，否则H组出线名额大概率将在西班牙和乌拉圭之间产生。但足球的魅力就在于"杯赛爆冷"的可能性——如果佛得角在对阵西班牙时死守成功（比如0-0平局），然后在与沙特的关键战中获胜，拿到4分，再寄希望于乌拉圭击败西班牙（或反之），理论上是有出线希望的。但这种"连环套"需要太多条件同时成立，更像是数学概率上的存在，而非战术上可以依赖的路线。</p>
+  </div>
+
+  <div class="subitem">
+    <h4>5.3 旅途与气候因素 —— 55分</h4>
+    <p>佛得角的三场小组赛分布在三个城市：首战在亚特兰大（佐治亚州，室内球场），次战在迈阿密（佛罗里达州，6月湿度高），末战在休斯顿（德克萨斯州，室内球场）。三个城市之间的移动距离中等（亚特兰大→迈阿密约1.5小时航程，迈阿密→休斯顿约2.5小时航程），对职业球员来说是可以接受的节奏。气候方面，亚特兰大和休斯顿的比赛在室内球场进行（均有空调系统），迈阿密的比赛在室外但闭顶球场——佛得角作为热带岛国，球员对湿热环境的适应能力天然优于欧洲对手，这在面对西班牙时可能是一个微小的优势。佛得角的备战基地选在了佛罗里达州，靠近迈阿密，后勤安排相对合理。</p>
+  </div>
+
+  <div class="score-bar mt-3"><div class="score-fill" style="width:33%;background:linear-gradient(90deg,#003399,#D42027);"></div></div>
+  <p class="text-right text-sm text-gray-500 mt-1">维度五总评：<strong>33分</strong> × 10% = <strong>3.3分</strong></p>
+</div>
+
+<!-- 维度六 -->
+<div class="dimension-card">
+  <h3 class="text-xl font-bold text-cv-blue">维度六：团队凝聚力与场外环境（权重10%）｜ 得分：65分 × 10% = 6.5分</h3>
+
+  <div class="subitem">
+    <h4>6.1 更衣室团结度 —— 68分</h4>
+    <p>这是佛得角在本届世界杯上的"得分强项"。作为一支首次参赛的新军，更衣室内部的氛围通常是非常积极的——球员们带着"圆梦"的心态来到世界杯，不存在顶级球队中常见的"巨星争地位"或"年轻球员不满出场时间"等内耗问题。佛得角的球员大多有葡萄牙和佛得角双重背景，国际比赛期间展现出的民族自豪感和集体荣誉感非常强烈。队长瑞安·门德斯作为队中最年长的球员之一（36岁），在更衣室内有很高的威望和话语权。布比斯塔教练也是"老好人"风格，擅长团结队伍。唯一的潜在风险是：如果前两场比赛大比分失利（比如0-4、0-5），球队的士气可能受到严重打击，第三场对阵沙特时的心理状态将成为考验。</p>
+  </div>
+
+  <div class="subitem">
+    <h4>6.2 足协稳定性与管理 —— 60分</h4>
+    <p>佛得角足协（Federação Cabo-Verdiana de Futebol，FCF）近年来的运作相对稳定。布比斯塔自2022年上任以来获得了足协的持续信任，即使在预选赛中遇到波折也未出现解雇传闻。足协在后勤保障方面投入了相当大的精力——由于佛得角本土没有符合国际标准的训练设施，球队长期在葡萄牙进行集训和备战。2026世界杯的备战计划包括在美国提前设营，足协为此筹措了额外的预算。但佛得角足协的财力与欧洲强队无法相提并论——热身赛对手的安排（对手质量直接决定备战效果）、旅行条件、医疗保障等方面都可能与顶级球队存在差距。</p>
+  </div>
+
+  <div class="subitem">
+    <h4>6.3 国内舆论与媒体压力 —— 66分</h4>
+    <p>对于首次参加世界杯的佛得角来说，国内舆论环境是"低压"甚至"狂欢"的。全国上下对球队的期望不是"出线"而是"享受比赛、展示国家形象"。佛得角媒体在报道国家队时充满了自豪感——"小岛国站上世界舞台"的故事本身就足够动人，无需强加"必须赢球"的期望。这与西班牙（不出线就是失败）和乌拉圭（小组出线是最低要求）形成了鲜明对比。这种"低压环境"可能成为佛得角的秘密武器——球员们在场上可以更放松地发挥，不需要背负"输球就是对不起全国人民"的心理负担。</p>
+  </div>
+
+  <div class="score-bar mt-3"><div class="score-fill" style="width:65%;background:linear-gradient(90deg,#003399,#D42027);"></div></div>
+  <p class="text-right text-sm text-gray-500 mt-1">维度六总评：<strong>65分</strong> × 10% = <strong>6.5分</strong></p>
+</div>
+
+<!-- 维度七 -->
+<div class="dimension-card">
+  <h3 class="text-xl font-bold text-cv-blue">维度七：体能储备与伤病控制（权重5%）｜ 得分：58分 × 5% = 2.9分</h3>
+
+  <div class="subitem">
+    <h4>7.1 赛季疲劳度评估 —— 60分</h4>
+    <p>佛得角球员的赛季消耗量普遍低于欧洲顶级联赛球员，这反而可能成为体能方面的"意外优势"。除洛根·科斯塔（西甲+欧联杯）和雅米罗·蒙特罗（荷甲全勤）之外，大多数球员所在的联赛赛程密度较低——葡超中下游、土超、塞浦路斯联赛等均只有30轮左右的联赛，杯赛轮次也较少。这意味着佛得角球员在5月底到达国家队集训营时的体能储备可能比西班牙的皇马/巴萨球员更充足。但另一方面，"赛季比赛强度不足"也意味着球员的身体可能缺乏顶级比赛的"抗压训练"——面对高强度对抗时更容易受伤。</p>
+  </div>
+
+  <div class="subitem">
+    <h4>7.2 关键伤病与恢复情况 —— 62分</h4>
+    <p>截至报告生成时，佛得角阵中没有传出重大伤病消息。大部分球员都在各自俱乐部正常完成了赛季末段的比赛，身体状态处于"可用"水平。沃齐尼亚（37岁）和加里·罗德里格斯（35岁）作为老将，身体恢复速度是潜在隐患——在3周内打3场高强度小组赛，对老将的体能管理至关重要。但好消息是，佛得角的阵容深度虽然有限，但门将位置（沃齐尼亚/卡洛斯·桑托斯/马尔西奥·达罗萨）和前锋线（多名风格接近的球员）具备一定的轮换条件。</p>
+  </div>
+
+  <div class="subitem">
+    <h4>7.3 医疗团队与保障水平 —— 50分</h4>
+    <p>佛得角的医疗和体能保障水平在32强中属于下游。足协能提供的医疗团队规模和设备水平无法与欧洲、南美强队相比。球队在世界杯期间配备了2名队医和1名理疗师——这个配置在非洲球队中属于常规水平，但与顶级球队（通常配备5-8人的医疗+体能团队）相比明显不足。体能恢复设施（如冷冻治疗室、高压氧舱等）可能无法确保。不过，布比斯塔的团队在预选赛期间已经习惯了"资源有限、精打细算"的工作方式，这种"能用有限资源做到最好"的能力本身也是一种优势。</p>
+  </div>
+
+  <div class="score-bar mt-3"><div class="score-fill" style="width:58%;background:linear-gradient(90deg,#003399,#D42027);"></div></div>
+  <p class="text-right text-sm text-gray-500 mt-1">维度七总评：<strong>58分</strong> × 5% = <strong>2.9分</strong></p>
+</div>
+
+<!-- ==================== 综合评分 ==================== -->
+<h2 class="text-cv-blue">（三）综合总分与评级</h2>
+
+<div class="summary-box text-center">
+  <p class="text-2xl font-bold">加权总分：42.0 / 100</p>
+  <p class="text-xl mt-2">实力评级：<span class="text-cv-gold font-bold text-3xl">D+</span>（参与型球队，争取搅局）</p>
+</div>
+
+<div class="bg-white rounded-xl shadow p-6 mb-6">
+  <h3 class="text-lg font-bold mb-3">七维度雷达数据</h3>
+  <table>
+    <tr><th>维度</th><th>得分</th><th>权重</th><th>加权贡献</th></tr>
+    <tr><td>① 阵容实力</td><td>34</td><td>30%</td><td>10.20</td></tr>
+    <tr><td>② 战术体系与教练</td><td>44</td><td>20%</td><td>8.80</td></tr>
+    <tr><td>③ 近期竞技状态</td><td>50</td><td>15%</td><td>7.50</td></tr>
+    <tr><td>④ 大赛经验与心理素质</td><td>28</td><td>10%</td><td>2.80</td></tr>
+    <tr><td>⑤ 分组及赛程影响</td><td>33</td><td>10%</td><td>3.30</td></tr>
+    <tr><td>⑥ 团队凝聚力与场外环境</td><td><strong>65</strong></td><td>10%</td><td><strong>6.50</strong></td></tr>
+    <tr><td>⑦ 体能储备与伤病控制</td><td>58</td><td>5%</td><td>2.90</td></tr>
+    <tr style="font-weight:bold;background: #e3f2fd;"><td colspan="3">总分</td><td>42.00</td></tr>
+  </table>
+</div>
+
+<!-- ==================== 深度球评 ==================== -->
+<h2 class="text-cv-blue">（四）深度球评</h2>
+
+<div class="bg-white rounded-xl shadow p-6 mb-6">
+  <h3 class="text-lg font-bold text-green-700">核心优势</h3>
+  <ul class="list-disc pl-6 space-y-3 mt-2">
+    <li><strong>团队氛围与精神力量是佛得角最大的资本。</strong>作为一支首次参赛的"新军"，佛得角球员带着"做梦都不敢想"的心态登上世界杯舞台——没有压力、没有内耗、没有指责。队在2025年10月历史性晋级后在普拉亚市受到的全民狂欢，是佛得角球员在球场上拼搏的动力源泉。第二点是防守纪律性——在非洲区预选赛中，佛得角的场均失球仅为0.8个，这证明布比斯塔的防守体系在非洲层面是有效的。他们懂得如何"在没球权的时候踢球"。</li>
+    <li><strong>对热带/亚热带气候的天然适应力。</strong>佛得角地处大西洋热带海域，常年气温25-30°C。迈阿密（6月湿热）的天气对欧洲球队可能是个考验，但对佛得角球员而言几乎是"家乡气候"。这个小细节可能在面对西班牙时产生微妙的影响——西班牙球员的体能消耗可能比预期更快。</li>
+  </ul>
+</div>
+
+<div class="bg-white rounded-xl shadow p-6 mb-6">
+  <h3 class="text-lg font-bold text-red-700">致命短板</h3>
+  <ul class="list-disc pl-6 space-y-3 mt-2">
+    <li><strong>天赋差距是"物理级"的——无法用战术弥补。</strong>H组中西班牙全队身价约9亿欧、乌拉圭约4亿欧、沙特约3000万欧、佛得角约1500万欧。这不是一个等级的比赛——佛得角的球员在各自联赛可能是主力，但面对皇马、巴萨、利物浦级别的球员时，其速度、力量、技术和决策速度的差距是全方位的。一个残酷的事实是：佛得角队中没有任何人的身价超过洛根·科斯塔的500万欧，而西班牙阵容中身价低于5000万欧的都算"普通球员"。</li>
+    <li><strong>大赛经验为零——未知的恐惧。</strong>世界杯与非洲杯预选赛是完全不同的概念：8万名观众、全球数十亿电视观众、对手阵中的超级巨星、对手球迷的嘘声……这些"场外因素"可能让佛得角球员在前20分钟出现"大脑空白"的状态。经验丰富的球队知道如何利用对手的这种紧张情绪——比如西班牙在开局阶段的高强度控球，可能让佛得角球员在无球跑动中就已经透支了体能。</li>
+  </ul>
+</div>
+
+<div class="bg-white rounded-xl shadow p-6 mb-6">
+  <h3 class="text-lg font-bold text-cv-blue">关键先生</h3>
+  <div class="grid md:grid-cols-2 gap-4 mt-3">
+    <div class="border-l-4 border-blue-600 pl-4">
+      <p class="font-bold text-lg">🇨🇻 洛根·科斯塔</p>
+      <p class="text-sm text-gray-600">队中唯一效力于五大联赛的球员。比利亚雷亚尔中卫，身高1米91，具备西甲级别的防守意识和出球能力。他的任务是"一个人扛起整条防线"——面对西班牙的莫拉塔或乌拉圭的努涅斯，他这个"西甲级中卫"的发挥将直接决定佛得角能否避免"惨案"。</p>
+    </div>
+    <div class="border-l-4 border-orange-500 pl-4">
+      <p class="font-bold text-lg">🇨🇻 雅米罗·蒙特罗</p>
+      <p class="text-sm text-gray-600">佛得角队中唯一具备荷甲主力水准的中场球员。他的拿球、转身和出球能力是球队"能否把球从后场送到前场"的关键。面对西班牙的罗德里或佩德里的高位压迫，他的传球成功率可能决定佛得角的进攻效率——如果他被限制，佛得角的进攻几乎等于瘫痪。</p>
+    </div>
+    <div class="border-l-4 border-red-600 pl-4">
+      <p class="font-bold text-lg">🇨🇻 代隆·利夫拉门托</p>
+      <p class="text-sm text-gray-600">预选赛打进4球，是球队的最佳射手之一。24岁的他正处于上升期，速度和反跑是他在葡超的立足之本。佛得角的进攻策略非常直接——打身后、抓反击，利夫拉门托将承担"把单刀打进"的重任。对阵沙特那场可能决定历史的首胜之战，他很可能成为决定比赛的关键人物。</p>
+    </div>
+    <div class="border-l-4 border-gray-600 pl-4">
+      <p class="font-bold text-lg">🇨🇻 瑞安·门德斯 (C)</p>
+      <p class="text-sm text-gray-600">36岁的队长和精神领袖。虽然已不在巅峰状态，但他的比赛智慧、前场串联和定位球主罚是佛得角进攻端的稀缺资源。他的存在让球队在场上有一个"可以依靠的人"——在0-2落后的绝望时刻，门德斯在更衣室里说的话可能比战术板上的画线更有价值。</p>
+    </div>
+  </div>
+</div>
+
+<div class="bg-white rounded-xl shadow p-6 mb-6">
+  <h3 class="text-lg font-bold">小组赛预判</h3>
+  <table class="mt-2">
+    <tr><th>对手</th><th>预判结果</th><th>理由</th></tr>
+    <tr><td>西班牙 🇪🇸</td><td>佛得角 0-4 负</td><td>技术和控球碾压，佛得角全场无还手之力</td></tr>
+    <tr><td>乌拉圭 🇺🇾</td><td>佛得角 0-2 负</td><td>乌拉圭身体对抗占优，佛得角死守力争少输</td></tr>
+    <tr><td>沙特阿拉伯 🇸🇦</td><td>佛得角 1-1 平</td><td>双方实力接近，佛得角有望拿到历史第一分</td></tr>
+  </table>
+  <p class="mt-2"><strong>小组赛综合：1平2负，积1分，小组垫底概率85%，拿到历史第一分的概率40%。</strong></p>
+</div>
+
+<div class="bg-white rounded-xl shadow p-6 mb-6">
+  <h3 class="text-lg font-bold">淘汰赛路线推演</h3>
+  <div class="space-y-2 mt-2">
+    <p class="p-3 bg-red-50 rounded-lg"><strong>客观评估：</strong>佛得角从H组出线的概率不超过5%。H组头名大概率是西班牙（80%），第二名大概率是乌拉圭（15%）或沙特（5%）。佛得角仅有的希望是：逼平西班牙（极小概率）+ 击败沙特（有一定可能）+ 乌拉圭输给西班牙和沙特（极难）。即使这些条件全部满足，佛得角也大概率以"成绩最好的小组第三"的身份止步于此——毕竟防守数据（净胜球）在对阵西班牙和乌拉圭的两场比赛中可能会被拉开很大的差距。</p>
+  </div>
+  <p class="mt-3 p-3 bg-blue-50 rounded-lg"><strong>核心判断：</strong>佛得角在本届世界杯上的角色不是"竞争者"，而是"参与者"。他们的首要目标不是出线，而是：① 世界杯历史第一分（对阵沙特是黄金机会）；② 不要被"打花"（避免像2010年朝鲜0-7葡萄牙那样的惨案）；③ 向世界展示佛得角——一个56万人口的小岛国，在世界杯的舞台上为自己正名。对于佛得角足球而言，出现在2026年世界杯的草地上本身就已经是一个胜利——这是他们足球历史书中最辉煌的一页。</p>
+</div>
+
+<div class="bg-white rounded-xl shadow p-6 mb-6 text-center">
+  <h3 class="text-lg font-bold text-cv-blue">大师结语</h3>
+  <p class="text-xl italic mt-3 text-gray-700">"大西洋上的十个火山岛，五十六万人口，三十二个梦想——佛得角的2026世界杯之旅无关胜负，而关乎'存在'。他们或许会输给西班牙、输给乌拉圭，但只要在休斯顿的那个夜晚（对阵沙特）有人喊出'我们是佛得角'，蓝鲨队的首秀就已足够动人。"</p>
+</div>
+
+<!-- Footer -->
+<div class="text-center text-gray-400 text-sm py-6 border-t">
+  <p>© 2026 足球战力分析 · Powered by WorkBuddy AI｜数据截至2026年5月21日</p>
+  <p class="mt-1">数据来源：Olympics.com、beIN Sports、SoccerGraph、CAF官网综合报道</p>
+</div>
+
+</div>
+
+
+<!-- HuaFootball: back-to-home button -->
+<a href="../index.html" class="huafootball-back-btn" target="_self">
+  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M19 12H5"/><path d="M12 19l-7-7 7-7"/>
+  </svg>
+  返回首页
+</a>
+<style>
+  .huafootball-back-btn {
+    position: fixed !important;
+    bottom: 28px !important;
+    right: 28px !important;
+    z-index: 99999 !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    gap: 6px !important;
+    padding: 10px 22px !important;
+    background: rgba(26, 71, 42, 0.85) !important;
+    color: #c9a84c !important;
+    border: 1px solid rgba(201, 168, 76, 0.3) !important;
+    border-radius: 999px !important;
+    font-family: "Inter", "Noto Sans SC", system-ui, sans-serif !important;
+    font-size: 13px !important;
+    font-weight: 600 !important;
+    text-decoration: none !important;
+    backdrop-filter: blur(8px) !important;
+    -webkit-backdrop-filter: blur(8px) !important;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.3) !important;
+    transition: all 0.25s ease !important;
+    cursor: pointer !important;
+    user-select: none !important;
+  }
+  .huafootball-back-btn:hover {
+    background: rgba(26, 71, 42, 0.95) !important;
+    border-color: rgba(201, 168, 76, 0.5) !important;
+    box-shadow: 0 6px 28px rgba(201, 168, 76, 0.2) !important;
+    transform: translateY(-2px) !important;
+  }
+  .huafootball-back-btn svg {
+    transition: transform 0.2s ease !important;
+  }
+  .huafootball-back-btn:hover svg {
+    transform: translateX(-3px) !important;
+  }
+</style>
+
+</body>
+</html>
