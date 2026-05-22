@@ -50,12 +50,16 @@ function extractScore(content) {
   m = content.match(/加权总分<\/p>\s*\n?\s*<p[^>]*>([\d.]+)/);
   if (m) return parseFloat(m[1]);
 
+  // 3b. "加权总分" in div + nearby number in div (英格兰格式: <div>加权总分</div><div>79.5</div>)
+  m = content.match(/加权总分<\/div>\s*\n?\s*<div[^>]*>\s*([\d.]+)/);
+  if (m) return parseFloat(m[1]);
+
   // 4. <div class="total-score">79.25 / 100</div> or <div class="total-score">64.85分</div>
   m = content.match(/<div\s+class="[^"]*\btotal-score\b[^"]*"[^>]*>\s*([\d.]+)\s*(?:\/|\u5206)/);
   if (m) return parseFloat(m[1]);
 
-  // 5. <div class="score">82.5 分</div>
-  m = content.match(/<div\s+class="[^"]*\bscore\b[^"]*"[^>]*>\s*([\d.]+)\s*\u5206/);
+  // 5. <div class="score">82.5 分</div> — but NOT dimension-score
+  m = content.match(/<div\s+class="[^"]*(?<!dimension-)score\b[^"]*"[^>]*>\s*([\d.]+)\s*\u5206/);
   if (m) return parseFloat(m[1]);
 
   // 6. Table cell: "加权总分" row → <td><strong>64.85 / 100</strong></td>
