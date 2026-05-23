@@ -287,6 +287,85 @@ body {
 .rank-1 { background: rgba(255,215,0,0.2); color: #ffd700; }
 .rank-2 { background: rgba(192,192,192,0.15); color: #c0c0c0; }
 .rank-3 { background: rgba(205,127,50,0.15); color: #cd7f32; }
+
+/* ── First Visit Modal ── */
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 999999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(0,0,0,0.75);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  animation: modalFadeIn 0.5s ease;
+}
+@keyframes modalFadeIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+.modal-box {
+  background: linear-gradient(145deg, #111811, #0f1f0f);
+  border: 1px solid rgba(201,168,76,0.25);
+  border-radius: 20px;
+  padding: 40px 44px 36px;
+  max-width: 420px;
+  width: 90%;
+  text-align: center;
+  box-shadow: 0 24px 60px rgba(0,0,0,0.5);
+  animation: modalBoxIn 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+@keyframes modalBoxIn {
+  from { opacity: 0; transform: scale(0.85) translateY(20px); }
+  to   { opacity: 1; transform: scale(1) translateY(0); }
+}
+.modal-icon {
+  font-size: 3rem;
+  margin-bottom: 12px;
+}
+.modal-text {
+  font-family: 'Noto Serif SC', 'Source Han Serif SC', Georgia, serif;
+  font-size: 1.15rem;
+  line-height: 1.7;
+  color: #e0e7e0;
+  margin-bottom: 28px;
+}
+.modal-buttons {
+  display: flex;
+  gap: 14px;
+  justify-content: center;
+}
+.modal-btn {
+  padding: 12px 32px;
+  border-radius: 999px;
+  font-size: 0.95rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.25s ease;
+  border: none;
+  outline: none;
+  font-family: 'Inter', 'Noto Sans SC', system-ui, sans-serif;
+}
+.modal-btn-yes {
+  background: linear-gradient(135deg, #c9a84c, #a8882e);
+  color: #0a0e0a;
+  box-shadow: 0 4px 16px rgba(201,168,76,0.25);
+}
+.modal-btn-yes:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 24px rgba(201,168,76,0.35);
+}
+.modal-btn-no {
+  background: rgba(255,255,255,0.06);
+  color: rgba(255,255,255,0.5);
+  border: 1px solid rgba(255,255,255,0.1);
+}
+.modal-btn-no:hover {
+  background: rgba(255,255,255,0.1);
+  color: #ef4444;
+  border-color: rgba(239,68,68,0.3);
+}
 </style>
 </head>
 <body>
@@ -473,6 +552,33 @@ body {
   searchInput.addEventListener('input', function() { currentSearch = this.value; render(); });
   render();
 })();
+</script>
+
+<!-- ── First Visit Modal ── -->
+<div id="welcome-modal" class="modal-overlay" style="display:none;">
+  <div class="modal-box">
+    <div class="modal-icon">⚽</div>
+    <div class="modal-text">是否坚定支持<br><span style="color:#c9a84c;font-weight:700;font-size:1.3em;">华总牛逼</span><br>这个事实？</div>
+    <div class="modal-buttons">
+      <button class="modal-btn modal-btn-yes" onclick="confirmLoyalty()">是，继续</button>
+      <button class="modal-btn modal-btn-no" onclick="leaveSite()">否，退出</button>
+    </div>
+  </div>
+</div>
+<script>
+(function() {
+  // First visit check
+  if (!localStorage.getItem('huafootball_loyalty')) {
+    document.getElementById('welcome-modal').style.display = '';
+  }
+})();
+function confirmLoyalty() {
+  localStorage.setItem('huafootball_loyalty', '1');
+  document.getElementById('welcome-modal').style.display = 'none';
+}
+function leaveSite() {
+  document.body.innerHTML = '<div style="display:flex;align-items:center;justify-content:center;height:100vh;background:#0a0e0a;color:rgba(255,255,255,0.3);font-family:sans-serif;font-size:1.1rem;">👋 已退出</div>';
+}
 </script>
 </body>
 </html>
