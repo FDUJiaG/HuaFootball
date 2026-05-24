@@ -288,6 +288,123 @@ body {
 .rank-2 { background: rgba(192,192,192,0.15); color: #c0c0c0; }
 .rank-3 { background: rgba(205,127,50,0.15); color: #cd7f32; }
 
+/* ── OPR Scoring Table ── */
+.score-table-wrap {
+  overflow-x: auto;
+  border-radius: 14px;
+  border: 1px solid rgba(255,255,255,0.06);
+  background: linear-gradient(145deg, #111811 0%, #0f1f0f 100%);
+  margin-top: 8px;
+}
+.score-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.82rem;
+  min-width: 800px;
+}
+.score-table thead th {
+  padding: 12px 10px;
+  font-weight: 600;
+  color: #c9a84c;
+  text-align: center;
+  border-bottom: 2px solid rgba(201,168,76,0.2);
+  background: rgba(201,168,76,0.06);
+  white-space: nowrap;
+  user-select: none;
+}
+.score-table thead th.sortable {
+  cursor: pointer;
+  transition: all 0.2s ease;
+  position: relative;
+}
+.score-table thead th.sortable:hover {
+  background: rgba(201,168,76,0.14);
+  color: #dfc06a;
+}
+.score-table thead th.sortable .sort-icon {
+  display: inline-block;
+  margin-left: 4px;
+  font-size: 0.65rem;
+  transition: opacity 0.2s;
+}
+.score-table thead th.sortable .sort-icon .arrow-up,
+.score-table thead th.sortable .sort-icon .arrow-down {
+  display: none;
+}
+.score-table thead th.sortable:not(.asc):not(.desc) .sort-icon .arrow-down {
+  display: inline;
+  opacity: 0.4;
+}
+.score-table.dir-asc .sortable:not(.asc):not(.desc) .sort-icon .arrow-up {
+  display: inline;
+  opacity: 0.4;
+}
+.score-table.dir-asc .sortable:not(.asc):not(.desc) .sort-icon .arrow-down {
+  display: none;
+}
+.score-table thead th.sortable.asc .sort-icon .arrow-up {
+  display: inline;
+  opacity: 1;
+  color: #4ade80;
+}
+.score-table thead th.sortable.desc .sort-icon .arrow-down {
+  display: inline;
+  opacity: 1;
+  color: #f97316;
+}
+.score-table thead th.col-index { width: 32px; }
+.score-table thead th.col-name { text-align: left; min-width: 60px; max-width: 90px; }
+.score-table thead th.col-score { width: 46px; }
+.score-table thead th.col-rating { width: 42px; }
+.score-table tbody td {
+  padding: 7px 7px;
+  text-align: center;
+  border-bottom: 1px solid rgba(255,255,255,0.04);
+  color: #d0d7d0;
+  transition: background 0.15s;
+}
+.score-table tbody tr:hover td {
+  background: rgba(201,168,76,0.04);
+}
+.score-table tbody td.td-name {
+  text-align: left;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+.score-table tbody td .flag-icon { font-size: 1.1rem; }
+.score-table tbody td .score-val { font-weight: 600; font-variant-numeric: tabular-nums; }
+.score-table tbody td .score-high { color: #ef4444; }
+.score-table tbody td .score-mid { color: #f59e0b; }
+.score-table tbody td .score-low { color: #f5cba7; }
+.score-table tbody td .score-bad { color: #d4d4d4; }
+.score-table tbody td .rating-badge-td {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 32px;
+  height: 26px;
+  border-radius: 6px;
+  font-size: 0.78rem;
+  font-weight: 700;
+  padding: 0 6px;
+}
+.score-table thead th .dim-weight {
+  display: block;
+  font-size: 0.6rem;
+  font-weight: 400;
+  color: rgba(255,255,255,0.35);
+  margin-top: 1px;
+}
+.score-table-note {
+  text-align: right;
+  font-size: 0.72rem;
+  color: rgba(255,255,255,0.25);
+  margin-top: 8px;
+  padding-right: 4px;
+}
+
 /* ── First Visit Modal ── */
 .modal-overlay {
   position: fixed;
@@ -388,8 +505,8 @@ body {
     </div>
     <p class="text-gray-400 text-sm max-w-xl">OPR综合战力评分体系 · 基于七维度深度拆解的世界杯国家队实力评估与赛事分析</p>
     <div class="mt-6 flex flex-wrap gap-3" id="stats-bar">
-      <span class="stat-bubble bg-white/8 text-gray-300 border border-white/8">⚽ 共 <strong id="total-count">17</strong> 支国家队</span>
-      <span class="stat-bubble bg-white/8 text-gray-300 border border-white/8">📊 平均 <strong id="avg-score">65.6</strong> 分</span>
+      <span class="stat-bubble bg-white/8 text-gray-300 border border-white/8">⚽ 共 <strong id="total-count">19</strong> 支国家队</span>
+      <span class="stat-bubble bg-white/8 text-gray-300 border border-white/8">📊 平均 <strong id="avg-score">65.3</strong> 分</span>
       <span class="stat-bubble bg-white/8 text-gray-300 border border-white/8">🏆 最高 <strong id="max-score">87.4</strong> 分</span>
       <span class="stat-bubble bg-white/8 text-gray-300 border border-white/8">📉 最低 <strong id="min-score">36.5</strong> 分</span>
     </div>
@@ -427,6 +544,30 @@ body {
     <p class="text-sm mt-1">试试其他分类或关键词</p>
   </div>
 
+  <div class="section-divider" style="margin-top:54px;"><span class="section-title">📋 OPR 七维度评分明细</span></div>
+  <p class="text-xs text-gray-500 mb-3">点击维度列标题排序 · 点击总分列标题按总分排序</p>
+  <div class="score-table-wrap">
+    <table class="score-table" id="score-table">
+      <thead>
+        <tr>
+          <th class="col-index">#</th>
+          <th class="col-name">国家队</th>
+          <th class="col-score sortable" data-sort="0" title="阵容实力（权重30%）">阵容<span class="dim-weight">30%</span><span class="sort-icon"><span class="arrow-up">▲</span><span class="arrow-down">▼</span></span></th>
+          <th class="col-score sortable" data-sort="1" title="战术体系与教练（权重20%）">战术<span class="dim-weight">20%</span><span class="sort-icon"><span class="arrow-up">▲</span><span class="arrow-down">▼</span></span></th>
+          <th class="col-score sortable" data-sort="2" title="近期竞技状态（权重15%）">状态<span class="dim-weight">15%</span><span class="sort-icon"><span class="arrow-up">▲</span><span class="arrow-down">▼</span></span></th>
+          <th class="col-score sortable" data-sort="3" title="大赛经验与心理素质（权重10%）">经验<span class="dim-weight">10%</span><span class="sort-icon"><span class="arrow-up">▲</span><span class="arrow-down">▼</span></span></th>
+          <th class="col-score sortable" data-sort="4" title="分组及赛程影响（权重10%）">赛程<span class="dim-weight">10%</span><span class="sort-icon"><span class="arrow-up">▲</span><span class="arrow-down">▼</span></span></th>
+          <th class="col-score sortable" data-sort="5" title="团队凝聚力与场外环境（权重10%）">凝聚<span class="dim-weight">10%</span><span class="sort-icon"><span class="arrow-up">▲</span><span class="arrow-down">▼</span></span></th>
+          <th class="col-score sortable" data-sort="6" title="体能储备与伤病控制（权重5%）">体能<span class="dim-weight">5%</span><span class="sort-icon"><span class="arrow-up">▲</span><span class="arrow-down">▼</span></span></th>
+          <th class="col-score sortable" data-sort="7" title="总分">总分<span class="sort-icon"><span class="arrow-up">▲</span><span class="arrow-down">▼</span></span></th>
+          <th class="col-rating">评级</th>
+        </tr>
+      </thead>
+      <tbody id="score-table-body"></tbody>
+    </table>
+  </div>
+  <div class="score-table-note">总分 = 七维度加权汇总 · 点击表头排序（同分时按总分→维度3→9依次决定）</div>
+
   <div class="section-divider" style="margin-top:60px;"><span class="section-title">🎮 对局分析</span></div>
   <div id="games-section">
     <div class="games-grid">
@@ -461,7 +602,7 @@ body {
   </div>
 </footer>
 
-<script id="teams-data" type="application/json">[{"name":"法国","flag":"🇫🇷","file":"WorldCup2026/法国-2026-world-cup-report.html","score":87.4,"rating":"A+","accent":"#c0392b"},{"name":"巴西","flag":"🇧🇷","file":"WorldCup2026/巴西-2026-world-cup-report.html","score":85.3,"rating":"A","accent":"#009739"},{"name":"葡萄牙","flag":"🇵🇹","file":"WorldCup2026/葡萄牙-2026-world-cup-report.html","score":83.45,"rating":"A","accent":"#DA291C"},{"name":"日本","flag":"🇯🇵","file":"WorldCup2026/日本-2026-world-cup-report.html","score":82.5,"rating":"A-","accent":"#003f8a"},{"name":"英格兰","flag":"🇬🇧","file":"WorldCup2026/英格兰-2026-world-cup-report.html","score":79.5,"rating":"B+","accent":"#ce1124"},{"name":"德国","flag":"🇩🇪","file":"WorldCup2026/德国-2026-world-cup-report.html","score":79.3,"rating":"B+","accent":"#000000"},{"name":"比利时","flag":"🇧🇪","file":"WorldCup2026/比利时-2026-world-cup-report.html","score":79.25,"rating":"B+","accent":"#DC2626"},{"name":"克罗地亚","flag":"🇭🇷","file":"WorldCup2026/克罗地亚-2026-world-cup-report.html","score":79.1,"rating":"B+","accent":"#c8102e"},{"name":"韩国","flag":"🇰🇷","file":"WorldCup2026/韩国-2026-world-cup-report.html","score":64.85,"rating":"C","accent":"#e6002e"},{"name":"瑞典","flag":"🇸🇪","file":"WorldCup2026/瑞典-2026-world-cup-report.html","score":62.45,"rating":"C-","accent":"#005b99"},{"name":"奥地利","flag":"🇦🇹","file":"WorldCup2026/奥地利-2026-world-cup-report.html","score":61.45,"rating":"C-","accent":"#cc0000"},{"name":"科特迪瓦","flag":"🇨🇮","file":"WorldCup2026/科特迪瓦-2026-world-cup-report.html","score":58.6,"rating":"D+","accent":"#f77f00"},{"name":"波黑","flag":"🇧🇦","file":"WorldCup2026/波黑-2026-world-cup-report.html","score":50.95,"rating":"D+","accent":"#003399"},{"name":"民主刚果","flag":"🇨🇩","file":"WorldCup2026/民主刚果-2026-world-cup-report.html","score":44.05,"rating":"D","accent":"#006838"},{"name":"佛得角","flag":"🇨🇻","file":"WorldCup2026/佛得角-2026-world-cup-report.html","score":42,"rating":"D","accent":"#003893"},{"name":"海地","flag":"🇭🇹","file":"WorldCup2026/海地-2026-world-cup-report.html","score":38.45,"rating":"D-","accent":"#d21034"},{"name":"库拉索","flag":"🇨🇼","file":"WorldCup2026/库拉索-2026-world-cup-report.html","score":36.5,"rating":"D-","accent":"#003da5"}]</script>
+<script id="teams-data" type="application/json">[{"name":"法国","flag":"🇫🇷","file":"WorldCup2026/法国-2026-world-cup-report.html","score":87.4,"rating":"A+","accent":"#c0392b","dims":[92,85,90,93,78,84,76]},{"name":"巴西","flag":"🇧🇷","file":"WorldCup2026/巴西-2026-world-cup-report.html","score":85.3,"rating":"A","accent":"#009739","dims":[88,90,80,90,85,78,72]},{"name":"葡萄牙","flag":"🇵🇹","file":"WorldCup2026/葡萄牙-2026-world-cup-report.html","score":83.45,"rating":"A","accent":"#DA291C","dims":[86,80,82,88,88,80,75]},{"name":"日本","flag":"🇯🇵","file":"WorldCup2026/日本-2026-world-cup-report.html","score":82.5,"rating":"A-","accent":"#003f8a","dims":[85,82,83,78,80,86,75]},{"name":"英格兰","flag":"🇬🇧","file":"WorldCup2026/英格兰-2026-world-cup-report.html","score":79.5,"rating":"B+","accent":"#ce1124","dims":[80,83,85,77,79,70,71]},{"name":"德国","flag":"🇩🇪","file":"WorldCup2026/德国-2026-world-cup-report.html","score":79.3,"rating":"B+","accent":"#000000","dims":[79,82,80,76,82,75,78]},{"name":"比利时","flag":"🇧🇪","file":"WorldCup2026/比利时-2026-world-cup-report.html","score":79.25,"rating":"B+","accent":"#DC2626","dims":[81,76,83,78,85,72,76]},{"name":"克罗地亚","flag":"🇭🇷","file":"WorldCup2026/克罗地亚-2026-world-cup-report.html","score":79.1,"rating":"B+","accent":"#c8102e","dims":[76,82,72,92,78,85,72]},{"name":"韩国","flag":"🇰🇷","file":"WorldCup2026/韩国-2026-world-cup-report.html","score":64.85,"rating":"C","accent":"#e6002e","dims":[65,66,69,70,55,63,60]},{"name":"瑞典","flag":"🇸🇪","file":"WorldCup2026/瑞典-2026-world-cup-report.html","score":62.45,"rating":"C-","accent":"#005b99","dims":[63,67.5,65,58,51,63,62]},{"name":"奥地利","flag":"🇦🇹","file":"WorldCup2026/奥地利-2026-world-cup-report.html","score":61.45,"rating":"C-","accent":"#cc0000","dims":[56,74,65,55,52,65,58]},{"name":"科特迪瓦","flag":"🇨🇮","file":"WorldCup2026/科特迪瓦-2026-world-cup-report.html","score":58.6,"rating":"D+","accent":"#f77f00","dims":[62,56,65,55,53,56,53]},{"name":"波黑","flag":"🇧🇦","file":"WorldCup2026/波黑-2026-world-cup-report.html","score":50.95,"rating":"D+","accent":"#003399","dims":[47,49.5,58,47,53,56,53]},{"name":"民主刚果","flag":"🇨🇩","file":"WorldCup2026/民主刚果-2026-world-cup-report.html","score":44.05,"rating":"D","accent":"#006838","dims":[40,48,53,32,37,51,50]},{"name":"佛得角","flag":"🇨🇻","file":"WorldCup2026/佛得角-2026-world-cup-report.html","score":42,"rating":"D","accent":"#003893","dims":[34,44,50,28,33,65,58]},{"name":"海地","flag":"🇭🇹","file":"WorldCup2026/海地-2026-world-cup-report.html","score":38.45,"rating":"D-","accent":"#d21034","dims":[31.5,45,47,27,27,52,47]},{"name":"库拉索","flag":"🇨🇼","file":"WorldCup2026/库拉索-2026-world-cup-report.html","score":36.5,"rating":"D-","accent":"#003da5","dims":[25,48,44,23,26,55,48]},{"name":"瑞士","flag":"🇨🇭","file":"WorldCup2026/瑞士-2026-world-cup-report.html","score":63.25,"rating":"C","accent":"#DA291C","dims":[62,64,63,65,64,64,62]},{"name":"苏格兰","flag":"🇬🇧","file":"WorldCup2026/苏格兰-2026-world-cup-report.html","score":62.15,"rating":"C-","accent":"#005EB8","dims":[52,67.5,67,55,50,65,60]}]</script>
 
 <script>
 (function() {
@@ -512,11 +653,11 @@ body {
       else if (rank === 3) rc += ' rank-3';
       const si = Math.floor(t.score||0);
       const sd = t.score != null ? (t.score % 1).toFixed(2).slice(1) : '.00';
-      let rcol = '#22c55e';
+      let rcol = '#ef4444';
       const rt = (t.rating||'')[0];
-      if (rt === 'B') rcol = '#eab308';
-      else if (rt === 'C') rcol = '#f97316';
-      else if (rt === 'D') rcol = '#ef4444';
+      if (rt === 'B') rcol = '#f59e0b';
+      else if (rt === 'C') rcol = '#f5cba7';
+      else if (rt === 'D' || rt === 'E') rcol = '#d4d4d4';
       return `<div class="team-card card-enter" style="animation-delay:${Math.min(i*40,320)}ms" onclick="window.open('${t.file}','_blank')">
         <div class="card-accent" style="background:${t.accent}"></div>
         <div class="card-body">
@@ -550,6 +691,104 @@ body {
     });
   });
   searchInput.addEventListener('input', function() { currentSearch = this.value; render(); });
+
+  // ── OPR Score Table ──
+  const tableBody = document.getElementById('score-table-body');
+  const tableHeaders = document.querySelectorAll('#score-table thead th.sortable');
+  let tableSortCol = 7; // default: 总分
+  let tableSortAsc = false;
+
+  // Rating color (越高越红, 越低越白)
+  function ratingColor(r) {
+    const c = (r||'')[0];
+    if (c === 'A') return '#ef4444'; if (c === 'B') return '#f59e0b';
+    if (c === 'C') return '#f5cba7'; if (c === 'D' || c === 'E') return '#d4d4d4';
+    return '#888';
+  }
+
+  // Score CSS class
+  function scoreClass(v) {
+    if (v == null) return '';
+    if (v >= 80) return 'score-high';
+    if (v >= 65) return 'score-mid';
+    if (v >= 50) return 'score-low';
+    return 'score-bad';
+  }
+
+  function renderTable() {
+    // Use full team list (not filtered) - table shows all teams
+    let data = teams.slice();
+    const sortIdx = tableSortCol;
+    data.sort((a, b) => {
+      let cmp;
+      // Primary sort by selected column
+      if (sortIdx === 7) {
+        cmp = (a.score||0) - (b.score||0);
+      } else {
+        cmp = (a.dims?.[sortIdx]||0) - (b.dims?.[sortIdx]||0);
+      }
+      // Tiebreaker: 总分 → 其余维度（排除已选维度）按 3→9 依次
+      if (cmp === 0) {
+        cmp = (a.score||0) - (b.score||0);
+      }
+      if (cmp === 0 && sortIdx !== 7) {
+        for (let k = 0; k < 7; k++) {
+          if (k === sortIdx) continue;
+          cmp = (a.dims?.[k]||0) - (b.dims?.[k]||0);
+          if (cmp !== 0) break;
+        }
+      }
+      return tableSortAsc ? cmp : -cmp;
+    });
+
+    tableBody.innerHTML = data.map((t, i) => {
+      const rank = i + 1;
+      const dims = t.dims || [];
+      const dimCells = dims.map((v, idx) => {
+        const val = v != null ? v : '-';
+        return `<td><span class="score-val ${scoreClass(v)}">${val}</span></td>`;
+      }).join('');
+      const rcol = ratingColor(t.rating);
+      return `<tr>
+        <td style="color:rgba(255,255,255,0.4);font-weight:500;">${rank}</td>
+        <td style="text-align:left;font-weight:500;"><span class="flag-icon">${t.flag}</span> ${t.name}</td>
+        ${dimCells}
+        <td><span class="score-val ${scoreClass(t.score)}">${t.score != null ? t.score.toFixed(1) : '-'}</span></td>
+        <td><span class="rating-badge-td" style="background:${rcol}22;color:${rcol};border:1px solid ${rcol}44;">${t.rating||'?'}</span></td>
+      </tr>`;
+    }).join('');
+  }
+
+  // Update header arrows
+  const scoreTable = document.getElementById('score-table');
+  function updateHeaderArrows() {
+    scoreTable.classList.toggle('dir-asc', tableSortAsc);
+    scoreTable.classList.toggle('dir-desc', !tableSortAsc);
+    tableHeaders.forEach(th => {
+      th.classList.remove('asc', 'desc');
+      const idx = parseInt(th.dataset.sort);
+      if (idx === tableSortCol) {
+        th.classList.add(tableSortAsc ? 'asc' : 'desc');
+      }
+    });
+  }
+
+  tableHeaders.forEach(th => {
+    th.addEventListener('click', function() {
+      const idx = parseInt(this.dataset.sort);
+      if (tableSortCol === idx) {
+        tableSortAsc = !tableSortAsc;
+      } else {
+        tableSortCol = idx;
+        tableSortAsc = (idx === 7) ? false : false; // 默认降序（高分在前）
+      }
+      updateHeaderArrows();
+      renderTable();
+    });
+  });
+
+  renderTable();
+  updateHeaderArrows();
   render();
 })();
 </script>

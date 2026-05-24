@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>瑞士 · 2026世界杯实力评估报告</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+tailwind.config = { theme: { extend: { colors: { ch: { red: '#D52B1E', white: '#FFFFFF', dark: '#1a1a2e', gold: '#FFD700' } }, fontFamily: { 'kai': ['KaiTi','STKaiti','SimKai','serif'], 'serif': ['Times New Roman','serif'] } } } }
+</script>
+<style>
+  body { font-family: KaiTi, STKaiti, SimKai, 'Times New Roman', serif; font-size: 11pt; }
+  .container { max-width: 1100px; margin: 0 auto; padding: 20px; }
+  h1 { font-size: 2em; } h2 { font-size: 1.5em; border-bottom: 3px solid #D52B1E; padding-bottom: 8px; margin-top: 30px; }
+  h3 { font-size: 1.2em; margin-top: 20px; }
+  table { width: 100%; border-collapse: collapse; font-size: 11pt; }
+  th, td { border: 1px solid #ddd; padding: 8px 12px; text-align: left; }
+  th { background-color: #D52B1E; color: white; font-weight: bold; }
+  tr:nth-child(even) { background-color: #f8f9fa; }
+  .score-bar { height: 20px; border-radius: 10px; background: #eee; overflow: hidden; }
+  .score-fill { height: 100%; border-radius: 10px; }
+  .dimension-card { background: white; border-radius: 12px; padding: 20px; margin-bottom: 20px; box-shadow: 0 2px 8px rgba(0,0,0,0.08); border-left: 5px solid #D52B1E; }
+  .subitem { margin: 12px 0; padding: 12px; background: #f8f9fa; border-radius: 8px; }
+  .subitem h4 { color: #D52B1E; font-weight: bold; margin-bottom: 6px; }
+  .summary-box { background: linear-gradient(135deg, #D52B1E, #8b0000); border-radius: 16px; padding: 25px; margin: 20px 0; color: white; }
+  .badge { display: inline-block; padding: 2px 10px; border-radius: 12px; font-size: 0.85em; font-weight: bold; }
+  .badge-gk { background: #4CAF50; color: white; } .badge-df { background: #2196F3; color: white; }
+  .badge-mf { background: #FF9800; color: white; } .badge-fw { background: #f44336; color: white; }
+</style>
+</head>
+<body class="bg-gray-50">
+<div class="container">
+
+<div class="section text-center bg-white rounded-2xl shadow-lg p-8 mb-8">
+  <img src="./logo/Switzerland-logo.png" alt="瑞士足协队徽" style="height:90px;width:auto;display:block;margin:0 auto 10px;" onerror="this.style.display='none';document.getElementById('logo-fb').style.display='block';" />
+  <div id="logo-fb" style="display:none;font-size:4em;margin-bottom:10px;">🇨🇭</div>
+  <h1 class="text-4xl font-bold text-ch-red mt-4">瑞士 · 2026世界杯实力评估报告</h1>
+  <p class="text-gray-500 mt-2">报告生成日期：2026年5月24日 · 2026美加墨世界杯</p>
+  <div class="mt-3 p-2 inline-block bg-red-50 rounded-lg border border-red-200"><p class="text-sm"><strong>🇨🇭 军刀出鞘：</strong>连续第6届世界杯（2006~2026）· 扎卡第4届 · B组与加拿大/卡塔尔/波黑同组</p></div>
+</div>
+
+<h2 class="text-ch-red">（一）球队基本信息</h2>
+<div class="bg-white rounded-xl shadow p-6 mb-6">
+  <div class="grid md:grid-cols-2 gap-4">
+    <div>
+      <p><strong>主教练：</strong>穆拉特·雅金（Murat Yakin）— 瑞士人，2021年上任</p>
+      <p><strong>队长：</strong>格拉尼特·扎卡（Granit Xhaka）— 桑德兰，第4届世界杯</p>
+      <p><strong>FIFA排名：</strong>约第15位</p>
+      <p><strong>世界杯参赛次数：</strong>第13次</p>
+      <p><strong>世界杯最佳成绩：</strong>八强（1934/1938/1954）— 但**此后72年从未突破八强**</p>
+      <p><strong>上届（2022）成绩：</strong>16强（1-6负于葡萄牙）</p>
+    </div>
+    <div>
+      <p><strong>小组赛：</strong>B组</p>
+      <p><strong>同组对手：</strong>加拿大 🇨🇦（东道主）、卡塔尔 🇶🇦、波黑 🇧🇦</p>
+      <p><strong>首战：</strong>6月13日 vs 卡塔尔（圣克拉拉）— 必须拿下</p>
+      <p><strong>次战：</strong>6月16日 vs 波黑（英格尔伍德）</p>
+      <p><strong>末轮：</strong>6月24日 vs 加拿大（温哥华）</p>
+      <div class="mt-2 p-2 bg-blue-50 rounded"><p class="text-sm"><strong>📈 稳定机器：</strong>自2006年起瑞士6次参加世界杯全部小组出线——但最好成绩仅为16强（2006/2014/2018/2022）</p></div>
+    </div>
+  </div>
+</div>
+
+<h3 class="text-xl font-bold text-ch-red">26人大名单（3 GK + 8 DF + 7 MF + 8 FW）</h3>
+<p class="text-gray-500 text-sm mb-3">* 5月20日公布 · 扎卡第4届世界杯 · 阿坎吉（国米）+科贝尔（多特）+恩博洛（雷恩）领衔</p>
+
+<div class="bg-white rounded-xl shadow p-6 mb-6">
+  <table>
+    <thead><tr><th>位置</th><th>球员姓名</th><th>英文名</th><th>俱乐部</th><th>联赛</th></tr></thead>
+    <tbody>
+      <tr><td><span class="badge badge-gk">GK</span></td><td>马尔文·凯勒</td><td>Marvin Keller</td><td>伯尔尼年轻人</td><td>瑞士超</td></tr>
+      <tr><td><span class="badge badge-gk">GK</span></td><td><strong>格雷戈尔·科贝尔</strong></td><td><strong>Gregor Kobel</strong></td><td><strong>多特蒙德</strong></td><td>德甲</td></tr>
+      <tr><td><span class="badge badge-gk">GK</span></td><td>伊冯·姆沃戈</td><td>Yvon Mvogo</td><td>洛里昂</td><td>法甲</td></tr>
+      <tr><td><span class="badge badge-df">DF</span></td><td><strong>曼努埃尔·阿坎吉</strong></td><td><strong>Manuel Akanji</strong></td><td><strong>国际米兰</strong></td><td>意甲</td></tr>
+      <tr><td><span class="badge badge-df">DF</span></td><td>奥雷勒·阿门达</td><td>Aurèle Amenda</td><td>法兰克福</td><td>德甲</td></tr>
+      <tr><td><span class="badge badge-df">DF</span></td><td>埃雷·科梅特</td><td>Eray Cömert</td><td>瓦伦西亚</td><td>西甲</td></tr>
+      <tr><td><span class="badge badge-df">DF</span></td><td>尼科·埃尔维迪</td><td>Nico Elvedi</td><td>门兴格拉德巴赫</td><td>德甲</td></tr>
+      <tr><td><span class="badge badge-df">DF</span></td><td>卢卡·雅克</td><td>Luca Jaquez</td><td>斯图加特</td><td>德甲</td></tr>
+      <tr><td><span class="badge badge-df">DF</span></td><td>米罗·穆海姆</td><td>Miro Muheim</td><td>汉堡</td><td>德乙</td></tr>
+      <tr><td><span class="badge badge-df">DF</span></td><td>里卡多·罗德里格斯</td><td>Ricardo Rodríguez</td><td>皇家贝蒂斯</td><td>西甲</td></tr>
+      <tr><td><span class="badge badge-df">DF</span></td><td>西尔万·威德默</td><td>Silvan Widmer</td><td>美因茨</td><td>德甲</td></tr>
+      <tr><td><span class="badge badge-mf">MF</span></td><td>米歇尔·埃比舍尔</td><td>Michel Aebischer</td><td>比萨</td><td>意乙</td></tr>
+      <tr><td><span class="badge badge-mf">MF</span></td><td>雷莫·弗罗伊勒</td><td>Remo Freuler</td><td>博洛尼亚</td><td>意甲</td></tr>
+      <tr><td><span class="badge badge-mf">MF</span></td><td><strong>阿尔东·贾沙里</strong></td><td><strong>Ardon Jashari</strong></td><td><strong>AC米兰</strong></td><td>意甲</td></tr>
+      <tr><td><span class="badge badge-mf">MF</span></td><td>法比安·里德</td><td>Fabian Rieder</td><td>奥格斯堡</td><td>德甲</td></tr>
+      <tr><td><span class="badge badge-mf">MF</span></td><td>吉布里尔·索乌</td><td>Djibril Sow</td><td>塞维利亚</td><td>西甲</td></tr>
+      <tr><td><span class="badge badge-mf">MF</span></td><td><strong>⭐ 格拉尼特·扎卡 (C)</strong></td><td><strong>Granit Xhaka</strong></td><td><strong>桑德兰</strong></td><td>英冠</td></tr>
+      <tr><td><span class="badge badge-mf">MF</span></td><td>丹尼斯·扎卡里亚</td><td>Denis Zakaria</td><td>摩纳哥</td><td>法甲</td></tr>
+      <tr><td><span class="badge badge-fw">FW</span></td><td>泽基·阿姆杜尼</td><td>Zeki Amdouni</td><td>伯恩利</td><td>英冠</td></tr>
+      <tr><td><span class="badge badge-fw">FW</span></td><td><strong>布雷尔·恩博洛</strong></td><td><strong>Breel Embolo</strong></td><td><strong>雷恩</strong></td><td>法甲</td></tr>
+      <tr><td><span class="badge badge-fw">FW</span></td><td><strong>丹·恩多耶</strong></td><td><strong>Dan Ndoye</strong></td><td><strong>诺丁汉森林</strong></td><td>英超</td></tr>
+      <tr><td><span class="badge badge-fw">FW</span></td><td>诺阿·奥卡福</td><td>Noah Okafor</td><td>利兹联</td><td>英冠</td></tr>
+      <tr><td><span class="badge badge-fw">FW</span></td><td>鲁文·巴尔加斯</td><td>Rubén Vargas</td><td>塞维利亚</td><td>西甲</td></tr>
+      <tr><td><span class="badge badge-fw">FW</span></td><td>克里斯蒂安·法斯纳赫特</td><td>Christian Fassnacht</td><td>伯尔尼年轻人</td><td>瑞士超</td></tr>
+      <tr><td><span class="badge badge-fw">FW</span></td><td>塞德里克·伊滕</td><td>Cedric Itten</td><td>杜塞尔多夫</td><td>德乙</td></tr>
+      <tr><td><span class="badge badge-fw">FW</span></td><td>约翰·曼赞比</td><td>Johan Manzambi</td><td>弗赖堡</td><td>德甲</td></tr>
+    </tbody>
+  </table>
+  <div class="mt-3 p-3 bg-yellow-50 rounded-lg border border-yellow-200">
+    <p class="text-sm"><strong>🔑 核心六人：</strong>扎卡（队长/第4届世界杯）| 阿坎吉（国米）| 科贝尔（多特）| 恩博洛（雷恩）| 恩多耶（诺丁汉森林）| 贾沙里（AC米兰）</p>
+  </div>
+</div>
+
+<h2 class="text-ch-red">（二）逐项评分明细</h2>
+
+<div class="dimension-card">
+  <h3 class="text-xl font-bold text-ch-red">维度一：阵容实力（权重30%）｜ 62分 × 30% = 18.6分</h3>
+  <div class="subitem"><h4>1.1 球星质量 —— 62分</h4>
+    <table class="text-sm mb-2"><tr><th>指标</th><th>数据</th></tr>
+      <tr><td>五大联赛球员</td><td>16人</td></tr>
+      <tr><td>效力豪门球员</td><td>阿坎吉（国米）、科贝尔（多特）、贾沙里（AC米兰）</td></tr>
+      <tr><td>世界杯老将</td><td>扎卡（第4届）、阿坎吉/罗德里格斯/威德默（第3届）</td></tr>
+    </table>
+    <p>瑞士队的阵容以"扎实、均衡、经验丰富"著称。扎卡虽然已转投桑德兰（英冠），但他的领袖气质和调度能力仍是瑞士中场不可替代的核心——他是国家队历史出场王（130+场），本届是他第4届世界杯。阿坎吉在国米度过了稳定的赛季，是后防线的定海神针。科贝尔（多特蒙德）是德甲顶级门将之一，他的反应速度和出击范围是瑞士防线的最后保险。恩博洛（雷恩）虽然近年伤病较多但仍是瑞士最可靠的前锋——他的速度和身体对抗在B组中具备优势。恩多耶（诺丁汉森林/英超）本赛季成长为"高产边锋"，是瑞士进攻端最大的惊喜。20岁的曼赞比（弗赖堡）是本届最令人期待的新星——10场国家队比赛打入3球，表现抢眼。</p>
+  </div>
+  <div class="subitem"><h4>1.2 各位置均衡度 —— 65分</h4><p>瑞士是三线最均衡的球队之一——8后卫+7中场+8前锋的配置几乎没有明显短板。后防线上阿坎吉+埃尔维迪+罗德里格斯的组合经验丰富，但速度在面对快速反击时可能成为短板。中场扎卡+弗罗伊勒+贾沙里的配置兼顾硬度和技术。锋线恩博洛+恩多耶+阿姆杜尼的组合在B组中具有明显优势。</p></div>
+  <div class="subitem"><h4>1.3 板凳深度 —— 60分</h4><p>每个位置都有可靠的替补——扎卡里亚（摩纳哥）可替换扎卡，奥卡福（利兹）和巴尔加斯（塞维利亚）可为锋线提供变招。瑞士的16名五大联赛球员保证了替补席的质量。</p></div>
+  <div class="subitem"><h4>1.4 身价与年龄 —— 62分</h4><p>全队总身价约2亿欧（32强中游）。年龄结构合理——扎卡33岁经验丰富，曼赞比20岁代表未来。但核心阵容偏老（罗德里格斯33、威德默33、弗罗伊勒34）。</p></div>
+  <div class="score-bar mt-3"><div class="score-fill" style="width:62%;background:linear-gradient(90deg,#D52B1E,#8b0000);"></div></div>
+  <p class="text-right text-sm text-gray-500 mt-1">维度一总评：<strong>62分</strong> × 30% = <strong>18.6分</strong></p>
+</div>
+
+<div class="dimension-card">
+  <h3 class="text-xl font-bold text-ch-red">维度二：战术体系与教练（权重20%）｜ 64分 × 20% = 12.8分</h3>
+  <div class="subitem"><h4>2.1 主帅哲学 —— 65分</h4><p>雅金自2021年执教瑞士以来，率队参加了2022世界杯（16强）和2024欧洲杯（8强/点球负英格兰）。他的战术风格以务实、纪律严明著称——瑞士队很少大比分输球，但也很少打出令人惊叹的比赛。</p></div>
+  <div class="subitem"><h4>2.2 阵型适配 —— 65分</h4><p>4-2-3-1或3-4-2-1。扎卡和弗罗伊勒的双后腰组合提供防守覆盖，恩多耶和巴尔加斯在边路冲击。</p></div>
+  <div class="subitem"><h4>2.3 转换效率 —— 62分</h4><p>瑞士以防守稳健和定位球著称——2024欧洲杯上通过定位球打入2球。但由守转攻的速度不快，更多依赖恩博洛和恩多耶的个人能力。</p></div>
+  <div class="subitem"><h4>2.4 临场指挥 —— 64分</h4><p>雅金的换人决策总体合理——2024欧洲杯对阵英格兰的1/4决赛中，他在加时赛的换人调整帮助瑞士坚守了120分钟。</p></div>
+  <div class="score-bar mt-3"><div class="score-fill" style="width:64%;background:linear-gradient(90deg,#D52B1E,#8b0000);"></div></div>
+  <p class="text-right text-sm text-gray-500 mt-1">维度二总评：<strong>64分</strong> × 20% = <strong>12.8分</strong></p>
+</div>
+
+<div class="dimension-card">
+  <h3 class="text-xl font-bold text-ch-red">维度三：竞技状态（权重15%）｜ 63分 × 15% = 9.45分</h3>
+  <div class="subitem"><h4>3.1 近12个月战绩 —— 65分</h4><p>瑞士在欧洲区预选赛中表现稳健——以4胜3平1负的战绩小组出线。2024欧洲杯进入8强（点球负英格兰），展现了大赛竞争力。</p></div>
+  <div class="subitem"><h4>3.2 含金量 —— 63分</h4><p>欧洲预选赛的强度毋庸置疑——瑞士在小组中击败了以色列、科索沃等队。</p></div>
+  <div class="subitem"><h4>3.3 核心球员状态 —— 62分</h4>
+    <table class="text-sm mb-2"><tr><th>球员</th><th>本赛季表现</th><th>状态</th></tr>
+      <tr><td>扎卡（桑德兰）</td><td>英冠28场4球，队长</td><td>✅ 稳定</td></tr>
+      <tr><td>阿坎吉（国米）</td><td>意甲26场，中卫主力</td><td>✅ 稳定</td></tr>
+      <tr><td>科贝尔（多特）</td><td>德甲22场，主力门将</td><td>✅ 稳定</td></tr>
+      <tr><td>恩博洛（雷恩）</td><td>法甲20场6球，伤愈回归</td><td>⬆️ 回暖</td></tr>
+      <tr><td>恩多耶（诺丁汉森林）</td><td>英超28场5球4助攻</td><td>⬆️ 上升</td></tr>
+    </table>
+  </div>
+  <div class="score-bar mt-3"><div class="score-fill" style="width:63%;background:linear-gradient(90deg,#D52B1E,#8b0000);"></div></div>
+  <p class="text-right text-sm text-gray-500 mt-1">维度三总评：<strong>63分</strong> × 15% = <strong>9.45分</strong></p>
+</div>
+
+<div class="dimension-card">
+  <h3 class="text-xl font-bold text-ch-red">维度四：大赛经验（权重10%）｜ 65分 × 10% = 6.5分</h3>
+  <div class="subitem"><h4>4.1 世界杯历史 —— 58分</h4><p>13次参赛、稳定小组出线、但从未突破八强（72年无八强）。"稳定但无惊喜"是瑞士在世界杯上的注脚。</p></div>
+  <div class="subitem"><h4>4.2 核心经验 —— 70分</h4><p>扎卡第4届世界杯、阿坎吉和罗德里格斯第3届——瑞士的核心球员是32强中最有世界杯经验的群体之一。</p></div>
+  <div class="subitem"><h4>4.3 抗压能力 —— 68分</h4><p>2020欧洲杯点球淘汰法国（世界冠军）是瑞士心理素质的最佳证明——在1-3落后的情况下连扳两球逆转，在点球大战中击败了2018世界冠军。</p></div>
+  <div class="score-bar mt-3"><div class="score-fill" style="width:65%;background:linear-gradient(90deg,#D52B1E,#8b0000);"></div></div>
+  <p class="text-right text-sm text-gray-500 mt-1">维度四总评：<strong>65分</strong> × 10% = <strong>6.5分</strong></p>
+</div>
+
+<div class="dimension-card">
+  <h3 class="text-xl font-bold text-ch-red">维度五：分组赛程（权重10%）｜ 64分 × 10% = 6.4分</h3>
+  <div class="subitem"><h4>5.1 小组对手 —— 68分</h4>
+    <table class="text-sm mb-2"><tr><th>对手</th><th>瑞士胜率</th></tr>
+      <tr><td>卡塔尔 🇶🇦</td><td>65-70% ✅</td></tr>
+      <tr><td>波黑 🇧🇦</td><td>55-60% ✅</td></tr>
+      <tr><td>加拿大 🇨🇦</td><td>50-55% ⚔️</td></tr>
+    </table>
+    <p>B组是瑞士最喜欢的"上上签"——三个对手都不具备压倒性实力。瑞士作为小组头号种子，出线概率约75-80%。</p>
+  </div>
+  <div class="subitem"><h4>5.2 晋级路线 —— 58分</h4><p>如果小组头名出线，16强将对阵A组第二——瑞士有机会再次进入八强。</p></div>
+  <div class="subitem"><h4>5.3 旅途气候 —— 65分</h4><p>三场比赛在加州（圣克拉拉、英格尔伍德）和温哥华——西海岸温和气候，对瑞士球员非常友好。</p></div>
+  <div class="score-bar mt-3"><div class="score-fill" style="width:64%;background:linear-gradient(90deg,#D52B1E,#8b0000);"></div></div>
+  <p class="text-right text-sm text-gray-500 mt-1">维度五总评：<strong>64分</strong> × 10% = <strong>6.4分</strong></p>
+</div>
+
+<div class="dimension-card">
+  <h3 class="text-xl font-bold text-ch-red">维度六：团队凝聚力（权重10%）｜ 64分 × 10% = 6.4分</h3>
+  <div class="subitem"><h4>6.1 更衣室 —— 65分</h4><p>扎卡是瑞士的"绝对领袖"——虽然他在阿森纳时期曾引起争议，但在国家队他备受尊敬。</p></div>
+  <div class="subitem"><h4>6.2 足协 —— 68分</h4><p>瑞士足协管理规范，是欧洲最稳定的足协之一。</p></div>
+  <div class="subitem"><h4>6.3 舆论压力 —— 60分</h4><p>"小组出线是及格、16强是正常、八强是突破"——预期合理，不会过度加压。</p></div>
+  <div class="score-bar mt-3"><div class="score-fill" style="width:64%;background:linear-gradient(90deg,#D52B1E,#8b0000);"></div></div>
+  <p class="text-right text-sm text-gray-500 mt-1">维度六总评：<strong>64分</strong> × 10% = <strong>6.4分</strong></p>
+</div>
+
+<div class="dimension-card">
+  <h3 class="text-xl font-bold text-ch-red">维度七：体能伤病（权重5%）｜ 62分 × 5% = 3.1分</h3>
+  <div class="subitem"><h4>7.1 疲劳度 —— 62分</h4><p>科贝尔、阿坎吉、扎卡等核心经历了完整的欧洲赛季。</p></div>
+  <div class="subitem"><h4>7.2 伤病 —— 60分</h4><p>恩博洛伤愈回归后状态回暖。其余球员基本健康。</p></div>
+  <div class="subitem"><h4>7.3 医疗 —— 65分</h4><p>瑞士足协提供欧洲标准的医疗保障。</p></div>
+  <div class="score-bar mt-3"><div class="score-fill" style="width:62%;background:linear-gradient(90deg,#D52B1E,#8b0000);"></div></div>
+  <p class="text-right text-sm text-gray-500 mt-1">维度七总评：<strong>62分</strong> × 5% = <strong>3.1分</strong></p>
+</div>
+
+<h2 class="text-ch-red">（三）综合总分与评级</h2>
+<div class="summary-box text-center">
+  <p class="text-2xl font-bold">加权总分：63.25 / 100</p>
+  <p class="text-xl mt-2">实力评级：<span class="font-bold text-3xl">C</span>（中游球队，具备一定出线希望）</p>
+  <p class="text-sm mt-2 opacity-80">依据 skill 映射表：63.25 ∈ [63, 67) → C级</p>
+</div>
+<div class="bg-white rounded-xl shadow p-6 mb-6">
+  <h3 class="text-lg font-bold mb-3">七维度雷达数据</h3>
+  <table>
+    <tr><th>维度</th><th>得分</th><th>权重</th><th>加权贡献</th></tr>
+    <tr><td>① 阵容实力</td><td>62</td><td>30%</td><td>18.60</td></tr>
+    <tr><td>② 战术体系与教练</td><td>64</td><td>20%</td><td>12.80</td></tr>
+    <tr><td>③ 近期竞技状态</td><td>63</td><td>15%</td><td>9.45</td></tr>
+    <tr><td>④ 大赛经验与心理素质</td><td>65</td><td>10%</td><td>6.50</td></tr>
+    <tr><td>⑤ 分组及赛程影响</td><td>64</td><td>10%</td><td>6.40</td></tr>
+    <tr><td>⑥ 团队凝聚力与场外环境</td><td>64</td><td>10%</td><td>6.40</td></tr>
+    <tr><td>⑦ 体能储备与伤病控制</td><td>62</td><td>5%</td><td>3.10</td></tr>
+    <tr style="font-weight:bold;background:#fff3e0;"><td colspan="3">总分</td><td>63.25</td></tr>
+  </table>
+</div>
+
+<h2 class="text-ch-red">（四）深度球评</h2>
+<div class="bg-white rounded-xl shadow p-6 mb-6">
+  <h3 class="text-lg font-bold text-green-700">核心优势</h3>
+  <ul class="list-disc pl-6 space-y-2">
+    <li><strong>"稳定"本身就是一种超能力。</strong>自2006年起连续6届世界杯全部小组出线——在32强中只有巴西、德国、阿根廷等少数球队能做到。瑞士从不制造冷门，但也几乎不翻车。</li>
+    <li><strong>B组上上签——小组头名概率60%。</strong>加拿大（东道主但实力有限）、卡塔尔（2022小组出局）、波黑（D+级）——瑞士在B组中实力明显占优。</li>
+  </ul>
+</div>
+<div class="bg-white rounded-xl shadow p-6 mb-6">
+  <h3 class="text-lg font-bold text-red-700">致命短板</h3>
+  <ul class="list-disc pl-6 space-y-2">
+    <li><strong>"八强天花板"——72年的诅咒。</strong>自1954年以来，瑞士8次参赛8次止步16强或小组赛。2020欧洲杯他们击败了法国进入八强——那是55年来的第一次大赛八强。但世界杯呢？72年了。</li>
+    <li><strong>扎卡的下滑。</strong>33岁的扎卡从阿森纳→勒沃库森→桑德兰——过去4年他走了一条明显的下坡路。</li>
+  </ul>
+</div>
+<div class="bg-white rounded-xl shadow p-6 mb-6">
+  <h3 class="text-lg font-bold text-ch-red">关键先生</h3>
+  <div class="grid md:grid-cols-2 gap-3">
+    <div class="border-l-4 border-red-600 pl-3"><p class="font-bold">🇨🇭 格拉尼特·扎卡 (C)</p><p class="text-sm text-gray-600">队长，第4届世界杯。他的长传调度和中场硬度是瑞士战术的基石——虽然已不在巅峰，但大赛经验无人能及。</p></div>
+    <div class="border-l-4 border-blue-600 pl-3"><p class="font-bold">🇨🇭 曼努埃尔·阿坎吉</p><p class="text-sm text-gray-600">国米中卫，瑞士后防核心。他的速度和出球能力是防线的基础——面对加拿大和波黑的快速反击时，他的发挥至关重要。</p></div>
+    <div class="border-l-4 border-green-700 pl-3"><p class="font-bold">🇨🇭 丹·恩多耶</p><p class="text-sm text-gray-600">诺丁汉森林边锋，本赛季英超5球4助攻。29岁的他正在巅峰期——他的边路突破是瑞士进攻端最大的变数。</p></div>
+    <div class="border-l-4 border-yellow-600 pl-3"><p class="font-bold">🇨🇭 布雷尔·恩博洛</p><p class="text-sm text-gray-600">雷恩前锋。身体对抗+终结能力是瑞士锋线最可靠的武器——伤愈后状态回暖，B组中他的身体素质将是碾压级的。</p></div>
+  </div>
+</div>
+<div class="bg-white rounded-xl shadow p-6 mb-6">
+  <h3 class="text-lg font-bold">小组赛预判</h3>
+  <table class="mt-2"><tr><th>对手</th><th>预判</th></tr>
+    <tr><td>卡塔尔 🇶🇦</td><td>瑞士 2-0 胜</td></tr>
+    <tr><td>波黑 🇧🇦</td><td>瑞士 2-1 胜</td></tr>
+    <tr><td>加拿大 🇨🇦</td><td>瑞士 1-1 平</td></tr>
+  </table>
+  <p class="mt-2"><strong>小组赛综合：2胜1平积7分，小组头名概率60%，出线概率85%。</strong></p>
+</div>
+<div class="bg-white rounded-xl shadow p-6 mb-6">
+  <p class="mt-3 p-3 bg-blue-50 rounded-lg"><strong>核心判断：</strong>瑞士是B组的"定海神针"。他们不会踢出令人窒息的攻势足球，但他们几乎从不会在"应该赢的比赛"中翻车。小组出线是底线——真正的考验在16强。如果瑞士能突破16强进入八强，他们将追平1954年以来的世界杯最佳成绩。对于扎卡的第4届世界杯而言——这是他带领"最稳定瑞士队"打破"八强天花板"的最后机会。</p>
+</div>
+<div class="bg-white rounded-xl shadow p-6 mb-6 text-center">
+  <h3 class="text-lg font-bold text-ch-red">大师结语</h3>
+  <p class="text-xl italic mt-3 text-gray-700">"瑞士军刀从不以锋利著称——它以精准和可靠闻名。扎卡用四届世界杯的时间把瑞士足球的'稳定'打造成了品牌，阿坎吉在国米的每一脚出球都带着阿尔卑斯山的沉稳。B组不是战场，是起点——真正的考验在16强之后，那个瑞士等了72年的八强门口。"</p>
+</div>
+<div class="text-center text-gray-400 text-sm py-6 border-t">
+  <p>© 2026 足球战力分析 · Powered by WorkBuddy AI</p>
+</div>
+</div>
+</body>
+</html>
