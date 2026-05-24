@@ -98,6 +98,107 @@ function extractRating(content) {
   return null;
 }
 
+// ─── Extract 7 dimension scores from report HTML ──────────────────
+// Supports two formats:
+//   PT: <h3 class="text-xl ...">维度X：...｜ 得分：SCORE分 × WEIGHT% = ...</h3>
+//   EN: <div class="dimension-score">SCORE分 × WEIGHT% = ...分</div>
+function extractDimensions(content) {
+  const dims = [null, null, null, null, null, null, null];
+  const labels = ['一','二','三','四','五','六','七'];
+
+  // Strategy 1: Look for h3-based dimension pattern (PT/Tailwind format)
+  // <h3 class="text-xl font-bold ...">维度X：...｜ 得分：SCORE分 × ...</h3>
+  // or <h3 class="text-xl font-bold ...">维度X：...｜ SCORE分 × ...</h3>
+  for (let i = 0; i < 7; i++) {
+    const dimLabel = labels[i];
+    // Try "得分：SCORE分" first
+    let re = new RegExp(
+      `维度${dimLabel}[^<]*[｜\\|]\\s*(?:得分[：:])?\\s*([\\d.]+)\\s*分\\s*×`,
+      'i'
+    );
+    let m = content.match(re);
+    if (m) {
+      dims[i] = parseFloat(m[1]);
+      continue;
+    }
+
+    // Try dimension-score div pattern (EN format)
+    // <div class="dimension-score">SCORE分 × WEIGHT% = ...
+    // Order: dimension-score divs appear in order 维度一→七
+    // Count dimension-title occurrences to find the nth one, then get the next dimension-score
+  }
+
+  // Strategy 2: Collect all dimension-score divs in order
+  const allScores = content.match(/<div[^>]*class="[^"]*dimension-score[^"]*"[^>]*>\\s*([\\d.]+)\\s*分/g);
+  if (allScores && allScores.length >= 7) {
+    for (let i = 0; i < 7; i++) {
+      const sm = allScores[i].match(/([\\d.]+)\\s*分/);
+      if (sm) {
+        const val = parseFloat(sm[1]);
+        dims[i] = val;
+      }
+    }
+  }
+
+  // Strategy 3: Try "维度X总评" pattern (fallback)
+  if (dims.every(d => d == null)) {
+    for (let i = 0; i < 7; i++) {
+      const dimLabel = labels[i];
+      const re = new RegExp(
+        `维度${dimLabel}总评[：:][^<]*<strong>([\\d.]+)\\s*分`,
+        'i'
+      );
+      const m = content.match(re);
+      if (m) dims[i] = parseFloat(m[1]);
+    }
+  }
+
+  return dims;
+}
+
+// ─── Extract 7 dimension scores from report HTML ──────────────────
+function extractDimensions(content) {
+  const dims = [null, null, null, null, null, null, null];
+  const labels_w = ['一','二','三','四','五','六','七'];
+
+  // Strategy 1: <h3 class="text-xl ...">维度X：...｜ 得分：SCORE分 × WEIGHT%</h3>
+  for (let i = 0; i < 7; i++) {
+    const dl = labels_w[i];
+    let re = new RegExp(
+      '维度' + dl + '[^<]*[｜\\|]\\s*(?:得分[：:])?\\s*([\\d.]+)\\s*分\\s*×', 'i'
+    );
+    let m = content.match(re);
+    if (m) dims[i] = parseFloat(m[1]);
+  }
+
+  // Strategy 2: <div class="dimension-score">SCORE分 × WEIGHT%</div> (EN format)
+  if (dims.some(d => d == null)) {
+    const scoreDivs = content.match(/<div[^>]*class="[^"]*dimension-score[^"]*"[^>]*>\s*([\d.]+)\s*分/g);
+    if (scoreDivs && scoreDivs.length >= 7) {
+      for (let i = 0; i < 7; i++) {
+        if (dims[i] != null) continue;
+        const sm = scoreDivs[i].match(/([\d.]+)\s*分/);
+        if (sm) dims[i] = parseFloat(sm[1]);
+      }
+    }
+  }
+
+  // Strategy 3: 维度X总评：<strong>SCORE分</strong> (fallback)
+  if (dims.some(d => d == null)) {
+    for (let i = 0; i < 7; i++) {
+      if (dims[i] != null) continue;
+      const dl = labels_w[i];
+      let re = new RegExp(
+        '维度' + dl + '总评[：:][^<]*<strong>([\\d.]+)\\s*分', 'i'
+      );
+      let m = content.match(re);
+      if (m) dims[i] = parseFloat(m[1]);
+    }
+  }
+
+  return dims;
+}
+
 // ─── Compute rating from score ────────────────────────────────────
 // 总分→评级映射规则：
 // [87,100] A+  [83,87) A   [80,83) A-  [77,80) B+  [73,77) B
@@ -223,6 +324,7 @@ function scanTeams() {
     const name = extractTeamName(file);
     const computedRating = computeRating(score);
     const rawRating = extractRating(content);
+    const dims = extractDimensions(content);
 
     if (!name) {
       console.warn(`   ⚠️  无法识别球队名: ${file}`);
@@ -236,7 +338,7 @@ function scanTeams() {
       console.warn(`   ⚠️  未知球队 "${name}"，请在 config.json 的 football.teamFlags 中添加`);
     }
 
-    teams.push({ name, flag, file: relPath, score, rating: computedRating, accent, rawRating });
+    teams.push({ name, flag, file: relPath, score, rating: computedRating, accent, rawRating, dims });
     const scoreStr = score != null ? `${score}分` : '??分';
     const logOld = rawRating ? ` (原:${rawRating})` : '';
     console.log(`   ${flag} ${name}: ${scoreStr} [${computedRating}]${logOld}`);
@@ -260,6 +362,7 @@ function generateIndex(teams, scores) {
     score: t.score,
     rating: t.rating,
     accent: t.accent,
+    dims: t.dims,
   })));
 
   const year = new Date().getFullYear();
@@ -554,6 +657,124 @@ body {
 .rank-2 { background: rgba(192,192,192,0.15); color: #c0c0c0; }
 .rank-3 { background: rgba(205,127,50,0.15); color: #cd7f32; }
 
+/* ── OPR Scoring Table ── */
+.score-table-wrap {
+  overflow-x: auto;
+  border-radius: 14px;
+  border: 1px solid rgba(255,255,255,0.06);
+  background: linear-gradient(145deg, #111811 0%, #0f1f0f 100%);
+  margin-top: 8px;
+}
+.score-table {
+  width: 100%;
+  table-layout: fixed;
+  border-collapse: collapse;
+  font-size: 0.82rem;
+}
+.score-table thead th {
+  padding: 12px 10px;
+  font-weight: 600;
+  color: #c9a84c;
+  text-align: center;
+  border-bottom: 2px solid rgba(201,168,76,0.2);
+  background: rgba(201,168,76,0.06);
+  white-space: nowrap;
+  user-select: none;
+}
+.score-table thead th.sortable {
+  cursor: pointer;
+  transition: all 0.2s ease;
+  position: relative;
+}
+.score-table thead th.sortable:hover {
+  background: rgba(201,168,76,0.14);
+  color: #dfc06a;
+}
+.score-table thead th.sortable .sort-icon {
+  display: inline-block;
+  margin-left: 4px;
+  font-size: 0.65rem;
+  transition: opacity 0.2s;
+}
+.score-table thead th.sortable .sort-icon .arrow-up,
+.score-table thead th.sortable .sort-icon .arrow-down {
+  display: none;
+}
+.score-table thead th.sortable:not(.asc):not(.desc) .sort-icon .arrow-down {
+  display: inline;
+  opacity: 0.4;
+}
+.score-table.dir-asc .sortable:not(.asc):not(.desc) .sort-icon .arrow-up {
+  display: inline;
+  opacity: 0.4;
+}
+.score-table.dir-asc .sortable:not(.asc):not(.desc) .sort-icon .arrow-down {
+  display: none;
+}
+.score-table thead th.sortable.asc .sort-icon .arrow-up {
+  display: inline;
+  opacity: 1;
+  color: #4ade80;
+}
+.score-table thead th.sortable.desc .sort-icon .arrow-down {
+  display: inline;
+  opacity: 1;
+  color: #f97316;
+}
+.score-table thead th.col-index { width: 28px; }
+.score-table thead th.col-name { text-align: left; width: 70px; }
+.score-table thead th.col-score { width: 40px; }
+.score-table thead th.col-rating { width: 36px; }
+.score-table tbody td.td-total { font-weight: 600; }
+.score-table tbody td {
+  padding: 5px 4px;
+  text-align: center;
+  border-bottom: 1px solid rgba(255,255,255,0.04);
+  color: #d0d7d0;
+  transition: background 0.15s;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.score-table tbody tr:hover td {
+  background: rgba(201,168,76,0.04);
+}
+.score-table tbody td.td-name {
+  text-align: left;
+  font-weight: 500;
+}
+.score-table tbody td .flag-icon-table { font-size: 0.85rem; margin-right: 4px; }
+.score-table tbody td .score-val { font-weight: 600; font-variant-numeric: tabular-nums; }
+.score-table tbody td .score-high { color: #ef4444; }
+.score-table tbody td .score-mid { color: #f59e0b; }
+.score-table tbody td .score-low { color: #f5cba7; }
+.score-table tbody td .score-bad { color: #d4d4d4; }
+.score-table tbody td .rating-badge-td {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 32px;
+  height: 26px;
+  border-radius: 6px;
+  font-size: 0.78rem;
+  font-weight: 700;
+  padding: 0 6px;
+}
+.score-table thead th .dim-weight {
+  display: block;
+  font-size: 0.6rem;
+  font-weight: 400;
+  color: rgba(255,255,255,0.35);
+  margin-top: 1px;
+}
+.score-table-note {
+  text-align: right;
+  font-size: 0.72rem;
+  color: rgba(255,255,255,0.25);
+  margin-top: 8px;
+  padding-right: 4px;
+}
+
 /* ── First Visit Modal ── */
 .modal-overlay {
   position: fixed;
@@ -693,6 +914,29 @@ body {
     <p class="text-sm mt-1">试试其他分类或关键词</p>
   </div>
 
+  <div class="section-divider" style="margin-top:54px;"><span class="section-title">📋 OPR 七维度评分明细</span></div>
+  <div class="score-table-wrap">
+    <table class="score-table" id="score-table">
+      <thead>
+        <tr>
+          <th class="col-index">#</th>
+          <th class="col-name">国家队</th>
+          <th class="col-rating">评级</th>
+          <th class="col-score sortable" data-sort="7" title="总分">总分<span class="sort-icon"><span class="arrow-up">▲</span><span class="arrow-down">▼</span></span></th>
+          <th class="col-score sortable" data-sort="0" title="阵容实力（权重30%）">阵容<span class="dim-weight">30%</span><span class="sort-icon"><span class="arrow-up">▲</span><span class="arrow-down">▼</span></span></th>
+          <th class="col-score sortable" data-sort="1" title="战术体系与教练（权重20%）">战术<span class="dim-weight">20%</span><span class="sort-icon"><span class="arrow-up">▲</span><span class="arrow-down">▼</span></span></th>
+          <th class="col-score sortable" data-sort="2" title="近期竞技状态（权重15%）">状态<span class="dim-weight">15%</span><span class="sort-icon"><span class="arrow-up">▲</span><span class="arrow-down">▼</span></span></th>
+          <th class="col-score sortable" data-sort="3" title="大赛经验与心理素质（权重10%）">经验<span class="dim-weight">10%</span><span class="sort-icon"><span class="arrow-up">▲</span><span class="arrow-down">▼</span></span></th>
+          <th class="col-score sortable" data-sort="4" title="分组及赛程影响（权重10%）">赛程<span class="dim-weight">10%</span><span class="sort-icon"><span class="arrow-up">▲</span><span class="arrow-down">▼</span></span></th>
+          <th class="col-score sortable" data-sort="5" title="团队凝聚力与场外环境（权重10%）">凝聚<span class="dim-weight">10%</span><span class="sort-icon"><span class="arrow-up">▲</span><span class="arrow-down">▼</span></span></th>
+          <th class="col-score sortable" data-sort="6" title="体能储备与伤病控制（权重5%）">体能<span class="dim-weight">5%</span><span class="sort-icon"><span class="arrow-up">▲</span><span class="arrow-down">▼</span></span></th>
+        </tr>
+      </thead>
+      <tbody id="score-table-body"></tbody>
+    </table>
+  </div>
+  <div class="score-table-note">评级 → 总分 → 七维度 · 点击表头排序（同分时按总分→维度3→9依次决定）</div>
+
   <div class="section-divider" style="margin-top:60px;"><span class="section-title">🎮 对局分析</span></div>
   <div id="games-section">
     <div class="games-grid">
@@ -778,11 +1022,11 @@ body {
       else if (rank === 3) rc += ' rank-3';
       const si = Math.floor(t.score||0);
       const sd = t.score != null ? (t.score % 1).toFixed(2).slice(1) : '.00';
-      let rcol = '#22c55e';
+      let rcol = '#ef4444';
       const rt = (t.rating||'')[0];
-      if (rt === 'B') rcol = '#eab308';
-      else if (rt === 'C') rcol = '#f97316';
-      else if (rt === 'D') rcol = '#ef4444';
+      if (rt === 'B') rcol = '#f59e0b';
+      else if (rt === 'C') rcol = '#f5cba7';
+      else if (rt === 'D' || rt === 'E') rcol = '#d4d4d4';
       return \`<div class="team-card card-enter" style="animation-delay:\${Math.min(i*40,320)}ms" onclick="window.open('\${t.file}','_blank')">
         <div class="card-accent" style="background:\${t.accent}"></div>
         <div class="card-body">
@@ -816,6 +1060,98 @@ body {
     });
   });
   searchInput.addEventListener('input', function() { currentSearch = this.value; render(); });
+
+  // ── OPR Score Table ──
+  const tableBody = document.getElementById('score-table-body');
+  const tableHeaders = document.querySelectorAll('#score-table thead th.sortable');
+  let tableSortCol = 7;
+  let tableSortAsc = false;
+
+  function ratingColor(r) {
+    const c = (r||'')[0];
+    if (c === 'A') return '#ef4444'; if (c === 'B') return '#f59e0b';
+    if (c === 'C') return '#f5cba7'; if (c === 'D' || c === 'E') return '#d4d4d4';
+    return '#888';
+  }
+
+  function scoreClass(v) {
+    if (v == null) return '';
+    if (v >= 80) return 'score-high';
+    if (v >= 65) return 'score-mid';
+    if (v >= 50) return 'score-low';
+    return 'score-bad';
+  }
+
+  function renderTable() {
+    let data = teams.slice();
+    const sortIdx = tableSortCol;
+    data.sort((a, b) => {
+      let cmp;
+      if (sortIdx === 7) {
+        cmp = (a.score||0) - (b.score||0);
+      } else {
+        cmp = (a.dims?.[sortIdx]||0) - (b.dims?.[sortIdx]||0);
+      }
+      if (cmp === 0) {
+        cmp = (a.score||0) - (b.score||0);
+      }
+      if (cmp === 0 && sortIdx !== 7) {
+        for (let k = 0; k < 7; k++) {
+          if (k === sortIdx) continue;
+          cmp = (a.dims?.[k]||0) - (b.dims?.[k]||0);
+          if (cmp !== 0) break;
+        }
+      }
+      return tableSortAsc ? cmp : -cmp;
+    });
+
+    tableBody.innerHTML = data.map((t, i) => {
+      const rank = i + 1;
+      const dims = t.dims || [];
+      const dimCells = dims.map((v) => {
+        const val = v != null ? v : '-';
+        return '<td><span class="score-val ' + scoreClass(v) + '">' + val + '</span></td>';
+      }).join('');
+      const rcol = ratingColor(t.rating);
+      return '<tr>' +
+        '<td class="td-index" style="color:rgba(255,255,255,0.4);font-weight:500;">' + rank + '</td>' +
+        '<td class="td-name"><span class="flag-icon-table">' + t.flag + '</span>' + t.name + '</td>' +
+        '<td class="td-rating"><span class="rating-badge-td" style="background:' + rcol + '22;color:' + rcol + ';border:1px solid ' + rcol + '44;">' + (t.rating||'?') + '</span></td>' +
+        '<td class="td-total"><span class="score-val ' + scoreClass(t.score) + '">' + (t.score != null ? t.score.toFixed(1) : '-') + '</span></td>' +
+        dimCells +
+        '</tr>';
+    }).join('');
+  }
+
+  const scoreTable = document.getElementById('score-table');
+  function updateHeaderArrows() {
+    scoreTable.classList.toggle('dir-asc', tableSortAsc);
+    scoreTable.classList.toggle('dir-desc', !tableSortAsc);
+    tableHeaders.forEach(function(th) {
+      th.classList.remove('asc', 'desc');
+      var idx = parseInt(th.dataset.sort);
+      if (idx === tableSortCol) {
+        th.classList.add(tableSortAsc ? 'asc' : 'desc');
+      }
+    });
+  }
+
+  tableHeaders.forEach(function(th) {
+    th.addEventListener('click', function() {
+      var idx = parseInt(this.dataset.sort);
+      if (tableSortCol === idx) {
+        tableSortAsc = !tableSortAsc;
+      } else {
+        tableSortCol = idx;
+        tableSortAsc = false;
+      }
+      updateHeaderArrows();
+      renderTable();
+    });
+  });
+
+  renderTable();
+  updateHeaderArrows();
   render();
 })();
 </script>
