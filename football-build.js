@@ -106,80 +106,48 @@ function extractDimensions(content) {
   const dims = [null, null, null, null, null, null, null];
   const labels = ['一','二','三','四','五','六','七'];
 
-  // Strategy 1: Look for h3-based dimension pattern (PT/Tailwind format)
-  // <h3 class="text-xl font-bold ...">维度X：...｜ 得分：SCORE分 × ...</h3>
-  // or <h3 class="text-xl font-bold ...">维度X：...｜ SCORE分 × ...</h3>
+  // Strategy 1: <h3>维度X：...｜ 得分：... (PT/Tailwind/France formats)
   for (let i = 0; i < 7; i++) {
-    const dimLabel = labels[i];
-    // Try "得分：SCORE分" first
+    const dl = labels[i];
+    // Attempt 1a: 得分：SCORE分 × (PT format)
+    // <h3 ...>维度X：...｜ 得分：92分 × 30% = ...</h3>
     let re = new RegExp(
-      `维度${dimLabel}[^<]*[｜\\|]\\s*(?:得分[：:])?\\s*([\\d.]+)\\s*分\\s*×`,
-      'i'
+      '维度' + dl + '：[^|｜]*[｜|] *得分[：:] *([\\d.]+) *分 *×', 'i'
     );
     let m = content.match(re);
-    if (m) {
-      dims[i] = parseFloat(m[1]);
-      continue;
-    }
+    if (m) { dims[i] = parseFloat(m[1]); continue; }
 
-    // Try dimension-score div pattern (EN format)
-    // <div class="dimension-score">SCORE分 × WEIGHT% = ...
-    // Order: dimension-score divs appear in order 维度一→七
-    // Count dimension-title occurrences to find the nth one, then get the next dimension-score
+    // Attempt 1b: 得分：<span>SCORE</span> × (France format)
+    // <h3 ...>维度X：...｜ 得分：<span>92</span> × 30% = ...</h3>
+    re = new RegExp(
+      '维度' + dl + '：[^|｜]*[｜|] *得分[：:] *<[^>]+>([\\d.]+)</[^>]+> *×', 'i'
+    );
+    m = content.match(re);
+    if (m) { dims[i] = parseFloat(m[1]); continue; }
+
+    // Attempt 1c: ｜ SCORE分 × (without "得分：" prefix)
+    // <h3 ...>维度X：...｜ 92分 × 30% = ...</h3>
+    re = new RegExp(
+      '维度' + dl + '：[^|｜]*[｜|] *([\\d.]+) *分 *×', 'i'
+    );
+    m = content.match(re);
+    if (m) { dims[i] = parseFloat(m[1]); continue; }
+
+    // Attempt 1d: 维度X总评：<strong>SCORE分</strong>
+    re = new RegExp(
+      '维度' + dl + '总评[：:][^<]*<strong>([\\d.]+) *分', 'i'
+    );
+    m = content.match(re);
+    if (m) { dims[i] = parseFloat(m[1]); continue; }
   }
 
-  // Strategy 2: Collect all dimension-score divs in order
-  const allScores = content.match(/<div[^>]*class="[^"]*dimension-score[^"]*"[^>]*>\\s*([\\d.]+)\\s*分/g);
+  // Strategy 2: <div class="dimension-score">SCORE分 × ... (EN format)
+  const allScores = content.match(/<div[^>]*class="[^"]*dimension-score[^"]*"[^>]*>\s*([\d.]+)\s*分/g);
   if (allScores && allScores.length >= 7) {
     for (let i = 0; i < 7; i++) {
-      const sm = allScores[i].match(/([\\d.]+)\\s*分/);
-      if (sm) {
-        const val = parseFloat(sm[1]);
-        dims[i] = val;
-      }
-    }
-  }
-
-  // Strategy 3: Try "维度X总评" pattern (fallback)
-  if (dims.every(d => d == null)) {
-    for (let i = 0; i < 7; i++) {
-      const dimLabel = labels[i];
-      const re = new RegExp(
-        `维度${dimLabel}总评[：:][^<]*<strong>([\\d.]+)\\s*分`,
-        'i'
-      );
-      const m = content.match(re);
-      if (m) dims[i] = parseFloat(m[1]);
-    }
-  }
-
-  return dims;
-}
-
-// ─── Extract 7 dimension scores from report HTML ──────────────────
-function extractDimensions(content) {
-  const dims = [null, null, null, null, null, null, null];
-  const labels_w = ['一','二','三','四','五','六','七'];
-
-  // Strategy 1: <h3 class="text-xl ...">维度X：...｜ 得分：SCORE分 × WEIGHT%</h3>
-  for (let i = 0; i < 7; i++) {
-    const dl = labels_w[i];
-    let re = new RegExp(
-      '维度' + dl + '[^<]*[｜\\|]\\s*(?:得分[：:])?\\s*([\\d.]+)\\s*分\\s*×', 'i'
-    );
-    let m = content.match(re);
-    if (m) dims[i] = parseFloat(m[1]);
-  }
-
-  // Strategy 2: <div class="dimension-score">SCORE分 × WEIGHT%</div> (EN format)
-  if (dims.some(d => d == null)) {
-    const scoreDivs = content.match(/<div[^>]*class="[^"]*dimension-score[^"]*"[^>]*>\s*([\d.]+)\s*分/g);
-    if (scoreDivs && scoreDivs.length >= 7) {
-      for (let i = 0; i < 7; i++) {
-        if (dims[i] != null) continue;
-        const sm = scoreDivs[i].match(/([\d.]+)\s*分/);
-        if (sm) dims[i] = parseFloat(sm[1]);
-      }
+      if (dims[i] != null) continue;
+      const sm = allScores[i].match(/([\d.]+)\s*分/);
+      if (sm) dims[i] = parseFloat(sm[1]);
     }
   }
 
@@ -187,11 +155,11 @@ function extractDimensions(content) {
   if (dims.some(d => d == null)) {
     for (let i = 0; i < 7; i++) {
       if (dims[i] != null) continue;
-      const dl = labels_w[i];
-      let re = new RegExp(
-        '维度' + dl + '总评[：:][^<]*<strong>([\\d.]+)\\s*分', 'i'
+      const dl = labels[i];
+      const re = new RegExp(
+        '维度' + dl + '总评[：:][^<]*<strong>([\\d.]+) *分', 'i'
       );
-      let m = content.match(re);
+      const m = content.match(re);
       if (m) dims[i] = parseFloat(m[1]);
     }
   }
