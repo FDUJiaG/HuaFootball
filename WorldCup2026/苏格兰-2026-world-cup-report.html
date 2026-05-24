@@ -256,5 +256,31 @@ tailwind.config = { theme: { extend: { colors: { sc: { blue: '#005EB8', white: '
   <p>© 2026 足球战力分析 · Powered by WorkBuddy AI</p>
 </div>
 </div>
+
+<!-- HuaFootball: back-to-home button -->
+<a href="../index.html" class="huafootball-back-btn" target="_self">
+  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5"/><path d="M12 19l-7-7 7-7"/></svg>
+  返回首页
+</a>
+<style>
+.huafootball-back-btn {
+  position:fixed!important;bottom:28px!important;right:28px!important;z-index:99999!important;
+  display:inline-flex!important;align-items:center!important;gap:6px!important;
+  padding:10px 22px!important;background:rgba(26,71,42,0.85)!important;color:#c9a84c!important;
+  border:1px solid rgba(201,168,76,0.3)!important;border-radius:999px!important;
+  font-family:"Inter","Noto Sans SC",system-ui,sans-serif!important;font-size:13px!important;
+  font-weight:600!important;text-decoration:none!important;
+  backdrop-filter:blur(8px)!important;-webkit-backdrop-filter:blur(8px)!important;
+  box-shadow:0 4px 20px rgba(0,0,0,0.3)!important;transition:all .25s ease!important;
+  cursor:pointer!important;user-select:none!important;
+}
+.huafootball-back-btn:hover {
+  background:rgba(26,71,42,0.95)!important;border-color:rgba(201,168,76,0.5)!important;
+  box-shadow:0 6px 28px rgba(201,168,76,0.2)!important;transform:translateY(-2px)!important;
+}
+.huafootball-back-btn svg { transition:transform .2s ease!important; }
+.huafootball-back-btn:hover svg { transform:translateX(-3px)!important; }
+</style>
+
 </body>
 </html>

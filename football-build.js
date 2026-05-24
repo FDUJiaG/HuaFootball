@@ -649,7 +649,7 @@ body {
       </div>
       <div>
         <h1 class="text-2xl sm:text-3xl font-bold text-white font-display tracking-wide">HuaFootball</h1>
-        <p class="text-gold/70 text-sm font-medium">国仕足球 · 战力分析平台</p>
+        <p class="text-gold/70 text-sm font-medium">国仕无双 · 足球战力分析平台</p>
       </div>
     </div>
     <p class="text-gray-400 text-sm max-w-xl">OPR综合战力评分体系 · 基于七维度深度拆解的世界杯国家队实力评估与赛事分析</p>
@@ -723,7 +723,7 @@ body {
 <footer class="site-footer">
   <div class="max-w-3xl mx-auto">
     <p class="text-xs leading-relaxed"><strong>HuaFootball</strong> · OPR综合战力评分体系 · 数据来源：Transfermarkt、各足协官方公告、体育媒体综合报道</p>
-    <p class="mt-3 text-xs">&copy; ${year} 国仕无双 · HuaResearch Platform &nbsp;|&nbsp; Powered by WorkBuddy AI</p>
+    <p class="mt-3 text-xs">&copy; ${year} 国仕无双 · HuaResearch Platform &nbsp;|&nbsp; Powered by HuaZongNiubi AI</p>
   </div>
 </footer>
 
