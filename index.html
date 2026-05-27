@@ -229,7 +229,7 @@
     color: #d0d7d0; transition: background 0.15s; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;
   }
   .score-table tbody tr:hover td { background: rgba(200,169,81,0.04); }
-  .score-table tbody td.td-name { text-align: left; font-weight: 500; }
+  .score-table tbody td.td-name { text-align: left; font-weight: 500; overflow: visible; text-overflow: unset; white-space: normal; min-width: 60px; }
   .score-table tbody td .flag-icon-table { font-size: 0.85rem; margin-right: 4px; }
   .score-table tbody td .score-val { font-weight: 600; font-variant-numeric: tabular-nums; }
   .score-table tbody td .score-high { color: #ef4444; }
@@ -297,7 +297,10 @@
 
   /* Mobile */
   @media (max-width: 1024px) { }
-  @media (max-width: 640px) { }
+  @media (max-width: 640px) {
+    .score-table thead th.col-name { width: auto; }
+    .score-table tbody td.td-name { min-width: 72px; }
+  }
 </style>
 </head>
 <body>
