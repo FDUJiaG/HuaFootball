@@ -4,6 +4,10 @@
 # Node
 node_modules/
 
+# bak
+index.bak.html
+index_reference.html
+
 # Temp
 *.log
 .DS_Store
