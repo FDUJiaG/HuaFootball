@@ -1,17 +1,20 @@
 #!/usr/bin/env node
 
 /**
- * HuaFootball Build Script
- * ========================
+ * HuaFootball Build Script v3.1
+ * =================================
  * Scans WorldCup2026/ for team reports, extracts OPR scores & ratings,
- * then generates the full index.html from scratch.
+ * and updates the teams-data JSON block in index.html.
  *
  * Usage: node football-build.js
  *
  * After adding a new team report to WorldCup2026/:
  *   node football-build.js
  *
- * That's it — index.html is fully regenerated with the new team.
+ * The index.html template is preserved — only the team data is updated.
+ *
+ * ✨ Hero区浮动国旗：由 index.html 中的 JS 从 teams-data 动态渲染
+ *    前四名国旗，无需 build 脚本单独维护。
  */
 
 const fs = require('fs');
@@ -36,7 +39,6 @@ const TEAM_FLAGS = FC.teamFlags || {};
 const TEAM_COLORS = FC.teamColors || {};
 
 // ─── Extract score from report HTML ───────────────────────────────
-// Supports multiple formats across all reports
 function extractScore(content) {
   // 1. "加权总分：42.0 / 100"
   let m = content.match(/加权总分[：:]\s*([\d.]+)\s*\/\s*100/);
@@ -99,9 +101,6 @@ function extractRating(content) {
 }
 
 // ─── Extract 7 dimension scores from report HTML ──────────────────
-// Supports two formats:
-//   PT: <h3 class="text-xl ...">维度X：...｜ 得分：SCORE分 × WEIGHT% = ...</h3>
-//   EN: <div class="dimension-score">SCORE分 × WEIGHT% = ...分</div>
 function extractDimensions(content) {
   const dims = [null, null, null, null, null, null, null];
   const labels = ['一','二','三','四','五','六','七'];
@@ -109,34 +108,23 @@ function extractDimensions(content) {
   // Strategy 1: <h3>维度X：...｜ 得分：... (PT/Tailwind/France formats)
   for (let i = 0; i < 7; i++) {
     const dl = labels[i];
-    // Attempt 1a: 得分：SCORE分 × (PT format)
-    // <h3 ...>维度X：...｜ 得分：92分 × 30% = ...</h3>
-    let re = new RegExp(
-      '维度' + dl + '：[^|｜]*[｜|] *得分[：:] *([\\d.]+) *分 *×', 'i'
-    );
+    // 1a: 得分：SCORE分 × (PT format)
+    let re = new RegExp('维度' + dl + '：[^|｜]*[｜|] *得分[：:] *([\\d.]+) *分 *×', 'i');
     let m = content.match(re);
     if (m) { dims[i] = parseFloat(m[1]); continue; }
 
-    // Attempt 1b: 得分：<span>SCORE</span> × (France format)
-    // <h3 ...>维度X：...｜ 得分：<span>92</span> × 30% = ...</h3>
-    re = new RegExp(
-      '维度' + dl + '：[^|｜]*[｜|] *得分[：:] *<[^>]+>([\\d.]+)</[^>]+> *×', 'i'
-    );
+    // 1b: 得分：<span>SCORE</span> × (France format)
+    re = new RegExp('维度' + dl + '：[^|｜]*[｜|] *得分[：:] *<[^>]+>([\\d.]+)</[^>]+> *×', 'i');
     m = content.match(re);
     if (m) { dims[i] = parseFloat(m[1]); continue; }
 
-    // Attempt 1c: ｜ SCORE分 × (without "得分：" prefix)
-    // <h3 ...>维度X：...｜ 92分 × 30% = ...</h3>
-    re = new RegExp(
-      '维度' + dl + '：[^|｜]*[｜|] *([\\d.]+) *分 *×', 'i'
-    );
+    // 1c: ｜ SCORE分 × (without "得分：" prefix)
+    re = new RegExp('维度' + dl + '：[^|｜]*[｜|] *([\\d.]+) *分 *×', 'i');
     m = content.match(re);
     if (m) { dims[i] = parseFloat(m[1]); continue; }
 
-    // Attempt 1d: 维度X总评：<strong>SCORE分</strong>
-    re = new RegExp(
-      '维度' + dl + '总评[：:][^<]*<strong>([\\d.]+) *分', 'i'
-    );
+    // 1d: 维度X总评：<strong>SCORE分</strong>
+    re = new RegExp('维度' + dl + '总评[：:][^<]*<strong>([\\d.]+) *分', 'i');
     m = content.match(re);
     if (m) { dims[i] = parseFloat(m[1]); continue; }
   }
@@ -156,9 +144,7 @@ function extractDimensions(content) {
     for (let i = 0; i < 7; i++) {
       if (dims[i] != null) continue;
       const dl = labels[i];
-      const re = new RegExp(
-        '维度' + dl + '总评[：:][^<]*<strong>([\\d.]+) *分', 'i'
-      );
+      const re = new RegExp('维度' + dl + '总评[：:][^<]*<strong>([\\d.]+) *分', 'i');
       const m = content.match(re);
       if (m) dims[i] = parseFloat(m[1]);
     }
@@ -168,10 +154,6 @@ function extractDimensions(content) {
 }
 
 // ─── Compute rating from score ────────────────────────────────────
-// 总分→评级映射规则：
-// [87,100] A+  [83,87) A   [80,83) A-  [77,80) B+  [73,77) B
-// [70,73) B-  [67,70) C+  [63,67) C   [60,63) C-  [50,60) D+
-// [40,50) D   [30,40) D-  [0,30)  E
 function computeRating(score) {
   if (score == null) return '?';
   if (score >= 87) return 'A+';
@@ -189,54 +171,25 @@ function computeRating(score) {
   return 'E';
 }
 
-// ─── Description for each rating ──────────────────────────────────
-function ratingDescription(rating) {
-  const map = {
-    'A+': '顶级强队，冠军热门',
-    'A':  '一流强队，四强有力竞争者',
-    'A-': '准一流强队，八强水准',
-    'B+': '二线劲旅，淘汰赛有力争夺者',
-    'B':  '二线劲旅，具备出线实力',
-    'B-': '准二线，小组出线有希望',
-    'C+': '中游球队，争取出线',
-    'C':  '中游球队，小组搅局者',
-    'C-': '中下游，出线难度较大',
-    'D+': '实力有限，争取搅局',
-    'D':  '鱼腩球队，重在参与',
-    'D-': '实力悬殊，难求一胜',
-    'E':  '陪跑角色',
-  };
-  return map[rating] || '';
-}
-
-// ─── Extract team name from filename ──────────────────────────────
-function extractTeamName(fileName) {
-  return fileName.replace(/-2026-world-cup-report\.html$/i, '').trim();
-}
-
 // ─── Update rating display in report HTML ─────────────────────────
 function updateReportRating(absPath, oldContent, newRating) {
   let content = oldContent;
-  const desc = ratingDescription(newRating);
   let changed = false;
 
   // Pattern 1: 实力评级：<span class="...">OLD</span>（旧描述）
   let m = content.match(/(实力评级[：:][^<]*<[^>]*>)[A-D][+-]?(E)?(<\/[^>]*>)([^<]*)/);
   if (m && !changed) {
-    content = content.replace(m[0], m[1] + newRating + m[3] + '（' + desc + '）');
+    content = content.replace(m[0], m[1] + newRating + m[3] + '（新的评级描述）');
     changed = true;
   }
 
-  // Pattern 2: 评级：OLD — 旧描述（韩国格式）
+  // Pattern 2: 评级：OLD — 旧描述
   if (!changed) {
     m = content.match(/(评级[：:]\s*)[A-D][+-]?(E)?(\s*[—–].*)/);
-    if (m) {
-      content = content.replace(m[0], m[1] + newRating + m[3]);
-      changed = true;
-    }
+    if (m) { content = content.replace(m[0], m[1] + newRating + m[3]); changed = true; }
   }
 
-  // Pattern 3: <div class="rating-X ...">X 级</div>（法国格式）
+  // Pattern 3: <div class="rating-X ...">X 级</div>
   if (!changed) {
     m = content.match(/(class="[^"]*rating-)[A-D]([^"]*"[^>]*>\s*)[A-D](\s*级<\/div>)/);
     if (m) {
@@ -249,19 +202,13 @@ function updateReportRating(absPath, oldContent, newRating) {
   // Pattern 4: <strong>OLD级（日本格式）
   if (!changed) {
     m = content.match(/(<strong>)[A-D][+-]?(E)?(\s*级[^<]*<\/strong>)/);
-    if (m) {
-      content = content.replace(m[0], m[1] + newRating + m[3]);
-      changed = true;
-    }
+    if (m) { content = content.replace(m[0], m[1] + newRating + m[3]); changed = true; }
   }
 
-  // Pattern 5: rating-badge">OLD级 — 描述</span>（比利时格式）
+  // Pattern 5: rating-badge">OLD级 — 描述</span>
   if (!changed) {
     m = content.match(/(rating-badge[^>]*>)[A-D][+-]?(E)?(\s*级\s*[—–]\s*[^<]*<\/span>)/);
-    if (m) {
-      content = content.replace(m[0], m[1] + newRating + m[3]);
-      changed = true;
-    }
+    if (m) { content = content.replace(m[0], m[1] + newRating + m[3]); changed = true; }
   }
 
   if (changed) {
@@ -289,7 +236,7 @@ function scanTeams() {
     const relPath = 'WorldCup2026/' + file;
 
     const score = extractScore(content);
-    const name = extractTeamName(file);
+    const name = file.replace(/-2026-world-cup-report\.html$/i, '').trim();
     const computedRating = computeRating(score);
     const rawRating = extractRating(content);
     const dims = extractDimensions(content);
@@ -315,15 +262,17 @@ function scanTeams() {
   return teams;
 }
 
-// ─── Generate full index.html ─────────────────────────────────────
-function generateIndex(teams, scores) {
-  const avg = scores.length > 0
-    ? (scores.reduce((a, b) => a + b, 0) / scores.length).toFixed(1)
-    : '--';
-  const max = scores.length > 0 ? Math.max(...scores).toFixed(1) : '--';
-  const min = scores.length > 0 ? Math.min(...scores).toFixed(1) : '--';
+// ─── Update index.html teams-data JSON ────────────────────────────
+function updateIndexData(teams) {
+  if (!fs.existsSync(INDEX_PATH)) {
+    console.error('❌ index.html 不存在！');
+    return false;
+  }
 
-  const teamsJSON = JSON.stringify(teams.map(t => ({
+  let html = fs.readFileSync(INDEX_PATH, 'utf-8');
+
+  // Build new teams JSON
+  const teamsData = teams.map(t => ({
     name: t.name,
     flag: t.flag,
     file: t.file,
@@ -331,827 +280,21 @@ function generateIndex(teams, scores) {
     rating: t.rating,
     accent: t.accent,
     dims: t.dims,
-  })));
+  }));
+  const teamsJSON = JSON.stringify(teamsData);
 
-  const year = new Date().getFullYear();
+  // Find and replace the teams-data script block
+  const pattern = /(<script\s+id="teams-data"\s+type="application\/json">)([\s\S]*?)(<\/script>)/;
+  const oldMatch = html.match(pattern);
 
-  return `<!DOCTYPE html>
-<html lang="zh-CN">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="HuaFootball — 专业AI足球战力分析平台，覆盖2026世界杯各队OPR综合评分与赛事分析" />
-<link rel="icon" href="favicon.jpg" type="image/jpeg" />
-<title>HuaFootball · 足球战力分析平台</title>
-<script src="https://cdn.tailwindcss.com"></script>
-<script>
-tailwind.config = {
-  theme: {
-    extend: {
-      colors: {
-        pitch: { 50: '#f0fdf4', 100: '#dcfce7', 200: '#bbf7d0', 300: '#86efac', 400: '#4ade80', 500: '#22c55e', 600: '#16a34a', 700: '#15803d', 800: '#166534', 900: '#14532d', 950: '#052e16' },
-        leather: { DEFAULT: '#8B4513', light: '#A0522D', dark: '#5C2E00' },
-        field: { DEFAULT: '#1a472a', light: '#2d6a4f', dark: '#0d2818' },
-        gold: { DEFAULT: '#c9a84c', light: '#dfc06a', dark: '#a8882e' },
-      },
-      fontFamily: {
-        display: ['"Noto Serif SC"', '"Source Han Serif SC"', 'Georgia', 'serif'],
-        body: ['"Inter"', '"Noto Sans SC"', 'system-ui', 'sans-serif'],
-      },
-    }
-  }
-}
-</script>
-<link rel="preconnect" href="https://fonts.googleapis.com" />
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Noto+Serif+SC:wght@400;600;700;900&display=swap" rel="stylesheet" />
-<style>
-* { margin: 0; padding: 0; box-sizing: border-box; }
-body {
-  font-family: 'Inter', 'Noto Sans SC', system-ui, sans-serif;
-  background: #0a0e0a;
-  color: #e0e7e0;
-  min-height: 100vh;
-}
-.site-header {
-  position: relative;
-  overflow: hidden;
-  border-bottom: 3px solid #c9a84c;
-  /* Night pitch gradient - green-black at night */
-  background: linear-gradient(170deg,
-    #0a110a 0%,
-    #0d1a0f 20%,
-    #0f1a10 50%,
-    #0c150d 75%,
-    #080c08 100%
-  );
-}
-/* ── Football panel pattern (hexagons) ── */
-.site-header::before {
-  content: '';
-  position: absolute;
-  inset: 0;
-  opacity: 0.04;
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='60' height='52' viewBox='0 0 60 52'%3E%3Cpath d='M30 0L60 15v22L30 52 0 37V15z' fill='none' stroke='%23c9a84c' stroke-width='1'/%3E%3Cpath d='M30 0L15 7.5v7.5l15 7.5 15-7.5V7.5z' fill='none' stroke='%23c9a84c' stroke-width='0.8'/%3E%3C/svg%3E");
-  background-size: 52px 48px;
-  z-index: 1;
-}
-/* ── Floodlight beam from upper-right ── */
-.site-header::after {
-  content: '';
-  position: absolute;
-  top: -40%;
-  right: -5%;
-  width: 550px;
-  height: 900px;
-  background: linear-gradient(
-    175deg,
-    rgba(255,220,140,0.08) 0%,
-    rgba(201,168,76,0.04) 30%,
-    transparent 65%
-  );
-  transform: rotate(-12deg);
-  z-index: 1;
-}
-/* ── Floodlight beam from upper-left (secondary) ── */
-.site-header .beam-left {
-  position: absolute;
-  top: -35%;
-  left: -5%;
-  width: 400px;
-  height: 700px;
-  background: linear-gradient(
-    185deg,
-    rgba(255,220,140,0.05) 0%,
-    rgba(201,168,76,0.02) 25%,
-    transparent 60%
-  );
-  transform: rotate(12deg);
-  z-index: 1;
-  pointer-events: none;
-}
-/* ── Pitch center circle ── */
-.site-header .pitch-circle {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  width: 420px;
-  height: 420px;
-  border: 2px solid rgba(201,168,76,0.07);
-  border-radius: 50%;
-  z-index: 1;
-  pointer-events: none;
-}
-/* Center spot */
-.site-header .pitch-circle::after {
-  content: '';
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  width: 12px;
-  height: 12px;
-  background: rgba(201,168,76,0.12);
-  border-radius: 50%;
-}
-/* Inner circle */
-.site-header .pitch-circle-inner {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  width: 280px;
-  height: 280px;
-  border: 1px solid rgba(201,168,76,0.05);
-  border-radius: 50%;
-  z-index: 1;
-  pointer-events: none;
-}
-/* ── Halfway line ── */
-.site-header .halfway-line {
-  position: absolute;
-  top: 20%;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 1px;
-  height: 60%;
-  background: linear-gradient(
-    180deg,
-    transparent,
-    rgba(201,168,76,0.06) 20%,
-    rgba(201,168,76,0.06) 80%,
-    transparent
-  );
-  z-index: 1;
-  pointer-events: none;
-}
-/* ── Goal net texture (bottom-right corner) ── */
-.site-header .net-texture {
-  position: absolute;
-  bottom: 0;
-  right: 0;
-  width: 300px;
-  height: 200px;
-  opacity: 0.03;
-  background-image:
-    linear-gradient(90deg, rgba(255,255,255,0.5) 1px, transparent 1px),
-    linear-gradient(0deg, rgba(255,255,255,0.5) 1px, transparent 1px);
-  background-size: 18px 18px;
-  z-index: 1;
-  pointer-events: none;
-}
-/* ── Warm bottom glow ── */
-.site-header .bottom-glow {
-  position: absolute;
-  bottom: -15%;
-  left: 20%;
-  width: 500px;
-  height: 250px;
-  background: radial-gradient(
-    ellipse at center,
-    rgba(201,168,76,0.06) 0%,
-    transparent 70%
-  );
-  z-index: 1;
-  pointer-events: none;
-  animation: glowPulse 5s ease-in-out infinite;
-}
-.stat-bubble {
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-  padding: 5px 16px;
-  border-radius: 999px;
-  font-size: 0.82rem;
-  font-weight: 500;
-}
-.sort-btn {
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-  padding: 8px 20px;
-  border-radius: 10px;
-  font-size: 0.88rem;
-  font-weight: 600;
-  cursor: pointer;
-  transition: all 0.25s ease;
-  border: 1.5px solid rgba(201,168,76,0.3);
-  background: rgba(201,168,76,0.08);
-  color: #c9a84c;
-  user-select: none;
-}
-.sort-btn:hover { background: rgba(201,168,76,0.18); border-color: #c9a84c; }
-.sort-btn .arrow { transition: transform 0.3s ease; display: inline-block; }
-.sort-btn .arrow.desc { transform: rotate(180deg); }
-.search-wrapper { position: relative; }
-.search-input {
-  width: 100%;
-  padding: 10px 16px 10px 40px;
-  border: 1.5px solid rgba(255,255,255,0.1);
-  border-radius: 10px;
-  font-size: 0.9rem;
-  outline: none;
-  transition: all 0.2s ease;
-  background: rgba(255,255,255,0.06);
-  color: #e0e7e0;
-}
-.search-input:focus { border-color: #c9a84c; box-shadow: 0 0 0 3px rgba(201,168,76,0.12); background: rgba(255,255,255,0.1); }
-.search-input::placeholder { color: rgba(255,255,255,0.3); }
-.search-icon {
-  position: absolute;
-  left: 14px;
-  top: 50%;
-  transform: translateY(-50%);
-  color: rgba(255,255,255,0.3);
-  pointer-events: none;
-}
-.filter-tab {
-  padding: 7px 18px;
-  border-radius: 999px;
-  font-size: 0.82rem;
-  font-weight: 500;
-  cursor: pointer;
-  transition: all 0.2s ease;
-  border: 1.5px solid transparent;
-  background: rgba(255,255,255,0.06);
-  color: rgba(255,255,255,0.5);
-  user-select: none;
-}
-.filter-tab:hover { background: rgba(255,255,255,0.1); color: rgba(255,255,255,0.7); }
-.filter-tab.active { background: rgba(201,168,76,0.15); color: #c9a84c; border-color: rgba(201,168,76,0.4); }
-.team-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-  gap: 18px;
-}
-@media (max-width: 480px) { .team-grid { grid-template-columns: 1fr; } }
-.team-card {
-  background: linear-gradient(145deg, #111811 0%, #0f1f0f 100%);
-  border-radius: 16px;
-  overflow: hidden;
-  transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
-  border: 1px solid rgba(255,255,255,0.06);
-  position: relative;
-  cursor: pointer;
-  display: flex;
-  flex-direction: column;
-}
-.team-card:hover { transform: translateY(-5px); box-shadow: 0 16px 40px rgba(0,0,0,0.4); border-color: rgba(201,168,76,0.2); }
-.card-accent { height: 5px; flex-shrink: 0; }
-.card-body { padding: 22px 22px 20px; flex: 1; display: flex; flex-direction: column; }
-.card-flag { font-size: 2.4rem; line-height: 1; margin-bottom: 8px; }
-.card-name { font-family: 'Noto Serif SC', 'Source Han Serif SC', Georgia, serif; font-size: 1.15rem; font-weight: 700; color: #f0f7f0; margin-bottom: 4px; }
-.card-filename { font-size: 0.72rem; color: rgba(255,255,255,0.25); font-family: 'SF Mono', 'Fira Code', monospace; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; margin-bottom: 14px; }
-.card-stats { display: flex; align-items: center; gap: 16px; padding-top: 14px; border-top: 1px solid rgba(255,255,255,0.06); }
-.score-display { font-size: 2rem; font-weight: 800; line-height: 1; letter-spacing: -0.5px; }
-.score-display .decimal { font-size: 1rem; font-weight: 500; opacity: 0.6; }
-.rating-badge { display: inline-flex; align-items: center; justify-content: center; width: 38px; height: 38px; border-radius: 10px; font-size: 1rem; font-weight: 800; }
-.section-divider { display: flex; align-items: center; gap: 16px; margin: 40px 0 24px; }
-.section-divider::after { content: ''; flex: 1; height: 1px; background: linear-gradient(to right, rgba(201,168,76,0.3), transparent); }
-.section-title { font-family: 'Noto Serif SC', 'Source Han Serif SC', Georgia, serif; font-size: 1.3rem; font-weight: 700; color: #c9a84c; }
-.games-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 16px; }
-.game-card { background: rgba(255,255,255,0.04); border: 1px dashed rgba(255,255,255,0.1); border-radius: 14px; padding: 28px 24px; text-align: center; transition: all 0.3s ease; }
-.game-card:hover { background: rgba(255,255,255,0.07); border-color: rgba(201,168,76,0.2); }
-.game-card .icon { font-size: 2.2rem; margin-bottom: 10px; }
-.game-card .label { font-size: 0.95rem; color: rgba(255,255,255,0.6); font-weight: 500; }
-.game-card .sub { font-size: 0.8rem; color: rgba(255,255,255,0.3); margin-top: 6px; }
-.empty-state { text-align: center; padding: 60px 20px; color: rgba(255,255,255,0.3); }
-.site-footer { text-align: center; padding: 30px 20px; color: rgba(255,255,255,0.25); font-size: 0.8rem; border-top: 1px solid rgba(255,255,255,0.06); margin-top: 50px; background: #070a07; }
-.card-enter { animation: cardFadeIn 0.4s ease forwards; }
-@keyframes cardFadeIn { from { opacity: 0; transform: translateY(16px); } to { opacity: 1; transform: translateY(0); } }
-.rank-number { display: inline-flex; align-items: center; justify-content: center; width: 28px; height: 28px; border-radius: 50%; font-size: 0.78rem; font-weight: 700; background: rgba(201,168,76,0.12); color: #c9a84c; flex-shrink: 0; }
-.rank-1 { background: rgba(255,215,0,0.2); color: #ffd700; }
-.rank-2 { background: rgba(192,192,192,0.15); color: #c0c0c0; }
-.rank-3 { background: rgba(205,127,50,0.15); color: #cd7f32; }
-
-/* ── OPR Scoring Table ── */
-.score-table-wrap {
-  overflow-x: auto;
-  border-radius: 14px;
-  border: 1px solid rgba(255,255,255,0.06);
-  background: linear-gradient(145deg, #111811 0%, #0f1f0f 100%);
-  margin-top: 8px;
-}
-.score-table {
-  width: 100%;
-  table-layout: fixed;
-  border-collapse: collapse;
-  font-size: 0.82rem;
-}
-.score-table thead th {
-  padding: 12px 10px;
-  font-weight: 600;
-  color: #c9a84c;
-  text-align: center;
-  border-bottom: 2px solid rgba(201,168,76,0.2);
-  background: rgba(201,168,76,0.06);
-  white-space: nowrap;
-  user-select: none;
-}
-.score-table thead th.sortable {
-  cursor: pointer;
-  transition: all 0.2s ease;
-  position: relative;
-}
-.score-table thead th.sortable:hover {
-  background: rgba(201,168,76,0.14);
-  color: #dfc06a;
-}
-.score-table thead th.sortable .sort-icon {
-  display: inline-block;
-  margin-left: 4px;
-  font-size: 0.65rem;
-  transition: opacity 0.2s;
-}
-.score-table thead th.sortable .sort-icon .arrow-up,
-.score-table thead th.sortable .sort-icon .arrow-down {
-  display: none;
-}
-.score-table thead th.sortable:not(.asc):not(.desc) .sort-icon .arrow-down {
-  display: inline;
-  opacity: 0.4;
-}
-.score-table.dir-asc .sortable:not(.asc):not(.desc) .sort-icon .arrow-up {
-  display: inline;
-  opacity: 0.4;
-}
-.score-table.dir-asc .sortable:not(.asc):not(.desc) .sort-icon .arrow-down {
-  display: none;
-}
-.score-table thead th.sortable.asc .sort-icon .arrow-up {
-  display: inline;
-  opacity: 1;
-  color: #4ade80;
-}
-.score-table thead th.sortable.desc .sort-icon .arrow-down {
-  display: inline;
-  opacity: 1;
-  color: #f97316;
-}
-.score-table thead th.col-index { width: 28px; }
-.score-table thead th.col-name { text-align: left; width: 70px; }
-.score-table thead th.col-score { width: 40px; }
-.score-table thead th.col-rating { width: 36px; }
-.score-table tbody td.td-total { font-weight: 600; }
-.score-table tbody td {
-  padding: 5px 4px;
-  text-align: center;
-  border-bottom: 1px solid rgba(255,255,255,0.04);
-  color: #d0d7d0;
-  transition: background 0.15s;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-}
-.score-table tbody tr:hover td {
-  background: rgba(201,168,76,0.04);
-}
-.score-table tbody td.td-name {
-  text-align: left;
-  font-weight: 500;
-}
-.score-table tbody td .flag-icon-table { font-size: 0.85rem; margin-right: 4px; }
-.score-table tbody td .score-val { font-weight: 600; font-variant-numeric: tabular-nums; }
-.score-table tbody td .score-high { color: #ef4444; }
-.score-table tbody td .score-mid { color: #f59e0b; }
-.score-table tbody td .score-low { color: #f5cba7; }
-.score-table tbody td .score-bad { color: #d4d4d4; }
-.score-table tbody td .rating-badge-td {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  min-width: 32px;
-  height: 26px;
-  border-radius: 6px;
-  font-size: 0.78rem;
-  font-weight: 700;
-  padding: 0 6px;
-}
-.score-table thead th .dim-weight {
-  display: block;
-  font-size: 0.6rem;
-  font-weight: 400;
-  color: rgba(255,255,255,0.35);
-  margin-top: 1px;
-}
-.score-table-note {
-  text-align: right;
-  font-size: 0.72rem;
-  color: rgba(255,255,255,0.25);
-  margin-top: 8px;
-  padding-right: 4px;
-}
-
-/* ── First Visit Modal ── */
-.modal-overlay {
-  position: fixed;
-  inset: 0;
-  z-index: 999999;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background: rgba(0,0,0,0.75);
-  backdrop-filter: blur(6px);
-  -webkit-backdrop-filter: blur(6px);
-  animation: modalFadeIn 0.5s ease;
-}
-@keyframes modalFadeIn {
-  from { opacity: 0; }
-  to   { opacity: 1; }
-}
-.modal-box {
-  background: linear-gradient(145deg, #111811, #0f1f0f);
-  border: 1px solid rgba(201,168,76,0.25);
-  border-radius: 20px;
-  padding: 40px 44px 36px;
-  max-width: 420px;
-  width: 90%;
-  text-align: center;
-  box-shadow: 0 24px 60px rgba(0,0,0,0.5);
-  animation: modalBoxIn 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
-}
-@keyframes modalBoxIn {
-  from { opacity: 0; transform: scale(0.85) translateY(20px); }
-  to   { opacity: 1; transform: scale(1) translateY(0); }
-}
-.modal-icon {
-  font-size: 3rem;
-  margin-bottom: 12px;
-}
-.modal-text {
-  font-family: 'Noto Serif SC', 'Source Han Serif SC', Georgia, serif;
-  font-size: 1.15rem;
-  line-height: 1.7;
-  color: #e0e7e0;
-  margin-bottom: 28px;
-}
-.modal-buttons {
-  display: flex;
-  gap: 14px;
-  justify-content: center;
-}
-.modal-btn {
-  padding: 12px 32px;
-  border-radius: 999px;
-  font-size: 0.95rem;
-  font-weight: 700;
-  cursor: pointer;
-  transition: all 0.25s ease;
-  border: none;
-  outline: none;
-  font-family: 'Inter', 'Noto Sans SC', system-ui, sans-serif;
-}
-.modal-btn-yes {
-  background: linear-gradient(135deg, #c9a84c, #a8882e);
-  color: #0a0e0a;
-  box-shadow: 0 4px 16px rgba(201,168,76,0.25);
-}
-.modal-btn-yes:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 6px 24px rgba(201,168,76,0.35);
-}
-.modal-btn-no {
-  background: rgba(255,255,255,0.06);
-  color: rgba(255,255,255,0.5);
-  border: 1px solid rgba(255,255,255,0.1);
-}
-.modal-btn-no:hover {
-  background: rgba(255,255,255,0.1);
-  color: #ef4444;
-  border-color: rgba(239,68,68,0.3);
-}
-</style>
-</head>
-<body>
-
-<header class="site-header">
-  <div class="beam-left"></div>
-  <div class="pitch-circle"><div class="pitch-circle-inner"></div></div>
-  <div class="halfway-line"></div>
-  <div class="net-texture"></div>
-  <div class="bottom-glow"></div>
-  <div class="relative z-10 max-w-6xl mx-auto px-6 py-12 sm:py-16">
-    <div class="flex items-center gap-4 mb-3">
-      <div class="w-12 h-12 rounded-xl overflow-hidden flex-shrink-0 border-2 border-gold/30 shadow-lg shadow-gold/10">
-        <img src="favicon.jpg" alt="HuaFootball" class="w-full h-full object-cover" />
-      </div>
-      <div>
-        <h1 class="text-2xl sm:text-3xl font-bold text-white font-display tracking-wide">HuaFootball</h1>
-        <p class="text-gold/70 text-sm font-medium">国仕无双 · 足球战力分析平台</p>
-      </div>
-    </div>
-    <p class="text-gray-400 text-sm max-w-xl">OPR综合战力评分体系 · 基于七维度深度拆解的世界杯国家队实力评估与赛事分析</p>
-    <div class="mt-6 flex flex-wrap gap-3" id="stats-bar">
-      <span class="stat-bubble bg-white/8 text-gray-300 border border-white/8">⚽ 共 <strong id="total-count">${teams.length}</strong> 支国家队</span>
-      <span class="stat-bubble bg-white/8 text-gray-300 border border-white/8">📊 平均 <strong id="avg-score">${avg}</strong> 分</span>
-      <span class="stat-bubble bg-white/8 text-gray-300 border border-white/8">🏆 最高 <strong id="max-score">${max}</strong> 分</span>
-      <span class="stat-bubble bg-white/8 text-gray-300 border border-white/8">📉 最低 <strong id="min-score">${min}</strong> 分</span>
-    </div>
-  </div>
-</header>
-
-<main class="max-w-6xl mx-auto px-4 sm:px-6 py-8">
-
-  <div class="flex flex-col sm:flex-row sm:items-center gap-4 mb-6">
-    <div class="flex items-center gap-3 flex-wrap">
-      <button class="sort-btn" id="sort-btn">
-        <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M3 7h6M3 12h10M3 17h14" /></svg>
-        <span id="sort-label">最高优先</span>
-        <span class="arrow desc" id="sort-arrow">▼</span>
-      </button>
-      <div class="flex flex-wrap gap-1.5" id="rating-filters">
-        <button class="filter-tab active" data-filter="all">全部</button>
-        <button class="filter-tab" data-filter="A">A 级</button>
-        <button class="filter-tab" data-filter="B">B 级</button>
-        <button class="filter-tab" data-filter="C">C 级</button>
-        <button class="filter-tab" data-filter="D">D 级</button>
-      </div>
-    </div>
-    <div class="search-wrapper sm:ml-auto sm:w-56">
-      <svg class="search-icon w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" /></svg>
-      <input class="search-input" type="text" placeholder="搜索球队…" id="search-input" />
-    </div>
-  </div>
-
-  <div class="section-divider"><span class="section-title">🏆 国家队战力排行</span></div>
-  <div id="teams-grid" class="team-grid"></div>
-  <div id="empty-state" class="empty-state hidden">
-    <svg class="w-16 h-16 mx-auto mb-4 opacity-30" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" /></svg>
-    <p class="text-lg font-medium">未找到匹配的球队</p>
-    <p class="text-sm mt-1">试试其他分类或关键词</p>
-  </div>
-
-  <div class="section-divider" style="margin-top:54px;"><span class="section-title">📋 OPR 七维度评分明细</span></div>
-  <div class="score-table-wrap">
-    <table class="score-table" id="score-table">
-      <thead>
-        <tr>
-          <th class="col-index">#</th>
-          <th class="col-name">国家队</th>
-          <th class="col-rating">评级</th>
-          <th class="col-score sortable" data-sort="7" title="总分">总分<span class="sort-icon"><span class="arrow-up">▲</span><span class="arrow-down">▼</span></span></th>
-          <th class="col-score sortable" data-sort="0" title="阵容实力（权重30%）">阵容<span class="dim-weight">30%</span><span class="sort-icon"><span class="arrow-up">▲</span><span class="arrow-down">▼</span></span></th>
-          <th class="col-score sortable" data-sort="1" title="战术体系与教练（权重20%）">战术<span class="dim-weight">20%</span><span class="sort-icon"><span class="arrow-up">▲</span><span class="arrow-down">▼</span></span></th>
-          <th class="col-score sortable" data-sort="2" title="近期竞技状态（权重15%）">状态<span class="dim-weight">15%</span><span class="sort-icon"><span class="arrow-up">▲</span><span class="arrow-down">▼</span></span></th>
-          <th class="col-score sortable" data-sort="3" title="大赛经验与心理素质（权重10%）">经验<span class="dim-weight">10%</span><span class="sort-icon"><span class="arrow-up">▲</span><span class="arrow-down">▼</span></span></th>
-          <th class="col-score sortable" data-sort="4" title="分组及赛程影响（权重10%）">赛程<span class="dim-weight">10%</span><span class="sort-icon"><span class="arrow-up">▲</span><span class="arrow-down">▼</span></span></th>
-          <th class="col-score sortable" data-sort="5" title="团队凝聚力与场外环境（权重10%）">凝聚<span class="dim-weight">10%</span><span class="sort-icon"><span class="arrow-up">▲</span><span class="arrow-down">▼</span></span></th>
-          <th class="col-score sortable" data-sort="6" title="体能储备与伤病控制（权重5%）">体能<span class="dim-weight">5%</span><span class="sort-icon"><span class="arrow-up">▲</span><span class="arrow-down">▼</span></span></th>
-        </tr>
-      </thead>
-      <tbody id="score-table-body"></tbody>
-    </table>
-  </div>
-  <div class="score-table-note">评级 → 总分 → 七维度 · 点击表头排序（同分时按总分→维度3→9依次决定）</div>
-
-  <div class="section-divider" style="margin-top:60px;"><span class="section-title">🎮 对局分析</span></div>
-  <div id="games-section">
-    <div class="games-grid">
-      <div class="game-card"><div class="icon">⚔️</div><div class="label">对局分析</div><div class="sub">将比赛分析HTML放入 Games/ 文件夹</div></div>
-      <div class="game-card"><div class="icon">📊</div><div class="label">数据驱动</div><div class="sub">基于OPR评分体系赛前深度拆解</div></div>
-      <div class="game-card" style="cursor:pointer" onclick="window.open('Games/','_blank')"><div class="icon">📂</div><div class="label">浏览文件夹</div><div class="sub">查看所有已分析对局</div></div>
-    </div>
-  </div>
-
-  <div class="section-divider" style="margin-top:60px;"><span class="section-title">📐 评分体系</span></div>
-  <div class="grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-7 gap-2 mb-4">
-    <div class="bg-white/4 border border-white/8 rounded-lg p-3 text-center"><div class="text-lg font-bold text-emerald-400">A+</div><div class="text-xs text-gray-500">87-100</div></div>
-    <div class="bg-white/4 border border-white/8 rounded-lg p-3 text-center"><div class="text-lg font-bold text-emerald-300">A</div><div class="text-xs text-gray-500">83-87</div></div>
-    <div class="bg-white/4 border border-white/8 rounded-lg p-3 text-center"><div class="text-lg font-bold text-emerald-200">A-</div><div class="text-xs text-gray-500">80-83</div></div>
-    <div class="bg-white/4 border border-white/8 rounded-lg p-3 text-center"><div class="text-lg font-bold text-yellow-400">B+</div><div class="text-xs text-gray-500">77-80</div></div>
-    <div class="bg-white/4 border border-white/8 rounded-lg p-3 text-center"><div class="text-lg font-bold text-yellow-300">B</div><div class="text-xs text-gray-500">73-77</div></div>
-    <div class="bg-white/4 border border-white/8 rounded-lg p-3 text-center"><div class="text-lg font-bold text-yellow-200">B-</div><div class="text-xs text-gray-500">70-73</div></div>
-    <div class="bg-white/4 border border-white/8 rounded-lg p-3 text-center"><div class="text-lg font-bold text-orange-400">C+</div><div class="text-xs text-gray-500">67-70</div></div>
-    <div class="bg-white/4 border border-white/8 rounded-lg p-3 text-center"><div class="text-lg font-bold text-orange-300">C</div><div class="text-xs text-gray-500">63-67</div></div>
-    <div class="bg-white/4 border border-white/8 rounded-lg p-3 text-center"><div class="text-lg font-bold text-orange-200">C-</div><div class="text-xs text-gray-500">60-63</div></div>
-    <div class="bg-white/4 border border-white/8 rounded-lg p-3 text-center"><div class="text-lg font-bold text-red-400">D+</div><div class="text-xs text-gray-500">50-60</div></div>
-    <div class="bg-white/4 border border-white/8 rounded-lg p-3 text-center"><div class="text-lg font-bold text-red-300">D</div><div class="text-xs text-gray-500">40-50</div></div>
-    <div class="bg-white/4 border border-white/8 rounded-lg p-3 text-center"><div class="text-lg font-bold text-red-200">D-</div><div class="text-xs text-gray-500">30-40</div></div>
-    <div class="bg-white/4 border border-white/8 rounded-lg p-3 text-center"><div class="text-lg font-bold text-gray-400">E</div><div class="text-xs text-gray-500">0-30</div></div>
-  </div>
-</main>
-
-<footer class="site-footer">
-  <div class="max-w-3xl mx-auto">
-    <p class="text-xs leading-relaxed"><strong>HuaFootball</strong> · OPR综合战力评分体系 · 数据来源：Transfermarkt、各足协官方公告、体育媒体综合报道</p>
-    <p class="mt-3 text-xs">&copy; ${year} 国仕无双 · HuaResearch Platform &nbsp;|&nbsp; Powered by HuaZongNiubi AI</p>
-  </div>
-</footer>
-
-<script id="teams-data" type="application/json">${teamsJSON}</script>
-
-<script>
-(function() {
-  'use strict';
-  const teams = JSON.parse(document.getElementById('teams-data').textContent);
-  const grid = document.getElementById('teams-grid');
-  const emptyState = document.getElementById('empty-state');
-  const totalCountEl = document.getElementById('total-count');
-  const avgScoreEl = document.getElementById('avg-score');
-  const maxScoreEl = document.getElementById('max-score');
-  const minScoreEl = document.getElementById('min-score');
-  const sortBtn = document.getElementById('sort-btn');
-  const sortLabel = document.getElementById('sort-label');
-  const sortArrow = document.getElementById('sort-arrow');
-  const searchInput = document.getElementById('search-input');
-  const filterTabs = document.querySelectorAll('.filter-tab');
-
-  let sortOrder = 'desc';
-  let currentFilter = 'all';
-  let currentSearch = '';
-
-  function updateStats(data) {
-    if (!data.length) { totalCountEl.textContent = '0'; return; }
-    const scores = data.map(t => t.score).filter(s => s != null);
-    totalCountEl.textContent = data.length;
-    if (avgScoreEl) avgScoreEl.textContent = scores.length ? (scores.reduce((a,b)=>a+b,0)/scores.length).toFixed(1) : '--';
-    if (maxScoreEl) maxScoreEl.textContent = scores.length ? Math.max(...scores).toFixed(1) : '--';
-    if (minScoreEl) minScoreEl.textContent = scores.length ? Math.min(...scores).toFixed(1) : '--';
+  if (oldMatch) {
+    html = html.replace(pattern, '$1' + teamsJSON + '$3');
+    fs.writeFileSync(INDEX_PATH, html, 'utf-8');
+    return true;
   }
 
-  function render() {
-    let filtered = teams;
-    if (currentFilter !== 'all') filtered = filtered.filter(t => (t.rating||'').startsWith(currentFilter));
-    if (currentSearch.trim()) {
-      const q = currentSearch.trim().toLowerCase();
-      filtered = filtered.filter(t => t.name.toLowerCase().includes(q) || (t.rating||'').toLowerCase().includes(q));
-    }
-    filtered.sort((a, b) => sortOrder === 'desc' ? (b.score||0) - (a.score||0) : (a.score||0) - (b.score||0));
-    updateStats(filtered);
-    if (filtered.length === 0) { emptyState.classList.remove('hidden'); grid.innerHTML = ''; return; }
-    emptyState.classList.add('hidden');
-
-    grid.innerHTML = filtered.map((t, i) => {
-      const rank = i + 1;
-      let rc = 'rank-number';
-      if (rank === 1) rc += ' rank-1';
-      else if (rank === 2) rc += ' rank-2';
-      else if (rank === 3) rc += ' rank-3';
-      const si = Math.floor(t.score||0);
-      const sd = t.score != null ? (t.score % 1).toFixed(2).slice(1) : '.00';
-      let rcol = '#ef4444';
-      const rt = (t.rating||'')[0];
-      if (rt === 'B') rcol = '#f59e0b';
-      else if (rt === 'C') rcol = '#f5cba7';
-      else if (rt === 'D' || rt === 'E') rcol = '#d4d4d4';
-      return \`<div class="team-card card-enter" style="animation-delay:\${Math.min(i*40,320)}ms" onclick="window.open('\${t.file}','_blank')">
-        <div class="card-accent" style="background:\${t.accent}"></div>
-        <div class="card-body">
-          <div class="flex items-start justify-between mb-2">
-            <div><span class="card-flag">\${t.flag}</span><h3 class="card-name">\${t.name}</h3></div>
-            <div class="\${rc}">\${rank}</div>
-          </div>
-          <div class="card-filename" title="\${t.file}">\${t.file}</div>
-          <div class="card-stats">
-            <div><span class="score-display">\${si}<span class="decimal">\${sd}</span></span></div>
-            <div class="rating-badge" style="background:\${rcol}22;color:\${rcol};border:1px solid \${rcol}44;">\${t.rating||'?'}</div>
-            <a href="\${t.file}" target="_blank" class="ml-auto inline-flex items-center gap-1 text-xs font-medium text-gray-500 hover:text-gold transition-colors px-3 py-1.5 rounded-lg bg-white/5 hover:bg-white/10" onclick="event.stopPropagation()">查看详情<svg class="w-3 h-3" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" /></svg></a>
-          </div>
-        </div>
-      </div>\`;
-    }).join('');
-  }
-
-  sortBtn.addEventListener('click', function() {
-    sortOrder = sortOrder === 'desc' ? 'asc' : 'desc';
-    sortLabel.textContent = sortOrder === 'desc' ? '最高优先' : '最低优先';
-    sortArrow.classList.toggle('desc', sortOrder === 'desc');
-    render();
-  });
-  filterTabs.forEach(tab => {
-    tab.addEventListener('click', function() {
-      filterTabs.forEach(t => t.classList.remove('active'));
-      this.classList.add('active');
-      currentFilter = this.dataset.filter;
-      render();
-    });
-  });
-  searchInput.addEventListener('input', function() { currentSearch = this.value; render(); });
-
-  // ── OPR Score Table ──
-  const tableBody = document.getElementById('score-table-body');
-  const tableHeaders = document.querySelectorAll('#score-table thead th.sortable');
-  let tableSortCol = 7;
-  let tableSortAsc = false;
-
-  function ratingColor(r) {
-    const c = (r||'')[0];
-    if (c === 'A') return '#ef4444'; if (c === 'B') return '#f59e0b';
-    if (c === 'C') return '#f5cba7'; if (c === 'D' || c === 'E') return '#d4d4d4';
-    return '#888';
-  }
-
-  function scoreClass(v) {
-    if (v == null) return '';
-    if (v >= 80) return 'score-high';
-    if (v >= 65) return 'score-mid';
-    if (v >= 50) return 'score-low';
-    return 'score-bad';
-  }
-
-  function renderTable() {
-    let data = teams.slice();
-    const sortIdx = tableSortCol;
-    data.sort((a, b) => {
-      let cmp;
-      if (sortIdx === 7) {
-        cmp = (a.score||0) - (b.score||0);
-      } else {
-        cmp = (a.dims?.[sortIdx]||0) - (b.dims?.[sortIdx]||0);
-      }
-      if (cmp === 0) {
-        cmp = (a.score||0) - (b.score||0);
-      }
-      if (cmp === 0 && sortIdx !== 7) {
-        for (let k = 0; k < 7; k++) {
-          if (k === sortIdx) continue;
-          cmp = (a.dims?.[k]||0) - (b.dims?.[k]||0);
-          if (cmp !== 0) break;
-        }
-      }
-      return tableSortAsc ? cmp : -cmp;
-    });
-
-    tableBody.innerHTML = data.map((t, i) => {
-      const rank = i + 1;
-      const dims = t.dims || [];
-      const dimCells = dims.map((v) => {
-        const val = v != null ? v : '-';
-        return '<td><span class="score-val ' + scoreClass(v) + '">' + val + '</span></td>';
-      }).join('');
-      const rcol = ratingColor(t.rating);
-      return '<tr>' +
-        '<td class="td-index" style="color:rgba(255,255,255,0.4);font-weight:500;">' + rank + '</td>' +
-        '<td class="td-name"><span class="flag-icon-table">' + t.flag + '</span>' + t.name + '</td>' +
-        '<td class="td-rating"><span class="rating-badge-td" style="background:' + rcol + '22;color:' + rcol + ';border:1px solid ' + rcol + '44;">' + (t.rating||'?') + '</span></td>' +
-        '<td class="td-total"><span class="score-val ' + scoreClass(t.score) + '">' + (t.score != null ? t.score.toFixed(1) : '-') + '</span></td>' +
-        dimCells +
-        '</tr>';
-    }).join('');
-  }
-
-  const scoreTable = document.getElementById('score-table');
-  function updateHeaderArrows() {
-    scoreTable.classList.toggle('dir-asc', tableSortAsc);
-    scoreTable.classList.toggle('dir-desc', !tableSortAsc);
-    tableHeaders.forEach(function(th) {
-      th.classList.remove('asc', 'desc');
-      var idx = parseInt(th.dataset.sort);
-      if (idx === tableSortCol) {
-        th.classList.add(tableSortAsc ? 'asc' : 'desc');
-      }
-    });
-  }
-
-  tableHeaders.forEach(function(th) {
-    th.addEventListener('click', function() {
-      var idx = parseInt(this.dataset.sort);
-      if (tableSortCol === idx) {
-        tableSortAsc = !tableSortAsc;
-      } else {
-        tableSortCol = idx;
-        tableSortAsc = false;
-      }
-      updateHeaderArrows();
-      renderTable();
-    });
-  });
-
-  renderTable();
-  updateHeaderArrows();
-  render();
-})();
-</script>
-
-<!-- ── First Visit Modal ── -->
-<div id="welcome-modal" class="modal-overlay" style="display:none;">
-  <div class="modal-box">
-    <div class="modal-icon">⚽</div>
-    <div class="modal-text">是否坚定支持<br><span style="color:#c9a84c;font-weight:700;font-size:1.3em;">华总牛逼</span><br>这个事实？</div>
-    <div class="modal-buttons">
-      <button class="modal-btn modal-btn-yes" onclick="confirmLoyalty()">是，继续</button>
-      <button class="modal-btn modal-btn-no" onclick="leaveSite()">否，退出</button>
-    </div>
-  </div>
-</div>
-<script>
-(function() {
-  // First visit check
-  if (!localStorage.getItem('huafootball_loyalty')) {
-    document.getElementById('welcome-modal').style.display = '';
-  }
-})();
-function confirmLoyalty() {
-  localStorage.setItem('huafootball_loyalty', '1');
-  document.getElementById('welcome-modal').style.display = 'none';
-}
-function leaveSite() {
-  document.body.innerHTML = '<div style="display:flex;align-items:center;justify-content:center;height:100vh;background:#0a0e0a;color:rgba(255,255,255,0.3);font-family:sans-serif;font-size:1.1rem;">👋 已退出</div>';
-}
-</script>
-</body>
-</html>`;
+  console.error('❌ 未在 index.html 中找到 teams-data 脚本块！');
+  return false;
 }
 
 // ─── Inject back button into team report ──────────────────────────
@@ -1170,17 +313,17 @@ function injectBackButton(fileName) {
     '.huafootball-back-btn {\n' +
     '  position:fixed!important;bottom:28px!important;right:28px!important;z-index:99999!important;\n' +
     '  display:inline-flex!important;align-items:center!important;gap:6px!important;\n' +
-    '  padding:10px 22px!important;background:rgba(26,71,42,0.85)!important;color:#c9a84c!important;\n' +
-    '  border:1px solid rgba(201,168,76,0.3)!important;border-radius:999px!important;\n' +
-    '  font-family:"Inter","Noto Sans SC",system-ui,sans-serif!important;font-size:13px!important;\n' +
+    '  padding:10px 22px!important;background:rgba(26,71,42,0.85)!important;color:#c8a951!important;\n' +
+    '  border:1px solid rgba(200,169,81,0.3)!important;border-radius:999px!important;\n' +
+    '  font-family:"Inter","PingFang SC",system-ui,sans-serif!important;font-size:13px!important;\n' +
     '  font-weight:600!important;text-decoration:none!important;\n' +
     '  backdrop-filter:blur(8px)!important;-webkit-backdrop-filter:blur(8px)!important;\n' +
     '  box-shadow:0 4px 20px rgba(0,0,0,0.3)!important;transition:all .25s ease!important;\n' +
     '  cursor:pointer!important;user-select:none!important;\n' +
     '}\n' +
     '.huafootball-back-btn:hover {\n' +
-    '  background:rgba(26,71,42,0.95)!important;border-color:rgba(201,168,76,0.5)!important;\n' +
-    '  box-shadow:0 6px 28px rgba(201,168,76,0.2)!important;transform:translateY(-2px)!important;\n' +
+    '  background:rgba(26,71,42,0.95)!important;border-color:rgba(200,169,81,0.5)!important;\n' +
+    '  box-shadow:0 6px 28px rgba(200,169,81,0.2)!important;transform:translateY(-2px)!important;\n' +
     '}\n' +
     '.huafootball-back-btn svg { transition:transform .2s ease!important; }\n' +
     '.huafootball-back-btn:hover svg { transform:translateX(-3px)!important; }\n' +
@@ -1200,7 +343,7 @@ function injectBackButton(fileName) {
 
 // ─── Main ─────────────────────────────────────────────────────────
 function main() {
-  console.log('⚽ HuaFootball 构建脚本');
+  console.log('⚽ HuaFootball 构建脚本 v3.1');
   console.log('━━━━━━━━━━━━━━━━━━━━━━\n');
   console.log('🔄 扫描 WorldCup2026/ 目录...');
   const teams = scanTeams();
@@ -1213,12 +356,11 @@ function main() {
   teams.sort((a, b) => (b.score||0) - (a.score||0));
   console.log(`\n📊 共发现 ${teams.length} 支国家队`);
 
-  // Generate index.html
-  console.log('\n📝 生成 index.html...');
-  const scores = teams.map(t => t.score).filter(s => s != null);
-  const html = generateIndex(teams, scores);
-  fs.writeFileSync(INDEX_PATH, html, 'utf-8');
-  console.log('   ✅ index.html 已生成');
+  // Update index.html team data
+  console.log('\n📝 更新 index.html 球队数据...');
+  if (updateIndexData(teams)) {
+    console.log('   ✅ index.html 球队数据已更新');
+  }
 
   // Inject back buttons
   console.log('\n🔗 注入返回首页按钮...');
@@ -1248,14 +390,13 @@ function main() {
     } catch { console.warn(`   ⚠️  评级更新失败: ${t.name}`); }
   }
 
-  const sizeKb = (Buffer.byteLength(html, 'utf-8') / 1024).toFixed(1);
+  const scores = teams.map(t => t.score).filter(s => s != null);
   const avg = scores.length ? (scores.reduce((a,b)=>a+b,0)/scores.length).toFixed(1) : '--';
   const max = scores.length ? Math.max(...scores).toFixed(1) : '--';
   const min = scores.length ? Math.min(...scores).toFixed(1) : '--';
 
   console.log('\n━━━━━━━━━━━━━━━━━━━━━━');
   console.log('✅ 构建完成！');
-  console.log(`   📄 index.html (${sizeKb} KB)`);
   console.log(`   🏆 ${teams.length} 支国家队`);
   console.log(`   📊 平均 ${avg} | 最高 ${max} | 最低 ${min}`);
   console.log(`   🔗 返回按钮: ${injected} 份注入 (${skipped} 份已有)`);

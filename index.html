@@ -1,613 +1,697 @@
 <!DOCTYPE html>
-<html lang="zh-CN">
+<html lang="zh-CN" class="scroll-smooth">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <meta name="description" content="HuaFootball — 专业AI足球战力分析平台，覆盖2026世界杯各队OPR综合评分与赛事分析" />
 <link rel="icon" href="favicon.jpg" type="image/jpeg" />
-<title>HuaFootball · 足球战力分析平台</title>
+<title>2026 世界杯 国家队战力评估 | HuaFootball</title>
 <script src="https://cdn.tailwindcss.com"></script>
 <script>
-tailwind.config = {
-  theme: {
-    extend: {
-      colors: {
-        pitch: { 50: '#f0fdf4', 100: '#dcfce7', 200: '#bbf7d0', 300: '#86efac', 400: '#4ade80', 500: '#22c55e', 600: '#16a34a', 700: '#15803d', 800: '#166534', 900: '#14532d', 950: '#052e16' },
-        leather: { DEFAULT: '#8B4513', light: '#A0522D', dark: '#5C2E00' },
-        field: { DEFAULT: '#1a472a', light: '#2d6a4f', dark: '#0d2818' },
-        gold: { DEFAULT: '#c9a84c', light: '#dfc06a', dark: '#a8882e' },
+  tailwind.config = {
+    theme: {
+      extend: {
+        fontFamily: {
+          heading: ['"Satoshi"', '"PingFang SC"', '"Microsoft YaHei"', 'sans-serif'],
+          body: ['"Inter"', '"General Sans"', '"PingFang SC"', '"Microsoft YaHei"', 'sans-serif'],
+        },
+        colors: {
+          pitch: { 900: '#0a0f0a', 800: '#0f170f', 700: '#142014', 600: '#1a2e1a', 500: '#1f3a1f' },
+          gold: { DEFAULT: '#c8a951', light: '#e0cc7a', dark: '#a88a3a' },
+          white: '#f5f5f0',
+        },
+        animation: {
+          'float': 'float 6s ease-in-out infinite',
+          'float-delayed': 'float 6s ease-in-out 2s infinite',
+          'pulse-gold': 'pulseGold 2s ease-in-out infinite',
+          'shimmer': 'shimmer 3s ease-in-out infinite',
+        },
+        keyframes: {
+          float: {
+            '0%, 100%': { transform: 'translateY(0px)' },
+            '50%': { transform: 'translateY(-20px)' },
+          },
+          pulseGold: {
+            '0%, 100%': { opacity: '0.4' },
+            '50%': { opacity: '0.8' },
+          },
+          shimmer: {
+            '0%, 100%': { backgroundPosition: '-200% center' },
+            '50%': { backgroundPosition: '200% center' },
+          },
+        },
       },
-      fontFamily: {
-        display: ['"Noto Serif SC"', '"Source Han Serif SC"', 'Georgia', 'serif'],
-        body: ['"Inter"', '"Noto Sans SC"', 'system-ui', 'sans-serif'],
-      },
-    }
+    },
   }
-}
 </script>
-<link rel="preconnect" href="https://fonts.googleapis.com" />
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Noto+Serif+SC:wght@400;600;700;900&display=swap" rel="stylesheet" />
 <style>
-* { margin: 0; padding: 0; box-sizing: border-box; }
-body {
-  font-family: 'Inter', 'Noto Sans SC', system-ui, sans-serif;
-  background: #0a0e0a;
-  color: #e0e7e0;
-  min-height: 100vh;
-}
-.site-header {
-  position: relative;
-  overflow: hidden;
-  border-bottom: 3px solid #c9a84c;
-  /* Night pitch gradient - green-black at night */
-  background: linear-gradient(170deg,
-    #0a110a 0%,
-    #0d1a0f 20%,
-    #0f1a10 50%,
-    #0c150d 75%,
-    #080c08 100%
-  );
-}
-/* ── Football panel pattern (hexagons) ── */
-.site-header::before {
-  content: '';
-  position: absolute;
-  inset: 0;
-  opacity: 0.04;
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='60' height='52' viewBox='0 0 60 52'%3E%3Cpath d='M30 0L60 15v22L30 52 0 37V15z' fill='none' stroke='%23c9a84c' stroke-width='1'/%3E%3Cpath d='M30 0L15 7.5v7.5l15 7.5 15-7.5V7.5z' fill='none' stroke='%23c9a84c' stroke-width='0.8'/%3E%3C/svg%3E");
-  background-size: 52px 48px;
-  z-index: 1;
-}
-/* ── Floodlight beam from upper-right ── */
-.site-header::after {
-  content: '';
-  position: absolute;
-  top: -40%;
-  right: -5%;
-  width: 550px;
-  height: 900px;
-  background: linear-gradient(
-    175deg,
-    rgba(255,220,140,0.08) 0%,
-    rgba(201,168,76,0.04) 30%,
-    transparent 65%
-  );
-  transform: rotate(-12deg);
-  z-index: 1;
-}
-/* ── Floodlight beam from upper-left (secondary) ── */
-.site-header .beam-left {
-  position: absolute;
-  top: -35%;
-  left: -5%;
-  width: 400px;
-  height: 700px;
-  background: linear-gradient(
-    185deg,
-    rgba(255,220,140,0.05) 0%,
-    rgba(201,168,76,0.02) 25%,
-    transparent 60%
-  );
-  transform: rotate(12deg);
-  z-index: 1;
-  pointer-events: none;
-}
-/* ── Pitch center circle ── */
-.site-header .pitch-circle {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  width: 420px;
-  height: 420px;
-  border: 2px solid rgba(201,168,76,0.07);
-  border-radius: 50%;
-  z-index: 1;
-  pointer-events: none;
-}
-/* Center spot */
-.site-header .pitch-circle::after {
-  content: '';
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  width: 12px;
-  height: 12px;
-  background: rgba(201,168,76,0.12);
-  border-radius: 50%;
-}
-/* Inner circle */
-.site-header .pitch-circle-inner {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  width: 280px;
-  height: 280px;
-  border: 1px solid rgba(201,168,76,0.05);
-  border-radius: 50%;
-  z-index: 1;
-  pointer-events: none;
-}
-/* ── Halfway line ── */
-.site-header .halfway-line {
-  position: absolute;
-  top: 20%;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 1px;
-  height: 60%;
-  background: linear-gradient(
-    180deg,
-    transparent,
-    rgba(201,168,76,0.06) 20%,
-    rgba(201,168,76,0.06) 80%,
-    transparent
-  );
-  z-index: 1;
-  pointer-events: none;
-}
-/* ── Goal net texture (bottom-right corner) ── */
-.site-header .net-texture {
-  position: absolute;
-  bottom: 0;
-  right: 0;
-  width: 300px;
-  height: 200px;
-  opacity: 0.03;
-  background-image:
-    linear-gradient(90deg, rgba(255,255,255,0.5) 1px, transparent 1px),
-    linear-gradient(0deg, rgba(255,255,255,0.5) 1px, transparent 1px);
-  background-size: 18px 18px;
-  z-index: 1;
-  pointer-events: none;
-}
-/* ── Warm bottom glow ── */
-.site-header .bottom-glow {
-  position: absolute;
-  bottom: -15%;
-  left: 20%;
-  width: 500px;
-  height: 250px;
-  background: radial-gradient(
-    ellipse at center,
-    rgba(201,168,76,0.06) 0%,
-    transparent 70%
-  );
-  z-index: 1;
-  pointer-events: none;
-  animation: glowPulse 5s ease-in-out infinite;
-}
-.stat-bubble {
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-  padding: 5px 16px;
-  border-radius: 999px;
-  font-size: 0.82rem;
-  font-weight: 500;
-}
-.sort-btn {
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-  padding: 8px 20px;
-  border-radius: 10px;
-  font-size: 0.88rem;
-  font-weight: 600;
-  cursor: pointer;
-  transition: all 0.25s ease;
-  border: 1.5px solid rgba(201,168,76,0.3);
-  background: rgba(201,168,76,0.08);
-  color: #c9a84c;
-  user-select: none;
-}
-.sort-btn:hover { background: rgba(201,168,76,0.18); border-color: #c9a84c; }
-.sort-btn .arrow { transition: transform 0.3s ease; display: inline-block; }
-.sort-btn .arrow.desc { transform: rotate(180deg); }
-.search-wrapper { position: relative; }
-.search-input {
-  width: 100%;
-  padding: 10px 16px 10px 40px;
-  border: 1.5px solid rgba(255,255,255,0.1);
-  border-radius: 10px;
-  font-size: 0.9rem;
-  outline: none;
-  transition: all 0.2s ease;
-  background: rgba(255,255,255,0.06);
-  color: #e0e7e0;
-}
-.search-input:focus { border-color: #c9a84c; box-shadow: 0 0 0 3px rgba(201,168,76,0.12); background: rgba(255,255,255,0.1); }
-.search-input::placeholder { color: rgba(255,255,255,0.3); }
-.search-icon {
-  position: absolute;
-  left: 14px;
-  top: 50%;
-  transform: translateY(-50%);
-  color: rgba(255,255,255,0.3);
-  pointer-events: none;
-}
-.filter-tab {
-  padding: 7px 18px;
-  border-radius: 999px;
-  font-size: 0.82rem;
-  font-weight: 500;
-  cursor: pointer;
-  transition: all 0.2s ease;
-  border: 1.5px solid transparent;
-  background: rgba(255,255,255,0.06);
-  color: rgba(255,255,255,0.5);
-  user-select: none;
-}
-.filter-tab:hover { background: rgba(255,255,255,0.1); color: rgba(255,255,255,0.7); }
-.filter-tab.active { background: rgba(201,168,76,0.15); color: #c9a84c; border-color: rgba(201,168,76,0.4); }
-.team-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-  gap: 18px;
-}
-@media (max-width: 480px) { .team-grid { grid-template-columns: 1fr; } }
-.team-card {
-  background: linear-gradient(145deg, #111811 0%, #0f1f0f 100%);
-  border-radius: 16px;
-  overflow: hidden;
-  transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
-  border: 1px solid rgba(255,255,255,0.06);
-  position: relative;
-  cursor: pointer;
-  display: flex;
-  flex-direction: column;
-}
-.team-card:hover { transform: translateY(-5px); box-shadow: 0 16px 40px rgba(0,0,0,0.4); border-color: rgba(201,168,76,0.2); }
-.card-accent { height: 5px; flex-shrink: 0; }
-.card-body { padding: 22px 22px 20px; flex: 1; display: flex; flex-direction: column; }
-.card-flag { font-size: 2.4rem; line-height: 1; margin-bottom: 8px; }
-.card-name { font-family: 'Noto Serif SC', 'Source Han Serif SC', Georgia, serif; font-size: 1.15rem; font-weight: 700; color: #f0f7f0; margin-bottom: 4px; }
-.card-filename { font-size: 0.72rem; color: rgba(255,255,255,0.25); font-family: 'SF Mono', 'Fira Code', monospace; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; margin-bottom: 14px; }
-.card-stats { display: flex; align-items: center; gap: 16px; padding-top: 14px; border-top: 1px solid rgba(255,255,255,0.06); }
-.score-display { font-size: 2rem; font-weight: 800; line-height: 1; letter-spacing: -0.5px; }
-.score-display .decimal { font-size: 1rem; font-weight: 500; opacity: 0.6; }
-.rating-badge { display: inline-flex; align-items: center; justify-content: center; width: 38px; height: 38px; border-radius: 10px; font-size: 1rem; font-weight: 800; }
-.section-divider { display: flex; align-items: center; gap: 16px; margin: 40px 0 24px; }
-.section-divider::after { content: ''; flex: 1; height: 1px; background: linear-gradient(to right, rgba(201,168,76,0.3), transparent); }
-.section-title { font-family: 'Noto Serif SC', 'Source Han Serif SC', Georgia, serif; font-size: 1.3rem; font-weight: 700; color: #c9a84c; }
-.games-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 16px; }
-.game-card { background: rgba(255,255,255,0.04); border: 1px dashed rgba(255,255,255,0.1); border-radius: 14px; padding: 28px 24px; text-align: center; transition: all 0.3s ease; }
-.game-card:hover { background: rgba(255,255,255,0.07); border-color: rgba(201,168,76,0.2); }
-.game-card .icon { font-size: 2.2rem; margin-bottom: 10px; }
-.game-card .label { font-size: 0.95rem; color: rgba(255,255,255,0.6); font-weight: 500; }
-.game-card .sub { font-size: 0.8rem; color: rgba(255,255,255,0.3); margin-top: 6px; }
-.empty-state { text-align: center; padding: 60px 20px; color: rgba(255,255,255,0.3); }
-.site-footer { text-align: center; padding: 30px 20px; color: rgba(255,255,255,0.25); font-size: 0.8rem; border-top: 1px solid rgba(255,255,255,0.06); margin-top: 50px; background: #070a07; }
-.card-enter { animation: cardFadeIn 0.4s ease forwards; }
-@keyframes cardFadeIn { from { opacity: 0; transform: translateY(16px); } to { opacity: 1; transform: translateY(0); } }
-.rank-number { display: inline-flex; align-items: center; justify-content: center; width: 28px; height: 28px; border-radius: 50%; font-size: 0.78rem; font-weight: 700; background: rgba(201,168,76,0.12); color: #c9a84c; flex-shrink: 0; }
-.rank-1 { background: rgba(255,215,0,0.2); color: #ffd700; }
-.rank-2 { background: rgba(192,192,192,0.15); color: #c0c0c0; }
-.rank-3 { background: rgba(205,127,50,0.15); color: #cd7f32; }
+  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
 
-/* ── OPR Scoring Table ── */
-.score-table-wrap {
-  overflow-x: auto;
-  border-radius: 14px;
-  border: 1px solid rgba(255,255,255,0.06);
-  background: linear-gradient(145deg, #111811 0%, #0f1f0f 100%);
-  margin-top: 8px;
-}
-.score-table {
-  width: 100%;
-  table-layout: fixed;
-  border-collapse: collapse;
-  font-size: 0.82rem;
-}
-.score-table thead th {
-  padding: 12px 10px;
-  font-weight: 600;
-  color: #c9a84c;
-  text-align: center;
-  border-bottom: 2px solid rgba(201,168,76,0.2);
-  background: rgba(201,168,76,0.06);
-  white-space: nowrap;
-  user-select: none;
-}
-.score-table thead th.sortable {
-  cursor: pointer;
-  transition: all 0.2s ease;
-  position: relative;
-}
-.score-table thead th.sortable:hover {
-  background: rgba(201,168,76,0.14);
-  color: #dfc06a;
-}
-.score-table thead th.sortable .sort-icon {
-  display: inline-block;
-  margin-left: 4px;
-  font-size: 0.65rem;
-  transition: opacity 0.2s;
-}
-.score-table thead th.sortable .sort-icon .arrow-up,
-.score-table thead th.sortable .sort-icon .arrow-down {
-  display: none;
-}
-.score-table thead th.sortable:not(.asc):not(.desc) .sort-icon .arrow-down {
-  display: inline;
-  opacity: 0.4;
-}
-.score-table.dir-asc .sortable:not(.asc):not(.desc) .sort-icon .arrow-up {
-  display: inline;
-  opacity: 0.4;
-}
-.score-table.dir-asc .sortable:not(.asc):not(.desc) .sort-icon .arrow-down {
-  display: none;
-}
-.score-table thead th.sortable.asc .sort-icon .arrow-up {
-  display: inline;
-  opacity: 1;
-  color: #4ade80;
-}
-.score-table thead th.sortable.desc .sort-icon .arrow-down {
-  display: inline;
-  opacity: 1;
-  color: #f97316;
-}
-.score-table thead th.col-index { width: 28px; }
-.score-table thead th.col-name { text-align: left; width: 70px; }
-.score-table thead th.col-score { width: 40px; }
-.score-table thead th.col-rating { width: 36px; }
-.score-table tbody td.td-total { font-weight: 600; }
-.score-table tbody td {
-  padding: 5px 4px;
-  text-align: center;
-  border-bottom: 1px solid rgba(255,255,255,0.04);
-  color: #d0d7d0;
-  transition: background 0.15s;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-}
-.score-table tbody tr:hover td {
-  background: rgba(201,168,76,0.04);
-}
-.score-table tbody td.td-name {
-  text-align: left;
-  font-weight: 500;
-}
-.score-table tbody td .flag-icon-table { font-size: 0.85rem; margin-right: 4px; }
-.score-table tbody td .score-val { font-weight: 600; font-variant-numeric: tabular-nums; }
-.score-table tbody td .score-high { color: #ef4444; }
-.score-table tbody td .score-mid { color: #f59e0b; }
-.score-table tbody td .score-low { color: #f5cba7; }
-.score-table tbody td .score-bad { color: #d4d4d4; }
-.score-table tbody td .rating-badge-td {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  min-width: 32px;
-  height: 26px;
-  border-radius: 6px;
-  font-size: 0.78rem;
-  font-weight: 700;
-  padding: 0 6px;
-}
-.score-table thead th .dim-weight {
-  display: block;
-  font-size: 0.6rem;
-  font-weight: 400;
-  color: rgba(255,255,255,0.35);
-  margin-top: 1px;
-}
-.score-table-note {
-  text-align: right;
-  font-size: 0.72rem;
-  color: rgba(255,255,255,0.25);
-  margin-top: 8px;
-  padding-right: 4px;
-}
+  :root { --gold: #c8a951; --gold-light: #e0cc7a; --bg-deep: #0a0f0a; --bg-card: #0f170f; }
 
-/* ── First Visit Modal ── */
-.modal-overlay {
-  position: fixed;
-  inset: 0;
-  z-index: 999999;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background: rgba(0,0,0,0.75);
-  backdrop-filter: blur(6px);
-  -webkit-backdrop-filter: blur(6px);
-  animation: modalFadeIn 0.5s ease;
-}
-@keyframes modalFadeIn {
-  from { opacity: 0; }
-  to   { opacity: 1; }
-}
-.modal-box {
-  background: linear-gradient(145deg, #111811, #0f1f0f);
-  border: 1px solid rgba(201,168,76,0.25);
-  border-radius: 20px;
-  padding: 40px 44px 36px;
-  max-width: 420px;
-  width: 90%;
-  text-align: center;
-  box-shadow: 0 24px 60px rgba(0,0,0,0.5);
-  animation: modalBoxIn 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
-}
-@keyframes modalBoxIn {
-  from { opacity: 0; transform: scale(0.85) translateY(20px); }
-  to   { opacity: 1; transform: scale(1) translateY(0); }
-}
-.modal-icon {
-  font-size: 3rem;
-  margin-bottom: 12px;
-}
-.modal-text {
-  font-family: 'Noto Serif SC', 'Source Han Serif SC', Georgia, serif;
-  font-size: 1.15rem;
-  line-height: 1.7;
-  color: #e0e7e0;
-  margin-bottom: 28px;
-}
-.modal-buttons {
-  display: flex;
-  gap: 14px;
-  justify-content: center;
-}
-.modal-btn {
-  padding: 12px 32px;
-  border-radius: 999px;
-  font-size: 0.95rem;
-  font-weight: 700;
-  cursor: pointer;
-  transition: all 0.25s ease;
-  border: none;
-  outline: none;
-  font-family: 'Inter', 'Noto Sans SC', system-ui, sans-serif;
-}
-.modal-btn-yes {
-  background: linear-gradient(135deg, #c9a84c, #a8882e);
-  color: #0a0e0a;
-  box-shadow: 0 4px 16px rgba(201,168,76,0.25);
-}
-.modal-btn-yes:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 6px 24px rgba(201,168,76,0.35);
-}
-.modal-btn-no {
-  background: rgba(255,255,255,0.06);
-  color: rgba(255,255,255,0.5);
-  border: 1px solid rgba(255,255,255,0.1);
-}
-.modal-btn-no:hover {
-  background: rgba(255,255,255,0.1);
-  color: #ef4444;
-  border-color: rgba(239,68,68,0.3);
-}
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: 'Inter', 'PingFang SC', 'Microsoft YaHei', sans-serif;
+    background: var(--bg-deep);
+    color: #f5f5f0;
+    overflow-x: hidden;
+  }
+
+  .gradient-hero {
+    background: radial-gradient(ellipse 80% 60% at 50% 40%, rgba(200,169,81,0.12) 0%, transparent 60%),
+                radial-gradient(ellipse 60% 80% at 30% 70%, rgba(26,78,26,0.25) 0%, transparent 50%),
+                var(--bg-deep);
+  }
+
+  .glass-card {
+    background: rgba(15, 23, 15, 0.7);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid rgba(200, 169, 81, 0.08);
+  }
+
+  .gold-text {
+    background: linear-gradient(135deg, #e0cc7a 0%, #c8a951 40%, #a88a3a 70%, #c8a951 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    background-size: 200% auto;
+    animation: shimmer 3s ease-in-out infinite;
+  }
+
+  .gold-border { border: 1px solid rgba(200, 169, 81, 0.15); }
+  .gold-border:hover { border-color: rgba(200, 169, 81, 0.4); }
+
+  .rating-bar { height: 2px; background: rgba(200, 169, 81, 0.15); border-radius: 1px; overflow: hidden; }
+  .rating-bar-fill { height: 100%; background: linear-gradient(90deg, #c8a951, #e0cc7a); border-radius: 1px; transition: width 1.2s cubic-bezier(0.16, 1, 0.3, 1); }
+
+  .team-card { transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1); }
+  .team-card:hover { transform: translateY(-6px); }
+
+  .flag-svg { filter: drop-shadow(0 2px 4px rgba(0,0,0,0.3)); }
+
+  .opr-badge {
+    display: inline-flex; align-items: center; gap: 6px;
+    padding: 4px 12px; border-radius: 999px; font-weight: 700; font-size: 0.75rem; letter-spacing: 0.05em;
+  }
+  .opr-aplus { background: rgba(200,169,81,0.15); color: #e0cc7a; border: 1px solid rgba(200,169,81,0.3); }
+  .opr-a { background: rgba(200,169,81,0.1); color: #d4b85c; border: 1px solid rgba(200,169,81,0.2); }
+  .opr-aminus { background: rgba(200,169,81,0.06); color: #bfa350; border: 1px solid rgba(200,169,81,0.12); }
+  .opr-bplus { background: rgba(160,160,160,0.1); color: #aaa; border: 1px solid rgba(160,160,160,0.2); }
+  .opr-b { background: rgba(140,140,140,0.08); color: #999; border: 1px solid rgba(140,140,140,0.15); }
+  .opr-c { background: rgba(120,80,30,0.08); color: #d4a574; border: 1px solid rgba(180,130,60,0.12); }
+  .opr-d { background: rgba(100,100,100,0.06); color: #888; border: 1px solid rgba(100,100,100,0.1); }
+
+  .scroll-reveal { opacity: 0; transform: translateY(40px); transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1); }
+  .scroll-reveal.visible { opacity: 1; transform: translateY(0); }
+
+  .nav-blur {
+    background: rgba(10, 15, 10, 0.85);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+  }
+
+  .counter { font-variant-numeric: tabular-nums; }
+
+  /* ── Team Grid Cards ── */
+  .team-grid-wrap {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 18px;
+  }
+  @media (max-width: 480px) { .team-grid-wrap { grid-template-columns: 1fr; } }
+
+  .team-rank-card {
+    background: linear-gradient(145deg, #111811 0%, #0f1f0f 100%);
+    border-radius: 16px;
+    overflow: hidden;
+    transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+    border: 1px solid rgba(255,255,255,0.06);
+    position: relative;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+  }
+  .team-rank-card:hover { transform: translateY(-5px); box-shadow: 0 16px 40px rgba(0,0,0,0.4); border-color: rgba(200,169,81,0.2); }
+  .card-accent { height: 5px; flex-shrink: 0; }
+  .card-body { padding: 22px 22px 20px; flex: 1; display: flex; flex-direction: column; }
+  .card-flag { font-size: 2.4rem; line-height: 1; margin-bottom: 8px; }
+  .card-name { font-family: 'PingFang SC', 'Microsoft YaHei', serif; font-size: 1.15rem; font-weight: 700; color: #f0f7f0; margin-bottom: 4px; }
+  .card-filename { font-size: 0.72rem; color: rgba(255,255,255,0.25); font-family: 'SF Mono', 'Fira Code', monospace; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; margin-bottom: 14px; }
+  .card-stats { display: flex; align-items: center; gap: 16px; padding-top: 14px; border-top: 1px solid rgba(255,255,255,0.06); }
+  .score-display { font-size: 2rem; font-weight: 800; line-height: 1; letter-spacing: -0.5px; }
+  .score-display .decimal { font-size: 1rem; font-weight: 500; opacity: 0.6; }
+  .rating-badge-sm { display: inline-flex; align-items: center; justify-content: center; width: 38px; height: 38px; border-radius: 10px; font-size: 1rem; font-weight: 800; }
+  .rank-number { display: inline-flex; align-items: center; justify-content: center; width: 28px; height: 28px; border-radius: 50%; font-size: 0.78rem; font-weight: 700; background: rgba(200,169,81,0.12); color: #c8a951; flex-shrink: 0; }
+  .rank-1 { background: rgba(255,215,0,0.2); color: #ffd700; }
+  .rank-2 { background: rgba(192,192,192,0.15); color: #c0c0c0; }
+  .rank-3 { background: rgba(205,127,50,0.15); color: #cd7f32; }
+  .card-enter { animation: cardFadeIn 0.4s ease forwards; }
+  @keyframes cardFadeIn { from { opacity: 0; transform: translateY(16px); } to { opacity: 1; transform: translateY(0); } }
+
+  /* ── Hero floating flags ── */
+  #hero-flags { position: absolute; inset: 0; pointer-events: none; overflow: hidden; }
+  .hero-flag { position: absolute; font-size: 4rem; opacity: 0.12; filter: grayscale(0.3); }
+  .hero-flag.hf-1 { top: 12%; right: 8%;  }
+  .hero-flag.hf-2 { top: 55%; right: 12%; }
+  .hero-flag.hf-3 { top: 10%; left: 6%;  }
+  .hero-flag.hf-4 { bottom: 15%; left: 10%; }
+
+  /* ── Search / Sort / Filter ── */
+  .sort-btn {
+    display: inline-flex; align-items: center; gap: 6px;
+    padding: 8px 20px; border-radius: 10px; font-size: 0.88rem; font-weight: 600;
+    cursor: pointer; transition: all 0.25s ease;
+    border: 1.5px solid rgba(200,169,81,0.3);
+    background: rgba(200,169,81,0.08); color: #c8a951; user-select: none;
+  }
+  .sort-btn:hover { background: rgba(200,169,81,0.18); border-color: #c8a951; }
+  .sort-btn .arrow { transition: transform 0.3s ease; display: inline-block; }
+  .sort-btn .arrow.desc { transform: rotate(180deg); }
+  .search-wrapper { position: relative; }
+  .search-input {
+    width: 100%; padding: 10px 16px 10px 40px;
+    border: 1.5px solid rgba(255,255,255,0.1); border-radius: 10px;
+    font-size: 0.9rem; outline: none; transition: all 0.2s ease;
+    background: rgba(255,255,255,0.06); color: #e0e7e0;
+  }
+  .search-input:focus { border-color: #c8a951; box-shadow: 0 0 0 3px rgba(200,169,81,0.12); background: rgba(255,255,255,0.1); }
+  .search-input::placeholder { color: rgba(255,255,255,0.3); }
+  .search-icon {
+    position: absolute; left: 14px; top: 50%;
+    transform: translateY(-50%); color: rgba(255,255,255,0.3); pointer-events: none;
+  }
+  .filter-tab {
+    padding: 7px 18px; border-radius: 999px; font-size: 0.82rem; font-weight: 500;
+    cursor: pointer; transition: all 0.2s ease; border: 1.5px solid transparent;
+    background: rgba(255,255,255,0.06); color: rgba(255,255,255,0.5); user-select: none;
+  }
+  .filter-tab:hover { background: rgba(255,255,255,0.1); color: rgba(255,255,255,0.7); }
+  .filter-tab.active { background: rgba(200,169,81,0.15); color: #c8a951; border-color: rgba(200,169,81,0.4); }
+
+  /* ── OPR Scoring Table ── */
+  .score-table-wrap {
+    overflow-x: auto; border-radius: 14px;
+    border: 1px solid rgba(255,255,255,0.06);
+    background: linear-gradient(145deg, #111811 0%, #0f1f0f 100%);
+    margin-top: 8px;
+  }
+  .score-table {
+    width: 100%; table-layout: fixed; border-collapse: collapse; font-size: 0.82rem;
+  }
+  .score-table thead th {
+    padding: 12px 10px; font-weight: 600; color: #c8a951;
+    text-align: center; border-bottom: 2px solid rgba(200,169,81,0.2);
+    background: rgba(200,169,81,0.06); white-space: nowrap; user-select: none;
+  }
+  .score-table thead th.sortable {
+    cursor: pointer; transition: all 0.2s ease; position: relative;
+  }
+  .score-table thead th.sortable:hover { background: rgba(200,169,81,0.14); color: #e0cc7a; }
+  .score-table thead th.sortable .sort-icon {
+    display: inline-block; margin-left: 4px; font-size: 0.65rem; transition: opacity 0.2s;
+  }
+  .score-table thead th.sortable .sort-icon .arrow-up,
+  .score-table thead th.sortable .sort-icon .arrow-down { display: none; }
+  .score-table thead th.sortable:not(.asc):not(.desc) .sort-icon .arrow-down { display: inline; opacity: 0.4; }
+  .score-table.dir-asc .sortable:not(.asc):not(.desc) .sort-icon .arrow-up { display: inline; opacity: 0.4; }
+  .score-table.dir-asc .sortable:not(.asc):not(.desc) .sort-icon .arrow-down { display: none; }
+  .score-table thead th.sortable.asc .sort-icon .arrow-up { display: inline; opacity: 1; color: #4ade80; }
+  .score-table thead th.sortable.desc .sort-icon .arrow-down { display: inline; opacity: 1; color: #f97316; }
+  .score-table thead th.col-index { width: 28px; }
+  .score-table thead th.col-name { text-align: left; width: 70px; }
+  .score-table thead th.col-score { width: 40px; }
+  .score-table thead th.col-rating { width: 36px; }
+  .score-table tbody td.td-total { font-weight: 600; }
+  .score-table tbody td {
+    padding: 5px 4px; text-align: center; border-bottom: 1px solid rgba(255,255,255,0.04);
+    color: #d0d7d0; transition: background 0.15s; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;
+  }
+  .score-table tbody tr:hover td { background: rgba(200,169,81,0.04); }
+  .score-table tbody td.td-name { text-align: left; font-weight: 500; }
+  .score-table tbody td .flag-icon-table { font-size: 0.85rem; margin-right: 4px; }
+  .score-table tbody td .score-val { font-weight: 600; font-variant-numeric: tabular-nums; }
+  .score-table tbody td .score-high { color: #ef4444; }
+  .score-table tbody td .score-mid { color: #f59e0b; }
+  .score-table tbody td .score-low { color: #f5cba7; }
+  .score-table tbody td .score-bad { color: #d4d4d4; }
+  .score-table tbody td .rating-badge-td {
+    display: inline-flex; align-items: center; justify-content: center;
+    min-width: 32px; height: 26px; border-radius: 6px; font-size: 0.78rem; font-weight: 700; padding: 0 6px;
+  }
+  .score-table thead th .dim-weight {
+    display: block; font-size: 0.6rem; font-weight: 400; color: rgba(255,255,255,0.35); margin-top: 1px;
+  }
+  .score-table-note {
+    text-align: right; font-size: 0.72rem; color: rgba(255,255,255,0.25); margin-top: 8px; padding-right: 4px;
+  }
+
+  .empty-state { text-align: center; padding: 60px 20px; color: rgba(255,255,255,0.3); }
+  .section-divider { display: flex; align-items: center; gap: 16px; margin: 40px 0 24px; }
+  .section-divider::after { content: ''; flex: 1; height: 1px; background: linear-gradient(to right, rgba(200,169,81,0.3), transparent); }
+  .section-title { font-size: 1.3rem; font-weight: 700; color: #c8a951; }
+
+  .stat-bubble {
+    display: inline-flex; align-items: center; gap: 6px;
+    padding: 5px 16px; border-radius: 999px; font-size: 0.82rem; font-weight: 500;
+  }
+
+  /* ── Welcome Modal ── */
+  .modal-overlay {
+    position: fixed; inset: 0; z-index: 999999;
+    display: flex; align-items: center; justify-content: center;
+    background: rgba(0,0,0,0.75); backdrop-filter: blur(6px);
+    -webkit-backdrop-filter: blur(6px); animation: modalFadeIn 0.5s ease;
+  }
+  @keyframes modalFadeIn { from { opacity: 0; } to { opacity: 1; } }
+  .modal-box {
+    background: linear-gradient(145deg, #111811, #0f1f0f);
+    border: 1px solid rgba(200,169,81,0.25); border-radius: 20px;
+    padding: 40px 44px 36px; max-width: 420px; width: 90%; text-align: center;
+    box-shadow: 0 24px 60px rgba(0,0,0,0.5);
+    animation: modalBoxIn 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+  }
+  @keyframes modalBoxIn {
+    from { opacity: 0; transform: scale(0.85) translateY(20px); }
+    to { opacity: 1; transform: scale(1) translateY(0); }
+  }
+  .modal-icon { font-size: 3rem; margin-bottom: 12px; }
+  .modal-text { font-size: 1.15rem; line-height: 1.7; color: #e0e7e0; margin-bottom: 28px; }
+  .modal-buttons { display: flex; gap: 14px; justify-content: center; }
+  .modal-btn {
+    padding: 12px 32px; border-radius: 999px; font-size: 0.95rem; font-weight: 700;
+    cursor: pointer; transition: all 0.25s ease; border: none; outline: none;
+    font-family: 'Inter', 'PingFang SC', sans-serif;
+  }
+  .modal-btn-yes {
+    background: linear-gradient(135deg, #c8a951, #a88a3a); color: #0a0f0a;
+    box-shadow: 0 4px 16px rgba(200,169,81,0.25);
+  }
+  .modal-btn-yes:hover { transform: translateY(-2px); box-shadow: 0 6px 24px rgba(200,169,81,0.35); }
+  .modal-btn-no {
+    background: rgba(255,255,255,0.06); color: rgba(255,255,255,0.5);
+    border: 1px solid rgba(255,255,255,0.1);
+  }
+  .modal-btn-no:hover { background: rgba(255,255,255,0.1); color: #ef4444; border-color: rgba(239,68,68,0.3); }
+
+  /* Mobile */
+  @media (max-width: 1024px) { }
+  @media (max-width: 640px) { }
 </style>
 </head>
 <body>
 
-<header class="site-header">
-  <div class="beam-left"></div>
-  <div class="pitch-circle"><div class="pitch-circle-inner"></div></div>
-  <div class="halfway-line"></div>
-  <div class="net-texture"></div>
-  <div class="bottom-glow"></div>
-  <div class="relative z-10 max-w-6xl mx-auto px-6 py-12 sm:py-16">
-    <div class="flex items-center gap-4 mb-3">
-      <div class="w-12 h-12 rounded-xl overflow-hidden flex-shrink-0 border-2 border-gold/30 shadow-lg shadow-gold/10">
+<!-- Navigation -->
+<nav class="nav-blur fixed top-0 left-0 right-0 z-50 border-b border-white/5">
+  <div class="max-w-[1400px] mx-auto px-6 py-4 flex items-center justify-between">
+    <div class="flex items-center gap-3">
+      <div class="w-10 h-10 rounded-xl overflow-hidden flex-shrink-0 border border-gold/30">
         <img src="favicon.jpg" alt="HuaFootball" class="w-full h-full object-cover" />
       </div>
-      <div>
-        <h1 class="text-2xl sm:text-3xl font-bold text-white font-display tracking-wide">HuaFootball</h1>
-        <p class="text-gold/70 text-sm font-medium">国仕无双 · 足球战力分析平台</p>
+      <span class="text-lg font-bold tracking-tight">Hua<span class="text-gold">Football</span></span>
+    </div>
+    <div class="hidden md:flex items-center gap-8 text-sm text-white/60">
+      <a href="#teams" class="hover:text-gold transition-colors">战力榜单</a>
+      <a href="#system" class="hover:text-gold transition-colors">评级体系</a>
+      <a href="#table" class="hover:text-gold transition-colors">七维明细</a>
+      <a href="#compare" class="hover:text-gold transition-colors">顶级对决</a>
+    </div>
+    <a href="#teams" class="px-4 py-2 text-sm bg-gold/10 border border-gold/20 text-gold-light rounded-full hover:bg-gold/20 transition-all">
+      查看完整榜单
+    </a>
+  </div>
+</nav>
+
+<!-- Hero Section -->
+<section class="gradient-hero min-h-[100dvh] flex items-center relative overflow-hidden pt-20">
+  <div class="absolute inset-0 overflow-hidden pointer-events-none">
+    <div class="absolute top-1/4 left-[10%] w-96 h-96 rounded-full bg-gold/3 blur-[120px]"></div>
+    <div class="absolute bottom-1/4 right-[5%] w-80 h-80 rounded-full bg-green-900/20 blur-[100px]"></div>
+    <div id="hero-flags"></div>
+    <svg class="absolute bottom-0 left-1/2 -translate-x-1/2 w-full max-w-3xl opacity-[0.03]" viewBox="0 0 900 600">
+      <rect x="50" y="50" width="800" height="500" fill="none" stroke="white" stroke-width="2"/>
+      <line x1="450" y1="50" x2="450" y2="550" stroke="white" stroke-width="2"/>
+      <circle cx="450" cy="300" r="80" fill="none" stroke="white" stroke-width="2"/>
+    </svg>
+  </div>
+
+  <div class="relative z-10 max-w-[1400px] mx-auto px-6 w-full">
+    <div class="grid lg:grid-cols-2 gap-12 items-center">
+      <div class="space-y-8">
+        <div class="inline-flex items-center gap-2 px-4 py-1.5 bg-gold/10 border border-gold/20 rounded-full text-gold-light text-sm">
+          <span class="w-2 h-2 rounded-full bg-gold animate-pulse"></span>
+          2026 美加墨世界杯
+        </div>
+        <h1 class="text-5xl md:text-7xl font-black tracking-tighter leading-none">
+          <span class="gold-text">48支国家队</span><br/>
+          <span class="text-white">战力全面评估</span>
+        </h1>
+        <p class="text-lg md:text-xl text-white/50 max-w-[520px] leading-relaxed">
+          基于 HuaFootball 独家 OPR 七维度评分体系，从阵容实力、战术体系、竞技状态、大赛经验、
+          赛程分组、团队凝聚、体能伤病七大维度，对世界杯参赛国家队进行深度量化评级。
+        </p>
+        <div class="flex flex-wrap gap-4">
+          <a href="#teams" class="px-8 py-3.5 bg-gold text-pitch-900 font-semibold rounded-full hover:bg-gold-light transition-all duration-300 hover:scale-105 inline-block">
+            探索战队榜单
+          </a>
+          <a href="#system" class="px-8 py-3.5 border border-white/15 text-white/70 rounded-full hover:border-gold/40 hover:text-gold-light transition-all duration-300 inline-block">
+            了解评级方法
+          </a>
+        </div>
+        <div class="flex items-center gap-8 pt-4 border-t border-white/5">
+          <div class="text-center">
+            <div class="text-3xl font-black gold-text counter" id="hero-count">20</div>
+            <div class="text-xs text-white/40 mt-1">已分析国家队</div>
+          </div>
+          <div class="text-center">
+            <div class="text-3xl font-black text-white/80 counter" id="hero-rating">A+</div>
+            <div class="text-xs text-white/40 mt-1">最高评级梯队</div>
+          </div>
+          <div class="text-center">
+            <div class="text-3xl font-black text-white/80 counter">13档</div>
+            <div class="text-xs text-white/40 mt-1">精细分级体系</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Right: Top Teams Preview -->
+      <div class="hidden lg:grid grid-cols-2 gap-4" id="hero-preview"></div>
+    </div>
+  </div>
+</section>
+
+<!-- OPR Rating System -->
+<section id="system" class="py-24 relative">
+  <div class="max-w-[1400px] mx-auto px-6">
+    <div class="text-center mb-16 scroll-reveal">
+      <div class="inline-flex items-center gap-2 px-4 py-1.5 bg-white/3 border border-white/5 rounded-full text-white/50 text-sm mb-6">
+        评级方法论
+      </div>
+      <h2 class="text-4xl md:text-5xl font-black tracking-tighter mb-4">
+        OPR <span class="gold-text">七维度</span> 战力评级体系
+      </h2>
+      <p class="text-white/40 max-w-2xl mx-auto leading-relaxed">
+        OPR (Overall Power Rating) 是 HuaFootball 自主研发的国家队综合战力评分模型，
+        融合阵容实力、战术体系、竞技状态、大赛经验、赛程分组、团队凝聚、体能伤病七大维度，共 13 档精细评级。
+      </p>
+    </div>
+
+    <!-- Rating scale -->
+    <div class="grid grid-cols-3 md:grid-cols-7 lg:grid-cols-7 gap-2 mb-16">
+      <div class="glass-card rounded-2xl p-4 text-center border-gold/30"><div class="text-xl font-black text-gold mb-1">A+</div><div class="text-xs text-white/30">87-100</div><div class="text-xs text-white/50 mt-1">冠军热门</div></div>
+      <div class="glass-card rounded-2xl p-4 text-center"><div class="text-xl font-black text-white/80 mb-1">A</div><div class="text-xs text-white/30">83-87</div><div class="text-xs text-white/50 mt-1">四强竞争者</div></div>
+      <div class="glass-card rounded-2xl p-4 text-center"><div class="text-xl font-black text-white/70 mb-1">A-</div><div class="text-xs text-white/30">80-83</div><div class="text-xs text-white/50 mt-1">八强水准</div></div>
+      <div class="glass-card rounded-2xl p-4 text-center"><div class="text-xl font-black text-white/60 mb-1">B+</div><div class="text-xs text-white/30">77-80</div><div class="text-xs text-white/50 mt-1">淘汰赛竞争者</div></div>
+      <div class="glass-card rounded-2xl p-4 text-center"><div class="text-xl font-black text-white/50 mb-1">B</div><div class="text-xs text-white/30">73-77</div><div class="text-xs text-white/50 mt-1">具备八强实力</div></div>
+      <div class="glass-card rounded-2xl p-4 text-center"><div class="text-xl font-black text-white/40 mb-1">B-</div><div class="text-xs text-white/30">70-73</div><div class="text-xs text-white/50 mt-1">小组出线希望</div></div>
+      <div class="glass-card rounded-2xl p-4 text-center"><div class="text-xl font-black text-white/30 mb-1">C+</div><div class="text-xs text-white/30">67-70</div><div class="text-xs text-white/50 mt-1">力争出线</div></div>
+    </div>
+    <div class="grid grid-cols-3 md:grid-cols-6 gap-2">
+      <div class="glass-card rounded-2xl p-4 text-center"><div class="text-xl font-black text-white/30 mb-1">C</div><div class="text-xs text-white/30">63-67</div><div class="text-xs text-white/50 mt-1">中游球队</div></div>
+      <div class="glass-card rounded-2xl p-4 text-center"><div class="text-xl font-black text-white/25 mb-1">C-</div><div class="text-xs text-white/30">60-63</div><div class="text-xs text-white/50 mt-1">出线难度大</div></div>
+      <div class="glass-card rounded-2xl p-4 text-center"><div class="text-xl font-black text-white/20 mb-1">D+</div><div class="text-xs text-white/30">50-60</div><div class="text-xs text-white/50 mt-1">搅局者</div></div>
+      <div class="glass-card rounded-2xl p-4 text-center"><div class="text-xl font-black text-white/15 mb-1">D</div><div class="text-xs text-white/30">40-50</div><div class="text-xs text-white/50 mt-1">重在参与</div></div>
+      <div class="glass-card rounded-2xl p-4 text-center"><div class="text-xl font-black text-white/10 mb-1">D-</div><div class="text-xs text-white/30">30-40</div><div class="text-xs text-white/50 mt-1">难求一胜</div></div>
+      <div class="glass-card rounded-2xl p-4 text-center"><div class="text-xl font-black text-white/5 mb-1">E</div><div class="text-xs text-white/30">0-30</div><div class="text-xs text-white/50 mt-1">陪跑体验</div></div>
+    </div>
+
+    <!-- Seven dimensions -->
+    <div class="grid md:grid-cols-3 lg:grid-cols-4 gap-6 mt-20">
+      <div class="scroll-reveal group">
+        <div class="glass-card rounded-2xl p-6 h-full transition-all duration-300 group-hover:border-gold/30">
+          <div class="w-10 h-10 rounded-xl bg-gold/10 border border-gold/20 flex items-center justify-center mb-4">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#c8a951" stroke-width="1.5"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 4-7 8-7s8 3 8 7"/></svg>
+          </div>
+          <h3 class="font-bold text-white/90 mb-2">阵容实力 <span class="text-gold text-xs font-normal ml-1">权重 30%</span></h3>
+          <p class="text-sm text-white/40 leading-relaxed">球星质量、各位置均衡度、板凳深度、总身价与年龄结构。评估球队26人名单中每名球员的俱乐部级别与大赛水准。</p>
+        </div>
+      </div>
+      <div class="scroll-reveal group" style="transition-delay: 0.1s;">
+        <div class="glass-card rounded-2xl p-6 h-full transition-all duration-300 group-hover:border-gold/30">
+          <div class="w-10 h-10 rounded-xl bg-gold/10 border border-gold/20 flex items-center justify-center mb-4">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#c8a951" stroke-width="1.5"><rect x="2" y="2" width="20" height="20" rx="3"/><line x1="2" y1="12" x2="22" y2="12"/><line x1="12" y1="2" x2="12" y2="22"/></svg>
+          </div>
+          <h3 class="font-bold text-white/90 mb-2">战术体系与教练 <span class="text-gold text-xs font-normal ml-1">权重 20%</span></h3>
+          <p class="text-sm text-white/40 leading-relaxed">主帅战术哲学与大赛履历、阵型适配性、攻守转换效率、临场指挥与换人策略。战术多样性是淘汰赛制胜关键。</p>
+        </div>
+      </div>
+      <div class="scroll-reveal group" style="transition-delay: 0.2s;">
+        <div class="glass-card rounded-2xl p-6 h-full transition-all duration-300 group-hover:border-gold/30">
+          <div class="w-10 h-10 rounded-xl bg-gold/10 border border-gold/20 flex items-center justify-center mb-4">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#c8a951" stroke-width="1.5"><polyline points="3,17 7,13 11,16 15,10 21,16"/></svg>
+          </div>
+          <h3 class="font-bold text-white/90 mb-2">近期竞技状态 <span class="text-gold text-xs font-normal ml-1">权重 15%</span></h3>
+          <p class="text-sm text-white/40 leading-relaxed">近12个月正式比赛战绩、预选赛出线含金量、核心球员俱乐部状态走势。近期状态直接影响世界杯表现。</p>
+        </div>
+      </div>
+      <div class="scroll-reveal group" style="transition-delay: 0.3s;">
+        <div class="glass-card rounded-2xl p-6 h-full transition-all duration-300 group-hover:border-gold/30">
+          <div class="w-10 h-10 rounded-xl bg-gold/10 border border-gold/20 flex items-center justify-center mb-4">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#c8a951" stroke-width="1.5"><path d="M3 3v18h18"/><polyline points="7,16 11,10 15,13 19,7"/></svg>
+          </div>
+          <h3 class="font-bold text-white/90 mb-2">大赛经验与心理 <span class="text-gold text-xs font-normal ml-1">权重 10%</span></h3>
+          <p class="text-sm text-white/40 leading-relaxed">世界杯/洲际杯历史战绩、核心球员大赛经验值、抗压与逆境应对能力。大赛底蕴在高压淘汰赛中提供心理优势。</p>
+        </div>
+      </div>
+      <div class="scroll-reveal group" style="transition-delay: 0.4s;">
+        <div class="glass-card rounded-2xl p-6 h-full transition-all duration-300 group-hover:border-gold/30">
+          <div class="w-10 h-10 rounded-xl bg-gold/10 border border-gold/20 flex items-center justify-center mb-4">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#c8a951" stroke-width="1.5"><path d="M9 20l-5-5 5-5"/><path d="M4 15h11a4 4 0 000-8H9"/></svg>
+          </div>
+          <h3 class="font-bold text-white/90 mb-2">分组及赛程影响 <span class="text-gold text-xs font-normal ml-1">权重 10%</span></h3>
+          <p class="text-sm text-white/40 leading-relaxed">小组赛对手风格相克分析、淘汰赛晋级路线预判、旅途与气候因素。美加墨三国办赛的地理跨度考验球队适应力。</p>
+        </div>
+      </div>
+      <div class="scroll-reveal group" style="transition-delay: 0.5s;">
+        <div class="glass-card rounded-2xl p-6 h-full transition-all duration-300 group-hover:border-gold/30">
+          <div class="w-10 h-10 rounded-xl bg-gold/10 border border-gold/20 flex items-center justify-center mb-4">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#c8a951" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+          </div>
+          <h3 class="font-bold text-white/90 mb-2">团队凝聚力 <span class="text-gold text-xs font-normal ml-1">权重 10%</span></h3>
+          <p class="text-sm text-white/40 leading-relaxed">更衣室团结度、足协稳定性与后勤保障、国内舆论与媒体压力。场外环境直接影响球员场上专注度与团队协作。</p>
+        </div>
+      </div>
+      <div class="scroll-reveal group md:col-span-1 lg:col-span-1" style="transition-delay: 0.6s;">
+        <div class="glass-card rounded-2xl p-6 h-full transition-all duration-300 group-hover:border-gold/30">
+          <div class="w-10 h-10 rounded-xl bg-gold/10 border border-gold/20 flex items-center justify-center mb-4">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#c8a951" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="5"/><path d="M9 10h.01M15 10h.01M9 14h.01M15 14h.01"/></svg>
+          </div>
+          <h3 class="font-bold text-white/90 mb-2">体能储备与伤病 <span class="text-gold text-xs font-normal ml-1">权重 5%</span></h3>
+          <p class="text-sm text-white/40 leading-relaxed">赛季疲劳度评估、关键伤病与恢复情况、医疗团队保障水平。密集赛程后的体能恢复是决定淘汰赛表现的关键因素。</p>
+        </div>
       </div>
     </div>
-    <p class="text-gray-400 text-sm max-w-xl">OPR综合战力评分体系 · 基于七维度深度拆解的世界杯国家队实力评估与赛事分析</p>
-    <div class="mt-6 flex flex-wrap gap-3" id="stats-bar">
+  </div>
+</section>
+
+<!-- Team Rankings -->
+<section id="teams" class="py-24 relative">
+  <div class="absolute inset-0 bg-gradient-to-b from-transparent via-pitch-800/30 to-transparent pointer-events-none"></div>
+  <div class="max-w-[1400px] mx-auto px-6 relative">
+    <div class="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-4 scroll-reveal">
+      <div>
+        <div class="inline-flex items-center gap-2 px-4 py-1.5 bg-white/3 border border-white/5 rounded-full text-white/50 text-sm mb-6">
+          战力榜单
+        </div>
+        <h2 class="text-4xl md:text-5xl font-black tracking-tighter">
+          <span class="gold-text">20 支国家队</span> 战力排行
+        </h2>
+        <p class="text-white/40 mt-2 max-w-md">基于 OPR 七维度深度评估，自动生成排名与评级。</p>
+      </div>
+    </div>
+
+    <!-- Stats bar -->
+    <div class="flex flex-wrap gap-3 mb-8" id="stats-bar">
       <span class="stat-bubble bg-white/8 text-gray-300 border border-white/8">⚽ 共 <strong id="total-count">20</strong> 支国家队</span>
       <span class="stat-bubble bg-white/8 text-gray-300 border border-white/8">📊 平均 <strong id="avg-score">64.1</strong> 分</span>
       <span class="stat-bubble bg-white/8 text-gray-300 border border-white/8">🏆 最高 <strong id="max-score">87.4</strong> 分</span>
       <span class="stat-bubble bg-white/8 text-gray-300 border border-white/8">📉 最低 <strong id="min-score">36.5</strong> 分</span>
     </div>
-  </div>
-</header>
 
-<main class="max-w-6xl mx-auto px-4 sm:px-6 py-8">
-
-  <div class="flex flex-col sm:flex-row sm:items-center gap-4 mb-6">
-    <div class="flex items-center gap-3 flex-wrap">
-      <button class="sort-btn" id="sort-btn">
-        <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M3 7h6M3 12h10M3 17h14" /></svg>
-        <span id="sort-label">最高优先</span>
-        <span class="arrow desc" id="sort-arrow">▼</span>
-      </button>
-      <div class="flex flex-wrap gap-1.5" id="rating-filters">
-        <button class="filter-tab active" data-filter="all">全部</button>
-        <button class="filter-tab" data-filter="A">A 级</button>
-        <button class="filter-tab" data-filter="B">B 级</button>
-        <button class="filter-tab" data-filter="C">C 级</button>
-        <button class="filter-tab" data-filter="D">D 级</button>
+    <!-- Search / Sort / Filter -->
+    <div class="flex flex-col sm:flex-row sm:items-center gap-4 mb-8">
+      <div class="flex items-center gap-3 flex-wrap">
+        <button class="sort-btn" id="sort-btn">
+          <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M3 7h6M3 12h10M3 17h14" /></svg>
+          <span id="sort-label">最高优先</span>
+          <span class="arrow desc" id="sort-arrow">▼</span>
+        </button>
+        <div class="flex flex-wrap gap-1.5" id="rating-filters">
+          <button class="filter-tab active" data-filter="all">全部</button>
+          <button class="filter-tab" data-filter="A">A 级</button>
+          <button class="filter-tab" data-filter="B">B 级</button>
+          <button class="filter-tab" data-filter="C">C 级</button>
+          <button class="filter-tab" data-filter="D">D 级</button>
+        </div>
+      </div>
+      <div class="search-wrapper sm:ml-auto sm:w-56">
+        <svg class="search-icon w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" /></svg>
+        <input class="search-input" type="text" placeholder="搜索球队…" id="search-input" />
       </div>
     </div>
-    <div class="search-wrapper sm:ml-auto sm:w-56">
-      <svg class="search-icon w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" /></svg>
-      <input class="search-input" type="text" placeholder="搜索球队…" id="search-input" />
+
+    <!-- Team Grid -->
+    <div id="teams-grid" class="team-grid-wrap"></div>
+    <div id="empty-state" class="empty-state hidden">
+      <svg class="w-16 h-16 mx-auto mb-4 opacity-30" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" /></svg>
+      <p class="text-lg font-medium">未找到匹配的球队</p>
+      <p class="text-sm mt-1">试试其他分类或关键词</p>
     </div>
   </div>
+</section>
 
-  <div class="section-divider"><span class="section-title">🏆 国家队战力排行</span></div>
-  <div id="teams-grid" class="team-grid"></div>
-  <div id="empty-state" class="empty-state hidden">
-    <svg class="w-16 h-16 mx-auto mb-4 opacity-30" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" /></svg>
-    <p class="text-lg font-medium">未找到匹配的球队</p>
-    <p class="text-sm mt-1">试试其他分类或关键词</p>
+<!-- OPR 七维度评分明细 Table -->
+<section id="table" class="py-24 relative">
+  <div class="absolute inset-0 bg-gradient-to-b from-transparent via-pitch-800/20 to-transparent pointer-events-none"></div>
+  <div class="max-w-[1400px] mx-auto px-6 relative">
+    <div class="text-center mb-16 scroll-reveal">
+      <div class="inline-flex items-center gap-2 px-4 py-1.5 bg-white/3 border border-white/5 rounded-full text-white/50 text-sm mb-6">
+        数据明细
+      </div>
+      <h2 class="text-4xl md:text-5xl font-black tracking-tighter mb-4">
+        OPR <span class="gold-text">七维度</span> 评分明细
+      </h2>
+      <p class="text-white/40 max-w-2xl mx-auto">点击表头可对任意维度排序，全面掌握各队在七大维度的得分分布。</p>
+    </div>
+
+    <div class="score-table-wrap scroll-reveal">
+      <table class="score-table" id="score-table">
+        <thead>
+          <tr>
+            <th class="col-index">#</th>
+            <th class="col-name">国家队</th>
+            <th class="col-rating">评级</th>
+            <th class="col-score sortable" data-sort="7" title="总分">总分<span class="sort-icon"><span class="arrow-up">▲</span><span class="arrow-down">▼</span></span></th>
+            <th class="col-score sortable" data-sort="0" title="阵容实力（权重30%）">阵容<span class="dim-weight">30%</span><span class="sort-icon"><span class="arrow-up">▲</span><span class="arrow-down">▼</span></span></th>
+            <th class="col-score sortable" data-sort="1" title="战术体系与教练（权重20%）">战术<span class="dim-weight">20%</span><span class="sort-icon"><span class="arrow-up">▲</span><span class="arrow-down">▼</span></span></th>
+            <th class="col-score sortable" data-sort="2" title="近期竞技状态（权重15%）">状态<span class="dim-weight">15%</span><span class="sort-icon"><span class="arrow-up">▲</span><span class="arrow-down">▼</span></span></th>
+            <th class="col-score sortable" data-sort="3" title="大赛经验与心理素质（权重10%）">经验<span class="dim-weight">10%</span><span class="sort-icon"><span class="arrow-up">▲</span><span class="arrow-down">▼</span></span></th>
+            <th class="col-score sortable" data-sort="4" title="分组及赛程影响（权重10%）">赛程<span class="dim-weight">10%</span><span class="sort-icon"><span class="arrow-up">▲</span><span class="arrow-down">▼</span></span></th>
+            <th class="col-score sortable" data-sort="5" title="团队凝聚力与场外环境（权重10%）">凝聚<span class="dim-weight">10%</span><span class="sort-icon"><span class="arrow-up">▲</span><span class="arrow-down">▼</span></span></th>
+            <th class="col-score sortable" data-sort="6" title="体能储备与伤病控制（权重5%）">体能<span class="dim-weight">5%</span><span class="sort-icon"><span class="arrow-up">▲</span><span class="arrow-down">▼</span></span></th>
+          </tr>
+        </thead>
+        <tbody id="score-table-body"></tbody>
+      </table>
+    </div>
+    <div class="score-table-note">💡 点击表头可排序 · 同分时按总分→维度依次比较 · 评级由分数区间自动映射</div>
   </div>
+</section>
 
-  <div class="section-divider" style="margin-top:54px;"><span class="section-title">📋 OPR 七维度评分明细</span></div>
-  <div class="score-table-wrap">
-    <table class="score-table" id="score-table">
-      <thead>
-        <tr>
-          <th class="col-index">#</th>
-          <th class="col-name">国家队</th>
-          <th class="col-rating">评级</th>
-          <th class="col-score sortable" data-sort="7" title="总分">总分<span class="sort-icon"><span class="arrow-up">▲</span><span class="arrow-down">▼</span></span></th>
-          <th class="col-score sortable" data-sort="0" title="阵容实力（权重30%）">阵容<span class="dim-weight">30%</span><span class="sort-icon"><span class="arrow-up">▲</span><span class="arrow-down">▼</span></span></th>
-          <th class="col-score sortable" data-sort="1" title="战术体系与教练（权重20%）">战术<span class="dim-weight">20%</span><span class="sort-icon"><span class="arrow-up">▲</span><span class="arrow-down">▼</span></span></th>
-          <th class="col-score sortable" data-sort="2" title="近期竞技状态（权重15%）">状态<span class="dim-weight">15%</span><span class="sort-icon"><span class="arrow-up">▲</span><span class="arrow-down">▼</span></span></th>
-          <th class="col-score sortable" data-sort="3" title="大赛经验与心理素质（权重10%）">经验<span class="dim-weight">10%</span><span class="sort-icon"><span class="arrow-up">▲</span><span class="arrow-down">▼</span></span></th>
-          <th class="col-score sortable" data-sort="4" title="分组及赛程影响（权重10%）">赛程<span class="dim-weight">10%</span><span class="sort-icon"><span class="arrow-up">▲</span><span class="arrow-down">▼</span></span></th>
-          <th class="col-score sortable" data-sort="5" title="团队凝聚力与场外环境（权重10%）">凝聚<span class="dim-weight">10%</span><span class="sort-icon"><span class="arrow-up">▲</span><span class="arrow-down">▼</span></span></th>
-          <th class="col-score sortable" data-sort="6" title="体能储备与伤病控制（权重5%）">体能<span class="dim-weight">5%</span><span class="sort-icon"><span class="arrow-up">▲</span><span class="arrow-down">▼</span></span></th>
-        </tr>
-      </thead>
-      <tbody id="score-table-body"></tbody>
-    </table>
-  </div>
-  <div class="score-table-note">评级 → 总分 → 七维度 · 点击表头排序（同分时按总分→维度3→9依次决定）</div>
+<!-- 顶级对决 -->
+<section id="compare" class="py-24 relative">
+  <div class="absolute inset-0 bg-gradient-to-b from-transparent via-pitch-800/30 to-transparent pointer-events-none"></div>
+  <div class="max-w-[1400px] mx-auto px-6 relative">
+    <div class="text-center mb-16 scroll-reveal">
+      <div class="inline-flex items-center gap-2 px-4 py-1.5 bg-white/3 border border-white/5 rounded-full text-white/50 text-sm mb-6">
+        深度评测
+      </div>
+      <h2 class="text-4xl md:text-5xl font-black tracking-tighter mb-4">
+        顶级对决 <span class="gold-text">多维拆解</span>
+      </h2>
+      <p class="text-white/40 max-w-2xl mx-auto">从阵容结构、战术风格、关键位置到赛程路径，拆解冠军争夺战的核心变量。</p>
+      <p class="text-white/20 text-sm mt-3">📂 等待 <code class="text-gold/60 bg-white/5 px-1.5 py-0.5 rounded text-xs">Games/</code> 文件夹下的对局分析报告后更新此板块。</p>
+    </div>
 
-  <div class="section-divider" style="margin-top:60px;"><span class="section-title">🎮 对局分析</span></div>
-  <div id="games-section">
-    <div class="games-grid">
-      <div class="game-card"><div class="icon">⚔️</div><div class="label">对局分析</div><div class="sub">将比赛分析HTML放入 Games/ 文件夹</div></div>
-      <div class="game-card"><div class="icon">📊</div><div class="label">数据驱动</div><div class="sub">基于OPR评分体系赛前深度拆解</div></div>
-      <div class="game-card" style="cursor:pointer" onclick="window.open('Games/','_blank')"><div class="icon">📂</div><div class="label">浏览文件夹</div><div class="sub">查看所有已分析对局</div></div>
+    <!-- Comparison Cards - Placeholder -->
+    <div class="grid lg:grid-cols-2 gap-8">
+      <div class="glass-card rounded-3xl p-8 scroll-reveal">
+        <div class="flex items-center gap-4 mb-6">
+          <span class="text-3xl">🇫🇷</span>
+          <span class="text-sm text-white/20">VS</span>
+          <span class="text-3xl">🇧🇷</span>
+        </div>
+        <h3 class="text-xl font-black text-white mb-4">法国 vs 巴西：矛与盾的终极对话</h3>
+        <p class="text-sm text-white/30 leading-relaxed mb-6">
+          法国以均衡的阵容厚度和战术纪律略占上风，但巴西的进攻创造力和大赛底蕴同样不容小觑。两队若相遇，中场控制权将是决定胜负的核心变量。
+        </p>
+        <div class="text-xs text-white/20 border-t border-white/5 pt-4">
+          📋 待 C4>Games/ 目录下添加法国vs巴西对局分析报告后更新详细多维拆解。
+        </div>
+      </div>
+
+      <div class="glass-card rounded-3xl p-8 scroll-reveal" style="transition-delay: 0.15s;">
+        <div class="flex items-center gap-4 mb-6">
+          <span class="text-3xl">🇦🇷</span>
+          <span class="text-sm text-white/20">VS</span>
+          <span class="text-3xl">🇬🇧</span>
+        </div>
+        <h3 class="text-xl font-black text-white mb-4">阿根廷 vs 英格兰：体系与天赋的碰撞</h3>
+        <p class="text-sm text-white/30 leading-relaxed mb-6">
+          阿根廷以卓越的战术执行力和核心球员的个人能力见长，而英格兰拥有世界最深厚的球员储备。关键对决将围绕中场控制与反击效率展开。
+        </p>
+        <div class="text-xs text-white/20 border-t border-white/5 pt-4">
+          📋 待 Games/ 目录下添加阿根廷vs英格兰对局分析报告后更新详细多维拆解。
+        </div>
+      </div>
     </div>
   </div>
+</section>
 
-  <div class="section-divider" style="margin-top:60px;"><span class="section-title">📐 评分体系</span></div>
-  <div class="grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-7 gap-2 mb-4">
-    <div class="bg-white/4 border border-white/8 rounded-lg p-3 text-center"><div class="text-lg font-bold text-emerald-400">A+</div><div class="text-xs text-gray-500">87-100</div></div>
-    <div class="bg-white/4 border border-white/8 rounded-lg p-3 text-center"><div class="text-lg font-bold text-emerald-300">A</div><div class="text-xs text-gray-500">83-87</div></div>
-    <div class="bg-white/4 border border-white/8 rounded-lg p-3 text-center"><div class="text-lg font-bold text-emerald-200">A-</div><div class="text-xs text-gray-500">80-83</div></div>
-    <div class="bg-white/4 border border-white/8 rounded-lg p-3 text-center"><div class="text-lg font-bold text-yellow-400">B+</div><div class="text-xs text-gray-500">77-80</div></div>
-    <div class="bg-white/4 border border-white/8 rounded-lg p-3 text-center"><div class="text-lg font-bold text-yellow-300">B</div><div class="text-xs text-gray-500">73-77</div></div>
-    <div class="bg-white/4 border border-white/8 rounded-lg p-3 text-center"><div class="text-lg font-bold text-yellow-200">B-</div><div class="text-xs text-gray-500">70-73</div></div>
-    <div class="bg-white/4 border border-white/8 rounded-lg p-3 text-center"><div class="text-lg font-bold text-orange-400">C+</div><div class="text-xs text-gray-500">67-70</div></div>
-    <div class="bg-white/4 border border-white/8 rounded-lg p-3 text-center"><div class="text-lg font-bold text-orange-300">C</div><div class="text-xs text-gray-500">63-67</div></div>
-    <div class="bg-white/4 border border-white/8 rounded-lg p-3 text-center"><div class="text-lg font-bold text-orange-200">C-</div><div class="text-xs text-gray-500">60-63</div></div>
-    <div class="bg-white/4 border border-white/8 rounded-lg p-3 text-center"><div class="text-lg font-bold text-red-400">D+</div><div class="text-xs text-gray-500">50-60</div></div>
-    <div class="bg-white/4 border border-white/8 rounded-lg p-3 text-center"><div class="text-lg font-bold text-red-300">D</div><div class="text-xs text-gray-500">40-50</div></div>
-    <div class="bg-white/4 border border-white/8 rounded-lg p-3 text-center"><div class="text-lg font-bold text-red-200">D-</div><div class="text-xs text-gray-500">30-40</div></div>
-    <div class="bg-white/4 border border-white/8 rounded-lg p-3 text-center"><div class="text-lg font-bold text-gray-400">E</div><div class="text-xs text-gray-500">0-30</div></div>
+<!-- CTA Section -->
+<section class="py-24 relative overflow-hidden">
+  <div class="absolute inset-0 bg-gradient-to-t from-pitch-800/40 via-transparent to-transparent"></div>
+  <div class="max-w-[1400px] mx-auto px-6 relative">
+    <div class="glass-card rounded-[3rem] p-12 md:p-20 text-center relative overflow-hidden">
+      <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] rounded-full bg-gold/4 blur-[100px] pointer-events-none"></div>
+      <div class="relative z-10">
+        <h2 class="text-4xl md:text-6xl font-black tracking-tighter mb-6">
+          探索全部 <span class="gold-text">48 支国家队</span> 战力评估
+        </h2>
+        <p class="text-lg text-white/40 max-w-xl mx-auto mb-10 leading-relaxed">
+          HuaFootball 持续跟踪世界杯各参赛队伍动态，实时更新 OPR 评分与战术分析。
+        </p>
+        <div class="flex flex-wrap justify-center gap-4">
+          <a href="#teams" class="px-10 py-4 bg-gold text-pitch-900 font-bold rounded-full text-lg hover:bg-gold-light transition-all duration-300 hover:scale-105 inline-block">
+            查看完整战力榜单
+          </a>
+          <a href="https://github.com/FDUJiaG/HuaFootball" target="_blank" class="px-10 py-4 border border-white/15 text-white/60 rounded-full text-lg hover:border-gold/30 hover:text-gold-light transition-all duration-300 inline-block">
+            GitHub 项目主页
+          </a>
+        </div>
+        <p class="text-xs text-white/20 mt-8">数据更新至 2026 年 5 月 | OPR 评分体系 v2.0 | HuaFootball by FDUJiaG</p>
+      </div>
+    </div>
   </div>
-</main>
+</section>
 
-<footer class="site-footer">
-  <div class="max-w-3xl mx-auto">
-    <p class="text-xs leading-relaxed"><strong>HuaFootball</strong> · OPR综合战力评分体系 · 数据来源：Transfermarkt、各足协官方公告、体育媒体综合报道</p>
-    <p class="mt-3 text-xs">&copy; 2026 国仕无双 · HuaResearch Platform &nbsp;|&nbsp; Powered by HuaZongNiubi AI</p>
+<!-- Footer -->
+<footer class="border-t border-white/5 py-12">
+  <div class="max-w-[1400px] mx-auto px-6">
+    <div class="flex flex-col md:flex-row justify-between items-center gap-6">
+      <div class="flex items-center gap-3">
+        <div class="w-8 h-8 rounded-lg overflow-hidden border border-gold/20">
+          <img src="favicon.jpg" alt="HuaFootball" class="w-full h-full object-cover" />
+        </div>
+        <span class="text-sm text-white/30">HuaFootball &copy; 2026</span>
+      </div>
+      <div class="flex gap-8 text-xs text-white/20">
+        <a href="#teams" class="hover:text-gold transition-colors">战力榜单</a>
+        <a href="#system" class="hover:text-gold transition-colors">评级方法</a>
+        <a href="#table" class="hover:text-gold transition-colors">七维明细</a>
+        <a href="#compare" class="hover:text-gold transition-colors">顶级对决</a>
+        <a href="https://github.com/FDUJiaG/HuaFootball" target="_blank" class="hover:text-gold transition-colors">GitHub</a>
+      </div>
+    </div>
   </div>
 </footer>
 
-<script id="teams-data" type="application/json">[{"name":"法国","flag":"🇫🇷","file":"WorldCup2026/法国-2026-world-cup-report.html","score":87.4,"rating":"A+","accent":"#c0392b","dims":[92,85,90,93,78,84,76]},{"name":"巴西","flag":"🇧🇷","file":"WorldCup2026/巴西-2026-world-cup-report.html","score":85.3,"rating":"A","accent":"#009739","dims":[88,90,80,90,85,78,72]},{"name":"葡萄牙","flag":"🇵🇹","file":"WorldCup2026/葡萄牙-2026-world-cup-report.html","score":83.45,"rating":"A","accent":"#DA291C","dims":[86,80,82,88,88,80,75]},{"name":"日本","flag":"🇯🇵","file":"WorldCup2026/日本-2026-world-cup-report.html","score":82.5,"rating":"A-","accent":"#003f8a","dims":[85,82,83,78,80,86,75]},{"name":"英格兰","flag":"🇬🇧","file":"WorldCup2026/英格兰-2026-world-cup-report.html","score":79.5,"rating":"B+","accent":"#ce1124","dims":[80,83,85,77,79,70,71]},{"name":"德国","flag":"🇩🇪","file":"WorldCup2026/德国-2026-world-cup-report.html","score":79.3,"rating":"B+","accent":"#000000","dims":[79,82,80,76,82,75,78]},{"name":"比利时","flag":"🇧🇪","file":"WorldCup2026/比利时-2026-world-cup-report.html","score":79.25,"rating":"B+","accent":"#DC2626","dims":[81,76,83,78,85,72,76]},{"name":"克罗地亚","flag":"🇭🇷","file":"WorldCup2026/克罗地亚-2026-world-cup-report.html","score":79.1,"rating":"B+","accent":"#c8102e","dims":[76,82,72,92,78,85,72]},{"name":"韩国","flag":"🇰🇷","file":"WorldCup2026/韩国-2026-world-cup-report.html","score":64.85,"rating":"C","accent":"#e6002e","dims":[65,66,69,70,55,63,60]},{"name":"瑞士","flag":"🇨🇭","file":"WorldCup2026/瑞士-2026-world-cup-report.html","score":63.25,"rating":"C","accent":"#DA291C","dims":[62,64,63,65,64,64,62]},{"name":"瑞典","flag":"🇸🇪","file":"WorldCup2026/瑞典-2026-world-cup-report.html","score":62.45,"rating":"C-","accent":"#005b99","dims":[63,67.5,65,58,51,63,62]},{"name":"苏格兰","flag":"🇬🇧","file":"WorldCup2026/苏格兰-2026-world-cup-report.html","score":62.15,"rating":"C-","accent":"#005EB8","dims":[52,67.5,67,55,50,65,60]},{"name":"奥地利","flag":"🇦🇹","file":"WorldCup2026/奥地利-2026-world-cup-report.html","score":61.45,"rating":"C-","accent":"#cc0000","dims":[56,74,65,55,52,65,58]},{"name":"科特迪瓦","flag":"🇨🇮","file":"WorldCup2026/科特迪瓦-2026-world-cup-report.html","score":58.6,"rating":"D+","accent":"#f77f00","dims":[62,56,65,55,53,56,53]},{"name":"波黑","flag":"🇧🇦","file":"WorldCup2026/波黑-2026-world-cup-report.html","score":50.95,"rating":"D+","accent":"#003399","dims":[47,49.5,58,47,53,56,53]},{"name":"民主刚果","flag":"🇨🇩","file":"WorldCup2026/民主刚果-2026-world-cup-report.html","score":44.05,"rating":"D","accent":"#006838","dims":[40,48,53,32,37,51,50]},{"name":"佛得角","flag":"🇨🇻","file":"WorldCup2026/佛得角-2026-world-cup-report.html","score":42,"rating":"D","accent":"#003893","dims":[34,44,50,28,33,65,58]},{"name":"新西兰","flag":"🇳🇿","file":"WorldCup2026/新西兰-2026-world-cup-report.html","score":40.75,"rating":"D","accent":"#000000","dims":[37.5,41,42,33,34,57,52]},{"name":"海地","flag":"🇭🇹","file":"WorldCup2026/海地-2026-world-cup-report.html","score":38.45,"rating":"D-","accent":"#d21034","dims":[31.5,45,47,27,27,52,47]},{"name":"库拉索","flag":"🇨🇼","file":"WorldCup2026/库拉索-2026-world-cup-report.html","score":36.5,"rating":"D-","accent":"#003da5","dims":[25,48,44,23,26,55,48]}]</script>
+<!-- ── Team Data ── -->
+<script id="teams-data" type="application/json">[{"name":"法国","flag":"🇫🇷","file":"WorldCup2026/法国-2026-world-cup-report.html","score":87.4,"rating":"A+","accent":"#c0392b","dims":[92,85,90,93,78,84,76]},{"name":"巴西","flag":"🇧🇷","file":"WorldCup2026/巴西-2026-world-cup-report.html","score":85.3,"rating":"A","accent":"#009739","dims":[88,90,80,90,85,78,72]},{"name":"葡萄牙","flag":"🇵🇹","file":"WorldCup2026/葡萄牙-2026-world-cup-report.html","score":83.45,"rating":"A","accent":"#DA291C","dims":[86,80,82,88,88,80,75]},{"name":"日本","flag":"🇯🇵","file":"WorldCup2026/日本-2026-world-cup-report.html","score":82.5,"rating":"A-","accent":"#003f8a","dims":[85,82,83,78,80,86,75]},{"name":"西班牙","flag":"🇪🇸","file":"WorldCup2026/西班牙-2026-world-cup-report.html","score":82.1,"rating":"A-","accent":"#AA151B","dims":[87,84,85,77,75,75,75]},{"name":"英格兰","flag":"🇬🇧","file":"WorldCup2026/英格兰-2026-world-cup-report.html","score":79.5,"rating":"B+","accent":"#ce1124","dims":[80,83,85,77,79,70,71]},{"name":"德国","flag":"🇩🇪","file":"WorldCup2026/德国-2026-world-cup-report.html","score":79.3,"rating":"B+","accent":"#000000","dims":[79,82,80,76,82,75,78]},{"name":"比利时","flag":"🇧🇪","file":"WorldCup2026/比利时-2026-world-cup-report.html","score":79.25,"rating":"B+","accent":"#DC2626","dims":[81,76,83,78,85,72,76]},{"name":"克罗地亚","flag":"🇭🇷","file":"WorldCup2026/克罗地亚-2026-world-cup-report.html","score":79.1,"rating":"B+","accent":"#c8102e","dims":[76,82,72,92,78,85,72]},{"name":"韩国","flag":"🇰🇷","file":"WorldCup2026/韩国-2026-world-cup-report.html","score":64.85,"rating":"C","accent":"#e6002e","dims":[65,66,69,70,55,63,60]},{"name":"瑞士","flag":"🇨🇭","file":"WorldCup2026/瑞士-2026-world-cup-report.html","score":63.25,"rating":"C","accent":"#DA291C","dims":[62,64,63,65,64,64,62]},{"name":"瑞典","flag":"🇸🇪","file":"WorldCup2026/瑞典-2026-world-cup-report.html","score":62.45,"rating":"C-","accent":"#005b99","dims":[63,67.5,65,58,51,63,62]},{"name":"苏格兰","flag":"🇬🇧","file":"WorldCup2026/苏格兰-2026-world-cup-report.html","score":62.15,"rating":"C-","accent":"#005EB8","dims":[52,67.5,67,55,50,65,60]},{"name":"奥地利","flag":"🇦🇹","file":"WorldCup2026/奥地利-2026-world-cup-report.html","score":61.45,"rating":"C-","accent":"#cc0000","dims":[56,74,65,55,52,65,58]},{"name":"科特迪瓦","flag":"🇨🇮","file":"WorldCup2026/科特迪瓦-2026-world-cup-report.html","score":58.6,"rating":"D+","accent":"#f77f00","dims":[62,56,65,55,53,56,53]},{"name":"波黑","flag":"🇧🇦","file":"WorldCup2026/波黑-2026-world-cup-report.html","score":50.95,"rating":"D+","accent":"#003399","dims":[47,49.5,58,47,53,56,53]},{"name":"民主刚果","flag":"🇨🇩","file":"WorldCup2026/民主刚果-2026-world-cup-report.html","score":44.05,"rating":"D","accent":"#006838","dims":[40,48,53,32,37,51,50]},{"name":"佛得角","flag":"🇨🇻","file":"WorldCup2026/佛得角-2026-world-cup-report.html","score":42,"rating":"D","accent":"#003893","dims":[34,44,50,28,33,65,58]},{"name":"新西兰","flag":"🇳🇿","file":"WorldCup2026/新西兰-2026-world-cup-report.html","score":40.75,"rating":"D","accent":"#000000","dims":[37.5,41,42,33,34,57,52]},{"name":"海地","flag":"🇭🇹","file":"WorldCup2026/海地-2026-world-cup-report.html","score":38.45,"rating":"D-","accent":"#d21034","dims":[31.5,45,47,27,27,52,47]},{"name":"库拉索","flag":"🇨🇼","file":"WorldCup2026/库拉索-2026-world-cup-report.html","score":36.5,"rating":"D-","accent":"#003da5","dims":[25,48,44,23,26,55,48]}]</script>
+
+<!-- GSAP Scripts -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
 
 <script>
 (function() {
   'use strict';
+
+  // ── Parse teams data
   const teams = JSON.parse(document.getElementById('teams-data').textContent);
+
+  // ── DOM refs
   const grid = document.getElementById('teams-grid');
   const emptyState = document.getElementById('empty-state');
   const totalCountEl = document.getElementById('total-count');
@@ -619,22 +703,80 @@ body {
   const sortArrow = document.getElementById('sort-arrow');
   const searchInput = document.getElementById('search-input');
   const filterTabs = document.querySelectorAll('.filter-tab');
+  const heroPreview = document.getElementById('hero-preview');
+  const heroCount = document.getElementById('hero-count');
+  const heroRating = document.getElementById('hero-rating');
 
   let sortOrder = 'desc';
   let currentFilter = 'all';
   let currentSearch = '';
 
+  // ── Update stat bubbles
   function updateStats(data) {
-    if (!data.length) { totalCountEl.textContent = '0'; return; }
+    if (!data.length) {
+      if (totalCountEl) totalCountEl.textContent = '0';
+      return;
+    }
     const scores = data.map(t => t.score).filter(s => s != null);
-    totalCountEl.textContent = data.length;
+    if (totalCountEl) totalCountEl.textContent = data.length;
     if (avgScoreEl) avgScoreEl.textContent = scores.length ? (scores.reduce((a,b)=>a+b,0)/scores.length).toFixed(1) : '--';
     if (maxScoreEl) maxScoreEl.textContent = scores.length ? Math.max(...scores).toFixed(1) : '--';
     if (minScoreEl) minScoreEl.textContent = scores.length ? Math.min(...scores).toFixed(1) : '--';
   }
 
-  function render() {
-    let filtered = teams;
+  // ── Rating badge style
+  function ratingBadge(rating) {
+    const r = rating || '?';
+    const c = r[0];
+    let cls = 'opr-badge ';
+    if (c === 'A') cls += 'opr-aplus';
+    else if (c === 'B') cls += 'opr-bplus';
+    else cls += 'opr-b';
+    return '<span class="' + cls + '">' + r + '</span>';
+  }
+
+  function ratingColor(r) {
+    const c = (r||'')[0];
+    if (c === 'A') return '#ef4444';
+    if (c === 'B') return '#f59e0b';
+    if (c === 'C') return '#f5cba7';
+    if (c === 'D' || c === 'E') return '#d4d4d4';
+    return '#888';
+  }
+
+  // ── Render hero floating flags (top 4)
+  function renderHeroFlags() {
+    const container = document.getElementById('hero-flags');
+    if (!container) return;
+    const top4 = teams.slice().sort((a,b) => (b.score||0) - (a.score||0)).slice(0, 4);
+    if (top4.length === 0) return;
+    const labels = ['hf-1','hf-2','hf-3','hf-4'];
+    container.innerHTML = top4.map((t,i) =>
+      '<span class="hero-flag ' + labels[i] + '" title="' + t.name + ' ' + (t.rating||'') + '">' + t.flag + '</span>'
+    ).join('');
+  }
+
+  // ── Render hero preview (top 6 teams)
+  function renderHero() {
+    if (!heroPreview) return;
+    const top = teams.slice().sort((a,b) => (b.score||0) - (a.score||0)).slice(0, 6);
+    if (heroCount) heroCount.textContent = teams.length;
+    if (heroRating && top.length > 0) heroRating.textContent = top[0].rating || 'A+';
+    heroPreview.innerHTML = top.map(t => {
+      const si = Math.floor(t.score||0);
+      const sd = t.score != null ? (t.score % 1).toFixed(2).slice(1) : '.00';
+      return '<div class="glass-card rounded-2xl p-5 text-center team-card group">' +
+        '<div class="card-flag">' + t.flag + '</div>' +
+        '<h4 class="font-bold text-white/80">' + t.name + '</h4>' +
+        '<div class="text-xs text-white/25 mb-2">' + si + sd + ' 分</div>' +
+        ratingBadge(t.rating) +
+        '</div>';
+    }).join('');
+  }
+
+  // ── Render team grid
+  function renderGrid() {
+    let filtered = teams.slice();
     if (currentFilter !== 'all') filtered = filtered.filter(t => (t.rating||'').startsWith(currentFilter));
     if (currentSearch.trim()) {
       const q = currentSearch.trim().toLowerCase();
@@ -642,7 +784,12 @@ body {
     }
     filtered.sort((a, b) => sortOrder === 'desc' ? (b.score||0) - (a.score||0) : (a.score||0) - (b.score||0));
     updateStats(filtered);
-    if (filtered.length === 0) { emptyState.classList.remove('hidden'); grid.innerHTML = ''; return; }
+
+    if (filtered.length === 0) {
+      emptyState.classList.remove('hidden');
+      grid.innerHTML = '';
+      return;
+    }
     emptyState.classList.add('hidden');
 
     grid.innerHTML = filtered.map((t, i) => {
@@ -653,57 +800,52 @@ body {
       else if (rank === 3) rc += ' rank-3';
       const si = Math.floor(t.score||0);
       const sd = t.score != null ? (t.score % 1).toFixed(2).slice(1) : '.00';
-      let rcol = '#ef4444';
-      const rt = (t.rating||'')[0];
-      if (rt === 'B') rcol = '#f59e0b';
-      else if (rt === 'C') rcol = '#f5cba7';
-      else if (rt === 'D' || rt === 'E') rcol = '#d4d4d4';
-      return `<div class="team-card card-enter" style="animation-delay:${Math.min(i*40,320)}ms" onclick="window.open('${t.file}','_blank')">
-        <div class="card-accent" style="background:${t.accent}"></div>
-        <div class="card-body">
-          <div class="flex items-start justify-between mb-2">
-            <div><span class="card-flag">${t.flag}</span><h3 class="card-name">${t.name}</h3></div>
-            <div class="${rc}">${rank}</div>
-          </div>
-          <div class="card-filename" title="${t.file}">${t.file}</div>
-          <div class="card-stats">
-            <div><span class="score-display">${si}<span class="decimal">${sd}</span></span></div>
-            <div class="rating-badge" style="background:${rcol}22;color:${rcol};border:1px solid ${rcol}44;">${t.rating||'?'}</div>
-            <a href="${t.file}" target="_blank" class="ml-auto inline-flex items-center gap-1 text-xs font-medium text-gray-500 hover:text-gold transition-colors px-3 py-1.5 rounded-lg bg-white/5 hover:bg-white/10" onclick="event.stopPropagation()">查看详情<svg class="w-3 h-3" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" /></svg></a>
-          </div>
-        </div>
-      </div>`;
+      const rcol = ratingColor(t.rating);
+      return '<div class="team-rank-card card-enter" style="animation-delay:' + Math.min(i*40,320) + 'ms" onclick="window.open(\'' + t.file + '\',\'_blank\')">' +
+        '<div class="card-accent" style="background:' + t.accent + '"></div>' +
+        '<div class="card-body">' +
+        '<div class="flex items-start justify-between mb-2">' +
+        '<div><span class="card-flag">' + t.flag + '</span><h3 class="card-name">' + t.name + '</h3></div>' +
+        '<div class="' + rc + '">' + rank + '</div>' +
+        '</div>' +
+        '<div class="card-filename" title="' + t.file + '">' + t.file + '</div>' +
+        '<div class="card-stats">' +
+        '<div><span class="score-display">' + si + '<span class="decimal">' + sd + '</span></span></div>' +
+        '<div class="rating-badge-sm" style="background:' + rcol + '22;color:' + rcol + ';border:1px solid ' + rcol + '44;">' + (t.rating||'?') + '</div>' +
+        '<a href="' + t.file + '" target="_blank" class="ml-auto inline-flex items-center gap-1 text-xs font-medium text-gray-500 hover:text-gold transition-colors px-3 py-1.5 rounded-lg bg-white/5 hover:bg-white/10" onclick="event.stopPropagation()">查看详情<svg class="w-3 h-3" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" /></svg></a>' +
+        '</div></div></div>';
     }).join('');
   }
 
+  // ── Sort / Filter / Search handlers
   sortBtn.addEventListener('click', function() {
     sortOrder = sortOrder === 'desc' ? 'asc' : 'desc';
     sortLabel.textContent = sortOrder === 'desc' ? '最高优先' : '最低优先';
     sortArrow.classList.toggle('desc', sortOrder === 'desc');
-    render();
+    renderGrid();
   });
+
   filterTabs.forEach(tab => {
     tab.addEventListener('click', function() {
       filterTabs.forEach(t => t.classList.remove('active'));
       this.classList.add('active');
       currentFilter = this.dataset.filter;
-      render();
+      renderGrid();
     });
   });
-  searchInput.addEventListener('input', function() { currentSearch = this.value; render(); });
 
-  // ── OPR Score Table ──
+  searchInput.addEventListener('input', function() {
+    currentSearch = this.value;
+    renderGrid();
+  });
+
+  // ═══════════════════════════════════════════════
+  // OPR 七维度评分明细 Table
+  // ═══════════════════════════════════════════════
   const tableBody = document.getElementById('score-table-body');
   const tableHeaders = document.querySelectorAll('#score-table thead th.sortable');
   let tableSortCol = 7;
   let tableSortAsc = false;
-
-  function ratingColor(r) {
-    const c = (r||'')[0];
-    if (c === 'A') return '#ef4444'; if (c === 'B') return '#f59e0b';
-    if (c === 'C') return '#f5cba7'; if (c === 'D' || c === 'E') return '#d4d4d4';
-    return '#888';
-  }
 
   function scoreClass(v) {
     if (v == null) return '';
@@ -739,7 +881,7 @@ body {
     tableBody.innerHTML = data.map((t, i) => {
       const rank = i + 1;
       const dims = t.dims || [];
-      const dimCells = dims.map((v) => {
+      const dimCells = dims.map(v => {
         const val = v != null ? v : '-';
         return '<td><span class="score-val ' + scoreClass(v) + '">' + val + '</span></td>';
       }).join('');
@@ -755,7 +897,9 @@ body {
   }
 
   const scoreTable = document.getElementById('score-table');
+
   function updateHeaderArrows() {
+    if (!scoreTable) return;
     scoreTable.classList.toggle('dir-asc', tableSortAsc);
     scoreTable.classList.toggle('dir-desc', !tableSortAsc);
     tableHeaders.forEach(function(th) {
@@ -781,17 +925,76 @@ body {
     });
   });
 
+  // ── GSAP Animations ──
+  gsap.registerPlugin(ScrollTrigger);
+  const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  const revealElements = document.querySelectorAll('.scroll-reveal');
+  revealElements.forEach(el => {
+    if (prefersReducedMotion) { el.classList.add('visible'); return; }
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.15, rootMargin: '0px 0px -60px 0px' });
+    observer.observe(el);
+  });
+
+  if (!prefersReducedMotion) {
+    // Hero floating flags: staggered up-down animation
+    document.querySelectorAll('.hero-flag').forEach((el, i) => {
+      gsap.to(el, {
+        y: 20 + i * 5, duration: 3 + i * 0.6, repeat: -1, yoyo: true,
+        ease: 'power1.inOut', delay: i * 0.7
+      });
+    });
+    const bars = document.querySelectorAll('.rating-bar-fill');
+    bars.forEach(bar => {
+      const targetWidth = bar.style.width;
+      bar.style.width = '0%';
+      ScrollTrigger.create({
+        trigger: bar, start: 'top 80%',
+        onEnter: () => { gsap.to(bar, { width: targetWidth, duration: 1.2, ease: 'power2.out' }); },
+        once: true
+      });
+    });
+  }
+
+  // ── Nav shadow on scroll ──
+  const nav = document.querySelector('nav');
+  window.addEventListener('scroll', () => {
+    if (window.scrollY > 50) nav.classList.add('shadow-lg', 'shadow-black/20');
+    else nav.classList.remove('shadow-lg', 'shadow-black/20');
+  });
+
+  // ── Smooth scroll ──
+  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function(e) {
+      e.preventDefault();
+      const target = document.querySelector(this.getAttribute('href'));
+      if (target) target.scrollIntoView({ behavior: 'smooth' });
+    });
+  });
+
+  // ── Initial render ──
+  renderHero();
+  renderHeroFlags();
   renderTable();
   updateHeaderArrows();
-  render();
+  renderGrid();
+
+  console.log('HuaFootball | 2026 World Cup Power Rankings | OPR v2.0');
 })();
 </script>
 
-<!-- ── First Visit Modal ── -->
+<!-- ── Welcome Modal ── -->
 <div id="welcome-modal" class="modal-overlay" style="display:none;">
   <div class="modal-box">
     <div class="modal-icon">⚽</div>
-    <div class="modal-text">是否坚定支持<br><span style="color:#c9a84c;font-weight:700;font-size:1.3em;">华总牛逼</span><br>这个事实？</div>
+    <div class="modal-text">是否坚定支持<br><span style="color:#c8a951;font-weight:700;font-size:1.3em;">华总牛逼</span><br>这个事实？</div>
     <div class="modal-buttons">
       <button class="modal-btn modal-btn-yes" onclick="confirmLoyalty()">是，继续</button>
       <button class="modal-btn modal-btn-no" onclick="leaveSite()">否，退出</button>
@@ -800,7 +1003,6 @@ body {
 </div>
 <script>
 (function() {
-  // First visit check
   if (!localStorage.getItem('huafootball_loyalty')) {
     document.getElementById('welcome-modal').style.display = '';
   }
@@ -813,5 +1015,6 @@ function leaveSite() {
   document.body.innerHTML = '<div style="display:flex;align-items:center;justify-content:center;height:100vh;background:#0a0e0a;color:rgba(255,255,255,0.3);font-family:sans-serif;font-size:1.1rem;">👋 已退出</div>';
 }
 </script>
+
 </body>
 </html>
