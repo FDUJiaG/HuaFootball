@@ -295,38 +295,42 @@
   }
   .modal-btn-no:hover { background: rgba(255,255,255,0.1); color: #ef4444; border-color: rgba(239,68,68,0.3); }
 
-  /* Mobile */
+  /* Mobile — 所有列均可见，窄屏时左右滑动 */
   @media (max-width: 900px) {
-    .score-table { font-size: 0.75rem; }
-    .score-table thead th { padding: 10px 5px; }
-    .score-table thead th.col-name { width: auto; min-width: 85px; }
-    .score-table thead th.col-score { width: 34px; }
-    .score-table thead th.col-rating { width: 32px; }
-    .score-table tbody td { padding: 5px 3px; }
-    .score-table tbody td.td-name { min-width: 85px; }
+    .score-table { font-size: 0.78rem; }
+    .score-table thead th { padding: 10px 6px; }
+    .score-table thead th.col-name { width: auto; min-width: 88px; }
+    .score-table thead th.col-score { width: 36px; }
+    .score-table thead th.col-rating { width: 34px; }
+    .score-table thead th.col-index { width: 26px; }
+    .score-table tbody td { padding: 5px 4px; }
+    .score-table tbody td.td-name { min-width: 88px; }
     .score-table thead th .dim-weight { font-size: 0.55rem; }
-    .score-table tbody td .rating-badge-td { min-width: 28px; height: 24px; font-size: 0.72rem; padding: 0 4px; }
+    .score-table tbody td .rating-badge-td { min-width: 30px; height: 24px; font-size: 0.72rem; padding: 0 4px; }
   }
   @media (max-width: 640px) {
-    .score-table { font-size: 0.7rem; }
-    .score-table thead th { padding: 8px 3px; }
-    .score-table thead th.col-name { min-width: 78px; }
-    .score-table thead th.col-score { width: 30px; }
-    .score-table tbody td { padding: 4px 2px; }
-    .score-table tbody td.td-name { min-width: 78px; }
-    .score-table tbody td .flag-icon-table { font-size: 0.75rem; margin-right: 3px; }
-    .score-table tbody td .rating-badge-td { min-width: 26px; height: 22px; font-size: 0.68rem; padding: 0 3px; }
-    .score-table thead th.col-rating { width: 28px; }
+    .score-table-wrap { border-radius: 10px; }
+    .score-table { font-size: 0.75rem; }
+    .score-table thead th { padding: 8px 4px; }
+    .score-table thead th.col-name { min-width: 82px; }
+    .score-table thead th.col-score { width: 32px; }
+    .score-table thead th.col-rating { width: 30px; }
+    .score-table thead th.col-index { width: 24px; }
+    .score-table tbody td { padding: 4px 3px; }
+    .score-table tbody td.td-name { min-width: 82px; }
+    .score-table tbody td .flag-icon-table { font-size: 0.78rem; margin-right: 3px; }
+    .score-table tbody td .rating-badge-td { min-width: 28px; height: 22px; font-size: 0.68rem; padding: 0 3px; }
   }
   @media (max-width: 480px) {
-    .score-table thead th.col-index { width: 0; overflow: hidden; visibility: hidden; }
-    .score-table thead th.col-index::after { content: '#'; visibility: visible; font-size: 0.6rem; }
-    .score-table tbody td.td-index { font-size: 0.6rem; color: rgba(255,255,255,0.25) !important; }
-    .score-table thead th.col-name { min-width: 72px; }
-    .score-table tbody td.td-name { min-width: 72px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
-    .score-table thead th.col-rating { width: 24px; }
-    .score-table thead th.col-score { width: 26px; }
-    .score-table tbody td .rating-badge-td { min-width: 22px; width: 22px; height: 20px; font-size: 0.6rem; padding: 0; border-radius: 4px; }
+    .score-table { font-size: 0.72rem; }
+    .score-table thead th { padding: 7px 3px; }
+    .score-table thead th.col-name { min-width: 76px; }
+    .score-table thead th.col-score { width: 28px; }
+    .score-table thead th.col-rating { width: 28px; }
+    .score-table tbody td { padding: 4px 2px; }
+    .score-table tbody td.td-name { min-width: 76px; }
+    .score-table tbody td .flag-icon-table { font-size: 0.72rem; margin-right: 2px; }
+    .score-table tbody td .rating-badge-td { min-width: 26px; height: 20px; font-size: 0.65rem; padding: 0 2px; }
   }
 </style>
 </head>
