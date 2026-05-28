@@ -222,8 +222,9 @@
   .score-table thead th.col-index { width: 28px; }
   .score-table thead th.col-name { text-align: left; width: 80px; }
   .score-table thead th.col-score { width: 40px; }
+  .score-table thead th.col-total { width: 54px; }
   .score-table thead th.col-rating { width: 36px; }
-  .score-table tbody td.td-total { font-weight: 600; }
+  .score-table tbody td.td-total { font-weight: 600; overflow: visible; text-overflow: unset; white-space: normal; }
   .score-table tbody td {
     padding: 5px 4px; text-align: center; border-bottom: 1px solid rgba(255,255,255,0.04);
     color: #d0d7d0; transition: background 0.15s; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;
@@ -300,6 +301,7 @@
     .score-table { font-size: 0.78rem; }
     .score-table thead th { padding: 10px 6px; }
     .score-table thead th.col-name { width: auto; min-width: 88px; }
+    .score-table thead th.col-total { width: 48px; }
     .score-table thead th.col-score { width: 36px; }
     .score-table thead th.col-rating { width: 34px; }
     .score-table thead th.col-index { width: 26px; }
@@ -313,6 +315,7 @@
     .score-table { font-size: 0.75rem; }
     .score-table thead th { padding: 8px 4px; }
     .score-table thead th.col-name { min-width: 82px; }
+    .score-table thead th.col-total { width: 44px; }
     .score-table thead th.col-score { width: 32px; }
     .score-table thead th.col-rating { width: 30px; }
     .score-table thead th.col-index { width: 24px; }
@@ -325,6 +328,7 @@
     .score-table { font-size: 0.72rem; }
     .score-table thead th { padding: 7px 3px; }
     .score-table thead th.col-name { min-width: 76px; }
+    .score-table thead th.col-total { width: 40px; }
     .score-table thead th.col-score { width: 28px; }
     .score-table thead th.col-rating { width: 28px; }
     .score-table tbody td { padding: 4px 2px; }
@@ -601,7 +605,7 @@
             <th class="col-index">#</th>
             <th class="col-name">国家队</th>
             <th class="col-rating">评级</th>
-            <th class="col-score sortable" data-sort="7" title="总分">总分<span class="sort-icon"><span class="arrow-up">▲</span><span class="arrow-down">▼</span></span></th>
+            <th class="col-score col-total sortable" data-sort="7" title="总分">总分<span class="sort-icon"><span class="arrow-up">▲</span><span class="arrow-down">▼</span></span></th>
             <th class="col-score sortable" data-sort="0" title="阵容实力（权重30%）">阵容<span class="dim-weight">30%</span><span class="sort-icon"><span class="arrow-up">▲</span><span class="arrow-down">▼</span></span></th>
             <th class="col-score sortable" data-sort="1" title="战术体系与教练（权重20%）">战术<span class="dim-weight">20%</span><span class="sort-icon"><span class="arrow-up">▲</span><span class="arrow-down">▼</span></span></th>
             <th class="col-score sortable" data-sort="2" title="近期竞技状态（权重15%）">状态<span class="dim-weight">15%</span><span class="sort-icon"><span class="arrow-up">▲</span><span class="arrow-down">▼</span></span></th>
