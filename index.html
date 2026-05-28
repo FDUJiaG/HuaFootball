@@ -220,7 +220,7 @@
   .score-table thead th.sortable.asc .sort-icon .arrow-up { display: inline; opacity: 1; color: #4ade80; }
   .score-table thead th.sortable.desc .sort-icon .arrow-down { display: inline; opacity: 1; color: #f97316; }
   .score-table thead th.col-index { width: 28px; }
-  .score-table thead th.col-name { text-align: left; width: 70px; }
+  .score-table thead th.col-name { text-align: left; width: 80px; }
   .score-table thead th.col-score { width: 40px; }
   .score-table thead th.col-rating { width: 36px; }
   .score-table tbody td.td-total { font-weight: 600; }
@@ -296,10 +296,37 @@
   .modal-btn-no:hover { background: rgba(255,255,255,0.1); color: #ef4444; border-color: rgba(239,68,68,0.3); }
 
   /* Mobile */
-  @media (max-width: 1024px) { }
+  @media (max-width: 900px) {
+    .score-table { font-size: 0.75rem; }
+    .score-table thead th { padding: 10px 5px; }
+    .score-table thead th.col-name { width: auto; min-width: 85px; }
+    .score-table thead th.col-score { width: 34px; }
+    .score-table thead th.col-rating { width: 32px; }
+    .score-table tbody td { padding: 5px 3px; }
+    .score-table tbody td.td-name { min-width: 85px; }
+    .score-table thead th .dim-weight { font-size: 0.55rem; }
+    .score-table tbody td .rating-badge-td { min-width: 28px; height: 24px; font-size: 0.72rem; padding: 0 4px; }
+  }
   @media (max-width: 640px) {
-    .score-table thead th.col-name { width: auto; }
-    .score-table tbody td.td-name { min-width: 72px; }
+    .score-table { font-size: 0.7rem; }
+    .score-table thead th { padding: 8px 3px; }
+    .score-table thead th.col-name { min-width: 78px; }
+    .score-table thead th.col-score { width: 30px; }
+    .score-table tbody td { padding: 4px 2px; }
+    .score-table tbody td.td-name { min-width: 78px; }
+    .score-table tbody td .flag-icon-table { font-size: 0.75rem; margin-right: 3px; }
+    .score-table tbody td .rating-badge-td { min-width: 26px; height: 22px; font-size: 0.68rem; padding: 0 3px; }
+    .score-table thead th.col-rating { width: 28px; }
+  }
+  @media (max-width: 480px) {
+    .score-table thead th.col-index { width: 0; overflow: hidden; visibility: hidden; }
+    .score-table thead th.col-index::after { content: '#'; visibility: visible; font-size: 0.6rem; }
+    .score-table tbody td.td-index { font-size: 0.6rem; color: rgba(255,255,255,0.25) !important; }
+    .score-table thead th.col-name { min-width: 72px; }
+    .score-table tbody td.td-name { min-width: 72px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+    .score-table thead th.col-rating { width: 24px; }
+    .score-table thead th.col-score { width: 26px; }
+    .score-table tbody td .rating-badge-td { min-width: 22px; width: 22px; height: 20px; font-size: 0.6rem; padding: 0; border-radius: 4px; }
   }
 </style>
 </head>
@@ -400,7 +427,7 @@
         OPR <span class="gold-text">七维度</span> 战力评级体系
       </h2>
       <p class="text-white/40 max-w-2xl mx-auto leading-relaxed">
-        OPR (Overall Power Rating) 是 HuaFootball 自主研发的国家队综合战力评分模型，
+        OPR (Overall Power Rating) 是 HuaFootball 自主研发的足球国家队综合战力评分模型，
         融合阵容实力、战术体系、竞技状态、大赛经验、赛程分组、团队凝聚、体能伤病七大维度，共 13 档精细评级。
       </p>
     </div>
