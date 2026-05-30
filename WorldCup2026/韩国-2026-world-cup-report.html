@@ -31,6 +31,10 @@ tr:nth-child(even) { background: #f8fafc; }
 .player-card { display: inline-block; background: #f1f5f9; border-radius: 6px; padding: 6px 12px; margin: 3px; font-size: 0.9em; }
 .flag-em { font-size: 1.5em; }
 .highlight-box { background: linear-gradient(135deg, #fee2e2, #fef2f2); border: 1px solid #fecaca; border-radius: 8px; padding: 16px; margin: 12px 0; }
+
+  .overflow-x-auto { overflow-x: auto; -webkit-overflow-scrolling: touch; }
+  .analysis-text { background: #f0f7ff; border-left: 4px solid #e11d48; padding: 16px 20px; margin: 16px 0; border-radius: 8px; font-size: 11pt; line-height: 1.8; }
+  <!-- analysis-text-style-marker -->
 </style>
 </head>
 <body>
@@ -39,7 +43,7 @@ tr:nth-child(even) { background: #f8fafc; }
 
   <!-- Header -->
   <div class="text-center mb-6">
-    <img src="https://www.kfa.or.kr/images/common/logo.png"
+    <img src="./logo/Korea-logo.png"
          alt="韩国足协徽章"
          style="height:90px;width:auto;display:block;margin:0 auto 10px;"
          onerror="this.style.display='none';document.getElementById('logo-fb').style.display='block';" />
@@ -361,23 +365,27 @@ tr:nth-child(even) { background: #f8fafc; }
     </div>
   </div>
 
-  <h3>小组赛预判</h3>
-  <div class="analysis-text">
+  <h3><h3 class="text-lg font-bold">小组赛预判</h3>
+  <div class="overflow-x-auto">
+<div class="analysis-text">
     <p><strong>A组出线概率评估：约45%（小组前两名出线）</strong></p>
     <p><strong>第一场 · 韩国 vs 捷克（6月11日，瓜达拉哈拉）</strong>——<strong>关键之战。</strong>捷克队身材高大（平均身高超过184cm），战术纪律严明，擅长定位球和远射。韩国队需要利用速度优势打捷克转身慢的弱点，同时要避免在禁区内给对手太多定位球机会。预测：<strong>1:1 或 2:1（韩国胜）</strong>。如果首战能拿到3分，出线形势将非常有利。</p>
     <p><strong>第二场 · 墨西哥 vs 韩国（6月18日，瓜达拉哈拉）</strong>——<strong>最艰难一战。</strong>墨西哥作为东道主拥有巨大的主场优势，瓜达拉哈拉是墨西哥足球的重镇。墨西哥的快速短传配合和边路进攻将考验韩国队的防守组织。洪明甫大概率采取务实策略——收缩防守、寻找反击机会。预测：<strong>1:2（韩国负）或 1:1</strong>。如果能拿到1分就是理想结果。</p>
     <p><strong>第三场 · 南非 vs 韩国（6月24日，蒙特雷）</strong>——<strong>生死战。</strong>南非是非洲球队，身体素质出色但战术纪律不及欧洲球队。韩国队需要利用技术优势和比赛经验击败对手，以争取小组出线主动权。预测：<strong>2:0 或 2:1（韩国胜）</strong>。</p>
     <p><strong>综合预期：1胜1平1负，积4分，小组第二或第三出线。</strong>若能击败捷克并在墨西哥身上拿到分数，头名出线并非不可能。</p>
   </div>
+</div>
 
   <h3>淘汰赛路线推演</h3>
-  <div class="analysis-text">
+  <div class="overflow-x-auto">
+<div class="analysis-text">
     <p><strong>场景一（最可能）：A组第二 → 对阵B组第二名</strong></p>
     <p>B组可能包含荷兰（世界级强队）、阿根廷（卫冕冠军种子）等，无论遇到谁都将是极其艰难的比赛。韩国队1/16决赛胜率预估为<strong>25-30%</strong>。</p>
     <p><strong>场景二（理想）：A组第一 → 对阵某个小组第三名</strong></p>
     <p>对阵第三档对手的胜率提升至40-50%，但以小组头名出线可能需要击败墨西哥，这在本届A组中是难度很大的任务。</p>
     <p><strong>八强展望：</strong>无论哪种场景，进入16强后再进一步需要面对几乎肯定是夺冠热门的对手（可能来自法国/巴西/英格兰的路线）。<strong>16强是现实目标，8强需要超常发挥和签运眷顾。</strong></p>
   </div>
+</div>
 
   <h3>OPR综合战力评分</h3>
   <div class="highlight-box">
@@ -445,6 +453,7 @@ tr:nth-child(even) { background: #f8fafc; }
   .huafootball-back-btn:hover svg {
     transform: translateX(-3px) !important;
   }
+.deep-analysis { background: #f0f7ff; border-left: 4px solid #e11d48; padding: 16px 20px; margin: 16px 0; border-radius: 8px; font-size: 11pt; line-height: 1.8; }
 </style>
 
 </body>

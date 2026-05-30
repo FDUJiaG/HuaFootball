@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>阿根廷 · 2026世界杯实力评估报告</title>
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: 'Times New Roman', '楷体', 'KaiTi', serif; background: #fff; color: #222; line-height: 1.8; font-size: 16px; }
+.container { max-width: 1000px; margin: 0 auto; padding: 30px 20px; }
+.header { text-align: center; padding: 40px 0 30px; border-bottom: 3px solid #e74c3c; margin-bottom: 35px; }
+.header h1 { font-size: 32px; color: #1a1a2e; margin-top: 12px; letter-spacing: 2px; }
+.header .subtitle { font-size: 14px; color: #888; margin-top: 6px; }
+.team-badge { text-align: center; margin-bottom: 10px; }
+.team-badge img { height: 90px; width: auto; display: block; margin: 0 auto 10px; }
+.flag-emoji-fallback { display: none; font-size: 4em; margin-bottom: 10px; }
+.section { margin: 35px 0; }
+.section-title { font-size: 22px; color: #e74c3c; border-left: 5px solid #e74c3c; padding-left: 15px; margin-bottom: 20px; }
+.sub-section-title { font-size: 18px; color: #1a1a2e; margin: 20px 0 12px; padding-bottom: 6px; border-bottom: 1px solid #eee; }
+table { width: 100%; border-collapse: collapse; margin: 12px 0; font-size: 14px; }
+th { background: #1a1a2e; color: #fff; padding: 10px 12px; text-align: left; font-weight: bold; }
+td { padding: 9px 12px; border-bottom: 1px solid #eee; }
+tr:nth-child(even) { background: #fafafa; }
+tr:hover { background: #fff5f5; }
+.score-table th { background: #e74c3c; }
+.score-cell { font-weight: bold; text-align: center; }
+.rating-box { text-align: center; padding: 25px; background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%); color: #fff; border-radius: 8px; margin: 20px 0; }
+.rating-box .score { font-size: 48px; font-weight: bold; color: #e74c3c; }
+.rating-box .rating { font-size: 36px; color: #ffd700; margin: 8px 0; }
+.rating-box .detail { font-size: 14px; color: #aaa; }
+.radar-table { margin: 15px 0; }
+.radar-table td:first-child { font-weight: bold; min-width: 140px; }
+.progress-bar { height: 12px; background: #f0f0f0; border-radius: 6px; overflow: hidden; min-width: 300px; }
+.progress-fill { height: 100%; border-radius: 6px; }
+.analysis-text { background: #fafafa; padding: 16px 20px; border-radius: 6px; border-left: 4px solid #e74c3c; margin: 12px 0; line-height: 1.9; text-indent: 2em; }
+.info-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; margin: 15px 0; }
+.info-item { background: #fafafa; padding: 14px 18px; border-radius: 6px; border-left: 3px solid #e74c3c; }
+.info-item .label { font-size: 12px; color: #888; }
+.info-item .value { font-size: 16px; font-weight: bold; color: #1a1a2e; }
+.player-highlight { background: #fff8e1; padding: 14px 18px; border-radius: 6px; margin: 12px 0; border-left: 4px solid #ffd700; }
+.player-highlight .name { font-size: 17px; font-weight: bold; color: #1a1a2e; }
+.player-highlight .detail { font-size: 14px; color: #555; margin-top: 6px; line-height: 1.8; }
+.conclusion-box { background: #1a1a2e; color: #fff; padding: 20px 25px; border-radius: 8px; margin: 20px 0; font-size: 18px; text-align: center; font-style: italic; }
+@media (max-width: 768px) {
+  .info-grid { grid-template-columns: 1fr; }
+  table { font-size: 12px; }
+  .header h1 { font-size: 22px; }
+}
+</style>
+</head>
+<body>
+
+<div class="container">
+
+<!-- HEADER -->
+<div class="header">
+  <div class="team-badge">
+    <img src="./logo/Agentristana-logo.png"
+         alt="阿根廷足协 AFA 蓝白盾徽"
+         onerror="this.style.display='none';document.getElementById('logo-fb').style.display='block';" />
+    <div id="logo-fb" class="flag-emoji-fallback">🇦🇷</div>
+  </div>
+  <h1>🇦🇷 阿根廷 · 2026世界杯实力评估报告</h1>
+  <div class="subtitle">La Albiceleste · Group J | 评估日期：2026年5月30日</div>
+</div>
+
+<!-- BASIC INFO -->
+<div class="section">
+  <div class="section-title">（一）球队基本信息</div>
+  <div class="info-grid">
+    <div class="info-item"><div class="label">主教练</div><div class="value">莱昂内尔·斯卡洛尼（2018年起执教）</div></div>
+    <div class="info-item"><div class="label">FIFA世界排名</div><div class="value">第2位</div></div>
+    <div class="info-item"><div class="label">全队总身价</div><div class="value">€8.17亿</div></div>
+    <div class="info-item"><div class="label">平均年龄</div><div class="value">29.0岁</div></div>
+    <div class="info-item"><div class="label">世界杯参赛次数</div><div class="value">第14次</div></div>
+    <div class="info-item"><div class="label">世界杯最好成绩</div><div class="value">冠军 🏆（1978/1986/2022，共3次）</div></div>
+    <div class="info-item"><div class="label">上届（2022）成绩</div><div class="value">冠军 🏆（决赛点球胜法国）</div></div>
+    <div class="info-item"><div class="label">近期大赛成绩</div><div class="value">🏆 2024美洲杯冠军</div></div>
+  </div>
+
+  <div class="sub-section-title">26人大名单</div>
+  <p style="margin:8px 0 4px;color:#555;font-size:13px;">📅 公布日期：2026年5月28日 | 队长：莱昂内尔·梅西（38岁/第6届世界杯）</p>
+
+  <div style="overflow-x:auto;">
+  <table>
+    <thead><tr><th>位置</th><th>球员姓名</th><th>英文名</th><th>俱乐部</th><th>年龄</th><th>身价</th></tr></thead>
+    <tbody>
+      <tr><td rowspan="3" style="text-align:center;"><strong>GK</strong></td><td>埃米利亚诺·马丁内斯</td><td>Emiliano Martínez</td><td>阿斯顿维拉（英超）</td><td>33</td><td>€1500万</td></tr>
+      <tr><td>赫罗尼莫·鲁利</td><td>Geronimo Rulli</td><td>马赛（法甲）</td><td>34</td><td>€800万</td></tr>
+      <tr><td>胡安·穆索</td><td>Juan Musso</td><td>马德里竞技（西甲）</td><td>32</td><td>€300万</td></tr>
+      <tr><td rowspan="8" style="text-align:center;"><strong>DF</strong></td><td>克里斯蒂安·罗梅罗</td><td>Cristian Romero</td><td>热刺（英超）</td><td>28</td><td>€5000万</td></tr>
+      <tr><td>利桑德罗·马丁内斯</td><td>Lisandro Martínez</td><td>曼联（英超）</td><td>28</td><td>€4000万</td></tr>
+      <tr><td>莱昂纳多·巴莱尔迪</td><td>Leonardo Balerdi</td><td>马赛（法甲）</td><td>27</td><td>€1800万</td></tr>
+      <tr><td>法昆多·梅迪纳</td><td>Facundo Medina</td><td>马赛（法甲）</td><td>27</td><td>€1800万</td></tr>
+      <tr><td>纳韦尔·莫利纳</td><td>Nahuel Molina</td><td>马德里竞技（西甲）</td><td>28</td><td>€1500万</td></tr>
+      <tr><td>尼古拉斯·塔利亚菲科</td><td>Nicolás Tagliafico</td><td>里昂（法甲）</td><td>33</td><td>€500万</td></tr>
+      <tr><td>冈萨洛·蒙铁尔</td><td>Gonzalo Montiel</td><td>河床（阿甲）</td><td>29</td><td>€450万</td></tr>
+      <tr><td>尼古拉斯·奥塔门迪</td><td>Nicolás Otamendi</td><td>本菲卡（葡超）</td><td>38</td><td>€100万</td></tr>
+      <tr><td rowspan="7" style="text-align:center;"><strong>MF</strong></td><td style="background:#fff8e1;">🌟 恩佐·费尔南德斯</td><td style="background:#fff8e1;">Enzo Fernández</td><td style="background:#fff8e1;">切尔西（英超）</td><td style="background:#fff8e1;">25</td><td style="background:#fff8e1;">€9000万</td></tr>
+      <tr><td style="background:#fff8e1;">🌟 亚历克西斯·麦卡利斯特</td><td style="background:#fff8e1;">Alexis Mac Allister</td><td style="background:#fff8e1;">利物浦（英超）</td><td style="background:#fff8e1;">27</td><td style="background:#fff8e1;">€8000万</td></tr>
+      <tr><td>罗德里戈·德保罗</td><td>Rodrigo De Paul</td><td>迈阿密国际（美职联）</td><td>32</td><td>€1500万</td></tr>
+      <tr><td>莱安德罗·帕雷德斯</td><td>Leandro Paredes</td><td>博卡青年（阿甲）</td><td>31</td><td>€500万</td></tr>
+      <tr><td>吉奥瓦尼·洛塞尔索</td><td>Giovani Lo Celso</td><td>皇家贝蒂斯（西甲）</td><td>30</td><td>€1000万</td></tr>
+      <tr><td>埃克塞基耶尔·帕拉西奥斯</td><td>Exequiel Palacios</td><td>勒沃库森（德甲）</td><td>27</td><td>€2500万</td></tr>
+      <tr><td>瓦伦丁·巴尔科</td><td>Valentín Barco</td><td>斯特拉斯堡（法甲）</td><td>21</td><td>€3500万</td></tr>
+      <tr><td rowspan="8" style="text-align:center;background:#fff8e1;"><strong>FW</strong></td><td style="background:#fff8e1;">🌟 莱昂内尔·梅西 <span style="color:#e74c3c;">(C)</span></td><td style="background:#fff8e1;">Lionel Messi</td><td style="background:#fff8e1;">迈阿密国际（美职联）</td><td style="background:#fff8e1;">38</td><td style="background:#fff8e1;">€1500万</td></tr>
+      <tr><td style="background:#fff8e1;">🌟 朱利安·阿尔瓦雷斯</td><td style="background:#fff8e1;">Julián Álvarez</td><td style="background:#fff8e1;">马德里竞技（西甲）</td><td style="background:#fff8e1;">26</td><td style="background:#fff8e1;">€9000万</td></tr>
+      <tr><td style="background:#fff8e1;">🌟 劳塔罗·马丁内斯</td><td style="background:#fff8e1;">Lautaro Martínez</td><td style="background:#fff8e1;">国际米兰（意甲）</td><td style="background:#fff8e1;">28</td><td style="background:#fff8e1;">€8500万</td></tr>
+      <tr><td>尼古拉斯·冈萨雷斯</td><td>Nicolás González</td><td>马德里竞技（西甲）</td><td>28</td><td>€2400万</td></tr>
+      <tr><td>蒂亚戈·阿尔马达</td><td>Thiago Almada</td><td>马德里竞技（西甲）</td><td>25</td><td>€2000万</td></tr>
+      <tr><td>朱利亚诺·西蒙尼</td><td>Giuliano Simeone</td><td>马德里竞技（西甲）</td><td>23</td><td>€4000万</td></tr>
+      <tr><td>尼古拉斯·帕斯</td><td>Nicolás Paz</td><td>科莫（意甲）</td><td>21</td><td>€8000万</td></tr>
+      <tr><td>何塞·洛佩斯</td><td>José López</td><td>帕尔梅拉斯（巴甲）</td><td>25</td><td>€2500万</td></tr>
+    </tbody>
+  </table>
+  </div>
+
+  <div class="sub-section-title">世界杯历史战绩</div>
+  <table>
+    <thead><tr><th>年份</th><th>成绩</th><th>备注</th></tr></thead>
+    <tbody>
+      <tr><td>1930年</td><td>亚军</td><td>首届世界杯，决赛2-4负乌拉圭</td></tr>
+      <tr><td><strong>1978年（阿根廷）</strong></td><td><strong>冠军 🏆</strong></td><td>肯佩斯6球，决赛3-1荷兰本土夺冠</td></tr>
+      <tr><td><strong>1986年（墨西哥）</strong></td><td><strong>冠军 🏆</strong></td><td>马拉多纳"上帝之手"+"连过五人"，决赛3-2西德</td></tr>
+      <tr><td>1990年（意大利）</td><td>亚军</td><td></td></tr>
+      <tr><td>2014年（巴西）</td><td>亚军</td><td>决赛加时0-1德国</td></tr>
+      <tr><td><strong>2022年（卡塔尔）</strong></td><td><strong>冠军 🏆</strong></td><td>梅西7球，决赛3-3后点球胜法国，第三冠🏆</td></tr>
+      <tr><td>其他</td><td colspan="2">1934八强、1998八强、2006八强、2010八强</td></tr>
+    </tbody>
+  </table>
+  <p style="margin:8px 0;"><strong>其他荣誉：</strong> 🏆 16次美洲杯冠军（历史最多） | 🏆 2022年世界杯冠军（卫冕冠军）</p>
+
+  <div class="sub-section-title">晋级之路 & 斯卡洛尼时代</div>
+  <p style="margin:8px 0;">阿根廷在南美区预选赛中以南美第一名的身份强势晋级——在安切洛蒂的巴西和马丁内斯（已离任）的乌拉圭之上，展现了卫冕冠军的统治力。莱昂内尔·斯卡洛尼自2018年接手以来，将阿根廷从2018年世界杯16强的低谷带到了2022年世界杯冠军和2024美洲杯冠军的巅峰——他是阿根廷足球历史上最成功的主教练之一。这支阿根廷保留了2022年夺冠的核心班底（梅西、迪布·马丁内斯、恩佐、麦卡利斯特、阿尔瓦雷斯、罗梅罗），同时注入了年轻血液（帕斯/€8000万、西蒙尼、巴尔科）。38岁的梅西将参加他的第6届世界杯（超越C罗的6届——两人并列历史第一），这届世界杯极有可能是梅西和阿根廷"黄金一代"的告别演出。阿根廷在J组（阿尔及利亚、奥地利、约旦）的签运极佳，小组出线毫无悬念。阿根廷的目标只有一个：成为自1962年巴西之后第一支成功卫冕世界杯的球队。</p>
+</div>
+
+<!-- DIMENSION SCORING -->
+<div class="section">
+  <div class="section-title">（二）逐项评分明细（七维度深度拆解）</div>
+
+  <!-- Dim 1 -->
+  <div class="sub-section-title">维度一：阵容实力（权重30%）｜ 得分：81分 × 30% = 24.3分</div>
+  <table class="score-table">
+    <thead><tr><th style="width:28%;">子项</th><th style="width:7%;">得分</th><th>简要评价</th></tr></thead>
+    <tbody>
+      <tr><td><strong>1.1 球星质量与个人能力</strong>（占比35%）</td><td class="score-cell" style="color:#e74c3c;">85</td><td>阿根廷拥有足球史上最伟大的球员——莱昂内尔·梅西（38岁/迈阿密国际/第6届世界杯）。虽然38岁的梅西已不再是2022年那个扛着阿根廷一路夺冠的"超人"，但他的足球智慧、传球视野和关键时刻的决策能力仍然是世界顶级——2022年世界杯7球3助攻的数据已载入史册。除梅西外，恩佐·费尔南德斯（切尔西/€9000万）是2022年世界杯最佳年轻球员，他的传球覆盖和远射能力在英超经受了考验。朱利安·阿尔瓦雷斯（马竞/€9000万）以不知疲倦的跑动和关键进球著称——2022年世界杯4球的表现证明了他的大场面能力。亚历克西斯·麦卡利斯特（利物浦/€8000万）是世界足坛最全面的中场之一。劳塔罗·马丁内斯（国米/€8500万）是意甲最稳定的射手之一。克里斯蒂安·罗梅罗（热刺/€5000万）是英超顶级中后卫。全队身价超€8000万的球员5人——虽然总数不及法国（€14.8亿）的豪华，但核心球员的"冠军经验"弥补了身价上的差距。</td></tr>
+      <tr><td><strong>1.2 各位置均衡度</strong>（占比25%）</td><td class="score-cell" style="color:#27ae60;">80</td><td>阿根廷的均衡度呈现"中场强、前后平衡"的格局。中场是球队最强环节——恩佐+麦卡利斯特+德保罗的三中场在2022年世界杯上已经证明了攻守兼备的完美配合：恩佐负责纵向传球和组织，麦卡利斯特负责创造力和后插上得分，德保罗负责防守扫荡和拼抢。前锋线的人才储备同样出色——梅西+阿尔瓦雷斯+劳塔罗的三人组在2022年世界杯上贡献了14球。后防线的强度略逊一筹——罗梅罗（热刺）是世界级中卫，但他的搭档利桑德罗·马丁内斯（曼联/28岁）近两个赛季伤病较多，奥塔门迪（38岁/本菲卡）已经年迈。门将位置是阿根廷的最大优势之一——"迪布"马丁内斯（阿斯顿维拉/33岁）是2022年世界杯金手套得主，他在点球大战中的统治力是卫冕冠军的重要武器。</td></tr>
+      <tr><td><strong>1.3 板凳深度</strong>（占比20%）</td><td class="score-cell" style="color:#27ae60;">78</td><td>€8.17亿的阵容深度在南美仅次于巴西，但整体水平在争冠球队中不算突出。前锋线替补深度不错——冈萨雷斯（马竞）、阿尔马达（马竞）和西蒙尼（马竞）都在西蒙尼的体系下成长，提供了不同的战术选项。中场深度尚可——帕拉西奥斯（勒沃库森）和洛塞尔索（贝蒂斯）是可靠的轮换球员，巴尔科（斯特拉斯堡）是年轻未来之星。后防线的替补深度是最大的短板——巴莱尔迪（马赛）和梅迪纳（马赛）缺乏大赛经验，蒙铁尔（河床）已经回到南美联赛。如果罗梅罗或利桑德罗·马丁内斯在淘汰赛阶段受伤，阿根廷的防守实力将出现明显降级。</td></tr>
+      <tr><td><strong>1.4 总身价与年龄结构</strong>（占比20%）</td><td class="score-cell" style="color:#e67e22;">76</td><td>€8.17亿总身价排名本届世界杯中上游（约第9-10位）。平均年龄29.0岁是本届最年长的阵容之一——与巴西（29.2岁）和葡萄牙（28.0岁）类似，但阿根廷的问题更加突出：核心球员的老化发生在最关键的进攻端。梅西38岁、奥塔门迪38岁、迪布·马丁内斯33岁、塔利亚菲科33岁、德保罗32岁——5名2022年夺冠的核心球员已经比那时老了4岁。2022年阿根廷的平均年龄是27.7岁，2026年已经上升到29.0岁——4年的老化对"团队执行力"和"体能耐久度"的影响是显著的。好消息是中生代核心（恩佐25、麦卡利斯特27、阿尔瓦雷斯26、罗梅罗28、劳塔罗28）正处于黄金年龄——他们是阿根廷"卫冕计划"的中坚力量。年轻血液（帕斯21、巴尔科21、西蒙尼23）正在融入球队，为后梅西时代的过渡做准备。</td></tr>
+    </tbody>
+  </table>
+
+  <!-- Dim 2 -->
+  <div class="sub-section-title">维度二：战术体系与教练（权重20%）｜ 得分：87分 × 20% = 17.4分</div>
+  <table class="score-table">
+    <thead><tr><th style="width:28%;">子项</th><th style="width:7%;">得分</th><th>简要评价</th></tr></thead>
+    <tbody>
+      <tr><td><strong>2.1 主帅战术哲学与大赛履历</strong>（占比40%）</td><td class="score-cell" style="color:#e74c3c;">88</td><td>莱昂内尔·斯卡洛尼是本届世界杯上最成功的主教练之一——2022年世界杯冠军、2024美洲杯冠军、2022年南美年度最佳教练。他从2018年接手阿根廷队，在四年内将一支"混乱、天赋浪费"的球队（2018年16强被法国淘汰）打造成了一支"团结、纪律、无情"的冠军之师。他的战术哲学以"防守稳固+梅西自由"为核心——阿根廷在2022年世界杯上的防守表现（7场比赛仅失5球，其中3球是决赛对法国的）是现代杯赛防守的教科书。斯卡洛尼的最大成就不是战术创新（他的4-3-3体系并不花哨），而是"精神和更衣室管理"——他成功地将一支曾经被"梅西依赖症"困扰的球队转变为一支"梅西是领袖但全队都在贡献"的集体。这可能是阿根廷过去10届大赛（从2006到2022）中最大的一步跨越。</td></tr>
+      <tr><td><strong>2.2 阵型适配性与球员契合度</strong>（占比30%）</td><td class="score-cell" style="color:#e74c3c;">85</td><td>斯卡洛尼的4-3-3/4-4-2双阵型体系与阿根廷球员的特点高度契合。梅西在"伪9号"或"自由人"角色的使用方式是斯卡洛尼最精妙的设计——梅西不再固定在右边锋位置（那是他在巴萨2010年代的定位），而是可以在前场自由游走，经常回撤到中场接球组织、拉边创造空间、或突入禁区完成终结。德保罗+恩佐+麦卡利斯特的中场三人组是"防守→推进→创造"三部曲的完美演绎：德保罗负责破坏和对抗，恩佐负责接应和组织，麦卡利斯特负责创造和后插上。双前锋（阿尔瓦雷斯+劳塔罗）的无球跑动和压迫为梅西创造了巨大的空间。后防线上罗梅罗的侵略性上抢+利桑德罗·马丁内斯的出球能力形成了理想的互补中卫组合。这套体系已经经过了2022年世界杯和2024美洲杯的实战检验——最大的优势是"所有球员都知道自己的角色"。</td></tr>
+      <tr><td><strong>2.3 攻守转换效率</strong>（占比15%）</td><td class="score-cell" style="color:#e74c3c;">85</td><td>斯卡洛尼的阿根廷在攻守转换中强调"安全优先"——与法国的快速纵贯反击不同，阿根廷更倾向于在赢回球权后通过梅西的持球来谨慎推进。由守转攻时，球通常会交给梅西（回撤到中圈附近），由他来决定进攻方向——这种"以梅西为支点"的转换模式虽然降低了速度，但大幅降低了丢球风险。由攻转守时，阿根廷采取"全队收缩"的策略——除梅西外，所有球员在丢球后都会迅速回撤到本方半场，形成一个紧凑的防守阵型。这种"先守住再想办法"的策略在2022年世界杯上被证明非常有效——阿根廷在7场比赛中从未在运动战中输给对手超过1球。定位球方面，阿根廷在2022年世界杯上通过定位球打入了4球——这是他们夺冠的关键武器之一。</td></tr>
+      <tr><td><strong>2.4 临场指挥与换人策略</strong>（占比15%）</td><td class="score-cell" style="color:#e74c3c;">87</td><td>斯卡洛尼在2022年世界杯决赛中的临场指挥已经载入史册——法国队在80分钟内将0-2的比分追平至2-2后，斯卡洛尼在加时赛前做出了关键调整（换上了帕雷德斯和劳塔罗），最终在加时赛中重新取得领先（梅西的补射），虽然又被扳平，最终在点球大战中获胜。他的换人风格以"稳健"著称——他很少在70分钟前做出换人（除非伤病），倾向于让首发球员在比赛中建立节奏。他最大的优势是"不慌张"——无论比分如何（落后、领先、被追平），他在场边的表情始终如一，这种冷静传递给了球员。他唯一的争议是在小组赛中对沙特阿拉伯的"轻敌"（阿根廷1-2被逆转），但他在那场比赛后迅速调整了球队的心态——事实上，那场失利可能是阿根廷最终夺冠的关键转折点。</td></tr>
+    </tbody>
+  </table>
+
+  <!-- Dim 3 -->
+  <div class="sub-section-title">维度三：近期竞技状态（权重15%）｜ 得分：85分 × 15% = 12.75分</div>
+  <table class="score-table">
+    <thead><tr><th style="width:28%;">子项</th><th style="width:7%;">得分</th><th>简要评价</th></tr></thead>
+    <tbody>
+      <tr><td><strong>3.1 近12个月正式比赛战绩</strong>（占比40%）</td><td class="score-cell" style="color:#e74c3c;">88</td><td>阿根廷在近12个月的正式比赛中保持了冠军级别的统治力。南美区预选赛以不败战绩力压巴西排名第一——18轮比赛13胜4平1负，进38球失10球，攻防两端的数据在南美均排名第一。2024美洲杯冠军的成就是阿根廷在这四年周期中最亮眼的成绩单——决赛1-0击败哥伦比亚，展现了卫冕冠军在"一场定胜负"比赛中的决断力。阿根廷近15场正式比赛仅1负（南美预选赛客场1-2负于乌拉圭），整体状态稳定且令人信服。卫冕冠军的"自信光环"是阿根廷最大的无形优势——这支球队知道如何赢下"必须赢"的比赛。</td></tr>
+      <tr><td><strong>3.2 预选赛出线含金量</strong>（占比30%）</td><td class="score-cell" style="color:#e74c3c;">85</td><td>阿根廷以CONMEBOL第一名出线的含金量极高——南美区预选赛是公认的世界杯最难晋级通道，而阿根廷以不可撼动的优势领先第二名巴西（6分差距）完赛。客场战绩尤其令人印象深刻——在海拔3600米的拉巴斯（对阵玻利维亚）和2850米的基多（对阵厄瓜多尔）都取得了胜利。主场5-0大胜巴西的比赛是预选赛中具有象征意义的胜利——它不仅巩固了阿根廷在南美的统治地位，也向世界展示了卫冕冠军的强大火力。</td></tr>
+      <tr><td><strong>3.3 核心球员俱乐部状态走势</strong>（占比30%）</td><td class="score-cell" style="color:#e67e22;">82</td><td>核心球员的俱乐部状态整体良好但存在隐忧。劳塔罗·马丁内斯（国米/€8500万）本赛季意甲21球——是意甲金靴的有力竞争者，他的终结能力达到了职业生涯巅峰。朱利安·阿尔瓦雷斯（马竞/€9000万）在马竞的处子赛季贡献了15球8助攻——完美适应了西蒙尼的体系。麦卡利斯特（利物浦/€8000万）在利物浦的第二个赛季保持了稳定的输出（英超8球7助攻）。令人担忧的是恩佐·费尔南德斯（切尔西/€9000万）——他在切尔西的两个赛季表现不稳定（受到俱乐部动荡的影响），虽然天赋毋庸置疑但同时缺乏持续高光的表现。迪布·马丁内斯（维拉）的英超表现略有下滑（维拉本赛季的防守数据不如前两个赛季）。梅西（迈阿密国际）在美职联的表现依然出色（本赛季17球12助攻），但美职联的比赛强度与世界杯不在一个维度。</td></tr>
+    </tbody>
+  </table>
+
+  <!-- Dim 4 -->
+  <div class="sub-section-title">维度四：大赛经验与心理素质（权重10%）｜ 得分：88分 × 10% = 8.8分</div>
+  <table class="score-table">
+    <thead><tr><th style="width:28%;">子项</th><th style="width:7%;">得分</th><th>简要评价</th></tr></thead>
+    <tbody>
+      <tr><td><strong>4.1 世界杯/洲际杯历史战绩</strong>（占比40%）</td><td class="score-cell" style="color:#e74c3c;">85</td><td>阿根廷是世界杯历史上最成功的南美球队之一——3次冠军（1978/1986/2022）、3次亚军（1930/1990/2014），共6次进入决赛——这一数字在全球范围内仅次于德国（8次）和巴西（7次）。2022年世界杯冠军结束了阿根廷长达36年的冠军荒（自1986年马拉多纳时代以来）。近五届世界杯的成绩（2006八强/2010八强/2014亚军/2018十六强/2022冠军）在南美球队中仅次于巴西。16次美洲杯冠军（历史最多）进一步巩固了阿根廷在洲际赛事中的统治地位。从历史地位来看，阿根廷是无可争议的"大赛型球队"——他们的足球文化中将"为国家赢得奖杯"视为最高荣誉。</td></tr>
+      <tr><td><strong>4.2 核心球员大赛经验值</strong>（占比35%）</td><td class="score-cell" style="color:#e74c3c;">90</td><td>阿根廷的核心球员大赛经验是本届世界杯最丰富、最成功的——全队有12名球员是2022年世界杯冠军成员。梅西（38岁）第6次参加世界杯——他是世界杯历史上出场次数最多（26场）的球员之一，2022年世界杯7球3助攻获得了金球奖。迪布·马丁内斯是2022年世界杯金手套得主——他在决赛点球大战中扑出了法国队的两个点球。恩佐·费尔南德斯、麦卡利斯特、阿尔瓦雷斯、劳塔罗、德保罗、罗梅罗等人不仅赢得了世界杯冠军，还赢得了2024美洲杯冠军——他们知道"如何赢下重要的比赛"。这种"赢家经验"在世界杯淘汰赛的关键时刻可能是决定性的——当比赛进入加时赛或点球大战时，拥有"我们上一次做到了"的信念会带来巨大的心理优势。</td></tr>
+      <tr><td><strong>4.3 抗压与逆境应对</strong>（占比25%）</td><td class="score-cell" style="color:#e74c3c;">88</td><td>阿根廷在斯卡洛尼时代的抗压能力已经从"脆弱"（2018年16强被法国4-3淘汰）蜕变为"坚不可摧"（2022年冠军）。2022年世界杯决赛是阿根廷抗压能力的最好证明——从2-0领先到2-2被追平，再到3-2重新领先、3-3再次被追平，最终点球获胜——阿根廷在这一场比赛的120分钟内经历了领先→被追平→再领先→再被追平→点球获胜的全部心理轨迹，最终笑着走出了球场。小组赛首战1-2负于沙特阿拉伯是另一个反向证明——那场失利后斯卡洛尼没有陷入恐慌，而是冷静地调整了战术和心态，之后连续赢下6场比赛直至夺冠。阿根廷点球大战的历史记录相当出色（世界杯点球大战4胜1负，包括2022年决赛对法国）。"不放弃"的阿根廷精神是斯卡洛尼时代最重要的文化成果。</td></tr>
+    </tbody>
+  </table>
+
+  <!-- Dim 5 -->
+  <div class="sub-section-title">维度五：分组及赛程影响（权重10%）｜ 得分：82分 × 10% = 8.2分</div>
+  <table class="score-table">
+    <thead><tr><th style="width:28%;">子项</th><th style="width:7%;">得分</th><th>简要评价</th></tr></thead>
+    <tbody>
+      <tr><td><strong>5.1 小组赛对手分析</strong>（占比40%）</td><td class="score-cell" style="color:#e74c3c;">85</td><td>J组的签运对阿根廷来说非常有利。阿尔及利亚（FIFA第33）是非洲劲旅——拥有马赫雷斯等球星，但整体实力与卫冕冠军有明显差距。奥地利（FIFA第23）是欧洲中坚力量——战术纪律良好但缺乏顶级球星。约旦（FIFA第70）是亚洲球队，实力与阿根廷相差多个档次。阿根廷的首战对手是阿尔及利亚（6月16日）——这是一场需要认真对待但不能用尽全力的比赛。次战奥地利（6月22日）是小组中理论上的最强对手——如果阿根廷此前已战胜阿尔及利亚，这场比赛基本可以锁定出线。末战约旦（6月27日）可以让斯卡洛尼大幅轮换核心球员为淘汰赛储备体能。阿根廷在小组赛中最大的敌人是"自己"——避免重蹈2022年首战沙特阿拉伯的覆辙，保持专注和尊重每一个对手。</td></tr>
+      <tr><td><strong>5.2 淘汰赛晋级路线预判</strong>（占比35%）</td><td class="score-cell" style="color:#27ae60;">80</td><td>如果阿根廷以小组第一出线（概率约80%），16强对手将是I组第二（可能是塞内加尔/挪威中的一支）——这是一个有利的对阵。八强战将是真正的考验——对手可能来自上半区（法国/英格兰/荷兰）。最有可能的八强对阵是阿根廷vs荷兰（2022年八强的重演）或阿根廷vs英格兰。如果进入四强，对手可能是巴西或西班牙。阿根廷的卫冕之路大概率需要击败两到三支欧洲顶级强队——这是一条难度极高的卫冕路线。有利因素是：阿根廷在斯卡洛尼时代对欧洲球队的战绩非常出色（包括2022年决赛击败法国、2024美洲杯预选赛击败意大利等）。</td></tr>
+      <tr><td><strong>5.3 旅途与气候因素</strong>（占比25%）</td><td class="score-cell" style="color:#e67e22;">78</td><td>阿根廷的三场小组赛分布在堪萨斯城（对阵阿尔及利亚）和阿灵顿/达拉斯（对阵奥地利和约旦）两地。堪萨斯城6月的气候温暖（25-30°C），阿灵顿（得克萨斯州）6月的天气炎热潮湿（30-35°C），这对阿根廷球员来说是一个需要适应的环境——南美地区的6月是冬季，气温通常在10-20°C。两地之间的飞行距离约1.5小时，旅途疲劳在可控范围内。小组赛最后一轮在达拉斯进行的高温比赛可能需要斯卡洛尼在淘汰赛前的比赛中做好核心球员的体能管理。</td></tr>
+    </tbody>
+  </table>
+
+  <!-- Dim 6 -->
+  <div class="sub-section-title">维度六：团队凝聚力与场外环境（权重10%）｜ 得分：84分 × 10% = 8.4分</div>
+  <table class="score-table">
+    <thead><tr><th style="width:28%;">子项</th><th style="width:7%;">得分</th><th>简要评价</th></tr></thead>
+    <tbody>
+      <tr><td><strong>6.1 更衣室团结度</strong>（占比35%）</td><td class="score-cell" style="color:#e74c3c;">90</td><td>阿根廷的更衣室团结度是本届世界杯所有参赛队中最高的——没有之一。2022年世界杯冠军团队的凝聚力和情感纽带已经超越了"队友"的范畴，被阿根廷媒体形容为"兄弟连"。梅西作为队长的领导风格是"以身作则"——他在训练中的投入、在比赛中的坦然面对逆境、在更衣室中的低调但有力的讲话——使他在球员群体中获得了无条件的尊重。德保罗被称为"梅西的保镖"——这象征着老将们对核心球员的保护和支持。恩佐、麦卡利斯特、阿尔瓦雷斯等年轻球员在2022年世界杯后与老将们形成了极深的信任关系。斯卡洛尼的大使级管理风格——温和但坚定——维持了这种团结。阿根廷足球历史上曾经因为"帮派斗争"（巴萨帮vs皇马帮等）而分裂，但在斯卡洛尼和梅西的领导下，这种分裂已经成为过去。</td></tr>
+      <tr><td><strong>6.2 足协稳定性与管理</strong>（占比35%）</td><td class="score-cell" style="color:#27ae60;">80</td><td>阿根廷足协（AFA）的运营水平在南美属于一流。斯卡洛尼的合同延续至世界杯结束后，合同问题不会影响备战。AFA为世界杯提供了高质量的后勤保障——包括在北美设立训练营等。阿根廷足协历史上最著名的成就是维持了"国家队优先"的文化——在2022年世界杯前，AFA确保了球队有充足的热身赛和备战时间。AFA的管理虽然不如欧洲顶级足协（如DFB、FA）那样专业，但在梅西和斯卡洛尼的"光环效应"下，近年来AFA的运营效率有了显著提升。</td></tr>
+      <tr><td><strong>6.3 国内舆论与媒体压力</strong>（占比30%）</td><td class="score-cell" style="color:#27ae60;">80</td><td>阿根廷国内的舆论环境是"热情而包容"的——2022年世界杯冠军极大地缓解了阿根廷媒体和球迷的"冠军饥渴"。36年的等待结束之后，阿根廷球迷对球队的态度从"不夺冠就是失败"转变为"享受梅西的最后一届世界杯"。斯卡洛尼在阿根廷国内享有极高的声望——即使在预选赛中偶尔失分，媒体也很少对他进行严苛的批评。梅西的告别巡演叙事也降低了媒体对成绩的极端期待——虽然"卫冕"是一个隐含的目标，但整体舆论氛围比2022年更加轻松积极。</td></tr>
+    </tbody>
+  </table>
+
+  <!-- Dim 7 -->
+  <div class="sub-section-title">维度七：体能储备与伤病控制（权重5%）｜ 得分：80分 × 5% = 4.0分</div>
+  <table class="score-table">
+    <thead><tr><th style="width:28%;">子项</th><th style="width:7%;">得分</th><th>简要评价</th></tr></thead>
+    <tbody>
+      <tr><td><strong>7.1 赛季疲劳度评估</strong>（占比40%）</td><td class="score-cell" style="color:#27ae60;">80</td><td>阿根廷核心球员的赛季疲劳度处于可控范围。劳塔罗（国米）和阿尔瓦雷斯（马竞）经历了完整的意甲/西甲赛季，比赛负荷合理。恩佐（切尔西）在英超经历了完整的赛季（约38场），体能储备良好。麦卡利斯特（利物浦）同样经历了完整的英超赛季（约42场）。梅西在美职联的赛季负荷较轻（美职联34轮常规赛+季后赛），加上他的迈阿密国际未能进入季后赛，他获得了比其他欧洲联赛球员更长的休息时间——这对38岁的老将来说是一个利好消息。迪布·马丁内斯（维拉）在英超完整赛季后保持了良好的竞技状态。</td></tr>
+      <tr><td><strong>7.2 关键伤病与恢复情况</strong>（占比35%）</td><td class="score-cell" style="color:#e67e22;">78</td><td>阿根廷的伤病状况是"核心健康、无重大缺席"——这对卫冕冠军来说是最好的赛前消息。26人名单中的全部球员都没有重大伤病问题。利桑德罗·马丁内斯（曼联）在赛季末段曾因肌肉问题短暂休战，但已正常恢复训练并入选大名单。梅西（38岁）的身体状况（尤其是肌肉疲劳和恢复速度）是斯卡洛尼最关注的议题——他本赛季在美职联保持了20场以上的出场记录，并且没有遭遇严重伤病。阿根廷在2022年世界杯上展现了出色的伤病管理能力——在整个大赛期间没有球员因伤缺席关键比赛。</td></tr>
+      <tr><td><strong>7.3 医疗团队与保障水平</strong>（占比25%）</td><td class="score-cell" style="color:#e74c3c;">82</td><td>阿根廷足协的医疗团队配置在南美属于顶级水准。AFA为世界杯配备了经验丰富的队医、物理治疗师和体能教练团队。阿根廷足球在运动医学领域有一定的积累——阿根廷球员在欧洲顶级联赛的广泛分布使AFA的医疗团队有机会接触到最前沿的运动医学知识。本届世界杯上，阿根廷将在美国东海岸运营自己的训练和恢复中心。迪布·马丁内斯等球员在英超接受的医疗支持也是阿根廷国家队医疗资源的有力补充。</td></tr>
+    </tbody>
+  </table>
+</div>
+
+<!-- OVERALL SCORE -->
+<div class="section">
+  <div class="section-title">（三）综合总分与评级</div>
+  <div class="rating-box">
+    <div class="score">83.8</div>
+    <div style="font-size:16px;color:#ccc;margin-bottom:5px;">加权总分 / 100</div>
+    <div class="rating">A</div>
+    <div class="detail">一流强队，四强有力竞争者</div>
+  </div>
+
+  <table class="radar-table">
+    <thead><tr><th>评估维度</th><th>得分</th><th>权重</th><th>加权得分</th><th>可视化</th></tr></thead>
+    <tbody>
+      <tr><td>① 阵容实力</td><td>81</td><td>30%</td><td>24.30</td><td><div class="progress-bar"><div class="progress-fill" style="width:81%;background:#e74c3c;"></div></div></td></tr>
+      <tr><td>② 战术体系与教练</td><td>87</td><td>20%</td><td>17.40</td><td><div class="progress-bar"><div class="progress-fill" style="width:87%;background:#e67e22;"></div></div></td></tr>
+      <tr><td>③ 近期竞技状态</td><td>85</td><td>15%</td><td>12.75</td><td><div class="progress-bar"><div class="progress-fill" style="width:85%;background:#f1c40f;"></div></div></td></tr>
+      <tr><td>④ 大赛经验与心理素质</td><td>88</td><td>10%</td><td>8.80</td><td><div class="progress-bar"><div class="progress-fill" style="width:88%;background:#3498db;"></div></div></td></tr>
+      <tr><td>⑤ 分组及赛程影响</td><td>82</td><td>10%</td><td>8.20</td><td><div class="progress-bar"><div class="progress-fill" style="width:82%;background:#9b59b6;"></div></div></td></tr>
+      <tr><td>⑥ 团队凝聚力与场外环境</td><td>84</td><td>10%</td><td>8.40</td><td><div class="progress-bar"><div class="progress-fill" style="width:84%;background:#2ecc71;"></div></div></td></tr>
+      <tr><td>⑦ 体能储备与伤病控制</td><td>80</td><td>5%</td><td>4.00</td><td><div class="progress-bar"><div class="progress-fill" style="width:80%;background:#1abc9c;"></div></div></td></tr>
+    </tbody>
+    <tfoot>
+      <tr style="font-weight:bold;background:#f0f0f0;">
+        <td>综合总分</td><td colspan="2" style="text-align:center;">83.8</td><td style="color:#e74c3c;font-size:16px;">A级</td><td></td></tr>
+      </tr>
+    </tfoot>
+  </table>
+</div>
+
+<!-- DEEP ANALYSIS -->
+<div class="section">
+  <div class="section-title">（四）深度球评</div>
+
+  <div class="sub-section-title">核心优势</div>
+
+  <div class="player-highlight">
+    <div class="name">👑 莱昂内尔·梅西——最后一届世界杯的GOAT告别</div>
+    <div class="detail">莱昂内尔·梅西（38岁/第6届世界杯）是世界杯历史上最伟大的球员——没有之一。1次冠军（2022）、1次亚军（2014）、1次金球奖（2022）、13球8助攻（世界杯历史总数据）——这些数字已经不需要更多的修饰。38岁的梅西已经不再是那个可以在90分钟内通过个人盘带过掉5个人的球员，但他进化成了另一个版本——一个"用大脑踢球"的终极版本。他在2022年世界杯上的表现（7球3助攻）定义了"老将的完美告别"——他不再需要跑遍全场，而是精准地选择在"最需要他的时刻和位置"出现。他在决赛中的两粒进球（点球和补射）展示了他的"大心脏"——在世界杯决赛这样的终极舞台上，梅西第6次参赛、第2次进入决赛，他的经验是无价的。2026年世界杯是梅西职业生涯的最后一届大赛（他已明确表示将在世界杯后退出国家队），全队上下都希望用一座奖杯送别他们的GOAT。拥有梅西的阿根廷——永远是冠军的有力竞争者。</div>
+  </div>
+
+  <div class="player-highlight">
+    <div class="name">🤝 "兄弟连"的冠军羁绊——足球史上最团结的更衣室之一</div>
+    <div class="detail">阿根廷队的团队凝聚力是本届世界杯所有参赛队中最强大的——这个"隐形优势"在杯赛淘汰赛中的价值可能超过任何战术安排。2022年世界杯夺冠后，这支球队在压力、逆境和胜利中建立起的情感纽带已经超越了"国家队队友"的关系，被广泛认为是足球史上最团结的团队之一。恩佐·费尔南德斯在转会切尔西后表达过"在国家队踢球是我职业生涯最快乐的事情"——一个年薪千万的英超球员说出这样的话，深刻反映了斯卡洛尼建立的球队文化。梅西的无私领导、德保罗的"保镖"式保护、阿尔瓦雷斯的勤勉、迪布·马丁内斯的激情——每个人的角色都被明确定义并乐于接受。这种"集体大于个人"的文化在世界杯——这个压力最大、最容易产生内讧的舞台上——是一项被严重低估的竞争力。当其他球队（比如法国、巴西）需要处理"巨星太多如何排兵布阵"的烦恼时，阿根廷只需要问一个问题："我们能再为梅西赢一次吗？"</div>
+  </div>
+
+  <div class="player-highlight">
+    <div class="name">⚙️ 斯卡洛尼——从"临时工"到"冠军教父"</div>
+    <div class="detail">莱昂内尔·斯卡洛尼的执教故事是本届世界杯最不可思议的传奇之一。2018年世界杯后，他以"临时工"的身份接手阿根廷队——当时他没有任何一线队执教经验，唯一的管理履历是担任阿根廷U20主帅。4年后，他成为了世界杯冠军教头。他的成功没有秘密公式——没有革命性的战术创新、没有华丽的进攻体系。他的秘诀是"精神管理+防守纪律+梅西最优使用"。斯卡洛尼最大的成就是解决了阿根廷足球15年来的顽疾——"梅西依赖症"——他没有让队友依赖梅西拯救，而是让梅西融入到一支真正平等的团队中。他在2022年世界杯决赛中的临场调整（加时赛前换上帕雷德斯加强中场防守）是世界杯历史上最被低估的关键战术决策之一。作为卫冕冠军的主教练，斯卡洛尼面对的最大挑战不是战术，而是"保持饥饿感"——让已经赢得一切的球员再次燃起对冠军的渴望。</div>
+  </div>
+
+  <div class="sub-section-title">致命短板</div>
+
+  <div class="player-highlight">
+    <div class="name">⚠️ 年龄——4年光阴，卫冕冠军的核心老了4岁</div>
+    <div class="detail">阿根廷是本届世界杯上所有争冠球队中"核心老化"最明显的球队。2022年的夺冠阵容在2026年整体老化了4岁——这不是一个线性的变化：4年对于30岁以上的球员意味着爆发力和恢复能力的大幅下滑。关键位置的年龄变化令人担忧：奥塔门迪从34岁长到了38岁（中卫/速度劣势放大）、迪布·马丁内斯从29岁到33岁（门将位置相对影响小）、梅西从35岁到38岁（体能储备明显下降）、德保罗从28岁到32岁（跑动能力下降）、塔利亚菲科从29岁到33岁（边后卫的冲刺次数减少）。在世界杯三周内最多7场的密集赛程中，这种"集体老化"可能导致两种后果：第一，小组赛阶段的轮换需求增加（意味着更多替补球员上场）；第二，淘汰赛末段（80分钟后）防守专注力的下降。2022年世界杯阿根廷在7场比赛中后程（75分钟后）的失球率为0——这个数据在2026年可能因球员年龄增长而改变。</div>
+  </div>
+
+  <div class="player-highlight">
+    <div class="name">⚠️ "卫冕诅咒"——24年无队能卫冕的历史重量</div>
+    <div class="detail">自1962年巴西成功卫冕世界杯以来，没有任何一支球队能够连续两届赢得世界杯——这是一个持续了整整64年的"卫冕诅咒"。法国（1998冠军/2002小组出局）、意大利（2006冠军/2010小组出局）、西班牙（2010冠军/2014小组出局）、德国（2014冠军/2018小组出局）——上一个卫冕冠军的遭遇都是小组赛出局。这个"诅咒"背后的逻辑是复杂的：第一，冠军球队在下一个周期中会被所有对手"重点研究"；第二，冠军球员容易产生"满足感"（已经赢得了最重要的奖杯）；第三，4年的年龄增长对核心阵容的影响可能致命。阿根廷要打破这个横亘64年的魔咒，需要比2022年更加专注、更加饥饿。斯卡洛尼需要确保球员们不会因为"我们已经做到了"而放松——而是将"再做一次"作为新的挑战。拥有梅西可能是对抗"卫冕诅咒"的最强催化剂——因为全队都知道这是梅西的最后一届，他们想为他们的GOAT再赢一次。</div>
+  </div>
+
+  <div class="sub-section-title">关键先生</div>
+
+  <div class="player-highlight">
+    <div class="name">🌟 莱昂内尔·梅西 (Lionel Messi) — 前锋/队长 · 38岁 · 迈阿密国际 · 第6届世界杯</div>
+    <div class="detail">阿根廷的队长、灵魂和Goat。梅西在2022年世界杯上的表现（7球3助攻/金球奖/决赛2球）定义了"伟大的最后一舞"——38岁的他来到2026年的北美，不是为了证明自己（他已经不需要证明任何事），而是为了"再跳一支舞"。他的角色已经从"进球机器"进化为"创造大师"——在斯卡洛尼的体系中，他回撤到中场接球、用传球撕裂防线、在关键时刻出现在禁区内完成终结。他的最大价值已经不是90分钟内的持续输出——而是"在最重要的时刻创造不可能"。2022年决赛对法国的表现——被追平后，他在加时赛中打入关键进球——是他职业生涯的缩影：最好的球员在最关键的时刻做出最大的贡献。2026年世界杯是梅西在国际舞台上的最后演出——不论结局如何，足球世界将用最高的敬意送别这位历史上最伟大的球员。</div>
+  </div>
+
+  <div class="player-highlight">
+    <div class="name">🌟 埃米利亚诺·马丁内斯 (Emiliano Martínez) — 门将 · 33岁 · 阿斯顿维拉</div>
+    <div class="detail">"迪布"·马丁内斯——2022年世界杯金手套得主、阿根廷点球大战的守护神、世界足坛最具个性的大赛型门将。他在2022年世界杯上的点球大战表现（对阵荷兰扑出2个、对阵法国扑出1个）使他成为了阿根廷夺冠的第二大功臣（仅次于梅西）。他的心理战技巧（在对方罚点球时的垃圾话、迷惑性的晃动）是他在点球大战中的独特武器。33岁的他正处于门将的黄金年龄——他的反应速度没有明显下降，大赛经验达到了顶峰。在阿根廷的防守体系中，他是"最后一道防线"和"进攻第一发起者"（他的快速手抛球是阿根廷反击的武器之一）。如果阿根廷在2026年世界杯上再次进入点球大战——拥有迪布·马丁内斯的球队永远拥有心理优势。</div>
+  </div>
+
+  <div class="player-highlight">
+    <div class="name">🌟 朱利安·阿尔瓦雷斯 (Julián Álvarez) — 前锋 · 26岁 · 马德里竞技 · €9000万</div>
+    <div class="detail">阿根廷阵中"身价最高（并列）"的球员——阿尔瓦雷斯在2022年世界杯上的4个进球使他成为了梅西之外最重要的进攻火力贡献者。26岁的他正处于职业生涯的巅峰期——他在马竞的处子赛季贡献了15球8助攻，完美适应了西蒙尼的高强度体系。他的最大价值是"多面性"——他可以踢中锋（当劳塔罗需要休息时）、影子前锋（配合梅西的传球）或边锋（利用速度冲击对手防线）。他在无球状态下的压迫（场均前场抢断1.8次）是斯卡洛尼防守体系的第一道防线。他不知疲倦的奔跑和永不放弃的精神完美代表了斯卡洛尼时代的阿根廷特质——"天赋+勤奋"。如果阿根廷想要卫冕，阿尔瓦雷斯需要在2026年复制2022年的高产表现——他是梅西和劳塔罗之间的完美桥梁。</div>
+  </div>
+
+  <div class="player-highlight">
+    <div class="name">🌟 亚历克西斯·麦卡利斯特 (Alexis Mac Allister) — 中场 · 27岁 · 利物浦 · €8000万</div>
+    <div class="detail">阿根廷的中场"创造力引擎"——麦卡利斯特在利物浦的第二个赛季已经成长为英超最全面的中场之一（8球7助攻）。27岁的他正处于职业生涯的巅峰期——他的传球视野、盘带能力和后插上得分完美补充了恩佐的组织和德保罗的防守。在斯卡洛尼的4-3-3体系中，他的角色是中场三人组中的"创造者"——负责在对手防线之间接球、创造机会、并为梅西提供有威胁的传球选择。他在2022年世界杯上对阵波兰的进球和决赛中对阵法国的关键传球已经证明了他在大赛中的冷静。如果恩佐（切尔西）的状态存在波动，麦卡利斯特将成为阿根廷中场最可靠的创造力来源。他与恩佐的"八号位"搭档被广泛认为将在2026世界杯上成为阿根廷中场的核心驱动。</div>
+  </div>
+
+  <div class="player-highlight">
+    <div class="name">🌟 克里斯蒂安·罗梅罗 (Cristian Romero) — 中后卫 · 28岁 · 热刺 · €5000万</div>
+    <div class="detail">阿根廷后防线的"斗士"——罗梅罗是斯卡洛尼防守体系中最重要的球员。28岁的他是英超最具侵略性和对抗性的中后卫之一——他的场均抢断（2.5次）、拦截（1.8次）和对空中球的统治力（争顶成功率75%）使他成为了热刺和阿根廷双料防线的核心。他在2022年世界杯上的表现是阿根廷7场仅失5球的关键——他的侵略性上抢和"先碰球再碰人"的防守风格在淘汰赛阶段有效地破坏了对手的进攻节奏。他的搭档利桑德罗·马丁内斯（曼联）因伤病问题状态起伏，因此罗梅罗承担了更多的防守责任。他的最大劣势是"纪律性"——他有时会因为过于激进的防守动作而吃牌（本赛季英超8张黄牌）。在世界杯淘汰赛中，一张不必要的黄牌或红牌可能毁掉阿根廷的整个卫冕梦想。</div>
+  </div>
+
+</div>
+
+<!-- GROUP PREDICTION -->
+<div class="section">
+  <div class="section-title">（五）小组赛预判与淘汰赛路线推演</div>
+
+  <div class="sub-section-title">📋 J组赛程与预测</div>
+  <table>
+    <thead><tr><th>轮次</th><th>日期</th><th>对阵</th><th>预测</th></tr></thead>
+    <tbody>
+      <tr><td>第1轮</td><td>6月16日</td><td>🇩🇿 阿尔及利亚 vs 🇦🇷 阿根廷</td><td><strong>硬仗开局</strong> — 阿尔及利亚非洲劲旅，但阿根廷整体实力和技术优势明显。预测：2-0或3-1阿根廷胜</td></tr>
+      <tr><td>第2轮</td><td>6月22日</td><td>🇦🇹 奥地利 vs 🇦🇷 阿根廷</td><td><strong>巩固出线</strong> — 奥地利战术纪律好但缺乏球星，梅西的创造力可撕开防线。预测：2-0阿根廷胜</td></tr>
+      <tr><td>第3轮</td><td>6月27日</td><td>🇯🇴 约旦 vs 🇦🇷 阿根廷</td><td><strong>轮换战</strong> — 约旦实力悬殊，阿根廷可大幅轮换核心球员。预测：3-0或4-0阿根廷胜</td></tr>
+    </tbody>
+  </table>
+
+  <div class="sub-section-title">🏆 小组出线概率</div>
+  <table>
+    <thead><tr><th>出线形式</th><th>概率</th></tr></thead>
+    <tbody>
+      <tr><td>小组第一出线</td><td>约80%</td></tr>
+      <tr><td>小组第二出线</td><td>约18%</td></tr>
+      <tr><td>小组出局</td><td>&lt;2%</td></tr>
+    </tbody>
+  </table>
+
+  <div class="sub-section-title">🔄 淘汰赛路线</div>
+  <p style="margin:8px 0;">以小组第一出线：16强vs I组第二 → 八强vs H组第一/第二（法国🇫🇷/荷兰🇳🇱）→ 四强vs 巴西🇧🇷/德国🇩🇪</p>
+  <p style="margin:8px 0;"><strong>核心判断</strong>：阿根廷小组出线概率>98%，八强约55%，四强约30%，卫冕（夺冠）约12%。阿根廷虽然不是本届世界杯阵容最豪华的球队（身价€8.17亿仅排名第9），但他们拥有"冠军心态+梅西+斯卡洛尼"这三个其他球队无法复制的最强变量。卫冕道路上最大的对手不是法国或巴西——而是"64年无队卫冕的诅咒"和自己。</p>
+</div>
+
+<!-- FINAL VERDICT -->
+<div class="section">
+  <div class="section-title">（六）大师结语</div>
+  <div class="conclusion-box">
+    "4年前，他们在卡塔尔圆了一个国家36年的梦。4年后，梅西38岁，奥塔门迪38岁，迪布33岁——那支冠军之师老了4岁，但那颗冠军之心从未老去。J组的对手（阿尔及利亚、奥地利、约旦）只是卫冕之路的前奏，真正的战场在八强——对阵法国或荷兰。如果阿根廷能够跨越64年无人打破的'卫冕诅咒'——那将是梅西职业生涯最伟大的成就，甚至超越2022年。因为卫冕比夺冠更难——所有对手都在研究你、所有球员都比你年轻、最大的敌人是那四座已经拥有了的冠军奖杯。斯卡洛尼说：'我们不是来捍卫什么，我们是来再次征服。'——这就是阿根廷的态度。无论结果如何，能见证梅西在世界杯舞台上的最后一支舞，是这个时代球迷最大的幸运。Vamos Argentina——为了第三颗星之上的第四颗。"</div>
+</div>
+
+<!-- DATA SOURCE -->
+<div class="section" style="margin-top:30px;padding-top:20px;border-top:1px solid #eee;font-size:12px;color:#999;">
+  <p><strong>数据来源：</strong>FIFA官方排名、Transfermarkt身价数据库、AFA阿根廷足协官方公告、SoccerGraph/USA Today阵容报道、英超/西甲/意甲赛季数据、CONMEBOL预选赛数据</p>
+  <p>报告生成时间：2026年5月30日 | 技能：world-cup-team-evaluator | 模型：Deepseek-V4-Flash</p>
+</div>
+
+</div>
+
+<!-- HuaFootball: back-to-home button -->
+<a href="../index.html" class="huafootball-back-btn" target="_self">
+  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5"/><path d="M12 19l-7-7 7-7"/></svg>
+  返回首页
+</a>
+<style>
+.huafootball-back-btn {
+  position:fixed!important;bottom:28px!important;right:28px!important;z-index:99999!important;
+  display:inline-flex!important;align-items:center!important;gap:6px!important;
+  padding:10px 22px!important;background:rgba(26,71,42,0.85)!important;color:#c8a951!important;
+  border:1px solid rgba(200,169,81,0.3)!important;border-radius:999px!important;
+  font-family:"Inter","PingFang SC",system-ui,sans-serif!important;font-size:13px!important;
+  font-weight:600!important;text-decoration:none!important;
+  backdrop-filter:blur(8px)!important;-webkit-backdrop-filter:blur(8px)!important;
+  box-shadow:0 4px 20px rgba(0,0,0,0.3)!important;transition:all .25s ease!important;
+  cursor:pointer!important;user-select:none!important;
+}
+.huafootball-back-btn:hover {
+  background:rgba(26,71,42,0.95)!important;border-color:rgba(200,169,81,0.5)!important;
+  box-shadow:0 6px 28px rgba(200,169,81,0.2)!important;transform:translateY(-2px)!important;
+}
+.huafootball-back-btn svg { transition:transform .2s ease!important; }
+.huafootball-back-btn:hover svg { transform:translateX(-3px)!important; }
+</style>
+
+</body>
+</html>

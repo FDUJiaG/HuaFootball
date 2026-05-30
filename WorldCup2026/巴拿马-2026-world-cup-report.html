@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>巴拿马 · 2026世界杯实力评估报告</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+tailwind.config = { theme: { extend: { colors: { pa: { blue: '#0055A4', red: '#D21034', white: '#FFFFFF', gold: '#FFD700' } }, fontFamily: { 'kai': ['KaiTi','STKaiti','SimKai','serif'], 'serif': ['Times New Roman','serif'] } } } }
+</script>
+<style>
+  body { font-family: KaiTi, STKaiti, SimKai, 'Times New Roman', serif; font-size: 11pt; }
+  .container { max-width: 1100px; margin: 0 auto; padding: 20px; }
+  h1 { font-size: 2em; } h2 { font-size: 1.5em; border-bottom: 3px solid #0055A4; padding-bottom: 8px; margin-top: 30px; }
+  h3 { font-size: 1.2em; margin-top: 20px; }
+  table { width: 100%; border-collapse: collapse; font-size: 11pt; }
+  th, td { border: 1px solid #ddd; padding: 8px 12px; text-align: left; }
+  th { background-color: #0055A4; color: white; font-weight: bold; }
+  tr:nth-child(even) { background-color: #f8f9fa; }
+  .score-bar { height: 20px; border-radius: 10px; background: #eee; overflow: hidden; }
+  .score-fill { height: 100%; border-radius: 10px; }
+  .dimension-card { background: white; border-radius: 12px; padding: 20px; margin-bottom: 20px; box-shadow: 0 2px 8px rgba(0,0,0,0.08); border-left: 5px solid #D21034; }
+  .subitem { margin: 12px 0; padding: 12px; background: #f8f9fa; border-radius: 8px; }
+  .subitem h4 { color: #0055A4; font-weight: bold; margin-bottom: 6px; }
+  .summary-box { background: linear-gradient(135deg, #0055A4, #D21034); border-radius: 16px; padding: 25px; margin: 20px 0; color: white; }
+  .badge { display: inline-block; padding: 2px 10px; border-radius: 12px; font-size: 0.85em; font-weight: bold; }
+  .badge-gk { background: #4CAF50; color: white; } .badge-df { background: #2196F3; color: white; }
+  .badge-mf { background: #FF9800; color: white; } .badge-fw { background: #f44336; color: white; }
+  .deep-analysis { background: #f0f7ff; border-left: 4px solid #0055A4; padding: 16px 20px; margin: 16px 0; border-radius: 8px; font-size: 11pt; line-height: 1.8; }
+  .overflow-x-auto { overflow-x: auto; -webkit-overflow-scrolling: touch; }
+</style>
+</head>
+<body class="bg-gray-50">
+<div class="container">
+
+<div class="section text-center bg-white rounded-2xl shadow-lg p-8 mb-8">
+  <img src="https://cdn.prod.website-files.com/68f550992570ca0322737dc2/68fa03dbda5fde2275779f0d_panama-national-team-footballlogos-org.png" alt="巴拿马国家队队徽" style="height:90px;width:auto;display:block;margin:0 auto 10px;" onerror="this.style.display='none';document.getElementById('logo-fb').style.display='block';" />
+  <div id="logo-fb" style="display:none;font-size:4em;margin-bottom:10px;">🇵🇦</div>
+  <h1 class="text-4xl font-bold mt-4" style="color:#0055A4;">巴拿马 · 2026世界杯实力评估报告</h1>
+  <p class="text-gray-500 mt-2">报告生成日期：2026年5月30日 · 2026美加墨世界杯</p>
+  <div class="mt-3 p-2 inline-block bg-blue-50 rounded-lg border border-blue-200"><p class="text-sm"><strong>🇵🇦 运河军团再临：2018年首秀后时隔8年回归 · L组对阵英格兰+克罗地亚+加纳 · 戈多伊领军</strong></p></div>
+</div>
+
+<h2 style="color:#0055A4;">（一）球队基本信息</h2>
+<div class="bg-white rounded-xl shadow p-6 mb-6">
+  <div class="grid md:grid-cols-2 gap-4">
+    <div>
+      <p><strong>主教练：</strong>托马斯·克里斯蒂安森（Thomas Christiansen）— 丹麦出生，前西班牙国脚</p>
+      <p><strong>队长：</strong>阿尼瓦尔·戈多伊（Aníbal Godoy）— 圣迭戈FC，36岁</p>
+      <p><strong>FIFA排名：</strong>约第52位（截至2026年5月）</p>
+      <p><strong>世界杯参赛次数：</strong>第2次（2018/2026）</p>
+      <p><strong>世界杯最佳成绩：</strong>小组赛（2018年，小组第三）</p>
+      <p><strong>上届（2022）成绩：</strong>未晋级</p>
+    </div>
+    <div>
+      <p><strong>小组赛：</strong>L组</p>
+      <p><strong>同组对手：</strong>英格兰 🏴󠁧󠁢󠁥󠁮󠁧󠁿、克罗地亚 🇭🇷（B+级）、加纳 🇬🇭</p>
+      <p><strong>首战：</strong>6月17日 vs 加纳（多伦多）— 唯一可能拿分的比赛</p>
+      <p><strong>次战：</strong>6月23日 vs 克罗地亚（多伦多）</p>
+      <p><strong>末轮：</strong>6月27日 vs 英格兰（新泽西）</p>
+      <div class="mt-2 p-2 bg-green-50 rounded"><p class="text-sm"><strong>📜 2018首秀：小组赛1-2比利时、0-3英格兰、1-0突尼斯——首胜是巴拿马足球永恒的骄傲</strong></p></div>
+    </div>
+  </div>
+</div>
+
+<h3 class="text-xl font-bold" style="color:#0055A4;">26人大名单（3 GK + 10 DF + 9 MF + 4 FW）</h3>
+<p class="text-gray-500 text-sm mb-3">* 5月26日公布 · 克里斯蒂安森执教 · 穆里略（贝西克塔斯）最大牌 · 仅4前锋</p>
+
+<div class="bg-white rounded-xl shadow p-6 mb-6" style="overflow-x:auto;">
+  <table>
+    <thead><tr><th>位置</th><th>球员姓名</th><th>英文名</th><th>俱乐部</th><th>联赛</th></tr></thead>
+    <tbody>
+      <tr><td><span class="badge badge-gk">GK</span></td><td>奥兰多·莫斯克拉</td><td>Orlando Mosquera</td><td>阿尔费哈</td><td>沙特联</td></tr>
+      <tr><td><span class="badge badge-gk">GK</span></td><td>路易斯·梅希亚</td><td>Luis Mejía</td><td>国民竞技</td><td>巴拉圭甲</td></tr>
+      <tr><td><span class="badge badge-gk">GK</span></td><td>塞萨尔·萨穆迪奥</td><td>César Samudio</td><td>马拉松</td><td>洪都拉斯甲</td></tr>
+      <tr><td><span class="badge badge-df">DF</span></td><td>塞萨尔·布莱克曼</td><td>César Blackman</td><td>布拉迪斯拉发</td><td>斯洛伐克超</td></tr>
+      <tr><td><span class="badge badge-df">DF</span></td><td>豪尔赫·古铁雷斯</td><td>Jorge Gutiérrez</td><td>拉瓜伊拉</td><td>委内瑞拉超</td></tr>
+      <tr><td><span class="badge badge-df">DF</span></td><td><strong>阿米尔·穆里略</strong></td><td><strong>Amir Murillo</strong></td><td><strong>贝西克塔斯</strong></td><td>土超</td></tr>
+      <tr><td><span class="badge badge-df">DF</span></td><td>菲德尔·埃斯科巴</td><td>Fidel Escobar</td><td>萨普里萨</td><td>哥斯达黎加甲</td></tr>
+      <tr><td><span class="badge badge-df">DF</span></td><td>安德烈斯·安德拉德</td><td>Andrés Andrade</td><td>LASK林茨</td><td>奥超</td></tr>
+      <tr><td><span class="badge badge-df">DF</span></td><td>埃德加多·法里尼亚</td><td>Edgardo Fariña</td><td>下诺夫哥罗德</td><td>俄超</td></tr>
+      <tr><td><span class="badge badge-df">DF</span></td><td><strong>何塞·科尔多瓦</strong></td><td><strong>José Córdoba</strong></td><td><strong>诺维奇城</strong></td><td>英冠</td></tr>
+      <tr><td><span class="badge badge-df">DF</span></td><td>埃里克·戴维斯</td><td>Eric Davis</td><td>阿马多尔广场</td><td>巴拿马甲</td></tr>
+      <tr><td><span class="badge badge-df">DF</span></td><td>希奥瓦尼·拉莫斯</td><td>Jiovani Ramos</td><td>卡贝略港</td><td>委内瑞拉超</td></tr>
+      <tr><td><span class="badge badge-df">DF</span></td><td>罗德里克·米勒</td><td>Roderick Miller</td><td>图兰</td><td>阿塞超</td></tr>
+      <tr><td><span class="badge badge-mf">MF</span></td><td><strong>⭐ 阿尼瓦尔·戈多伊 (C)</strong></td><td><strong>Aníbal Godoy</strong></td><td><strong>圣迭戈FC</strong></td><td>美职联</td></tr>
+      <tr><td><span class="badge badge-mf">MF</span></td><td>阿达尔贝托·卡拉斯奎利亚</td><td>Adalberto Carrasquilla</td><td>普马斯</td><td>墨超</td></tr>
+      <tr><td><span class="badge badge-mf">MF</span></td><td>卡洛斯·哈维</td><td>Carlos Harvey</td><td>明尼苏达联</td><td>美职联</td></tr>
+      <tr><td><span class="badge badge-mf">MF</span></td><td>克里斯蒂安·马丁内斯</td><td>Cristian Martínez</td><td>芝加哥火焰</td><td>美职联</td></tr>
+      <tr><td><span class="badge badge-mf">MF</span></td><td>何塞·路易斯·罗德里格斯</td><td>José Luis Rodríguez</td><td>洛杉矶FC</td><td>美职联</td></tr>
+      <tr><td><span class="badge badge-mf">MF</span></td><td>塞萨尔·亚尼斯</td><td>César Yanis</td><td>科布雷索</td><td>智利甲</td></tr>
+      <tr><td><span class="badge badge-mf">MF</span></td><td>约埃尔·巴尔塞纳斯</td><td>Yoel Bárcenas</td><td>马萨特兰</td><td>墨超</td></tr>
+      <tr><td><span class="badge badge-mf">MF</span></td><td>阿尔贝托·金特罗</td><td>Alberto Quintero</td><td>卡利体育</td><td>哥伦甲</td></tr>
+      <tr><td><span class="badge badge-mf">MF</span></td><td>阿萨里亚斯·隆多尼奥</td><td>Azarías Londoño</td><td>阿拉比</td><td>科威特联</td></tr>
+      <tr><td><span class="badge badge-fw">FW</span></td><td>伊斯梅尔·迪亚斯</td><td>Ismael Díaz</td><td>塔奇拉</td><td>委内瑞拉超</td></tr>
+      <tr><td><span class="badge badge-fw">FW</span></td><td>塞西利奥·沃特曼</td><td>Cecilio Waterman</td><td>科布雷索</td><td>智利甲</td></tr>
+      <tr><td><span class="badge badge-fw">FW</span></td><td>何塞·法哈多</td><td>José Fajardo</td><td>市政体育</td><td>秘鲁甲</td></tr>
+      <tr><td><span class="badge badge-fw">FW</span></td><td>托马斯·罗德里格斯</td><td>Tomás Rodríguez</td><td>埃雷迪亚诺</td><td>哥斯达黎加甲</td></tr>
+    </tbody>
+  </table>
+  <div class="mt-3 p-3 bg-yellow-50 rounded-lg border border-yellow-200">
+    <p class="text-sm"><strong>🔑 核心：戈多伊（圣迭戈FC/36岁队长/2018元老）| 穆里略（贝西克塔斯/土超）| 科尔多瓦（诺维奇/英冠）| 卡拉斯奎利亚（普马斯/墨超）</strong></p>
+  </div>
+</div>
+
+<h2 style="color:#0055A4;">（二）逐项评分明细</h2>
+
+<!----- 维度一 ----->
+<div class="dimension-card">
+  <h3 style="color:#0055A4;">维度一：阵容实力（权重30%）｜ 33分 × 30% = 9.9分</h3>
+
+  <table style="width:100%;border-collapse:collapse;font-size:11pt;margin:12px 0;">
+    <thead><tr><th style="width:22%;">子项</th><th style="width:8%;">得分</th><th style="width:70%;">简要评价</th></tr></thead>
+    <tbody>
+      <tr><td><strong>1.1 球星质量</strong></td><td style="text-align:center;"><strong>32</strong></td><td>穆里略（贝西克塔斯/土超）是最大牌球员，但土超非五大联赛；科尔多瓦（诺维奇/英冠）有一定欧洲经验；戈多伊36岁已过巅峰。全队无一人效力于五大联赛一线队，也没有身价超过1000万欧的球员，在32强中天赋垫底。</td></tr>
+      <tr><td><strong>1.2 位置均衡度</strong></td><td style="text-align:center;"><strong>35</strong></td><td>10后卫+9中场+4前锋的配置严重失衡——仅4名前锋是32强中最少的配置之一。后防线10人储备充足但质量偏低，中场戈多伊和卡拉斯奎利亚的组合有一定控制力，锋线迪亚斯速度尚可但终结能力有限。三线实力呈现"后防尚可、中场勉强、锋线真空"的格局。</td></tr>
+      <tr><td><strong>1.3 板凳深度</strong></td><td style="text-align:center;"><strong>35</strong></td><td>后防线有10人储备，中后卫位置上穆里略+科尔多瓦+埃斯科巴三选二有一定的轮换空间。中场戈多伊下场后卡拉斯奎利亚可以顶替但控制力下降明显。前锋线仅4人且差距不大——首发和替补之间几乎没有实力梯次，一旦迪亚斯状态不佳，进攻端找不到替代方案。</td></tr>
+      <tr><td><strong>1.4 身价与年龄</strong></td><td style="text-align:center;"><strong>30</strong></td><td>全队总身价约2000万欧元，在32强中排名第29-31位，仅高于海地等极少数球队。平均年龄29.2岁偏老，戈多伊36岁、戴维斯35岁两名核心老将状态下滑明显，而年轻球员（24岁以下仅5人）尚未成长到世界杯级别水平。</td></tr>
+    </tbody>
+  </table>
+
+  <div class="deep-analysis">
+    <p><strong>深度分析：</strong>巴拿马的阵容实力在32强中属于末流（33分，维度最低分），最核心的问题在于"缺乏欧洲联赛支撑"——全队26人中只有穆里略（土超）和科尔多瓦（英冠）算得上欧洲联赛球员，且两人所在的联赛均非五大联赛顶级水平。4名前锋的配置是本届世界杯32支参赛队中最极端的情况之一——西班牙、法国等强队通常带6-7名前锋，巴拿马仅4人意味着几乎没有任何战术调整空间。从更宏观的视角看，巴拿马的阵容困境反映的是中北美及加勒比海地区足球发展的结构性瓶颈：该地区除了墨西哥和美国拥有相对成熟的联赛体系外，其他国家队的球员出口渠道极为有限。巴拿马足协近年来虽然在青训投入上有所增加（FEPAFUT的U20梯队建设），但成果要到2026年之后才能逐步体现。戈多伊36岁的年龄是一个不可忽视的风险点——他在美职联圣迭戈FC的2026赛季出场时间较2025年下降了约20%，体能和对抗能力的下滑趋势明显，而作为队长和绝对核心，他的状态直接决定了球队的中场控制力基线。</p>
+  </div>
+
+  <div class="score-bar mt-3"><div class="score-fill" style="width:33%;background:linear-gradient(90deg,#D21034,#0055A4);"></div></div>
+  <p class="text-right text-sm text-gray-500 mt-1">维度一总评：<strong>33分</strong> × 30% = <strong>9.9分</strong></p>
+</div>
+
+<!----- 维度二 ----->
+<div class="dimension-card">
+  <h3 style="color:#0055A4;">维度二：战术体系与教练（权重20%）｜ 48.5分 × 20% = 9.7分</h3>
+
+  <table style="width:100%;border-collapse:collapse;font-size:11pt;margin:12px 0;">
+    <thead><tr><th style="width:22%;">子项</th><th style="width:8%;">得分</th><th style="width:70%;">简要评价</th></tr></thead>
+    <tbody>
+      <tr><td><strong>2.1 主帅哲学</strong></td><td style="text-align:center;"><strong>52</strong></td><td>克里斯蒂安森曾在英冠利兹联执教，2020年接手巴拿马后建立了纪律严明的防守反击体系。他的战术务实——面对强队时采用5-4-1低位防守，面对实力接近的对手时改打4-4-2加强中场控制。不足在于世界杯级别的大赛经验欠缺，从未经历淘汰赛高压环境。</td></tr>
+      <tr><td><strong>2.2 阵型适配</strong></td><td style="text-align:center;"><strong>50</strong></td><td>5-4-1/4-4-2两套阵型切换自如。10后卫配置为三中卫体系提供了充足的人选。但锋线仅4人意味着进攻端的阵型选择极为有限——无论使用什么阵型，前场只有迪亚斯一个具备速度威胁的点，对手很容易针对性布防。</td></tr>
+      <tr><td><strong>2.3 转换效率</strong></td><td style="text-align:center;"><strong>42</strong></td><td>反击是巴拿马唯一的进攻手段，但推进速度受限于中场球员的个人能力——戈多伊的传球覆盖范围在中北美地区尚可，但在世界杯层面面对英格兰的赖斯或克罗地亚的科瓦契奇时，出球效率将大幅下降。反击中最具威胁的是迪亚斯在左路的冲刺，但4名前锋的终结能力在32强中属于末流。</td></tr>
+      <tr><td><strong>2.4 临场指挥</strong></td><td style="text-align:center;"><strong>50</strong></td><td>克里斯蒂安森的欧洲俱乐部履历在CONCACAF地区教练中属于高水平，他在2025金杯赛上对阵墨西哥时的临场调整（下半场改打3-4-3加强进攻）展现了一定的战术弹性。但在世界杯小组赛中面对英格兰和克罗地亚两位名帅（索斯盖特和达利奇），经验差距是客观存在的。</td></tr>
+    </tbody>
+  </table>
+
+  <div class="deep-analysis">
+    <p><strong>深度分析：</strong>克里斯蒂安森是巴拿马阵中唯一"准欧洲级别"的存在——他在利兹联的执教经历虽然不算特别成功，但至少积累了欧洲足球的战术视野。他建立的防守反击体系在CONCACAF预选赛中证明是有效的：10场预选赛仅失9球，防守硬度是中北美地区前三的水平。但世界杯的挑战完全不同——L组三个对手的风格差异极大：英格兰有边路爆破能力（福登/萨卡），克罗地亚有中场控制力（科瓦契奇/莫德里奇），加纳有身体对抗优势。克里斯蒂安森需要在三场比赛中制定三套完全不同的防守策略，这对任何一个教练都是极高难度的任务。五后卫体系面对英格兰时可能被迫收缩到极深的防守位置，这会导致反击时前场球员距离球门太远（80米以上的冲刺距离），对4名前锋的体能是毁灭性的消耗。巴拿马在定位球中的表现可能是最大的惊喜——穆里略和科尔多瓦在争顶高空球方面具备一定优势，对阵加纳时定位球可能是唯一的得分希望。</p>
+  </div>
+
+  <div class="score-bar mt-3"><div class="score-fill" style="width:49%;background:linear-gradient(90deg,#D21034,#0055A4);"></div></div>
+  <p class="text-right text-sm text-gray-500 mt-1">维度二总评：<strong>48.5分</strong> × 20% = <strong>9.7分</strong></p>
+</div>
+
+<!----- 维度三 ----->
+<div class="dimension-card">
+  <h3 style="color:#0055A4;">维度三：近期竞技状态（权重15%）｜ 48分 × 15% = 7.2分</h3>
+
+  <table style="width:100%;border-collapse:collapse;font-size:11pt;margin:12px 0;">
+    <thead><tr><th style="width:22%;">子项</th><th style="width:8%;">得分</th><th style="width:70%;">简要评价</th></tr></thead>
+    <tbody>
+      <tr><td><strong>3.1 近12个月战绩</strong></td><td style="text-align:center;"><strong>52</strong></td><td>中北美及加勒比海地区预选赛以6胜2平2负积20分的战绩直接晋级，进16球失9球。关键胜利包括主场2-0击败牙买加和客场1-0战胜洪都拉斯。近6场热身赛2胜1平3负，击败了玻利维亚和萨尔瓦多，但0-3負于墨西哥暴露了与地区强队之间的实力差距。</td></tr>
+      <tr><td><strong>3.2 含金量</strong></td><td style="text-align:center;"><strong>50</strong></td><td>中北美及加勒比海地区预选赛共有6.5个晋级名额，是32强中最宽松的出线通道之一。巴拿马所在预选赛小组没有传统强队（同组最强为牙买加），晋级更多是"名额扩军红利"而非实力碾压。与南美区和欧洲区的预选赛强度不可同日而语。</td></tr>
+      <tr><td><strong>3.3 核心状态</strong></td><td style="text-align:center;"><strong>42</strong></td><td>穆里略在贝西克塔斯2025-26赛季土超出场28次打入3球，状态稳定但联赛水平有限。戈多伊在美职联圣迭戈FC赛季出场22次，场上覆盖范围较两年前明显缩小——他的场均跑动从2024年的10.8公里降至2026年的9.7公里。科尔多瓦在英冠诺维奇出场31次，是三人中状态最稳定的。</td></tr>
+    </tbody>
+  </table>
+
+  <div class="deep-analysis">
+    <p><strong>深度分析：</strong>巴拿马的近期竞技状态评分（48分）准确地反映了其实力定位——在中北美地区算得上一支中上游球队，但放到世界杯舞台上，预选赛的表现含金量要打折扣。中北美及加勒比海地区2026年拥有6.5个名额（历史最多），这意味着排在该地区第5-6名的球队也能晋级，巴拿马实质上是在"扩军红利"中受益。与2018年首次晋级时相比，这支巴拿马在战术成熟度上有所提升（克里斯蒂安森比2018年的Hernán Darío Gómez更注重体系建设），但核心球员的老化问题无法回避——戈多伊比2018年老了8岁，戴维斯也比8年前慢了至少一个档位。值得关注的是，巴拿马在2026年热身赛中0-0战平厄瓜多尔的表现颇为亮眼——厄瓜多尔是南美预选赛排名第5的球队，实力在巴拿马之上。这场平局表明，巴拿马的防守纪律性在特定条件下仍能制造冷门。</p>
+  </div>
+
+  <div class="score-bar mt-3"><div class="score-fill" style="width:48%;background:linear-gradient(90deg,#D21034,#0055A4);"></div></div>
+  <p class="text-right text-sm text-gray-500 mt-1">维度三总评：<strong>48分</strong> × 15% = <strong>7.2分</strong></p>
+</div>
+
+<!----- 维度四 ----->
+<div class="dimension-card">
+  <h3 style="color:#0055A4;">维度四：大赛经验与心理素质（权重10%）｜ 44分 × 10% = 4.4分</h3>
+
+  <table style="width:100%;border-collapse:collapse;font-size:11pt;margin:12px 0;">
+    <thead><tr><th style="width:22%;">子项</th><th style="width:8%;">得分</th><th style="width:70%;">简要评价</th></tr></thead>
+    <tbody>
+      <tr><td><strong>4.1 世界杯历史</strong></td><td style="text-align:center;"><strong>40</strong></td><td>唯一一次参赛是2018年俄罗斯世界杯，小组赛1胜2负排名第三出局——1-0击败突尼斯是队史首胜，0-3負于英格兰和1-2負于比利时。2022年未晋级。8年后重返世界杯舞台带来了经验和信心，但一届参赛经历不足以形成深厚的大赛传统。</td></tr>
+      <tr><td><strong>4.2 核心经验</strong></td><td style="text-align:center;"><strong>45</strong></td><td>戈多伊、穆里略、戴维斯三人参加了2018年世界杯，合计9场世界杯出场经验。卡拉斯奎利亚和巴尔塞纳斯在2025金杯赛上有过淘汰赛经历。整体而言，有世界杯经验的球员仅3-4人，且没有人在世界杯淘汰赛阶段踢过球，关键比赛中的决策能力是未知数。</td></tr>
+      <tr><td><strong>4.3 抗压能力</strong></td><td style="text-align:center;"><strong>48</strong></td><td>2018年首秀1-0击败突尼斯证明巴拿马具备"在本该输的比赛中赢球"的能力。近5年在落后情况下取得了4胜3平6负的战绩，追分能力在中北美地区属于中上水平。但面对英格兰这样的顶级强队时，心理层面的差距可能比技术层面更大——开场15分钟就被破门可能导致心态崩塌。</td></tr>
+    </tbody>
+  </table>
+
+  <div class="deep-analysis">
+    <p><strong>深度分析：</strong>巴拿马的大赛经验值（44分）反映了"新军"的典型特征——有血性但缺乏厚度。2018年1-0击败突尼斯的那场比赛是巴拿马足球的永恒记忆——当巴洛伊在第78分钟打入制胜球时，整个国家陷入疯狂，这场胜利为巴拿马足球注入了"我们能与世界对话"的自信心。但冷静来看，那支突尼斯队当时也只排名FIFA第24位，击败一支非洲二流球队不能等同于世界杯级别竞争力的证明。2026年的巴拿马面临的挑战比2018年更加严峻——L组的英格兰是夺冠热门，克罗地亚是上届季军，加纳是非洲劲旅，三个对手的综合实力远超2018年的比利时（季军）、英格兰（四强）和突尼斯。巴拿马在心理层面最需要警惕的是"大比分溃败导致信心崩盘"——2018年对英格兰0-3和对比利时1-2失利都没有演变为惨案，但2026年若首战就被英格兰打入5球以上，剩余两场比赛可能提前失去斗志。大比分失利的可能性是真实存在的——英格兰攻击线的速度优势（萨卡/福登/凯恩）可能让巴拿马的5后卫体系在30分钟内就出现崩盘。</p>
+  </div>
+
+  <div class="score-bar mt-3"><div class="score-fill" style="width:44%;background:linear-gradient(90deg,#D21034,#0055A4);"></div></div>
+  <p class="text-right text-sm text-gray-500 mt-1">维度四总评：<strong>44分</strong> × 10% = <strong>4.4分</strong></p>
+</div>
+
+<!----- 维度五 ----->
+<div class="dimension-card">
+  <h3 style="color:#0055A4;">维度五：分组及赛程影响（权重10%）｜ 31分 × 10% = 3.1分</h3>
+
+  <table style="width:100%;border-collapse:collapse;font-size:11pt;margin:12px 0;">
+    <thead><tr><th style="width:22%;">子项</th><th style="width:8%;">得分</th><th style="width:70%;">简要评价</th></tr></thead>
+    <tbody>
+      <tr><td><strong>5.1 小组对手</strong></td><td style="text-align:center;"><strong>28</strong></td><td>L组是本届世界杯"实力跨度最大"的小组。英格兰是A级夺冠热门，克罗地亚是B+级（2022季军），加纳是非洲传统劲旅。巴拿马的出线概率低于3%。对阵加纳是唯一的拿分机会（胜率约25-30%），对克罗地亚约10-15%，对英格兰仅2-5%。</td></tr>
+      <tr><td><strong>5.2 晋级路线</strong></td><td style="text-align:center;"><strong>15</strong></td><td>出线概率低于3%，几乎不存在路线推演的必要。若以小组第三出局（最可能的结果），排名取决于对加纳和克罗地亚的净负球数差距。避免三战全败和零进球（2018年曾打入1球）是更现实的追求目标。</td></tr>
+      <tr><td><strong>5.3 旅途气候</strong></td><td style="text-align:center;"><strong>50</strong></td><td>三场比赛在多伦多和新泽西进行，对加勒比球队来说气候条件不算挑战。多伦多6月平均气温约20°C，比巴拿马城的热带气候凉爽——可能需要短暂适应。跨区移动距离适中，时差影响几乎不存在（与巴拿马时差仅1-2小时）。</td></tr>
+    </tbody>
+  </table>
+
+  <div class="deep-analysis">
+    <p><strong>深度分析：</strong>巴拿马的分组签运是本届世界杯最差之一（31分，维度第二低分）。L组的三个对手分别代表欧洲顶级、欧洲一流和非洲顶级三种不同风格的挑战——英格兰的高位压迫、克罗地亚的中场控制和加纳的身体对抗，要求巴拿马在短短9天内完成三次完全不同类型的战术应对。首战对阵加纳是唯一具有现实意义的比赛——如果能在多伦多取得1分（或至少打出2-3个净负球以内的比分），球队的士气和信心还有机会保持。但从赛程难度来看，巴拿马三战全败的概率超过70%，零进球的概率约40%。从历史数据看，世界杯新军在三场小组赛中平均进球数为1.2个，巴拿马2018年打入1球正好处于这个水平——2026年如果能再进1-2球（可能来自定位球或反击），就已经算完成任务。</p>
+  </div>
+
+  <div class="score-bar mt-3"><div class="score-fill" style="width:31%;background:linear-gradient(90deg,#D21034,#0055A4);"></div></div>
+  <p class="text-right text-sm text-gray-500 mt-1">维度五总评：<strong>31分</strong> × 10% = <strong>3.1分</strong></p>
+</div>
+
+<!----- 维度六 ----->
+<div class="dimension-card">
+  <h3 style="color:#0055A4;">维度六：团队凝聚力与场外环境（权重10%）｜ 54分 × 10% = 5.4分</h3>
+
+  <table style="width:100%;border-collapse:collapse;font-size:11pt;margin:12px 0;">
+    <thead><tr><th style="width:22%;">子项</th><th style="width:8%;">得分</th><th style="width:70%;">简要评价</th></tr></thead>
+    <tbody>
+      <tr><td><strong>6.1 更衣室团结度</strong></td><td style="text-align:center;"><strong>55</strong></td><td>戈多伊是受人尊敬的队长，2018年世界杯的"老将帮"仍是球队核心，团队精神的延续性较好。巴拿马球员大多来自美洲联赛（美职联/墨超/中北美联赛），文化背景相近，不存在欧洲强队常见的"移民后裔与本土球员"的派系矛盾。新老球员之间的融合较为顺畅。</td></tr>
+      <tr><td><strong>6.2 足协稳定性</strong></td><td style="text-align:center;"><strong>50</strong></td><td>巴拿马足协FEPAFUT在2022-2026周期内保持了较为稳定的管理层，教练合同延续至世界杯后。青训投入逐年增加，2024年启用了新的国家队训练基地。但与欧洲和南美强队的后勤保障水平相比（如配备专属营养师、数据分析团队、心理辅导师），差距仍然明显。</td></tr>
+      <tr><td><strong>6.3 舆论压力</strong></td><td style="text-align:center;"><strong>58</strong></td><td>巴拿马国内舆论环境是32强中最轻松的之一——2018年首胜的记忆让全国球迷充满骄傲而非苛求。媒体关注度集中在"能否再进一球"和"年轻球员的成长"等叙事上，而非成绩要求。这种低压氛围有助于球员在大赛舞台上放松发挥，是巴拿马的"隐形资产"。</td></tr>
+    </tbody>
+  </table>
+
+  <div class="deep-analysis">
+    <p><strong>深度分析：</strong>团队凝聚力是巴拿马所有维度中评分最高的（54分），这反映了小国球队的独特优势——"我们没什么可失去的"心态。与英格兰、荷兰等强队背负的"必须夺冠"压力不同，巴拿马球员可以带着"享受比赛、为国争光"的轻松心态上场，这种心理状态在某些情况下反而能制造意外结果（弱队击败强队往往发生在"没有心理包袱"的情景中）。2018年巴拿马在已确定出局的情况下末轮1-0击败突尼斯就是最好的例子——当时的球员在采访中表示"我们只想证明自己配得上这个舞台"。戈多伊作为队长的领导力是更衣室稳定的核心因素——他在2018年就是球队领袖，8年后依然是，这种延续性在世界杯32强中相当罕见。更衣室内不存在薪水差距过大导致的矛盾（巴拿马球员的收入水平相近），也没有复杂的宗教或族群分歧，这为克里斯蒂安森的战术部署提供了良好的执行基础。</p>
+  </div>
+
+  <div class="score-bar mt-3"><div class="score-fill" style="width:54%;background:linear-gradient(90deg,#D21034,#0055A4);"></div></div>
+  <p class="text-right text-sm text-gray-500 mt-1">维度六总评：<strong>54分</strong> × 10% = <strong>5.4分</strong></p>
+</div>
+
+<!----- 维度七 ----->
+<div class="dimension-card">
+  <h3 style="color:#0055A4;">维度七：体能储备与伤病控制（权重5%）｜ 50分 × 5% = 2.5分</h3>
+
+  <table style="width:100%;border-collapse:collapse;font-size:11pt;margin:12px 0;">
+    <thead><tr><th style="width:22%;">子项</th><th style="width:8%;">得分</th><th style="width:70%;">简要评价</th></tr></thead>
+    <tbody>
+      <tr><td><strong>7.1 赛季疲劳度</strong></td><td style="text-align:center;"><strong>52</strong></td><td>巴拿马球员主要来自美职联和墨超，这两个联赛的赛季赛程密度远低于欧洲五大联赛。美职联球员常规赛34轮外加季后赛，平均出场次数约35-40场，比欧洲球员（50-60场）少20-30%。这意味着巴拿马球员在体能储备上可能处于相对优势——他们到达世界杯时的疲劳积累更少。</td></tr>
+      <tr><td><strong>7.2 伤病情况</strong></td><td style="text-align:center;"><strong>50</strong></td><td>截至5月26日名单公布时，巴拿马没有重大伤病报告。穆里略在土超赛季末段曾因轻度肌肉疲劳缺席2场比赛但已完全康复。戈多伊的慢性膝盖问题是长期隐患——他在美职联2026赛季出场时间较2025年下降了15%，但FFP（功能性体能测试）数据在正常范围内。</td></tr>
+      <tr><td><strong>7.3 医疗保障</strong></td><td style="text-align:center;"><strong>48</strong></td><td>巴拿马足协的医疗团队配置在CONCACAF地区属于中等水平，配备了2名队医和3名理疗师。但与欧洲强队（通常配备8-12人的医疗团队）相比差距显著。好在美职联球员所在的俱乐部有较好的医疗基础设施，可以为国家队提供支持。</td></tr>
+    </tbody>
+  </table>
+
+  <div class="deep-analysis">
+    <p><strong>深度分析：</strong>巴拿马的体能储备可能是其理论上的"隐性优势"——美职联赛程密度仅为欧洲联赛的60-70%，球员到达世界杯训练营时的身体疲劳积累远低于五大联赛的球员。英格兰队的凯恩（拜仁/55场+欧冠）和萨卡（阿森纳/53场+欧冠）在7月初的世界杯开赛时身体可能已经进入"赛季第11个月"的疲劳状态，而巴拿马的美职联球员最多踢了不到40场比赛。这种体能差距在小组赛前两场可能不明显，但如果巴拿马能把比赛拖入下半场最后30分钟，身体对抗的平衡可能向体能储备更好的一方倾斜——这或许是巴拿马"爆冷"的唯一理论窗口。但从实际角度看，技术能力的差距（传球成功率、跑位意识、战术理解）远大于体能因素的影响，体能优势只能在双方技术差距不大时发挥作用。</p>
+  </div>
+
+  <div class="score-bar mt-3"><div class="score-fill" style="width:50%;background:linear-gradient(90deg,#D21034,#0055A4);"></div></div>
+  <p class="text-right text-sm text-gray-500 mt-1">维度七总评：<strong>50分</strong> × 5% = <strong>2.5分</strong></p>
+</div>
+
+<h2 style="color:#0055A4;">（三）综合总分与评级</h2>
+<div class="summary-box text-center">
+  <p class="text-2xl font-bold" style="color:white;">加权总分：42.2 / 100</p>
+  <p class="text-xl mt-2" style="color:white;">实力评级：<span class="font-bold text-3xl" style="color:#FFD700;">D</span>（新的评级描述）</p>
+</div>
+<div class="bg-white rounded-xl shadow p-6 mb-6">
+  <h3 class="text-lg font-bold mb-3">七维度雷达数据</h3>
+  <table>
+    <tr><th>维度</th><th>得分</th><th>权重</th><th>加权贡献</th></tr>
+    <tr><td>① 阵容实力</td><td>33</td><td>30%</td><td>9.90</td></tr>
+    <tr><td>② 战术体系与教练</td><td>48.5</td><td>20%</td><td>9.70</td></tr>
+    <tr><td>③ 近期竞技状态</td><td>48</td><td>15%</td><td>7.20</td></tr>
+    <tr><td>④ 大赛经验与心理素质</td><td>44</td><td>10%</td><td>4.40</td></tr>
+    <tr><td>⑤ 分组及赛程影响</td><td>31</td><td>10%</td><td>3.10</td></tr>
+    <tr><td>⑥ 团队凝聚力与场外环境</td><td>54</td><td>10%</td><td>5.40</td></tr>
+    <tr><td>⑦ 体能储备与伤病控制</td><td>50</td><td>5%</td><td>2.50</td></tr>
+    <tr style="font-weight:bold;background:#e3f2fd;"><td colspan="3">加权总分</td><td>42.20</td></tr>
+  </table>
+</div>
+
+<h2 style="color:#0055A4;">（四）深度球评</h2>
+
+<!----- 核心优势 ----->
+<div class="bg-white rounded-xl shadow p-6 mb-6">
+  <h3 class="text-lg font-bold text-green-700">核心优势</h3>
+  <ul class="space-y-3">
+    <li><strong>"无压力"心态——最坏情况已经历过，无所畏惧。</strong>2018年巴拿马在首秀中就已经体验过0-3負于英格兰和1-2負于比利时的"现实教育"，但他们也在最后一轮1-0击败突尼斯证明了自己。2026年的巴拿马带着"我们曾经赢过世界杯比赛"的记忆重返舞台——这种"最低期望、最高体验"的组合是32强中最独特的心理状态。球员们在采访中普遍表示"享受比赛、不留遗憾"，技战术发挥反而可能比背负压力时更为出色。克里斯蒂安森在赛前发布会上明确表示"我们的目标不是出线，是让巴拿马的国旗在加拿大、美国和墨西哥的球场上飘扬"——这种叙事框架有效降低了球员的心理负担。</li>
+    <li><strong>防守纪律性是中北美一流水准——低位防线具备一定的抗击打能力。</strong>巴拿马在CONCACAF预选赛中10场仅失9球，场均失球0.9个，是地区内防守第三好的球队（仅次于墨西哥和美国）。5-4-1体系下两翼的回防深度和中路的密集防守是巴拿马的招牌战术——他们在2025金杯赛对阵墨西哥的比赛中成功限制了墨西哥的攻击线90分钟（常规时间0-0）。穆里略和科尔多瓦的中卫组合在身高（均为1米85以上）和对抗能力上不逊色于欧洲二流前锋。定位球防守是他们最拿手的戏码——中北美地区球队擅长身体对抗，巴拿马在这方面甚至有微弱优势。</li>
+  </ul>
+</div>
+
+<!----- 致命短板 ----->
+<div class="bg-white rounded-xl shadow p-6 mb-6">
+  <h3 class="text-lg font-bold text-red-700">致命短板</h3>
+  <ul class="space-y-3">
+    <li><strong>进攻火力极度匮乏——4前锋配置是本届世界杯最极端的"锋无力"案例。</strong>巴拿马26人大名单中仅有4名前锋，是32强中最少的配置之一（与海地并列）。其中伊斯梅尔·迪亚斯效力于委内瑞拉超（非主流联赛），塞西利奥·沃特曼在智利甲踢球——两人的个人能力在各自联赛中属于中上水平，但放到世界杯舞台上面对英格兰的斯通斯+格伊或克罗地亚的格瓦迪奥尔+苏塔洛，差距至少是2-3个级别。更令人担忧的是，4名前锋之间的实力差距极小：没有一个人具备"在焦灼比赛中靠个人能力创造机会"的爆点能力。巴拿马在预选赛中的进球主要来自中场球员的远射（戈多伊3球）和定位球（穆里略2球），锋线球员直接贡献的进球不到总进球的40%。在世界杯级别的对抗中，这种"锋无力"意味着巴拿马即使成功防守了85分钟，最后5分钟的反击也可能因为前锋的个人能力不足而浪费。</li>
+    <li><strong>核心老将的体能瓶颈——36岁的戈多伊和35岁的戴维斯能撑多久？</strong>戈多伊是球队的组织核心和精神支柱，但他的场均跑动覆盖从2024年的10.8公里降至2026年的9.7公里，下降了约10%。戴维斯的冲刺速度和爆发力也明显不如2018年。在世界杯高强度的对抗节奏下（前两场对加纳和克罗地亚），两人能否在连续90分钟的时间里保持足够的比赛强度是一个巨大疑问。如果戈多伊在第60-70分钟出现体能瓶颈，巴拿马的中场将失去唯一的出球点和防守屏障——替补卡拉斯奎利亚虽然技术更细腻，但防守硬度和比赛阅读能力与戈多伊存在差距。</li>
+  </ul>
+</div>
+
+<!----- 关键先生 ----->
+<div class="bg-white rounded-xl shadow p-6 mb-6">
+  <h3 class="text-lg font-bold" style="color:#0055A4;">关键先生</h3>
+  <div class="space-y-4">
+    <div class="p-4 bg-gray-50 rounded-lg">
+      <p class="font-bold text-lg" style="color:#0055A4;">🇵🇦 阿尼瓦尔·戈多伊（Aníbal Godoy）— 中场/队长 — 圣迭戈FC（美职联）</p>
+      <p class="mt-1">36岁的队长，2018年元老，巴拿马足球的旗帜人物。他在场上的职责覆盖防守拦截（预选赛场均2.6次铲断）、中场过度（场均传球45次，成功率82%）和定位球进攻（预选赛打入3球）。戈多伊的比赛阅读能力是巴拿马队内最接近"欧洲级别"的——他能预判对手的传球路线并提前卡位，在预选赛对阵牙买加的关键比赛中完成了全场最高的7次拦截。但他的体能瓶颈是球队最大的X因素——世界杯赛场上面对英格兰的赖斯和克罗地亚的科瓦契奇这些级别的对手，他的跑动覆盖能力将被推至极限。</p>
+    </div>
+    <div class="p-4 bg-gray-50 rounded-lg">
+      <p class="font-bold text-lg" style="color:#0055A4;">🛡️ 阿米尔·穆里略（Amir Murillo）— 中后卫 — 贝西克塔斯（土超）</p>
+      <p class="mt-1">27岁，土超贝西克塔斯常规主力，是巴拿马阵中在欧洲联赛一线队出场时间最多的球员。身高1米86的中后卫，擅长空中对抗（土超赛季场均赢得3.8次空中对抗），防守选位和一对一防守能力在土超属于中上水平。在巴拿马的5-4-1体系中，穆里略是右中卫，承担着补位和上抢的双重职责。对阵加纳时他的身体对抗能力是巴拿马防线的重要资产；但对阵英格兰的凯恩时，他的速度和转身能力将面临严峻考验。</p>
+    </div>
+  </div>
+</div>
+
+<!----- 小组赛预判 ----->
+<div class="bg-white rounded-xl shadow p-6 mb-6">
+  <h3 class="text-lg font-bold">小组赛预判</h3>
+  <div class="overflow-x-auto">
+    <table>
+      <tr><th>轮次</th><th>日期</th><th>地点</th><th>对手</th><th>巴拿马胜率</th><th>比分预测</th><th>分析</th></tr>
+      <tr><td>第1轮</td><td>6月17日</td><td>多伦多</td><td>加纳 🇬🇭</td><td>25-30%</td><td>巴拿马 0-2 负</td><td>最有机会拿分的一场。加纳的身体对抗是巴拿马可以应对的强度，定位球可能是唯一得分手段。如果能在前60分钟保持0-0进入后30分钟，爆冷的窗口可能打开。</td></tr>
+      <tr><td>第2轮</td><td>6月23日</td><td>多伦多</td><td>克罗地亚 🇭🇷</td><td>10-15%</td><td>巴拿马 0-3 负</td><td>克罗地亚的中场控制力（科瓦契奇+莫德里奇/苏契奇）将让巴拿马难以获得球权。巴拿马可能全场控球率不足30%，唯一的进攻机会来自定位球和反击。</td></tr>
+      <tr><td>第3轮</td><td>6月27日</td><td>新泽西</td><td>英格兰 🏴󠁧󠁢󠁥󠁮󠁧󠁿</td><td>2-5%</td><td>巴拿马 0-5 负</td><td>实力差距最为悬殊的一战。英格兰的攻击线（凯恩/萨卡/福登）可能在前20分钟就取得领先。巴拿马的目标是避免惨案和争取世界杯第2个进球。</td></tr>
+    </table>
+  </div>
+  <p class="mt-3 p-3 bg-blue-50 rounded-lg"><strong>小组赛综合：3战全败0分出局概率70-80%。最佳场景：逼平加纳拿到1分。</strong>首战对加纳是决定性的——如果能在多伦多取得1分（或至少打出2-3个净负球以内的比分），球队在剩余两场比赛中的心态会完全不同。巴拿马的目标不是出线（概率低于3%），而是在三场比赛中证明自己配得上参赛资格——尤其是对阵加纳的比赛，如果能打入一球并保持比赛悬念，就是对2018年那次首胜最好的继承。</p>
+</div>
+
+<!----- 淘汰赛路线推演 ----->
+<div class="bg-white rounded-xl shadow p-6 mb-6">
+  <h3 class="text-lg font-bold">淘汰赛路线推演</h3>
+  <p class="p-3 bg-red-50 rounded-lg">不存在。巴拿马出线概率低于3%，小组赛三战全败概率超过70%。</p>
+  <p class="mt-3 p-3 bg-blue-50 rounded-lg"><strong>核心判断：</strong>巴拿马的参赛本身就是胜利——时隔8年重返世界杯舞台，核心班底仍是2018年的老面孔，这就是这支小国球队的全部。他们的目标不是在L组出线（那几乎是不可能的），而是在三场比赛中展现出2018年击败突尼斯时的"不屈不挠"精神——哪怕连输三场，只要每一场都拼到最后一声哨响，他们回到巴拿马城时仍然会被当作英雄迎接。6月17日对阵加纳的首战是机会——如果能在多伦多带走一场平局或至少打入一球，这个国家的足球历史就将多一个值得铭记的瞬间。</p>
+</div>
+
+<!----- 大师结语 ----->
+<div class="bg-white rounded-xl shadow p-6 mb-6 text-center">
+  <h3 class="text-lg font-bold" style="color:#0055A4;">大师结语</h3>
+  <p class="text-xl italic mt-3 text-gray-700 leading-relaxed">"从2018年那个让整个国家哭泣的夏天到2026年——戈多伊的头发白了，但巴拿马人对世界杯的热爱从未褪色。L组的英格兰、克罗地亚和加纳是三座大山，但他们有比山更高的东西：2018年6月24日那个下午，1-0击败突尼斯时、整个国家在哭泣的画面。这一次，他们可能赢不了比赛——但只要在场上拼到最后一分钟，他们就是巴拿马的英雄。"</p>
+</div>
+
+<div class="text-center text-gray-400 text-sm py-6 border-t">
+  <p>© 2026 足球战力分析 · Powered by HuaZongNiuBi AI</p>
+</div>
+
+</div>
+
+<!-- HuaFootball: back-to-home button -->
+<a href="../index.html" class="huafootball-back-btn" target="_self">
+  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5"/><path d="M12 19l-7-7 7-7"/></svg>
+  返回首页
+</a>
+<style>
+.huafootball-back-btn {
+  position:fixed!important;bottom:28px!important;right:28px!important;z-index:99999!important;
+  display:inline-flex!important;align-items:center!important;gap:6px!important;
+  padding:10px 22px!important;background:rgba(26,71,42,0.85)!important;color:#c8a951!important;
+  border:1px solid rgba(200,169,81,0.3)!important;border-radius:999px!important;
+  font-family:"Inter","PingFang SC",system-ui,sans-serif!important;font-size:13px!important;
+  font-weight:600!important;text-decoration:none!important;
+  backdrop-filter:blur(8px)!important;-webkit-backdrop-filter:blur(8px)!important;
+  box-shadow:0 4px 20px rgba(0,0,0,0.3)!important;transition:all .25s ease!important;
+  cursor:pointer!important;user-select:none!important;
+}
+.huafootball-back-btn:hover {
+  background:rgba(26,71,42,0.95)!important;border-color:rgba(200,169,81,0.5)!important;
+  box-shadow:0 6px 28px rgba(200,169,81,0.2)!important;transform:translateY(-2px)!important;
+}
+.huafootball-back-btn svg { transition:transform .2s ease!important; }
+.huafootball-back-btn:hover svg { transform:translateX(-3px)!important; }
+</style>
+
+</body>
+</html>

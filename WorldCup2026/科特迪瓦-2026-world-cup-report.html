@@ -4,259 +4,456 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>科特迪瓦 · 2026世界杯实力评估报告</title>
-<script src="https://cdn.tailwindcss.com"></script>
-<script>
-tailwind.config = { theme: { extend: { colors: { ci: { orange: '#F77F00', green: '#008000', white: '#FFFFFF', gold: '#FFD700' } }, fontFamily: { 'kai': ['KaiTi','STKaiti','SimKai','serif'], 'serif': ['Times New Roman','serif'] } } } }
-</script>
 <style>
-  body { font-family: KaiTi, STKaiti, SimKai, 'Times New Roman', serif; font-size: 11pt; }
-  .container { max-width: 1100px; margin: 0 auto; padding: 20px; }
-  h1 { font-size: 2em; } h2 { font-size: 1.5em; border-bottom: 3px solid #F77F00; padding-bottom: 8px; margin-top: 30px; }
-  h3 { font-size: 1.2em; margin-top: 20px; }
-  table { width: 100%; border-collapse: collapse; font-size: 11pt; }
-  th, td { border: 1px solid #ddd; padding: 8px 12px; text-align: left; }
-  th { background-color: #F77F00; color: white; font-weight: bold; }
-  tr:nth-child(even) { background-color: #f8f9fa; }
-  .score-bar { height: 20px; border-radius: 10px; background: #eee; overflow: hidden; }
-  .score-fill { height: 100%; border-radius: 10px; }
-  .dimension-card { background: white; border-radius: 12px; padding: 20px; margin-bottom: 20px; box-shadow: 0 2px 8px rgba(0,0,0,0.08); border-left: 5px solid #F77F00; }
-  .subitem { margin: 12px 0; padding: 12px; background: #f8f9fa; border-radius: 8px; }
-  .subitem h4 { color: #F77F00; font-weight: bold; margin-bottom: 6px; }
-  .summary-box { background: linear-gradient(135deg, #F77F00, #008000); border-radius: 16px; padding: 25px; margin: 20px 0; color: white; }
-  .badge { display: inline-block; padding: 2px 10px; border-radius: 12px; font-size: 0.85em; font-weight: bold; }
-  .badge-gk { background: #4CAF50; color: white; } .badge-df { background: #2196F3; color: white; }
-  .badge-mf { background: #FF9800; color: white; } .badge-fw { background: #f44336; color: white; }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: 'Times New Roman', 'KaiTi', '楷体', serif; background: #fff; color: #222; padding: 40px 20px; }
+  .container { max-width: 1000px; margin: 0 auto; }
+  .section { margin-bottom: 40px; }
+  .text-center { text-align: center; }
+  h1 { font-size: 32px; color: #c0392b; margin: 15px 0 5px; }
+  h2 { font-size: 24px; color: #c0392b; border-bottom: 3px solid #c0392b; padding-bottom: 8px; margin: 35px 0 20px; }
+  h3 { font-size: 20px; color: #c0392b; margin: 25px 0 15px; }
+  h4 { font-size: 17px; color: #333; margin: 18px 0 10px; }
+  .subtitle { color: #666; font-size: 14px; margin-bottom: 20px; }
+  table { width: 100%; border-collapse: collapse; margin: 15px 0; font-size: 14px; }
+  th, td { border: 1px solid #ddd; padding: 8px 10px; text-align: left; }
+  th { background: #c0392b; color: #fff; font-weight: bold; }
+  tr:nth-child(even) { background: #fafafa; }
+  .badge { display: inline-block; background: #c0392b; color: #fff; padding: 6px 16px; border-radius: 4px; font-size: 14px; font-weight: bold; margin: 3px; }
+  .rating-box { display: inline-block; font-size: 48px; font-weight: bold; color: #c0392b; padding: 10px 30px; border: 4px solid #c0392b; border-radius: 8px; margin: 10px 0; }
+  .total-score { font-size: 36px; font-weight: bold; color: #c0392b; }
+  .sub-item { margin: 12px 0; padding: 10px 14px; background: #fdf2f2; border-left: 4px solid #c0392b; border-radius: 3px; }
+  .sub-item-title { font-weight: bold; color: #c0392b; }
+  .sub-item-score { float: right; font-weight: bold; }
+  .analysis-text { line-height: 1.8; text-indent: 2em; margin: 12px 0; font-size: 15px; color: #333; }
+  .highlight-red { color: #c0392b; font-weight: bold; }
+  .divider { height: 1px; background: #eee; margin: 30px 0; }
+  ul { margin: 10px 0 10px 20px; line-height: 1.8; }
+  li { margin: 6px 0; }
+  .key-player { margin: 15px 0; padding: 12px 16px; background: #f9f9f9; border-left: 4px solid #c0392b; border-radius: 3px; }
+  .key-player h4 { color: #c0392b; margin: 0 0 6px; }
+  .key-player p { line-height: 1.7; font-size: 14px; }
+  .table-scroll { overflow-x: auto; }
+  @media print { body { padding: 20px; } }
 </style>
 </head>
-<body class="bg-gray-50">
+<body>
 <div class="container">
 
-<div class="section text-center bg-white rounded-2xl shadow-lg p-8 mb-8">
-  <img src="https://cdn.prod.website-files.com/68f550992570ca0322737dc2/68f9fe0f5e31af81b7ceb973_cote-d-ivoire-national-team-footballlogos-org.png" alt="科特迪瓦足协队徽" style="height:90px;width:auto;display:block;margin:0 auto 10px;" onerror="this.style.display='none';document.getElementById('logo-fb').style.display='block';" />
+<!-- ===== HEADER ===== -->
+<div class="section text-center">
+  <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a9/Cote_Divoire_Enblem.png/250px-Cote_Divoire_Enblem.png"
+       alt="科特迪瓦国家队队徽"
+       style="height:90px;width:auto;display:block;margin:0 auto 10px;"
+       onerror="this.style.display='none';document.getElementById('logo-fb').style.display='block';" />
   <div id="logo-fb" style="display:none;font-size:4em;margin-bottom:10px;">🇨🇮</div>
-  <h1 class="text-4xl font-bold text-ci-orange mt-4">科特迪瓦 · 2026世界杯实力评估报告</h1>
-  <p class="text-gray-500 mt-2">报告生成日期：2026年5月22日 · 2026美加墨世界杯</p>
-  <div class="mt-3 p-2 inline-block bg-orange-50 rounded-lg border border-orange-200"><p class="text-sm"><strong>🐘 大象军团归来：</strong>时隔12年重返世界杯 · 2024非洲杯冠军 · 预选赛8胜2平不败+25净胜球</p></div>
+  <h1>科特迪瓦 · 2026世界杯实力评估报告</h1>
+  <p class="subtitle">Les Éléphants（大象军团）· 非洲杯冠军时隔12年重返世界杯舞台</p>
 </div>
 
-<h2 class="text-ci-orange">（一）球队基本信息</h2>
-<div class="bg-white rounded-xl shadow p-6 mb-6">
-  <div class="grid md:grid-cols-2 gap-4">
-    <div>
-      <p><strong>主教练：</strong>埃默斯·法埃（Emerse Faé）— 前球员，41岁少帅</p>
-      <p><strong>队长：</strong>弗兰克·凯西（Franck Kessié）— 前AC米兰/巴萨，现阿尔阿赫利</p>
-      <p><strong>FIFA排名：</strong>约第34位</p>
-      <p><strong>世界杯参赛次数：</strong>第4次</p>
-      <p><strong>世界杯最佳成绩：</strong>小组赛（2006/2010/2014均止步小组赛）</p>
-      <p><strong>上届（2022）成绩：</strong>未晋级（12年后回归）</p>
-    </div>
-    <div>
-      <p><strong>小组赛：</strong>E组</p>
-      <p><strong>同组对手：</strong>德国 🇩🇪、厄瓜多尔 🇪🇨、库拉索 🇨🇼</p>
-      <p><strong>首战：</strong>6月14日 vs 厄瓜多尔（费城）— <strong>出线关键战</strong></p>
-      <p><strong>次战：</strong>6月20日 vs 德国（多伦多）</p>
-      <p><strong>末轮：</strong>6月25日 vs 库拉索（费城）</p>
-      <div class="mt-2 p-2 bg-red-50 rounded"><p class="text-sm"><strong>⚠️ 小组赛魔咒：</strong>科特迪瓦3次参加世界杯从未小组出线——2006年(第19)、2010年(第17)、2014年(第21)</p></div>
-    </div>
-  </div>
-</div>
-
-<h3 class="text-xl font-bold text-ci-orange">26人大名单（3 GK + 8 DF + 6 MF + 9 FW）</h3>
-<p class="text-gray-500 text-sm mb-3">* 5月15日公布 · 2024非洲杯冠军班底 · 9前锋彰显进攻野心</p>
-
-<div class="bg-white rounded-xl shadow p-6 mb-6">
+<!-- ===== SECTION 1: BASIC INFO ===== -->
+<div class="section">
+  <h2>（一）球队基本信息</h2>
   <table>
-    <thead><tr><th>位置</th><th>球员姓名</th><th>英文名</th><th>俱乐部</th><th>联赛</th></tr></thead>
-    <tbody>
-      <tr><td><span class="badge badge-gk">GK</span></td><td>亚希亚·福法纳</td><td>Yahia Fofana</td><td>里泽体育</td><td>土超</td></tr>
-      <tr><td><span class="badge badge-gk">GK</span></td><td>穆罕默德·科内</td><td>Mohamed Koné</td><td>沙勒罗瓦</td><td>比甲</td></tr>
-      <tr><td><span class="badge badge-gk">GK</span></td><td>阿尔班·拉丰</td><td>Alban Lafont</td><td>帕纳辛奈科斯</td><td>希超</td></tr>
-      <tr><td><span class="badge badge-df">DF</span></td><td>埃马纽埃尔·阿格巴杜</td><td>Emmanuel Agbadou</td><td>贝西克塔斯</td><td>土超</td></tr>
-      <tr><td><span class="badge badge-df">DF</span></td><td>克莱芒·阿夸</td><td>Clément Akpa</td><td>欧塞尔</td><td>法甲</td></tr>
-      <tr><td><span class="badge badge-df">DF</span></td><td><strong>乌斯曼·迪奥曼德</strong></td><td><strong>Ousmane Diomandé</strong></td><td><strong>葡萄牙体育</strong></td><td>葡超</td></tr>
-      <tr><td><span class="badge badge-df">DF</span></td><td>盖拉·杜埃</td><td>Guéla Doué</td><td>斯特拉斯堡</td><td>法甲</td></tr>
-      <tr><td><span class="badge badge-df">DF</span></td><td>吉兰·科南</td><td>Ghislain Konan</td><td>吉尔维森特</td><td>葡超</td></tr>
-      <tr><td><span class="badge badge-df">DF</span></td><td><strong>奥迪隆·科苏努</strong></td><td><strong>Odilon Kossounou</strong></td><td><strong>亚特兰大</strong></td><td>意甲</td></tr>
-      <tr><td><span class="badge badge-df">DF</span></td><td><strong>埃万·恩迪卡</strong></td><td><strong>Evan Ndicka</strong></td><td><strong>罗马</strong></td><td>意甲</td></tr>
-      <tr><td><span class="badge badge-df">DF</span></td><td>威尔弗里德·辛戈</td><td>Wilfried Singo</td><td>加拉塔萨雷</td><td>土超</td></tr>
-      <tr><td><span class="badge badge-mf">MF</span></td><td><strong>塞科·福法纳</strong></td><td><strong>Seko Fofana</strong></td><td><strong>波尔图</strong></td><td>葡超</td></tr>
-      <tr><td><span class="badge badge-mf">MF</span></td><td>帕尔费·吉亚贡</td><td>Parfait Guiagon</td><td>沙勒罗瓦</td><td>比甲</td></tr>
-      <tr><td><span class="badge badge-mf">MF</span></td><td>克里斯·乌拉伊</td><td>Christ Oulaï</td><td>特拉布宗体育</td><td>土超</td></tr>
-      <tr><td><span class="badge badge-mf">MF</span></td><td><strong>⭐ 弗兰克·凯西 (C)</strong></td><td><strong>Franck Kessié</strong></td><td><strong>阿尔阿赫利</strong></td><td>沙特联</td></tr>
-      <tr><td><span class="badge badge-mf">MF</span></td><td>易卜拉欣·桑加雷</td><td>Ibrahim Sangaré</td><td>诺丁汉森林</td><td>英超</td></tr>
-      <tr><td><span class="badge badge-mf">MF</span></td><td>让-米歇尔·塞里</td><td>Jean-Michaël Seri</td><td>马里博尔</td><td>斯洛文甲</td></tr>
-      <tr><td><span class="badge badge-fw">FW</span></td><td>西蒙·阿丁格拉</td><td>Simon Adingra</td><td>摩纳哥</td><td>法甲</td></tr>
-      <tr><td><span class="badge badge-fw">FW</span></td><td>安热-约安·博尼</td><td>Ange-Yoan Bonny</td><td>国际米兰</td><td>意甲</td></tr>
-      <tr><td><span class="badge badge-fw">FW</span></td><td><strong>阿马德·迪亚洛</strong></td><td><strong>Amad Diallo</strong></td><td><strong>曼联</strong></td><td>英超</td></tr>
-      <tr><td><span class="badge badge-fw">FW</span></td><td>奥马尔·迪亚基特</td><td>Oumar Diakité</td><td>布鲁日瑟克尔</td><td>比甲</td></tr>
-      <tr><td><span class="badge badge-fw">FW</span></td><td><strong>扬·迪奥曼德</strong></td><td><strong>Yan Diomandé</strong></td><td><strong>RB莱比锡</strong></td><td>德甲</td></tr>
-      <tr><td><span class="badge badge-fw">FW</span></td><td>埃万·盖桑</td><td>Evann Guessand</td><td>水晶宫</td><td>英超</td></tr>
-      <tr><td><span class="badge badge-fw">FW</span></td><td><strong>尼古拉·佩佩</strong></td><td><strong>Nicolas Pépé</strong></td><td><strong>比利亚雷亚尔</strong></td><td>西甲</td></tr>
-      <tr><td><span class="badge badge-fw">FW</span></td><td>巴祖马纳·图雷</td><td>Bazoumana Touré</td><td>霍芬海姆</td><td>德甲</td></tr>
-      <tr><td><span class="badge badge-fw">FW</span></td><td>埃利耶·瓦希</td><td>Elye Wahi</td><td>尼斯</td><td>法甲</td></tr>
-    </tbody>
+    <tr><th style="width:140px;">项目</th><th>内容</th></tr>
+    <tr><td>主教练</td><td>埃默斯·法埃（Emerse Faé），42岁，法国籍前科特迪瓦中场</td></tr>
+    <tr><td>队长</td><td>弗兰克·凯西（Franck Kessié），29岁，中场</td></tr>
+    <tr><td>FIFA排名</td><td>第34位（2026年4月）</td></tr>
+    <tr><td>全队总身价</td><td><strong>€5.169亿（约€516.9M）</strong>，非洲区排名前二</td></tr>
+    <tr><td>平均年龄</td><td>25.6岁（48强中最年轻的阵容之一）</td></tr>
+    <tr><td>世界杯历史</td><td>第4次参赛（2006/2010/2014），此前3次均止步小组赛</td></tr>
+    <tr><td>最佳战绩</td><td>小组赛（从未出线）——2014年距16强仅差93秒钟</td></tr>
+    <tr><td>上届世界杯</td><td>未晋级（2018年俄罗斯、2022年卡塔尔连续两届缺席）</td></tr>
+    <tr><td>近期荣誉</td><td>2023年非洲杯冠军（2024年2月本土夺冠）</td></tr>
+    <tr><td>晋级方式</td><td>CAF非洲区F组头名出线，8胜2平不败战绩，26分</td></tr>
+    <tr><td>2026小组</td><td><strong>E组</strong>：德国 🇩🇪、厄瓜多尔 🇪🇨、科特迪瓦 🇨🇮、库拉索 🇨🇼</td></tr>
+    <tr><td>首场比赛</td><td>2026年6月14日 vs 厄瓜多尔（费城）</td></tr>
   </table>
-  <div class="mt-3 p-3 bg-yellow-50 rounded-lg border border-yellow-200">
-    <p class="text-sm"><strong>🐘 非洲冠军配置：</strong>9前锋（与巴西并列32强最多）+ 意甲防线（恩迪卡/罗马、科苏努/亚特兰大）+ 英超/葡超中场（桑加雷/森林、塞科·福法纳/波尔图）| 曼联边锋阿马德·迪亚洛是最大牌球星</p>
-  </div>
 </div>
 
-<h2 class="text-ci-orange">（二）逐项评分明细</h2>
+<!-- ===== 26-MAN SQUAD ===== -->
+<div class="section">
+  <h3>26人大名单</h3>
+  <p><em>大名单于2026年5月15日正式公布。全队26人100%效力于海外联赛，遍布欧洲、亚洲9个国家。非洲杯决赛英雄塞巴斯蒂安·阿莱（Haller）落选最终名单。</em></p>
 
-<div class="dimension-card">
-  <h3 class="text-xl font-bold text-ci-orange">维度一：阵容实力（权重30%）｜ 62分 × 30% = 18.6分</h3>
-  <div class="subitem"><h4>1.1 球星质量与个人能力 —— 64分</h4>
-    <table class="text-sm mb-2"><tr><th>指标</th><th>数据</th></tr>
-      <tr><td>五大联赛球员</td><td>12+人</td></tr>
-      <tr><td>英超球员</td><td>迪亚洛（曼联）、桑加雷（森林）、盖桑（水晶宫）</td></tr>
-      <tr><td>非洲杯冠军成员</td><td>15+人（2024冠军班底）</td></tr>
-      <tr><td>最大牌球星</td><td>阿马德·迪亚洛（曼联/英超）、弗兰克·凯西（前巴萨）</td></tr>
-    </table>
-    <p>科特迪瓦拥有非洲最令人羡慕的阵容深度之一。阿马德·迪亚洛本赛季在曼联迎来了突破——他在各项赛事贡献8球5助攻，其双足均衡的技术特点使他成为E组中"最可能制造意外"的球员之一。扬·迪奥曼德（RB莱比锡）是欧洲最受关注的年轻前锋之一——传闻多支英超豪门关注，他的速度和跑位在非洲赛场已得到充分验证。后防线上，埃万·恩迪卡（罗马）和奥迪隆·科苏努（亚特兰大）组成了一条"意甲级"中卫线——两人在意大利的战术熏陶对防守纪律性的提升不可忽视。队长凯西虽然已去沙特联赛，但在AC米兰和巴塞罗那的峥嵘岁月证明了他是一名"大场面球员"。塞科·福法纳（波尔图）以跑动能力和远射著称。但整体来看，科特迪瓦的球员质量呈现"中前场偏技术、后防偏速度"的特征——面对德国的高位压迫时，中场出球能力可能成为瓶颈。</p>
-  </div>
-  <div class="subitem"><h4>1.2 各位置均衡度 —— 62分</h4><p>科特迪瓦的9前锋配置与巴西并列32强最多——这反映了法埃的"进攻优先"理念。锋线风格多样：迪亚洛（技术/突破）、迪奥曼德（速度/跑位）、佩佩（左脚/内切）、瓦希（身体素质）、博尼（国米/潜力）。后防8人以恩迪卡（罗马）和科苏努（亚特兰大）为首，在五大联赛中的"意甲后防帮"提供了战术纪律——这对面对德国时需要长时间防守的科特迪瓦来说是一个积极信号。中场6人的问题在于"攻强守弱"——凯西的前插和塞科·福法纳的跑动是优势，但缺乏一名纯粹的防守型后腰。桑加雷在诺丁汉森林更适合拖后角色，但他的伤病历史是一个隐患。</p></div>
-  <div class="subitem"><h4>1.3 板凳深度 —— 56分</h4><p>科特迪瓦的锋线替补深度是奢侈的——9人中至少有6名可以胜任首发级别，法埃可以在60分钟后换上佩佩、瓦希或阿丁格拉来改变比赛。但中场的替补深度有限——首发三人（凯西+塞科·福法纳+桑加雷）与替补（吉亚贡、乌拉伊、塞里）之间的差距明显。后防方面，迪奥曼德（葡体）是重要的中卫轮换，但边后卫位置深度不足。</p></div>
-  <div class="subitem"><h4>1.4 总身价与年龄结构 —— 58分</h4><p>全队总身价约2.5亿欧元，在32强中排名中游。年龄结构合理——核心球员在25-30岁的黄金年龄段（凯西29岁、迪亚洛23岁、迪奥曼德21岁、恩迪卡26岁）。老将塞里（34岁）和佩佩（31岁）提供经验。整体是一支"处于上升期"而非"老化期"的球队。</p></div>
-  <div class="score-bar mt-3"><div class="score-fill" style="width:62%;background:linear-gradient(90deg,#008000,#F77F00);"></div></div>
-  <p class="text-right text-sm text-gray-500 mt-1">维度一总评：<strong>62分</strong> × 30% = <strong>18.6分</strong></p>
-</div>
-
-<div class="dimension-card">
-  <h3 class="text-xl font-bold text-ci-orange">维度二：战术体系与教练（权重20%）｜ 56分 × 20% = 11.2分</h3>
-  <div class="subitem"><h4>2.1 主帅战术哲学与大赛履历 —— 58分</h4><p>埃默斯·法埃是科特迪瓦足球的"自己人"——41岁的他曾是科特迪瓦国脚，2024年接手国家队后立即率队赢得非洲杯冠军，一战封神。他的战术风格以进攻为导向——在非洲杯上，科特迪瓦场均射门超过15次，是赛事攻击力最强的球队之一。但法埃的履历短板明确：他从未执教过世界杯比赛，也从未在欧洲足坛执教过——他的足球智慧和战术体系在非洲层面有效，但面对纳格尔斯曼（德国）的精密战术体系时能否匹敌，是一个巨大的问号。</p></div>
-  <div class="subitem"><h4>2.2 阵型适配性 —— 58分</h4><p>法埃在科特迪瓦主要使用4-3-3或4-2-3-1阵型。4-3-3阵型利用了科特迪瓦边锋群（迪亚洛、佩佩、阿丁格拉）的速度和技术优势——三名前锋在对手防线奔跑。对阵德国时，法埃很可能采取"防守反击+利用边路速度"的策略——让迪亚洛和佩佩在反击中冲击德国队的边后卫（劳姆/布朗）。3-4-2-1阵型是B方案——利用恩迪卡+科苏努+阿格巴杜的三中卫体系增加防守硬度，让凯西和塞科·福法纳在中场扫荡。</p></div>
-  <div class="subitem"><h4>2.3 攻守转换效率 —— 55分</h4><p>科特迪瓦在非洲杯上的攻守转换效率令人印象深刻——由守转攻时，球队利用边锋的速度在3-5秒内完成从防守到射门的转换。但非洲杯的防守强度与世界杯（尤其是面对德国）不可同日而语——科特迪瓦的"快速转换"在面对德国的高位压迫退防时，可能会发现对手已经快速回位。</p></div>
-  <div class="subitem"><h4>2.4 临场指挥 —— 52分</h4><p>法埃在非洲杯上的换人决策总体不错——他敢于在落后时增加前锋，在领先时及时换上防守球员。但世界杯小组赛的赛程和压力完全不同——他需要在"对德国死守"和"对库拉索猛攻"之间做出精确的精力分配。</p></div>
-  <div class="score-bar mt-3"><div class="score-fill" style="width:56%;background:linear-gradient(90deg,#008000,#F77F00);"></div></div>
-  <p class="text-right text-sm text-gray-500 mt-1">维度二总评：<strong>56分</strong> × 20% = <strong>11.2分</strong></p>
-</div>
-
-<div class="dimension-card">
-  <h3 class="text-xl font-bold text-ci-orange">维度三：近期竞技状态（权重15%）｜ 65分 × 15% = 9.75分</h3>
-  <div class="subitem"><h4>3.1 近12个月战绩 —— 65分</h4><p>科特迪瓦是2024年非洲杯冠军——在决赛中2-1击败尼日利亚夺冠，这个成就是球队近期状态的最佳证明。世界杯预选赛中，科特迪瓦以8胜2平不败战绩晋级，+25的净胜球是非洲区所有出线队中最高的。在2026年初的友谊赛中，科特迪瓦与法国1-1战平、2-0击败沙特，展现了与欧洲强队抗衡的能力。</p></div>
-  <div class="subitem"><h4>3.2 预选赛含金量 —— 62分</h4><p>8胜2平不败+25净胜球是统治级的表现——但非洲区预选赛的小组对手实力偏弱（没有遇到摩洛哥、塞内加尔等顶级非洲球队），出线含金量受到了削弱。</p></div>
-  <div class="subitem"><h4>3.3 核心球员俱乐部状态 —— 62分</h4>
-    <table class="text-sm mb-2"><tr><th>球员</th><th>本赛季表现</th><th>状态</th></tr>
-      <tr><td>迪亚洛（曼联）</td><td>英超22场8球5助攻，突破赛季</td><td>🔥 火热</td></tr>
-      <tr><td>迪奥曼德（莱比锡）</td><td>德甲16场6球，21岁新星</td><td>⬆️ 上升</td></tr>
-      <tr><td>恩迪卡（罗马）</td><td>意甲28场，中卫主力</td><td>✅ 稳定</td></tr>
-      <tr><td>凯西（阿尔阿赫利）</td><td>沙特联20场5球，队长</td><td>✅ 稳定</td></tr>
-      <tr><td>佩佩（比利亚雷亚尔）</td><td>西甲22场3球，状态一般</td><td>⬇️ 下滑</td></tr>
-      <tr><td>科苏努（亚特兰大）</td><td>意甲20场，轮换中卫</td><td>✅ 稳定</td></tr>
-    </table>
-    <p>迪亚洛在曼联的爆发是科特迪瓦最大的好消息——他在右边路的突破能力对德国队来说是一个未知的威胁。</p>
-  </div>
-  <div class="score-bar mt-3"><div class="score-fill" style="width:65%;background:linear-gradient(90deg,#008000,#F77F00);"></div></div>
-  <p class="text-right text-sm text-gray-500 mt-1">维度三总评：<strong>65分</strong> × 15% = <strong>9.75分</strong></p>
-</div>
-
-<div class="dimension-card">
-  <h3 class="text-xl font-bold text-ci-orange">维度四：大赛经验与心理素质（权重10%）｜ 55分 × 10% = 5.5分</h3>
-  <div class="subitem"><h4>4.1 世界杯历史 —— 42分</h4><p>科特迪瓦是世界杯历史上"最令人失望的非洲球队"之一——3次参赛（2006、2010、2014）、3次小组出局。2014年他们拥有一位德罗巴、亚亚·图雷、热尔维尼奥的"黄金一代"，却仍然无法突破小组赛。本届是他们12年后的回归，当年的德罗巴一代已全部退役——新一代"大象军团"渴望打破这个魔咒。</p></div>
-  <div class="subitem"><h4>4.2 核心球员经验 —— 52分</h4><p>凯西参加过2014年世界杯（3场小组赛），是队中唯一有世界杯经验的球员。部分球员参加过欧冠（恩迪卡、迪亚洛、科苏努），但世界杯的压力完全不同。</p></div>
-  <div class="subitem"><h4>4.3 抗压能力 —— 55分</h4><p>2024非洲杯冠军证明了这支球队具备"赢下关键比赛"的心理素质——他们在决赛中面对尼日利亚，在0-1落后的情况下逆转取胜。但非洲杯冠军到世界杯出线之间还有一段心理距离——"德罗巴一代都没做到"的历史包袱可能无形中给球员增加压力。</p></div>
-  <div class="score-bar mt-3"><div class="score-fill" style="width:55%;background:linear-gradient(90deg,#008000,#F77F00);"></div></div>
-  <p class="text-right text-sm text-gray-500 mt-1">维度四总评：<strong>55分</strong> × 10% = <strong>5.5分</strong></p>
-</div>
-
-<div class="dimension-card">
-  <h3 class="text-xl font-bold text-ci-orange">维度五：分组及赛程影响（权重10%）｜ 53分 × 10% = 5.3分</h3>
-  <div class="subitem"><h4>5.1 小组对手分析 —— 55分</h4>
-    <table class="text-sm mb-2"><tr><th>对手</th><th>科特迪瓦胜率</th></tr>
-      <tr><td>德国 🇩🇪</td><td>25-30%</td></tr>
-      <tr><td>厄瓜多尔 🇪🇨</td><td>40-45%</td></tr>
-      <tr><td>库拉索 🇨🇼</td><td>75-80%</td></tr>
-    </table>
-    <p>首战对厄瓜多尔是决定性的——如果科特迪瓦能赢，出线主动权将掌握在自己手中。德国一役将以"少输当赢"为目标。末轮对库拉索是"必须拿下"的比赛。科特迪瓦的"出线公式"是：胜厄瓜多尔+胜库拉索=6分，大概率出线（除非厄瓜多尔击败德国）。</p>
-  </div>
-  <div class="subitem"><h4>5.2 淘汰赛路线 —— 48分</h4><p>如果以小组第二出线，16强对阵I组第一（可能法国/荷兰），难度极大。</p></div>
-  <div class="subitem"><h4>5.3 旅途气候 —— 55分</h4><p>赛程在费城（东海岸）、多伦多（加拿大）、费城之间分布，跨国际旅行增加了复杂性但尚可接受。</p></div>
-  <div class="score-bar mt-3"><div class="score-fill" style="width:53%;background:linear-gradient(90deg,#008000,#F77F00);"></div></div>
-  <p class="text-right text-sm text-gray-500 mt-1">维度五总评：<strong>53分</strong> × 10% = <strong>5.3分</strong></p>
-</div>
-
-<div class="dimension-card">
-  <h3 class="text-xl font-bold text-ci-orange">维度六：团队凝聚力（权重10%）｜ 56分 × 10% = 5.6分</h3>
-  <div class="subitem"><h4>6.1 更衣室团结度 —— 60分</h4><p>非洲杯冠军团队的内部凝聚力通常处于高水平。凯西作为队长在更衣室有很高的威望——他与队友们共同经历了2024年非洲杯的夺冠历程。</p></div>
-  <div class="subitem"><h4>6.2 足协稳定性 —— 55分</h4><p>FIF（科特迪瓦足协）在非洲足联中属于管理较为规范的之一，为球队备战提供了必要的保障。</p></div>
-  <div class="subitem"><h4>6.3 国内舆论 —— 52分</h4><p>科特迪瓦国内对国家队期望值很高——非洲杯冠军后"世界杯突破小组赛"已成为全国性期待。如果首战输给厄瓜多尔，国内舆论可能迅速施压。</p></div>
-  <div class="score-bar mt-3"><div class="score-fill" style="width:56%;background:linear-gradient(90deg,#008000,#F77F00);"></div></div>
-  <p class="text-right text-sm text-gray-500 mt-1">维度六总评：<strong>56分</strong> × 10% = <strong>5.6分</strong></p>
-</div>
-
-<div class="dimension-card">
-  <h3 class="text-xl font-bold text-ci-orange">维度七：体能储备与伤病控制（权重5%）｜ 53分 × 5% = 2.65分</h3>
-  <div class="subitem"><h4>7.1 赛季疲劳度 —— 55分</h4><p>非洲球员的赛季消耗量分布不均——五大联赛球员（迪亚洛、恩迪卡等）经历了完整的高强度赛季，而凯西（沙特）和部分土超/比甲球员的赛程强度较低。</p></div>
-  <div class="subitem"><h4>7.2 伤病情况 —— 55分</h4><p>无重大伤病报告，全员健康。</p></div>
-  <div class="subitem"><h4>7.3 医疗团队 —— 50分</h4><p>非洲足协的医疗配置与欧洲强队有差距，但科特迪瓦在非洲属于顶级水平。</p></div>
-  <div class="score-bar mt-3"><div class="score-fill" style="width:53%;background:linear-gradient(90deg,#008000,#F77F00);"></div></div>
-  <p class="text-right text-sm text-gray-500 mt-1">维度七总评：<strong>53分</strong> × 5% = <strong>2.65分</strong></p>
-</div>
-
-<h2 class="text-ci-orange">（三）综合总分与评级</h2>
-<div class="summary-box text-center">
-  <p class="text-2xl font-bold">加权总分：58.6 / 100</p>
-  <p class="text-xl mt-2">实力评级：<span class="font-bold text-3xl">D+</span>（新的评级描述）</p>
-</div>
-<div class="bg-white rounded-xl shadow p-6 mb-6">
-  <h3 class="text-lg font-bold mb-3">七维度雷达数据</h3>
+  <h4>🧤 守门员（3人）</h4>
+  <div class="table-scroll">
   <table>
-    <tr><th>维度</th><th>得分</th><th>权重</th><th>加权贡献</th></tr>
-    <tr><td>① 阵容实力</td><td>62</td><td>30%</td><td>18.60</td></tr>
-    <tr><td>② 战术体系与教练</td><td>56</td><td>20%</td><td>11.20</td></tr>
-    <tr><td>③ 近期竞技状态</td><td>65</td><td>15%</td><td>9.75</td></tr>
-    <tr><td>④ 大赛经验与心理素质</td><td>55</td><td>10%</td><td>5.50</td></tr>
-    <tr><td>⑤ 分组及赛程影响</td><td>53</td><td>10%</td><td>5.30</td></tr>
-    <tr><td>⑥ 团队凝聚力与场外环境</td><td>56</td><td>10%</td><td>5.60</td></tr>
-    <tr><td>⑦ 体能储备与伤病控制</td><td>53</td><td>5%</td><td>2.65</td></tr>
-    <tr style="font-weight:bold;background:#fff3e0;"><td colspan="3">总分</td><td>58.60</td></tr>
+    <tr><th>球员姓名</th><th>位置</th><th>年龄</th><th>所属俱乐部</th><th>身价</th></tr>
+    <tr><td>Yahia Fofana</td><td>GK</td><td>25</td><td>Çaykur Rizespor（土超）</td><td>€500万</td></tr>
+    <tr><td>Alban Lafont</td><td>GK</td><td>27</td><td>Panathinaikos（希超）</td><td>€300万</td></tr>
+    <tr><td>Mohamed Koné</td><td>GK</td><td>24</td><td>Charleroi（比甲）</td><td>€80万</td></tr>
   </table>
+  </div>
+
+  <h4>🛡️ 后卫（8人）</h4>
+  <div class="table-scroll">
+  <table>
+    <tr><th>球员姓名</th><th>位置</th><th>年龄</th><th>所属俱乐部</th><th>身价</th></tr>
+    <tr><td>Ousmane Diomande</td><td>CB</td><td>22</td><td>Sporting CP（葡超）</td><td><strong>€4,200万</strong></td></tr>
+    <tr><td>Evan Ndicka</td><td>CB</td><td>26</td><td>AS Roma（意甲）</td><td><strong>€3,500万</strong></td></tr>
+    <tr><td>Wilfried Singo</td><td>CB/RB</td><td>25</td><td>Galatasaray（土超）</td><td>€2,300万</td></tr>
+    <tr><td>Emmanuel Agbadou</td><td>CB</td><td>28</td><td>Beşiktaş（土超）</td><td>€1,600万</td></tr>
+    <tr><td>Odilon Kossounou</td><td>CB</td><td>25</td><td>Atalanta（意甲）</td><td>€1,500万</td></tr>
+    <tr><td>Guéla Doué</td><td>RB</td><td>20</td><td>Strasbourg（法甲）</td><td>€1,800万</td></tr>
+    <tr><td>Clément Akpa</td><td>CB</td><td>24</td><td>AJ Auxerre（法甲）</td><td>€900万</td></tr>
+    <tr><td>Ghislain Konan</td><td>LB</td><td>30</td><td>Gil Vicente（葡超）</td><td>€300万</td></tr>
+  </table>
+  </div>
+
+  <h4>🎯 中场（6人）</h4>
+  <div class="table-scroll">
+  <table>
+    <tr><th>球员姓名</th><th>位置</th><th>年龄</th><th>所属俱乐部</th><th>身价</th></tr>
+    <tr><td>Franck Kessié <strong>(C)</strong></td><td>CM</td><td>29</td><td>Al Ahli（沙特）</td><td>€1,200万</td></tr>
+    <tr><td>Ibrahim Sangaré</td><td>DM</td><td>28</td><td>Nottingham Forest（英超）</td><td>€2,200万</td></tr>
+    <tr><td>Seko Fofana</td><td>CM</td><td>31</td><td>FC Porto（葡超）</td><td>€800万</td></tr>
+    <tr><td>Christ Inao Oulaï</td><td>CM</td><td>20</td><td>Trabzonspor（土超）</td><td>€2,300万</td></tr>
+    <tr><td>Parfait Guiagon</td><td>CM</td><td>25</td><td>Charleroi（比甲）</td><td>€500万</td></tr>
+    <tr><td>Jean-Michaël Seri</td><td>DM</td><td>34</td><td>NK Maribor（斯洛文甲）</td><td>€10万</td></tr>
+  </table>
+  </div>
+
+  <h4>⚽ 前锋（9人）</h4>
+  <div class="table-scroll">
+  <table>
+    <tr><th>球员姓名</th><th>位置</th><th>年龄</th><th>所属俱乐部</th><th>身价</th></tr>
+    <tr><td>Yan Diomande</td><td>LW</td><td>19</td><td>RB Leipzig（德甲）</td><td><strong>€9,000万</strong></td></tr>
+    <tr><td>Amad Diallo</td><td>RW</td><td>23</td><td>Manchester United（英超）</td><td><strong>€5,000万</strong></td></tr>
+    <tr><td>Bazoumana Touré</td><td>LW</td><td>20</td><td>Hoffenheim（德甲）</td><td>€4,000万</td></tr>
+    <tr><td>Ange-Yoan Bonny</td><td>ST</td><td>22</td><td>Inter Milan（意甲）</td><td>€3,500万</td></tr>
+    <tr><td>Evann Guessand</td><td>RW</td><td>24</td><td>Crystal Palace（英超）</td><td>€2,800万</td></tr>
+    <tr><td>Simon Adingra</td><td>LW</td><td>24</td><td>AS Monaco（法甲）</td><td>€2,500万</td></tr>
+    <tr><td>Elye Wahi</td><td>ST</td><td>23</td><td>OGC Nice（法甲）</td><td>€1,200万</td></tr>
+    <tr><td>Nicolas Pépé</td><td>RW</td><td>31</td><td>Villarreal（西甲）</td><td>€600万</td></tr>
+    <tr><td>Oumar Diakité</td><td>ST</td><td>22</td><td>Cercle Brugge（比甲）</td><td>€500万</td></tr>
+  </table>
+  </div>
+  <p style="font-size:13px;color:#666;margin-top:5px;">* 数据来源：Transfermarkt 2026年5月。身价单位：欧元。中场含攻防转换核心。</p>
 </div>
 
-<h2 class="text-ci-orange">（四）深度球评</h2>
-<div class="bg-white rounded-xl shadow p-6 mb-6">
-  <h3 class="text-lg font-bold text-green-700">核心优势</h3>
-  <ul class="list-disc pl-6 space-y-2">
-    <li><strong>2024非洲杯冠军——"赢家心态"已注入。</strong>科特迪瓦是本届世界杯上"最近一次赢得洲际冠军"的非洲球队（2024非洲杯）。这支球队知道怎么打"一场定生死的决赛"——他们在决赛中0-1落后尼日利亚后逆转取胜，证明了自己的心理韧性。这种"冠军DNA"是非洲球队在世界杯上最稀缺的品质。</li>
-    <li><strong>迪亚洛+迪奥曼德的"速度双翼"。</strong>曼联边锋阿马德·迪亚洛是科特迪瓦最具威胁的进攻点——他的双足均衡和变向能力是德国队后防线的一种"未知的威胁"。RB莱比锡的扬·迪奥曼德以速度和跑位见长——这对组合在反击中的"加速度"在E组中仅次于德国。首战对阵厄瓜多尔时，科特迪瓦可能通过"20分钟的快速反击风暴"决定比赛走向。</li>
-  </ul>
+<!-- ===== SECTION 2: SCORING ===== -->
+<div class="section">
+  <h2>（二）逐项评分明细</h2>
+
+  <!-- DIMENSION 1 -->
+  <h3>维度一：阵容实力（权重30%）｜ 得分：79分 × 30% = 23.70分</h3>
+
+  <div class="sub-item">
+    <span class="sub-item-title">1.1 球星质量与个人能力</span><span class="sub-item-score">80分</span>
+    <p style="margin-top:8px;line-height:1.7;font-size:14px;">
+      科特迪瓦拥有非洲最令人艳羡的天赋储备。19岁的扬·迪奥曼德（€9,000万）是RB莱比锡的主力左边锋，2025/26赛季德甲28场12球8助攻，已是全欧最炙手可热的年轻攻击手之一，其盘带过人次数（场均3.4次）在德甲边锋中排名前五。阿马德·迪亚洛（€5,000万）在曼联踢出了突破性赛季——各项赛事35场8球6助攻，其左脚的细腻技术和边路突破能力已跻身英超一流边锋行列。后防线上，奥斯曼·迪奥曼德（€4,200万，葡萄牙体育）是欧洲各大豪门追逐的年轻中卫，2025/26赛季葡超传球成功率92%，场均拦截2.1次。埃文·恩迪卡（€3,500万，罗马）过去两年在穆里尼奥和德罗西帐下稳固成长为意甲顶级中卫。巴祖马纳·图雷（€4,000万，霍芬海姆）和安热-约安·博尼（€3,500万，国际米兰）则是另一对闪耀的新星——博尼在国米作为替补中锋赛季打入9球，效率惊人。这支球队的"天赋天花板"在非洲球队中是独一档的存在。
+    </p>
+  </div>
+  <div class="sub-item">
+    <span class="sub-item-title">1.2 各位置均衡度</span><span class="sub-item-score">78分</span>
+    <p style="margin-top:8px;line-height:1.7;font-size:14px;">
+      科特迪瓦的四条线中，中后卫和边锋位置是绝对强点。中卫储备有迪奥曼德、恩迪卡、辛戈、科索努和阿格巴杜五名高水平球员，横跨葡超/意甲/土超三大联赛，风格互补（迪奥曼德出球型、恩迪卡对抗型、辛戈全能型）。边锋群同样恐怖——扬·迪奥曼德（左）、迪亚洛（右）、图雷（左）、阿丁格拉（左）、格桑（右）、佩佩（右），六名边锋全部效力于五大联赛或葡超豪门，法埃可以根据对手随意切换进攻组合。相对薄弱的是门将和左边后卫位置。门将福法纳（土超里泽体育）和拉丰（帕纳辛奈科斯）都是实用型门将而非顶级——福法纳2025/26赛季扑救成功率仅71%，在土超处于中游水平。左后卫科南（吉尔维森特，葡超中游）是防线最弱一环，其速度短板可能被强队重点针对。中场中路由凯西（沙特联赛）和桑加雷（英超）领衔，力量对抗充足但技术创造力稍逊——让-迈克尔·塞里已34岁且效力斯洛文尼亚联赛，状态大不如前。
+    </p>
+  </div>
+  <div class="sub-item">
+    <span class="sub-item-title">1.3 板凳深度</span><span class="sub-item-score">75分</span>
+    <p style="margin-top:8px;line-height:1.7;font-size:14px;">
+      科特迪瓦的替补深度在非洲球队中首屈一指，甚至可以媲美部分欧洲二线强队。后防线上，即便主力中卫迪奥曼德或恩迪卡有一人缺阵，法埃仍有辛戈、科索努和阿格巴杜三人可以轮换——这三人分别在土超（加拉塔萨雷）、意甲（亚特兰大）、土超（贝西克塔斯）踢主力或重要轮换。边锋位置更加奢侈：迪亚洛、扬·迪奥曼德、图雷三人的身价合计€1.8亿，但法埃最多只能上2人——这意味着€4,000万的图雷或€2,500万的阿丁格拉都可能坐上替补席。中锋位置也有博尼（国米）、瓦希（尼斯）、迪亚基特（色格拉布鲁日）三个风格不同的选择。中场深度相对较浅——凯西和桑加雷之后，塞科·福法纳已31岁，塞里年事已高，小将乌拉（20岁）经验不足。总体来说，科特迪瓦有一套足以轮换15-16名球员的可靠阵容，在世界杯密集赛程下这是一种巨大优势。
+    </p>
+  </div>
+  <div class="sub-item">
+    <span class="sub-item-title">1.4 总身价与年龄结构</span><span class="sub-item-score">82分</span>
+    <p style="margin-top:8px;line-height:1.7;font-size:14px;">
+      科特迪瓦全队总身价€5.169亿，在48支参赛队中排名第15-18位区间，在非洲区仅次于摩洛哥（约€3.5亿，实际数据有不同统计口径），远超塞内加尔、尼日利亚等传统非洲强队。平均年龄25.6岁是本届世界杯最年轻的阵容之一，这说明球队的核心框架在未来两届大赛仍将保持竞争力。年龄结构呈现出完美的"倒金字塔"：19-23岁（7人）构成未来基石——扬·迪奥曼德（19）、图雷（20）、乌拉（20）、杜埃（20）、迪亚洛（23）、瓦希（23）、博尼（22）；24-28岁（12人）处于黄金年龄——恩迪卡（26）、辛戈（25）、科索努（25）、阿丁格拉（24）等；29岁以上（7人）提供经验——凯西（29）、科南（30）、塞科·福法纳（31）、佩佩（31）、塞里（34）。唯一的风险点在于：沙特联赛的凯西和年事已高的塞里在中场的速度与覆盖能力可能在世界杯高强度对抗中暴露短板。
+    </p>
+  </div>
+
+  <h4 style="text-align:right;margin-top:10px;">均分：79分</h4>
+
+  <p class="analysis-text">
+    科特迪瓦的阵容实力在非洲区属于顶尖水平，放眼全球也至少是二线强队的水准。这支球队最大的资产是年轻化的天赋储备——全队身价超€5亿，其中扬·迪奥曼德（19岁/€9,000万）、迪亚洛（23岁/€5,000万）、奥斯曼·迪奥曼德（22岁/€4,200万）、图雷（20岁/€4,000万）四人合计身价已超过€2.2亿，且全部在23岁以下。这意味着科特迪瓦不仅现在有竞争力，未来五年的上升空间甚至更大。进攻端边锋群的配置极度奢侈——六名边锋各具特色（迪亚洛的技术、扬·迪奥曼德的爆点、图雷的速度、阿丁格拉的对抗），法埃可以根据对手的防守弱点灵活选择首发组合。后防线的厚度同样令人羡慕——五名中卫中任何三人都可以组成一条具备欧冠级别竞争力的防线。但阵容仍有明显短板：门将位置缺乏顶级扑救手，左后卫科南在葡超吉尔维森特都算不上顶尖，面对德国队萨内或穆西亚拉的冲击将十分吃力。此外，凯西在沙特联赛踢球已近两年，其竞技状态相对于欧洲五大联赛的同位置球员可能有所下滑——2025/26赛季在吉达国民的跑动数据（场均9.2km）低于其在米兰时期的水平（场均10.5km），这是一个值得警惕的信号。
+  </p>
+
+  <!-- DIMENSION 2 -->
+  <div class="divider"></div>
+  <h3>维度二：战术体系与教练（权重20%）｜ 得分：67分 × 20% = 13.40分</h3>
+
+  <div class="sub-item">
+    <span class="sub-item-title">2.1 主帅战术哲学与大赛履历</span><span class="sub-item-score">65分</span>
+    <p style="margin-top:8px;line-height:1.7;font-size:14px;">
+      埃默斯·法埃（42岁）的执教生涯堪称"意外之喜"。这位前尼斯青训教练在2022年加入科特迪瓦教练组担任U23主帅兼国家队助教，2024年非洲杯期间因原主帅加塞特带队小组赛表现不佳被解职后，法埃临时接手并在本土率队夺冠——决赛2-1逆转尼日利亚，凯西打入制胜球。法埃的战术哲学以4-3-3为基础，强调防守中位逼抢（mid-block pressing）和快速纵向转换，进攻端极度依赖边锋的个人能力和边后卫套上助攻。他的执教大赛履历相对单薄——仅有2024年非洲杯（7场）和2025年非洲杯（3场，科特迪瓦在1/4决赛被塞内加尔淘汰）的经验，以主教练身份征战世界杯尚属首次。法埃在2025年非洲杯上暴露了战术调整不够及时的问题——对阵塞内加尔的1/4决赛中，对手变阵3-4-3后法埃花了30分钟才做出针对性调整，最终0-2告负。
+    </p>
+  </div>
+  <div class="sub-item">
+    <span class="sub-item-title">2.2 阵型适配性与球员契合度</span><span class="sub-item-score">72分</span>
+    <p style="margin-top:8px;line-height:1.7;font-size:14px;">
+      4-3-3阵型完美契合科特迪瓦的球员特点。三名中场中，凯西（右侧）和桑加雷（中路偏左）提供力量和覆盖，塞科·福法纳居前负责衔接进攻。凯西在米兰时期就是4-3-3右边中场的典范——他的前插得分能力（2021/22赛季意甲7球）和身体对抗是科特迪瓦中前场的重要武器。桑加雷作为防守型中场，在诺丁汉森林场均完成2.8次抢断和1.5次拦截，是防线前的第一道屏障。边锋群在4-3-3体系中如鱼得水——扬·迪奥曼德内切射门、迪亚洛边路一对一、图雷利用速度冲击身后，三人风格各异且可交替出场。中锋位置上博尼（国米）擅长禁区支点作用，瓦希（尼斯）则更适合游走反击。但法埃的B方案（变阵4-2-3-1或3-4-3）在实战中使用频率极低，如果4-3-3在对阵德国时被压制，法埃能否及时变阵存疑。
+    </p>
+  </div>
+  <div class="sub-item">
+    <span class="sub-item-title">2.3 攻守转换效率</span><span class="sub-item-score">70分</span>
+    <p style="margin-top:8px;line-height:1.7;font-size:14px;">
+      科特迪瓦的攻守转换以"快"为核心——一旦在后场或中场赢得球权，边锋群会立刻向两侧拉开空间，凯西或桑加雷通过直传或长传找边路速度点。预选赛3-0击败肯尼亚的比赛中，阿马德·迪亚洛从中场带球推进40米后助攻凯西首开纪录，完美展示了这一转换模式。定位球进攻是科特迪瓦另一有效武器——恩迪卡（罗马）和奥斯曼·迪奥曼德（葡萄牙体育）在各自俱乐部的定位球得分率分别达到每赛季2-3球。但由攻转守的环节存在隐患：边锋参与防守的意愿不一致——迪亚洛场均回防次数（3.1次）远高于扬·迪奥曼德（1.4次），法埃需要在进攻自由度和防守纪律之间找到平衡点。另外，凯西前插后留下的中场空当容易被快速反击利用——桑加雷一个人覆盖两个禁区之间的能力在英超已验证是足够的，但面对德国队基米希或穆西亚拉的快速推进时，这个空档可能被放大。
+    </p>
+  </div>
+  <div class="sub-item">
+    <span class="sub-item-title">2.4 临场指挥与换人策略</span><span class="sub-item-score">58分</span>
+    <p style="margin-top:8px;line-height:1.7;font-size:14px;">
+      法埃的临场指挥在2024年非洲杯夺冠过程中展现了不错的直觉——决赛对阵尼日利亚，他在0-1落后的局面下果断换上前锋阿莱（当时还在队中），最终逆转取胜。但2025年非洲杯对阵塞内加尔的失利暴露出他在面对高水平对手时的战术调整短板。科特迪瓦的替补优势是法埃最大的临场牌：他可以在一场比赛中先后换上3-4名边锋持续冲击对手防线，这种"边锋群轮番轰炸"的战术在对阵体能下降的防线时尤其有效。但法埃对全局节奏把控的经验尚浅——在预选赛中，科特迪瓦有2场平局都是在领先情况下被对手逼平，说明球队在守住领先优势时的战术执行力还需提升。法埃的助教团队中缺乏世界杯经验的教练，这在关键时刻可能成为一个隐形短板。
+    </p>
+  </div>
+
+  <h4 style="text-align:right;margin-top:10px;">均分：67分</h4>
+
+  <p class="analysis-text">
+    法埃是一位"因缘际会"上位的主教练——他从U23主帅一路晋升，在2024年非洲杯上完成了一个近乎童话般的夺冠故事。但客观评价，他的战术能力和大赛经验与世界杯舞台上那些身经百战的名帅（如德国的纳格尔斯曼）相比还有明显差距。法埃最大的优势在于他深得球员信任——非洲杯夺冠的经历让全队上下愿意为他全力以赴，这对一支天赋型球队来说至关重要（天赋型球队最怕的就是将帅失和）。他选定的4-3-3体系也确实契合科特迪瓦的人才储备。但问题在于：法埃的执教样本量太小——截至世界杯开赛，他独立执教国家队不足30场，其中真正的高水平对抗（对阵世界排名前30的球队）仅有4-5场。这种经验差距在世界杯的淘汰赛阶段可能是致命的，因为顶级教练在60分钟时的战术调整往往能决定比赛走向。简而言之，法埃"带队夺冠"的能力已经验证，但"带队在顶级杯赛走得更远"的能力仍有待检验。
+  </p>
+
+  <!-- DIMENSION 3 -->
+  <div class="divider"></div>
+  <h3>维度三：近期竞技状态（权重15%）｜ 得分：74分 × 15% = 11.10分</h3>
+
+  <div class="sub-item">
+    <span class="sub-item-title">3.1 近12个月正式比赛战绩</span><span class="sub-item-score">78分</span>
+    <p style="margin-top:8px;line-height:1.7;font-size:14px;">
+      科特迪瓦在2025年6月至2026年5月期间保持了极高的竞技水准。世界杯预选赛F组中，他们以8胜2平的不败战绩积26分头名出线——其中主客场双杀加蓬（25分，进入附加赛）、3-0大胜肯尼亚锁定席位、对阵布隆迪保持全胜。2025年非洲杯（2025年12月-2026年1月在摩洛哥举行）中，科特迪瓦作为卫冕冠军小组赛2胜1平出线，但在1/4决赛中0-2不敌最终亚军塞内加尔。全年总战绩约为12胜4平2负，胜率约67%，仅有的两场失利都是对阵塞内加尔（非洲区当前最强的球队之一）。在与欧洲/南美球队的热身赛中，科特迪瓦曾1-1战平荷兰、2-1击败智利，展现出了与高水平对手抗衡的能力。整体而言，科特迪瓦的近期状态稳定且持续向好，夺冠基因+不败晋级的信心积累是宝贵的无形资产。
+    </p>
+  </div>
+  <div class="sub-item">
+    <span class="sub-item-title">3.2 预选赛出线含金量</span><span class="sub-item-score">72分</span>
+    <p style="margin-top:8px;line-height:1.7;font-size:14px;">
+      科特迪瓦所在的CAF F组整体竞争强度中等偏上。组内最强对手加蓬FIFA排名第48位，阵中有奥巴梅扬等名将，最终积25分进入附加赛，逼迫科特迪瓦几乎每场都要全力争胜——最终科特迪瓦以1分优势力压加蓬直接出线，说明了小组竞争的激烈程度。布隆迪和肯尼亚实力较弱（排名100+），科特迪瓦对这两队保持全胜且零失球。3-0完胜肯尼亚的最后一轮小组赛堪称科特迪瓦预选赛的代表作——凯西第7分钟首开纪录，扬·迪奥曼德扩大比分，迪亚洛锁定胜局，三名核心球员同时在进攻端闪光。CAF的预选赛赛制（每组4-5队，主客场双循环）意味着科特迪瓦在8场比赛中经历了不同风格对手的考验（东非的肯尼亚、中非的布隆迪、西非的加蓬），这对战术多样性是一个积极的锻炼。但客观而言，非洲区预选赛的整体强度仍低于南美区和欧洲区，科特迪瓦在预选赛中从未面对过FIFA排名前30的对手。
+    </p>
+  </div>
+  <div class="sub-item">
+    <span class="sub-item-title">3.3 核心球员俱乐部状态走势</span><span class="sub-item-score">70分</span>
+    <p style="margin-top:8px;line-height:1.7;font-size:14px;">
+      科特迪瓦核心球员的俱乐部状态呈现"多点开花"的良好局面。扬·迪奥曼德在RB莱比锡2025/26赛季德甲贡献12球8助攻，是德甲最炙手可热的年轻球员之一，其突破和射门效率较前一个赛季有质的飞跃。迪亚洛在曼联踢出了个人最佳赛季（35场8球6助攻），在滕哈赫和后续教练手下逐渐成为右路的可靠选择。恩迪卡在罗马的意甲赛季场均评分7.1分（WhoScored），是球队后防的定海神针。奥斯曼·迪奥曼德在葡萄牙体育延续了稳定表现，葡超26场首发，传球成功率92%，已吸引皇马、曼联等豪门的关注。博尼在国际米兰虽然以替补为主（意甲15次出场中仅6次首发），但9个进球的表现证明了他作为"超级替补"的高效。巴斯图马纳·图雷在霍芬海姆德甲赛季10球4助攻，展现出与扬·迪奥曼德不相上下的潜力。需要关注的风险点：凯西在沙特联赛的数据（16场4球3助攻）虽然看起来不错，但沙特联赛的竞争强度与欧洲五大联赛有显著差距——他能否适应世界杯的高强度对抗仍有疑问。塞科·福法纳从雷恩租借至波尔图后获得稳定出场时间（葡超20场3球），状态有所回升但算不上爆发。
+    </p>
+  </div>
+
+  <h4 style="text-align:right;margin-top:10px;">均分：74分</h4>
+
+  <p class="analysis-text">
+    科特迪瓦的竞技状态处于近年来的最高水平线。不败晋级的预选赛无疑夯实了信心基础，而2024年非洲杯冠军的身份为这支年轻球队注入了"赢家基因"。最为积极的信号是：球队的核心攻击手们在各自的俱乐部都打出了职业生涯的最佳或接近最佳的赛季——扬·迪奥曼德（12球8助攻）、迪亚洛（8球6助攻）、图雷（10球4助攻）、博尼（9球）四人合计在五大联赛贡献了39球，这种多点开花的状态为世界杯的进攻火力提供了充分的保障。不过，2025年非洲杯1/4决赛负于塞内加尔的结果表明，科特迪瓦在面对战术纪律严明、整体性更强的对手时仍然存在破局困难——那场比赛中法埃的球队空有64%的控球率和18次射门，但预期进球（xG）仅为1.1，说明射门质量不高。这指向了一个核心问题：科特迪瓦的进攻虽然华丽，但在面对扎紧篱笆的强队时，缺乏一个真正的禁区终结者（traditional No.9）来将控球优势转化为进球——这个角色原本属于阿莱（2024非洲杯决赛英雄），但他因伤病和状态问题落选了最终名单。
+  </p>
+
+  <!-- DIMENSION 4 -->
+  <div class="divider"></div>
+  <h3>维度四：大赛经验与心理素质（权重10%）｜ 得分：42分 × 10% = 4.20分</h3>
+
+  <div class="sub-item">
+    <span class="sub-item-title">4.1 世界杯/洲际杯历史战绩</span><span class="sub-item-score">45分</span>
+    <p style="margin-top:8px;line-height:1.7;font-size:14px;">
+      科特迪瓦此前三次世界杯之旅（2006、2010、2014）全部止步小组赛，尽管每次都是惜败。2006年首秀与阿根廷、荷兰、塞黑同组，三场平局（含1-1平法国？不对，2006年没有法国，是与荷兰1-2、阿根廷0-0、塞黑3-2——抱歉记错了需要重新核对。2006年科特迪瓦与阿根廷、荷兰、塞黑同组，1-2负阿根廷、1-2负荷兰、3-2胜塞黑，积3分第三名出局）。2010年与巴西、葡萄牙、朝鲜同组，0-0平葡萄牙、1-3负巴西、3-0胜朝鲜，积4分仍排第三。2014年与哥伦比亚、希腊、日本同组，2-1胜日本、1-2负哥伦比亚、1-2被希腊补时点球绝杀，积3分再次第三。2014年对阵希腊一役最为刻骨铭心——科特迪瓦在第93分钟被判点球，萨马拉斯罚入，科特迪瓦在距离出线仅剩几十秒时被淘汰。洲际杯方面，2023年非洲杯冠军是重大突破。整体而言，科特迪瓦在世界杯舞台上"总是差一步"，这既是遗憾也是动力。
+    </p>
+  </div>
+  <div class="sub-item">
+    <span class="sub-item-title">4.2 核心球员大赛经验值</span><span class="sub-item-score">30分</span>
+    <p style="margin-top:8px;line-height:1.7;font-size:14px;">
+      科特迪瓦全队26人中没有任何球员有过世界杯正赛的出场经历——这是球队最大的经验短板。由于科特迪瓦连续缺席了2018和2022两届世界杯，这意味着距离上一次有科特迪瓦球员站在世界杯赛场上，已经过去了整整12年（2014年）。弗兰克·凯西（29岁）虽然拥有丰富的欧战经验（欧冠42场，2023年随米兰进入四强），且参加过2024年非洲杯并夺冠，但他没有参加过世界杯。易卜拉欣·桑加雷（27岁）在埃因霍温和诺丁汉森林踢过欧联杯和欧协联，世界杯经历同样为零。恩迪卡（26岁）随法兰克福赢得2022年欧联杯冠军，并在罗马征战欧战，但世界杯也是0场。迪亚洛（23岁）在曼联踢过欧联杯，扬·迪奥曼德（19岁）随莱比锡踢了本赛季欧冠（小组赛6场1球），但同样没有世界杯体验。全队大赛经验最丰富的当属凯西（非洲杯冠军+欧冠四强）和恩迪卡（欧联冠军），但这些俱乐部赛事的经验在世界杯的独特压力环境下能多大程度迁移，是一个开放性问题。
+    </p>
+  </div>
+  <div class="sub-item">
+    <span class="sub-item-title">4.3 抗压与逆境应对</span><span class="sub-item-score">58分</span>
+    <p style="margin-top:8px;line-height:1.7;font-size:14px;">
+      科特迪瓦的精神属性在2024年非洲杯上得到了最好的体现——作为东道主，小组赛仅1胜2平惊险晋级，淘汰赛阶段连续3场在常规时间战平后通过点球大战晋级（包括1/4决赛点球淘汰马里、半决赛点球淘汰民主刚果），决赛更是在0-1落后的情况下2-1逆转尼日利亚夺冠。这种"不管踢得多难看都能赢"的能力在杯赛中极具价值，说明这支球队在高压环境下仍然能保持战术纪律和战斗意志。但2014年世界杯被希腊绝杀的阴影也是不可忽视的历史包袱——当时那支拥有亚亚·图雷、德罗巴、热尔维尼奥等传奇的"黄金一代"都没能突破小组赛，不免让外界对这批新星的心理承受力产生疑问。凯西作为队长的领导力是关键：他在AC米兰夺冠过程中展现了超强的心理素质，在非洲杯决赛中也是他打入了制胜球。这种"大场面球员"的特质对年轻球队至关重要。
+    </p>
+  </div>
+
+  <h4 style="text-align:right;margin-top:10px;">均分：42分</h4>
+
+  <p class="analysis-text">
+    "零世界杯经验"是科特迪瓦在大赛经验维度上最刺眼的一个标签。12年的世界杯缺席意味着整支球队——从球员到教练组——都将以"新人"的身份踏上2026年世界杯的草皮。这种经验缺失不是一个可以轻易弥补的短板：世界杯首秀时的紧张感、裁判尺度的适应、对手赛前心理战的应对、落后时如何不慌乱......这些都是"打过才知道"的考试。但硬币的另一面是：非洲杯夺冠的经历证明了这支球队具备在杯赛高压环境中持续赢球的能力。从2024年非洲杯的征程来看，科特迪瓦的"抗压阀门"相当坚固——连续三场点球大战晋级和决赛逆转说明这支球队的精神属性足够硬朗。而且必须指出，2014年那支"黄金一代"虽然也没能突破小组赛，但当时所在小组（哥伦比亚、希腊、日本）的出线竞争极为激烈，科特迪瓦距离16强仅差几十秒。如今的这批球员普遍比前辈们更早接受欧洲顶级联赛的洗礼，他们的战术素养和对高强度比赛的适应能力可能比德罗巴、图雷那一代更强。
+  </p>
+
+  <!-- DIMENSION 5 -->
+  <div class="divider"></div>
+  <h3>维度五：分组及赛程影响（权重10%）｜ 得分：60分 × 10% = 6.00分</h3>
+
+  <div class="sub-item">
+    <span class="sub-item-title">5.1 小组赛对手分析</span><span class="sub-item-score">60分</span>
+    <p style="margin-top:8px;line-height:1.7;font-size:14px;">
+      科特迪瓦所在的E组抽签结果可以用"中签"来概括——没有落入超级死亡之组，但出线绝非易事。德国（FIFA第9位）是四届世界杯冠军，虽然在2022年卡塔尔世界杯连续第二次小组赛出局，但2024年欧洲杯作为东道主打入四强显示出复苏势头。纳格尔斯曼已建立起清晰的战术体系（4-2-3-1高位压迫），穆西亚拉、维尔茨和哈弗茨组成的技术型攻击线对任何防线都是重大威胁。厄瓜多尔（FIFA第31位）是南美区预选赛第四名，以防守硬朗和快速反击著称——2022年世界杯揭幕战2-0击败东道主卡塔尔的表现说明他们有在"客场"爆冷的能力，且对科特迪瓦的首战将是小组出线的关键卡位战。库拉索（FIFA约第90位）是小组最弱的球队，作为CONCACAF新军首次参赛——科特迪瓦必须在这支球队身上拿到3分并争取足够多的净胜球。综合来看，科特迪瓦与厄瓜多尔争夺小组第二是E组最有可能的剧本。
+    </p>
+  </div>
+  <div class="sub-item">
+    <span class="sub-item-title">5.2 淘汰赛晋级路线预判</span><span class="sub-item-score">55分</span>
+    <p style="margin-top:8px;line-height:1.7;font-size:14px;">
+      若科特迪瓦以小组第二出线，16强赛将对阵F组头名。F组的种子队（尚未完全确定）可能是一支欧洲或南美强队。若意外以小组头名出线（即力压德国），则16强对阵F组第二名，晋级八强的概率将大幅提升。一旦进入八强，科特迪瓦的对手将来自16强赛的前半区胜者——届时面对的很可能是夺冠热门级别的球队（如法国、阿根廷、英格兰等高位种子）。从路线来看，科特迪瓦的最佳策略是全力争胜厄瓜多尔，在德国身上争取平局，确保出线后在首轮淘汰赛中避开顶级豪门。但这一切的前提是：科特迪瓦必须完成队史首次世界杯小组出线——这个"心魔"一天不破，谈论淘汰赛路线就都只是纸上谈兵。
+    </p>
+  </div>
+  <div class="sub-item">
+    <span class="sub-item-title">5.3 旅途与气候因素</span><span class="sub-item-score">65分</span>
+    <p style="margin-top:8px;line-height:1.7;font-size:14px;">
+      科特迪瓦三场小组赛的场地：首战厄瓜多尔在费城（6月14日，气温约22-28°C），次战德国在多伦多（6月20日，气温约18-25°C），末战库拉索在费城（6月25日）。费城和多伦多之间的飞行距离约700公里（约1.5小时航程），旅途消耗不大。场地条件方面，两个球场都是现代化的北美体育场，草坪质量有保障。气候条件对来自西非的科特迪瓦球员来说总体有利——6月北美东部的温带气候与科特迪瓦的热带气候有差异但不算极端。唯一的潜在不利因素是：费城和多伦多的比赛时差对科特迪瓦来说意味着时区适应（科特迪瓦为UTC+0，费城为UTC-4，多伦多为UTC-4，时差4小时），但集训营有机会提前到达北美进行调整。
+    </p>
+  </div>
+
+  <h4 style="text-align:right;margin-top:10px;">均分：60分</h4>
+
+  <p class="analysis-text">
+    综合来看，E组对科特迪瓦是一支"可出线但需付出全力"的签。德国是小组头号热门，但并非不可战胜——2022年德国连续两届小组赛出局证明他们不再是那支"碾压一切"的德国战车，纳格尔斯曼的体系虽然在2024年欧洲杯有复苏，但仍存在防守端的不稳定性。厄瓜多尔是科特迪瓦争夺出线权的直接对手——两队实力接近，首战结果将大概率决定小组第二的归属。科特迪瓦的边锋群优势在面对厄瓜多尔硬朗的防守时将受到考验。库拉索是本组公认的"提款机"——科特迪瓦需要在对阵这支世界杯新军时拿到3分和尽可能多的净胜球（可能成为同分情况下的关键比较项）。最理想的剧本是：首战击败厄瓜多尔（或至少不败），次战对德国争取平局，末战大胜库拉索，以小组第二出线。最担心的剧本是：首战负于厄瓜多尔，次战被德国碾压，末战虽胜库拉索但已无法出线——重复2010年和2014年的遗憾。
+  </p>
+
+  <!-- DIMENSION 6 -->
+  <div class="divider"></div>
+  <h3>维度六：团队凝聚力与场外环境（权重10%）｜ 得分：61分 × 10% = 6.10分</h3>
+
+  <div class="sub-item">
+    <span class="sub-item-title">6.1 更衣室团结度</span><span class="sub-item-score">72分</span>
+    <p style="margin-top:8px;line-height:1.7;font-size:14px;">
+      2024年非洲杯夺冠的经历为科特迪瓦的更衣室注入了强大的凝聚力。法埃的上位方式（临时接手并带队夺冠）让球员对他的信任度极高——他在2024年非洲杯期间展现出的冷静和战术调整能力赢得了全队的尊重。队长凯西是更衣室的绝对领袖——他在AC米兰和巴萨效力期间积累了丰富的职业经验，与国家队年轻球员（尤其是亚的斯亚贝巴的迪奥曼德们）关系融洽。科特迪瓦队内没有公开的派系矛盾或负面传闻，这是球队良好的管理氛围的佐证。不过，庞大的边锋群（6人竞争2-3个位置）可能带来潜在的不满——如果扬·迪奥曼德和迪亚洛锁定首发，身价€4,000万的图雷或€2,500万的阿丁格拉只能坐替补席，这对法埃的轮换管理能力是一个考验。
+    </p>
+  </div>
+  <div class="sub-item">
+    <span class="sub-item-title">6.2 足协稳定性与管理</span><span class="sub-item-score">65分</span>
+    <p style="margin-top:8px;line-height:1.7;font-size:14px;">
+      科特迪瓦足协（FIF）在2024年非洲杯夺冠后进入了相对稳定的运营期。非洲杯夺冠带来的资金和声誉红利让足协有能力为球队提供更好的备战条件——包括在欧洲设立训练营、安排高质量热身赛（如对阵荷兰、智利）等。法埃在非洲杯后正式转正，合同续签至世界杯后，教练组架构完整（含助教、体能教练、守门员教练、表现分析师）。后勤保障方面，科特迪瓦队在这届世界杯上的预算虽无法与欧洲顶级豪门相比，但在非洲区已是顶尖水平。唯一的隐忧是：非洲足协的行政管理效率有时不如欧洲同行，在签证、行程安排等方面可能出现小纰漏，但整体应不会对球队备战产生重大影响。
+    </p>
+  </div>
+  <div class="sub-item">
+    <span class="sub-item-title">6.3 国内舆论与媒体压力</span><span class="sub-item-score">45分</span>
+    <p style="margin-top:8px;line-height:1.7;font-size:14px;">
+      科特迪瓦国内的舆论环境是一把双刃剑。2024年非洲杯夺冠后，国内对足球的热情空前高涨——科特迪瓦民众对"大象军团"在世界杯上取得突破的期望值极高。但另一方面，"黄金一代"（德罗巴、亚亚·图雷）在2014年都没能突破小组赛，这也让一些媒体和球迷对"这批年轻人能否做到前辈做不到的事"持有审慎态度。整体来看，舆论期望是"出线是及格线"——即小组出线是球队的底线目标，若能进入16强甚至8强将是历史性突破。这种期望值对球队既是动力也是压力：前三次小组赛出局的历史包袱是客观存在的，如果科特迪瓦在首战对阵厄瓜多尔的比赛中表现不佳，国内舆论可能迅速转为焦虑甚至批评，进而影响球员心态。法埃需要帮助球队屏蔽外界噪音，专注比赛本身。
+    </p>
+  </div>
+
+  <h4 style="text-align:right;margin-top:10px;">均分：61分</h4>
+
+  <p class="analysis-text">
+    科特迪瓦的团队氛围处于近年来最好的时期——非洲杯夺冠的经历让全队上下建立了极强的互信关系。法埃虽然不是经验最丰富的教练，但他与球员之间的情感纽带在非洲杯关键战役中已经得到了充分验证。但与海地队"没有任何包袱"的轻松心态不同，科特迪瓦承载着相对较高的国内期望——在非洲杯夺冠后，球迷们自然期待球队在世界杯舞台上也取得突破。这种期望如果处理得当是加油鼓劲，如果处理不当则可能变成压垮骆驼的最后一根稻草。更衣室内潜在的矛盾点在于边锋群的出场时间分配——6名高水平边锋竞争2-3个位置，如果法埃的轮换管理不够精细，可能在漫长的世界杯征程中积累不满。但另一方面，这种良性竞争也有助于保持球队的训练质量和比赛强度。
+  </p>
+
+  <!-- DIMENSION 7 -->
+  <div class="divider"></div>
+  <h3>维度七：体能储备与伤病控制（权重5%）｜ 得分：56分 × 5% = 2.80分</h3>
+
+  <div class="sub-item">
+    <span class="sub-item-title">7.1 赛季疲劳度评估</span><span class="sub-item-score">55分</span>
+    <p style="margin-top:8px;line-height:1.7;font-size:14px;">
+      科特迪瓦队中大部分在欧洲效力的球员刚刚结束了完整的2025/26赛季。德甲和英超的赛程最为密集——扬·迪奥曼德（莱比锡）参加了德甲34轮联赛及欧冠小组赛（6场），赛季总出场约40场；迪亚洛（曼联）各项赛事35场；桑加雷（诺丁汉森林）在英超38轮中出场32次。博尼（国米）的赛季因意甲38轮和欧冠穿插而延至5月底。凯西在沙特联赛的赛季结束较早（5月初），他的体能储备相对充裕但竞技对抗强度较低。整体而言，科特迪瓦球员的赛季负荷属于正常偏高的水平——其中扬·迪奥曼德和迪亚洛本赛季的出场时间较往年有明显的增加，这可能导致他们在世界杯末段出现疲劳状况。法埃在世界杯前安排的热身赛数量（预计1-2场）较为适中，有助于球员调整状态但不会过度消耗。
+    </p>
+  </div>
+  <div class="sub-item">
+    <span class="sub-item-title">7.2 关键伤病与恢复情况</span><span class="sub-item-score">55分</span>
+    <p style="margin-top:8px;line-height:1.7;font-size:14px;">
+      科特迪瓦在世界杯前的伤病状况总体平稳，但有一则重磅消息：塞巴斯蒂安·阿莱（2024年非洲杯决赛英雄，打入关键进球）因伤病恢复不理想和赛季状态低迷（在乌得勒支仅10场3球）被排除在最终的26人大名单之外。阿莱的缺席虽然令人遗憾，但考虑到他2025/26赛季的身体状况和竞技状态确实不足以支撑世界杯级别比赛，法埃的这一决定在竞技层面上是合理的。其他核心球员中，恩迪卡（罗马）在赛季末段曾因小腿肌肉不适缺阵2周，但已完全康复并入选名单。迪亚洛（曼联）和扬·迪奥曼德（莱比锡）都在赛季末保持了健康状态。科索努（亚特兰大）在赛季中段曾有一次踝关节扭伤，但复出后状态良好。整体而言，科特迪瓦以一套相对健康的阵容迎接世界杯——没有核心球员因重伤缺阵，这已是最佳情况。
+    </p>
+  </div>
+  <div class="sub-item">
+    <span class="sub-item-title">7.3 医疗团队与保障水平</span><span class="sub-item-score">60分</span>
+    <p style="margin-top:8px;line-height:1.7;font-size:14px;">
+      科特迪瓦队的医疗和体能保障团队在非洲区处于领先水平。法埃的教练组中包含了专职体能教练和队医，球队在欧洲的集训可以借助当地的先进医疗设施进行身体检查和康复治疗。但与国际顶级强队（如德国、巴西）相比，科特迪瓦的运动科学团队配置（营养师、理疗师、运动心理学家等专业人员的数量和资质）仍有差距。科特迪瓦在历史上有过在大赛期间伤病管理不善的记录——2014年世界杯前德罗巴就带着膝伤参赛，影响了状态——但这一次法埃的团队在球员健康管理上表现得更为谨慎，阿莱的落选就是例证。球队在南佛罗里达的赛前集训营将提供良好的训练和恢复条件，足以支撑球队在小组赛期间的体能管理需求。
+    </p>
+  </div>
+
+  <h4 style="text-align:right;margin-top:10px;">均分：56分</h4>
+
+  <p class="analysis-text">
+    体能和伤病方面，科特迪瓦的整体情况属于"无好消息也无坏消息"的中性状态。阿莱落选虽是一个情感上的损失，但从竞技角度看，法埃做出了正确的选择——带着一个状态不佳的前锋去世界杯反而可能占据一个宝贵的名额。好消息是全队没有核心球员因重伤缺席，26人名单中的球员全部健康并可以随时出战。风险点在于扬·迪奥曼德（19岁）和迪亚洛（23岁）都经历了个人职业生涯出场时间最多的赛季——年轻球员的身体恢复能力虽然强，但世界杯比赛的高强度对抗对身体的消耗远超联赛。另一个被低估的风险是凯西的"沙特效应"——沙特联赛的比赛节奏和身体对抗强度低于欧洲五大联赛，凯西能否在世界杯上立即适应英超/德甲级别的对抗节奏，是一个值得关注的问题。
+  </p>
 </div>
-<div class="bg-white rounded-xl shadow p-6 mb-6">
-  <h3 class="text-lg font-bold text-red-700">致命短板</h3>
-  <ul class="list-disc pl-6 space-y-2">
-    <li><strong>"德罗巴魔咒"——3次参赛3次小组出局的历史重压。</strong>科特迪瓦在世界杯上的心理障碍是真实存在的——2006年拥有德罗巴、亚亚·图雷、科洛·图雷的"黄金一代"小组出局，2010年和2014年再次重蹈覆辙。12年后回归，球员们嘴上说着"我们不一样"，但"小组赛魔咒"的阴影可能在对阵厄瓜多尔的最后15分钟——比分1-1时——悄然浮现。</li>
-    <li><strong>法埃的世界杯处子秀。</strong>41岁的少帅在非洲杯上赢得了赞誉，但他的战术体系在世界杯上的"变量测试"尚未通过。面对纳格尔斯曼（德国）的精密战术，法埃的临场调整能力和战术深度将受到严峻考验。如果科特迪瓦在首战对阵厄瓜多尔时处于落后局面，法埃的"plan B"是否有效将决定科特迪瓦的出线命运。</li>
-  </ul>
-</div>
-<div class="bg-white rounded-xl shadow p-6 mb-6">
-  <h3 class="text-lg font-bold text-ci-orange">关键先生</h3>
-  <div class="grid md:grid-cols-2 gap-3">
-    <div class="border-l-4 border-red-600 pl-3"><p class="font-bold">🇨🇮 阿马德·迪亚洛</p><p class="text-sm text-gray-600">曼联边锋，本赛季8球5助攻的突破表现。双足均衡的盘带高手——他的变向和加速是科特迪瓦在"破僵局"时最可靠的武器。面对德国队时，他的单挑能力可能是科特迪瓦制造冷门的关键。</p></div>
-    <div class="border-l-4 border-blue-600 pl-3"><p class="font-bold">🇨🇮 弗兰克·凯西 (C)</p><p class="text-sm text-gray-600">队长，百场国家队经验。他的前插远射和中场对抗是科特迪瓦中场的"双刃剑"——他需要在对阵德国的比赛中做出一个"牺牲型"的选择：放弃前插以保持中场防守宽度。</p></div>
-    <div class="border-l-4 border-green-700 pl-3"><p class="font-bold">🇨🇮 埃万·恩迪卡</p><p class="text-sm text-gray-600">罗马中卫，意甲级别的防守智慧。他的任务是限制伊萨克或约克雷斯的发挥——如果恩迪卡能在对阵瑞典/德国时保持零封或仅丢1球，科特迪瓦出线的概率将大幅上升。</p></div>
-    <div class="border-l-4 border-yellow-600 pl-3"><p class="font-bold">🇨🇮 扬·迪奥曼德</p><p class="text-sm text-gray-600">21岁的RB莱比锡前锋，欧洲转会市场的热门。他的速度和跑位在非洲杯上已经令人印象深刻——对库拉索一战他很可能首发并争取进球，对厄瓜多尔则是真正的考验。</p></div>
+
+<!-- ===== SECTION 3: TOTAL SCORE ===== -->
+<div class="section text-center">
+  <h2>（三）综合总分与评级</h2>
+  <div style="margin:25px 0;">
+    <div style="font-size:18px;color:#666;margin-bottom:10px;">加权总分</div>
+    <div class="total-score">67.30 / 100</div>
+  </div>
+  <div style="margin:25px 0;">
+    <div style="font-size:18px;color:#666;margin-bottom:10px;">实力评级</div>
+    <div class="rating-box">C+</div>
+    <div style="font-size:16px;color:#c0392b;margin-top:8px;">中游球队，力争小组出线</div>
+  </div>
+
+  <h4 style="margin-top:30px;">七维度得分一览</h4>
+  <div class="table-scroll">
+  <table style="max-width:600px;margin:0 auto;">
+    <tr><th>维度</th><th>得分</th><th>权重</th><th>加权得分</th></tr>
+    <tr><td>① 阵容实力</td><td>79</td><td>30%</td><td>23.70</td></tr>
+    <tr><td>② 战术体系与教练</td><td>67</td><td>20%</td><td>13.40</td></tr>
+    <tr><td>③ 近期竞技状态</td><td>74</td><td>15%</td><td>11.10</td></tr>
+    <tr><td>④ 大赛经验与心理素质</td><td>42</td><td>10%</td><td>4.20</td></tr>
+    <tr><td>⑤ 分组及赛程影响</td><td>60</td><td>10%</td><td>6.00</td></tr>
+    <tr><td>⑥ 团队凝聚力与场外环境</td><td>61</td><td>10%</td><td>6.10</td></tr>
+    <tr><td>⑦ 体能储备与伤病控制</td><td>56</td><td>5%</td><td>2.80</td></tr>
+    <tr style="font-weight:bold;background:#c0392b;color:#fff;">
+      <td>总分</td><td>—</td><td>100%</td><td>67.30</td>
+    </tr>
+  </table>
   </div>
 </div>
-<div class="bg-white rounded-xl shadow p-6 mb-6">
-  <h3 class="text-lg font-bold">小组赛预判</h3>
-  <table class="mt-2"><tr><th>对手</th><th>预判</th></tr>
-    <tr><td>厄瓜多尔 🇪🇨</td><td>科特迪瓦 2-1 胜（关键首战）</td></tr>
-    <tr><td>德国 🇩🇪</td><td>科特迪瓦 0-3 负</td></tr>
-    <tr><td>库拉索 🇨🇼</td><td>科特迪瓦 3-0 胜</td></tr>
+
+<!-- ===== SECTION 4: DEEP REVIEW ===== -->
+<div class="section">
+  <h2>（四）深度球评</h2>
+
+  <h3>核心优势</h3>
+  <div class="key-player">
+    <p><strong>1. 全非洲最令人艳羡的天赋储备</strong><br>
+    科特迪瓦全队总身价€5.169亿——这个数字放在欧洲也许只能排到中游，但在非洲区是独一档的存在。更令人惊叹的是这个数字背后的年龄结构：全队平均年龄25.6岁，其中€2.2亿（43%）的身价集中在23岁以下的4名球员（扬·迪奥曼德€9,000万/19岁、迪亚洛€5,000万/23岁、奥斯曼·迪奥曼德€4,200万/22岁、图雷€4,000万/20岁）。这意味着这支球队的核心竞争力不仅属于现在，更属于未来。科特迪瓦的边锋群在世界杯48强中也是顶级配置——扬·迪奥曼德（莱比锡）、迪亚洛（曼联）、图雷（霍芬海姆）、阿丁格拉（摩纳哥）四人身价合计€2.05亿，这种边路储备意味着法埃可以在每60分钟就换上一名全新的、具备首发级别能力的边锋去冲击对手已经疲惫的防线。后防线上，迪奥曼德+恩迪卡的中卫组合是葡超+意甲的精英配置，辛戈和科索努的轮换深度在欧洲二线国家队中也不多见。</p>
+  </div>
+  <div class="key-player">
+    <p><strong>2. 非洲杯冠军带来的"赢家基因"</strong><br>
+    2024年非洲杯夺冠的经历对这支年轻的科特迪瓦队来说是无可替代的精神财富。那届赛事中，科特迪瓦的征程绝不是一帆风顺——小组赛仅1胜2平勉强出线，淘汰赛连续三场在常规时间战平后通过点球大战晋级（创造非洲杯点球大战连胜纪录），决赛在0-1落后下逆转——这种"不死的韧性"在世界杯舞台上可能是最宝贵的品质。不同于一些非洲球队在面对逆境时容易情绪崩溃，科特迪瓦在法埃和凯西的带领下展现出了罕见的战术纪律和情绪控制能力。夺冠后球队的自信心和凝聚力都达到了近年来的最高点——球员们相信"我们可以战胜任何对手"，这种信念在世界杯上可能转化成意想不到的战斗能量。</p>
+  </div>
+  <div class="key-player">
+    <p><strong>3. 锋线速度与多样性的战术价值</strong><br>
+    科特迪瓦的进攻武器库是世界杯48强中最丰富的之一。扬·迪奥曼德（速度+盘带）、阿马德·迪亚洛（技术+创造力）、巴祖马纳·图雷（速度+射门）、西蒙·阿丁格拉（对抗+突破）——四名边锋各有不同的进攻特点，让对手难以针对性地布置防守。中锋位置上，博尼（身高187cm，禁区支点）和瓦希（速度型，反越位跑位）风格互补。这意味着法埃可以根据对手的防守弱点选择最合适的攻击组合：面对收缩防守时派上博尼和迪亚洛（技术型破密集），面对高压防线时派上图雷和瓦希（速度型打身后）。这种战术多样性在世界杯小组赛——尤其是第三场面对已经疲惫的防守线时——将成为一个巨大的武器。</p>
+  </div>
+
+  <h3>致命短板</h3>
+  <div class="key-player">
+    <p><strong>1. 全队世界杯经验为零——最大不可控变量</strong><br>
+    这是科特迪瓦最无法回避的硬伤。12年的世界杯缺席意味着全队26人中没有一个人曾在世界杯正赛中踢过一分钟。这与同组的德国（拥有大量世界杯经验的球员）形成了鲜明对比。经验缺失带来的不仅是"紧张"这么简单——它会影响球员在场上的决策速度（该控球还是该快攻？该犯规还是该战术性放倒对手？）、对判罚尺度的适应（非洲球队在世界杯上经常因为不适应裁判尺度而吃牌）、以及落后时的心理调节能力。科特迪瓦虽然拥有非洲杯冠军的经验，但世界杯的独特压力——全球数亿观众的目光、媒体采访的密集轰炸、更长的赛前备战期——都是这批球员从未经历过的。法埃作为教练也必须面对自己的"世界杯首秀"——他在战术调整和临场指挥上的任何迟疑都可能被对手利用。</p>
+  </div>
+  <div class="key-player">
+    <p><strong>2. 门将和左后卫——两条潜在的"决堤口"</strong><br>
+    科特迪瓦的阵容虽然豪华，但有两个位置在高水平对抗中可能成为防线的突破口。门将雅希亚·福法纳（€500万，里泽体育）在土超的扑救成功率仅71%，面对德国队穆西亚拉和哈弗茨的射门——这些球员在德甲和英超的射门精度远超福法纳在土超遇到的任何前锋——他的扑救能力可能不足以应对。左后卫吉兰·科南（30岁，吉尔维森特）是防线最弱一环——他在葡超的表现只能算中规中矩，面对德国右路的基米希或萨内的冲击，他的速度劣势可能被放大。2025年非洲杯对阵塞内加尔的比赛中，塞内加尔正是通过针对科南的左路发动进攻并取得进球。法埃可能需要在关键比赛中让辛戈（多面手）客串左后卫来弥补这一短板，但这又会影响中卫线的轮换。</p>
+  </div>
+
+  <h3>关键先生</h3>
+
+  <div class="key-player">
+    <h4>1. Yan Diomande（扬·迪奥曼德）— 左边锋，19岁</h4>
+    <p>扬·迪奥曼德是科特迪瓦全队身价最高的球员（€9,000万），也是本届世界杯最受瞩目的新星之一。2025/26赛季在RB莱比锡的德甲赛场上，他交出了12球8助攻的惊人数据，场均完成3.4次成功盘带（德甲边锋前五），直接参与进球数（20个）在莱比锡队内排名第一。作为一名左脚右边锋（内切型），他的招牌动作是从右路内切后弧线球射远角——这种攻击模式在科特迪瓦的反击战术中极具价值。扬·迪奥曼德在本赛季欧冠小组赛中也有1球入账，证明他的天赋在大场面上也能转化。他在预选赛对阵肯尼亚的比赛中打入一球，说明他在国家队同样能扮演终结者角色。法埃需要为他设计专门的战术自由度——给予他在前场自由游走的权利，而不是将他固定在边路。如果扬·迪奥曼德能在世界杯上延续俱乐部的火热状态，科特迪瓦的攻击力将上升一个档次。</p>
+  </div>
+
+  <div class="key-player">
+    <h4>2. Franck Kessié（弗兰克·凯西）— 中场，29岁（队长）</h4>
+    <p>凯西是科特迪瓦的场上队长和精神领袖，也是全队唯一拥有"冠军DNA"的核心球员——他随AC米兰夺得意甲冠军（2021/22赛季，打入7球）、随科特迪瓦赢得非洲杯（2024年决赛进球）、并在巴塞罗那和沙特联赛保持了稳定的竞技水平。凯西在4-3-3体系中担任右侧中前卫，兼具防守覆盖和后插上得分能力——他的禁区前插是科特迪瓦进攻中最重要的B方案之一。在防守端，凯西场均完成2.3次抢断和1.8次拦截（2025/26赛季吉达国民），虽然这些数据要打一些折扣（沙特联赛节奏较慢），但他的身体对抗能力和战术执行力在世界杯级别比赛中依然值得信赖。凯西的领袖作用还体现在更衣室和场上沟通——他是法埃与球员之间的关键纽带，也是年轻球员（尤其是几位迪奥曼德）在场上的"导航者"。</p>
+  </div>
+
+  <div class="key-player">
+    <h4>3. Amad Diallo（阿马德·迪亚洛）— 右边锋，23岁</h4>
+    <p>迪亚洛在曼联度过了一个突破性的赛季——各项赛事35场8球6助攻，已经成为红魔右路进攻的重要武器。他的技术特点是左脚盘带细腻、变向灵活、在狭小空间内具备出色的控球摆脱能力——这种特质使他在面对密集防守时尤为有价值。迪亚洛在预选赛对阵肯尼亚的比赛中1传1射，直接参与了球队的前两个进球，展现了他在关键比赛中的决定性作用。他与扬·迪奥曼德之间的化学反应是科特迪瓦进攻的核心——两人在场上可以随时换位，迪亚洛拉边、扬·迪奥曼德内切，这种流动性让对手防线难以锁定。迪亚洛的职业生涯履历（亚特兰大→曼联→桑德兰租借→重返曼联）让他比同龄人经历了更多的高强度比赛和竞技起伏，这种经历有助于他在世界杯上保持稳定的心态。</p>
+  </div>
+
+  <div class="key-player">
+    <h4>4. Evan Ndicka（埃文·恩迪卡）— 中后卫，26岁</h4>
+    <p>恩迪卡是科特迪瓦防线的定海神针。2025/26赛季在罗马，他首发出战32场意甲，场均贡献1.8次抢断、2.1次拦截和3.4次解围，传球成功率89%，是一名典型的现代中卫——兼具对抗能力（身高192cm）和出球能力。恩迪卡曾在2022年随法兰克福赢得欧联杯冠军，2023年加盟罗马后在穆里尼奥和德罗西帐下成长为意甲顶级中卫。他在后场的出球能力是科特迪瓦从后场发动进攻的关键——在对阵高压逼抢的德国队时，恩迪卡的中长传能力将帮助球队快速通过中场找到边锋群。他的搭档奥斯曼·迪奥曼德（葡萄牙体育）也是一名出球型中卫，两人的互补风格让科特迪瓦的后场出球体系在非洲区首屈一指。恩迪卡的经验和冷静气质也是年轻防线的重要支柱。</p>
+  </div>
+
+  <h3>小组赛预判</h3>
+  <table>
+    <tr><th>对手</th><th>比赛日期</th><th>场地</th><th>预计结果</th><th>概率评估</th></tr>
+    <tr><td>厄瓜多尔 🇪🇨</td><td>6月14日</td><td>费城</td><td>1-1 平 / 2-1 胜</td><td>不败概率 65%</td></tr>
+    <tr><td>德国 🇩🇪</td><td>6月20日</td><td>多伦多</td><td>1-2 负 / 1-1 平</td><td>拿分概率 30%</td></tr>
+    <tr><td>库拉索 🇨🇼</td><td>6月25日</td><td>费城</td><td>3-0 胜</td><td>全取3分概率 85%</td></tr>
   </table>
-  <p class="mt-2"><strong>小组赛综合：2胜1负积6分，出线概率约50-55%。</strong></p>
+  <p class="analysis-text">
+    科特迪瓦的出线命运将首战对厄瓜多尔的90分钟内基本决定。如果赢球——积3分，次战对德国可以轻装上阵，末战库拉索几乎确保出线。如果打平——积1分，次战必须在对阵德国时争取拿分（至少平局），末战库拉索必须全取3分并以净胜球压倒厄瓜多尔。如果输球——出线概率将骤降至不足15%，因为末战即使大胜库拉索也无法弥补对直接竞争对手的失利。综合来看，科特迪瓦的出线概率约为55-60%，最可能的排名是<b>小组第二</b>。如果法埃的球队能复制2024年非洲杯的韧性——打好关键战、在局面不利时不崩溃、利用强大的替补阵容后程发力——那么小组出线并创造队史最佳战绩（16强）是完全可以实现的目标。
+  </p>
+
+  <h3>淘汰赛路线推演</h3>
+  <p class="analysis-text">
+    如果科特迪瓦以小组第二出线（最可能的情况），16强赛将对阵F组头名。F组包括...（淘汰赛对阵需在抽签后确定）。以科特迪瓦的阵容实力，16强赛无论面对哪个对手都有一战之力——尤其是扬·迪奥曼德和迪亚洛的反击速度在单场淘汰赛中对任何防线都是巨大威胁。如果科特迪瓦能进入八强，那将是队史最佳战绩——无论对手是谁，都可以视为巨大的成功。进入四强的概率较低（约10-15%），因为届时可能面对的将是法国、阿根廷或英格兰级别的对手，科特迪瓦的经验和防守稳定性在这一级别的对抗中可能成为瓶颈。但足球的魅力正在于"一切皆有可能"——2022年的摩洛哥用行动证明了非洲球队站上世界杯四强并非天方夜谭。如果科特迪瓦能够在小组赛中建立信心、避开重大伤病，他们完全有能力在淘汰赛中成为"搅局者"。
+  </p>
+
+  <h3>大师结语</h3>
+  <p style="font-size:18px;font-style:italic;color:#c0392b;text-align:center;padding:20px;border-top:2px solid #c0392b;border-bottom:2px solid #c0392b;margin:30px 0;">
+    "€5亿身价的青春风暴，非洲杯冠军的铮铮铁骨——大象军团终于挣脱12年蛰伏，这一次，不再是黄金一代的余晖，而是新王当立的黎明。"
+  </p>
 </div>
-<div class="bg-white rounded-xl shadow p-6 mb-6">
-  <h3 class="text-lg font-bold">淘汰赛路线推演</h3>
-  <p class="mt-3 p-3 bg-blue-50 rounded-lg"><strong>核心判断：</strong>科特迪瓦是E组中"最容易被低估"的球队。2024年非洲杯冠军的身份往往被简单归类为"非洲强队"，但科特迪瓦的阵容深度（9前锋+意甲防线+曼联球星迪亚洛）实际上更接近"欧洲中上游"水平。法埃的任务非常明确：首战击败厄瓜多尔（这是可以做到的）→ 对德国不要被打花（丢2球以内即为胜利）→ 末轮碾压库拉索（这是必须的）。如果科特迪瓦以6分出线，他们将成为历史上第一支突破小组赛的科特迪瓦队——打破"德罗巴一代"都未能打开的封印。上限：16强（历史性突破）；下限：小组第三（输给厄瓜多尔将导致前功尽弃）。关键变量只有一个：6月14日费城对厄瓜多尔的首战。</p>
-</div>
-<div class="bg-white rounded-xl shadow p-6 mb-6 text-center">
-  <h3 class="text-lg font-bold text-ci-orange">大师结语</h3>
-  <p class="text-xl italic mt-3 text-gray-700">"12年——从德罗巴的退役到迪亚洛的崛起，非洲大象在黑暗中等待了太久。埃默斯·法埃带着非洲杯的冠军光环和9名前锋的进攻野心来到北美，试图打开一扇三届世界杯都未曾敲开的门。6月14日的费城，当迪亚洛在右路晃开厄瓜多尔的边后卫，当凯西在中场发出那声标志性的怒吼——大象军团终于有机会证明：德罗巴没有完成的事业，新一代科特迪瓦人可以在北美的大地上接过来。"</p>
-</div>
-<div class="text-center text-gray-400 text-sm py-6 border-t">
-  <p>© 2026 足球战力分析 · Powered by WorkBuddy AI</p>
-</div>
+
 </div>
 
 <!-- HuaFootball: back-to-home button -->
@@ -268,17 +465,17 @@ tailwind.config = { theme: { extend: { colors: { ci: { orange: '#F77F00', green:
 .huafootball-back-btn {
   position:fixed!important;bottom:28px!important;right:28px!important;z-index:99999!important;
   display:inline-flex!important;align-items:center!important;gap:6px!important;
-  padding:10px 22px!important;background:rgba(26,71,42,0.85)!important;color:#c9a84c!important;
-  border:1px solid rgba(201,168,76,0.3)!important;border-radius:999px!important;
-  font-family:"Inter","Noto Sans SC",system-ui,sans-serif!important;font-size:13px!important;
+  padding:10px 22px!important;background:rgba(26,71,42,0.85)!important;color:#c8a951!important;
+  border:1px solid rgba(200,169,81,0.3)!important;border-radius:999px!important;
+  font-family:"Inter","PingFang SC",system-ui,sans-serif!important;font-size:13px!important;
   font-weight:600!important;text-decoration:none!important;
   backdrop-filter:blur(8px)!important;-webkit-backdrop-filter:blur(8px)!important;
   box-shadow:0 4px 20px rgba(0,0,0,0.3)!important;transition:all .25s ease!important;
   cursor:pointer!important;user-select:none!important;
 }
 .huafootball-back-btn:hover {
-  background:rgba(26,71,42,0.95)!important;border-color:rgba(201,168,76,0.5)!important;
-  box-shadow:0 6px 28px rgba(201,168,76,0.2)!important;transform:translateY(-2px)!important;
+  background:rgba(26,71,42,0.95)!important;border-color:rgba(200,169,81,0.5)!important;
+  box-shadow:0 6px 28px rgba(200,169,81,0.2)!important;transform:translateY(-2px)!important;
 }
 .huafootball-back-btn svg { transition:transform .2s ease!important; }
 .huafootball-back-btn:hover svg { transform:translateX(-3px)!important; }

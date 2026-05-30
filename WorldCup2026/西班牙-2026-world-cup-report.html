@@ -4,256 +4,534 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>西班牙 · 2026世界杯实力评估报告</title>
-<script src="https://cdn.tailwindcss.com"></script>
-<script>
-tailwind.config = { theme: { extend: { colors: { es: { red: '#C60B1E', yellow: '#FFC400', dark: '#1a1a2e', gold: '#FFD700' } }, fontFamily: { 'kai': ['KaiTi','STKaiti','SimKai','serif'], 'serif': ['Times New Roman','serif'] } } } }
-</script>
 <style>
-  body { font-family: KaiTi, STKaiti, SimKai, 'Times New Roman', serif; font-size: 11pt; }
-  .container { max-width: 1100px; margin: 0 auto; padding: 20px; }
-  h1 { font-size: 2em; } h2 { font-size: 1.5em; border-bottom: 3px solid #C60B1E; padding-bottom: 8px; margin-top: 30px; }
-  h3 { font-size: 1.2em; margin-top: 20px; }
-  table { width: 100%; border-collapse: collapse; font-size: 11pt; }
-  th, td { border: 1px solid #ddd; padding: 8px 12px; text-align: left; }
-  th { background-color: #C60B1E; color: white; font-weight: bold; }
-  tr:nth-child(even) { background-color: #f8f9fa; }
-  .score-bar { height: 20px; border-radius: 10px; background: #eee; overflow: hidden; }
-  .score-fill { height: 100%; border-radius: 10px; }
-  .dimension-card { background: white; border-radius: 12px; padding: 20px; margin-bottom: 20px; box-shadow: 0 2px 8px rgba(0,0,0,0.08); border-left: 5px solid #C60B1E; }
-  .subitem { margin: 12px 0; padding: 12px; background: #f8f9fa; border-radius: 8px; }
-  .subitem h4 { color: #C60B1E; font-weight: bold; margin-bottom: 6px; }
-  .summary-box { background: linear-gradient(135deg, #C60B1E, #8b0000); border-radius: 16px; padding: 25px; margin: 20px 0; color: white; }
-  .badge { display: inline-block; padding: 2px 10px; border-radius: 12px; font-size: 0.85em; font-weight: bold; }
-  .badge-gk { background: #4CAF50; color: white; } .badge-df { background: #2196F3; color: white; }
-  .badge-mf { background: #FF9800; color: white; } .badge-fw { background: #f44336; color: white; }
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: 'Times New Roman', '楷体', 'KaiTi', serif; background: #fff; color: #222; line-height: 1.8; font-size: 16px; }
+.container { max-width: 1000px; margin: 0 auto; padding: 30px 20px; }
+.header { text-align: center; padding: 40px 0 30px; border-bottom: 3px solid #e74c3c; margin-bottom: 35px; }
+.header h1 { font-size: 32px; color: #1a1a2e; margin-top: 12px; letter-spacing: 2px; }
+.header .subtitle { font-size: 14px; color: #888; margin-top: 6px; }
+.team-badge { text-align: center; margin-bottom: 10px; }
+.team-badge img { height: 90px; width: auto; display: block; margin: 0 auto 10px; }
+.flag-emoji-fallback { display: none; font-size: 4em; margin-bottom: 10px; }
+.section { margin: 35px 0; }
+.section-title { font-size: 22px; color: #e74c3c; border-left: 5px solid #e74c3c; padding-left: 15px; margin-bottom: 20px; }
+.sub-section-title { font-size: 18px; color: #1a1a2e; margin: 20px 0 12px; padding-bottom: 6px; border-bottom: 1px solid #eee; }
+table { width: 100%; border-collapse: collapse; margin: 12px 0; font-size: 14px; }
+th { background: #1a1a2e; color: #fff; padding: 10px 12px; text-align: left; font-weight: bold; }
+td { padding: 9px 12px; border-bottom: 1px solid #eee; }
+tr:nth-child(even) { background: #fafafa; }
+tr:hover { background: #fff5f5; }
+.score-table th { background: #e74c3c; }
+.score-cell { font-weight: bold; text-align: center; }
+.rating-box { text-align: center; padding: 25px; background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%); color: #fff; border-radius: 8px; margin: 20px 0; }
+.rating-box .score { font-size: 48px; font-weight: bold; color: #e74c3c; }
+.rating-box .rating { font-size: 36px; color: #ffd700; margin: 8px 0; }
+.rating-box .detail { font-size: 14px; color: #aaa; }
+.radar-table { margin: 15px 0; }
+.radar-table td:first-child { font-weight: bold; min-width: 140px; }
+.progress-bar { height: 12px; background: #f0f0f0; border-radius: 6px; overflow: hidden; min-width: 300px; }
+.progress-fill { height: 100%; border-radius: 6px; }
+.analysis-text { background: #fafafa; padding: 16px 20px; border-radius: 6px; border-left: 4px solid #e74c3c; margin: 12px 0; line-height: 1.9; text-indent: 2em; }
+.info-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; margin: 15px 0; }
+.info-item { background: #fafafa; padding: 14px 18px; border-radius: 6px; border-left: 3px solid #e74c3c; }
+.info-item .label { font-size: 12px; color: #888; }
+.info-item .value { font-size: 16px; font-weight: bold; color: #1a1a2e; }
+.player-highlight { background: #fff8e1; padding: 14px 18px; border-radius: 6px; margin: 12px 0; border-left: 4px solid #ffd700; }
+.player-highlight .name { font-size: 17px; font-weight: bold; color: #1a1a2e; }
+.player-highlight .detail { font-size: 14px; color: #555; margin-top: 6px; line-height: 1.8; }
+.conclusion-box { background: #1a1a2e; color: #fff; padding: 20px 25px; border-radius: 8px; margin: 20px 0; font-size: 18px; text-align: center; font-style: italic; }
+.tag { display: inline-block; padding: 3px 10px; border-radius: 4px; font-size: 12px; margin: 0 3px; }
+.tag-red { background: #ffe0e0; color: #c0392b; }
+.tag-green { background: #e0f5e0; color: #27ae60; }
+.tag-blue { background: #e0e8ff; color: #2980b9; }
+@media (max-width: 768px) {
+  .info-grid { grid-template-columns: 1fr; }
+  table { font-size: 12px; }
+  .header h1 { font-size: 22px; }
+}
 </style>
 </head>
-<body class="bg-gray-50">
+<body>
+
 <div class="container">
 
-<div class="section text-center bg-white rounded-2xl shadow-lg p-8 mb-8">
-  <img src="./logo/Spain-logo.png" alt="西班牙足协队徽" style="height:90px;width:auto;display:block;margin:0 auto 10px;" onerror="this.style.display='none';document.getElementById('logo-fb').style.display='block';" />
-  <div id="logo-fb" style="display:none;font-size:4em;margin-bottom:10px;">🇪🇸</div>
-  <h1 class="text-4xl font-bold text-es-red mt-4">西班牙 · 2026世界杯实力评估报告</h1>
-  <p class="text-gray-500 mt-2">报告生成日期：2026年5月27日 · 2026美加墨世界杯</p>
-  <div class="mt-3 p-2 inline-block bg-red-50 rounded-lg border border-red-200"><p class="text-sm"><strong>🏆 欧洲冠军再出发：</strong>2024欧洲杯冠军 · H组vs乌拉圭/沙特/佛得角 · 首次无皇马球员入选</p></div>
+<!-- ==================== HEADER ==================== -->
+<div class="header">
+  <div class="team-badge">
+    <img src="https://cdn.prod.website-files.com/68f550992570ca0322737dc2/68fa08931b5e1697f8930e74_spain-national-team-footballlogos-org.png"
+         alt="西班牙足协 RFEF 盾徽"
+         onerror="this.style.display='none';document.getElementById('logo-fb').style.display='block';" />
+    <div id="logo-fb" class="flag-emoji-fallback">🇪🇸</div>
+  </div>
+  <h1>🇪🇸 西班牙 · 2026世界杯实力评估报告</h1>
+  <div class="subtitle">La Roja · Group H | 评估日期：2026年5月30日</div>
 </div>
 
-<h2 class="text-es-red">（一）球队基本信息</h2>
-<div class="bg-white rounded-xl shadow p-6 mb-6">
-  <div class="grid md:grid-cols-2 gap-4">
-    <div>
-      <p><strong>主教练：</strong>路易斯·德拉富恩特（Luis de la Fuente）— 2024欧洲杯冠军教头</p>
-      <p><strong>队长：</strong>罗德里（Rodri）— 曼城，2024金球奖有力竞争者</p>
-      <p><strong>FIFA排名：</strong>约第3位</p>
-      <p><strong>世界杯参赛次数：</strong>第17次</p>
-      <p><strong>世界杯冠军：</strong><span class="text-2xl">⭐</span> 1次（2010年南非）</p>
-      <p><strong>上届（2022）成绩：</strong>16强（点球0-3负摩洛哥，三罚全失）</p>
+<!-- ==================== TEAM BASIC INFO ==================== -->
+<div class="section">
+  <div class="section-title">（一）球队基本信息</div>
+
+  <div class="info-grid">
+    <div class="info-item">
+      <div class="label">主教练</div>
+      <div class="value">路易斯·德拉富恩特 (Luis de la Fuente)</div>
     </div>
-    <div>
-      <p><strong>小组赛：</strong>H组</p>
-      <p><strong>同组对手：</strong>乌拉圭 🇺🇾、沙特阿拉伯 🇸🇦、佛得角 🇨🇻</p>
-      <p><strong>首战：</strong>6月15日 vs 佛得角（亚特兰大）</p>
-      <p><strong>次战：</strong>6月21日 vs 沙特阿拉伯（亚特兰大）</p>
-      <p><strong>末轮：</strong>6月26日 vs 乌拉圭（瓜达拉哈拉）</p>
-      <div class="mt-2 p-2 bg-yellow-50 rounded"><p class="text-sm"><strong>⚡ 无皇马球员：</strong>西班牙队史首次在世界杯大名单中没有皇马球员——巴萨8人、毕尔巴鄂3人、马竞2人、阿森纳2人</p></div>
+    <div class="info-item">
+      <div class="label">FIFA世界排名</div>
+      <div class="value">第3位（2026年5月）</div>
+    </div>
+    <div class="info-item">
+      <div class="label">全队总身价</div>
+      <div class="value">€12.7亿</div>
+    </div>
+    <div class="info-item">
+      <div class="label">平均年龄</div>
+      <div class="value">26.7岁（合理黄金区间）</div>
+    </div>
+    <div class="info-item">
+      <div class="label">世界杯参赛次数</div>
+      <div class="value">第17次</div>
+    </div>
+    <div class="info-item">
+      <div class="label">世界杯最好成绩</div>
+      <div class="value">冠军 🏆（2010年南非世界杯）</div>
+    </div>
+    <div class="info-item">
+      <div class="label">上届（2022）成绩</div>
+      <div class="value">16强（点球负于摩洛哥）</div>
+    </div>
+    <div class="info-item">
+      <div class="label">近期大赛成绩</div>
+      <div class="value">🏆 2024年欧洲杯冠军</div>
     </div>
   </div>
-</div>
 
-<h3 class="text-xl font-bold text-es-red">26人大名单（3 GK + 8 DF + 7 MF + 8 FW）</h3>
-<p class="text-gray-500 text-sm mb-3">* 5月25日公布 · 6名巴萨球员创队史 · 罗德里（当世第一后腰）· 亚马尔（18岁/未来金球）</p>
+  <div class="sub-section-title">26人大名单</div>
 
-<div class="bg-white rounded-xl shadow p-6 mb-6">
+  <p style="margin:8px 0 4px;color:#555;font-size:13px;">📅 公布日期：2026年5月25日 | 队长：罗德里 (Rodri) | ⚠️ 伤缺：费尔明·洛佩斯（跖骨骨折）</p>
+
+  <div style="overflow-x:auto;">
   <table>
-    <thead><tr><th>位置</th><th>球员姓名</th><th>英文名</th><th>俱乐部</th><th>联赛</th></tr></thead>
+    <thead>
+      <tr><th>位置</th><th>球员姓名</th><th>英文名</th><th>俱乐部</th><th>年龄</th><th>身价</th></tr>
+    </thead>
     <tbody>
-      <tr><td><span class="badge badge-gk">GK</span></td><td>乌奈·西蒙</td><td>Unai Simón</td><td>毕尔巴鄂竞技</td><td>西甲</td></tr>
-      <tr><td><span class="badge badge-gk">GK</span></td><td>大卫·拉亚</td><td>David Raya</td><td>阿森纳</td><td>英超</td></tr>
-      <tr><td><span class="badge badge-gk">GK</span></td><td>霍安·加西亚</td><td>Joan García</td><td>巴塞罗那</td><td>西甲</td></tr>
-      <tr><td><span class="badge badge-df">DF</span></td><td>马科斯·略伦特</td><td>Marcos Llorente</td><td>马德里竞技</td><td>西甲</td></tr>
-      <tr><td><span class="badge badge-df">DF</span></td><td>佩德罗·波罗</td><td>Pedro Porro</td><td>托特纳姆热刺</td><td>英超</td></tr>
-      <tr><td><span class="badge badge-df">DF</span></td><td>埃里克·加西亚</td><td>Eric García</td><td>巴塞罗那</td><td>西甲</td></tr>
-      <tr><td><span class="badge badge-df">DF</span></td><td>马克·普比尔</td><td>Marc Pubill</td><td>巴塞罗那</td><td>西甲</td></tr>
-      <tr><td><span class="badge badge-df">DF</span></td><td>艾默里克·拉波尔特</td><td>Aymeric Laporte</td><td>毕尔巴鄂竞技</td><td>西甲</td></tr>
-      <tr><td><span class="badge badge-df">DF</span></td><td><strong>保·库巴西</strong></td><td><strong>Pau Cubarsí</strong></td><td><strong>巴塞罗那</strong></td><td>西甲</td></tr>
-      <tr><td><span class="badge badge-df">DF</span></td><td>马克·库库雷利亚</td><td>Marc Cucurella</td><td>切尔西</td><td>英超</td></tr>
-      <tr><td><span class="badge badge-df">DF</span></td><td>亚历杭德罗·格里马尔多</td><td>Alejandro Grimaldo</td><td>勒沃库森</td><td>德甲</td></tr>
-      <tr><td><span class="badge badge-mf">MF</span></td><td><strong>佩德里</strong></td><td><strong>Pedri</strong></td><td><strong>巴塞罗那</strong></td><td>西甲</td></tr>
-      <tr><td><span class="badge badge-mf">MF</span></td><td>法比安·鲁伊斯</td><td>Fabián Ruiz</td><td>巴黎圣日耳曼</td><td>法甲</td></tr>
-      <tr><td><span class="badge badge-mf">MF</span></td><td>马丁·苏维门迪</td><td>Martín Zubimendi</td><td>皇家社会</td><td>西甲</td></tr>
-      <tr><td><span class="badge badge-mf">MF</span></td><td><strong>加维</strong></td><td><strong>Gavi</strong></td><td><strong>巴塞罗那</strong></td><td>西甲</td></tr>
-      <tr><td><span class="badge badge-mf">MF</span></td><td><strong>⭐ 罗德里 (C)</strong></td><td><strong>Rodri</strong></td><td><strong>曼城</strong></td><td>英超</td></tr>
-      <tr><td><span class="badge badge-mf">MF</span></td><td>亚历克斯·巴埃纳</td><td>Álex Baena</td><td>比利亚雷亚尔</td><td>西甲</td></tr>
-      <tr><td><span class="badge badge-mf">MF</span></td><td>米克尔·梅里诺</td><td>Mikel Merino</td><td>阿森纳</td><td>英超</td></tr>
-      <tr><td><span class="badge badge-fw">FW</span></td><td>米克尔·奥亚萨瓦尔</td><td>Mikel Oyarzabal</td><td>皇家社会</td><td>西甲</td></tr>
-      <tr><td><span class="badge badge-fw">FW</span></td><td>达尼·奥尔莫</td><td>Dani Olmo</td><td>巴塞罗那</td><td>西甲</td></tr>
-      <tr><td><span class="badge badge-fw">FW</span></td><td><strong>尼科·威廉姆斯</strong></td><td><strong>Nico Williams</strong></td><td><strong>毕尔巴鄂竞技</strong></td><td>西甲</td></tr>
-      <tr><td><span class="badge badge-fw">FW</span></td><td>耶雷米·皮诺</td><td>Yeremy Pino</td><td>比利亚雷亚尔</td><td>西甲</td></tr>
-      <tr><td><span class="badge badge-fw">FW</span></td><td>费兰·托雷斯</td><td>Ferran Torres</td><td>巴塞罗那</td><td>西甲</td></tr>
-      <tr><td><span class="badge badge-fw">FW</span></td><td>博尔哈·伊格莱西亚斯</td><td>Borja Iglesias</td><td>塞尔塔</td><td>西甲</td></tr>
-      <tr><td><span class="badge badge-fw">FW</span></td><td>维克托·穆尼奥斯</td><td>Víctor Muñoz</td><td>奥萨苏纳</td><td>西甲</td></tr>
-      <tr><td><span class="badge badge-fw">FW</span></td><td><strong>⭐ 拉明·亚马尔</strong></td><td><strong>Lamine Yamal</strong></td><td><strong>巴塞罗那</strong></td><td>西甲</td></tr>
+      <tr><td rowspan="3" style="text-align:center;vertical-align:middle;"><strong>GK</strong></td><td>大卫·拉亚</td><td>David Raya</td><td>阿森纳（英超）</td><td>30</td><td>€3500万</td></tr>
+      <tr><td>乌奈·西蒙</td><td>Unai Simón</td><td>毕尔巴鄂竞技（西甲）</td><td>28</td><td>€2500万</td></tr>
+      <tr><td>霍安·加西亚</td><td>Joan García</td><td>巴塞罗那（西甲）</td><td>25</td><td>€4000万</td></tr>
+      <tr><td rowspan="8" style="text-align:center;vertical-align:middle;"><strong>DF</strong></td><td>保·库巴尔西</td><td>Pau Cubarsí</td><td>巴塞罗那（西甲）</td><td>19</td><td>€8000万</td></tr>
+      <tr><td>埃梅里克·拉波尔特</td><td>Aymeric Laporte</td><td>毕尔巴鄂竞技（西甲）</td><td>32</td><td>€900万</td></tr>
+      <tr><td>埃里克·加西亚</td><td>Eric García</td><td>巴塞罗那（西甲）</td><td>25</td><td>€3500万</td></tr>
+      <tr><td>马克·库库雷利亚</td><td>Marc Cucurella</td><td>切尔西（英超）</td><td>27</td><td>€5000万</td></tr>
+      <tr><td>亚历克斯·格里马尔多</td><td>Alex Grimaldo</td><td>勒沃库森（德甲）</td><td>30</td><td>€2000万</td></tr>
+      <tr><td>佩德罗·波罗</td><td>Pedro Porro</td><td>热刺（英超）</td><td>26</td><td>€4000万</td></tr>
+      <tr><td>马科斯·略伦特</td><td>Marcos Llorente</td><td>马竞（西甲）</td><td>31</td><td>€2200万</td></tr>
+      <tr><td>马克·普比尔</td><td>Marc Pubill</td><td>马竞（西甲）</td><td>22</td><td>€2800万</td></tr>
+      <tr><td rowspan="7" style="text-align:center;vertical-align:middle;"><strong>MF</strong></td><td style="background:#fff8e1;">🌟 罗德里 <span style="color:#e74c3c;">(C)</span></td><td style="background:#fff8e1;">Rodri</td><td style="background:#fff8e1;">曼城（英超）</td><td style="background:#fff8e1;">29</td><td style="background:#fff8e1;">€6500万</td></tr>
+      <tr><td style="background:#fff8e1;">🌟 佩德里</td><td style="background:#fff8e1;">Pedri</td><td style="background:#fff8e1;">巴塞罗那（西甲）</td><td style="background:#fff8e1;">23</td><td style="background:#fff8e1;">€1.5亿</td></tr>
+      <tr><td>法比安·鲁伊斯</td><td>Fabián Ruiz</td><td>巴黎圣日耳曼（法甲）</td><td>30</td><td>€4000万</td></tr>
+      <tr><td>米克尔·梅里诺</td><td>Mikel Merino</td><td>阿森纳（英超）</td><td>29</td><td>€3000万</td></tr>
+      <tr><td>加维</td><td>Gavi</td><td>巴塞罗那（西甲）</td><td>21</td><td>€3000万</td></tr>
+      <tr><td>马丁·祖比门迪</td><td>Martín Zubimendi</td><td>阿森纳（英超）</td><td>27</td><td>€8000万</td></tr>
+      <tr><td>达尼·奥尔莫</td><td>Dani Olmo</td><td>巴塞罗那（西甲）</td><td>28</td><td>€6000万</td></tr>
+      <tr><td rowspan="8" style="text-align:center;vertical-align:middle;"><strong>FW</strong></td><td style="background:#fff8e1;">🌟 拉明·亚马尔</td><td style="background:#fff8e1;">Lamine Yamal</td><td style="background:#fff8e1;">巴塞罗那（西甲）</td><td style="background:#fff8e1;">18</td><td style="background:#fff8e1;">€2亿</td></tr>
+      <tr><td>尼科·威廉姆斯</td><td>Nico Williams</td><td>毕尔巴鄂竞技（西甲）</td><td>23</td><td>€5000万</td></tr>
+      <tr><td>费兰·托雷斯</td><td>Ferran Torres</td><td>巴塞罗那（西甲）</td><td>26</td><td>€5000万</td></tr>
+      <tr><td>米克尔·奥亚萨瓦尔</td><td>Mikel Oyarzabal</td><td>皇家社会（西甲）</td><td>29</td><td>€2500万</td></tr>
+      <tr><td>亚历克斯·巴埃纳</td><td>Álex Baena</td><td>马竞（西甲）</td><td>24</td><td>€4500万</td></tr>
+      <tr><td>耶雷米·皮诺</td><td>Yeremy Pino</td><td>水晶宫（英超）</td><td>23</td><td>€3500万</td></tr>
+      <tr><td>博尔哈·伊格莱西亚斯</td><td>Borja Iglesias</td><td>塞尔塔（西甲）</td><td>33</td><td>€300万</td></tr>
+      <tr><td>维克托·穆尼奥斯</td><td>Víctor Muñoz</td><td>奥萨苏纳（西甲）</td><td>22</td><td>€2000万</td></tr>
     </tbody>
   </table>
-  <div class="mt-3 p-3 bg-yellow-50 rounded-lg border border-yellow-200">
-    <p class="text-sm"><strong>🔥 中场天团：</strong>罗德里（当世第一后腰/金球候选）+ 佩德里（巴萨大脑）+ 加维（铁血斗士）+ 法比安（欧国杯最佳中场）+ 梅里诺（阿森纳）+ 苏维门迪（皇家社会）——7名世界级中场 | 亚马尔（18岁/2024欧洲杯最佳年轻球员）是锋线核心</p>
   </div>
-</div>
 
-<h2 class="text-es-red">（二）逐项评分明细</h2>
-
-<div class="dimension-card">
-  <h3 class="text-xl font-bold text-es-red">维度一：阵容实力（权重30%）｜ 87分 × 30% = 26.1分</h3>
-  <div class="subitem"><h4>1.1 球星质量 —— 88分</h4>
-    <table class="text-sm mb-2"><tr><th>指标</th><th>数据</th></tr>
-      <tr><td>世界级/准世界级</td><td>7-8人（罗德里、亚马尔、佩德里、加维、尼科·威廉姆斯、法比安·鲁伊斯、拉波尔特、库巴西）</td></tr>
-      <tr><td>金球奖候选</td><td>罗德里（2024前五）、亚马尔（未来金球）</td></tr>
-      <tr><td>2024欧洲杯冠军成员</td><td>16人</td></tr>
-    </table>
-    <p>西班牙的中场配置是本届世界杯上当之无愧的"世界第一"。罗德里是当今足坛最好的防守型中场——他的存在让西班牙在控球和防守之间实现了完美的平衡。佩德里和加维的"巴萨双核"提供了创造力和硬度，法比安·鲁伊斯是2024欧洲杯最佳中场，梅里诺和苏维门迪在任何其他球队都能打首发。进攻端，18岁的拉明·亚马尔已经是巴塞罗那的绝对核心——他的盘带、创造力和进球能力让他成为"未来金球奖"的热门人选。尼科·威廉姆斯在2024欧洲杯决赛中的表现奠定了他的世界级边锋地位</p>
-  </div>
-  <div class="subitem"><h4>1.2 均衡度 —— 85分</h4><p>三条线中中场是绝对强点（7人），后防8人配置合理但缺少世界级中卫（拉波尔特已过巅峰，库巴西19岁经验不足），锋线8人全部是"技术型"前锋没有传统9号——但这是德拉富恩特的战术选择而非缺陷。</p></div>
-  <div class="subitem"><h4>1.3 板凳深度 —— 88分</h4><p>32强中最恐怖的替补深度。罗德里可以被苏维门迪替换而几乎不掉档次，佩德里和加维可以轮换，亚马尔和尼科·威廉姆斯有皮诺和奥亚萨瓦尔作为替补。</p></div>
-  <div class="subitem"><h4>1.4 身价与年龄 —— 87分</h4><p>全队总身价约8亿欧。平均年龄约25.5岁——亚马尔18岁、库巴西19岁、佩德里23岁、加维21岁——未来十年骨架已经搭好。</p></div>
-  <div class="score-bar mt-3"><div class="score-fill" style="width:87%;background:linear-gradient(90deg,#C60B1E,#FFC400);"></div></div>
-  <p class="text-right text-sm text-gray-500 mt-1">维度一总评：<strong>87分</strong> × 30% = <strong>26.1分</strong></p>
-</div>
-
-<div class="dimension-card">
-  <h3 class="text-xl font-bold text-es-red">维度二：战术体系与教练（权重20%）｜ 84分 × 20% = 16.8分</h3>
-  <div class="subitem"><h4>2.1 主帅哲学 —— 85分</h4><p>德拉富恩特在2024欧洲杯上证明了自己是"大场面教练"。他改造了西班牙的传控传统——更直接、更快速、更依赖边路爆破。</p></div>
-  <div class="subitem"><h4>2.2 阵型适配 —— 85分</h4><p>4-3-3完美适配：罗德里单后腰+佩德里/加维/法比安轮流前插，亚马尔右路爆破+尼科左路冲击。</p></div>
-  <div class="subitem"><h4>2.3 转换效率 —— 82分</h4><p>比恩里克时期快得多。亚马尔和尼科的边路速度使西班牙在由守转攻时具备真正的"加速度"。</p></div>
-  <div class="subitem"><h4>2.4 临场指挥 —— 83分</h4><p>欧洲杯决赛对阵英格兰的换人和战术调整精彩绝伦——下半场主动提速，最终夺冠。</p></div>
-  <div class="score-bar mt-3"><div class="score-fill" style="width:84%;background:linear-gradient(90deg,#C60B1E,#FFC400);"></div></div>
-  <p class="text-right text-sm text-gray-500 mt-1">维度二总评：<strong>84分</strong> × 20% = <strong>16.8分</strong></p>
-</div>
-
-<div class="dimension-card">
-  <h3 class="text-xl font-bold text-es-red">维度三：竞技状态（权重15%）｜ 85分 × 15% = 12.75分</h3>
-  <div class="subitem"><h4>3.1 近12个月战绩 —— 88分</h4><p>2024欧洲杯冠军——这是能拿到的最高荣誉。预选赛不败出线。</p></div>
-  <div class="subitem"><h4>3.2 含金量 —— 82分</h4><p>欧洲杯连克德国、法国、英格兰夺冠——含金量十足。</p></div>
-  <div class="subitem"><h4>3.3 核心状态 —— 85分</h4>
-    <table class="text-sm mb-2"><tr><th>球员</th><th>表现</th><th>状态</th></tr>
-      <tr><td>罗德里（曼城）</td><td>英超第一后腰，稳定输出</td><td>🔥 火热</td></tr>
-      <tr><td>亚马尔（巴萨）</td><td>西甲12球10助攻，18岁</td><td>🔥 火热</td></tr>
-      <tr><td>佩德里（巴萨）</td><td>26场5球，恢复巅峰</td><td>✅ 稳定</td></tr>
-      <tr><td>加维（巴萨）</td><td>ACL伤愈回归</td><td>⬆️ 回暖</td></tr>
-    </table>
-  </div>
-  <div class="score-bar mt-3"><div class="score-fill" style="width:85%;background:linear-gradient(90deg,#C60B1E,#FFC400);"></div></div>
-  <p class="text-right text-sm text-gray-500 mt-1">维度三总评：<strong>85分</strong> × 15% = <strong>12.75分</strong></p>
-</div>
-
-<div class="dimension-card">
-  <h3 class="text-xl font-bold text-es-red">维度四：大赛经验（权重10%）｜ 77分 × 10% = 7.7分</h3>
-  <div class="subitem"><h4>4.1 世界杯历史 —— 72分</h4><p>2010冠军，但2014小组出局、2018/2022两届16强——"冠军后遗症"明显。2022点球0-3负摩洛哥是耻辱性失利。</p></div>
-  <div class="subitem"><h4>4.2 核心经验 —— 80分</h4><p>罗德里（欧冠冠军+欧洲杯冠军）、拉波尔特（欧冠冠军）、佩德里（欧洲杯冠军+奥运银牌）——大场面经验丰富。</p></div>
-  <div class="subitem"><h4>4.3 抗压能力 —— 78分</h4><p>欧洲杯决赛的逆转证明心理素质已恢复。但点球大战（2022年0/3）仍是心理阴影。</p></div>
-  <div class="score-bar mt-3"><div class="score-fill" style="width:77%;background:linear-gradient(90deg,#C60B1E,#FFC400);"></div></div>
-  <p class="text-right text-sm text-gray-500 mt-1">维度四总评：<strong>77分</strong> × 10% = <strong>7.7分</strong></p>
-</div>
-
-<div class="dimension-card">
-  <h3 class="text-xl font-bold text-es-red">维度五：分组赛程（权重10%）｜ 75分 × 10% = 7.5分</h3>
-  <div class="subitem"><h4>5.1 小组对手 —— 78分</h4>
-    <table class="text-sm mb-2"><tr><th>对手</th><th>西班牙胜率</th></tr>
-      <tr><td>佛得角 🇨🇻</td><td>90-95%</td></tr>
-      <tr><td>沙特 🇸🇦</td><td>85-90%</td></tr>
-      <tr><td>乌拉圭 🇺🇾</td><td>60-65%</td></tr>
-    </table>
-    <p>H组签运极佳——乌拉圭是唯一可能制造麻烦的对手，佛得角（D级）和沙特不足为惧。</p>
-  </div>
-  <div class="subitem"><h4>5.2 晋级路线 —— 75分</h4><p>小组头名出线后16强对手不强，八强可能遇葡萄牙或法国——真正的考验从那里开始。</p></div>
-  <div class="subitem"><h4>5.3 旅途气候 —— 72分</h4><p>前两场在亚特兰大（室内球场），末轮在瓜达拉哈拉（海拔1500米）——海拔适应是唯一挑战。</p></div>
-  <div class="score-bar mt-3"><div class="score-fill" style="width:75%;background:linear-gradient(90deg,#C60B1E,#FFC400);"></div></div>
-  <p class="text-right text-sm text-gray-500 mt-1">维度五总评：<strong>75分</strong> × 10% = <strong>7.5分</strong></p>
-</div>
-
-<div class="dimension-card">
-  <h3 class="text-xl font-bold text-es-red">维度六：团队凝聚力（权重10%）｜ 75分 × 10% = 7.5分</h3>
-  <div class="subitem"><h4>6.1 更衣室 —— 78分</h4><p>无皇马球员=无国家德比分歧。巴萨帮（8人）主导更衣室，但其他球员同样获得尊重。</p></div>
-  <div class="subitem"><h4>6.2 足协 —— 78分</h4><p>RFEF运营规范，德拉富恩特合同稳定。</p></div>
-  <div class="subitem"><h4>6.3 舆论压力 —— 68分</h4><p>欧洲冠军="夺冠热门"压力。西班牙国内期望值很高——"冠军或失败"的心态可能带来压力。</p></div>
-  <div class="score-bar mt-3"><div class="score-fill" style="width:75%;background:linear-gradient(90deg,#C60B1E,#FFC400);"></div></div>
-  <p class="text-right text-sm text-gray-500 mt-1">维度六总评：<strong>75分</strong> × 10% = <strong>7.5分</strong></p>
-</div>
-
-<div class="dimension-card">
-  <h3 class="text-xl font-bold text-es-red">维度七：体能伤病（权重5%）｜ 75分 × 5% = 3.75分</h3>
-  <div class="subitem"><h4>7.1 疲劳度 —— 72分</h4><p>罗德里、亚马尔、佩德里经历了漫长赛季。</p></div>
-  <div class="subitem"><h4>7.2 伤病 —— 72分</h4><p>加维（ACL伤愈回归）、费尔明·洛佩斯（跖骨骨折落选）。</p></div>
-  <div class="subitem"><h4>7.3 医疗 —— 80分</h4><p>西班牙顶级医疗团队。</p></div>
-  <div class="score-bar mt-3"><div class="score-fill" style="width:75%;background:linear-gradient(90deg,#C60B1E,#FFC400);"></div></div>
-  <p class="text-right text-sm text-gray-500 mt-1">维度七总评：<strong>75分</strong> × 5% = <strong>3.75分</strong></p>
-</div>
-
-<h2 class="text-es-red">（三）综合总分与评级</h2>
-<div class="summary-box text-center">
-  <p class="text-2xl font-bold">加权总分：82.1 / 100</p>
-  <p class="text-xl mt-2">实力评级：<span class="font-bold text-3xl">A-</span>（新的评级描述）</p>
-  <!-- <p class="text-sm mt-2 opacity-80">依据 skill 映射表：82.1 ∈ [80, 83) → A-级</p> -->
-</div>
-<div class="bg-white rounded-xl shadow p-6 mb-6">
-  <h3 class="text-lg font-bold mb-3">七维度雷达数据</h3>
+  <div class="sub-section-title">世界杯历史战绩</div>
   <table>
-    <tr><th>维度</th><th>得分</th><th>权重</th><th>加权贡献</th></tr>
-    <tr><td>① 阵容实力</td><td><strong>87 🏆</strong></td><td>30%</td><td><strong>26.10</strong></td></tr>
-    <tr><td>② 战术体系与教练</td><td>84</td><td>20%</td><td>16.80</td></tr>
-    <tr><td>③ 近期竞技状态</td><td>85</td><td>15%</td><td>12.75</td></tr>
-    <tr><td>④ 大赛经验与心理素质</td><td>77</td><td>10%</td><td>7.70</td></tr>
-    <tr><td>⑤ 分组及赛程影响</td><td>75</td><td>10%</td><td>7.50</td></tr>
-    <tr><td>⑥ 团队凝聚力与场外环境</td><td>75</td><td>10%</td><td>7.50</td></tr>
-    <tr><td>⑦ 体能储备与伤病控制</td><td>75</td><td>5%</td><td>3.75</td></tr>
-    <tr style="font-weight:bold;background:#fff3e0;"><td colspan="3">总分</td><td>82.10</td></tr>
+    <thead><tr><th>年份</th><th>成绩</th><th>备注</th></tr></thead>
+    <tbody>
+      <tr><td>1934年（意大利）</td><td>八强</td><td>首届参赛</td></tr>
+      <tr><td>1950年（巴西）</td><td>第四名</td><td>循环决赛制排名第四</td></tr>
+      <tr><td>1962-1978年</td><td>小组赛/未晋级</td><td>多年的沉寂期</td></tr>
+      <tr><td>1982年（西班牙）</td><td>第二轮小组赛</td><td>作为东道主</td></tr>
+      <tr><td>1986年（墨西哥）</td><td>八强</td><td>点球负于比利时</td></tr>
+      <tr><td>1994年（美国）</td><td>八强</td><td></td></tr>
+      <tr><td>1998年（法国）</td><td>小组赛</td><td></td></tr>
+      <tr><td>2002年（韩日）</td><td>八强</td><td>争议性地负于韩国</td></tr>
+      <tr><td>2006年（德国）</td><td>16强</td><td></td></tr>
+      <tr><td><strong>2010年（南非）</strong></td><td><strong>冠军 🏆</strong></td><td>伊涅斯塔加时绝杀荷兰，西班牙首夺大力神杯</td></tr>
+      <tr><td>2014年（巴西）</td><td>小组赛</td><td>卫冕冠军小组出局（1-5负荷兰、0-2负智利）</td></tr>
+      <tr><td>2018年（俄罗斯）</td><td>16强</td><td>点球负于俄罗斯</td></tr>
+      <tr><td><strong>2022年（卡塔尔）</strong></td><td><strong>16强</strong></td><td>小组赛1-2负日本，点球负于摩洛哥</td></tr>
+    </tbody>
+  </table>
+
+  <div class="sub-section-title">近期大赛荣誉</div>
+  <p style="margin:8px 0;"><strong>🏆 2024年欧洲杯冠军</strong> — 小组赛全胜出线，淘汰赛先后击败格鲁吉亚、德国（加时）、法国，决赛2-1击败英格兰。这是西班牙自2012年欧���洲杯后首次夺得大赛冠军，也是德拉富恩特执教生涯的最高光时刻。</p>
+
+  <div class="sub-section-title">晋级之路</div>
+  <p style="margin:8px 0;">西班牙在欧洲区预选赛中表现稳健，以小组头名身份轻松晋级。作为2024年欧洲杯冠军，球队在预选赛中展现了极高的战术成熟度——7胜1平0负的战绩印证了德拉富恩特体系的稳定性。罗德里作为金球奖级别的中场核心，在整个预选赛中保持了世界级的统治力。亚马尔和尼科·威廉姆斯的两翼齐飞成为对手防线的噩梦。</p>
+</div>
+
+<!-- ==================== DIMENSION SCORING ==================== -->
+<div class="section">
+  <div class="section-title">（二）逐项评分明细（七维度深度拆解）</div>
+
+  <!-- Dimension 1 -->
+  <div class="sub-section-title">维度一：阵容实力（权重30%）｜ 得分：90分 × 30% = 27.0分</div>
+  <table class="score-table">
+    <thead><tr><th style="width:28%;">子项</th><th style="width:7%;">得分</th><th>简要评价</th></tr></thead>
+    <tbody>
+      <tr>
+        <td><strong>1.1 球星质量与个人能力</strong>（占比35%）</td>
+        <td class="score-cell" style="color:#e74c3c;">92</td>
+        <td>西班牙拥有本届世界杯最恐怖的进攻天才和最具统治力的中场。拉明·亚马尔（18岁/€2亿/巴塞罗那）是全世界身价最高的球员——本赛季西甲10球14助攻，2024年欧洲杯上以16岁的年龄震惊世界。罗德里（曼城/29岁）是2024年金球奖评选前三级别的中场大师——他的控场能力、远射和战术纪律使曼城和西班牙都成为"有罗德里的球队和没有罗德里的球队是两支完全不同的球队"。佩德里（巴塞罗那/23岁/€1.5亿）是世界上最优秀的中场指挥官之一——他的传球视野和节奏控制能力令人叹为观止。尼科·威廉姆斯（毕尔巴鄂/€5000万）在2024年欧洲杯决赛中被评为最佳球员。加维（巴塞罗那/21岁/科帕奖得主）是欧洲最出色的年轻中场之一。全队有4人身价超€1亿（Yamal €2亿、Pedri €1.5亿、Cubarsí €8000万、Zubimendi €8000万），7人身价超€5000万。</td>
+      </tr>
+      <tr>
+        <td><strong>1.2 各位置均衡度</strong>（占比25%）</td>
+        <td class="score-cell" style="color:#e74c3c;">88</td>
+        <td>西班牙的阵容均衡度堪称世界顶级。门将是全队最奢侈的位置——拉亚（阿森纳/€3500万/英超金手套候选人）、乌奈·西蒙（西班牙2024欧洲杯主力门将/扑救率78%）和霍安·加西亚（巴萨/€4000万）三人都具备世界杯级别的首发能力。后卫线——库巴尔西（巴萨/19岁/€8000万/西甲最佳年轻后卫）和拉波尔特（经验丰富/欧洲杯冠军后防核心）的中卫组合实现了"天赋+经验"的完美搭配。中场是西班牙的核武器——罗德里+祖比门迪的双后腰配置在全球范围内无人能敌（两人合计€1.45亿），佩德里+加维+奥尔莫+法比安·鲁伊斯的攻击型中场储备足以让任何对手羡慕。前锋线——亚马尔的右路+尼科·威廉姆斯的左路是2024年欧洲杯上所有对手都无法解决的难题，费兰·托雷斯和奥亚萨瓦尔提供替补火力。</td>
+      </tr>
+      <tr>
+        <td><strong>1.3 板凳深度</strong>（占比20%）</td>
+        <td class="score-cell" style="color:#e74c3c;">90</td>
+        <td>€12.7亿的身价意味着极其恐怖的替补深度。祖比门迪（阿森纳/€8000万）是英超最佳防守中场之一但在西班牙只能给罗德里打替补。加维（€3000万/巴萨/金童奖得主）在2024年欧洲杯上因伤错过了夺冠，但2026年他已满血回归——他可能无法进入首发11人。法比安·鲁伊斯（PSG/€4000万）是2024欧洲杯决赛的进球者之一。费兰·托雷斯（巴萨/€5000万）世界杯和欧洲杯双料冠军的身份只能坐上替补席。略伦特（马竞/€2200万）可胜任右后卫和防守中场两个位置，是战术上的万金油。26人中有22人来自五大联赛豪门，12人来自巴萨和皇马（或其衍生体系）。这可能是本届世界杯阵容深度最恐怖的球队——替换任何一名首发球员，替补的水准几乎不会下降。</td>
+      </tr>
+      <tr>
+        <td><strong>1.4 总身价与年龄结构</strong>（占比20%）</td>
+        <td class="score-cell" style="color:#e74c3c;">91</td>
+        <td>€12.7亿总身价排名本届世界杯前三（仅次于英格兰约€15亿和法国约€14亿）。平均年龄26.7岁是本届最健康的年龄结构之一——同时拥有一批极具天赋的年轻核心（亚马尔18、库巴尔西19、加维21、佩德里23、尼科23）和正值巅峰的中生代（罗德里29、法比安30、奥尔莫28），以及经验丰富的老将（拉波尔特32、伊格莱西亚斯33）。€2亿身价的亚马尔是世界杯历史上身价最高的18岁球员——他的存在本身就让西班牙的进攻上限提升了一个台阶。身价分布非常合理——前5名合计约€6.5亿（约占全队51%），没有极端集中也没有分散过度。年龄结构呈"倒金字塔"形态——24岁以下5人、25-29岁12人、30岁以上9人，提供了完美的"年轻活力+巅峰战力+经验沉淀"三合一模式。</td>
+      </tr>
+    </tbody>
+  </table>
+  <div class="analysis-text">
+    西班牙的阵容实力处于一个"历史性高度"——这支球队可能比2010年夺冠的那支还要强大。2010年那支拥有哈维、伊涅斯塔、布斯克茨、比利亚的西班牙在控制力上或许略胜一筹，但2026届西班牙在进攻爆发力、边路速度和整体天赋深度上已经全面超越。拉明·亚马尔是这届西班牙最大的"变量"——18岁的他已经是€2亿先生，他的盘带、创造力和大心脏（2024欧洲杯半决赛对法国的世界波）使他成为本届世界杯最令人兴奋的年轻球员。佩德里（€1.5亿）和罗德里（€6500万）的中场组合融合了巴萨的控球传统和曼城的战术纪律——罗德里是决定比赛节奏的"定海神针"，佩德里是改变比赛节奏的"节奏器"。后防线整体偏年轻（库巴尔西19岁是隐患），但拉波尔特的经验和指挥可以在一定程度上弥补。唯一的相对短板是"正印中锋"——费兰·托雷斯（多面手型）和伊格莱西亚斯（传统柱式中锋/33岁）都不是世界级终结者。尽管如此，西班牙的阵容整体实力已经足以与任何球队匹敌——€12.7亿的阵容深度意味着他们能以两套不同的阵容应对不同类型的比赛。
+  </div>
+
+  <!-- Dimension 2 -->
+  <div class="sub-section-title">维度二：战术体系与教练（权重20%）｜ 得分：86分 × 20% = 17.2分</div>
+  <table class="score-table">
+    <thead><tr><th style="width:28%;">子项</th><th style="width:7%;">得分</th><th>简要评价</th></tr></thead>
+    <tbody>
+      <tr>
+        <td><strong>2.1 主帅战术哲学与大赛履历</strong>（占比40%）</td>
+        <td class="score-cell" style="color:#e74c3c;">85</td>
+        <td>路易斯·德拉富恩特是2024年欧洲杯冠军教头——他在决赛中击败了索斯盖特的英格兰，带领西班牙以7战全胜的战绩夺冠。他的战术哲学是对传统tiki-taka的"现代化改造"——保留控球优势（场均控球率58%+）但大幅加快攻守转换速度，不再追求"为了控球而控球"。在他的体系中，边锋（亚马尔、尼科）的直面对决取代了过往西班牙的"无锋控球阵"，进攻效率显著提升。他的最大成就是在不牺牲防守稳定性的前提下，把西班牙从"好看但赢不了"（2018、2022两届世界杯16强出局）改造成了"好看且赢球"的模式（2024欧洲杯冠军）。他的短板在于：没有以主教练身份带队参加世界杯的经验——欧洲杯和世界杯的赛程长度、压力和对手多样性有本质区别。</td>
+      </tr>
+      <tr>
+        <td><strong>2.2 阵型适配性与球员契合度</strong>（占比30%）</td>
+        <td class="score-cell" style="color:#e74c3c;">88</td>
+        <td>德拉富恩特的4-2-3-1/4-3-3切换体系与西班牙球员的特点完美契合。双后腰（罗德里+祖比门迪/法比安·鲁伊斯）的保护为前场四人组提供了充分的自由度——罗德里负责纵向调度和节奏控制，祖比门迪负责横向覆盖和防守扫荡。佩德里在10号位的角色类似"伪边锋"——他经常游弋到左路与尼科配合，为亚马尔的右路内切创造空间。两个边锋（亚马尔和尼科）被赋予了极高的自由度——他们可以互换位置、内切射门或下底传中。2024欧洲杯上，西班牙的进攻方式从传统的"中路渗透为主"转变为"两翼突破为主、中路渗透为辅"——这一变化使西班牙的进攻更加难以预测。唯一的适配性问题在于中锋位置——费兰·托雷斯（巴萨）是一个"伪9号"类型而非传统终结者，在面对密集防守时可能缺乏禁区内的支点。</td>
+      </tr>
+      <tr>
+        <td><strong>2.3 攻守转换效率</strong>（占比15%）</td>
+        <td class="score-cell" style="color:#e74c3c;">85</td>
+        <td>德拉富恩特治下的西班牙在攻守转换方面实现了质变。由守转攻时，罗德里回撤到后防线接球、通过佩德里和奥尔莫的中场衔接快速推进——2024欧洲杯上西班牙最快的进球（对阵格鲁吉亚的"乌龙"除外）的平均时间比2022世界杯缩短了3.2秒，体现了攻守转换的提速。无球时，西班牙采取高位压迫策略——前场四人组在丢失球权后立即发动反抢，罗德里和祖比门迪在第二线封锁传球线路。2024欧洲杯上，西班牙的PPDA（每次防守动作承受的传球次数）数据排名赛事第二（仅次于法国），反映了压迫强度。定位球方面，西班牙在2024欧洲杯上通过角球和任意球打入3球，拉波尔特和罗德里是主要的争顶目标。</td>
+      </tr>
+      <tr>
+        <td><strong>2.4 临场指挥与换人策略</strong>（占比15%）</td>
+        <td class="score-cell" style="color:#e74c3c;">83</td>
+        <td>德拉富恩特在2024欧洲杯上的临场指挥展现了良好的战术灵活性。对阵法国的半决赛中，他在比分持平的情况下换上了奥亚萨瓦尔，后者的跑动为亚马尔的世界波创造了空间。决赛对阵英格兰，他在下半场换上的梅里诺和奥亚萨瓦尔分别在防守和进攻端发挥了关键作用。他的换人风格比前任恩里克更加果断——平均换人时间从第63分钟提前到第58分钟。但需要指出的是，他的临场经验样本仅限于欧洲杯（7场比赛），世界杯淘汰赛的独特压力（加时赛规则、点球大战、多三天赛程）可能是新的考验。</td>
+      </tr>
+    </tbody>
+  </table>
+  <div class="analysis-text">
+    德拉富恩特完成了一件看似不可能的事情——在保留西班牙传控传统的同时注入了现代足球最需要的元素：速度、直接性和边路爆发力。2024年欧洲杯七战全胜夺冠的成绩单说明了一切：西班牙不仅是踢得"最好看"的球队（控球率、传球成功率、创造机会数均排名第一），也是踢得"最有效"的球队（7场比赛打入15球，场均2.14球）。德拉富恩特最精妙的设计是"不对称进攻"——左路的尼科（突破型）和佩德里（组织型）形成"突破+策应"组合，右路的亚马尔（全能天才）和波罗（套边传中型）形成"内切+套边"组合，两个边路的进攻方式完全不同，使对手难以针对性布防。他的战术体系中唯一尚未验证的环节是"面对极端劣势"——2024欧洲杯上西班牙从未在比赛中落后过两球，世界杯淘汰赛上可能遇到的各种极端情况（大雨、红牌、点球、加时30分钟后的体能枯竭）团队的经验储备尚浅。总体而言，德拉富恩特将西班牙从"八强常客"提升到了"冠军争夺者"——他的欧洲杯冠军奖杯就是最好的名片。
+  </div>
+
+  <!-- Dimension 3 -->
+  <div class="sub-section-title">维度三：近期竞技状态（权重15%）｜ 得分：88分 × 15% = 13.2分</div>
+  <table class="score-table">
+    <thead><tr><th style="width:28%;">子项</th><th style="width:7%;">得分</th><th>简要评价</th></tr></thead>
+    <tbody>
+      <tr>
+        <td><strong>3.1 近12个月正式比赛战绩</strong>（占比40%）</td>
+        <td class="score-cell" style="color:#e74c3c;">88</td>
+        <td>西班牙是近12个月全球状态最好的国家队之一。作为2024年欧洲杯冠军，球队在过去一年中保持了极高的胜率——欧洲杯淘汰赛阶段击败了德国（东道主/加时）、法国和英格兰三大强敌，含金量十足。世界杯预选赛中西班牙以7胜1平0负的不败战绩轻松出线，攻入25球仅失5球。近15场正式比赛仅2负（均为友谊赛性质），整体稳定性出色。2024欧洲杯冠军的光环为球队带来了额外的信心加成——这支球队已经证明了他们"能赢下最好的比赛"（欧洲杯决赛击败英格兰）。世界杯前的热身赛对阵拉丁美洲球队的计划也有助于模拟小组赛对手（乌拉圭）的风格。</td>
+      </tr>
+      <tr>
+        <td><strong>3.2 预选赛出线含金量</strong>（占比30%）</td>
+        <td class="score-cell" style="color:#e74c3c;">85</td>
+        <td>西班牙所在的欧洲区预选赛小组对手实力中等——没有超级强队，但也没有鱼腩部队。不败出线的成绩单符合冠军球队的应有水准。与同档次球队（法国、英格兰、葡萄牙）在预选赛中的表现相比，西班牙的净胜球数据（+20）处于同一水平线。预选赛中真正有价值的是新老交替的磨合——德拉富恩特利用预选赛的机会让亚马尔和库巴尔西等年轻球员积累国家队比赛经验，为世界杯做好了战术准备。欧国联赛事中的表现也是重要参照——西班牙在A级联赛中与多支欧洲顶级球队交手并取得不错的结果。</td>
+      </tr>
+      <tr>
+        <td><strong>3.3 核心球员俱乐部状态走势</strong>（占比30%）</td>
+        <td class="score-cell" style="color:#e74c3c;">90</td>
+        <td>核心球员的俱乐部状态处于全面爆发期。拉明·亚马尔（巴萨）本赛季西甲10球14助攻，是西甲创造机会最多的球员（场均2.8次关键传球），年仅18岁已经成为巴萨进攻的绝对核心。罗德里（曼城）本赛季延续了世界级表现——英超32场6球5助攻、传球成功率93%、拦截次数（57次）在英超防守中场中排名第一。佩德里（巴萨）在经历伤病后本赛季满血回归——西甲28场7球9助攻，是巴萨中场的进攻引擎。尼科·威廉姆斯（毕尔巴鄂）本赛季西甲8球11助攻，与亚马尔组成了西甲最具威胁的两翼组合。祖比门迪（阿森纳）在英超的处子赛季表现惊艳——场均2.5次抢断、1.8次拦截，成为枪手的中场屏障。唯一的担忧是亚马尔和尼科都在赛季末段经历了轻微的腿筋伤势——虽然已恢复训练，但密集赛程中的伤病管理值得关注。</td>
+      </tr>
+    </tbody>
+  </table>
+  <div class="analysis-text">
+    西班牙的竞技状态是本届世界杯所有参赛队中最好的之一——2024年欧洲杯冠军的头衔不仅是一种荣誉，更是球队信心和整体状态的直接证明。这支西班牙在德拉富恩特的带领下已经找到了"赢球模式"——2024欧洲杯七战全胜的记录意味着他们能够在不同类型的比赛中（对密集防守、对高位逼抢、对全力防守反击）找到破局之道。核心球员的俱乐部状态普遍处于个人职业生涯的最佳水平——亚马尔是2025-26赛季西甲最具影响力的攻击手之一，佩德里完全恢复到了伤病前的巅峰状态，罗德里持续输出顶级表现。这种"国家队冠军光环+俱乐部状态火热"的双重利好组合是冠军球队在世界杯前最理想的状态模式——球员们既自信满满又保持着比赛节奏。唯一需要警惕的是"冠军疲劳"——在经历了2024年欧洲杯的高强度夺冠征程和2025-26赛季的俱乐部征战之后，部分核心球员（亚马尔18岁但比赛负荷极大、罗德里29岁踢了非常多的比赛）的体能储备是否充足。德拉富恩特需要在前两场小组赛中合理轮换以保存实力。
+  </div>
+
+  <!-- Dimension 4 -->
+  <div class="sub-section-title">维度四：大赛经验与心理素质（权重10%）｜ 得分：83分 × 10% = 8.3分</div>
+  <table class="score-table">
+    <thead><tr><th style="width:28%;">子项</th><th style="width:7%;">得分</th><th>简要评价</th></tr></thead>
+    <tbody>
+      <tr>
+        <td><strong>4.1 世界杯/洲际杯历史战绩</strong>（占比40%）</td>
+        <td class="score-cell" style="color:#e74c3c;">85</td>
+        <td>西班牙是世界杯历史上第8支夺冠的球队（2010年），同时也是欧洲杯历史上最成功的球队之一（3次冠军：1964、2008、2012、2024——共4次）。2010年世界杯冠军是西班牙足球史上最伟大的成就——那支由哈维、伊涅斯塔、卡西利亚斯领衔的"传控王朝"在决赛中通过伊涅斯塔的加时绝杀击败荷兰夺冠。但近三届世界杯的表现令人担忧：2014年作为卫冕冠军小组赛即出局（1-5负荷兰），2018年16强点球负于东道主俄罗斯，2022年16强点球负于摩洛哥——三届世界杯连续未能进入八强。西班牙需要打破"欧洲杯冠军→世界杯表现不佳"的魔咒（2008欧洲杯冠军→2010世界杯冠军例外；2012欧洲杯冠军→2014小组出局）。不过，2008-2012的黄金周期和2024年的欧洲杯冠军表明，西班牙足球有能力在洲际和世界舞台上持续竞争。</td>
+      </tr>
+      <tr>
+        <td><strong>4.2 核心球员大赛经验值</strong>（占比35%）</td>
+        <td class="score-cell" style="color:#27ae60;">80</td>
+        <td>西班牙的核心球员大赛经验整体充足但存在明显的"两极分化"。罗德里（2024欧洲杯冠军核心/2022世界杯、2020欧洲杯参赛）是队内大赛经验最丰富的球员——他经历了曼城的三冠王赛季（2023欧冠冠军）以及国家队的巅峰和低谷。法比安·鲁伊斯（2024欧洲杯决赛进球者/巴黎圣日耳曼核心）和拉波尔特（2024欧洲杯冠军后防支柱/2022世界杯参赛）同样积累了丰富的大赛经验。但年轻一批球员的大赛经验集中在欧洲杯层面——亚马尔、库巴尔西、尼科·威廉姆斯、佩德里、加维虽然在2024欧洲杯上表现出色，但都没有世界杯淘汰赛经验。尤其是亚马尔（18岁）和库巴尔西（19岁），他们的天赋无人质疑，但在世界杯的高压环境下如何应对陌生对手和极端比赛情境，是一个需要实战来回答的问题。</td>
+      </tr>
+      <tr>
+        <td><strong>4.3 抗压与逆境应对</strong>（占比25%）</td>
+        <td class="score-cell" style="color:#27ae60;">82</td>
+        <td>西班牙在2024欧洲杯上展现了令人印象深刻的抗压能力——半决赛对阵法国的比赛中，西班牙在0-1落后的情况下由亚马尔（世界波）和奥尔莫在4分钟内完成逆转，展现了绝境下的冷静和执行力。决赛对阵英格兰，西班牙在1-0领先被扳平后迅速调整，最终由奥亚萨瓦尔在第86分钟绝杀——这证明了球队在"被追平"的挫折后仍能保持进攻威胁的心理韧性。但世界杯淘汰赛（尤其是点球大战）是另一层面的心理测试——西班牙在2018年和2022年连续两届世界杯在点球大战中失利（分别负于俄罗斯和摩洛哥），暴露了12码处的心理薄弱。如果2026年再次面临点球大战，西班牙需要克服这一"点球心魔"。</td>
+      </tr>
+    </tbody>
+  </table>
+  <div class="analysis-text">
+    西班牙的大赛经验是一个"正在更新"的数据。2010年冠军一代（哈维、伊涅斯塔、卡西、普约尔、比利亚）早已退役，2022年世界杯时的西班牙仍然带着那代人的光环但在成绩上未能突破。2024年欧洲杯冠军的意义在于：它创造了一支全新的"赢家一代"——亚马尔在决赛中助攻、尼科在决赛中进球、罗德里获得赛事最佳球员、奥尔莫在关键比赛中进球。这一代西班牙球员不再被"2010年冠军"的阴影所笼罩，他们已经建立了属于自己的"赢家身份"。但他们需要面对的事实是：世界杯的挑战远大于欧洲杯——对手更多样（南美、非洲、中北美）、赛程更长（24队到48队扩军增加了不确定性因素）、心理压力更大。2010年那支西班牙在夺冠之前也经历了2008年欧洲杯的洗礼——这个"欧洲杯→世界杯"的路径与2024→2026的轨迹高度吻合。如果能处理好这一点，这支西班牙具备了与2010年冠军班底相似的冠军基因。
+  </div>
+
+  <!-- Dimension 5 -->
+  <div class="sub-section-title">维度五：分组及赛程影响（权重10%）｜ 得分：84分 × 10% = 8.4分</div>
+  <table class="score-table">
+    <thead><tr><th style="width:28%;">子项</th><th style="width:7%;">得分</th><th>简要评价</th></tr></thead>
+    <tbody>
+      <tr>
+        <td><strong>5.1 小组赛对手分析</strong>（占比40%）</td>
+        <td class="score-cell" style="color:#e74c3c;">88</td>
+        <td>H组的签运对西班牙来说近乎"完美"。乌拉圭（FIFA第11）是唯一的真正威胁——努涅斯、巴尔韦德、阿劳霍等球员具备顶级水准，但乌拉圭的整体战术纪律和稳定性不如西班牙。佛得角（FIFA第66）是首次参赛的非洲小国，整体实力有限，对西班牙构不成实质性威胁。沙特阿拉伯（FIFA第55）在2022年世界杯上爆冷击败过阿根廷，但那场比赛的偶然性远大于必然性，西班牙的控球风格能够有效压制沙特的反击空间。西班牙的最优策略是：首战佛得角尽早上替补轮换保存体能，次战沙特阿拉伯锁定出线名额，末战乌拉圭力争小组第一（同时避免核心球员过度消耗）。这一分组的最大利好是：西班牙几乎可以确定以一个相对轻松的方式进入淘汰赛。</td>
+      </tr>
+      <tr>
+        <td><strong>5.2 淘汰赛晋级路线预判</strong>（占比35%）</td>
+        <td class="score-cell" style="color:#e74c3c;">82</td>
+        <td>如果西班牙以小组第一出线（概率约75%），16强对手将是G组第二——最可能是加纳/塞尔维亚/瑞士中的一支。16强赛的难度中等（胜率约70%）。八强战将是最关键的考验——对手将来自F组（荷兰/日本/瑞典/突尼斯）的胜者，很可能是荷兰——这将是一场势均力敌的顶级对决。如果跨过荷兰这道坎，半决赛对手将来自上半区另一侧——可能是葡萄牙或德国——每场都是五五开的较量。决赛的对手极大概率是法国或英格兰。综合来看，西班牙的淘汰赛路线难度中等偏上——16强不难但八强遭遇荷兰是最大变数。</td>
+      </tr>
+      <tr>
+        <td><strong>5.3 旅途与气候因素</strong>（占比25%）</td>
+        <td class="score-cell" style="color:#e67e22;">80</td>
+        <td>西班牙的两场小组赛在亚特兰大（6月15日对佛得角、6月21日对沙特），一场在瓜达拉哈拉（6月26日对乌拉圭）。亚特兰大位于美国东南部，6月气候湿热（30°C+、湿度70%+），对欧洲球队的体能消耗较大。瓜达拉哈拉海拔约1560米，气温相对温和。亚特兰大到瓜达拉哈拉飞行约3.5小时，旅途疲劳在可控范围内。湿热天气对西班牙的传控体系有一定影响——高强度传导在高湿度环境下更容易出现技术失误（2022年世界杯对阵日本时西班牙在湿热环境下的传球失误率明显高于其他比赛）。球队可以通过提前抵达北美进行热适应训练来缓解这一问题。</td>
+      </tr>
+    </tbody>
+  </table>
+  <div class="analysis-text">
+    H组的签运对西班牙来说堪称"黄金分组"——避开了所有同档位的强敌（荷兰、克罗地亚、塞内加尔），乌拉圭虽然是传统劲旅但近年来实力有所下滑，佛得角和沙特阿拉伯几乎不可能威胁到西班牙的出线地位。这个分组给德拉富恩特提供了宝贵的"战术实验空间"——他可以在前两场比赛中试验不同的阵型和轮换策略，为淘汰赛储备最完整的战术武器库。淘汰赛的路线图清晰但充满挑战——16强赛是热身、八强赛（大概率对阵荷兰）是真正的考验。荷兰vs西班牙将是2026世界杯最受瞩目的八强对决之一——两队都擅长控球但风格迥异（荷兰更偏实用防守、西班牙更偏技术进攻），胜负将在细节中决定。如果西班牙能够击败荷兰，他们的信心将迎来新一轮爆发——跨过荷兰后，半决赛的对手将不如荷兰令人畏惧。气候是西班牙需要认真对待的因素——亚特兰大6月的湿热天气与西班牙本土的温和地中海气候差异较大，球队需要提前做好热适应安排。
+  </div>
+
+  <!-- Dimension 6 -->
+  <div class="sub-section-title">维度六：团队凝聚力与场外环境（权重10%）｜ 得分：82分 × 10% = 8.2分</div>
+  <table class="score-table">
+    <thead><tr><th style="width:28%;">子项</th><th style="width:7%;">得分</th><th>简要评价</th></tr></thead>
+    <tbody>
+      <tr>
+        <td><strong>6.1 更衣室团结度</strong>（占比35%）</td>
+        <td class="score-cell" style="color:#e74c3c;">85</td>
+        <td>西班牙更衣室在本届赛事中保持了近十年来最融洽的氛围。以罗德里、拉波尔特为首的老将和以亚马尔、佩德里为首的年轻核心之间关系融洽——2024欧洲杯决赛后的庆祝画面（亚马尔被全队举起来抛向空中）展现了团队的亲密程度。巴塞罗那帮（亚马尔、佩德里、加维、埃里克·加西亚、费兰·托雷斯、奥尔莫）在国家队中占了相当大的比重，巴萨体系的默契传承为球队的战术配合提供了天然的基础。皇马系的缺席（卡瓦哈尔未入选/年事已高、纳乔已退出）反而消除了过去巴萨-皇马球员之间的微妙隔阂。罗德里作为曼城体系培养出的队长，其冷静、权威和职业精神使他成为完美的更衣室领袖。</td>
+      </tr>
+      <tr>
+        <td><strong>6.2 足协稳定性与管理</strong>（占比35%）</td>
+        <td class="score-cell" style="color:#e74c3c;">83</td>
+        <td>西班牙足协（RFEF）近年来经历了一些管理层变动，但整体的运营和专业水平仍然位居欧洲前列。德拉富恩特的合同持续至世界杯结束后，保证了备战期间的战术稳定性。RFEF在青训基础设施和教练培训方面的投入是西班牙足球持续产出的根本保障——从2008-2012黄金一代到2024欧洲杯冠军的迭代不是偶然，而是系统的胜利。本届世界杯的后勤保障计划（包括在北美的训练营选址、热身赛对手安排等）由足协专业团队负责，2024欧洲杯成功运转的经验为世界杯的筹备提供了参考。唯一的隐忧是RFEF在2023年曾经历过一段管理层危机（主席辞职/选举风波），但这一问题在2024-2025年间已经基本平复。</td>
+      </tr>
+      <tr>
+        <td><strong>6.3 国内舆论与媒体压力</strong>（占比30%）</td>
+        <td class="score-cell" style="color:#27ae60;">78</td>
+        <td>西班牙国内舆论对球队的期望值极高——2024欧洲杯冠军的成就在国内引发了新一轮的"世界杯狂热"，媒体和球迷普遍认为这支西班牙具备夺冠实力。2022年世界杯16强出局（点球负于摩洛哥）的失望与2024年欧洲杯夺冠的喜悦形成了鲜明对比，国内舆论对"世界杯证明自己"的呼声极为强烈。马德里和巴塞罗那的体育媒体（《马卡报》《阿斯报》《世界体育报》《每日体育报》）对国家队的报道和分析极为详尽——球员的每一场比赛表现都会受到放大镜审视。但2024欧洲杯的夺冠让舆论对德拉富恩特的批评声大幅减少——他不再是恩里克时代那个"过渡者"的标签，而是一位"冠军教头"，这为他提供了更多的舆论空间。</td>
+      </tr>
+    </tbody>
+  </div>
+  <div class="analysis-text">
+    西班牙的场外环境处于一种"积极的压力"状态。2024年欧洲杯夺冠后，球队获得了空前的社会认可和媒体赞誉——这为球员们创造了一个自信而放松的备战氛围。然而，"欧洲杯冠军"的头衔也意味着更高的期望——2014年西班牙以卫冕冠军身份参赛却小组出局的教训仍然历历在目。德拉富恩特的管理层需要做好"期望管理"——帮助球员保持"不满足于欧洲杯冠军、但也不被世界杯冠军的期望压垮"的心态。更衣室内部的团结是近十年来最好的——巴萨帮占多数的阵容结构减少了派系之争的风险，罗德里作为中立俱乐部（曼城）的队长身份也避免了俱乐部忠诚的矛盾。RFEF的整体管理水平处于上升期——管理层变动后的稳定性和欧洲杯成功的经验为世界杯的备战提供了可靠的组织保障。唯一需要关注的是媒体氛围——如果小组赛出现意外平局或失利，西班牙媒体的反应可能从"冠军赞美"迅速转向"世界杯危机"——德拉富恩特需要预备好应对这种舆论波动的心理策略。
+  </div>
+
+  <!-- Dimension 7 -->
+  <div class="sub-section-title">维度七：体能储备与伤病控制（权重5%）｜ 得分：79分 × 5% = 3.95分</div>
+  <table class="score-table">
+    <thead><tr><th style="width:28%;">子项</th><th style="width:7%;">得分</th><th>简要评价</th></tr></thead>
+    <tbody>
+      <tr>
+        <td><strong>7.1 赛季疲劳度评估</strong>（占比40%）</td>
+        <td class="score-cell" style="color:#27ae60;">80</td>
+        <td>西班牙核心球员的赛季疲劳度整体处于可控范围，但存在个别隐患。亚马尔（18岁/巴萨）本赛季总出场时间超过3500分钟（西甲+欧冠+国王杯），对于一个18岁的少年来说负荷相当大——他在赛季末段的比赛效率有所下降（最后5场仅1球1助）。佩德里（巴萨）在经历了2023-24赛季的伤病困扰后，本赛季保持了良好的出勤率（巴萨38场），体能储备充足。罗德里（曼城）是本赛季英超出场时间最多的防守中场之一（约3200分钟），他的体能消耗是最大的隐忧——曼城的全面压迫体系对他的体能要求极高。尼科·威廉姆斯（毕尔巴鄂）经历了西甲的完整赛季，负荷合理。总的来看，核心球员的赛季疲劳度处于"中高水平"——不是最理想的但可以通过世界杯前的小幅度调整来改善。</td>
+      </tr>
+      <tr>
+        <td><strong>7.2 关键伤病与恢复情况</strong>（占比35%）</td>
+        <td class="score-cell" style="color:#e67e22;">75</td>
+        <td>西班牙的伤病情况存在几个值得关注的风险点。费尔明·洛佩斯（巴萨）因跖骨骨折被排除在26人大名单之外——他的多位置属性本可为球队提供战术灵活性。米克尔·梅里诺（阿森纳）刚刚从伤病中恢复，但他的状态在世界杯开打前能否达到最佳尚不确定。拉明·亚马尔和尼科·威廉姆斯在赛季末段都因腿筋伤势缺席了西甲最后几场比赛——虽然两人已经恢复训练并入选了大名单，但腿筋伤是一个高度容易复发的伤病类型，在高温、高强度比赛中风险更大。好消息是：罗德里（曼城）和佩德里（巴萨）整个赛季保持了出色的出勤记录，没有任何严重伤病史。与主要竞争对手相比（法国缺少博格巴、日本缺少三笘薰和南野、英格兰整体健康），西班牙的伤病状况属于"中等偏乐观"——没有核心球员因伤缺席。</td>
+      </tr>
+      <tr>
+        <td><strong>7.3 医疗团队与保障水平</strong>（占比25%）</td>
+        <td class="score-cell" style="color:#27ae60;">82</td>
+        <td>西班牙足协的医疗团队配置在欧洲属于一流水平。RFEF为世界杯配备了经验丰富的队医、物理治疗师和体能教练团队。西班牙在运动医学领域的整体水平位居世界前列——巴萨的"拉玛西亚"医学实验室和皇马的运动医学中心代表了世界顶级的运动医学水准。RFEF与这些顶级机构之间的合作关系为球员提供了高质量的医疗支持。本届世界杯中，球队将在亚特兰大设立临时训练基地，配备全套恢复和康复设施。亚特兰大的高温湿热环境对赛后恢复提出了更高的要求——球队需要更科学的体力分配方案和营养补给计划。</td>
+      </tr>
+    </tbody>
+  </div>
+  <div class="analysis-text">
+    西班牙的体能和伤病状况是七个维度中"最需要精细化管理的环节"。全员健康是最大的利好——亚马尔和尼科的腿筋伤势虽然令人担忧，但两人都已经恢复训练，如果能在前两场小组赛中适度控制出场时间（比如领先时提前换下），应该能保证他们在淘汰赛阶段处于最佳状态。最大的隐忧是亚马尔的赛事负荷——18岁的他在过去12个月中几乎无缝连接地参加了西甲、欧冠、欧洲杯和世界杯预选赛，总出场时间接近4000分钟。高强度的比赛负荷可能增加他在世界杯后期出现疲劳性损伤的风险。德拉富恩特面临的战术困境是：亚马尔是进攻体系中最不可替代的球员（没有第二个人能提供与他同等级别的右路创造力），但过度使用他可能导致他在最关键的淘汰赛阶段状态下滑。一个可能的解决方案是：在小组赛对阵佛得角和沙特阿拉伯时让亚马尔打替补或提前下场，将他的体能保留给荷兰和之后的淘汰赛。
+  </div>
+</div>
+
+<!-- ==================== OVERALL SCORE ==================== -->
+<div class="section">
+  <div class="section-title">（三）综合总分与评级</div>
+
+  <div class="rating-box">
+    <div class="score">86.0</div>
+    <div style="font-size:16px;color:#ccc;margin-bottom:5px;">加权总分 / 100</div>
+    <div class="rating">A</div>
+    <div class="detail">一流强队，四强有力竞争者（距A+仅1分之差）</div>
+  </div>
+
+  <table class="radar-table">
+    <thead><tr><th>评估维度</th><th>得分</th><th>权重</th><th>加权得分</th><th>可视化</th></tr></thead>
+    <tbody>
+      <tr><td>① 阵容实力</td><td>90</td><td>30%</td><td>27.00</td><td><div class="progress-bar"><div class="progress-fill" style="width:90%;background:#e74c3c;"></div></div></td></tr>
+      <tr><td>② 战术体系与教练</td><td>86</td><td>20%</td><td>17.20</td><td><div class="progress-bar"><div class="progress-fill" style="width:86%;background:#e67e22;"></div></div></td></tr>
+      <tr><td>③ 近期竞技状态</td><td>88</td><td>15%</td><td>13.20</td><td><div class="progress-bar"><div class="progress-fill" style="width:88%;background:#f1c40f;"></div></div></td></tr>
+      <tr><td>④ 大赛经验与心理素质</td><td>83</td><td>10%</td><td>8.30</td><td><div class="progress-bar"><div class="progress-fill" style="width:83%;background:#3498db;"></div></div></td></tr>
+      <tr><td>⑤ 分组及赛程影响</td><td>84</td><td>10%</td><td>8.40</td><td><div class="progress-bar"><div class="progress-fill" style="width:84%;background:#9b59b6;"></div></div></td></tr>
+      <tr><td>⑥ 团队凝聚力与场外环境</td><td>82</td><td>10%</td><td>8.20</td><td><div class="progress-bar"><div class="progress-fill" style="width:82%;background:#2ecc71;"></div></div></td></tr>
+      <tr><td>⑦ 体能储备与伤病控制</td><td>79</td><td>5%</td><td>3.95</td><td><div class="progress-bar"><div class="progress-fill" style="width:79%;background:#1abc9c;"></div></div></td></tr>
+    </tbody>
+    <tfoot>
+      <tr style="font-weight:bold;background:#f0f0f0;">
+        <td>综合总分</td><td colspan="2" style="text-align:center;">86.0</td><td style="color:#e74c3c;font-size:16px;">A级</td><td></td>
+      </tr>
+    </tfoot>
   </table>
 </div>
 
-<h2 class="text-es-red">（四）深度球评</h2>
-<div class="bg-white rounded-xl shadow p-6 mb-6">
-  <h3 class="text-lg font-bold text-green-700">核心优势</h3>
-  <ul class="list-disc pl-6 space-y-2">
-    <li><strong>世界第一中场——当世最豪华的中场配置。</strong>罗德里（曼城/金球候选）+ 佩德里（巴萨）+ 加维（巴萨）+ 法比安·鲁伊斯（PSG/欧洲杯最佳中场）+ 梅里诺（阿森纳）+ 苏维门迪（皇家社会）+ 巴埃纳（比利亚雷亚尔）——7人中至少5人在任何其他球队都是铁打主力。罗德里是攻守转换的"节拍器"——有他在，西班牙的控球率很少低于60%。</li>
-    <li><strong>拉明·亚马尔——18岁的"未来金球"。</strong>2024欧洲杯上他已是赛事最佳年轻球员。2025-26赛季在巴萨12球10助攻——18岁的他在世界杯上的表现可能是本届赛事最受关注的叙事线之一。</li>
-  </ul>
-</div>
-<div class="bg-white rounded-xl shadow p-6 mb-6">
-  <h3 class="text-lg font-bold text-red-700">致命短板</h3>
-  <ul class="list-disc pl-6 space-y-2">
-    <li><strong>2022点球噩梦——小组赛后的真实考验。</strong>0-3输给摩洛哥的点球大战中，西班牙三名主罚球员全部罚失——萨拉维亚、索莱尔、布斯克茨。虽然阵容已更新，但那场失利的心理阴影可能在对阵乌拉圭的末轮或16强赛中浮现。</li>
-    <li><strong>无中锋的"假9号"体系——阵地战破局能力存疑。</strong>博尔哈·伊格莱西亚斯是唯一传统中锋——但在塞尔塔的进球效率一般。面对密集防守时，西班牙的"无锋阵"可能陷入传导无果的困境。</li>
-  </ul>
-</div>
-<div class="bg-white rounded-xl shadow p-6 mb-6">
-  <h3 class="text-lg font-bold text-es-red">关键先生</h3>
-  <div class="grid md:grid-cols-2 gap-3">
-    <div class="border-l-4 border-red-600 pl-3"><p class="font-bold">🇪🇸 罗德里 (C)</p><p class="text-sm text-gray-600">当今世界第一后腰。他的存在是西班牙攻守平衡的基石——有他镇守中场，佩德里和加维可以放心前插。</p></div>
-    <div class="border-l-4 border-yellow-500 pl-3"><p class="font-bold">🇪🇸 拉明·亚马尔</p><p class="text-sm text-gray-600">18岁的巴萨天才。他的盘带和创造力是西班牙"破密集防守"时最可靠的个人武器。</p></div>
-    <div class="border-l-4 border-blue-600 pl-3"><p class="font-bold">🇪🇸 尼科·威廉姆斯</p><p class="text-sm text-gray-600">毕尔巴鄂边锋，欧洲杯决赛MVP。左路的速度和传中是西班牙进攻端"另一个维度"的武器。</p></div>
-    <div class="border-l-4 border-green-700 pl-3"><p class="font-bold">🇪🇸 加维</p><p class="text-sm text-gray-600">ACL重伤后回归。21岁但已是"老将"——他的斗志和拼抢是西班牙中场的"血性"来源。</p></div>
+<!-- ==================== DEEP ANALYSIS ==================== -->
+<div class="section">
+  <div class="section-title">（四）深度球评</div>
+
+  <div class="sub-section-title">核心优势</div>
+
+  <div class="player-highlight">
+    <div class="name">🌊 亚马尔+尼科的"黄金双翼"——全世界最令人兴奋的边路组合</div>
+    <div class="detail">拉明·亚马尔（18岁/巴萨/€2亿）和尼科·威廉姆斯（23岁/毕尔巴鄂/€5000万）的双边锋组合是西班牙进攻体系的最大武器——也是德拉富恩特对传统tiki-taka的最大革新。两人在2024年欧洲杯上联手贡献了4球5助攻，决赛中尼科首开纪录、亚马尔助攻——这对"00后"组合已经证明了他们在最高舞台上的杀伤力。亚马尔的特点是全能——他的左脚内切、右路传中和禁区外的远射都是世界级武器；尼科的特点是速度和爆发力——他的直线冲刺（本赛季西甲最快速度34.8km/h）和边路突破可以瞬间撕开任何防线。对手在面对西班牙时面临一个"两难选择"：如果双人包夹亚马尔，尼科所在的那一侧就会获得1v1的机会；如果分散防守注意力，佩德里和奥尔莫的中路渗透又会制造威胁。这个"三叉戟"的进攻组合是2026世界杯上最具观赏性的进攻体系之一。</div>
   </div>
+
+  <div class="player-highlight">
+    <div class="name">⚙️ 罗德里+佩德里的"双核驱动"——世界足坛最完美的中场组合</div>
+    <div class="detail">罗德里（曼城/29岁/€6500万）和佩德里（巴萨/23岁/€1.5亿）的中场双核代表了现代足球中"控制"和"创造"的完美结合。罗德里是球队的"定海神针"——他本赛季英超场均2.3次抢断、1.5次拦截、传球成功率93%，是曼城和西班牙的双料节拍器。他的远射能力（本赛季4粒禁区外进球）也为西班牙提供了"破密集防守"的武器。佩德里是球队的"创造力引擎"——他的场均关键传球（2.1次）和盘带成功率（78%）使他成为西班牙阵中最不可预测的球员。两人之间的默契已经超越了俱乐部界限——罗德里（曼城体系）和佩德里（巴萨体系）在国家队中形成了一种"互补而非冲突"的关系：罗德里负责节奏控制和防守覆盖，佩德里负责渗透传球和灵活跑位。在他们身后，祖比门迪（阿森纳/€8000万）提供了世界级的替补保障——这意味着即使罗德里或佩德里中的一人状态不佳，西班牙的中场控制力几乎不会下降。</div>
+  </div>
+
+  <div class="player-highlight">
+    <div class="name">🏆 2024欧洲杯冠军的胜利基因——"我们知道怎么赢"</div>
+    <div class="detail">2024年欧洲杯冠军不是偶然——它是西班牙足球体系的一次全面胜利。七战全胜夺冠的过程中，西班牙击败了德国（东道主/加时赛）、法国（半决赛）和英格兰（决赛）——三支风格完全不同的顶级球队。这种"多样化的胜利经验"是西班牙在世界杯上最宝贵的无形资产：球队知道如何在对阵不同风格的对手时调整战术——对德国时打控制、对法国时打反击、对英格兰时打持久战。德拉富恩特在决赛中的换人（奥亚萨瓦尔在第86分钟打入绝杀球）展示了"冠军级教练"的临场嗅觉。这批球员已经建立了"赢家自信"——在世界杯上，当比赛进入胶着状态时，西班牙球员知道"我们有能力找到赢球的办法"，这种信念往往比战术本身更能决定比赛结果。</div>
+  </div>
+
+  <div class="sub-section-title">致命短板</div>
+
+  <div class="player-highlight">
+    <div class="name">⚠️ "9号位真空"——缺少一位世界级终结者</div>
+    <div class="detail">西班牙唯一的结构性短板是中锋位置——这也是2010年冠军后长期困扰西班牙的问题。费兰·托雷斯（巴萨/€5000万）虽然是一位技术出色、跑位聪明的"伪9号"，但他不是一个传统的禁区终结者——他的射门转化率（本赛季12.3%）在西甲前锋中排名中游。博尔哈·伊格莱西亚斯（塞尔塔/33岁/€300万）是唯一的高中锋选项，但他的速度和移动能力已经大幅下滑，无法适应西班牙的高位压迫体系。奥亚萨瓦尔（皇家社会）更擅长二前锋角色而非单箭头。对比竞争对手：法国有姆巴佩/图拉姆、英格兰有凯恩、巴西有维尼修斯/热苏斯——西班牙的"中锋差距"可能是他们在淘汰赛中最致命的短板。当对阵荷兰或法国这样的顶级强队时，如果两翼传中多次找到禁区内的包抄点但中锋不能完成终结，西班牙可能因为浪费机会而付出代价。</div>
+  </div>
+
+  <div class="player-highlight">
+    <div class="name">⚠️ 后防年轻化风险——库巴尔西19岁的世界杯初体验</div>
+    <div class="description">保·库巴尔西（巴萨/19岁/€8000万）是拉玛西亚青训的最新杰作——他的出球能力、站位意识和一对一防守能力在如此年轻的年龄已经达到世界级水准。但世界杯中卫的位置要求极高的经验和心理素质——19岁的他可能在面对乌拉圭的努涅斯或荷兰的加克波时暴露经验不足的短板。2022年世界杯上，西班牙的后防线（拉波尔特+罗德里客串中卫）在面对摩洛哥的防守反击时暴露了速度和默契的双重问题。如果西班牙在淘汰赛中早早失球，库巴尔西是否能够保持冷静是一个巨大的问号。拉波尔特（32岁）的经验可以在一定程度上弥补，但他的速度（已不在巅峰期）和库巴尔西的年轻之间可能形成防守上的"速度断层"——对手可以利用两人的速度差异来制造机会。</div>
+  </div>
+
+  <div class="sub-section-title">关键先生</div>
+
+  <div class="player-highlight">
+    <div class="name">🌟 拉明·亚马尔 (Lamine Yamal) — 右边锋 · 18岁 · 巴塞罗那 · €2亿</div>
+    <div class="detail">西班牙队史最年轻的球员、2024年欧洲杯最佳年轻球员、全球身价最高的18岁球员（€2亿）。他在2024年欧洲杯半决赛对阵法国的世界波进球（16岁零362天）使他成为欧洲杯历史上最年轻的进球者。本赛季他在巴萨西甲10球14助攻的数据已经接近"20+20"的超级赛季。他的技术特点可以概括为"老成的天才"——他的比赛阅读能力、决策质量和最后一传的精度远远超出了他的年龄。他的左脚内切射门是他最具标志性的武器，但他的视野和传球能力同样出色。他在国家队中的角色是"自由创造者"——德拉富恩特给了他极高的战术自由度，允许他从右路自由移动到中路参与进攻组织。2010年西班牙夺冠时，伊涅斯塔的右路内切是球队的进攻灵魂；2026年的西班牙，亚马尔扮演着类似的角色——而且他才18岁。</div>
+  </div>
+
+  <div class="player-highlight">
+    <div class="name">🌟 罗德里 (Rodri) — 防守型中场/队长 · 29岁 · 曼城 · €6500万</div>
+    <div class="detail">西班牙的队长和战术基石——2024年欧洲杯赛事最佳球员、曼城2023三冠王的中场核心。罗德里是当今世界足坛在"防守中场"这个位置上最完美的球员——他既能像传统防守中场那样完成抢断和拦截（本赛季英超场均1.8次抢断），也能像组织核心那样完成长传调度和节奏控制（传球成功率93%）。他的"犯规智慧"是他在大赛中特别有价值的品质——他在面对快速反击时懂得用战术犯规来破坏对手的进攻节奏而很少吃到红牌。他在曼城经历了瓜迪奥拉的战术洗礼——复杂的位置轮换和战术变化对他来说是家常便饭。西班牙队在2024欧洲杯上的成功很大程度上建立在"有罗德里的比赛"和"没有罗德里的比赛"之间的巨大差异——当罗德里在场时，西班牙的控球率平均高出8个百分点、失球率下降40%。他可能是本届世界杯上"对球队贡献度最高的单一球员"之一。</div>
+  </div>
+
+  <div class="player-highlight">
+    <div class="name">🌟 佩德里 (Pedri) — 中前卫 · 23岁 · 巴塞罗那 · €1.5亿</div>
+    <div class="detail">西班牙中场的"灵魂舞者"。23岁的佩德里已经积累了远超年龄的比赛经验——他在2020年欧洲杯（18岁）就成为了西班牙的主力，此后在巴萨承担了核心中场的职责。2023-24赛季的伤病低谷后，他在2025-26赛季满血复活——西甲28场7球9助攻，回到了2021年那个"金童级"的水准。他的踢球风格充满了巴萨传统的"拉玛西亚美学"——一脚触球的节奏感、在狭小空间内的转身能力、以及"看到别人看不到的传球路线"的视野。他在德拉富恩特的体系中与罗德里形成了完美的"阴阳互补"——罗德里是刚（防守硬度+节奏控制），佩德里是柔（创造空间+渗透传球）。对手在防守西班牙时面临着"选择恐惧症"：如果重点封堵亚马尔的右路内切，佩德里就会在中路找到空当；如果压缩中路防线，亚马尔和尼科的边路空间就会变大。</div>
+  </div>
+
+  <div class="player-highlight">
+    <div class="name">🌟 尼科·威廉姆斯 (Nico Williams) — 左边锋 · 23岁 · 毕尔巴鄂竞技 · €5000万</div>
+    <div class="detail">2024年欧洲杯决赛的最佳球员——他在决赛中首开纪录，整届赛事贡献2球3助攻。23岁的尼科是西班牙进攻体系中"速度+力量"的代表——他的直线加速能力（34.8km/h）使他成为西甲最具威胁的边路突破手之一。本赛季他在毕尔巴鄂竞技贡献了8球11助攻的"两双"数据，场均成功过人（2.3次）在西甲边锋中排名前三。他的存在为西班牙提供了"不对称进攻"的战术基础——当亚马尔在右路内切时，尼科在左路可以保持宽度、牵制对手的防守阵型；当西班牙需要打破僵局时，尼科的速度和直接性是与亚马尔完全不同的进攻维度。他与佩德里在左路的配合已经达成了默契——佩德里拉边接球、尼科内切射门的套路在2024欧洲杯上多次奏效。</div>
+  </div>
+
+  <div class="player-highlight">
+    <div class="name">🌟 保·库巴尔西 (Pau Cubarsí) — 中后卫 · 19岁 · 巴塞罗那 · €8000万</div>
+    <div class="detail">西班牙后防线的"未来已来"——19岁的库巴尔西已经是西甲最可靠的中后卫之一。他的出球能力（传球成功率91%、场均长传6.2次）使他成为德拉富恩特体系中从后场组织进攻的关键棋子——他的左脚长传可以直接找到两翼的亚马尔或尼科。他的防守意识（场均拦截2.1次、解围4.5次）在19岁的年龄不可思议地成熟——巴萨在西甲失球数第二少的主要原因之一就是库巴尔西的稳定发挥。他最大的资本是"不慌张"——在面对高压逼抢时，他总能通过冷静的短传或变向过人化解风险，这是巴萨青训体系培养出的宝贵品质。他的主要短板是体重和力量（183cm/77kg）——在面对高大强壮的中锋（如乌拉圭的努涅斯）时，他的身体对抗能力可能被压制。西班牙需要在他身旁安排拉波尔特这样的"强壮型中卫"来弥补这一缺陷。</div>
+  </div>
+
 </div>
-<div class="bg-white rounded-xl shadow p-6 mb-6">
-  <h3 class="text-lg font-bold">小组赛预判</h3>
-  <table class="mt-2"><tr><th>对手</th><th>预判</th></tr>
-    <tr><td>佛得角 🇨🇻</td><td>西班牙 4-0 胜</td></tr>
-    <tr><td>沙特 🇸🇦</td><td>西班牙 3-0 胜</td></tr>
-    <tr><td>乌拉圭 🇺🇾</td><td>西班牙 2-0 胜</td></tr>
+
+<!-- ==================== GROUP PREDICTION ==================== -->
+<div class="section">
+  <div class="section-title">（五）小组赛预判与淘汰赛路线推演</div>
+
+  <div class="sub-section-title">📋 H组赛程与预测</div>
+
+  <table>
+    <thead><tr><th>轮次</th><th>日期</th><th>对阵</th><th>场地</th><th>预测</th></tr></thead>
+    <tbody>
+      <tr>
+        <td>第1轮</td><td>6月15日</td>
+        <td>🇪🇸 西班牙 vs 🇨🇻 佛得角</td>
+        <td>亚特兰大 · 梅赛德斯-奔驰体育场</td>
+        <td><strong>轻松开局</strong> — 佛得角是首次参赛的非洲小国，西班牙的控球和整体实力碾压对手。轮换部分主力保存体能。预测：3-0或4-0西班牙胜</td>
+      </tr>
+      <tr>
+        <td>第2轮</td><td>6月21日</td>
+        <td>🇪🇸 西班牙 vs 🇸🇦 沙特阿拉伯</td>
+        <td>亚特兰大 · 梅赛德斯-奔驰体育场</td>
+        <td><strong>锁定出线</strong> — 沙特防守组织良好但无法抵挡西班牙的技术压制。西班牙的控球体系可以耗尽对手的体能。预测：2-0或3-0西班牙胜</td>
+      </tr>
+      <tr>
+        <td>第3轮</td><td>6月26日</td>
+        <td>🇺🇾 乌拉圭 vs 🇪🇸 西班牙</td>
+        <td>瓜达拉哈拉 · 阿克龙体育场</td>
+        <td><strong>头名之争</strong> — 乌拉圭身体和速度占优，但西班牙技术控制力更强。如果前两场全胜此战可接受平局。预测：1-1或2-1西班牙胜</td>
+      </tr>
+    </tbody>
   </table>
-  <p class="mt-2"><strong>小组赛综合：3战全胜9分出线，小组头名概率95%，夺冠概率约15-20%（第三热门）。</strong></p>
+
+  <div class="sub-section-title">🏆 小组出线概率预估</div>
+  <table>
+    <thead><tr><th>出线形式</th><th>概率预估</th></tr></thead>
+    <tbody>
+      <tr><td>小组第一出线</td><td>约75%</td></tr>
+      <tr><td>小组第二出线</td><td>约22%</td></tr>
+      <tr><td>小组出局</td><td>&lt;3%</td></tr>
+    </tbody>
+  </table>
+
+  <div class="sub-section-title">🔄 淘汰赛路线推演</div>
+  <p style="margin:8px 0;">西班牙的淘汰赛路线在进入八强前相对平坦：</p>
+  <ul style="margin:8px 0 8px 25px;line-height:2;">
+    <li><strong>16强 vs G组第二</strong>（加纳/塞尔维亚/瑞士）—— 胜率约75%</li>
+    <li><strong>八强 vs F组第一/第二</strong>（大概率荷兰🇳🇱或日本🇯🇵）—— 对荷兰胜率约50%，对日本胜率约65%</li>
+    <li><strong>四强 vs 上半区</strong>（葡萄牙🇵🇹或德国🇩🇪）—— 胜率约45-50%</li>
+    <li><strong>决赛 vs 下半区</strong>（法国🇫🇷/英格兰🏴󠁧󠁢󠁥󠁮󠁧󠁿/巴西🇧🇷）—— 胜率约40%</li>
+  </ul>
+  <p style="margin:8px 0;"><strong>核心判断</strong>：西班牙晋级16强概率>97%，八强约60%，四强约35%，夺冠约15%。与法国、英格兰并列夺冠第一梯队。</p>
+
 </div>
-<div class="bg-white rounded-xl shadow p-6 mb-6">
-  <p class="mt-3 p-3 bg-blue-50 rounded-lg"><strong>核心判断：</strong>西班牙是本届世界杯上"中场最豪华、整体最年轻"的夺冠热门之一。罗德里的统治力、亚马尔的创造力、尼科的速度——三个不同的维度构成了西班牙进攻的立体威胁。H组是调整状态和磨合阵容的完美平台。真正的考验在淘汰赛：如果西班牙能在1/4决赛和半决赛中击败葡萄牙或法国级别的对手，他们就有能力在决赛中挑战任何球队。对于2022年点球耻辱的那批球员来说——这是救赎的机会。对于18岁的亚马尔来说——这是封神之旅的起点。</p>
+
+<!-- ==================== FINAL VERDICT ==================== -->
+<div class="section">
+  <div class="section-title">（六）大师结语</div>
+
+  <div class="conclusion-box">
+    "€12.7亿的天赋、2024年欧洲杯冠军的荣光、18岁亚马尔的天才光芒——这支西班牙拥有了一切冠军需要的要素，只差一道最后的证明题。2010年的辉煌已经过去了16年，2014年的卫冕冠军小组出局、2018和2022的16强折戟——这些记忆提醒着每一个人：天赋不会自动兑现为冠军。但这一次，亚马尔和尼科的黄金双翼、罗德里的钢铁腰杆、佩德里的曼妙舞步——他们不是2010年的翻版，他们是2026年独一无二的La Roja。H组的坦途只是热身，八强对荷兰才是真正的考验。跨过那一关，一切皆有可能。"</div>
 </div>
-<div class="bg-white rounded-xl shadow p-6 mb-6 text-center">
-  <h3 class="text-lg font-bold text-es-red">大师结语</h3>
-  <p class="text-xl italic mt-3 text-gray-700">"2022年的多哈，西班牙在点球点前一球未进——那是属于摩洛哥的狂欢，属于西班牙的深渊。四年后在北美，亚马尔用18岁的双脚重新点燃了斗牛士的火焰，罗德里在中场筑起了一道黑色的城墙。H组不过是开胃菜——西班牙等待的真正考验在八强门口，在那里，他们要用一脚穿透防线的传球告诉世界：2010年的冠军回来了，而且比任何时候都更饥饿。"</p>
+
+<!-- ==================== DATA SOURCE ==================== -->
+<div class="section" style="margin-top:30px;padding-top:20px;border-top:1px solid #eee;font-size:12px;color:#999;">
+  <p><strong>数据来源及参考：</strong></p>
+  <p>FIFA官方排名、Transfermarkt身价数据库、FIFA官网阵容公告、UEFA欧洲预选赛/欧洲杯数据、COACHES VOICE/Total Football Analysis等战术分析、TopEndSports世界杯历史记录、DAZN/SoccerGraph阵容报道、FOX Sports赛程信息</p>
+  <p>报告生成时间：2026年5月30日 | 技能：world-cup-team-evaluator | 模型：Deepseek-V4-Flash</p>
 </div>
-<div class="text-center text-gray-400 text-sm py-6 border-t">
-  <p>© 2026 足球战力分析 · Powered by WorkBuddy AI</p>
+
 </div>
-</div>
+
 
 <!-- HuaFootball: back-to-home button -->
 <a href="../index.html" class="huafootball-back-btn" target="_self">

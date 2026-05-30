@@ -49,6 +49,8 @@ tailwind.config = {
   .badge-mf { background: #FF9800; color: white; }
   .badge-fw { background: #f44336; color: white; }
   .debut-badge { display: inline-block; padding: 4px 14px; background: linear-gradient(135deg, #FFD700, #FFA500); color: #333; border-radius: 20px; font-weight: bold; font-size: 0.9em; }
+
+  .overflow-x-auto { overflow-x: auto; -webkit-overflow-scrolling: touch; }
 </style>
 </head>
 <body class="bg-gray-50">
@@ -99,7 +101,8 @@ tailwind.config = {
 <p class="text-gray-500 text-sm mb-3">* 2026年5月中旬公布 · 7名球员效力于葡萄牙联赛</p>
 
 <div class="bg-white rounded-xl shadow p-6 mb-6">
-  <table>
+  <div style="overflow-x:auto;">
+<table>
     <thead>
       <tr>
         <th>位置</th>
@@ -278,12 +281,14 @@ tailwind.config = {
 
   <div class="subitem">
     <h4>5.1 小组赛对手分析 —— 32分</h4>
-    <table class="text-sm mb-2">
+    <div class="overflow-x-auto">
+<table class="text-sm mb-2">
       <tr><th>对手</th><th>FIFA排名</th><th>风格特点</th><th>佛得角胜率预估</th></tr>
       <tr><td>西班牙 🇪🇸</td><td>8名</td><td>传控大师，技术碾压</td><td>5-10%</td></tr>
       <tr><td>乌拉圭 🇺🇾</td><td>12-15名</td><td>南美硬朗派，身体对抗强</td><td>10-15%</td></tr>
       <tr><td>沙特阿拉伯 🇸🇦</td><td>50-55名</td><td>亚洲技术流，体能好</td><td>35-45%</td></tr>
     </table>
+</div>
     <p>佛得角在H组的签运可以用"艰巨"来形容。西班牙是传统豪门，2022世界杯16强、2024欧洲杯冠军，拥有成熟的传控体系和世界级球员储备；乌拉圭虽处于新老交替阶段，但南美传统三强的底蕴不可动摇——2022世界杯小组出线、2024美洲杯四强，阵中仍有巴尔韦德/努涅斯等顶级球星。唯一的"机会"来自沙特阿拉伯——沙特在2022年世界杯小组赛2-1击败了最终的冠军阿根廷，证明了亚洲球队在南美/欧洲强队面前也能创造奇迹。而且沙特的FIFA排名（约50-55）与佛得角（69）较为接近，这场比赛也是佛得角争取"世界杯历史第一分/第一胜"的最佳（也是唯一的）机会。</p>
   </div>
 
@@ -412,13 +417,17 @@ tailwind.config = {
 </div>
 
 <div class="bg-white rounded-xl shadow p-6 mb-6">
-  <h3 class="text-lg font-bold">小组赛预判</h3>
-  <table class="mt-2">
+  <h3 class="text-lg font-bold"><h3 class="text-lg font-bold">小组赛预判</h3>
+  <div class="overflow-x-auto">
+<div class="overflow-x-auto">
+<table class="mt-2">
     <tr><th>对手</th><th>预判结果</th><th>理由</th></tr>
     <tr><td>西班牙 🇪🇸</td><td>佛得角 0-4 负</td><td>技术和控球碾压，佛得角全场无还手之力</td></tr>
     <tr><td>乌拉圭 🇺🇾</td><td>佛得角 0-2 负</td><td>乌拉圭身体对抗占优，佛得角死守力争少输</td></tr>
     <tr><td>沙特阿拉伯 🇸🇦</td><td>佛得角 1-1 平</td><td>双方实力接近，佛得角有望拿到历史第一分</td></tr>
   </table>
+</div>
+</div>
   <p class="mt-2"><strong>小组赛综合：1平2负，积1分，小组垫底概率85%，拿到历史第一分的概率40%。</strong></p>
 </div>
 
@@ -437,7 +446,7 @@ tailwind.config = {
 
 <!-- Footer -->
 <div class="text-center text-gray-400 text-sm py-6 border-t">
-  <p>© 2026 足球战力分析 · Powered by WorkBuddy AI｜数据截至2026年5月21日</p>
+  <p>© 2026 足球战力分析 · Powered by HuaZongNiuBi AI｜数据截至2026年5月21日</p>
   <p class="mt-1">数据来源：Olympics.com、beIN Sports、SoccerGraph、CAF官网综合报道</p>
 </div>
 
@@ -488,6 +497,7 @@ tailwind.config = {
   .huafootball-back-btn:hover svg {
     transform: translateX(-3px) !important;
   }
+.deep-analysis { background: #f0f7ff; border-left: 4px solid #003399; padding: 16px 20px; margin: 16px 0; border-radius: 8px; font-size: 11pt; line-height: 1.8; }
 </style>
 
 </body>

@@ -4,447 +4,485 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>英格兰 · 2026世界杯实力评估报告</title>
-<script src="https://cdn.tailwindcss.com">
-</script>
 <style>
-  @import url('https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;600;700;900&family=EB+Garamond:wght@400;600;700&display=swap');
-  body { font-family: 'Noto Serif SC', 'Times New Roman', serif; background: #fff; color: #1a1a1a; font-size: 11pt; line-height: 1.8; }
-  .report-container { max-width: 900px; margin: 0 auto; padding: 40px 30px; }
-  h1 { font-size: 2.5em; font-weight: 900; color: #c8102e; text-align: center; margin: 15px 0 5px; letter-spacing: 2px; }
-  h2 { font-size: 20pt; font-weight: 700; color: #c8102e; border-bottom: 3px solid #c8102e; padding-bottom: 8px; margin: 40px 0 20px; }
-  h3 { font-size: 16pt; font-weight: 700; color: #1a1a1a; margin: 30px 0 15px; padding-left: 12px; border-left: 4px solid #c8102e; }
-  h4 { font-size: 13pt; font-weight: 700; color: #c8102e; margin: 20px 0 10px; }
-  .subtitle { text-align: center; color: #666; font-size: 11pt; margin-bottom: 30px; letter-spacing: 4px; }
-  .meta-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; background: #f8f8f8; padding: 20px; border-radius: 8px; margin: 20px 0; }
-  .meta-item { font-size: 11pt; }
-  .meta-item strong { color: #c8102e; }
-  table { width: 100%; border-collapse: collapse; margin: 15px 0; font-size: 10.5pt; }
-  th { background: #c8102e; color: white; padding: 10px 12px; text-align: left; font-weight: 600; }
-  td { padding: 8px 12px; border-bottom: 1px solid #e0e0e0; }
-  tr:nth-child(even) { background: #fafafa; }
-  .score-card { background: linear-gradient(135deg, #fff5f5 0%, #fff 100%); border: 2px solid #c8102e; border-radius: 12px; padding: 20px; margin: 20px 0; text-align: center; }
-  .score-big { font-size: 48pt; font-weight: 900; color: #c8102e; line-height: 1; }
-  .score-label { font-size: 12pt; color: #666; margin-top: 5px; }
-  .rating-badge { display: inline-block; background: #c8102e; color: white; padding: 6px 24px; border-radius: 20px; font-size: 20pt; font-weight: 900; margin: 10px 0; letter-spacing: 2px; }
-  .dimension-card { background: #fff; border: 1px solid #e0e0e0; border-radius: 10px; padding: 20px; margin: 20px 0; box-shadow: 0 2px 8px rgba(0,0,0,0.04); }
-  .dimension-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 15px; }
-  .dimension-title { font-size: 14pt; font-weight: 700; color: #c8102e; }
-  .dimension-score { font-size: 22pt; font-weight: 900; color: #c8102e; }
-  .sub-score-table { margin: 10px 0; }
-  .sub-score-table th { background: #8b8b8b; }
-  .analysis-text { font-size: 10.5pt; line-height: 1.9; color: #333; margin: 10px 0; text-indent: 2em; }
-  .strength-box { background: #f0fff4; border-left: 4px solid #22c55e; padding: 12px 16px; margin: 10px 0; border-radius: 0 6px 6px 0; }
-  .weakness-box { background: #fff5f5; border-left: 4px solid #ef4444; padding: 12px 16px; margin: 10px 0; border-radius: 0 6px 6px 0; }
-  .key-player-card { background: #f8f8f8; border-radius: 8px; padding: 14px 18px; margin: 8px 0; border-left: 4px solid #c8102e; }
-  .key-player-name { font-weight: 700; font-size: 12pt; color: #c8102e; }
-  .flag-em { font-size: 2em; vertical-align: middle; margin-right: 8px; }
-  .radar-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin: 15px 0; }
-  .radar-item { display: flex; align-items: center; justify-content: space-between; padding: 6px 0; }
-  .radar-bar-bg { flex: 1; height: 12px; background: #eee; border-radius: 6px; margin: 0 10px; }
-  .radar-bar-fill { height: 100%; background: linear-gradient(90deg, #c8102e, #ff6b6b); border-radius: 6px; }
-  .radar-label { font-size: 10pt; width: 80px; font-weight: 600; }
-  .radar-score { font-size: 10pt; font-weight: 700; width: 30px; text-align: right; }
-  @media (max-width: 640px) { .meta-grid { grid-template-columns: 1fr; } .radar-grid { grid-template-columns: 1fr; } }
-  .omission-tag { display: inline-block; background: #fee2e2; color: #dc2626; padding: 2px 10px; border-radius: 12px; font-size: 9pt; margin: 2px; }
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: 'Times New Roman', '楷体', 'KaiTi', serif; background: #fff; color: #222; line-height: 1.8; font-size: 16px; }
+.container { max-width: 1000px; margin: 0 auto; padding: 30px 20px; }
+.header { text-align: center; padding: 40px 0 30px; border-bottom: 3px solid #e74c3c; margin-bottom: 35px; }
+.header h1 { font-size: 32px; color: #1a1a2e; margin-top: 12px; letter-spacing: 2px; }
+.header .subtitle { font-size: 14px; color: #888; margin-top: 6px; }
+.team-badge { text-align: center; margin-bottom: 10px; }
+.team-badge img { height: 90px; width: auto; display: block; margin: 0 auto 10px; }
+.flag-emoji-fallback { display: none; font-size: 4em; margin-bottom: 10px; }
+.section { margin: 35px 0; }
+.section-title { font-size: 22px; color: #e74c3c; border-left: 5px solid #e74c3c; padding-left: 15px; margin-bottom: 20px; }
+.sub-section-title { font-size: 18px; color: #1a1a2e; margin: 20px 0 12px; padding-bottom: 6px; border-bottom: 1px solid #eee; }
+table { width: 100%; border-collapse: collapse; margin: 12px 0; font-size: 14px; }
+th { background: #1a1a2e; color: #fff; padding: 10px 12px; text-align: left; font-weight: bold; }
+td { padding: 9px 12px; border-bottom: 1px solid #eee; }
+tr:nth-child(even) { background: #fafafa; }
+tr:hover { background: #fff5f5; }
+.score-table th { background: #e74c3c; }
+.score-cell { font-weight: bold; text-align: center; }
+.rating-box { text-align: center; padding: 25px; background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%); color: #fff; border-radius: 8px; margin: 20px 0; }
+.rating-box .score { font-size: 48px; font-weight: bold; color: #e74c3c; }
+.rating-box .rating { font-size: 36px; color: #ffd700; margin: 8px 0; }
+.rating-box .detail { font-size: 14px; color: #aaa; }
+.radar-table { margin: 15px 0; }
+.radar-table td:first-child { font-weight: bold; min-width: 140px; }
+.progress-bar { height: 12px; background: #f0f0f0; border-radius: 6px; overflow: hidden; min-width: 300px; }
+.progress-fill { height: 100%; border-radius: 6px; }
+.analysis-text { background: #fafafa; padding: 16px 20px; border-radius: 6px; border-left: 4px solid #e74c3c; margin: 12px 0; line-height: 1.9; text-indent: 2em; }
+.info-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; margin: 15px 0; }
+.info-item { background: #fafafa; padding: 14px 18px; border-radius: 6px; border-left: 3px solid #e74c3c; }
+.info-item .label { font-size: 12px; color: #888; }
+.info-item .value { font-size: 16px; font-weight: bold; color: #1a1a2e; }
+.player-highlight { background: #fff8e1; padding: 14px 18px; border-radius: 6px; margin: 12px 0; border-left: 4px solid #ffd700; }
+.player-highlight .name { font-size: 17px; font-weight: bold; color: #1a1a2e; }
+.player-highlight .detail { font-size: 14px; color: #555; margin-top: 6px; line-height: 1.8; }
+.conclusion-box { background: #1a1a2e; color: #fff; padding: 20px 25px; border-radius: 8px; margin: 20px 0; font-size: 18px; text-align: center; font-style: italic; }
+@media (max-width: 768px) {
+  .info-grid { grid-template-columns: 1fr; }
+  table { font-size: 12px; }
+  .header h1 { font-size: 22px; }
+}
 </style>
 </head>
 <body>
-<div class="report-container">
 
-  <!-- Header -->
-  <div class="text-center mb-8">
-    <img src="./logo/England-logo.png"
-         alt="England crest"
-         style="height:90px;width:auto;display:block;margin:0 auto 10px;"
+<div class="container">
+
+<!-- ==================== HEADER ==================== -->
+<div class="header">
+  <div class="team-badge">
+    <img src="https://cdn.prod.website-files.com/68f550992570ca0322737dc2/68fa004f9bad274585f92fd4_england-national-team-footballlogos-org.png"
+         alt="英格兰足协三狮徽章"
          onerror="this.style.display='none';document.getElementById('logo-fb').style.display='block';" />
-    <div id="logo-fb" style="display:none;font-size:4em;margin-bottom:10px;">🏴󠁧󠁢󠁥󠁮󠁧󠁿</div>
-    <h1 class="text-4xl">英格兰 · 2026世界杯实力评估报告</h1>
-    <div class="subtitle">THE THREE LIONS · 三狮军团 · 图赫尔时代启航</div>
+    <div id="logo-fb" class="flag-emoji-fallback">🏴󠁧󠁢󠁥󠁮󠁧󠁿</div>
+  </div>
+  <h1>🏴󠁧󠁢󠁥󠁮󠁧󠁿 英格兰 · 2026世界杯实力评估报告</h1>
+  <div class="subtitle">Three Lions · Group L | 评估日期：2026年5月30日</div>
+</div>
+
+<!-- ==================== TEAM BASIC INFO ==================== -->
+<div class="section">
+  <div class="section-title">（一）球队基本信息</div>
+
+  <div class="info-grid">
+    <div class="info-item"><div class="label">主教练</div><div class="value">托马斯·图赫尔（德国籍）</div></div>
+    <div class="info-item"><div class="label">FIFA世界排名</div><div class="value">第4位（2026年5月）</div></div>
+    <div class="info-item"><div class="label">全队总身价</div><div class="value">€13.1亿</div></div>
+    <div class="info-item"><div class="label">平均年龄</div><div class="value">27.1岁（黄金年龄）</div></div>
+    <div class="info-item"><div class="label">世界杯参赛次数</div><div class="value">第17次</div></div>
+    <div class="info-item"><div class="label">世界杯最好成绩</div><div class="value">冠军 🏆（1966年）</div></div>
+    <div class="info-item"><div class="label">上届（2022）成绩</div><div class="value">八强（1-2负于法国）</div></div>
+    <div class="info-item"><div class="label">近期大赛成绩</div><div class="value">2020欧洲杯亚军、2024欧洲杯八强</div></div>
   </div>
 
-  <!-- (一) 球队基本信息 -->
-  <h2>一、球队基本信息</h2>
-
-  <div class="meta-grid">
-    <div class="meta-item"><strong>主教练：</strong>托马斯·图赫尔（Thomas Tuchel）🇩🇪</div>
-    <div class="meta-item"><strong>队长：</strong>哈里·凯恩（Harry Kane）</div>
-    <div class="meta-item"><strong>FIFA排名：</strong>第4位（截至2026年4月）</div>
-    <div class="meta-item"><strong>全队总身价：</strong>约11.2亿欧元（32强中前5水准）</div>
-    <div class="meta-item"><strong>世界杯冠军历史：</strong>1次（1966年）</div>
-    <div class="meta-item"><strong>上届世界杯成绩：</strong>2022卡塔尔 · 八强（1/4决赛1-2负法国）</div>
-    <div class="meta-item"><strong>世界杯最好成绩：</strong>冠军（1966年）</div>
-    <div class="meta-item"><strong>历届参赛次数：</strong>第17次参赛</div>
+  <div class="sub-section-title">26人大名单</div>
+  <p style="margin:8px 0 4px;color:#555;font-size:13px;">📅 公布日期：2026年5月22日 | 队长：哈里·凯恩 | 主帅：图赫尔（2025年1月上任）</p>
+  <div style="margin:6px 0 12px;padding:10px 14px;background:#fff0f0;border-radius:6px;font-size:13px;border-left:4px solid #e74c3c;">
+    <strong>⚠️ 争议落选：</strong> 菲尔·福登（曼城）、科尔·帕尔默（切尔西）、特伦特·亚历山大-阿诺德（利物浦）、哈里·马奎尔（曼联）、卢克·肖（曼联）均未入选，引发巨大争议。
   </div>
 
-  <h3>26人大名单（2026年5月22日公布）</h3>
-
-  <h4>🧤 门将（3人）</h4>
+  <div style="overflow-x:auto;">
   <table>
-    <tr><th style="width:30px">#</th><th>球员姓名</th><th style="width:60px">位置</th><th>所属俱乐部</th></tr>
-    <tr><td>1</td><td>乔丹·皮克福德（Jordan Pickford）</td><td>GK</td><td>埃弗顿（英超）</td></tr>
-    <tr><td>2</td><td>迪恩·亨德森（Dean Henderson）</td><td>GK</td><td>水晶宫（英超）</td></tr>
-    <tr><td>3</td><td>詹姆斯·特拉福德（James Trafford）</td><td>GK</td><td>曼彻斯特城（英超）</td></tr>
+    <thead><tr><th>位置</th><th>球员姓名</th><th>英文名</th><th>俱乐部</th><th>年龄</th><th>身价</th></tr></thead>
+    <tbody>
+      <tr><td rowspan="3" style="text-align:center;"><strong>GK</strong></td><td>迪恩·亨德森</td><td>Dean Henderson</td><td>水晶宫（英超）</td><td>29</td><td>€2800万</td></tr>
+      <tr><td>乔丹·皮克福德</td><td>Jordan Pickford</td><td>埃弗顿（英超）</td><td>32</td><td>€1500万</td></tr>
+      <tr><td>詹姆斯·特拉福德</td><td>James Trafford</td><td>曼城（英超）</td><td>23</td><td>€2500万</td></tr>
+      <tr><td rowspan="9" style="text-align:center;"><strong>DF</strong></td><td>马克·格希</td><td>Marc Guéhi</td><td>曼城（英超）</td><td>25</td><td>€6500万</td></tr>
+      <tr><td>约翰·斯通斯</td><td>John Stones</td><td>曼城（英超）</td><td>32</td><td>€1500万</td></tr>
+      <tr><td>埃兹里·孔萨</td><td>Ezri Konsa</td><td>阿斯顿维拉（英超）</td><td>28</td><td>€4000万</td></tr>
+      <tr><td>贾雷尔·夸安萨</td><td>Jarell Quansah</td><td>勒沃库森（德甲）</td><td>23</td><td>€4500万</td></tr>
+      <tr><td>丹·伯恩</td><td>Dan Burn</td><td>纽卡斯尔联（英超）</td><td>34</td><td>€500万</td></tr>
+      <tr><td>里斯·詹姆斯</td><td>Reece James</td><td>切尔西（英超）</td><td>26</td><td>€6000万</td></tr>
+      <tr><td>蒂诺·利夫拉门托</td><td>Tino Livramento</td><td>纽卡斯尔联（英超）</td><td>23</td><td>€4000万</td></tr>
+      <tr><td>尼科·奥赖利</td><td>Nico O'Reilly</td><td>曼城（英超）</td><td>21</td><td>€5000万</td></tr>
+      <tr><td>杰德·斯彭斯</td><td>Djed Spence</td><td>热刺（英超）</td><td>25</td><td>€3000万</td></tr>
+      <tr><td rowspan="7" style="text-align:center;"><strong>MF</strong></td><td style="background:#fff8e1;">🌟 裘德·贝林厄姆</td><td style="background:#fff8e1;">Jude Bellingham</td><td style="background:#fff8e1;">皇马（西甲）</td><td style="background:#fff8e1;">22</td><td style="background:#fff8e1;">€1.4亿</td></tr>
+      <tr><td style="background:#fff8e1;">🌟 德克兰·赖斯</td><td style="background:#fff8e1;">Declan Rice</td><td style="background:#fff8e1;">阿森纳（英超）</td><td style="background:#fff8e1;">27</td><td style="background:#fff8e1;">€1.2亿</td></tr>
+      <tr><td>埃贝雷奇·埃泽</td><td>Eberechi Eze</td><td>阿森纳（英超）</td><td>27</td><td>€6000万</td></tr>
+      <tr><td>科比·迈努</td><td>Kobbie Mainoo</td><td>曼联（英超）</td><td>21</td><td>€5000万</td></tr>
+      <tr><td>摩根·罗杰斯</td><td>Morgan Rogers</td><td>阿斯顿维拉（英超）</td><td>23</td><td>€8000万</td></tr>
+      <tr><td>埃利奥特·安德森</td><td>Elliot Anderson</td><td>诺丁汉森林（英超）</td><td>23</td><td>€6000万</td></tr>
+      <tr><td>乔丹·亨德森</td><td>Jordan Henderson</td><td>布伦特福德（英超）</td><td>35</td><td>€200万</td></tr>
+      <tr><td rowspan="7" style="text-align:center;background:#fff8e1;"><strong>FW</strong></td><td style="background:#fff8e1;">🌟 哈里·凯恩 <span style="color:#e74c3c;">(C)</span></td><td style="background:#fff8e1;">Harry Kane</td><td style="background:#fff8e1;">拜仁慕尼黑（德甲）</td><td style="background:#fff8e1;">32</td><td style="background:#fff8e1;">€6000万</td></tr>
+      <tr><td style="background:#fff8e1;">🌟 布卡约·萨卡</td><td style="background:#fff8e1;">Bukayo Saka</td><td style="background:#fff8e1;">阿森纳（英超）</td><td style="background:#fff8e1;">24</td><td style="background:#fff8e1;">€1.2亿</td></tr>
+      <tr><td>安东尼·戈登</td><td>Anthony Gordon</td><td>纽卡斯尔联（英超）</td><td>25</td><td>€6000万</td></tr>
+      <tr><td>马库斯·拉什福德</td><td>Marcus Rashford</td><td>巴塞罗那（西甲）</td><td>28</td><td>€4000万</td></tr>
+      <tr><td>诺尼·马杜埃克</td><td>Noni Madueke</td><td>阿森纳（英超）</td><td>24</td><td>€5000万</td></tr>
+      <tr><td>伊万·托尼</td><td>Ivan Toney</td><td>吉达国民（沙特）</td><td>30</td><td>€2000万</td></tr>
+      <tr><td>奥利·沃特金斯</td><td>Ollie Watkins</td><td>阿斯顿维拉（英超）</td><td>30</td><td>€3000万</td></tr>
+    </tbody>
+  </table>
+  </div>
+
+  <div class="sub-section-title">世界杯历史战绩</div>
+  <table>
+    <thead><tr><th>年份</th><th>成绩</th><th>备注</th></tr></thead>
+    <tbody>
+      <tr><td>1950年</td><td>小组赛</td><td>首次参赛</td></tr>
+      <tr><td>1954-1962年</td><td>八强</td><td>连续三届</td></tr>
+      <tr><td><strong>1966年（英格兰）</strong></td><td><strong>冠军 🏆</strong></td><td>赫斯特帽子戏法，决赛4-2击败西德，唯一一次夺冠</td></tr>
+      <tr><td>1970年（墨西哥）</td><td>八强</td><td></td></tr>
+      <tr><td>1982年（西班牙）</td><td>第二轮</td><td></td></tr>
+      <tr><td>1986年（墨西哥）</td><td>八强</td><td>马拉多纳"上帝之手"</td></tr>
+      <tr><td><strong>1990年（意大利）</strong></td><td><strong>第四名</strong></td><td>加斯科因的眼泪，半决赛点球负于西德</td></tr>
+      <tr><td>1998-2006年</td><td>16强/八强</td><td>稳定但未能突破</td></tr>
+      <tr><td><strong>2018年（俄罗斯）</strong></td><td><strong>第四名</strong></td><td>索斯盖特时代，半决赛1-2负克罗地亚，三四名0-2比利时</td></tr>
+      <tr><td><strong>2022年（卡塔尔）</strong></td><td><strong>八强</strong></td><td>1-2负于最终亚军法国，凯恩射失点球</td></tr>
+    </tbody>
   </table>
 
-  <h4>🛡️ 后卫（9人）</h4>
-  <table>
-    <tr><th style="width:30px">#</th><th>球员姓名</th><th style="width:60px">位置</th><th>所属俱乐部</th></tr>
-    <tr><td>4</td><td>约翰·斯通斯（John Stones）</td><td>DF</td><td>曼彻斯特城（英超）</td></tr>
-    <tr><td>5</td><td>马克·格伊（Marc Guehi）</td><td>DF</td><td>曼彻斯特城（英超）</td></tr>
-    <tr><td>6</td><td>埃兹里·孔萨（Ezri Konsa）</td><td>DF</td><td>阿斯顿维拉（英超）</td></tr>
-    <tr><td>7</td><td>丹·伯恩（Dan Burn）</td><td>DF</td><td>纽卡斯尔联（英超）</td></tr>
-    <tr><td>8</td><td>里斯·詹姆斯（Reece James）</td><td>DF</td><td>切尔西（英超）</td></tr>
-    <tr><td>9</td><td>蒂诺·利夫拉门托（Tino Livramento）</td><td>DF</td><td>纽卡斯尔联（英超）</td></tr>
-    <tr><td>10</td><td>贾雷尔·宽萨（Jarell Quansah）</td><td>DF</td><td>勒沃库森（德甲）</td></tr>
-    <tr><td>11</td><td>尼科·奥赖利（Nico O'Reilly）</td><td>DF</td><td>曼彻斯特城（英超）</td></tr>
-    <tr><td>12</td><td>迪杰德·斯宾塞（Djed Spence）</td><td>DF</td><td>托特纳姆热刺（英超）</td></tr>
+  <div class="sub-section-title">晋级之路 & 图赫尔时代</div>
+  <p style="margin:8px 0;">英格兰在托马斯·图赫尔的带领下以不败战绩晋级2026世界杯。德籍主帅图赫尔于2025年1月接替索斯盖特，是英格兰队史第三位外籍主教练（也是首位德国籍）。图赫尔以2021年带领切尔西夺得欧冠冠军的辉煌履历闻名，他的战术以"防守组织严密+高效反击"著称。他上任后对阵容进行了大刀阔斧的改革——福登、帕尔默、阿诺德、马奎尔等索斯盖特时代核心被排除，引发了巨大舆论争议，但也展现了他作为冠军教练的绝对权威。英格兰在L组的同组对手是克罗地亚、加纳和巴拿马。</p>
+</div>
+
+<!-- ==================== DIMENSION SCORING ==================== -->
+<div class="section">
+  <div class="section-title">（二）逐项评分明细（七维度深度拆解）</div>
+
+  <!-- Dimension 1 -->
+  <div class="sub-section-title">维度一：阵容实力（权重30%）｜ 得分：90分 × 30% = 27.0分</div>
+  <table class="score-table">
+    <thead><tr><th style="width:28%;">子项</th><th style="width:7%;">得分</th><th>简要评价</th></tr></thead>
+    <tbody>
+      <tr>
+        <td><strong>1.1 球星质量与个人能力</strong>（占比35%）</td>
+        <td class="score-cell" style="color:#e74c3c;">93</td>
+        <td>英格兰拥有本届世界杯最恐怖的前场三人组——哈里·凯恩、裘德·贝林厄姆、布卡约·萨卡。凯恩（32岁/€6000万）本赛季在拜仁慕尼黑50场比赛打入58球——这一进球效率在五大联赛历史上足以媲美梅西和C罗的巅峰赛季，他是英格兰的队长、队史射手王（69球）和进攻体系的绝对支点。贝林厄姆（22岁/€1.4亿）是目前全球身价最高的中场球员之一，在皇马经过两个赛季的打磨后已经成为全能型B2B中场的完美模板——他的得分能力（本赛季20+球）、推进能力和大场面气质令人惊叹。萨卡（24岁/€1.2亿）是阿森纳本赛季夺取英超冠军的核心发动机——英超11球13助攻，边路一对一能力和创造机会的能力已超越前辈斯特林。德克兰·赖斯（27岁/€1.2亿）是英超最强的防守中场之一，是阿森纳的防线屏障和由守转攻的第一发起者。这四名球员中的任何一人都具备"改变比赛"的能力。</td>
+      </tr>
+      <tr>
+        <td><strong>1.2 各位置均衡度</strong>（占比25%）</td>
+        <td class="score-cell" style="color:#e74c3c;">85</td>
+        <td>英格兰的平衡度呈现"前重后轻"的格局。前锋线是本届世界杯最豪华的配置——凯恩（世界级终结者）、萨卡（世界级边锋）、戈登（英超速度型边锋）、拉什福德（巴萨/租借后状态回升）、沃特金斯（维拉主力射手）、托尼（备选桩式中锋）——六人合计进球数在26支大名单中排名前列。中场同样是顶级配置——赖斯+贝林厄姆的中场组合可能是本届世界杯攻守最均衡的双核。但后防线是最大的不确定性——格希（曼城/€6500万）和斯通斯（32岁/状态下滑）的中卫组合缺乏顶级大赛的默契验证；里斯·詹姆斯虽然天赋极高但过去两个赛季因伤病仅出场不足30场比赛；丹·伯恩（34岁/纽卡）年事已高。门将位置——皮克福德经验丰富但状态有起伏。</td>
+      </tr>
+      <tr>
+        <td><strong>1.3 板凳深度</strong>（占比20%）</td>
+        <td class="score-cell" style="color:#e74c3c;">90</td>
+        <td>€13.1亿的总身价意味着恐怖的板凳深度——可能是本届世界杯最有深度的阵容。前锋线7人中有4人（戈登/€6000万、拉什福德/€4000万、沃特金斯/€3000万、马杜埃克/€5000万）在大多数国家队可以首发。中场同样储备雄厚——迈努（曼联/€5000万）、埃泽（阿森纳/€6000万）、罗杰斯（维拉/€8000万）三名球员为图赫尔提供不同类型的战术选择。只有后卫线的替补深度相对薄弱——夸安萨（勒沃库森/€4500万）是替补中卫的唯一年轻选项，利夫拉门托和斯彭斯身体素质出色但大赛经验为零。整体来说，26人中有22-23人可以在世界杯级别比赛中可靠地出场——这项指标在32支参赛队中排名前三。</td>
+      </tr>
+      <tr>
+        <td><strong>1.4 总身价与年龄结构</strong>（占比20%）</td>
+        <td class="score-cell" style="color:#e74c3c;">90</td>
+        <td>€13.1亿总身价排名本届世界杯第二（仅次于法国约€14亿，领先西班牙€12.7亿）。平均年龄27.1岁处于理想区间。年龄结构的特点是"核心球员正值当打之年"——凯恩32岁（经验巅峰）、贝林厄姆22岁（天赋巅峰）、萨卡24岁（产出巅峰）、赖斯27岁（成熟巅峰）。24岁以下球员6人（贝林厄姆22、迈努21、奥赖利21、罗杰斯23、利夫拉门托23、夸安萨23），老将3人（亨德森35、伯恩34、凯恩32），其余均为25-30岁的巅峰年龄段。四名身价过亿的球员（贝林厄姆€1.4亿、赖斯€1.2亿、萨卡€1.2亿、Bellingham repeat）合计€3.8亿，接近全队总身价的30%，体现了核心球员的天赋集中度。整体来看，€13.1亿的身价与"黄金一代"的年龄结构正好匹配——这是英格兰纸面实力历史最强的一届。</td>
+      </tr>
+    </tbody>
   </table>
+  <div class="analysis-text">
+    英格兰的阵容实力处于历史最高水平——€13.1亿的总身价、英超冠军级别的核心班底（赖斯、萨卡、斯通斯、格希——四人来自2026英超冠军阿森纳和曼城）、以及一个50场58球的超级凯恩——这些要素组合在一起形成了一支理论上几乎没有短板的球队。凯恩的58球赛季是本届世界杯所有球员中最恐怖的个人数据——他在拜仁的攻击体系中展现了全能中锋的最高境界（既能回撤组织、也能禁区终结、还能远射）。贝林厄姆+赖斯的中场组合在全球范围内只有西班牙的罗德里+佩德里可以匹敌——赖斯提供防守覆盖和横向传导，贝林厄姆提供推进、得分和创造力。前锋线的深度意味着图赫尔可以在比赛的不同阶段使用不同类型的前锋组合——萨卡+戈登的速度型、拉什福德+马杜埃克的技术型、凯恩+托尼的双塔型。唯一的隐忧在后防线——格希（曼城中卫/出场时间有限）和斯通斯（32岁/状态下滑）并不是一个经过验证的世界杯级别中卫组合。里斯·詹姆斯的健康状态是右后卫位置最大的变数——如果他的腿筋再次出现问题，英格兰在右路的防守将面临严峻考验。
+  </div>
 
-  <h4>🎯 中场（7人）</h4>
-  <table>
-    <tr><th style="width:30px">#</th><th>球员姓名</th><th style="width:60px">位置</th><th>所属俱乐部</th></tr>
-    <tr><td>13</td><td>裘德·贝林厄姆（Jude Bellingham）</td><td>MF</td><td>皇家马德里（西甲）</td></tr>
-    <tr><td>14</td><td>德克兰·赖斯（Declan Rice）</td><td>MF</td><td>阿森纳（英超）</td></tr>
-    <tr><td>15</td><td>科比·迈努（Kobbie Mainoo）</td><td>MF</td><td>曼彻斯特联（英超）</td></tr>
-    <tr><td>16</td><td>埃贝雷奇·埃泽（Eberechi Eze）</td><td>MF</td><td>阿森纳（英超）</td></tr>
-    <tr><td>17</td><td>摩根·罗杰斯（Morgan Rogers）</td><td>MF</td><td>阿斯顿维拉（英超）</td></tr>
-    <tr><td>18</td><td>埃利奥特·安德森（Elliot Anderson）</td><td>MF</td><td>诺丁汉森林（英超）</td></tr>
-    <tr><td>19</td><td>乔丹·亨德森（Jordan Henderson）</td><td>MF</td><td>布伦特福德（英超）</td></tr>
+  <!-- Dimension 2 -->
+  <div class="sub-section-title">维度二：战术体系与教练（权重20%）｜ 得分：87分 × 20% = 17.4分</div>
+  <table class="score-table">
+    <thead><tr><th style="width:28%;">子项</th><th style="width:7%;">得分</th><th>简要评价</th></tr></thead>
+    <tbody>
+      <tr>
+        <td><strong>2.1 主帅战术哲学与大赛履历</strong>（占比40%）</td>
+        <td class="score-cell" style="color:#e74c3c;">88</td>
+        <td>托马斯·图赫尔是本届世界杯上教练履历最辉煌的主帅之一——2021年欧冠冠军（切尔西）、2020年欧冠亚军（巴黎圣日耳曼）、2022年欧洲超级杯冠军、多次德甲杯赛冠军。他在执教切尔西期间打造的"防守组织严密+高效转换"体系成为了欧洲足坛的战术标杆。他的战术哲学核心是"防守纪律+阵型弹性+高智商决策"——他不追求控球率，而是强调在无球状态下的组织性压迫和夺回球权后的快速转换。他的临场调整能力在欧冠淘汰赛中得到过充分验证（2021年欧冠半决赛对皇马的两回合战术博弈被视为经典）。他也是英格兰队史上第一位德国籍主教练，这一背景在英格兰国内带来了一定的舆论压力，但他的冠军履历和铁腕管理风格使他在更衣室中赢得了尊重。</td>
+      </tr>
+      <tr>
+        <td><strong>2.2 阵型适配性与球员契合度</strong>（占比30%）</td>
+        <td class="score-cell" style="color:#e74c3c;">85</td>
+        <td>图赫尔的4-2-3-1/3-4-3双阵型体系与英格兰球员的特点高度匹配。凯恩在单箭头位置的角色类似在他拜仁的踢法——回撤组织、拉扯后卫、为边锋创造内切空间。贝林厄姆在10号位的角色被赋予极高的自由度——类似于他在皇马的位置，他可以在凯恩周围游弋、后插上得分。萨卡在右边路的"内切左脚"与他为阿森纳踢球时的角色完全一致，不需要任何适应。赖斯在双后腰体系中扮演类似他在阿森纳的角色——防守扫荡+横向转移。最大的变量在后防线——图赫尔偏好三中卫体系（切尔西时期），但英格兰名单中只有格希、斯通斯、孔萨、夸安萨、伯恩五名中卫，三中卫阵型的使用可能会受到人员限制。他需要决定是打四后卫（更稳妥）还是坚持三中卫（更冒险但体系更熟）。</td>
+      </tr>
+      <tr>
+        <td><strong>2.3 攻守转换效率</strong>（占比15%）</td>
+        <td class="score-cell" style="color:#e74c3c;">85</td>
+        <td>图赫尔的球队以"纪律性转换"著称——由守转攻时，球队会在断球后迅速将球交给赖斯或贝林厄姆，利用前场三叉戟（凯恩+萨卡+戈登）的跑动和速度直接冲击对手防线——不需要通过缓慢的后场传导来组织进攻。由攻转守时，英格兰会在前场就地反抢（凯恩的身体和覆盖面是天然的第一道防线），赖斯在中场线立刻补位封锁对手的第一传路线。定位球方面，图赫尔的战术设计历来精密——他会利用凯恩（188cm）和伯恩（201cm）的空中优势制造威胁。整体而言，英格兰的攻守转换纪律在全球范围内属于一流——不确定的是图赫尔的体系能否在短短一年半的执教期内完全灌输给这支英格兰队。</td>
+      </tr>
+      <tr>
+        <td><strong>6.2 临场指挥与换人策略</strong>（占比15%）</td>
+        <td class="score-cell" style="color:#e74c3c;">88</td>
+        <td>图赫尔在欧冠赛场上的临场指挥已经被证明是顶级水准——2021年欧冠决赛，他在中场休息时对曼城的针对性调整完全扭转了比赛局势。他的换人以"精准"著称——他通常在60-70分钟之间做出首次调整，打法保守时换上进攻手、需要保住领先时加强防守。他在多特蒙德、巴黎、切尔西执教期间积累了丰富的"赛会制比赛"经验（欧冠淘汰赛与此类同）。唯一的不确定因素是：他从未执教过世界杯——世界杯的赛程（跨一个月的7场比赛）、球队管理（26人大名单的轮换策略）和媒体环境与俱乐部赛事有本质区别。</td>
+      </tr>
+    </tbody>
   </table>
+  <div class="analysis-text">
+    图赫尔是英格兰足球历史上最"大牌"的教练之一——他不仅是第一位德国籍三狮主帅，也是第一位以欧冠冠军身份执教英格兰的教练。他的到来意味着英格兰从"南门的温情人文主义"彻底切换为"图赫尔的铁血纪律主义"。这一转变的积极意义在于：英格兰不再是一支"陪太子读书"的好好先生球队，而是一支带着"赢家气质"的冠军竞争者。从战术层面看，图赫尔的体系在2024-2026周期中已经初步成型——英格兰在预选赛中的防守数据相当出色（场均失球<0.6），且他的高位压迫理念与英格兰球员的体能优势天然契合。但他面临的挑战也很明显：执教时间仅有18个月，他的战术体系能否在大赛高压下完全发挥作用？他的铁腕管理风格（福登、帕尔默、阿诺德等大牌被放弃）是否会在更衣室中埋下矛盾？图赫尔是一张"双刃剑"——他带来了冠军经验和战术智慧，但也带来了德国教练在英格兰的舆论困境和高期望值的压力。
+  </div>
 
-  <h4>⚽ 前锋（7人）</h4>
-  <table>
-    <tr><th style="width:30px">#</th><th>球员姓名</th><th style="width:60px">位置</th><th>所属俱乐部</th></tr>
-    <tr><td>20</td><td>哈里·凯恩（Harry Kane）【队长】</td><td>FW</td><td>拜仁慕尼黑（德甲）</td></tr>
-    <tr><td>21</td><td>布卡约·萨卡（Bukayo Saka）</td><td>FW</td><td>阿森纳（英超）</td></tr>
-    <tr><td>22</td><td>马库斯·拉什福德（Marcus Rashford）</td><td>FW</td><td>巴塞罗那（西甲）</td></tr>
-    <tr><td>23</td><td>安东尼·戈登（Anthony Gordon）</td><td>FW</td><td>纽卡斯尔联（英超）</td></tr>
-    <tr><td>24</td><td>奥利·沃特金斯（Ollie Watkins）</td><td>FW</td><td>阿斯顿维拉（英超）</td></tr>
-    <tr><td>25</td><td>伊万·托尼（Ivan Toney）</td><td>FW</td><td>吉达国民（沙特联赛）</td></tr>
-    <tr><td>26</td><td>诺尼·马杜埃凯（Noni Madueke）</td><td>FW</td><td>阿森纳（英超）</td></tr>
+  <!-- Dimension 3 -->
+  <div class="sub-section-title">维度三：近期竞技状态（权重15%）｜ 得分：86分 × 15% = 12.9分</div>
+  <table class="score-table">
+    <thead><tr><th style="width:28%;">子项</th><th style="width:7%;">得分</th><th>简要评价</th></tr></thead>
+    <tbody>
+      <tr>
+        <td><strong>3.1 近12个月正式比赛战绩</strong>（占比40%）</td>
+        <td class="score-cell" style="color:#e74c3c;">85</td>
+        <td>英格兰在近12个月的正式比赛中展现了强大的统治力。欧洲区预选赛以不败战绩轻松出线——面对预选赛对手几乎没有遇到实质性的挑战，场均进球2.8个、场均失球0.5个。2024年欧洲杯八强的成绩（点球大战负于法国）虽令国内不满，但考虑到对手实力和比赛进程，这一成绩并不算令人失望。需要关注的是图赫尔上任后的友谊赛表现——对阵南美强队乌拉圭的平局和对阵日本队的失利引发了温布利球迷的嘘声，反映出球队在高强度实战中的战术磨合尚未完全到位。整体来看，英格兰在正式比赛中的表现依然可靠——预选赛不败的战绩证明了他们面对实力较弱对手时的碾压能力，但"强强对话"的样本数据不足。</td>
+      </tr>
+      <tr>
+        <td><strong>3.2 预选赛出线含金量</strong>（占比30%）</td>
+        <td class="score-cell" style="color:#e74c3c;">83</td>
+        <td>英格兰所在的欧洲区小组对手实力中等偏下——没有传统豪强。不败出线的成绩符合预期，但含金量一般（没有与顶级对手的交手记录）。真正有价值的参考是2024年欧洲杯——英格兰在欧洲杯上击败了塞尔维亚和丹麦，但也暴露了在面对防守组织严密的球队时进攻效率不足的问题（小组赛对阵斯洛文尼亚0-0）。图赫尔上任后尚未与真正的世界顶级球队（法国、阿根廷、巴西）交手过——这些比赛本应出现在2025年的友谊赛计划中，但据报道有些比赛因各种原因被取消。这一点增加了对英格兰状态评估的不确定性——他们在"虐菜"时表现完美，但对阵顶级球队的实力尚未经过检验。</td>
+      </tr>
+      <tr>
+        <td><strong>3.3 核心球员俱乐部状态走势</strong>（占比30%）</td>
+        <td class="score-cell" style="color:#e74c3c;">90</td>
+        <td>核心球员的俱乐部状态是英格兰最大的利好。哈里·凯恩（拜仁）打出了职业生涯最强赛季——50场58球，包括德甲34球、欧冠12球，各项赛事的进球效率达到场均1.16球，是本赛季欧洲金靴奖的绝对热门。布卡约·萨卡（阿森纳）在阿森纳的英超冠军赛季中贡献11球13助攻，是英超赛季最佳球员的热门候选人之一。德克兰·赖斯（阿森纳）作为英超冠军球队的中场屏障，保持了世界级的防守数据（场均抢断2.5次、拦截1.6次）。裘德·贝林厄姆（皇马）本赛季在西甲和欧冠中贡献了20+进球，虽然与他在皇马处子赛季的爆炸式数据相比略有回落，但仍处于世界一流水平。安东尼·戈登（纽卡）本赛季英超8球7助攻，状态稳步上升。马库斯·拉什福德在租借巴萨后，在西甲重新找回了自信（西甲27场9球6助攻）。</td>
+      </tr>
+    </tbody>
+  </div>
+  <div class="analysis-text">
+    英格兰的竞技状态呈现"核心球员亮眼、整体磨合待检验"的特征。凯恩的58球赛季是本届世界杯所有球员中最具统治力的个人数据——它意味着英格兰在进攻端拥有一位"进入禁区就是威胁"的超级终结者。在世界杯的舞台上，拥有这样一位世界级中锋是最大的信心来源——2022年世界杯上凯恩打入2球，2018年打入6球夺得金靴。萨卡和赖斯的英超冠军经验为球队注入了"赢家心态"——他们知道如何在一个漫长的赛季中保持高水平的竞争状态。但图赫尔体系在整体层面的磨合程度是一个需要实际比赛来验证的问号——友谊赛对日本的失利暴露出的不仅仅是防守问题，更是球员对图赫尔战术要求还不够熟悉的信号。英格兰的"赛前状态"可以概括为：个人状态满分（凯恩、萨卡、贝林厄姆、赖斯四大核心都在最佳状态）、整体磨合75分（图赫尔体系仍在建设中）、心态80分（有冠军饥渴但也被历史期望所累）。
+  </div>
+
+  <!-- Dimension 4 -->
+  <div class="sub-section-title">维度四：大赛经验与心理素质（权重10%）｜ 得分：79分 × 10% = 7.9分</div>
+  <table class="score-table">
+    <thead><tr><th style="width:28%;">子项</th><th style="width:7%;">得分</th><th>简要评价</th></tr></thead>
+    <tbody>
+      <tr>
+        <td><strong>4.1 世界杯/洲际杯历史战绩</strong>（占比40%）</td>
+        <td class="score-cell" style="color:#27ae60;">80</td>
+        <td>英格兰在世界杯历史上仅有1次夺冠记录——1966年主场作战的辉煌。此后58年（1966-2024）的最佳战绩是1990年和2018年的两次第四名（半决赛出局）。近五届世界杯：1998年16强、2002年八强、2006年八强、2010年16强、2014年小组赛、2018年第四名、2022年八强——近三届的稳步上升趋势值得肯定，但始终差最后一步。欧洲杯方面，2020年欧洲杯亚军的成绩是英格兰自1966年以来距离大赛冠军最近的一次——决赛点球负于意大利的伤痛至今未愈。2024年欧洲杯八强（点球负于法国）则相对平淡。英格兰的"大赛历史包袱"是真实存在的——作为"足球发源地"却只有1个世界杯冠军，从1966年至今58年无冠的纪录形成了一种集体心理压力。</td>
+      </tr>
+      <tr>
+        <td><strong>4.2 核心球员大赛经验值</strong>（占比35%）</td>
+        <td class="score-cell" style="color:#e74c3c;">82</td>
+        <td>英格兰核心球员的大赛经验整体良好。凯恩参加了2018年（第四名/6球/金靴）、2022年（八强/2球）两届世界杯和2020欧洲杯（亚军/4球），是队内大赛经验最丰富的球员。皮克福德是2018年世界杯和2020欧洲杯的主力门将，他在这两届赛事中的关键扑救（2018年对哥伦比亚的点球大战、2020欧洲杯决赛对意大利的扑救）证明了他的大心脏。斯通斯经历了2018年世界杯和2020欧洲杯的完整征程。赖斯（2020欧洲杯亚军、2022世界杯八强）和萨卡（2020欧洲杯亚军、2022世界杯八强）同样积累了丰富的大赛经历。但年轻球员的大赛经验是欠缺的——贝林厄姆仅有2022世界杯（八强）的经历，迈努、罗杰斯、戈登等人没有世界杯经验。总体而言，这套阵容在淘汰赛阶段不会因为"没见过大场面"而怯场。</td>
+      </tr>
+      <tr>
+        <td><strong>6.3 抗压与逆境应对</strong>（占比25%）</td>
+        <td class="score-cell" style="color:#e67e22;">75</td>
+        <td>英格兰的抗压能力是本届大赛最受关注的心理议题之一。积极面：2018年世界杯16强点球战胜哥伦比亚（英格兰首次在世界杯点球大战中获胜），2020欧洲杯16强2-0德国（终结了几十年逢大赛不胜德国的心理魔咒）。消极面：2020欧洲杯决赛点球负于意大利（萨卡、拉什福德、桑乔三名年轻球员罚失点球），2022世界杯八强1-2负于法国（凯恩在比赛末段射失关键点球——这个点球本可以扳平比分）。两届大赛两次以点球相关的方式出局——2020年输在点球大战，2022年输在凯恩的罚丢点球。这种"细节决定成败"的输球方式可能比一场溃败更磨蚀球员的心理。萨卡在2020年欧洲杯决赛中罚失制胜点球后一度需要接受心理辅导——但他在之后的表现（英超冠军赛季的核心）已经证明了他的心理韧性。图赫尔需要确保球队在关键比赛中保持"无惧失败"的心态。</td>
+      </tr>
+    </tbody>
   </table>
-
-  <h4>❌ 知名落选球员</h4>
-  <p>
-    <span class="omission-tag">菲尔·福登（曼城）</span>
-    <span class="omission-tag">科尔·帕尔默（切尔西）</span>
-    <span class="omission-tag">特伦特·亚历山大-阿诺德（皇马）</span>
-    <span class="omission-tag">哈里·马奎尔（曼联）</span>
-    <span class="omission-tag">卢克·肖（曼联）</span>
-    <span class="omission-tag">本·怀特（阿森纳·伤缺）</span>
-    <span class="omission-tag">摩根·吉布斯-怀特（森林）</span>
-    <span class="omission-tag">贾罗德·鲍文（西汉姆）</span>
-    <span class="omission-tag">丹尼·维尔贝克（布莱顿）</span>
-    <span class="omission-tag">多米尼克·卡尔弗特-勒温（利兹联）</span>
-  </p>
-
-  <!-- (二) 逐项评分明细 -->
-  <h2>二、七维度深度评分</h2>
-
-  <!-- 维度一 -->
-  <div class="dimension-card">
-    <div class="dimension-header">
-      <div class="dimension-title">维度一：阵容实力（权重30%）</div>
-      <div class="dimension-score">80分 × 30% = 24.0分</div>
-    </div>
-
-    <table class="sub-score-table">
-      <tr><th style="width:35%">子项</th><th style="width:60px">得分</th><th>简要评价</th></tr>
-      <tr><td>1.1 球星质量与个人能力（占35%）</td><td>88</td><td>凯恩、贝林厄姆、赖斯、萨卡四大世界级核心，但福登、帕尔默缺阵削弱顶级天赋</td></tr>
-      <tr><td>1.2 各位置均衡度（占25%）</td><td>75</td><td>锋线豪华、中场深厚、后防中游，左翼卫是明显短板，无正统左后卫入选</td></tr>
-      <tr><td>1.3 板凳深度（占20%）</td><td>72</td><td>前锋储备充足（4人轮换），后防深度堪忧，替补与首发差距较大</td></tr>
-      <tr><td>1.4 总身价与年龄结构（占20%）</td><td>82</td><td>总身价过11亿欧，年龄结构合理（平均27.2岁），凯恩32岁是唯一老化隐患</td></tr>
-      <tr><td><strong>均分</strong></td><td><strong>80</strong></td><td></td></tr>
-    </table>
-
-    <div class="analysis-text">
-      <strong>详细分析：</strong>英格兰阵容的豪华之处集中在前场。哈里·凯恩本赛季在拜仁轰入36粒德甲进球（31场），各项赛事总进球超过42球，是无可争议的世界第一中锋。贝林厄姆在皇马继续扮演攻击型中场核心角色，兼具得分、组织和推进能力，是"改变比赛"的球员。萨卡在阿森纳右路持续输出两位数的进球+助攻。赖斯是英超最顶级的防守型中场之一，覆盖面积和拦截能力世界级。然而，图赫尔放弃了福登和帕尔默两名顶级前场攻击手——福登本赛季在曼城状态显著下滑，帕尔默遭遇了连续14场的进球荒，这在数据上确有依据，但在天赋层级上仍属"自断一臂"的冒险操作。后防线问题更为突出：图赫尔放弃了马奎尔和卢克·肖，却没有招入任何一名正统左边后卫（斯宾塞和奥赖利都是客串），三名中卫斯通斯、格伊和孔萨的单防能力尚可但缺乏顶级大赛的统治力。里斯·詹姆斯若能保持健康是世界级右翼卫，但他过去三个赛季合计只踢了不到45%的英超比赛，伤病风险极大。
-    </div>
-  </div>
-
-  <!-- 维度二 -->
-  <div class="dimension-card">
-    <div class="dimension-header">
-      <div class="dimension-title">维度二：战术体系与教练（权重20%）</div>
-      <div class="dimension-score">83分 × 20% = 16.6分</div>
-    </div>
-
-    <table class="sub-score-table">
-      <tr><th style="width:35%">子项</th><th style="width:60px">得分</th><th>简要评价</th></tr>
-      <tr><td>2.1 主帅战术哲学与大赛履历（占40%）</td><td>88</td><td>欧冠冠军教头，战术大师，三中卫体系宗师，但首次执教国家队</td></tr>
-      <tr><td>2.2 阵型适配性与球员契合度（占30%）</td><td>78</td><td>3-4-3/3-4-2-1契合大部分核心球员，但左翼卫配置严重缺失</td></tr>
-      <tr><td>2.3 攻守转换效率（占15%）</td><td>80</td><td>图赫尔以防守组织严密著称，反击速度有保障，定位球设计出色</td></tr>
-      <tr><td>2.4 临场指挥与换人策略（占15%）</td><td>82</td><td>换人果断、战术变化丰富，但有时过于保守</td></tr>
-      <tr><td><strong>均分</strong></td><td><strong>83</strong></td><td></td></tr>
-    </table>
-
-    <div class="analysis-text">
-      <strong>详细分析：</strong>图赫尔是当今足坛战术素养最高的教练之一。2021年接手切尔西半程即夺得欧冠，在巴黎圣日耳曼和拜仁也均有联赛冠军入账。他的3-4-3体系以"后防三中卫+双后腰"为基石，进攻时边翼卫大幅前压形成2-3-5或3-2-5阵型，防守时回收为5-2-3或5-4-1。这套体系理论上契合英格兰的人员配置：斯通斯居中拖后出球，格伊和孔萨分列两侧；里斯·詹姆斯/利夫拉门托在右翼卫位置具备顶级进攻能力，但左翼卫是致命缺陷——斯宾塞是右脚将客串，伯恩是中卫代打，奥赖利则缺乏大赛经验。2025年预选赛中，图赫尔带领英格兰8战全胜、零失球，展现出了极强的防守组织能力。但须注意：预选赛对手（塞尔维亚、阿尔巴尼亚、拉脱维亚、安道尔）整体实力偏弱，真正的考验在大赛淘汰赛阶段。图赫尔的唯一不确定性是其首次执教国家队，大赛中的心理调整和更衣室管理能力尚未检验。
-    </div>
-  </div>
-
-  <!-- 维度三 -->
-  <div class="dimension-card">
-    <div class="dimension-header">
-      <div class="dimension-title">维度三：近期竞技状态（权重15%）</div>
-      <div class="dimension-score">85分 × 15% = 12.8分</div>
-    </div>
-
-    <table class="sub-score-table">
-      <tr><th style="width:35%">子项</th><th style="width:60px">得分</th><th>简要评价</th></tr>
-      <tr><td>3.1 近12个月正式比赛战绩（占40%）</td><td>92</td><td>预选赛8战全胜，进22球失0球，堪称完美的资格赛征程</td></tr>
-      <tr><td>3.2 预选赛出线含金量（占30%）</td><td>80</td><td>小组中塞尔维亚有一定分量，但整体对手偏弱，全胜零失球含金量需冷静看待</td></tr>
-      <tr><td>3.3 核心球员俱乐部状态走势（占30%）</td><td>82</td><td>凯恩状态爆棚，贝林厄姆、萨卡稳定输出，拉什福德在巴萨复苏</td></tr>
-      <tr><td><strong>均分</strong></td><td><strong>85</strong></td><td></td></tr>
-    </table>
-
-    <div class="analysis-text">
-      <strong>详细分析：</strong>英格兰的2026世界杯预选赛成绩堪称完美——在K组中8战全胜，22个进球0失球，净胜球+22，提前两轮锁定出线。这个数据的震慑力毋庸置疑，但也需要客观看待对手实力：塞尔维亚（FIFA排名约第25）是唯一有分量的对手，两回合英格兰7-0双杀；阿尔巴尼亚和拉脱维亚是中下游欧洲球队；安道尔则是标准的鱼腩部队。从球员个人状态看，凯恩在拜仁以36球领跑德甲射手榜，是五大联赛进球最多的球员之一。贝林厄姆在皇马维持着场均参与0.6球以上的高效。萨卡在阿森纳继续两双数据。值得关注的是拉什福德——本赛季从曼联租借至巴塞罗那后仿佛焕发新生，在巴萨的边路突破和进球效率明显回升，这对图赫尔的前场轮换是一大利好。隐患在于：伊万·托尼在沙特联赛踢球，比赛强度与欧洲顶级联赛存在差距；乔丹·亨德森已经35岁，是仅有的"老将保险"选项。
-    </div>
-  </div>
-
-  <!-- 维度四 -->
-  <div class="dimension-card">
-    <div class="dimension-header">
-      <div class="dimension-title">维度四：大赛经验与心理素质（权重10%）</div>
-      <div class="dimension-score">77分 × 10% = 7.7分</div>
-    </div>
-
-    <table class="sub-score-table">
-      <tr><th style="width:35%">子项</th><th style="width:60px">得分</th><th>简要评价</th></tr>
-      <tr><td>4.1 世界杯历史战绩（占40%）</td><td>78</td><td>1冠，近年走势：2014小组赛、2018四强、2022八强，起伏较大</td></tr>
-      <tr><td>4.2 核心球员大赛经验值（占35%）</td><td>80</td><td>凯恩、皮克福德、赖斯、斯通斯经历三届大赛；贝林厄姆、萨卡有两届经验</td></tr>
-      <tr><td>4.3 抗压与逆境应对（占25%）</td><td>72</td><td>点球大战历史改善（2018胜、2021负），但淘汰赛关键战屡有心理崩溃记录</td></tr>
-      <tr><td><strong>均分</strong></td><td><strong>77</strong></td><td></td></tr>
-    </table>
-
-    <div class="analysis-text">
-      <strong>详细分析：</strong>英格兰的大赛心理素质历来是争议焦点。从1966年之后从未闯入过世界杯决赛（1990和2018两次倒在半决赛），"点球魔咒"在2018年战胜哥伦比亚后才算部分打破。2022年卡塔尔世界杯，英格兰在1/4决赛对阵法国时一度占据场面优势，但凯恩罚丢关键点球导致1-2出局——这是典型的"强强对话中关键时刻失手"。不过，这支英格兰队中皮克福德、斯通斯、凯恩、赖斯、萨卡等人共同经历了2018四强和2021欧洲杯亚军（点球负意大利），大赛经验相当丰富。贝林厄姆在皇马踢过欧冠决赛并有出色表现，心理素质不逊于任何同龄人。但需指出：26人名单中有6人是首次参加世界杯（特拉福德、奥赖利、安德森、罗杰斯、斯宾塞、马杜埃凯），这些"新人"在淘汰赛高压环境下的表现是未知数。
-    </div>
-  </div>
-
-  <!-- 维度五 -->
-  <div class="dimension-card">
-    <div class="dimension-header">
-      <div class="dimension-title">维度五：分组及赛程影响（权重10%）</div>
-      <div class="dimension-score">79分 × 10% = 7.9分</div>
-    </div>
-
-    <table class="sub-score-table">
-      <tr><th style="width:35%">子项</th><th style="width:60px">得分</th><th>简要评价</th></tr>
-      <tr><td>5.1 小组赛对手分析（占40%）</td><td>82</td><td>克罗地亚老化中、加纳不稳定、巴拿马弱旅，出线难度偏低</td></tr>
-      <tr><td>5.2 淘汰赛晋级路线预判（占35%）</td><td>75</td><td>小组头名出线后32强对小组第三，16强可能遭遇硬仗</td></tr>
-      <tr><td>5.3 旅途与气候因素（占25%）</td><td>78</td><td>大部分比赛在美国进行，气候适宜，但跨城移动可能影响体能</td></tr>
-      <tr><td><strong>均分</strong></td><td><strong>79</strong></td><td></td></tr>
-    </table>
-
-    <div class="analysis-text">
-      <strong>详细分析：</strong>英格兰被分入L组，同组有克罗地亚、加纳和巴拿马。这无疑是上签——克罗地亚在2018和2022两届世界杯分别获得亚军和季军，但核心阵容（莫德里奇38岁、佩里西奇37岁、科瓦契奇32岁）严重老化，黄金一代已进入尾声。加纳是非洲劲旅但防守组织不稳定。巴拿马首次参赛经验不足。英格兰拿到小组头名概率极高。淘汰赛方面：2026世界杯扩容为48队、12个小组，小组第一直接晋级32强，将对阵一支成绩最好的小组第三。真正的考验可能在16强赛——届时可能遭遇E/H/I/J/K组中成绩较好的小组第二（西班牙、德国、比利时等队所在组的潜在对手）。若顺利晋级8强，潜在的对手可能包括卫冕冠军阿根廷、巴西或荷兰等夺冠热门，晋级路线在后半段非常艰难。值得留意：英格兰的比赛大部分在美国举行，首战在德克萨斯州AT&T体育场（拥有空调设施），气候条件不成问题。
-    </div>
-  </div>
-
-  <!-- 维度六 -->
-  <div class="dimension-card">
-    <div class="dimension-header">
-      <div class="dimension-title">维度六：团队凝聚力与场外环境（权重10%）</div>
-      <div class="dimension-score">70分 × 10% = 7.0分</div>
-    </div>
-
-    <table class="sub-score-table">
-      <tr><th style="width:35%">子项</th><th style="width:60px">得分</th><th>简要评价</th></tr>
-      <tr><td>6.1 更衣室团结度（占35%）</td><td>70</td><td>排除多名资深球员或引发不满，图赫尔的严厉风格能否服众存疑</td></tr>
-      <tr><td>6.2 足协稳定性与管理（占35%）</td><td>75</td><td>英足总管理稳定，热身赛安排合理，但德国籍主帅的背景带来额外审视</td></tr>
-      <tr><td>6.3 国内舆论与媒体压力（占30%）</td><td>65</td><td>英国媒体以苛刻著称，落选争议放大舆论压力，期望值极高</td></tr>
-      <tr><td><strong>均分</strong></td><td><strong>70</strong></td><td></td></tr>
-    </table>
-
-    <div class="analysis-text">
-      <strong>详细分析：</strong>图赫尔的大名单引发了英格兰足坛的剧烈讨论。马奎尔的母亲在社交媒体上公开表达不满，这从一个侧面反映出更衣室内部的潜在裂痕。福登和帕尔默两名攻击型天才的落选——前者是2024/25赛季曼城最佳球员之一（尽管本赛季状态下滑），后者是切尔西上赛季的MVP——让外界对图赫尔的选人标准产生质疑。队长凯恩性格温和低调，是公认的职业典范，但他能否在如此多争议下凝聚更衣室，值得观察。另一个值得注意的因素：图赫尔是英格兰历史上第一位德国籍主教练，虽然战绩（预选赛全胜）堵住了大部分批评，但如果世界杯开局不顺，媒体压力将迅速升级。英国小报的"围攻"风格举世闻名，过去曾对多名英格兰主帅造成巨大困扰。好在英足总的后勤保障历来优秀，训练基地、医疗保障、家庭支持等方面均属世界顶级配置。
-    </div>
-  </div>
-
-  <!-- 维度七 -->
-  <div class="dimension-card">
-    <div class="dimension-header">
-      <div class="dimension-title">维度七：体能储备与伤病控制（权重5%）</div>
-      <div class="dimension-score">71分 × 5% = 3.6分</div>
-    </div>
-
-    <table class="sub-score-table">
-      <tr><th style="width:35%">子项</th><th style="width:60px">得分</th><th>简要评价</th></tr>
-      <tr><td>7.1 赛季疲劳度评估（占40%）</td><td>68</td><td>核心球员多效力于争冠球队，赛季总出场时间很高，疲劳累积风险大</td></tr>
-      <tr><td>7.2 关键伤病与恢复情况（占35%）</td><td>70</td><td>本·怀特已确认因伤缺席；詹姆斯、斯通斯有严重伤病史；斯宾塞刚下巴骨折</td></tr>
-      <tr><td>7.3 医疗团队与保障水平（占25%）</td><td>78</td><td>英足总医疗团队配置顶级，图赫尔团队有专业体能教练</td></tr>
-      <tr><td><strong>均分</strong></td><td><strong>71</strong></td><td></td></tr>
-    </table>
-
-    <div class="analysis-text">
-      <strong>详细分析：</strong>体能和伤病是英格兰本届世界杯最大的潜在隐患之一。凯恩本赛季在拜仁出场超过45场，在欧冠、德甲和德国杯三线作战，赛季末已显疲态。贝林厄姆在皇马同样是全勤级别的主力。赖斯在阿森纳赛季总出场时间超过4000分钟。萨卡也是阿森纳赛季出场40+的"铁人"。这些核心球员在经历了一个漫长的英超/西甲/德甲赛季后，能否在世界杯的高强度密集赛中始终保持最佳状态，是一个严峻的考验。伤病方面：阿森纳后卫本·怀特因膝伤已确认无缘世界杯，这进一步削弱了英格兰的后防线选择。里斯·詹姆斯本赛季在切尔西虽然健康出勤率有所回升，但过去三年的伤病史依然令人揪心——一次肌肉撕裂可能就让英格兰失去唯一的"爆破型"右翼卫。斯宾塞在名单公布前刚遭遇下巴骨折，虽预计佩戴面具参赛，但面部保护面具会影响头球争顶和视野。斯通斯在曼城本赛季缺席了约1/4的比赛，能否连续打满世界杯七场是疑问。
-    </div>
-  </div>
-
-  <!-- (三) 综合总分与评级 -->
-  <h2>三、综合总分与评级</h2>
-
-  <div class="score-card">
-    <div style="font-size: 14pt; font-weight: 600; color: #666; margin-bottom: 10px;">加权总分</div>
-    <div class="score-big">79.5</div>
-    <div class="score-label">/ 100</div>
-    <div style="margin-top: 15px;">
-      <span class="rating-badge">B+</span>
-    </div>
-    <div style="margin-top: 10px; font-size: 12pt; color: #555; font-weight: 600;">二线劲旅 · 淘汰赛有力争夺者</div>
-  </div>
-
-  <h3>七维度雷达汇总</h3>
-  <div class="radar-grid">
-    <div class="radar-item">
-      <span class="radar-label">阵容实力</span>
-      <div class="radar-bar-bg"><div class="radar-bar-fill" style="width:80%"></div></div>
-      <span class="radar-score">80</span>
-    </div>
-    <div class="radar-item">
-      <span class="radar-label">战术体系</span>
-      <div class="radar-bar-bg"><div class="radar-bar-fill" style="width:83%"></div></div>
-      <span class="radar-score">83</span>
-    </div>
-    <div class="radar-item">
-      <span class="radar-label">近期状态</span>
-      <div class="radar-bar-bg"><div class="radar-bar-fill" style="width:85%"></div></div>
-      <span class="radar-score">85</span>
-    </div>
-    <div class="radar-item">
-      <span class="radar-label">大赛经验</span>
-      <div class="radar-bar-bg"><div class="radar-bar-fill" style="width:77%"></div></div>
-      <span class="radar-score">77</span>
-    </div>
-    <div class="radar-item">
-      <span class="radar-label">分组赛程</span>
-      <div class="radar-bar-bg"><div class="radar-bar-fill" style="width:79%"></div></div>
-      <span class="radar-score">79</span>
-    </div>
-    <div class="radar-item">
-      <span class="radar-label">团队环境</span>
-      <div class="radar-bar-bg"><div class="radar-bar-fill" style="width:70%"></div></div>
-      <span class="radar-score">70</span>
-    </div>
-    <div class="radar-item" style="grid-column: 1 / -1;">
-      <span class="radar-label">伤病体能</span>
-      <div class="radar-bar-bg"><div class="radar-bar-fill" style="width:71%"></div></div>
-      <span class="radar-score">71</span>
-    </div>
-  </div>
-
-  <!-- (四) 深度球评 -->
-  <h2>四、深度球评</h2>
-
-  <h3>⚡ 核心优势</h3>
-
-  <div class="strength-box">
-    <strong>1. 锋线深度冠绝32强</strong><br>
-    英格兰拥有本届世界杯最豪华的前锋储备之一。凯恩（36球/德甲赛季）是金靴级终结者，身后沃特金斯（阿斯顿维拉核心射手）、托尼（沙特联赛高效射手）和拉什福德（巴萨复苏）均具备首发实力。萨卡和戈登在边路的突破能力为进攻提供了宽度。图赫尔在每个前锋位置上都至少有两名可用选择，这在密集赛程中是一大战略优势。
-  </div>
-
-  <div class="strength-box">
-    <strong>2. 中场双核统治力</strong><br>
-    贝林厄姆+赖斯的组合是当今足坛最平衡的中场搭档之一。贝林厄姆（22岁）能提供8号位的后插上得分、10号位的创造力和6号位的推进能力，近乎全能。赖斯（27岁）则是防守型中场的标杆——拦截、抢断、覆盖面积均属顶级。两人在攻防两端的互补性使英格兰在中场控制力上不逊于任何对手，这也是图赫尔体系运转的核心引擎。
-  </div>
-
-  <div class="strength-box">
-    <strong>3. 预选赛防守纪录的威慑力</strong><br>
-    8场预选赛零失球不只是数据，更是一种心理宣言。图赫尔迅速为英格兰注入了防守纪律性——这是过去几届大赛中英格兰最欠缺的品质之一。如果英格兰能在世界杯小组赛中延续这种防守组织水准，就将为自己赢得淘汰赛的容错空间。同时，图赫尔在切尔西时代的欧冠淘汰赛防守纪录（2021年淘汰赛仅失2球）也让人对英格兰的防守上限抱有期待。
-  </div>
-
-  <h3>⚠️ 致命短板</h3>
-
-  <div class="weakness-box">
-    <strong>1. 左翼卫位置的结构性缺陷</strong><br>
-    英格兰没有征召任何一名正统左边后卫进入26人大名单。斯宾塞（右脚将，在热刺主要踢右路）、伯恩（34岁中卫代打）和奥赖利（20岁，无大赛经验）是仅有的左路选项。这在图赫尔的3-4-3体系中是致命的结构性缺陷——左翼卫是进攻宽度和防守纵深的关键位置，尤其是在面对顶级边锋（如姆巴佩、维尼修斯）时，这个位置的薄弱可能被对手反复利用。图赫尔可能被迫在部分比赛中改打四后卫体系，但这又与他整个预选赛周期的训练重心相矛盾。
-  </div>
-
-  <div class="weakness-box">
-    <strong>2. 争议选人带来的更衣室风险</strong><br>
-    排除福登、帕尔默、马奎尔、阿诺德四名世界级/准世界级球员的决定，虽然可以在数据上找到理由，但也制造了巨大的舆论压力和潜在的更衣室裂痕。马奎尔家族的公开抗议只是冰山一角。图赫尔以其强硬的个性著称——这种"我说了算"的风格在切尔西赢得了欧冠，但也导致了更衣室的最终崩裂（在切尔西和巴黎均如此）。英格兰更衣室能否在淘汰赛压力下保持团结，将是决定球队上限的关键变量。
-  </div>
-
-  <h3>🌟 关键先生</h3>
-
-  <div class="key-player-card">
-    <div class="key-player-name">🎯 哈里·凯恩（Harry Kane）— 队长 · 中锋</div>
-    <div style="font-size:10.5pt; margin-top:6px;">英格兰队史最佳射手（69球），本赛季在拜仁36场德甲31球，各项赛事42+球。凯恩不仅仅是终结者——他的回撤组织能力是英格兰进攻体系的关键环节，能够将贝林厄姆和萨卡等人"喂"到最佳位置。32岁的凯恩正处在职业生涯的最成熟阶段，唯一悬念是他的大赛关键球表现——2022年对阵法国的点球失手仍是心魔。图赫尔需要确保凯恩在淘汰赛关键时刻不必承担"双重压力"（进球+点球主罚）。</div>
-  </div>
-
-  <div class="key-player-card">
-    <div class="key-player-name">⭐ 裘德·贝林厄姆（Jude Bellingham）— 攻击型中场</div>
-    <div style="font-size:10.5pt; margin-top:6px;">22岁的贝林厄姆是英格兰最具天赋的球员。本赛季在皇马继续扮演"自由人"角色，兼具10号位的创造力、8号位的冲击力和6号位的拼抢能力。在福登和帕尔默缺席的情况下，贝林厄姆将承担起几乎全部的进攻组织责任。他的后插上得分能力（上赛季皇马各项赛事23球）是对凯恩锋线火力的重要补充。图赫尔的核心战术之一就是最大化贝林厄姆在对手禁区附近的自由度。</div>
-  </div>
-
-  <div class="key-player-card">
-    <div class="key-player-name">🛡️ 德克兰·赖斯（Declan Rice）— 防守型中场</div>
-    <div style="font-size:10.5pt; margin-top:6px;">赖斯是英格兰阵中最重要的防守"屏障"，也是图赫尔3-4-3体系中提供防线身前保护的关键角色。本赛季在阿森纳场均完成2.5次抢断+1.8次拦截，传球成功率92%以上。赖斯的覆盖面积和位置感让他能够单后腰撑起中场防守，从而释放贝林厄姆向前的自由度。如果赖斯状态不佳或受伤，英格兰没有同级别的替代者（乔丹·亨德森35岁，迈努更偏向8号位），这是他不可替代性的最大体现。</div>
-  </div>
-
-  <div class="key-player-card">
-    <div class="key-player-name">⚡ 布卡约·萨卡（Bukayo Saka）— 右边锋</div>
-    <div style="font-size:10.5pt; margin-top:6px;">萨卡在阿森纳持续保持世界级边锋输出——连续三个赛季进球助攻"两双"。他的内切射门和边路突破是英格兰右路最可靠的进攻武器。在图赫尔的体系中，萨卡可能被安排在3-4-3的右前锋位置，与右翼卫里斯·詹姆斯/利夫拉门托形成右路强侧配合。萨卡的大心脏特质在2020欧洲杯决赛和2022世界杯中已得到证明——他敢于承担责任（尽管欧洲杯决赛罚失点球后遭受种族歧视，但心理恢复能力极强）。</div>
-  </div>
-
-  <div class="key-player-card">
-    <div class="key-player-name">🧤 乔丹·皮克福德（Jordan Pickford）— 门将</div>
-    <div style="font-size:10.5pt; margin-top:6px;">皮克福德是英格兰2018四强和2021欧洲杯亚军的首发门将，大赛经验丰富。他的特长在于关键时刻的扑点能力（2018世界杯八分之一决赛点球大战扑出哥伦比亚点球）和禁区内的出击覆盖。皮克福德在大赛中往往能"打出超水平"——2018年对瑞典的零封、2022年与美国队的平局中多次关键扑救。他的短板是身高（185cm）在防守远射和定位球时略吃亏，且偶尔会因出球失误制造险情。</div>
-  </div>
-
-  <div class="key-player-card">
-    <div class="key-player-name">🔄 马库斯·拉什福德（Marcus Rashford）— 边锋</div>
-    <div style="font-size:10.5pt; margin-top:6px;">拉什福德是本届英格兰阵中的"X因素"。在曼联经历了一个低迷的2024/25赛季后，租借至巴塞罗那后的拉什福德仿佛重获新生——在更开放、更注重进攻的西甲环境中，他的速度和盘带优势得到充分发挥。如果拉什福德能将在巴萨的好状态带到世界杯，他将为英格兰的左路进攻提供戈登所不具备的"一对一"爆破能力。图赫尔选择拉什福德而非状态下滑的福登，看重的正是他在反击中的直接威胁。</div>
-  </div>
-
-  <h3>🏆 小组赛预判</h3>
-
-  <div class="dimension-card" style="border-left: 4px solid #c8102e;">
-    <table>
-      <tr><th>对手</th><th>实力评级</th><th>预计结果</th><th>分析</th></tr>
-      <tr><td>🇭🇷 克罗地亚</td><td>C+</td><td><strong>胜</strong></td><td>克罗地亚黄金一代彻底老化，中后场控制力大幅下滑。英格兰中场活力占优，有望2-0取胜。</td></tr>
-      <tr><td>🇬🇭 加纳</td><td>C</td><td><strong>胜</strong></td><td>加纳个人能力不俗但战术纪律一般。英格兰实力碾压，预计3-1获胜。需留意加纳的反击速度。</td></tr>
-      <tr><td>🇵🇦 巴拿马</td><td>D-</td><td><strong>胜</strong></td><td>巴拿马经验最欠缺的球队之一。英格兰应轻松4-0大胜，为首战磨合阵容提供机会。</td></tr>
-      <tr><td colspan="4" style="text-align:center; background:#f8f8f8;"><strong>预计小组第一出线 · 出线概率：95%</strong></td></tr>
-    </table>
-  </div>
-
-  <h3>🗺️ 淘汰赛路线推演</h3>
-
   <div class="analysis-text">
-    <strong>32强赛（7月1/2日）：</strong>若以小组第一出线，将对阵E/H/I/J/K组中成绩最好的小组第三。对手大概率是中北美或亚洲球队（实力约C级），英格兰获胜概率约85%。通往16强的道路上没有太大阻碍。
+    英格兰的大赛心理是本届世界杯最复杂的议题。"It's coming home"的浪漫乐观主义与1966年以来58年无冠的现实之间的差距，形成了一种独特的"英格兰悖论"——他们拥有世界上最有自信的球迷（相信"这次轮到我们了"）和最脆弱的大赛心理（每次在关键时刻掉链子）。积极的一面是：这支英格兰的核心球员已经经历了足够多的大赛失败——2020欧洲杯决赛的失点、2022世界杯八强被法国淘汰——这些痛苦经历已经转化为了"学习的成本"。2024欧洲杯八强负于法国再次证实了"细节决定成败"——不是实力不够，而是关键时刻的决策质量不如对手。图赫尔的到来可能正是为了解决这个问题——他是一位以战术细节闻名的主帅，多特蒙德→巴黎→切尔西的冠军之路证明了他知道"如何赢下重要比赛"。凯恩经历了太多的"差点赢了"（热刺的多次亚军、英格兰的欧洲杯亚军）——本届世界杯可能就是他最后的机会来定义自己的职业生涯。如果英格兰能保持"轻松自信"而非"紧张怕输"的心态，他们完全有实力走到底。
   </div>
 
+  <!-- Dimension 5 -->
+  <div class="sub-section-title">维度五：分组及赛程影响（权重10%）｜ 得分：83分 × 10% = 8.3分</div>
+  <table class="score-table">
+    <thead><tr><th style="width:28%;">子项</th><th style="width:7%;">得分</th><th>简要评价</th></tr></thead>
+    <tbody>
+      <tr>
+        <td><strong>5.1 小组赛对手分析</strong>（占比40%）</td>
+        <td class="score-cell" style="color:#e74c3c;">85</td>
+        <td>L组是本届世界杯对种子队最友好的小组之一。克罗地亚（FIFA第14）曾经是2018年世界杯亚军和2022年季军，但2026年的克罗地亚已经进入了更新换代的阵痛期——莫德里奇（40岁）仍在奔跑但他的油箱已经见底，新一代球员尚未达到前辈的高度，整体实力明显下滑。加纳（FIFA第60）是非洲传统劲旅，但近年来的表现起伏不定，防守组织力和战术纪律远不如2010年那支打入八强的加纳。巴拿马（FIFA第45）是2022年首次参赛后再次晋级的队伍，整体实力有限。英格兰的赛程是先难后易——首战克罗地亚（这是唯一可能制造麻烦的对手），次战加纳（身体对抗强但技术粗糙），末战巴拿马（最弱的对手）。最理想的策略是首战全力取胜奠定出线基础，两连胜后末轮大幅轮换——这应该是一个可以轻松执行的计划。</td>
+      </tr>
+      <tr>
+        <td><strong>5.2 淘汰赛晋级路线预判</strong>（占比35%）</td>
+        <td class="score-cell" style="color:#e74c3c;">82</td>
+        <td>如果英格兰以小组第一出线（概率约80%），16强对手将是K组第二——K组第一极可能是葡萄牙（实力强劲），第二名大概率是哥伦比亚（FIFA第14）或乌兹别克斯坦。16强对阵哥伦比亚将是一场硬仗但胜率可期（约65%）。八强战对手将来自H组（西班牙）或G组（德国/塞尔维亚）——图赫尔的老熟人西班牙或德国。对阵西班牙将是一场战术层面的精彩博弈——图赫尔vs德拉富恩特。如果能闯入四强，对手大概率是法国或比利时。从路线图来看，英格兰进入四强需要击败两支世界级球队（西班牙+法国）——这是一条含金量极高的路径，但也意味着没有任何"轻松"的晋级机会。</td>
+      </tr>
+      <tr>
+        <td><strong>5.3 旅途与气候因素</strong>（占比25%）</td>
+        <td class="score-cell" style="color:#e67e22;">80</td>
+        <td>英格兰的三场小组赛信息：对阵克罗地亚（6月17日）、加纳（6月23日）、巴拿马（6月27日）——具体比赛场地尚未从搜索结果中完全明确，但约半数的比赛将在美国东海岸或中南部进行。6月美国的气候特征（炎热潮湿）与英格兰的温和夏季气候差异较大，球队需要提前10-14天抵达进行热适应。旅途方面，英格兰的比赛城市大概率集中在东海岸和中南部——纽约/新泽西、波士顿或亚特兰大是可能的选择，城市间飞行距离在2-4小时之间，可控。</td>
+      </tr>
+    </tbody>
+  </table>
   <div class="analysis-text">
-    <strong>16强赛（7月5-7日）：</strong>这是英格兰面临的第一个真正考验。潜在对手可能是E组或H组的小组第二——这两个小组中可能包含西班牙、荷兰、德国等传统强队中的一支（如果它们在小组赛中未能头名出线）。若面对西班牙或德国，英格兰处于五五开的局面。若面对较弱对手，晋级概率约65%。
+    L组是英格兰的"天堂签"——避开了所有同档劲敌，小组出线的难度极低。这意味着图赫尔可以在前两场比赛中以相对从容的节奏积累胜利，并有机会在末轮对巴拿马时进行大规模轮换——这对保存核心球员的体能、试验战术方案极为有利。但"天堂签"也有隐性风险——如果小组赛过于轻松，英格兰可能在淘汰赛第一场面对真正强敌时出现"节奏断档"（就像2022年美国队小组赛轻松出线后在16强被荷兰轻松击败一样）。图赫尔需要在小组赛中保持球队的高强度比赛节奏——这意味着即使面对弱旅，也不能让球队的防守纪律和进攻锐利度下降。淘汰赛路线图的焦点在八强——大概率对阵西班牙。这场比赛将决定英格兰整个世界杯的成败：赢了就是连续两届世界杯至少进入四强（2018四强、2022八强、2026四强），输了就会延续"关键时刻掉链子"的叙事。从战术角度看，西班牙的控球风格对上英格兰的高效反击是一个经典的"矛vs盾"对决——也是本届世界杯最值得期待的八强对决之一。
   </div>
 
+  <!-- Dimension 6 -->
+  <div class="sub-section-title">维度六：团队凝聚力与场外环境（权重10%）｜ 得分：78分 × 10% = 7.8分</div>
+  <table class="score-table">
+    <thead><tr><th style="width:28%;">子项</th><th style="width:7%;">得分</th><th>简要评价</th></tr></thead>
+    <tbody>
+      <tr>
+        <td><strong>6.1 更衣室团结度</strong>（占比35%）</td>
+        <td class="score-cell" style="color:#27ae60;">80</td>
+        <td>英格兰更衣室在图赫尔时代正处于"转型期"。凯恩作为队长的权威性和职业精神无可挑剔——他是全队资历最深、成就最高的球员，在场内外的榜样作用不可替代。但图赫尔的争议性选人决定（放弃福登、帕尔默、阿诺德、马奎尔）可能引发两个层面的问题：第一，入选球员中有多少人是图赫尔的"亲信"？第二，被放弃的球员大多是索斯盖特时代的核心，这可能在老一代和新一代球员之间造成微妙的隔阂。不过，英格兰更衣室历来以团结著称——不同俱乐部背景的球员之间很少出现公开矛盾（这与其他一些国家队形成鲜明对比）。凯恩需要在这届赛事中发挥关键的"桥梁"作用——确保球员们完全支持图赫尔的计划，而不是在心里怀疑他的决定。</td>
+      </tr>
+      <tr>
+        <td><strong>6.2 足协稳定性与管理</strong>（占比35%）</td>
+        <td class="score-cell" style="color:#e74c3c;">83</td>
+        <td>英格兰足协（FA）是全球最成熟、财力最雄厚的足球管理机构之一。FA在教练遴选、后勤保障、商业运营等方面的专业水平属于世界顶级。图赫尔的合同条款据报道包括了丰厚的奖金，表明了FA对世界杯成绩的高期望。FA为球队安排的世界杯备战计划科学合理——包括提前在北美设立训练营、安排针对性的热身赛对手（包括模拟克罗地亚风格的欧洲对手）。FA的医疗和体能保障团队也是世界一流水平。总体而言，FA为英格兰提供了"冠军级别的后勤保障"——球队不需要担心任何场外事务，可以专注于比赛本身。</td>
+      </tr>
+      <tr>
+        <td><strong>6.3 国内舆论与媒体压力</strong>（占比30%）</td>
+        <td class="score-cell" style="color:#e67e22;">70</td>
+        <td>英格兰的舆论环境是本届世界杯最复杂、压力最大的之一。"Football's coming home"文化意味着媒体和球迷的期望值总是处于"夺冠"的档位——即使球队在2022年只是八强。英国小报（《太阳报》《每日邮报》《镜报》）对国家队的报道以煽情和放大缺点著称——一场友谊赛失利（对日本）可能就引发"危机"讨论。图赫尔作为德国教练在英国媒体中天然地处于"被审视"的位置——如果他做出一个有争议的决定（比如放弃状态不佳的贝林厄姆），媒体可能迅速使用"德国式冷酷"的叙事框架来批评他。2024年欧洲杯八强出局后，英格兰媒体普遍认为索斯盖特"已经让这支球队发挥到了极限"，图赫尔被聘请正是为了"打破天花板"。因此，如果英格兰在小组赛阶段出现任何意外失误（比如平克罗地亚），媒体压力将迅速升级。</td>
+      </tr>
+    </tbody>
+  </div>
   <div class="analysis-text">
-    <strong>八强赛（7月10/11日）：</strong>假设英格兰顺利过关，八强战将面对可能是夺冠热门的较量——卫冕冠军阿根廷、巴西或荷兰是潜在对手。到了这一阶段，图赫尔的战术布置能力和英格兰的防守韧性将决定一切。需要注意的是，如果16强赛消耗过大，核心球员的体能储备将在八强赛成为关键变量。晋级四强的概率预估30-40%。
+    英格兰的场外环境是"组织保障满分、舆论压力拉满"的典型。FA提供了世界上最专业的世界杯备战支持——从后勤到医疗到商业保障都是顶级。更衣室内部的氛围是积极的但需要注意图赫尔的选人决定可能导致的微妙关系——他在切尔西时期就曾因铁腕管理而与部分球员产生隔阂。英国小报文化的毒害性是英格兰足球特有的一道难题——没有其他国家的媒体会像英国小报那样在球员最脆弱的时候进行无情的攻击（2020欧洲杯决赛后对罚失点球的三名年轻球员的种族歧视攻击就是一个令人发指的例子）。图赫尔在应对媒体方面有充足的经验——他在切尔西和巴黎都应对过高压媒体环境，但英国媒体的"狗仔队"风格可能超出了他的预期。他需要建立一个"保护罩"——将球队与外界噪音隔离，确保球员们能够专注于比赛而不是社交媒体上的评论。凯恩在这方面可以发挥重要作用——他在英格兰队内外都受到广泛尊重，他的稳定性和职业精神可以平息许多不必要的争议。
   </div>
 
+  <!-- Dimension 7 -->
+  <div class="sub-section-title">维度七：体能储备与伤病控制（权重5%）｜ 得分：80分 × 5% = 4.0分</div>
+  <table class="score-table">
+    <thead><tr><th style="width:28%;">子项</th><th style="width:7%;">得分</th><th>简要评价</th></tr></thead>
+    <tbody>
+      <tr>
+        <td><strong>7.1 赛季疲劳度评估</strong>（占比40%）</td>
+        <td class="score-cell" style="color:#27ae60;">80</td>
+        <td>英格兰核心球员经历了完整的英超赛季——英超是全世界赛程最密集、对抗最激烈的联赛之一。凯恩（拜仁）在德甲+欧冠+德国杯的多线作战中出场了50次，比赛负荷极高但他32岁的身体状态保持得相当好（本赛季仅因轻伤缺席2场比赛）。萨卡（阿森纳）和赖斯（阿森纳）在阿森纳争夺英超冠军的过程中全程高强度输出——萨卡本赛季45场、赖斯46场，两人的出场时长都在3500分钟以上。贝林厄姆（皇马）同样经历了漫长的西甲+欧冠赛季（约42场）。唯一的利好是：凯恩、萨卡、赖斯、贝林厄姆的核心四人组都没有严重的伤病史，这为世界杯期间的体能管理提供了保障。图赫尔需要在小组赛阶段（尤其是末轮对巴拿马）对核心球员进行轮换，确保他们的体能储备在淘汰赛开始时处于最佳状态。</td>
+      </tr>
+      <tr>
+        <td><strong>7.2 关键伤病与恢复情况</strong>（占比35%）</td>
+        <td class="score-cell" style="color:#e67e22;">78</td>
+        <td>英格兰的伤病状况是"两个好消息、一个坏消息"。好消息1：凯恩、贝林厄姆、赖斯、萨卡四大核心全员健康，这是英格兰争夺冠军的最大利好。好消息2：没有出现像2022年法国（博格巴/坎特双双缺席）那样的核心球员因伤退出情况。坏消息：里斯·詹姆斯（右后卫切尔西/€6000万）和利夫拉门托（纽卡/€4000万）在赛季末段都因肌肉问题缺席了数周比赛——两人虽然入选了大名单，但身体状况可能不足以在世界杯初期即进入首发。本·怀特（阿森纳/膝盖韧带）确认因伤缺席世界杯，这对中卫和右后卫的深度是一个打击。丹·伯恩（34岁/纽卡）的身体状态也需要谨慎管理——他的经验是后防线的宝贵财富，但年龄限制了他在密集赛程中的出场频率。</td>
+      </tr>
+      <tr>
+        <td><strong>7.3 医疗团队与保障水平</strong>（占比25%）</td>
+        <td class="score-cell" style="color:#27ae60;">82</td>
+        <td>英格兰足协的医疗团队配置全球顶级。FA配备了多名经验丰富的队医、物理治疗师、体能教练和运动科学家。英超俱乐部的医疗水平（尤其是阿森纳、曼城、曼联等顶级俱乐部）为英格兰球员提供了高质量的医疗支持。FA与多家顶级运动医学机构有长期合作关系。本届世界杯，球队将配备移动医疗站和恢复设备（包括冷冻治疗、高压氧舱等），确保球员在密集赛程中能够快速恢复。图赫尔在切尔西时期就以重视球员体能管理和伤病预防而闻名——他的团队会制定精细化的赛前训练和赛后恢复计划。</td>
+      </tr>
+    </tbody>
+  </div>
   <div class="analysis-text">
-    <strong>整体预判：</strong>英格兰在本届世界杯的"下限"是16强——小组赛签运好，前两轮淘汰赛的对手相对可控。但"上限"取决于：（1）左翼卫短板是否被针对；（2）更衣室能否保持团结；（3）凯恩的淘汰赛关键球表现。合理的预期是八强——如果超常发挥，四强也并非不可能。
+    英格兰的体能和伤病状况是"核心健康、边角有忧"。凯恩、贝林厄姆、萨卡、赖斯四人全员健康——这四个人如果同时出现在世界杯赛场上，英格兰的纸面实力可以与任何球队匹敌。凯恩50场58球的赛季负荷虽然高，但他的身体状态管理在拜仁表现出了很高的水平——图赫尔的前任纳格尔斯曼和拜仁队医团队在整个赛季中很好地管理了他的出场时间。右后卫位置（里斯·詹姆斯、利夫拉门托双双带伤入选）是伤病层面最大的不确定因素——如果两人都不能在淘汰赛阶段出场，英格兰可能被迫启用斯彭斯（热刺/€3000万/经验有限）来打关键比赛。图赫尔可能会采用三中卫体系来弥补右后卫位置的不足——让格希（曼城）移到右中卫位置，由奥赖利（曼城/€5000万）在右翼卫位置提供攻防覆盖。整体而言，英格兰的伤病状况在争夺冠军的四支热门球队中（法国、西班牙、巴西）处于"中等偏乐观"的水平——没有核心球员缺席，但少数位置的轮换深度受到伤病和状态的影响。
+  </div>
+</div>
+
+<!-- ==================== OVERALL SCORE ==================== -->
+<div class="section">
+  <div class="section-title">（三）综合总分与评级</div>
+
+  <div class="rating-box">
+    <div class="score">85.0</div>
+    <div style="font-size:16px;color:#ccc;margin-bottom:5px;">加权总分 / 100</div>
+    <div class="rating">A</div>
+    <div class="detail">一流强队，四强有力竞争者</div>
   </div>
 
-  <!-- 大师结语 -->
-  <div style="margin: 40px 0; padding: 25px; background: linear-gradient(135deg, #c8102e 0%, #8b0000 100%); border-radius: 12px; color: white; text-align: center;">
-    <div style="font-size: 16pt; font-weight: 700; letter-spacing: 2px; margin-bottom: 10px;">🏴󠁧󠁢󠁥󠁮󠁧󠁿 大师结语</div>
-    <div style="font-size: 12pt; line-height: 1.8; font-style: italic; max-width: 700px; margin: 0 auto;">
-      "图赫尔的英格兰是一次高风险实验——他用最勇敢的遗珠换来了最听话的阵容，用最严密的防守对冲了最薄弱的左路。<br>
-      预选赛零失球是完美的序章，但真正的英格兰故事永远从淘汰赛开始书写。<br>
-      三狮军团拥有进球机器凯恩和全能天才贝林厄姆，却在后防埋下了定时炸弹。<br>
-      本届世界杯，英格兰的宿命不在于能否赢球，而在于图赫尔能否在美利坚的土地上，真正治愈这支球队60年来的心理痼疾。"
-    </div>
+  <table class="radar-table">
+    <thead><tr><th>评估维度</th><th>得分</th><th>权重</th><th>加权得分</th><th>可视化</th></tr></thead>
+    <tbody>
+      <tr><td>① 阵容实力</td><td>90</td><td>30%</td><td>27.00</td><td><div class="progress-bar"><div class="progress-fill" style="width:90%;background:#e74c3c;"></div></div></td></tr>
+      <tr><td>② 战术体系与教练</td><td>87</td><td>20%</td><td>17.40</td><td><div class="progress-bar"><div class="progress-fill" style="width:87%;background:#e67e22;"></div></div></td></tr>
+      <tr><td>③ 近期竞技状态</td><td>86</td><td>15%</td><td>12.90</td><td><div class="progress-bar"><div class="progress-fill" style="width:86%;background:#f1c40f;"></div></div></td></tr>
+      <tr><td>④ 大赛经验与心理素质</td><td>79</td><td>10%</td><td>7.90</td><td><div class="progress-bar"><div class="progress-fill" style="width:79%;background:#3498db;"></div></div></td></tr>
+      <tr><td>⑤ 分组及赛程影响</td><td>83</td><td>10%</td><td>8.30</td><td><div class="progress-bar"><div class="progress-fill" style="width:83%;background:#9b59b6;"></div></div></td></tr>
+      <tr><td>⑥ 团队凝聚力与场外环境</td><td>78</td><td>10%</td><td>7.80</td><td><div class="progress-bar"><div class="progress-fill" style="width:78%;background:#2ecc71;"></div></div></td></tr>
+      <tr><td>⑦ 体能储备与伤病控制</td><td>80</td><td>5%</td><td>4.00</td><td><div class="progress-bar"><div class="progress-fill" style="width:80%;background:#1abc9c;"></div></div></td></tr>
+    </tbody>
+    <tfoot>
+      <tr style="font-weight:bold;background:#f0f0f0;">
+        <td>综合总分</td><td colspan="2" style="text-align:center;">85.0</td><td style="color:#e74c3c;font-size:16px;">A级</td><td></td>
+      </tr>
+    </tfoot>
+  </table>
+</div>
+
+<!-- ==================== DEEP ANALYSIS ==================== -->
+<div class="section">
+  <div class="section-title">（四）深度球评</div>
+
+  <div class="sub-section-title">核心优势</div>
+
+  <div class="player-highlight">
+    <div class="name">🎯 哈里·凯恩——50场58球的"外星人赛季"</div>
+    <div class="detail">哈里·凯恩本赛季在拜仁慕尼黑50场比赛打入58球——这一数据不仅是本赛季欧洲最佳，在世界杯参赛球员的历史上也极为罕见。他的进球分布极其全面：德甲34球、欧冠12球、国内杯赛12球，覆盖了头球、左右脚、点球、远射、禁区抢点等所有进球类型。在英格兰体系中，凯恩的角色不仅仅是终结者——他还是前场的组织支点，经常回撤到中场接球，利用他的视野（本赛季助攻12次）为萨卡和贝林厄姆的纵深跑位创造空间。2022年世界杯上，他虽然只有2球入账，但他在对阵法国时创造了一个关键点球（可惜射失）。32岁的凯恩正处于职业生涯的"意识巅峰"——他跑位更加狡猾、阅读比赛更加精准、射门选择更加合理。如果说英格兰夺冠需要一个"决定性因素"，那么凯恩就是这个因素——他完全有能力在一个月的时间里用6-7个进球把英格兰带向冠军。</div>
   </div>
 
-  <div style="text-align: center; color: #999; font-size: 9pt; padding-top: 20px; border-top: 1px solid #eee; margin-top: 30px;">
-    报告生成时间：2026年5月22日 · 数据来源：FIFA、Transfermarkt、UEFA、各俱乐部官方数据 · 评级体系：OPR 十三级评分
+  <div class="player-highlight">
+    <div class="name">⚙️ 贝林厄姆+赖斯的"冠军中场"——攻防两端的世界级统治力</div>
+    <div class="detail">德克兰·赖斯（€1.2亿/阿森纳）和裘德·贝林厄姆（€1.4亿/皇马）的中场双核可能是本届世界杯攻守最均衡的中场组合。赖斯是"防守之盾"——他本赛季英超的场均抢断（2.5次）、拦截（1.6次）和传球成功率（91%）使他成为阿森纳夺冠的中场基石；他在由守转攻时的快速分球能力是英格兰从防守转向进攻的第一环。贝林厄姆是"进攻之矛"——他在皇马本赛季的20+进球证明了他作为B2B中场的得分能力已经达到世界级水准；他在对手禁区周围的跑位选择和最后一传的洞察力使他成为凯恩之后英格兰最具创造力的攻击手。两人在风格上的互补（赖斯主守、贝林厄姆主攻）为图赫尔提供了战术上的灵活性——如果面对较弱对手，贝林厄姆可以更靠前；如果面对强敌，赖斯可以回撤保护后防线。这对双核是英格兰争夺冠军的最大资本——在世界杯淘汰赛中，拥有世界级中场组合的球队往往能够控制比赛的走向。</div>
+  </div>
+
+  <div class="player-highlight">
+    <div class="name">👑 图赫尔——冠军DNA的注入者</div>
+    <div class="detail">图赫尔是英格兰队史第一位以欧冠冠军身份执教的主教练——他的到来为英格兰带来了前所未有的"冠军DNA"。在索斯盖特时代，英格兰两次距离冠军"差一步"（2020欧洲杯亚军、2018世界杯第四名）——这种"差点就赢"的模式让人想起了2010年代的热刺（凯恩在同一时期经历了联赛杯、欧冠决赛的多次亚军）。图赫尔的到来被FA设计为"打破水桶的最后一击"——他的战术智慧、大赛经验和冷酷无情的胜利主义正是英格兰所需要的。他在切尔西的欧冠夺冠之路（淘汰马竞、波尔图、皇马、曼城）证明了他有能力在淘汰赛赛制中连续击败顶级对手。他对阵瓜迪奥拉的历史战绩（6胜3平5负）是所有教练中对瓜迪奥拉最好的之一——如果在决赛中遇到曼城风格球队，他拥有心理优势。</div>
+  </div>
+
+  <div class="sub-section-title">致命短板</div>
+
+  <div class="player-highlight">
+    <div class="name">⚠️ 后防线的"信任危机"——格希+斯通斯能扛住吗？</div>
+    <div class="detail">英格兰的后防线是争冠球队中"最弱的一环"——这是与法国（萨利巴+科纳特）、西班牙（库巴尔西+拉波尔特）、巴西（马尔基尼奥斯+米利唐）相比得出的结论。马克·格希（曼城/€6500万）在俱乐部并非绝对主力——他在曼城的中卫顺位排在鲁本·迪亚斯和阿坎吉之后，本赛季英超出场仅25次，缺乏连续高强度比赛的节奏。约翰·斯通斯（曼城/32岁/€1500万）是曼城2023三冠王的功勋后卫，但他近两个赛季的出场时间大幅下降（2025-26赛季仅出场22次），他的身体状态和比赛感觉存在疑问。这对中卫组合的合作经历极少——在预选赛中只有4次同时首发。如果面对姆巴佩（法国）或维尼修斯（巴西）这样的世界级前锋时出现防守失误，英格兰的整个世界杯征程可能在90分钟内终结。</div>
+  </div>
+
+  <div class="player-highlight">
+    <div class="name">⚠️ "It's coming home"的诅咒——58年无冠的心理重量</div>
+    <div class="detail">自1966年英格兰在本土世界杯夺冠以来，58年过去了。58年——足够一个婴儿长成中年人。在这58年中，英格兰经历了1990年的加斯科因之泪（半决赛点球负西德）、1996年欧洲杯的再次点球失利、2018年半决赛的领先被逆转、2020欧洲杯决赛的主场点球噩梦、2022年凯恩的点球射失——每一次都以不同的方式、但相同的结果（失败）而告终。"It's coming home"已经从一句球迷的乐观口号演变成了一种"FLAG"——每当英格兰球迷满怀信心地说出这句话，球队就在某个关键时刻倒下。这支英格兰的球员们——凯恩、皮克福德、斯通斯、亨德森——经历过2018、2020、2022三次大赛的"差点夺冠"。这种反复的"接近-失败-接近-失败"循环在心理上积累了多大的阴影？图赫尔需要帮助球队建立一个心理上的"防火墙"——过去的失败与这一届无关。</div>
+  </div>
+
+  <div class="sub-section-title">关键先生</div>
+
+  <div class="player-highlight">
+    <div class="name">🌟 哈里·凯恩 (Harry Kane) — 中锋/队长 · 32岁 · 拜仁慕尼黑</div>
+    <div class="detail">英格兰的队长和绝对核心。本赛季50场58球的恐怖数据使他成为本届世界杯头号射手的热门候选——他的射门转化率（29.7%）、预期进球差值（+12.3）和禁区触球次数（场均7.5次）均排名欧洲五大联赛前锋第一。他的回撤组织能力为英格兰的进攻提供了第二个维度——当对手压缩后防线时，凯恩回撤到10号位接球，将对方中卫拉扯出防守位置，为萨卡和贝林厄姆的前插创造空间。他还有一个被低估的品质：领导力——作为队长，他在场上的冷静和专注能够稳定全队的情绪。凯恩的职业生涯走到了一个"决赛点"——如果带领英格兰在2026年夺冠，他将从"英超历史级射手"升华为"英格兰足球的象征"；如果再次无功而返，他将成为"无冕之王"的代名词（无联赛冠军、无杯赛冠军——除了奥迪杯）。没有任何球员比凯恩更渴望这座奖杯。</div>
+  </div>
+
+  <div class="player-highlight">
+    <div class="name">🌟 裘德·贝林厄姆 (Jude Bellingham) — 攻击型中场 · 22岁 · 皇家马德里</div>
+    <div class="detail">欧洲足坛最令人兴奋的年轻中场——身价€1.4亿见证了他过去两年在皇马的爆炸式成长。他的比赛风格以"全能"和"大场面"著称——他的推进能力、后插上得分和防守贡献使他成为完美的现代B2B中场。在皇马的两个赛季，他适应了在不同战术体系中的角色切换（安切洛蒂给了他攻击型中场的自由度）。在英格兰队，图赫尔给了他类似在皇马的角色——在凯恩周围的自由空间活动，利用他的跑位和射门能力制造威胁。他的大心脏特质在关键比赛中尤为突出——2024年欧冠半决赛对拜仁打入关键球、西甲国家德比多次决定比赛走向。22岁的他已经拥有了超越年龄的成熟和自信——他可能是英格兰在淘汰赛中最可靠的"差异化因素"。</div>
+  </div>
+
+  <div class="player-highlight">
+    <div class="name">🌟 布卡约·萨卡 (Bukayo Saka) — 右边锋 · 24岁 · 阿森纳</div>
+    <div class="detail">英格兰最被低估的核心球员——身价€1.2亿与他在阿森纳的产出完全匹配。本赛季英超贡献11球13助攻，是阿森纳夺冠赛季最稳定的进攻输出点。他的技术特点可以用"可靠"两个字概括——他的盘带虽然不像姆巴佩那样具有毁灭性速度，但他在右边路的控球稳定性（场均2.1次成功过人、1.8次关键传球）和决策质量使他成为前场最值得信赖的持球点。他在2020欧洲杯决赛罚失点球后经历了艰难的心理重建，但之后的表现（阿森纳两个赛季的持续高输出）证明了他的心理韧性。在英格兰队，他固定在右边路的角色与他在阿森纳的角色完全一致——他不需要任何适应。他的左脚下底传中是凯恩最喜欢的传球类型——两人之间的默契在2024欧洲杯上已经初显成效。</div>
+  </div>
+
+  <div class="player-highlight">
+    <div class="name">🌟 德克兰·赖斯 (Declan Rice) — 防守型中场 · 27岁 · 阿森纳</div>
+    <div class="detail">英格兰中场的"守护神"。赖斯的价值不在于华丽的数据，而在于他提供的"防守安全感"——他是英格兰后防线身前最后一道屏障，他的存在让贝林厄姆可以放心前插、让格希和斯通斯不需要直接面对对手的快速突破。本赛季他在阿森纳的防守数据（场均2.5次抢断、1.6次拦截、场均恢复球权8.3次）在英超防守中场中排名前三。他的传球虽然不以穿透性著称，但他的横向转移和短传稳定性（传球成功率91%）确保了英格兰在中场的控球安全。他的领导力也在逐步成长——他在阿森纳的第二个赛季已经开始承担更多的场上指挥职责。图赫尔需要依赖赖斯在世界杯上完成"满负荷"的工作——他可能是本届世界杯出场时间最长的英格兰球员之一。</div>
+  </div>
+
+  <div class="player-highlight">
+    <div class="name">🌟 安东尼·戈登 (Anthony Gordon) — 左边锋 · 25岁 · 纽卡斯尔联</div>
+    <div class="detail">图赫尔在左路选择的"速度型X因素"——戈登本赛季在纽卡打出了职业生涯最佳表现（英超8球7助攻），他的直线冲刺速度（35.2km/h）和拼抢积极性使他成为英格兰最"能量充沛"的边路球员。他在图赫尔体系中的角色定位是"拉什福德的上位替代"——图赫尔认为戈登的防守贡献（场均回防1.8次）和无球跑动比拉什福德更适合他的战术需求。戈登在2024欧洲杯上只是轮换球员，但他在2026年已经晋升为左边路的首发竞争者。他在左路的直接性和拼劲为英格兰提供了与萨卡（右路/技术型）完全不同的进攻维度——如果需要打反击，戈登的速度是撕开对手防线的最有效武器。</div>
   </div>
 
 </div>
+
+<!-- ==================== GROUP PREDICTION ==================== -->
+<div class="section">
+  <div class="section-title">（五）小组赛预判与淘汰赛路线推演</div>
+
+  <div class="sub-section-title">📋 L组赛程与预测</div>
+
+  <table>
+    <thead><tr><th>轮次</th><th>日期</th><th>对阵</th><th>预测</th></tr></thead>
+    <tbody>
+      <tr><td>第1轮</td><td>6月17日</td><td>🏴󠁧󠁢󠁥󠁮󠁧󠁿 英格兰 vs 🇭🇷 克罗地亚</td><td><strong>最关键一战</strong> — 魔笛老矣，英格兰中场硬实力碾压。预测：2-0或3-1英格兰胜</td></tr>
+      <tr><td>第2轮</td><td>6月23日</td><td>🏴󠁧󠁢󠁥󠁮󠁧󠁿 英格兰 vs 🇬🇭 加纳</td><td><strong>身体对抗战</strong> — 加纳拼抢凶狠但技术粗糙，凯恩的支点作用可破密集防守。预测：2-0英格兰胜</td></tr>
+      <tr><td>第3轮</td><td>6月27日</td><td>🇵🇦 巴拿马 vs 🏴󠁧󠁢󠁥󠁮󠁧󠁿 英格兰</td><td><strong>轮换战</strong> — 大幅轮换核心阵容，替补展示深度。预测：3-0或4-0英格兰胜</td></tr>
+    </tbody>
+  </table>
+
+  <div class="sub-section-title">🏆 小组出线概率预估</div>
+  <table>
+    <thead><tr><th>出线形式</th><th>概率预估</th></tr></thead>
+    <tbody>
+      <tr><td>小组第一出线</td><td>约80%</td></tr>
+      <tr><td>小组第二出线</td><td>约18%</td></tr>
+      <tr><td>小组出局</td><td>&lt;2%</td></tr>
+    </tbody>
+  </table>
+
+  <div class="sub-section-title">🔄 淘汰赛路线推演</div>
+  <p style="margin:8px 0;">以小组第一出线后，英格兰的淘汰赛路线：</p>
+  <ul style="margin:8px 0 8px 25px;line-height:2;">
+    <li><strong>16强 vs K组第二</strong>（哥伦比亚/乌兹别克斯坦）—— 胜率约65%</li>
+    <li><strong>八强 vs H组第一</strong>（大概率西班牙🇪🇸）—— 胜率约45-50% —— 本届焦点大战</li>
+    <li><strong>四强 vs 上半区</strong>（法国🇫🇷或比利时🇧🇪）—— 胜率约45%</li>
+    <li><strong>决赛 vs 下半区</strong>（巴西🇧🇷/阿根廷🇦🇷/葡萄牙🇵🇹）—— 胜率约40%</li>
+  </ul>
+  <p style="margin:8px 0;"><strong>核心判断</strong>：英格兰小组出线概率>98%，八强约50%，四强约30%，夺冠约13%。与法国、西班牙并列三大夺冠热门。</p>
+
+</div>
+
+<!-- ==================== FINAL VERDICT ==================== -->
+<div class="section">
+  <div class="section-title">（六）大师结语</div>
+
+  <div class="conclusion-box">
+    "€13.1亿的天赋、凯恩58球的疯狂赛季、图赫尔欧冠冠军的血统——这支英格兰从未拥有过如此多的夺冠要素。但1966年的荣光已经泛黄了58年，2020欧洲杯决赛的泪痕还在脸上，2022年凯恩射失的点球还在空中飞行。'It's coming home'？这一次可能真的回到它应该属于的地方——但前提是，这支英格兰必须学会在'最大的期望'面前保持'最少的心思'。不再去想历史，不再去想压力，不再去想'如果输了会怎样'——只去想下一场比赛，下一脚传球，下一个进球。如果英格兰能做到这一点，他们就是最好的那支球队。"</div>
+</div>
+
+<!-- ==================== DATA SOURCE ==================== -->
+<div class="section" style="margin-top:30px;padding-top:20px;border-top:1px solid #eee;font-size:12px;color:#999;">
+  <p><strong>数据来源及参考：</strong></p>
+  <p>FIFA官方排名、Transfermarkt身价数据库、FIFA官网阵容公告、ESPN/Sporting News/Independent阵容分析、英超/德甲/西甲赛季数据、UEFA欧洲预选赛数据、TopEndSports世界杯历史记录</p>
+  <p>报告生成时间：2026年5月30日 | 技能：world-cup-team-evaluator | 模型：Deepseek-V4-Flash</p>
+</div>
+
+</div>
+
 
 <!-- HuaFootball: back-to-home button -->
 <a href="../index.html" class="huafootball-back-btn" target="_self">
@@ -455,17 +493,17 @@
 .huafootball-back-btn {
   position:fixed!important;bottom:28px!important;right:28px!important;z-index:99999!important;
   display:inline-flex!important;align-items:center!important;gap:6px!important;
-  padding:10px 22px!important;background:rgba(26,71,42,0.85)!important;color:#c9a84c!important;
-  border:1px solid rgba(201,168,76,0.3)!important;border-radius:999px!important;
-  font-family:"Inter","Noto Sans SC",system-ui,sans-serif!important;font-size:13px!important;
+  padding:10px 22px!important;background:rgba(26,71,42,0.85)!important;color:#c8a951!important;
+  border:1px solid rgba(200,169,81,0.3)!important;border-radius:999px!important;
+  font-family:"Inter","PingFang SC",system-ui,sans-serif!important;font-size:13px!important;
   font-weight:600!important;text-decoration:none!important;
   backdrop-filter:blur(8px)!important;-webkit-backdrop-filter:blur(8px)!important;
   box-shadow:0 4px 20px rgba(0,0,0,0.3)!important;transition:all .25s ease!important;
   cursor:pointer!important;user-select:none!important;
 }
 .huafootball-back-btn:hover {
-  background:rgba(26,71,42,0.95)!important;border-color:rgba(201,168,76,0.5)!important;
-  box-shadow:0 6px 28px rgba(201,168,76,0.2)!important;transform:translateY(-2px)!important;
+  background:rgba(26,71,42,0.95)!important;border-color:rgba(200,169,81,0.5)!important;
+  box-shadow:0 6px 28px rgba(200,169,81,0.2)!important;transform:translateY(-2px)!important;
 }
 .huafootball-back-btn svg { transition:transform .2s ease!important; }
 .huafootball-back-btn:hover svg { transform:translateX(-3px)!important; }

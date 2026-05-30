@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>摩洛哥 · 2026世界杯实力评估报告</title>
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: 'Times New Roman', '楷体', 'KaiTi', serif; background: #fff; color: #222; line-height: 1.8; font-size: 16px; }
+.container { max-width: 1000px; margin: 0 auto; padding: 30px 20px; }
+.header { text-align: center; padding: 40px 0 30px; border-bottom: 3px solid #e74c3c; margin-bottom: 35px; }
+.header h1 { font-size: 32px; color: #1a1a2e; margin-top: 12px; letter-spacing: 2px; }
+.header .subtitle { font-size: 14px; color: #888; margin-top: 6px; }
+.team-badge { text-align: center; margin-bottom: 10px; }
+.team-badge img { height: 90px; width: auto; display: block; margin: 0 auto 10px; }
+.flag-emoji-fallback { display: none; font-size: 4em; margin-bottom: 10px; }
+.section { margin: 35px 0; }
+.section-title { font-size: 22px; color: #e74c3c; border-left: 5px solid #e74c3c; padding-left: 15px; margin-bottom: 20px; }
+.sub-section-title { font-size: 18px; color: #1a1a2e; margin: 20px 0 12px; padding-bottom: 6px; border-bottom: 1px solid #eee; }
+table { width: 100%; border-collapse: collapse; margin: 12px 0; font-size: 14px; }
+th { background: #1a1a2e; color: #fff; padding: 10px 12px; text-align: left; font-weight: bold; }
+td { padding: 9px 12px; border-bottom: 1px solid #eee; }
+tr:nth-child(even) { background: #fafafa; }
+tr:hover { background: #fff5f5; }
+.score-table th { background: #e74c3c; }
+.score-cell { font-weight: bold; text-align: center; }
+.rating-box { text-align: center; padding: 25px; background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%); color: #fff; border-radius: 8px; margin: 20px 0; }
+.rating-box .score { font-size: 48px; font-weight: bold; color: #e74c3c; }
+.rating-box .rating { font-size: 36px; color: #ffd700; margin: 8px 0; }
+.rating-box .detail { font-size: 14px; color: #aaa; }
+.radar-table { margin: 15px 0; }
+.radar-table td:first-child { font-weight: bold; min-width: 140px; }
+.progress-bar { height: 12px; background: #f0f0f0; border-radius: 6px; overflow: hidden; min-width: 300px; }
+.progress-fill { height: 100%; border-radius: 6px; }
+.analysis-text { background: #fafafa; padding: 16px 20px; border-radius: 6px; border-left: 4px solid #e74c3c; margin: 12px 0; line-height: 1.9; text-indent: 2em; }
+.info-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; margin: 15px 0; }
+.info-item { background: #fafafa; padding: 14px 18px; border-radius: 6px; border-left: 3px solid #e74c3c; }
+.info-item .label { font-size: 12px; color: #888; }
+.info-item .value { font-size: 16px; font-weight: bold; color: #1a1a2e; }
+.player-highlight { background: #fff8e1; padding: 14px 18px; border-radius: 6px; margin: 12px 0; border-left: 4px solid #ffd700; }
+.player-highlight .name { font-size: 17px; font-weight: bold; color: #1a1a2e; }
+.player-highlight .detail { font-size: 14px; color: #555; margin-top: 6px; line-height: 1.8; }
+.conclusion-box { background: #1a1a2e; color: #fff; padding: 20px 25px; border-radius: 8px; margin: 20px 0; font-size: 18px; text-align: center; font-style: italic; }
+@media (max-width: 768px) {
+  .info-grid { grid-template-columns: 1fr; }
+  table { font-size: 12px; }
+  .header h1 { font-size: 22px; }
+}
+</style>
+</head>
+<body>
+
+<div class="container">
+
+<!-- HEADER -->
+<div class="header">
+  <div class="team-badge">
+    <img src="https://cdn.prod.website-files.com/68f550992570ca0322737dc2/68fa032284d7ebc8adde9b0e_morocco-national-team-footballlogos-org.png"
+         alt="摩洛哥足协 FRMF 盾徽"
+         onerror="this.style.display='none';document.getElementById('logo-fb').style.display='block';" />
+    <div id="logo-fb" class="flag-emoji-fallback">🇲🇦</div>
+  </div>
+  <h1>🇲🇦 摩洛哥 · 2026世界杯实力评估报告</h1>
+  <div class="subtitle">Atlas Lions · Group C | 评估日期：2026年5月30日</div>
+</div>
+
+<!-- BASIC INFO -->
+<div class="section">
+  <div class="section-title">（一）球队基本信息</div>
+  <div class="info-grid">
+    <div class="info-item"><div class="label">主教练</div><div class="value">穆罕默德·瓦赫比（Mohamed Ouahbi）</div></div>
+    <div class="info-item"><div class="label">FIFA世界排名</div><div class="value">第8位</div></div>
+    <div class="info-item"><div class="label">全队总身价</div><div class="value">€4.87亿</div></div>
+    <div class="info-item"><div class="label">平均年龄</div><div class="value">26.4岁</div></div>
+    <div class="info-item"><div class="label">世界杯参赛次数</div><div class="value">第7次</div></div>
+    <div class="info-item"><div class="label">世界杯最好成绩</div><div class="value">第四名 🏆（2022年卡塔尔世界杯）</div></div>
+    <div class="info-item"><div class="label">上届（2022）成绩</div><div class="value">第四名（半决赛、非洲球队历史最佳战绩）</div></div>
+    <div class="info-item"><div class="label">近期大赛成绩</div><div class="value">🏆 2025非洲杯冠军</div></div>
+  </div>
+
+  <div class="sub-section-title">26人大名单</div>
+  <p style="margin:8px 0 4px;color:#555;font-size:13px;">📅 公布日期：2026年5月27日 | 队长：阿什拉夫·哈基米 | 主帅：穆罕默德·瓦赫比（首次执教成年国家队）</p>
+
+  <div style="overflow-x:auto;">
+  <table>
+    <thead><tr><th>位置</th><th>球员姓名</th><th>英文名</th><th>俱乐部</th><th>年龄</th><th>身价</th></tr></thead>
+    <tbody>
+      <tr><td rowspan="3" style="text-align:center;"><strong>GK</strong></td><td>亚辛·布努</td><td>Yassine Bounou</td><td>阿尔希拉尔（沙特）</td><td>35</td><td>€350万</td></tr>
+      <tr><td>穆尼尔·埃尔卡朱伊</td><td>Munir El Kajoui</td><td>贝尔坎（摩甲）</td><td>37</td><td>€70万</td></tr>
+      <tr><td>雷达·塔格瑙蒂</td><td>Reda Tagnaouti</td><td>拉巴特武装（摩甲）</td><td>30</td><td>€80万</td></tr>
+      <tr><td rowspan="8" style="text-align:center;"><strong>DF</strong></td><td style="background:#fff8e1;">🌟 阿什拉夫·哈基米 <span style="color:#e74c3c;">(C)</span></td><td style="background:#fff8e1;">Achraf Hakimi</td><td style="background:#fff8e1;">巴黎圣日耳曼（法甲）</td><td style="background:#fff8e1;">27</td><td style="background:#fff8e1;">€8000万</td></tr>
+      <tr><td>努塞尔·马兹拉维</td><td>Noussair Mazraoui</td><td>曼联（英超）</td><td>28</td><td>€2000万</td></tr>
+      <tr><td>纳耶夫·阿盖尔德</td><td>Nayef Aguerd</td><td>马赛（法甲）</td><td>30</td><td>€2000万</td></tr>
+      <tr><td>查迪·里亚德</td><td>Chadi Riad</td><td>水晶宫（英超）</td><td>22</td><td>€1200万</td></tr>
+      <tr><td>伊萨·迪奥普</td><td>Issa Diop</td><td>富勒姆（英超）</td><td>29</td><td>€1000万</td></tr>
+      <tr><td>阿纳斯·萨拉赫-埃丁</td><td>Anass Salah-Eddine</td><td>埃因霍温（荷甲）</td><td>24</td><td>€1200万</td></tr>
+      <tr><td>扎卡里亚·埃尔瓦赫迪</td><td>Zakaria El Ouahdi</td><td>亨克（比甲）</td><td>24</td><td>€1500万</td></tr>
+      <tr><td>雷杜安·哈尔哈尔</td><td>Redouane Halhal</td><td>梅赫伦（比甲）</td><td>23</td><td>€300万</td></tr>
+      <tr><td rowspan="7" style="text-align:center;"><strong>MF</strong></td><td>阿尤布·布阿迪</td><td>Ayyoub Bouaddi</td><td>里尔（法甲）</td><td>18</td><td>€5000万</td></tr>
+      <tr><td>伊斯梅尔·赛巴里</td><td>Ismael Saibari</td><td>埃因霍温（荷甲）</td><td>25</td><td>€4000万</td></tr>
+      <tr><td>比拉尔·埃尔汉努斯</td><td>Bilal El Khannouss</td><td>斯图加特（德甲）</td><td>22</td><td>€3500万</td></tr>
+      <tr><td>尼尔·埃尔艾纳维</td><td>Neil El Aynaoui</td><td>罗马（意甲）</td><td>24</td><td>€2300万</td></tr>
+      <tr><td>索菲扬·阿姆拉巴特</td><td>Sofyan Amrabat</td><td>皇家贝蒂斯（西甲）</td><td>29</td><td>€1200万</td></tr>
+      <tr><td>阿泽丁·奥纳希</td><td>Azzedine Ounahi</td><td>吉罗纳（西甲）</td><td>26</td><td>€1000万</td></tr>
+      <tr><td>萨米尔·埃尔穆拉贝特</td><td>Samir El Mourabet</td><td>斯特拉斯堡（法甲）</td><td>20</td><td>€1800万</td></tr>
+      <tr><td rowspan="7" style="text-align:center;"><strong>FW</strong></td><td style="background:#fff8e1;">🌟 卜拉欣·迪亚斯</td><td style="background:#fff8e1;">Brahim Díaz</td><td style="background:#fff8e1;">皇家马德里（西甲）</td><td style="background:#fff8e1;">26</td><td style="background:#fff8e1;">€3500万</td></tr>
+      <tr><td>阿卜杜勒·埃扎尔祖利</td><td>Abde Ezzalzouli</td><td>皇家贝蒂斯（西甲）</td><td>24</td><td>€3000万</td></tr>
+      <tr><td>切姆斯丁·塔尔比</td><td>Chemsdine Talbi</td><td>桑德兰（英冠）</td><td>21</td><td>€2500万</td></tr>
+      <tr><td>苏菲安·拉希米</td><td>Soufiane Rahimi</td><td>阿尔艾因（阿联酋）</td><td>29</td><td>€600万</td></tr>
+      <tr><td>阿尤布·埃尔卡比</td><td>Ayoub El Kaabi</td><td>奥林匹亚科斯（希超）</td><td>32</td><td>€500万</td></tr>
+      <tr><td>热西姆·亚辛</td><td>Gessime Yassine</td><td>斯特拉斯堡（法甲）</td><td>20</td><td>€1000万</td></tr>
+      <tr><td>阿尤贝·阿迈穆尼</td><td>Ayoube Amaimouni</td><td>法兰克福（德甲）</td><td>21</td><td>€1000万</td></tr>
+    </tbody>
+  </table>
+  </div>
+
+  <p style="margin:8px 0;padding:10px 14px;background:#fff0f0;border-radius:6px;font-size:13px;border-left:4px solid #e74c3c;">
+    <strong>⚠️ 关键伤缺：</strong>2022世界杯头号射手优素福·恩内斯里（Youssef En-Nesyri）因伤无缘本届世界杯。他在2022年卡塔尔打入2球（包括对阵葡萄牙的关键头球），是摩洛哥进攻体系中的支点中锋——他的缺阵对摩洛哥的进攻是重大打击。
+  </p>
+
+  <div class="sub-section-title">世界杯历史战绩</div>
+  <table>
+    <thead><tr><th>年份</th><th>成绩</th><th>备注</th></tr></thead>
+    <tbody>
+      <tr><td>1970年</td><td>小组赛</td><td>首次参赛</td></tr>
+      <tr><td>1986年（墨西哥）</td><td>16强</td><td>小组第一出线（力压英格兰/波兰），16强0-1负西德</td></tr>
+      <tr><td>1994/1998年</td><td>小组赛</td><td></td></tr>
+      <tr><td>2018年（俄罗斯）</td><td>小组赛</td><td></td></tr>
+      <tr><td><strong>2022年（卡塔尔）</strong></td><td><strong>第四名 🏆</strong></td><td>非洲球队历史最佳战绩！小组头名（2-0比利时），16强点球胜西班牙，八强1-0葡萄牙，半决赛0-2法国，三四名1-2克罗地亚</td></tr>
+    </tbody>
+  </table>
+
+  <div class="sub-section-title">晋级之路</div>
+  <p style="margin:8px 0;">摩洛哥在非洲区预选赛中轻松出线，延续了2022年四强后的上升势头。2025年非洲杯冠军进一步巩固了球队在非洲足坛的统治地位。最大的变化发生在教练席——功勋主帅瓦利德·雷格拉吉在2025年离任后，摩洛哥足协（FRMF）做出了一个大胆的决定：任命前U20主帅穆罕默德·瓦赫比执掌成年队。瓦赫比在2025年率领摩洛哥U20赢得了U20世界杯冠军（非洲球队历史上第二次夺得该荣誉）——这一成就使他获得了执教成年队的资格。摩洛哥在C组的同组对手是巴西、苏格兰和海地——这是一个极有挑战性的小组，摩洛哥需要在首战对阵巴西时尽可能拿分，才有希望争取小组出线。</p>
+</div>
+
+<!-- DIMENSION SCORING -->
+<div class="section">
+  <div class="section-title">（二）逐项评分明细（七维度深度拆解）</div>
+
+  <!-- Dim 1 -->
+  <div class="sub-section-title">维度一：阵容实力（权重30%）｜ 得分：74分 × 30% = 22.2分</div>
+  <table class="score-table">
+    <thead><tr><th style="width:28%;">子项</th><th style="width:7%;">得分</th><th>简要评价</th></tr></thead>
+    <tbody>
+      <tr><td><strong>1.1 球星质量与个人能力</strong>（占比35%）</td><td class="score-cell" style="color:#27ae60;">75</td><td>摩洛哥拥有几名在欧洲顶级联赛闪耀的球星，但整体"星味"在争冠球队中不算突出。阿什拉夫·哈基米（巴黎/€8000万/27岁）是世界足坛排名前三的右后卫——他的速度（35km/h）、助攻能力（本赛季法甲5球6助攻）和防守覆盖使他成为了摩洛哥阵中最重要的球员。卜拉欣·迪亚斯（皇马/€3500万/26岁）是皇马轮换阵容中的关键一员——他的盘带和创造力在西甲经受了充分检验，但在摩洛哥队的角色定位（是10号还是边锋）仍在磨合中。马兹拉维（曼联/€2000万）是英超级别的右后卫/右中场。18岁的布阿迪（里尔/€5000万）是欧洲最受关注的年轻中场之一——他的技术成熟度远超年龄。摩洛哥2022年世界杯成功的关键是"团队大于个人"——没有超级巨星，但11人的整体防守纪律和组织性弥补了个人天赋的差距。</td></tr>
+      <tr><td><strong>1.2 各位置均衡度</strong>（占比25%）</td><td class="score-cell" style="color:#27ae60;">74</td><td>摩洛哥的阵容均衡度呈现"防守硬、中场技术好、锋线吃紧"的格局。后防线是球队最强的环节——哈基米+马兹拉维的右路走廊是世界级配置（两人合计€1亿），阿盖尔德（马赛/€2000万）和迪奥普（富勒姆/€1000万）的中卫组合在身体对抗和空中球方面非常可靠。中场技术储备充足——布阿迪（里尔/€5000万/18岁）的组织能力、赛巴里（埃因霍温/€4000万）的推进能力和埃尔汉努斯（斯图加特/€3500万）的创造力使摩洛哥在控球方面具备不错的基础。前锋线是最大的短板——恩内斯里的伤缺使摩洛哥失去了最重要的支点中锋（2022世界杯2球），取代他的埃尔卡比（32岁/奥林匹亚科斯）和拉希米（29岁/阿尔艾因）均非五大联赛级别。门将位置——布努（35岁/阿尔希拉尔）虽然不再巅峰，但他在2022年世界杯上的表现（对西班牙的点球大战扑出3个点球）使他仍然是非洲最值得信赖的门将之一。</td></tr>
+      <tr><td><strong>1.3 板凳深度</strong>（占比20%）</td><td class="score-cell" style="color:#e67e22;">72</td><td>€4.87亿的阵容深度在非洲球队中是最顶尖的，但与欧洲顶级球队相比仍有差距。后卫线的深度是球队一大优势——7名后卫中有5人效力五大联赛，哈基米和马兹拉维任何一个受伤都还有扎卡里亚·埃尔瓦赫迪（亨克/€1500万）可以顶上。中场深度也不错——7名中场中有6人效力五大联赛或荷甲，布阿迪（€5000万）和赛巴里（€4000万）两名主力级别的球员可以轮换出场。前锋线的深度最令人担忧——在恩内斯里伤缺后，球队的前锋选择主要来自非五大联赛（拉希米/阿联酋、埃尔卡比/希腊、塔尔比/英冠），大赛经验和顶级联赛对抗能力存疑。</td></tr>
+      <tr><td><strong>1.4 总身价与年龄结构</strong>（占比20%）</td><td class="score-cell" style="color:#27ae60;">75</td><td>€4.87亿总身价排名本届世界杯中游（约第18位），在非洲球队中排名第一。平均年龄26.4岁处于"年轻且经验丰富"的理想区间。年龄结构呈现健康的"U型"分布——18-24岁的青年才俊（布阿迪18/埃尔穆拉贝特20/亚辛20/阿迈穆尼21）与25-30岁的当打核心（哈基米27/迪亚斯26/马兹拉维28/赛巴里25）相结合，老将（布努35/埃尔卡比32）提供经验支持。与2022年四强那支摩洛哥相比，2026届的阵容更加年轻——当年阵容平均年龄28.1岁，本届26.4岁——年轻化是瓦赫比的明确方向。身价最高的球员是哈基米（€8000万），身价€3000万以上的球员有5人（哈基米、布阿迪、赛巴里、埃尔汉努斯、迪亚斯）——整体身价分布较为均匀，没有过度依赖单一巨星。</td></tr>
+    </tbody>
+  </table>
+
+  <!-- Dim 2 -->
+  <div class="sub-section-title">维度二：战术体系与教练（权重20%）｜ 得分：70分 × 20% = 14.0分</div>
+  <table class="score-table">
+    <thead><tr><th style="width:28%;">子项</th><th style="width:7%;">得分</th><th>简要评价</th></tr></thead>
+    <tbody>
+      <tr><td><strong>2.1 主帅战术哲学与大赛履历</strong>（占比40%）</td><td class="score-cell" style="color:#e67e22;">68</td><td>穆罕默德·瓦赫比是本届世界杯上"经验最少、但潜力最大"的主教练之一。他在2025年率领摩洛哥U20赢得了U20世界杯冠军——这是非洲球队历史上第二次获得该荣誉。但他没有任何成年国家队执教经验——这是他首次执教成年队参加大赛。他的战术哲学延续了雷格拉吉时代的"防守纪律+高效转换"——但在具体执行上会有所不同。瓦赫比的U20队以"高强度全场压迫"著称——这与雷格拉吉的"收缩防守"有一定区别，但世界杯上是否也同样有效尚待检验。他的最大优势是"与年轻球员的天然亲和力"——他比大部分非洲教练更擅长发现和使用年轻球员，这可能是摩洛哥在本届世界杯上的"隐形武器"。</td></tr>
+      <tr><td><strong>2.2 阵型适配性与球员契合度</strong>（占比30%）</td><td class="score-cell" style="color:#e67e22;">72</td><td>瓦赫比的4-3-3/4-1-4-1体系与摩洛哥球员的特点基本匹配。哈基米在右路的"自由人"角色是进攻体系中最重要的组成部分——他的前插和传中为前场提供了宽度威胁。迪亚斯在10号位/右边锋的角色具有一定的自由创造权，但他在皇马更多作为替补出战，在摩洛哥的核心角色定位仍在磨合期。中场三人组（布阿迪+赛巴里+阿姆拉巴特）的风格互补——阿姆拉巴特提供防守硬度（类似2022年他在世界杯上的表现），布阿迪负责节奏控制和组织，赛巴里提供前插和射门。最大的适配性问题是中锋位置的缺失——恩内斯里（193cm/力量型中锋）的缺阵使摩洛哥失去了前场支点，埃尔卡比类型不同，因此整套进攻战术需调整。</td></tr>
+      <tr><td><strong>6.2 攻守转换效率</strong>（占比15%）</td><td class="score-cell" style="color:#e67e22;">72</td><td>摩洛哥的攻守转换模式继承了2022年世界杯的"安全优先"风格。由守转攻时，阿姆拉巴特在中场赢回球权后迅速转移给边路的哈基米或赛巴里——利用哈基米的速度在右边路推进。由攻转守时，全队迅速回撤形成紧凑的4-5-1防守阵型——这是摩洛哥在2022年世界杯上成功的战术基础（面对西班牙和葡萄牙的成功防守）。定位球方面，阿盖尔德和迪奥普是角球进攻中的主要争顶目标，但恩内斯里的缺阵使摩洛哥的定位球威胁有所下降。整体攻守转换效率取决于瓦赫比能否在世界杯前将他的战术理念完整地灌输给成年队。</td></tr>
+      <tr><td><strong>2.4 临场指挥与换人策略</strong>（占比15%）</td><td class="score-cell" style="color:#e67e22;">70</td><td>瓦赫比的临场指挥在大赛层面没有可参考的样本。他在U20世界杯上的换人以"果断"著称——平均首次换人时间约第55分钟，在青年队比赛中取得了良好效果。但他最大的变数是：没有在世界杯——这个世界最大舞台——上执教过比赛。2022年雷格拉吉在面对西班牙和葡萄牙时的临场调整（包括换上替补门将布努来应对点球大战）是摩洛哥成功的关键。瓦赫比能否在C组的高压环境下做出同样正确的决定——特别是在对阵巴西的首场比赛中——将是决定摩洛哥能否小组出线的关键。</td></tr>
+    </tbody>
+  </table>
+
+  <!-- Dim 3 -->
+  <div class="sub-section-title">维度三：近期竞技状态（权重15%）｜ 得分：74分 × 15% = 11.1分</div>
+  <table class="score-table">
+    <thead><tr><th style="width:28%;">子项</th><th style="width:7%;">得分</th><th>简要评价</th></tr></thead>
+    <tbody>
+      <tr><td><strong>3.1 近12个月正式比赛战绩</strong>（占比40%）</td><td class="score-cell" style="color:#27ae60;">75</td><td>摩洛哥在近12个月的正式比赛中保持了非洲霸主的地位。2025非洲杯冠军是这一周期内最亮眼的成就——在决赛中击败塞内加尔（虽然经历了点球大战和后续的争议改判），但冠军的成色不容置疑。非洲区预选赛以不败战绩轻松出线——面对非洲对手展现了符合预期的统治力。但在对阵欧洲和南美球队的热身赛中，摩洛哥的表现有些起伏（输给了葡萄牙和荷兰）——反映了球队在面对技术+力量兼备的顶级欧洲球队时的竞技状态仍有波动。整体而言，摩洛哥的近期状态是"在非洲有统治力、对欧洲强队略逊一筹"——这届世界杯他们将面对巴西（南美最强）和苏格兰（欧洲硬朗型），竞技状态将面临严峻考验。</td></tr>
+      <tr><td><strong>3.2 预选赛出线含金量</strong>（占比30%）</td><td class="score-cell" style="color:#e67e22;">73</td><td>摩洛哥以非洲区预选赛头名出线——非洲区预选赛的竞争激烈但对手整体实力与世界杯有一定差距。小组赛对手中没有传统的非洲强队（如塞内加尔、喀麦隆、尼日利亚），因此出线含金量有限。更可靠的参考是2025非洲杯冠军——在淘汰赛阶段击败了塞内加尔（非洲排名第一的球队），这一胜利证明了摩洛哥在洲际赛事中的竞争力。</td></tr>
+      <tr><td><strong>3.3 核心球员俱乐部状态走势</strong>（占比30%）</td><td class="score-cell" style="color:#e67e22;">74</td><td>核心球员的俱乐部状态整体良好。哈基米（巴黎）本赛季法甲贡献5球6助攻，是PSG的右路核心。卜拉欣·迪亚斯（皇马）在安切洛蒂的轮换体系下保持了稳定的出场时间（西甲29场7球4助攻），但未能在皇马锁定主力位置。马兹拉维（曼联）的赛季受到了一些伤病影响（英超仅20次首发），但他的状态在赛季末段有所回升。布阿迪（里尔/18岁）在法甲的处子赛季表现惊艳——32场4球4助攻，已经吸引了多家豪门的关注。赛巴里（埃因霍温）在荷甲打出了职业生涯最佳数据（12球8助攻），是荷甲最出色的攻击型中场之一。令人担忧的是阿姆拉巴特（皇家贝蒂斯）——他被租借到贝蒂斯后状态不如2022年世界杯时期——2022年那个在卡塔尔"无处不在"的阿姆拉巴特似乎已经不再存在。</td></tr>
+    </tbody>
+  </table>
+
+  <!-- Dim 4 -->
+  <div class="sub-section-title">维度四：大赛经验与心理素质（权重10%）｜ 得分：76分 × 10% = 7.6分</div>
+  <table class="score-table">
+    <thead><tr><th style="width:28%;">子项</th><th style="width:7%;">得分</th><th>简要评价</th></tr></thead>
+    <tbody>
+      <tr><td><strong>4.1 世界杯/洲际杯历史战绩</strong>（占比40%）</td><td class="score-cell" style="color:#27ae60;">75</td><td>摩洛哥2022年世界杯第四名的成绩是非洲足球在世界杯上取得的历史最佳战绩——在此之前，非洲球队的最好成绩是喀麦隆（1990八强）和塞内加尔（2002八强）。摩洛哥在2022年小组赛中2-0击败比利时（FIFA排名第2），16强点球击败西班牙（2010冠军），八强1-0击败葡萄牙（2016欧洲杯冠军），半决赛0-2输给最终亚军法国，三四名1-2输给克罗地亚。这条晋级之路的含金量极高——三场淘汰赛中有两场零封对手。2025非洲杯冠军进一步巩固了摩洛哥在非洲的统治地位。但这一次，摩洛哥不再是"不被看好的黑马"——他们已经被全世界研究透了。2022年成功的秘诀（防守纪律+布努的点球）已经被其他球队充分研究。</td></tr>
+      <tr><td><strong>8.2 核心球员大赛经验值</strong>（占比35%）</td><td class="score-cell" style="color:#27ae60;">78</td><td>摩洛哥保留了2022年四强的大部分核心阵容——哈基米、马兹拉维、阿姆拉巴特、奥纳希、布努、阿盖尔德等6名球员参加了2022年全部7场比赛，积累了丰富的大赛经验。哈基米（27岁）虽然年轻，但已经参加了2022世界杯（四强）、2021和2025非洲杯（冠军），他的大赛经验在非洲球员中无人能及。布努是2022世界杯上的门将传奇之一——他在16强对阵西班牙的点球大战中扑出了3个点球。年轻球员（布阿迪18/埃尔穆拉贝特20/塔尔比21）虽然没有大赛经验，但瓦赫比正是因为他们U20世界杯夺冠的经历才将他们调入成年队——他们的"冠军经验"虽然级别不同，但至少不是空白。</td></tr>
+      <tr><td><strong>4.3 抗压与逆境应对</strong>（占比25%）</td><td class="score-cell" style="color:#27ae60;">76</td><td>摩洛哥在2022年世界杯上展现了令人难以置信的抗压能力。小组赛首战0-0战平克罗地亚——在场面不占优的情况下保持了防守纪律。次战2-0击败比利时——在"被低估"的情况下爆冷。16强对阵西班牙——在控球率仅28%的情况下通过点球大战晋级。八强对阵葡萄牙——在缺少队长赛斯的情况下1-0取胜（塞斯带伤出战半决赛的感人画面是2022世界杯最令人难忘的瞬间之一）。这种"逆境中不崩盘"的特质是摩洛哥最宝贵的无形资产。但需要警惕的是：2022年的摩洛哥是"不受关注的挑战者"角色——他们可以从容地防守反击。2026年的摩洛哥顶着"非洲冠军+2022四强"的光环进入比赛，对手（巴西、苏格兰）不会再低估他们。心态的转变（从"挑战者"到"被挑战者"）可能是摩洛哥本届世界杯上最大的心理挑战。</td></tr>
+    </tbody>
+  </table>
+
+  <!-- Dim 5 -->
+  <div class="sub-section-title">维度五：分组及赛程影响（权重10%）｜ 得分：66分 × 10% = 6.6分</div>
+  <table class="score-table">
+    <thead><tr><th style="width:28%;">子项</th><th style="width:7%;">得分</th><th>简要评价</th></tr></thead>
+    <tbody>
+      <tr><td><strong>5.1 小组赛对手分析</strong>（占比40%）</td><td class="score-cell" style="color:#e67e22;">60</td><td>C组的签运对摩洛哥来说是"最差中的中等"——他们抽到了本届世界杯的头号热门巴西，加上苏格兰和海地。巴西（FIFA第5/€9.09亿/5次冠军）是小组中实力碾压的种子队——维尼修斯+内马尔+拉菲尼亚的攻击线是摩洛哥防守纪律面临的最大考验。苏格兰（FIFA第39）是身体对抗型欧洲球队——风格硬朗、战术纪律良好，是摩洛哥争夺小组第二的最直接竞争对手。海地（FIFA第90）是小组中最弱的对手——摩洛哥必须拿下。摩洛哥的最优策略是：首战对巴西采取2022年式的"铁桶防守"策略争取平局或小负；次战对苏格兰全力争胜（这是决定出线的关键战）；末战海地争取净胜球。最现实的目标是小组第二（需要击败苏格兰和/or海地、并期待巴西击败苏格兰）。</td></tr>
+      <tr><td><strong>5.2 淘汰赛晋级路线预判</strong>（占比35%）</td><td class="score-cell" style="color:#e67e22;">65</td><td>如果摩洛哥以小组第二出线（概率约35%），16强对手将是J组第一——大概率是阿根廷（卫冕冠军/梅西的最后一届）。对阵阿根廷将是一场极为艰难的比赛——梅西的创造力将考验摩洛哥的防守纪律。如果摩洛哥奇迹般以小组第一出线（概率约15%），16强对手将是J组第二（可能是瑞典/奥地利/阿尔及利亚中的一支）——那将是一个有利的对阵。淘汰赛路径清晰地表明：摩洛哥的目标应该是小组出线，然后力争在16强赛中创造第二个"摩洛哥奇迹"。</td></tr>
+      <tr><td><strong>5.3 旅途与气候因素</strong>（占比25%）</td><td class="score-cell" style="color:#27ae60;">75</td><td>摩洛哥的三场小组赛在美国东海岸进行（新泽西对阵巴西、费城对阵海地、迈阿密对阵苏格兰），城市间交通便利（飞行1-2小时），6月气候温和。对于习惯了北非地中海气候的摩洛哥球员来说，北美东海岸的气候条件与家乡相似，适应难度不大。这是一个被低估的利好因素——摩洛哥不需要在气候方面花费额外的适应成本。</td></tr>
+    </tbody>
+  </table>
+
+  <!-- Dim 6 -->
+  <div class="sub-section-title">维度六：团队凝聚力与场外环境（权重10%）｜ 得分：75分 × 10% = 7.5分</div>
+  <table class="score-table">
+    <thead><tr><th style="width:28%;">子项</th><th style="width:7%;">得分</th><th>简要评价</th></tr></thead>
+    <tbody>
+      <tr><td><strong>6.1 更衣室团结度</strong>（占比35%）</td><td class="score-cell" style="color:#27ae60;">80</td><td>摩洛哥的更衣室团结度在非洲球队中是最出色的。2022年世界杯上，摩洛哥球员展现的"对国家的热爱"和"团队至上"的精神令人印象深刻——他们在每场比赛前高唱国歌时那种发自内心的情感投入、赛后在更衣室中的集体庆祝（球员母亲们在看台上挥舞国旗的画面成为2022世界杯的经典瞬间）、以及球员们在场上不知疲倦的奔跑——都是高度团结的更衣室的直接体现。哈基米作为队长的领导风格被称为"温柔但有力量"——他在场上以身作则，在更衣室中是一位能够团结海外国籍球员（在欧洲出生的摩洛哥裔）和本土球员的完美桥梁。瓦赫比作为新帅的一个优势是：他与许多年轻球员在U20队就已经建立了信任关系。</td></tr>
+      <tr><td><strong>6.2 足协稳定性与管理</strong>（占比35%）</td><td class="score-cell" style="color:#e67e22;">72</td><td>摩洛哥足协（FRMF）是非洲运营最出色的足球管理机构之一。FRMF在2022年世界杯后大幅增加了对青训和基础设施的投入——摩洛哥近年来为欧洲联赛输送了大量年轻球员（布阿迪、赛巴里、埃尔汉努斯等），这是FRMF长期规划的成果。雷格拉吉的离开是一个打击——但FRMF选择瓦赫比（U20世界杯冠军教头）而非昂贵的外籍教练，体现了"长期主义"的管理思路。FRMF的后勤保障在非洲属于一流——但他们与欧洲顶级足协（DFB/FA）相比仍有差距。</td></tr>
+      <tr><td><strong>6.3 国内舆论与媒体压力</strong>（占比30%）</td><td class="score-cell" style="color:#e67e22;">72</td><td>摩洛哥国内的舆论环境在2022年四强后从"渴望"转变为了"骄傲"。2022年的成功极大地提升了摩洛哥球迷的自信心——从"我们能不能小组出线"变成了"我们能不能再次进入淘汰赛"。但过高的期望值也是一把双刃剑——如果摩洛哥在小组赛中表现不佳（比如大比分输给巴西或意外输给苏格兰），国内的舆论反应可能从"骄傲"迅速转向"失望"。瓦赫比的新帅身份在舆论中享有一定的"红利期"——媒体对他的批评通常会比对雷格拉吉少。综合来看，摩洛哥的舆论环境比2022年更加自信但也更加"不容失败"。</td></tr>
+    </tbody>
+  </table>
+
+  <!-- Dim 7 -->
+  <div class="sub-section-title">维度七：体能储备与伤病控制（权重5%）｜ 得分：71分 × 5% = 3.55分</div>
+  <table class="score-table">
+    <thead><tr><th style="width:28%;">子项</th><th style="width:7%;">得分</th><th>简要评价</th></tr></thead>
+    <tbody>
+      <tr><td><strong>7.1 赛季疲劳度评估</strong>（占比40%）</td><td class="score-cell" style="color:#27ae60;">76</td><td>摩洛哥核心球员的赛季疲劳度处于可控范围。哈基米（巴黎）在法甲+欧冠中出场约40场，负荷合理。马兹拉维（曼联）的出场时间受伤病影响较少（约25场），体能储备反而可能比全勤球员更加充足。迪亚斯（皇马）在安切洛蒂的轮换体系下保持了良好的体能状态。布阿迪（里尔/18岁）是法甲出场时间第二多的U20球员（约2800分钟），对他的年龄来说负荷偏大但青少年的恢复能力更强。阿姆拉巴特（贝蒂斯）在西甲出场约30场，体能状态良好。摩洛哥大多数球员所在的联赛赛季在5月中旬结束，有3-4周的准备时间，体能储备窗口充足。</td></tr>
+      <tr><td><strong>7.2 关键伤病与恢复情况</strong>（占比35%）</td><td class="score-cell" style="color:#e74c3c;">65</td><td>恩内斯里的伤缺是摩洛哥本届世界杯最大的不幸——他在2022年世界杯上证明了他是"大赛型中锋"（2球/对阵葡萄牙的关键头球）。他的缺阵不仅是一个球员的损失，更是摩洛哥整个进攻战术体系的崩塌——摩洛哥队中没有任何前锋能提供恩内斯里级别的支点作用、空中威胁和禁区存在感。其他主力球员的健康状况良好——哈基米、马兹拉维、阿盖尔德、阿姆拉巴特、布努等核心球员都没有伤病问题。迪亚斯虽然在皇马不是绝对主力但身体状况良好。总体而言，"一个核心球员（恩内斯里）的伤缺"是摩洛哥需要面对的最大困难。</td></tr>
+      <tr><td><strong>7.3 医疗团队与保障水平</strong>（占比25%）</td><td class="score-cell" style="color:#e67e22;">72</td><td>摩洛哥足协的医疗团队在非洲属于第一梯队。FRMF在2022年世界杯后升级了医疗保障设施——引进了新的体能监测设备和恢复技术。随队医疗团队包括了经验丰富的队医和物理治疗师。但与欧洲顶级球队相比，摩洛哥在运动科学和预防性医疗方面的投入仍有差距。本届世界杯期间，FRMF配备了移动医疗站和基础恢复设备。</td></tr>
+    </tbody>
+  </table>
+</div>
+
+<!-- OVERALL SCORE -->
+<div class="section">
+  <div class="section-title">（三）综合总分与评级</div>
+  <div class="rating-box">
+    <div class="score">72.6</div>
+    <div style="font-size:16px;color:#ccc;margin-bottom:5px;">加权总分 / 100</div>
+    <div class="rating">B-</div>
+    <div class="detail">准二线，小组出线是合理目标</div>
+  </div>
+
+  <table class="radar-table">
+    <thead><tr><th>评估维度</th><th>得分</th><th>权重</th><th>加权得分</th><th>可视化</th></tr></thead>
+    <tbody>
+      <tr><td>① 阵容实力</td><td>74</td><td>30%</td><td>22.20</td><td><div class="progress-bar"><div class="progress-fill" style="width:74%;background:#e74c3c;"></div></div></td></tr>
+      <tr><td>② 战术体系与教练</td><td>70</td><td>20%</td><td>14.00</td><td><div class="progress-bar"><div class="progress-fill" style="width:70%;background:#e67e22;"></div></div></td></tr>
+      <tr><td>③ 近期竞技状态</td><td>74</td><td>15%</td><td>11.10</td><td><div class="progress-bar"><div class="progress-fill" style="width:74%;background:#f1c40f;"></div></div></td></tr>
+      <tr><td>④ 大赛经验与心理素质</td><td>76</td><td>10%</td><td>7.60</td><td><div class="progress-bar"><div class="progress-fill" style="width:76%;background:#3498db;"></div></div></td></tr>
+      <tr><td>⑤ 分组及赛程影响</td><td>66</td><td>10%</td><td>6.60</td><td><div class="progress-bar"><div class="progress-fill" style="width:66%;background:#9b59b6;"></div></div></td></tr>
+      <tr><td>⑥ 团队凝聚力与场外环境</td><td>75</td><td>10%</td><td>7.50</td><td><div class="progress-bar"><div class="progress-fill" style="width:75%;background:#2ecc71;"></div></div></td></tr>
+      <tr><td>⑦ 体能储备与伤病控制</td><td>71</td><td>5%</td><td>3.55</td><td><div class="progress-bar"><div class="progress-fill" style="width:71%;background:#1abc9c;"></div></div></td></tr>
+    </tbody>
+    <tfoot>
+      <tr style="font-weight:bold;background:#f0f0f0;">
+        <td>综合总分</td><td colspan="2" style="text-align:center;">72.6</td><td style="color:#e74c3c;font-size:16px;">B-级</td><td></td></tr>
+      </tr>
+    </tfoot>
+  </table>
+</div>
+
+<!-- DEEP ANALYSIS -->
+<div class="section">
+  <div class="section-title">（四）深度球评</div>
+
+  <div class="sub-section-title">核心优势</div>
+
+  <div class="player-highlight">
+    <div class="name">🛡️ "亚特拉斯雄狮"的防守DNA——2022年四强的防守遗产</div>
+    <div class="detail">摩洛哥在2022年世界杯上建立的防守体系是非洲足球历史上最出色的——7场比赛仅失3球（其中1球是三四名决赛的乌龙球、另外2球是对阵最终亚军法国）。这条防线的核心成员——哈基米（右后卫）、阿盖尔德（中卫）、马兹拉维（右/左后卫）、布努（门将）——仍然在2026年阵容中，这意味着防守体系的稳定性和默契度比进攻体系更加可靠。摩洛哥的防守哲学可以用四个字概括："纪律优先"——每一名球员在无球状态下都清楚自己的防守职责，前场的迪亚斯和埃扎尔祖利也会积极参与第一道防线。2022年世界杯上，摩洛哥在淘汰赛阶段的三场比赛中（对阵西班牙、葡萄牙、法国）合计仅失2球（其中1球是对阵法国的运动战进球，另1球是半决赛对阵法国时的乌龙球）。这套防守体系在2026年仍然是摩洛哥最具竞争力的武器——尤其是面对巴西这样的进攻天赋爆棚的球队时。</div>
+  </div>
+
+  <div class="player-highlight">
+    <div class="name">⭐ 2022四强的底气——"我们曾经做到过"</div>
+    <div class="detail">2022年卡塔尔世界杯第四名的成绩是摩洛哥足球乃至非洲足球历史上最伟大的成就。7场比赛的征程中，摩洛哥击败了比利时（FIFA第2）、西班牙（2010冠军）、葡萄牙（2016欧洲杯冠军），最终在半决赛中输给了最终亚军法国。这段经历给摩洛哥留下的不是奖杯，而是一种"我们能行"的信念——这在世界杯的赛场上是一种极为宝贵的心理资产。摩洛哥球员在2022年不仅积累了实战经验，更建立了"面对强队不畏惧"的心理模式。2026年他们再次面对巴西——与2022年对阵西班牙和葡萄牙时的心态可能截然不同：他们不再需要"证明什么"，而是从第一分钟就相信自己能与巴西抗衡。即使球队换了教练、失去了恩内斯里，核心球员的"我们已经做到过一次"的信念不会消失。</div>
+  </div>
+
+  <div class="player-highlight">
+    <div class="name">🌍 欧洲化的"人才生产流水线"——92%旅欧球员</div>
+    <div class="detail">摩洛哥是非洲最成功的"人才输出国"——26人大名单中24人效力欧洲联赛（占比92%），在非洲球队中排名第一。哈基米（巴黎/€8000万）、马兹拉维（曼联）、迪亚斯（皇马）、布阿迪（里尔/€5000万）、赛巴里（埃因霍温/€4000万）、埃尔汉努斯（斯图加特/€3500万）——这批球员在欧洲接受了最高水平的战术训练和技术打磨。摩洛哥的青训战略（FRMF与欧洲俱乐部建立的合作关系）是这一成功的基础——大量摩洛哥裔球员在欧洲出生或很小就移民欧洲，他们的足球教育完全按照欧洲标准进行。这种"欧洲化"的阵容结构意味着摩洛哥在战术纪律、身体对抗和比赛节奏适应等方面已经接近欧洲球队的水准——这在面对巴西这样融合了南美天赋和欧洲体系的球队时，是重要的竞争力保证。</div>
+  </div>
+
+  <div class="sub-section-title">致命短板</div>
+
+  <div class="player-highlight">
+    <div class="name">⚠️ 恩内斯里的空缺——"中锋真空"比想象中更致命</div>
+    <div class="detail">尤瑟夫·恩内斯里（29岁）因伤缺席是摩洛哥本届世界杯不可弥补的损失。他在2022年世界杯上不是数据最华丽的球员（4场2球），但他的战术价值远超进球数字：身高193cm、力量型中锋、禁区内支点作用、定位球头球威胁。他在对阵葡萄牙的八强战中打入的那粒关键头球——葡萄牙门将迪奥戈·科斯塔判断失误、恩内斯里精准地找到落点——完美展示了他的"大中锋"价值。失去他后，摩洛哥的进攻战术面临根本性的调整：第一，失去了禁区内的高空优势（埃尔卡比身高仅180cm、拉希米178cm）；第二，失去了前场支点——恩内斯里可以在前场接应长传球和掩护队友前进，这一点没有替代者。摩洛哥的进攻可能不得不更加依赖中场球员（布阿迪、赛巴里）的后插上得分来弥补前锋线火力不足的问题。</div>
+  </div>
+
+  <div class="player-highlight">
+    <div class="name">⚠️ 瓦赫比的"世界杯大考"——从U20到成年队的跨越</div>
+    <div class="detail">穆罕默德·瓦赫比是摩洛哥足协的一次"豪赌"——U20世界杯冠军教头直升成年队主帅、职业生涯第一次执教成年国家队即率队参加世界杯。他的U20成绩单无可挑剔（U20世界杯冠军），但青年队比赛和成年队世界杯之间存在巨大的差距：第一，对手（巴西、苏格兰）的战术复杂度和执行力远超U20级别；第二，世界杯的舆论压力和无形成本（球员情绪管理、媒体应对、26人大名单的轮换管理）远非U20可比；第三，他需要在极短的时间内（从2025年非洲杯后上任到2026年5月）将自己的战术体系植入成年队。摩洛哥足协的"年轻化、本土化"教练选择在长期来看是正确方向——但在短期（本届世界杯）来看，瓦赫比缺乏经验可能是摩洛哥在小组赛面对巴西和苏格兰时的"最弱一环"。</div>
+  </div>
+
+  <div class="sub-section-title">关键先生</div>
+
+  <div class="player-highlight">
+    <div class="name">🌟 阿什拉夫·哈基米 (Achraf Hakimi) — 右后卫/队长 · 27岁 · 巴黎圣日耳曼 · €8000万</div>
+    <div class="detail">摩洛哥的队长和绝对核心——哈基米是非洲足球史上最出色的边后卫之一，也是世界足坛排名前三的右后卫。他的速度（35km/h）、技术、传中和前插能力使他成为了摩洛哥进攻体系中最重要的"战术变量"——他在右路的前插不仅为球队提供了宽度，还通过他的传中（本赛季法甲6次助攻）创造了大量的禁区机会。在防守端，他的回追速度（被认为是世界最快的右后卫之一）和一对一防守能力是摩洛哥防守体系中不可或缺的一环。27岁的他正处于职业生涯的巅峰期——他在巴黎圣日耳曼经历了最顶级的欧冠比赛洗礼。作为队长，他在场上的领袖气质和以身作则的比赛态度是全队的榜样——当他带头在前场逼抢时，整支球队都会跟随他的节奏。2022年世界杯上，他在对阵西班牙的比赛中罚入了制胜点球——证明了他的大心脏。</div>
+  </div>
+
+  <div class="player-highlight">
+    <div class="name">🌟 卜拉欣·迪亚斯 (Brahim Díaz) — 攻击型中场/边锋 · 26岁 · 皇家马德里 · €3500万</div>
+    <div class="detail">摩洛哥阵中技术天赋最高的进攻球员——迪亚斯在皇马的经历使他成为了非洲最受关注的攻击手之一。他的盘带技术（西甲场均2.1次成功过人）、短传配合能力和远射（本赛季西甲4粒禁区外进球）使他成为了摩洛哥进攻端最具"不可预测性"的球员。在摩洛哥队，他的角色被定义为"进攻自由人"——他可以从中场接球、从边路突破、或在前锋身后寻找机会。他在2025非洲杯决赛后经历了"过山车"式的情感波动（罚失点球→塞内加尔违规争议→摩洛哥最终被判定为冠军），这段经历帮助他建立了更强的心理韧性。他在世界杯上的表现将直接决定摩洛哥的进攻效率——如果他能像在皇马那样在关键时刻创造机会，摩洛哥的"锋无力"问题将得到部分缓解。</div>
+  </div>
+
+  <div class="player-highlight">
+    <div class="name">🌟 阿尤布·布阿迪 (Ayyoub Bouaddi) — 中场 · 18岁 · 里尔 · €5000万</div>
+    <div class="detail">本届世界杯上最受关注的年轻球员之一——18岁的布阿迪已经是法甲最佳年轻中场的有力竞争者。他的技术风格可以概括为"老练"——他的传球选择（法甲传球成功率89%）、节奏控制和比赛阅读能力远远超出了他的年龄。他在里尔的32场法甲比赛中展现的稳定性使他成为摩洛哥中场最令人期待的"新引擎"。瓦赫比将他从U20队直接带入成年队——师徒二人在U20世界杯上的默契是摩洛哥中场的一大战术优势。布阿迪+赛巴里+阿姆拉巴特的中场三人组代表着"未来+现在+经验"的完美平衡。如果布阿迪能在对阵巴西的比赛中保持冷静并完成高质量的传球组织，他将成为本届世界杯上最令人印象深刻的年轻球员之一。</div>
+  </div>
+
+  <div class="player-highlight">
+    <div class="name">🌟 亚辛·布努 (Yassine Bounou) — 门将 · 35岁 · 阿尔希拉尔</div>
+    <div class="detail">摩洛哥2022年世界杯的英雄——布努在卡塔尔的表现（7场仅失3球、对阵西班牙点球大战扑出3个点球）使他成为了非洲足球历史上最伟大的门将之一。35岁的他虽然在2023年转会沙特联赛后曝光度有所降低，但他在国家队的经验和领导力仍然是这支防守型摩洛哥最重要的最后一道防线。他的反应速度（尤其是近距离扑救）和点球大战中的心理战术（他在2019非洲杯和2022世界杯上的点球表现已经证明了自己是"点球专家"）是摩洛哥在淘汰赛中可能需要的武器。面对巴西的维尼修斯和阿根廷（如果晋级）的梅西，布努的经验将受到考验——但他已经在2022年证明了自己可以在最大的舞台上做出最关键的扑救。</div>
+  </div>
+
+</div>
+
+<!-- GROUP PREDICTION -->
+<div class="section">
+  <div class="section-title">（五）小组赛预判与淘汰赛路线推演</div>
+
+  <div class="sub-section-title">📋 C组赛程与预测</div>
+  <table>
+    <thead><tr><th>轮次</th><th>日期</th><th>对阵</th><th>预测</th></tr></thead>
+    <tbody>
+      <tr><td>第1轮</td><td>6月13日</td><td>🇧🇷 巴西 vs 🇲🇦 摩洛哥</td><td><strong>标杆之战</strong> — 摩洛哥的防守纪律面临维尼修斯的严峻考验。争取逼平或小负是现实目标。预测：1-0巴西胜或1-1平</td></tr>
+      <tr><td>第2轮</td><td>6月19日</td><td>🇲🇦 摩洛哥 vs 🇭🇹 海地</td><td><strong>必须拿下</strong> — 海地实力悬殊，摩洛哥需要全力争取净胜球。预测：2-0或3-0摩洛哥胜</td></tr>
+      <tr><td>第3轮</td><td>6月24日</td><td>🇲🇦 摩洛哥 vs 🏴󠁧󠁢󠁳󠁣󠁴󠁿 苏格兰</td><td><strong>出线生死战</strong> — 苏格兰的身体对抗与摩洛哥的技术纪律相克。这是决定小组第二归属的关键战。预测：1-1平或2-1摩洛哥胜</td></tr>
+    </tbody>
+  </table>
+
+  <div class="sub-section-title">🏆 小组出线概率</div>
+  <table>
+    <thead><tr><th>出线形式</th><th>概率</th></tr></thead>
+    <tbody>
+      <tr><td>小组第一出线</td><td>约15%（需击败巴西）</td></tr>
+      <tr><td>小组第二出线</td><td>约35%</td></tr>
+      <tr><td>小组出局</td><td>约50%</td></tr>
+    </tbody>
+  </table>
+
+  <div class="sub-section-title">🔄 淘汰赛路线</div>
+  <p style="margin:8px 0;">以小组第二出线：16强vs J组第一（阿根廷🇦🇷/梅西）→ 难以逾越的关卡</p>
+  <p style="margin:8px 0;"><strong>核心判断</strong>：摩洛哥小组出线概率约50%，16强晋级的概率约10%。他们是一支"上限高、下限也高"的球队——防守纪律和团队凝聚力可以在任何一天冻结任何进攻线，但进攻端的"锋无力"和新帅经验不足使他们的上限被明显限制。C组的签运不佳（与巴西同组）使他们进入淘汰赛的难度远大于2022年。如果摩洛哥能再次闯入16强——无论结果如何——都将是非洲足球在本届世界杯上最大的亮点之一。</p>
+</div>
+
+<!-- FINAL VERDICT -->
+<div class="section">
+  <div class="section-title">（六）大师结语</div>
+  <div class="conclusion-box">
+    "2022年，他们在卡塔尔用防守纪律改写了非洲足球的历史——击败比利时、点杀西班牙、淘汰葡萄牙——最终带着第四名的荣耀回到马拉喀什。2026年，同样的哈基米、同样的布努、同样的不屈意志——但他们不再是不被关注的黑马，而是被全世界研究透了的'已知威胁'。C组的巴西是本届最强球队，恩内斯里的伤缺让进攻线失去了最锋利的牙齿，瓦赫比从U20到成年队的跨越还需要时间来证明。但摩洛哥足球有一个无法被量化衡量的资产：一颗永不放弃的狮子之心。如果他们能从C组突围——即使只是第二名——亚特拉斯雄狮的咆哮将再次响彻北美大陆。这一届，不是为了证明什么，而是为了告诉世界：2022年不是偶然。"</div>
+</div>
+
+<!-- DATA SOURCE -->
+<div class="section" style="margin-top:30px;padding-top:20px;border-top:1px solid #eee;font-size:12px;color:#999;">
+  <p><strong>数据来源：</strong>FIFA官方排名、Transfermarkt身价数据库、FRMF摩洛哥足协官方公告、FourFourTwo/ESPN阵容报道、法甲/西甲/英超赛季数据、CAF非洲区预选赛数据</p>
+  <p>报告生成时间：2026年5月30日 | 技能：world-cup-team-evaluator | 模型：Deepseek-V4-Flash</p>
+</div>
+
+</div>
+
+<!-- HuaFootball: back-to-home button -->
+<a href="../index.html" class="huafootball-back-btn" target="_self">
+  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5"/><path d="M12 19l-7-7 7-7"/></svg>
+  返回首页
+</a>
+<style>
+.huafootball-back-btn {
+  position:fixed!important;bottom:28px!important;right:28px!important;z-index:99999!important;
+  display:inline-flex!important;align-items:center!important;gap:6px!important;
+  padding:10px 22px!important;background:rgba(26,71,42,0.85)!important;color:#c8a951!important;
+  border:1px solid rgba(200,169,81,0.3)!important;border-radius:999px!important;
+  font-family:"Inter","PingFang SC",system-ui,sans-serif!important;font-size:13px!important;
+  font-weight:600!important;text-decoration:none!important;
+  backdrop-filter:blur(8px)!important;-webkit-backdrop-filter:blur(8px)!important;
+  box-shadow:0 4px 20px rgba(0,0,0,0.3)!important;transition:all .25s ease!important;
+  cursor:pointer!important;user-select:none!important;
+}
+.huafootball-back-btn:hover {
+  background:rgba(26,71,42,0.95)!important;border-color:rgba(200,169,81,0.5)!important;
+  box-shadow:0 6px 28px rgba(200,169,81,0.2)!important;transform:translateY(-2px)!important;
+}
+.huafootball-back-btn svg { transition:transform .2s ease!important; }
+.huafootball-back-btn:hover svg { transform:translateX(-3px)!important; }
+</style>
+
+</body>
+</html>

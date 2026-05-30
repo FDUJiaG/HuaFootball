@@ -4,246 +4,404 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>新西兰 · 2026世界杯实力评估报告</title>
-<script src="https://cdn.tailwindcss.com"></script>
-<script>
-tailwind.config = { theme: { extend: { colors: { nz: { black: '#000000', white: '#FFFFFF', silver: '#C0C0C0', gold: '#FFD700' } }, fontFamily: { 'kai': ['KaiTi','STKaiti','SimKai','serif'], 'serif': ['Times New Roman','serif'] } } } }
-</script>
 <style>
-  body { font-family: KaiTi, STKaiti, SimKai, 'Times New Roman', serif; font-size: 11pt; }
-  .container { max-width: 1100px; margin: 0 auto; padding: 20px; }
-  h1 { font-size: 2em; } h2 { font-size: 1.5em; border-bottom: 3px solid #000000; padding-bottom: 8px; margin-top: 30px; }
-  h3 { font-size: 1.2em; margin-top: 20px; }
-  table { width: 100%; border-collapse: collapse; font-size: 11pt; }
-  th, td { border: 1px solid #ddd; padding: 8px 12px; text-align: left; }
-  th { background-color: #000000; color: white; font-weight: bold; }
-  tr:nth-child(even) { background-color: #f8f9fa; }
-  .score-bar { height: 20px; border-radius: 10px; background: #eee; overflow: hidden; }
-  .score-fill { height: 100%; border-radius: 10px; }
-  .dimension-card { background: white; border-radius: 12px; padding: 20px; margin-bottom: 20px; box-shadow: 0 2px 8px rgba(0,0,0,0.08); border-left: 5px solid #000000; }
-  .subitem { margin: 12px 0; padding: 12px; background: #f8f9fa; border-radius: 8px; }
-  .subitem h4 { color: #000000; font-weight: bold; margin-bottom: 6px; }
-  .summary-box { background: linear-gradient(135deg, #000000, #555555); border-radius: 16px; padding: 25px; margin: 20px 0; color: white; }
-  .badge { display: inline-block; padding: 2px 10px; border-radius: 12px; font-size: 0.85em; font-weight: bold; }
-  .badge-gk { background: #4CAF50; color: white; } .badge-df { background: #2196F3; color: white; }
-  .badge-mf { background: #FF9800; color: white; } .badge-fw { background: #f44336; color: white; }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: 'Times New Roman', 'KaiTi', '楷体', serif; background: #fff; color: #222; padding: 40px 20px; }
+  .container { max-width: 1000px; margin: 0 auto; }
+  .section { margin-bottom: 40px; }
+  .text-center { text-align: center; }
+  h1 { font-size: 32px; color: #000; margin: 15px 0 5px; }
+  h2 { font-size: 24px; color: #000; border-bottom: 3px solid #000; padding-bottom: 8px; margin: 35px 0 20px; }
+  h3 { font-size: 20px; color: #000; margin: 25px 0 15px; }
+  h4 { font-size: 17px; color: #333; margin: 18px 0 10px; }
+  .subtitle { color: #666; font-size: 14px; margin-bottom: 20px; }
+  table { width: 100%; border-collapse: collapse; margin: 15px 0; font-size: 14px; }
+  th, td { border: 1px solid #ddd; padding: 8px 10px; text-align: left; }
+  th { background: #000; color: #fff; font-weight: bold; }
+  tr:nth-child(even) { background: #f5f5f5; }
+  .rating-box { display: inline-block; font-size: 48px; font-weight: bold; color: #000; padding: 10px 30px; border: 4px solid #000; border-radius: 8px; margin: 10px 0; }
+  .total-score { font-size: 36px; font-weight: bold; color: #000; }
+  .sub-item { margin: 12px 0; padding: 10px 14px; background: #f5f5f5; border-left: 4px solid #000; border-radius: 3px; }
+  .sub-item-title { font-weight: bold; color: #000; }
+  .sub-item-score { float: right; font-weight: bold; }
+  .analysis-text { line-height: 1.8; text-indent: 2em; margin: 12px 0; font-size: 15px; color: #333; }
+  .divider { height: 1px; background: #eee; margin: 30px 0; }
+  .key-player { margin: 15px 0; padding: 12px 16px; background: #f5f5f5; border-left: 4px solid #000; border-radius: 3px; }
+  .key-player h4 { color: #000; margin: 0 0 6px; }
+  .key-player p { line-height: 1.7; font-size: 14px; }
+  .table-scroll { overflow-x: auto; }
+  @media print { body { padding: 20px; } }
 </style>
 </head>
-<body class="bg-gray-50">
+<body>
 <div class="container">
 
-<div class="section text-center bg-white rounded-2xl shadow-lg p-8 mb-8">
-  <img src="./logo/New_Zealand-logo.png" alt="新西兰足协队徽" style="height:90px;width:auto;display:block;margin:0 auto 10px;" onerror="this.style.display='none';document.getElementById('logo-fb').style.display='block';" />
+<div class="section text-center">
+  <img src="https://upload.wikimedia.org/wikipedia/en/thumb/3/3a/New_Zealand_Football_Crest_2022.svg/250px-New_Zealand_Football_Crest_2022.svg.png"
+       alt="新西兰国家队队徽"
+       style="height:90px;width:auto;display:block;margin:0 auto 10px;"
+       onerror="this.style.display='none';document.getElementById('logo-fb').style.display='block';" />
   <div id="logo-fb" style="display:none;font-size:4em;margin-bottom:10px;">🇳🇿</div>
-  <h1 class="text-4xl font-bold mt-4" style="color:#000;">新西兰 · 2026世界杯实力评估报告</h1>
-  <p class="text-gray-500 mt-2">报告生成日期：2026年5月24日 · 2026美加墨世界杯</p>
-  <div class="mt-3 p-2 inline-block bg-gray-100 rounded-lg border border-gray-300"><p class="text-sm"><strong>🥝 全白军团：</strong>唯一大洋洲代表 · 时隔16年重返世界杯 · 伍德领军 · G组战比利时+伊朗+埃及</p></div>
+  <h1>新西兰 · 2026世界杯实力评估报告</h1>
+  <p class="subtitle">All Whites（全白军团）· 大洋洲首张直通门票，16年后重返世界杯</p>
 </div>
 
-<h2 style="color:#000;border-bottom-color:#000;">（一）球队基本信息</h2>
-<div class="bg-white rounded-xl shadow p-6 mb-6">
-  <div class="grid md:grid-cols-2 gap-4">
-    <div>
-      <p><strong>主教练：</strong>达伦·贝兹利（Darren Bazeley）— 新西兰人，本土教练</p>
-      <p><strong>队长：</strong>克里斯·伍德（Chris Wood）— 诺丁汉森林前锋</p>
-      <p><strong>FIFA排名：</strong>约第85位（48强中最低）</p>
-      <p><strong>世界杯参赛次数：</strong>第3次（1982、2010、2026）</p>
-      <p><strong>世界杯最佳成绩：</strong><span class="font-bold text-red-600">0胜</span>（2平4负，从未赢过）</p>
-      <p><strong>上届（2022）成绩：</strong>未晋级</p>
-    </div>
-    <div>
-      <p><strong>小组赛：</strong>G组</p>
-      <p><strong>同组对手：</strong>比利时 🇧🇪、伊朗 🇮🇷、埃及 🇪🇬</p>
-      <p><strong>首战：</strong>6月15日 vs 伊朗（英格尔伍德）</p>
-      <p><strong>次战：</strong>6月21日 vs 埃及（温哥华）</p>
-      <p><strong>末轮：</strong>6月26日 vs 比利时（温哥华）</p>
-      <div class="mt-2 p-2 bg-red-50 rounded"><p class="text-sm"><strong>📜 世界杯不胜纪录：</strong>新西兰2次参赛6场比赛0胜2平4负——只在2010年逼平过斯洛伐克和巴拉圭</p></div>
-    </div>
-  </div>
-</div>
-
-<h3 class="text-xl font-bold" style="color:#000;">26人大名单（3 GK + 9 DF + 5 MF + 9 FW）</h3>
-<p class="text-gray-500 text-sm mb-3">* 5月14日公布 · 伍德（诺丁汉森林/英超）是唯一五大联赛球员 · 大洋洲唯一代表</p>
-
-<div class="bg-white rounded-xl shadow p-6 mb-6">
+<div class="section">
+  <h2>（一）球队基本信息</h2>
   <table>
-    <thead><tr><th>位置</th><th>球员姓名</th><th>英文名</th><th>俱乐部</th><th>联赛</th></tr></thead>
-    <tbody>
-      <tr><td><span class="badge badge-gk">GK</span></td><td>马克斯·克罗科姆</td><td>Max Crocombe</td><td>米尔沃尔</td><td>英冠</td></tr>
-      <tr><td><span class="badge badge-gk">GK</span></td><td>亚历克斯·保尔森</td><td>Alex Paulsen</td><td>莱吉亚格但斯克</td><td>波超</td></tr>
-      <tr><td><span class="badge badge-gk">GK</span></td><td>迈克尔·伍德</td><td>Michael Woud</td><td>奥克兰FC</td><td>澳超</td></tr>
-      <tr><td><span class="badge badge-df">DF</span></td><td>蒂姆·佩恩</td><td>Tim Payne</td><td>惠灵顿凤凰</td><td>澳超</td></tr>
-      <tr><td><span class="badge badge-df">DF</span></td><td>弗朗西斯·德弗里斯</td><td>Francis De Vries</td><td>奥克兰FC</td><td>澳超</td></tr>
-      <tr><td><span class="badge badge-df">DF</span></td><td><strong>泰勒·宾登</strong></td><td><strong>Tyler Bindon</strong></td><td><strong>诺丁汉森林</strong></td><td>英超</td></tr>
-      <tr><td><span class="badge badge-df">DF</span></td><td>迈克尔·博克索尔</td><td>Michael Boxall</td><td>明尼苏达联</td><td>美职联</td></tr>
-      <tr><td><span class="badge badge-df">DF</span></td><td>利贝拉托·卡卡斯</td><td>Liberato Cacace</td><td>雷克瑟姆</td><td>英甲</td></tr>
-      <tr><td><span class="badge badge-df">DF</span></td><td>南多·皮纳克尔</td><td>Nando Pijnaker</td><td>奥克兰FC</td><td>澳超</td></tr>
-      <tr><td><span class="badge badge-df">DF</span></td><td>芬恩·苏尔曼</td><td>Finn Surman</td><td>波特兰伐木者</td><td>美职联</td></tr>
-      <tr><td><span class="badge badge-df">DF</span></td><td>卡伦·埃利奥特</td><td>Callan Elliot</td><td>奥克兰FC</td><td>澳超</td></tr>
-      <tr><td><span class="badge badge-df">DF</span></td><td>汤米·史密斯</td><td>Tommy Smith</td><td>布伦特里镇</td><td>英议联</td></tr>
-      <tr><td><span class="badge badge-mf">MF</span></td><td>乔·贝尔</td><td>Joe Bell</td><td>维京</td><td>挪超</td></tr>
-      <tr><td><span class="badge badge-mf">MF</span></td><td>马尔科·斯塔梅尼奇</td><td>Marko Stamenić</td><td>斯旺西</td><td>英冠</td></tr>
-      <tr><td><span class="badge badge-mf">MF</span></td><td>亚历克斯·鲁费尔</td><td>Alex Rufer</td><td>惠灵顿凤凰</td><td>澳超</td></tr>
-      <tr><td><span class="badge badge-mf">MF</span></td><td>瑞安·托马斯</td><td>Ryan Thomas</td><td>PEC兹沃勒</td><td>荷甲</td></tr>
-      <tr><td><span class="badge badge-mf">MF</span></td><td>拉克兰·贝利斯</td><td>Lachlan Bayliss</td><td>纽卡斯尔喷气机</td><td>澳超</td></tr>
-      <tr><td><span class="badge badge-fw">FW</span></td><td>马特·加贝特</td><td>Matt Garbett</td><td>彼得堡联</td><td>英甲</td></tr>
-      <tr><td><span class="badge badge-fw">FW</span></td><td><strong>⭐ 克里斯·伍德 (C)</strong></td><td><strong>Chris Wood</strong></td><td><strong>诺丁汉森林</strong></td><td>英超</td></tr>
-      <tr><td><span class="badge badge-fw">FW</span></td><td>萨普里特·辛格</td><td>Sarpreet Singh</td><td>惠灵顿凤凰</td><td>澳超</td></tr>
-      <tr><td><span class="badge badge-fw">FW</span></td><td>埃利·贾斯特</td><td>Eli Just</td><td>马瑟韦尔</td><td>苏超</td></tr>
-      <tr><td><span class="badge badge-fw">FW</span></td><td>科斯塔·巴巴罗塞斯</td><td>Kosta Barbarouses</td><td>西悉尼流浪者</td><td>澳超</td></tr>
-      <tr><td><span class="badge badge-fw">FW</span></td><td>本·韦恩</td><td>Ben Waine</td><td>韦尔港</td><td>英乙</td></tr>
-      <tr><td><span class="badge badge-fw">FW</span></td><td>本·奥尔德</td><td>Ben Old</td><td>圣埃蒂安</td><td>法乙</td></tr>
-      <tr><td><span class="badge badge-fw">FW</span></td><td>卡勒姆·麦考特</td><td>Callum McCowatt</td><td>锡尔克堡</td><td>丹超</td></tr>
-      <tr><td><span class="badge badge-fw">FW</span></td><td>杰西·兰德尔</td><td>Jesse Randall</td><td>奥克兰FC</td><td>澳超</td></tr>
-    </tbody>
+    <tr><th style="width:140px;">项目</th><th>内容</th></tr>
+    <tr><td>主教练</td><td>达伦·巴泽利（Darren Bazeley），新西兰籍，前全白队后卫</td></tr>
+    <tr><td>队长</td><td>克里斯·伍德（Chris Wood），34岁，前锋</td></tr>
+    <tr><td>FIFA排名</td><td><strong>第85位（48强中最低）</strong></td></tr>
+    <tr><td>全队总身价</td><td><strong>€3,535万（约€35.35M）——48强垫底</strong></td></tr>
+    <tr><td>平均年龄</td><td>28.1岁</td></tr>
+    <tr><td>世界杯历史</td><td>第3次参赛（1982/2010/2026），从未取胜（0胜2平7负）</td></tr>
+    <tr><td>最佳战绩</td><td>2010年小组赛2平1负（1-1斯洛伐克、1-1意大利、0-0巴拉圭）——不败出局</td></tr>
+    <tr><td>上届世界杯</td><td>未晋级（2014/2018/2022均缺席）</td></tr>
+    <tr><td>晋级方式</td><td>大洋洲区（OFC）首次获得直接晋级名额，以头名出线</td></tr>
+    <tr><td>2026小组</td><td><strong>G组</strong>：比利时 🇧🇪、伊朗 🇮🇷、埃及 🇪🇬、新西兰 🇳🇿</td></tr>
+    <tr><td>首场比赛</td><td>2026年6月15日 vs 伊朗（洛杉矶英格尔伍德）</td></tr>
   </table>
-  <div class="mt-3 p-3 bg-yellow-50 rounded-lg border border-yellow-200">
-    <p class="text-sm"><strong>🌏 球员分布：</strong>英超1人、英冠2人、英甲2人、英乙1人、澳超8人、美职联2人、其他欧洲联赛6人 | 澳超是绝对主力来源</p>
+</div>
+
+<div class="section">
+  <h3>26人大名单</h3>
+  <p><em>大名单于2026年5月14日在奥克兰伊甸公园公布。全队26人中18人在海外踢球（69%），但仅有伍德（英超）和宾登（英超替补）两人在五大联赛效力。8人来自澳超（A-League）。</em></p>
+
+  <div class="table-scroll"><table>
+    <tr><th>位置</th><th>球员姓名</th><th>年龄</th><th>所属俱乐部</th></tr>
+    <tr><td rowspan="3">GK</td><td>Max Crocombe</td><td>31</td><td>米尔沃尔（英冠）</td></tr>
+    <tr><td>Alex Paulsen</td><td>23</td><td>莱希亚格但斯克（波超）</td></tr>
+    <tr><td>Michael Woud</td><td>27</td><td>奥克兰FC（新超）</td></tr>
+    <tr><td rowspan="9">DF</td><td>Tyler Bindon</td><td>21</td><td>诺丁汉森林（英超）</td></tr>
+    <tr><td>Tommy Smith</td><td>34</td><td>布伦特里镇（英议联）</td></tr>
+    <tr><td>Michael Boxall</td><td>36</td><td>明尼苏达联（美职联）</td></tr>
+    <tr><td>Liberato Cacace</td><td>25</td><td>雷克瑟姆（英乙）</td></tr>
+    <tr><td>Nando Pijnaker</td><td>27</td><td>奥克兰FC（新超）</td></tr>
+    <tr><td>Finn Surman</td><td>22</td><td>波特兰伐木者（美职联）</td></tr>
+    <tr><td>Tim Payne</td><td>31</td><td>惠灵顿凤凰（澳超）</td></tr>
+    <tr><td>Francis De Vries</td><td>29</td><td>奥克兰FC（新超）</td></tr>
+    <tr><td>Callan Elliot</td><td>26</td><td>奥克兰FC（新超）</td></tr>
+    <tr><td rowspan="5">MF</td><td>Marko Stamenić</td><td>24</td><td>斯旺西城（英冠）</td></tr>
+    <tr><td>Joe Bell</td><td>27</td><td>维京FK（挪超）</td></tr>
+    <tr><td>Ryan Thomas</td><td>30</td><td>PEC兹沃勒（荷甲）</td></tr>
+    <tr><td>Alex Rufer</td><td>30</td><td>惠灵顿凤凰（澳超）</td></tr>
+    <tr><td>Lachlan Bayliss</td><td>22</td><td>纽卡斯尔喷气机（澳超）</td></tr>
+    <tr><td rowspan="9">FW</td><td>Chris Wood <strong>(C)</strong></td><td>34</td><td>诺丁汉森林（英超）</td></tr>
+    <tr><td>Kosta Barbarouses</td><td>36</td><td>西悉尼流浪者（澳超）</td></tr>
+    <tr><td>Eli Just</td><td>25</td><td>马瑟韦尔（苏超）</td></tr>
+    <tr><td>Matt Garbett</td><td>24</td><td>彼得堡联（英甲）</td></tr>
+    <tr><td>Sarpreet Singh</td><td>27</td><td>惠灵顿凤凰（澳超）</td></tr>
+    <tr><td>Ben Waine</td><td>25</td><td>维尔港（英乙）</td></tr>
+    <tr><td>Ben Old</td><td>23</td><td>圣埃蒂安（法乙）</td></tr>
+    <tr><td>Callum McCowatt</td><td>27</td><td>锡尔克堡（丹超）</td></tr>
+    <tr><td>Jesse Randall</td><td>22</td><td>奥克兰FC（新超）</td></tr>
+  </table></div>
+  <p style="font-size:13px;color:#666;margin-top:5px;">* 来源：新西兰足协2026年5月14日公布。全队身价约€35.35M，48强最低。</p>
+</div>
+
+<div class="section">
+  <h2>（二）逐项评分明细</h2>
+
+  <h3>维度一：阵容实力（权重30%）｜ 得分：29分 × 30% = 8.70分</h3>
+
+  <div class="sub-item">
+    <span class="sub-item-title">1.1 球星质量与个人能力</span><span class="sub-item-score">30分</span>
+    <p style="margin-top:8px;line-height:1.7;font-size:14px;">
+      新西兰队唯一的"球星"是克里斯·伍德（34岁/诺丁汉森林/英超）——他在2025/26赛季英超攻入12球，是森林保级的关键射手。34岁的伍德依然保持着不错的禁区内终结能力，但其速度、跑动能力和对抗持续性已明显下滑——他的12个英超进球中有5个来自替补出场后的"体能差"机会，这在面对比利时和埃及的顶级后卫时难以复制。全队其他球员中，宾登（21岁/森林）是英超联赛中最年轻的注册球员之一，但2025/26赛季英超出场仅8次（4次首发）。斯塔梅尼奇（斯旺西/英冠）具有一定的控球和前插能力，但尚未在顶级联赛证明自己。其余球员分别效力于英冠、英乙、澳超、挪超、美职联等中低级联赛——全队的比赛级别分布从"英超"直接跌落到"澳超/新西兰超"，中间几乎没有"德甲/西甲/意甲"的过渡。全队总身价€3,535万在所有48支参赛队中垫底——作为最后一支获得资格的球队，也是参赛国中FIFA排名最低的球队（第85位），这一身价排名符合预期。
+    </p>
   </div>
-</div>
-
-<h2 style="color:#000;border-bottom-color:#000;">（二）逐项评分明细</h2>
-
-<div class="dimension-card">
-  <h3 style="color:#000;">维度一：阵容实力（权重30%）｜ 37.5分 × 30% = 11.25分</h3>
-  <div class="subitem"><h4 style="color:#000;">1.1 球星质量 —— 38分</h4>
-    <table class="text-sm mb-2"><tr><th>指标</th><th>数据</th></tr>
-      <tr><td>五大联赛球员</td><td>2人（伍德/诺丁汉森林、宾登/诺丁汉森林）</td></tr>
-      <tr><td>世界级球员</td><td>0人</td></tr>
-      <tr><td>Game-changer</td><td>伍德（禁区终结/身高1米91）</td></tr>
-    </table>
-    <p>新西兰的阵容实力在32强中处于末流。克里斯·伍德（诺丁汉森林）是唯一的亮点——本赛季英超打入10球，是英超中游前锋的稳定输出。他的身体对抗（1米91）和禁区内的头球能力是新西兰进攻端唯一可靠的"武器"。但除此之外，全队没有第二名五大联赛主力球员。泰勒·宾登（诺丁汉森林）虽然也效力英超，但只是一名21岁的年轻后卫，一线队出场时间有限。其余球员分布在英冠、英甲、英乙、澳超、美职联、挪超等联赛——与G组对手比利时（全队身价约5亿欧）相比，新西兰的球员个人能力存在数量级的差距。</p>
+  <div class="sub-item">
+    <span class="sub-item-title">1.2 各位置均衡度</span><span class="sub-item-score">32分</span>
+    <p style="margin-top:8px;line-height:1.7;font-size:14px;">
+      新西兰阵容呈现"前场单核、后场老龄化、中场平庸"的不均衡格局。前锋线是球队唯一的"强点"——伍德是英超级别的终结者，其余8名前锋中巴巴鲁塞斯（36岁/澳超）、贾斯特（马瑟韦尔/苏超）和加贝特（彼得堡联/英甲）均具备一定的对抗能力，但他们的比赛级别与世界杯前锋的差距明显。中场是整支球队最薄弱的环节——5名中场中无一人效力于五大联赛，斯塔梅尼奇（斯旺西/英冠）是最"欧化"的选择，其余4人分别在挪超、荷甲（兹沃勒/荷甲中下游）、澳超和新超踢球。中场的创造力几乎为零——没有人能够在中路送出穿透性的直塞球或通过个人控球撕裂对手的防线。后防线的问题在于"老龄化"——史密斯（34岁/英议联）和博克索尔（36岁/美职联）的年龄和比赛级别令人担忧，年轻中卫宾登（21岁/森林）虽有潜力但经验不足。门将克罗科姆（米尔沃尔/英冠）是新西兰防线最可靠的环节——他在英冠2025/26赛季扑救成功率72%，虽然不算顶级但至少具备英冠级别的扑救能力。
+    </p>
   </div>
-  <div class="subitem"><h4 style="color:#000;">1.2 各位置均衡度 —— 42分</h4><p>9前锋配置偏多，5中场偏少——典型的"依赖伍德"战术设计。后防9人但多数来自澳超，面对比利时和伊朗的攻击线时将承受巨大压力。</p></div>
-  <div class="subitem"><h4 style="color:#000;">1.3 板凳深度 —— 35分</h4><p>伍德一旦状态不佳或被限制，替补前锋来自英乙/英甲/澳超——进球能力断崖式下降。中后场替补同样有限。</p></div>
-  <div class="subitem"><h4 style="color:#000;">1.4 身价与年龄 —— 35分</h4><p>全队总身价约3000-4000万欧（32强倒数第三）。伍德一人贡献约一半（2000万）。平均年龄27.5岁。</p></div>
-  <div class="score-bar mt-3"><div class="score-fill" style="width:37%;background:linear-gradient(90deg,#555,#000);"></div></div>
-  <p class="text-right text-sm text-gray-500 mt-1">维度一总评：<strong>37.5分</strong> × 30% = <strong>11.25分</strong></p>
-</div>
-
-<div class="dimension-card">
-  <h3 style="color:#000;">维度二：战术体系与教练（权重20%）｜ 41分 × 20% = 8.2分</h3>
-  <div class="subitem"><h4 style="color:#000;">2.1 主帅哲学 —— 42分</h4><p>贝兹利是新西兰本土教练，2023年上任后成功带队从大洋洲区突围。战术以防守反击为核心——利用伍德的头球和身高优势。</p></div>
-  <div class="subitem"><h4 style="color:#000;">2.2 阵型适配 —— 45分</h4><p>4-4-2或5-4-1。伍德作为单箭头争顶第一点，第二前锋争抢第二落点——简单直接。</p></div>
-  <div class="subitem"><h4 style="color:#000;">2.3 转换效率 —— 38分</h4><p>由守转攻的手段有限——主要依赖大脚找伍德。定位球是新西兰最主要的得分预期手段。</p></div>
-  <div class="subitem"><h4 style="color:#000;">2.4 临场指挥 —— 40分</h4><p>贝兹利缺乏大赛执教经验——世界杯将是他的最高级别考验。</p></div>
-  <div class="score-bar mt-3"><div class="score-fill" style="width:41%;background:linear-gradient(90deg,#555,#000);"></div></div>
-  <p class="text-right text-sm text-gray-500 mt-1">维度二总评：<strong>41分</strong> × 20% = <strong>8.2分</strong></p>
-</div>
-
-<div class="dimension-card">
-  <h3 style="color:#000;">维度三：竞技状态（权重15%）｜ 42分 × 15% = 6.3分</h3>
-  <div class="subitem"><h4 style="color:#000;">3.1 近12个月战绩 —— 50分</h4><p>在大洋洲预选赛中4战全胜，决赛3-0击败斐济——但大洋洲的竞争强度在32强中垫底。</p></div>
-  <div class="subitem"><h4 style="color:#000;">3.2 含金量 —— 35分</h4><p>大洋洲区只有一个名额，新西兰作为唯一职业化球队出线是"应有的结果"。</p></div>
-  <div class="subitem"><h4 style="color:#000;">3.3 核心状态 —— 42分</h4><p>伍德英超10球——状态稳定。但宾登（森林）出场时间有限，其余球员在低级别联赛表现平平。</p></div>
-  <div class="score-bar mt-3"><div class="score-fill" style="width:42%;background:linear-gradient(90deg,#555,#000);"></div></div>
-  <p class="text-right text-sm text-gray-500 mt-1">维度三总评：<strong>42分</strong> × 15% = <strong>6.3分</strong></p>
-</div>
-
-<div class="dimension-card">
-  <h3 style="color:#000;">维度四：大赛经验（权重10%）｜ 33分 × 10% = 3.3分</h3>
-  <div class="subitem"><h4 style="color:#000;">4.1 世界杯历史 —— 25分</h4><p>2次参赛6场0胜——1982年3战全败、2010年3战2平1负。2010年对斯洛伐克和巴拉圭的两场平局是唯一的高光时刻。</p></div>
-  <div class="subitem"><h4 style="color:#000;">4.2 核心经验 —— 35分</h4><p>伍德参加过2010年世界杯（24岁首次参赛，3场0球）。今年他将以34岁"老将"身份第2次参赛——但其他球员经验不足。</p></div>
-  <div class="subitem"><h4 style="color:#000;">4.3 抗压能力 —— 38分</h4><p>2010年逼平斯洛伐克和巴拉圭展现了新西兰"不轻易认输"的精神——但那已经是16年前了。</p></div>
-  <div class="score-bar mt-3"><div class="score-fill" style="width:33%;background:linear-gradient(90deg,#555,#000);"></div></div>
-  <p class="text-right text-sm text-gray-500 mt-1">维度四总评：<strong>33分</strong> × 10% = <strong>3.3分</strong></p>
-</div>
-
-<div class="dimension-card">
-  <h3 style="color:#000;">维度五：分组赛程（权重10%）｜ 34分 × 10% = 3.4分</h3>
-  <div class="subitem"><h4 style="color:#000;">5.1 小组对手 —— 30分</h4>
-    <table class="text-sm mb-2"><tr><th>对手</th><th>新西兰概率</th></tr>
-      <tr><td>比利时 🇧🇪</td><td>5-8%</td></tr>
-      <tr><td>伊朗 🇮🇷</td><td>15-20%</td></tr>
-      <tr><td>埃及 🇪🇬</td><td>15-20%</td></tr>
-    </table>
-    <p>G组对新西兰来说是"不可能的任务"。比利时（B+级）是小组头号热门，伊朗和埃及都是FIFA排名前50的劲旅。</p>
+  <div class="sub-item">
+    <span class="sub-item-title">1.3 板凳深度</span><span class="sub-item-score">25分</span>
+    <p style="margin-top:8px;line-height:1.7;font-size:14px;">
+      新西兰的板凳深度是所有48强中最差的之一。首发11人中，伍德（英超）和克罗科姆（英冠）可能是唯一两名"在其他参赛队中也能进入大名单"的球员。替补席上的球员大部分来自澳超（8人）和新西兰超（4人），这些联赛的竞技水平大约相当于欧洲第25-35级别联赛——与G组对手比利时（英超+德甲+西甲球员）、埃及（英超+法甲球员）和伊朗（德甲+荷甲+俄超球员）的替补深度差距是数量级的。如果伍德在比赛中受伤或状态不佳，替补中锋入选者韦恩（维尔港/英乙）和兰德尔（奥克兰FC）的比赛级别将完全无法匹配世界杯对手的防守强度。如果中场核心斯塔梅尼奇停赛，替代者将是鲁费尔（惠灵顿凤凰/澳超）或贝利斯（纽卡斯尔喷气机/澳超）——这两人在澳超都算不上顶级，在世界杯上将完全被压制。
+    </p>
   </div>
-  <div class="subitem"><h4 style="color:#000;">5.2 晋级可能 —— 18分</h4><p>出线概率低于2%。唯一现实目标——世界杯历史首胜。</p></div>
-  <div class="subitem"><h4 style="color:#000;">5.3 旅途气候 —— 55分</h4><p>加州+温哥华的西海岸气候对新西兰人非常友好——他们都习惯了温带海洋性气候。</p></div>
-  <div class="score-bar mt-3"><div class="score-fill" style="width:34%;background:linear-gradient(90deg,#555,#000);"></div></div>
-  <p class="text-right text-sm text-gray-500 mt-1">维度五总评：<strong>34分</strong> × 10% = <strong>3.4分</strong></p>
+  <div class="sub-item">
+    <span class="sub-item-title">1.4 总身价与年龄结构</span><span class="sub-item-score">25分</span>
+    <p style="margin-top:8px;line-height:1.7;font-size:14px;">
+      新西兰全队总身价仅€3,535万——48强中倒数第一。作为对比，同组比利时队身价是其30倍以上（约€10亿+），伊朗是其8倍，埃及是其6倍。伍德一人的身价（约€800万）已占全队总值的23%，其余25人的总身价（€2,735万）甚至不如比利时阵中的一名替补球员（如多库€7,500万）。平均年龄28.1岁偏大，后防线上的史密斯（34岁）和博克索尔（36岁）分别效力于英议联（第5级别）和美职联，两人的年龄和比赛级别组合在一起是一种"危险的过时"——面对比利时边锋多库的年轻加速，他们的转身速度差距将成为灾难。年龄结构中唯一的积极因素是宾登（21岁/森林）——他是新西兰足球的希望所在，但本届世界杯对他而言更多是"交学费"而非"表现舞台"。
+    </p>
+  </div>
+
+  <h4 style="text-align:right;margin-top:10px;">均分：29分</h4>
+
+  <p class="analysis-text">
+    新西兰的阵容实力在所有48支参赛队中垫底——FIFA第85位的排名和€3,535万的身价已经说明了一切。这支球队的核心矛盾在于：伍德（英超射手）的水准与全队其他球员的水准之间存在"代差"——类似于一个英超球员带着22名英乙/澳超级别球员在踢世界杯。伍德虽然34岁，但他在诺丁汉森林的12个英超进球证明了"年龄不是问题、状态才是关键"——问题是：在世界杯赛场上，面对比利时（范迪克+德布劳内+多库）、伊朗（塔雷米+阿兹蒙）和埃及（萨拉赫）的防线，伍德能否像在英超一样获得足够的射门机会？中场的创造力是更为严峻的问题——如果对手的高位压迫切断伍德与中场的联系，新西兰的进攻将彻底瘫痪。后防线的"老龄化+低级别"组合在面对比利时边锋群和伊朗强力中锋时将遭遇灭顶之灾。
+  </p>
+
+  <div class="divider"></div>
+  <h3>维度二：战术体系与教练（权重20%）｜ 得分：42分 × 20% = 8.40分</h3>
+
+  <div class="sub-item">
+    <span class="sub-item-title">2.1 主帅战术哲学与大赛履历</span><span class="sub-item-score">42分</span>
+    <p style="margin-top:8px;line-height:1.7;font-size:14px;">
+      达伦·巴泽利（52岁）是新西兰足球的"自己人"——他曾是新西兰国家队（全白队）的后卫，参加了2003年联合会杯等赛事。退役后转型教练，先后执教新西兰U20/U23梯队，2023年正式接手成年国家队。巴泽利的执教风格以"实用主义"为核心——4-4-2或4-2-3-1阵型，强调防守的组织性和中场的高强度奔跑，进攻端依赖伍德作为支点的回撤接球和双前锋的配合。他的大赛履历有限：带领新西兰U23参加了东京2020奥运会（三场小组赛全部战平出局），带领成年国家队通过大洋洲区预选赛首次以直接晋级名额挺进世界杯。这是他首次以主教练身份参加世界杯——没有任何世界杯正赛的执教经验。巴泽利的最大优势在于"了解球员"——他与新西兰足协的长期合作使他与队员们建立了深厚的信任关系，这在团队精神层面是一个不可忽视的积极因素。
+    </p>
+  </div>
+  <div class="sub-item">
+    <span class="sub-item-title">2.2 阵型适配性与球员契合度</span><span class="sub-item-score">45分</span>
+    <p style="margin-top:8px;line-height:1.7;font-size:14px;">
+      巴泽利的4-4-2阵型与新西兰球员的特点基本契合——这是"对最低水平的球员要求最高的阵型"之一。4-4-2需要两个中锋之间的默契配合、两个边前卫的攻防两端跑动和双后腰的全面覆盖——而新西兰的球员在澳超/英乙级别联赛中虽然能执行这一阵型，但在世界杯级别的高强度对抗下，战术执行力的下降将非常显著。伍德在4-4-2中担任"支点中锋"是最合适的定位——他的身体对抗和禁区抢点能力可以弥补跑动速度的不足。斯塔梅尼奇在中场的控球和传球是新西兰为数不多的"有球能力"来源。但4-4-2阵型的边路防守短板可能被G组对手重点针对——比利时拥有多库（边路速度）和德布劳内（中路直塞），伊朗拥有塔雷米（前插跑位）和古多斯（边路突破），这些球员恰好都可以利用4-4-2阵型中边前卫与边后卫之间的空当。
+    </p>
+  </div>
+  <div class="sub-item">
+    <span class="sub-item-title">2.3 攻守转换效率</span><span class="sub-item-score">40分</span>
+    <p style="margin-top:8px;line-height:1.7;font-size:14px;">
+      新西兰的进攻模式以"后场长传找伍德→伍德头球摆渡→第二前锋跟进射门"为主——这是一种简单、直接、有效（在OFC和大洋洲层次）的战术。伍德在英超和英冠的长期职业生涯中已经证明了自己是"长传战术"的顶级支点——他的空中对抗成功率（57%）即使在英超也属于中上水平。定位球是新西兰另一重要的得分武器——伍德和史密斯在各自俱乐部都是定位球得分的高点。但由攻转守的效率将是新西兰在G组中面临的最大挑战：4-4-2阵型在由攻转守时需要边前卫快速回位形成4-5-1阵型——而新西兰的边前卫（贾斯特、加贝特）在防守端的跑动能力和战术纪律在面对比利时和伊朗的快速反击时可能无法做到及时回防。新西兰与比利时之间的攻守转换速度差可能是G组中最悬殊的对位。
+    </p>
+  </div>
+  <div class="sub-item">
+    <span class="sub-item-title">2.4 临场指挥与换人策略</span><span class="sub-item-score">38分</span>
+    <p style="margin-top:8px;line-height:1.7;font-size:14px;">
+      巴泽利在预选赛中的临场指挥表现可用"稳健"二字概括——他在大洋洲级别的比赛中没有犯过明显错误。但在世界杯G组的比赛中，他的战术调整能力将受到前所未有的考验：面对比利时的全明星阵容，如果新西兰在上半场就0-2落后，他是否有胆量在下半场开始前就做出激进的换人调整？面对伊朗顽强的防守体系，如果新西兰在0-0僵局中迟迟无法创造机会，他是否有勇气撤下一名后卫增加一名前锋？巴泽利的替补牌极为有限——他可能在第60分钟换上韦恩（英乙前锋）来增加锋线高度，或者换上贝利斯（澳超中场）来加强中场跑动，但这些都是"增加人数"而非"改变比赛"的换人。在世界杯这个级别的比赛中，能够通过替补改变比赛的教练通常需要有顶级联赛的执教经验——而巴泽利显然不是这一类教练。
+    </p>
+  </div>
+
+  <h4 style="text-align:right;margin-top:10px;">均分：42分</h4>
+
+  <p class="analysis-text">
+    巴泽利是新西兰足球体系培养的"本土教练代表"，他的最大价值不在于战术创新而在于"团队建设"。在他的带领下，新西兰队保持了良好的团队氛围和战术纪律——这是他能够带领全白队在大洋洲区脱颖而出的关键原因。但在世界杯G组中，他与世界级教练（比利时教练、伊朗教练、埃及教练）之间的战术经验差距将是客观存在的。新西兰的战术体系在G组中唯一的"生存策略"是：极端务实的防守（类似2010年新西兰1-1平意大利那场比赛的超级铁桶阵）+伍德在定位球和反击中的单人爆种。这几乎不是巴泽利的"战术设计"能够实现的，更多地取决于球员——尤其是伍德和克罗科姆——在比赛中的个人表现。
+  </p>
+
+  <div class="divider"></div>
+  <h3>维度三：近期竞技状态（权重15%）｜ 得分：44分 × 15% = 6.60分</h3>
+
+  <div class="sub-item">
+    <span class="sub-item-title">3.1 近12个月正式比赛战绩</span><span class="sub-item-score">42分</span>
+    <p style="margin-top:8px;line-height:1.7;font-size:14px;">
+      新西兰在2025-2026年的正式比赛全部集中在大洋洲区预选赛中——他们以不败战绩从小组中出线，获得了OFC首个直接晋级名额。但大洋洲区的竞争强度是六大洲足联中最弱的——新西兰在预选赛中的对手分别是斐济、瓦努阿图、新喀里多尼亚等FIFA排名150位以下的球队。新西兰对阵这些球队时展现出了应有的统治力（场均进球3+、零封对手），但这些胜利的质量评估需要打一个巨大的折扣：斐济和瓦努阿图的足球基础设施和球员水平与G组对手比利时、伊朗、埃及之间的差距，甚至大于新西兰与比利时之间的差距。新西兰在近12个月内几乎没有与FIFA排名前50的球队进行过任何正式比赛——这导致球队的竞技状态在应对世界杯级别的高强度比赛时存在极大的不确定性。
+    </p>
+  </div>
+  <div class="sub-item">
+    <span class="sub-item-title">3.2 预选赛出线含金量</span><span class="sub-item-score">35分</span>
+    <p style="margin-top:8px;line-height:1.7;font-size:14px;">
+      新西兰通过OFC大洋洲区预选赛以头名身份晋级——这是大洋洲首次获得直接晋级世界杯的名额（此前OFC冠军需要参加跨洲附加赛）。新西兰在大洋洲区的统治地位是毋庸置疑的：他们击败了所有来自太平洋岛屿的对手，预选赛净胜球超过+20。但OFC预选赛的含金量在六大洲中是最低的——OFC的FIFA平均排名约为第130-150位，与欧洲区（平均排名约第40位）、南美区（平均排名约第30位）和非洲区（平均排名约第60位）的竞争强度完全不在同一层级。新西兰预选赛中最强的对手可能是新喀里多尼亚（FIFA第158位）或斐济（FIFA第163位）——这些球队放在欧洲或南美可能连预选赛第一轮都无法通过。因此，新西兰的"晋级含金量"在48强中是最低的——他们可能是所有参赛队中唯一一支在预选赛中从未面对过FIFA排名前100对手的球队。
+    </p>
+  </div>
+  <div class="sub-item">
+    <span class="sub-item-title">3.3 核心球员俱乐部状态走势</span><span class="sub-item-score">55分</span>
+    <p style="margin-top:8px;line-height:1.7;font-size:14px;">
+      新西兰核心球员的俱乐部状态是本维度中唯一的亮点——主要归功于伍德在诺丁汉森林的出色赛季。34岁的伍德2025/26赛季英超攻入12球（其中5球来自替补出场），每90分钟进球数0.43球，在英超中锋中排名第12位——对于一个34岁的老将来说，这一数据令人印象深刻。克罗科姆（米尔沃尔/英冠）2025/26赛季28场扑救成功率72%，在英冠门将中处于中游水平。宾登（森林）在英超获得了8次出场（4次首发），积累了一定的顶级联赛经验。斯塔梅尼奇（斯旺西/英冠）26场2球3助攻——在英冠中表现稳健。其他球员的俱乐部状态则比较暗淡——博克索尔（明尼苏达联/美职联）在后防线上表现尚可但36岁的年龄已近退役，史密斯（布伦特里镇/英议联）在英议联（第5级别）踢球的状态几乎无法作为世界杯水平的参考。整体来看，新西兰球员在俱乐部层面的"最高天花板"是英冠/英乙级别——只有伍德和克罗科姆两人达到了世界杯"合格"的基本线。
+    </p>
+  </div>
+
+  <h4 style="text-align:right;margin-top:10px;">均分：44分</h4>
+
+  <p class="analysis-text">
+    新西兰的竞技状态评估面临一个根本性的困境：缺乏高质量对手的参照物。OFC预选赛的压倒性胜利几乎无法提供任何关于球队在世界杯级别比赛中表现的有效信息——11-0击败斐济与0-2输给比利时之间没有可比性。2010年世界杯新西兰3场小组赛不败（1-1斯洛伐克、1-1意大利、0-0巴拉圭）的历史经验虽然值得参考，但那支新西兰队拥有现役英超球员（伍德当时还未入选）和一批经验丰富的老将，而2026年的这支新西兰队在球员比赛级别上与2010年那一批并没有本质提升。伍德的12个英超进球是全队最大的信心来源——一个状态火热的顶级联赛射手可以在世界杯上创造"一人改变一场比赛"的奇迹（2014年哥斯达黎加的鲁伊斯、2022年波兰的莱万都证明了这一点）。
+  </p>
+
+  <div class="divider"></div>
+  <h3>维度四：大赛经验与心理素质（权重10%）｜ 得分：33分 × 10% = 3.30分</h3>
+
+  <div class="sub-item">
+    <span class="sub-item-title">4.1 世界杯/洲际杯历史战绩</span><span class="sub-item-score">30分</span>
+    <p style="margin-top:8px;line-height:1.7;font-size:14px;">
+      新西兰在1982年和2010年两次参加世界杯，总战绩为0胜2平7负——尚未在世界杯上取得过胜利。1982年首次参赛三战皆负（2-5苏格兰、0-3苏联、0-4巴西）。2010年是新西兰世界杯历史上最辉煌的篇章——小组赛三场全部战平（1-1斯洛伐克、1-1意大利、0-0巴拉圭），成为当届世界杯唯一不败出局的球队。1-1战平世界冠军意大利（当时意大利是2006年世界冠军）是新西兰足球史上最伟大的比赛——里德在第78分钟的头球破门帮助新西兰在卫冕冠军身上拿到1分。2010年的"不败出局"经历为新西兰足球留下了珍贵的精神遗产：球员们知道"只要全队团结一致、防守密不透风，我们是有可能在世界杯上拿分的"。但此后新西兰连续缺席了三届世界杯（2014/2018/2022），世界杯经验出现了长达12年的断层。
+    </p>
+  </div>
+  <div class="sub-item">
+    <span class="sub-item-title">4.2 核心球员大赛经验值</span><span class="sub-item-score">30分</span>
+    <p style="margin-top:8px;line-height:1.7;font-size:14px;">
+      新西兰全队26人中没有任何球员拥有世界杯正赛的参赛经验。2010年那支创造了不败奇迹的新西兰队中，所有成员都已退役或转型——伍德虽然是新西兰历史上最伟大的前锋之一，但2010年时他才18岁，并未入选当年的世界杯大名单。这意味着新西兰全队将首次踏上世界杯赛场——与海地、库拉索等新军一样面临"首秀压力"。全队大赛经验最丰富的是参加了东京2020奥运会的几名球员（斯塔梅尼奇、宾登等）——但奥运会足球赛（U23为主的赛事）的竞争强度和氛围与世界杯完全不同。伍德在诺丁汉森林的英超保级战经验（连续两个赛季为保级而战）是高压环境下最宝贵的心理资产——他知道在"必须拿分"的比赛中如何调整心态。但他能否将这一个人的经验转化为全队在世界杯赛场上的集体心理素质，是一个开放性问题。
+    </p>
+  </div>
+  <div class="sub-item">
+    <span class="sub-item-title">4.3 抗压与逆境应对</span><span class="sub-item-score">40分</span>
+    <p style="margin-top:8px;line-height:1.7;font-size:14px;">
+      新西兰在抗压方面最有说服力的案例仍然是2010年那场1-1战平意大利的比赛——新西兰在开场7分钟就0-1落后的情况下没有崩溃，而是按照既定战术坚持防守反击，第78分钟由温斯顿·里德头球扳平比分。这种"先丢球→不乱→坚持战术→抓住机会"的应对模式展示了新西兰足球在逆境中的精神韧性。在预选赛中，新西兰在面对弱旅时从未遇到过严重的抵抗，因此无法通过近年来的比赛数据评估球队在落后的情况下如何调整。巴泽利在更衣室中强调的"全白精神"（All Whites spirit）——团结、勤奋、不放弃——可能在面对比利时和伊朗的强大压力时成为球队最可靠的心理支撑。
+    </p>
+  </div>
+
+  <h4 style="text-align:right;margin-top:10px;">均分：33分</h4>
+
+  <p class="analysis-text">
+    新西兰的大赛经验可以用"辉煌的历史记忆vs空白的现实体验"来概括。2010年那支"不败出局"的新西兰队已经成为神话——但那批球员中没有一人还在现役。2026年的全白队是一支"全新"的球队——没有任何世界杯经验的球员们将在洛杉矶英格尔伍德（首战伊朗）面对世界杯赛场的巨大压力和陌生环境。伍德是唯一一个在英超高压环境中经受过考验的球员——他34岁的年龄和丰富的职业生涯经验使他可能成为这支"世界杯菜鸟"球队场上的"父亲角色"。2010年新西兰队最成功的制胜法宝是"极端的团队纪律和防守专注"——如果2026年的这支新西兰队能够在首战伊朗时重现那种精神面貌，他们或许至少能够避免"首秀崩盘"的悲剧。
+  </p>
+
+  <div class="divider"></div>
+  <h3>维度五：分组及赛程影响（权重10%）｜ 得分：31分 × 10% = 3.10分</h3>
+
+  <div class="sub-item">
+    <span class="sub-item-title">5.1 小组赛对手分析</span><span class="sub-item-score">25分</span>
+    <p style="margin-top:8px;line-height:1.7;font-size:14px;">
+      新西兰落入的G组在所有12个小组中属于"硬骨头"级别。比利时（FIFA第6位）虽然已过了"黄金一代"的巅峰期（德布劳内33岁、库尔图瓦34岁、维尔通亨退役），但球队仍拥有德布劳内（曼城）、多库（曼城）、特罗萨德（阿森纳）和奥蓬达（莱比锡）等英超/德甲顶级攻击手。伊朗（FIFA第19位）是亚洲排名最高的球队——塔雷米（国米/€2,000万）、阿兹蒙（罗马）和古多斯（布伦特福德）构成的"波斯三叉戟"对任何防线都是重大威胁。埃及（FIFA第32位）拥有萨拉赫（利物浦）——即使33岁的萨拉赫在2025/26赛季仍打出了26球的表现，他依然是全球最危险的边锋之一。三支对手中，伊朗可能是新西兰唯一可以"拼一下"的对手——伊朗在亚洲虽然强势，但面对新西兰的高度集中防守（伍德回撤+双后腰保护）时可能缺乏破密手段。
+    </p>
+  </div>
+  <div class="sub-item">
+    <span class="sub-item-title">5.2 淘汰赛晋级路线预判</span><span class="sub-item-score">20分</span>
+    <p style="margin-top:8px;line-height:1.7;font-size:14px;">
+      新西兰从G组出线的概率不到3%。在48队赛制下，小组前两名和8个最佳第三晋级32强——新西兰如果能够拿到2分（两场平局）且净胜球控制在-2以内，甚至有可能以小组第三身份与其他组竞争。但现实是：比利时和埃及的前锋群在对阵新西兰中后场时的进球概率远大于新西兰的防守抵挡能力——即使新西兰全队全力防守90分钟，也很难保证一场只丢1球。如果新西兰在首战伊朗时就遭遇大比分失利（如0-4），球队士气可能在后续比赛中彻底崩溃。最现实的目标是：在对阵伊朗或埃及的比赛中拿到1分，打入1球，体面地结束世界杯征程。
+    </p>
+  </div>
+  <div class="sub-item">
+    <span class="sub-item-title">5.3 旅途与气候因素</span><span class="sub-item-score">55分</span>
+    <p style="margin-top:8px;line-height:1.7;font-size:14px;">
+      新西兰的三场小组赛分别在洛杉矶英格尔伍德（6月15日vs伊朗）和温哥华（6月21日vs埃及、6月26日vs比利时）进行。洛杉矶6月气温约20-28°C，温哥华约15-22°C——气候舒适，对新西兰球员（习惯了温带海洋性气候）来说没有问题。但新西兰从南半球跨越大洋来到北美参赛需要适应时差——新西兰比太平洋时间早19小时，这意味着球员的生物钟需要大约5-7天才能完全适应。新西兰队在赛前提前10天左右抵达北美进行适应性训练，时间上基本足以完成时差调整。洛杉矶和温哥华之间的距离约1,750公里（约2.5小时航程），对体能消耗可控。总的来看，气候和场地条件对新西兰不是不利因素——但长途飞行的生理消耗比同行对手（比利时、埃及、伊朗）都要大。
+    </p>
+  </div>
+
+  <h4 style="text-align:right;margin-top:10px;">均分：31分</h4>
+
+  <p class="analysis-text">
+    新西兰在G组的签运非常糟糕——三支对手不仅在纸面实力上碾压新西兰，而且在风格上也形成了"无死角覆盖"：比利时会通过技术压制、伊朗会利用身体对抗、埃及会通过速度冲击——三种完全不同的比赛风格对新西兰的战术适应性提出了极高的要求。新西兰唯一的希望是：伊朗在面对密集防守时可能会急躁（伊朗在2022年世界杯上对阵英格兰时暴露了压力下情绪管理的问题），而埃及在塔雷米的带领下可能对新西兰不够重视。首战伊朗是最关键的比赛——如果新西兰能够顶住伊朗的进攻并在反击中偷一个进球（伍德+定位球），1-1的平局将是G组的"冰岛式奇迹"。
+  </p>
+
+  <div class="divider"></div>
+  <h3>维度六：团队凝聚力与场外环境（权重10%）｜ 得分：56分 × 10% = 5.60分</h3>
+
+  <div class="sub-item">
+    <span class="sub-item-title">6.1 更衣室团结度</span><span class="sub-item-score">55分</span>
+    <p style="margin-top:8px;line-height:1.7;font-size:14px;">
+      新西兰队的更衣室氛围在"全白精神"（All Whites spirit）的框架下保持着高度的团结。克里斯·伍德作为队长，以低调、自律和职业态度著称——他在诺丁汉森林的更衣室中担任过领袖角色，在国家队中同样以榜样的力量影响着年轻球员。巴泽利作为曾经的全白队后卫，与球员群体之间有着天然的认同感——他不是那种高高在上的"外教"，而是"自己人"。新西兰球员中虽然没有超级巨星，但大部分球员在澳超或英格兰低级别联赛中都有过与彼此交手的经历，队员之间的个人关系相对融洽。新西兰足协在球队管理方面的理念是"家庭式"的——球员在集训期间可以带家属，训练营的氛围更为轻松而非压抑。这种轻松但不失纪律的团队文化有助于球员在高压环境下保持心态的稳定。
+    </p>
+  </div>
+  <div class="sub-item">
+    <span class="sub-item-title">6.2 足协稳定性与管理</span><span class="sub-item-score">50分</span>
+    <p style="margin-top:8px;line-height:1.7;font-size:14px;">
+      新西兰足协（NZ Football）在规模上属于全球最小的足协之一——其年度预算甚至不及英超豪门一个月的球员工资。但NZ Football在有限的资源下保持了相对专业的运营水准——足协为世界杯备战安排了必要的训练营、热身赛和后勤保障。巴泽利自2023年上任以来获得了稳定的支持，足协管理层没有因为成绩波动而频繁换帅。但由于预算限制，新西兰队的赛前备战条件（训练设施、医疗团队、热身赛对手质量）无法与G组对手比利时、伊朗和埃及相比。这是小国参加世界杯的"标配"困境——能够站上世界杯舞台已经是资源和管理的胜利，更多的不要期待。
+    </p>
+  </div>
+  <div class="sub-item">
+    <span class="sub-item-title">6.3 国内舆论与媒体压力</span><span class="sub-item-score">65分</span>
+    <p style="margin-top:8px;line-height:1.7;font-size:14px;">
+      新西兰国内对全白队重返世界杯的态度是"纯粹的喜悦和骄傲"。作为大洋洲首个享受直接晋级名额的球队，新西兰国内的关注焦点更多集中在"我们终于回到了世界杯舞台"而非"我们能不能出线"。新西兰的橄榄球文化远强于足球文化——全黑队（橄榄球）才是新西兰体育的国民焦点，全白队的舆论关注度相对较低，这反而减轻了球员的心理压力。新西兰媒体对全白队的报道以正面鼓励为主，不会提出不切实际的成绩要求。这种"轻松自在"的舆论环境可能是新西兰在G组中最大的"隐形优势"之一——当比利时球员承受着"必须要赢"的压力时，新西兰球员只需"尽全力享受比赛"。
+    </p>
+  </div>
+
+  <h4 style="text-align:right;margin-top:10px;">均分：56分</h4>
+
+  <p class="analysis-text">
+    新西兰的"软环境"在G组四队中可能是最轻松的——没有舆论压力、团队氛围和睦、球迷期望合理。巴泽利和伍德领导的团队文化强调"享受比赛、为彼此而战、让球迷骄傲"——这在一支"不被看好"的球队中往往能激发出超出纸面实力的表现。2010年新西兰队之所以能够逼平意大利和斯洛伐克，靠的正是这种"轻松+专注"的心理状态——球员们没有"必须赢"的负担，反而在场上更加果断和勇敢。2026年的全白队如果能复制那种心态，即使在G组中无法拿分，至少可以确保球队不会因为心理崩盘而遭遇两位数的大比分惨败。
+  </p>
+
+  <div class="divider"></div>
+  <h3>维度七：体能储备与伤病控制（权重5%）｜ 得分：46分 × 5% = 2.30分</h3>
+
+  <div class="sub-item">
+    <span class="sub-item-title">7.1 赛季疲劳度评估</span><span class="sub-item-score">45分</span>
+    <p style="margin-top:8px;line-height:1.7;font-size:14px;">
+      新西兰队大部分在欧洲踢球的球员刚结束了2025/26赛季。伍德（森林）英超赛季出场32次（1,850分钟）——对于一个34岁的前锋来说，这个出场时间合理且不会造成过大的体能消耗。克罗科姆（米尔沃尔）英冠赛季28场——英冠46轮的赛程虽然密集，但克罗科姆作为门将的体能消耗相对可控。斯塔梅尼奇（斯旺西）英冠26场，约1,800分钟。澳超球员的赛季在4月底结束，他们有约6周的休整时间——体能储备较为充足但比赛节奏可能有所下降。最大的好消息是：新西兰队没有球员参加了欧战或欧冠淘汰赛——整个阵容的赛季负荷都处于"标准"而非"高负荷"水平。这意味着新西兰球员在世界杯上的体能储备可能比比利时（多名球员参加了欧冠淘汰赛）更加充沛。
+    </p>
+  </div>
+  <div class="sub-item">
+    <span class="sub-item-title">7.2 关键伤病与恢复情况</span><span class="sub-item-score">50分</span>
+    <p style="margin-top:8px;line-height:1.7;font-size:14px;">
+      截至大名单公布（5月14日），新西兰队没有重大伤病报告——全体26名球员均以健康状态入选。伍德在森林赛季末段一直保持着健康的身体状态，克罗科姆、斯塔梅尼奇和宾登也同样没有伤病记录。史密斯（34岁/布伦特里）在英议联赛季中保持全勤——对于34岁的老将来说，这是一个积极的信号。博克索尔（36岁/明尼苏达联）在美职联赛季中因小腿伤势缺席了2场比赛，但已完全康复并通过了国家队队医的体检。唯一的疑惑是贾斯特（马瑟韦尔/苏超）——他在赛季末段因轻伤被提前换下，但入选了最终大名单，说明伤势不重。总体而言，新西兰队的伤病状况处于理想水平——全员健康、无核心球员缺席。
+    </p>
+  </div>
+  <div class="sub-item">
+    <span class="sub-item-title">7.3 医疗团队与保障水平</span><span class="sub-item-score">40分</span>
+    <p style="margin-top:8px;line-height:1.7;font-size:14px;">
+      新西兰足协的医疗团队规模有限——配备的队医和体能教练数量在48强中属于最少的梯队。球队在赛前备战中的医疗保障主要依靠北美当地（洛杉矶）可以使用的医疗设施和足协随行队医的协调。在运动科学和球员体能监测方面的投入几乎没有——这与比利时（配备顶级运动科学团队）和伊朗（体育医疗在亚洲领先）存在显著差距。但新西兰球员的身体素质总体较好——这与新西兰体育文化中的"运动基因"有关（橄榄球、板球等高强度运动在新西兰极为普及），足球运动员也继承了这种优秀的体能底子。总体上，医疗团队的"量"不足但球员的"质"还行——至少在体能和体质方面，新西兰球员不会因为医疗保障的不足而受到明显的负面影响。
+    </p>
+  </div>
+
+  <h4 style="text-align:right;margin-top:10px;">均分：46分</h4>
+
+  <p class="analysis-text">
+    新西兰在体能维度的最大利好是"赛季负荷低"和"全员健康"——全队没有任何球员参加了欧冠淘汰赛，这意味着新西兰球员在体能储备上甚至可能优于G组的比利时（德布劳内等多线作战）。但时差适应是一个需要认真对待的挑战——从新西兰（UTC+12）飞到洛杉矶（UTC-7）要经历19小时的时差跨越，比任何一支G组对手的旅途都要漫长。巴泽利在5月底就带队前往北美进行备战，给了球队超过2周的时间来适应时差和气候——这在赛前的体能管理中是一个正确的决策。
+  </p>
 </div>
 
-<div class="dimension-card">
-  <h3 style="color:#000;">维度六：团队凝聚力（权重10%）｜ 57分 × 10% = 5.7分</h3>
-  <div class="subitem"><h4 style="color:#000;">6.1 更衣室 —— 58分</h4><p>伍德是新西兰体育界的标志性人物——他在英超的成功是年轻球员的榜样。新西兰团队以"团结、谦逊、拼搏"著称。</p></div>
-  <div class="subitem"><h4 style="color:#000;">6.2 足协 —— 52分</h4><p>新西兰足协资源有限但运作规范。</p></div>
-  <div class="subitem"><h4 style="color:#000;">6.3 舆论压力 —— 60分</h4><p>"享受比赛"是主旋律——新西兰国内对球队的期望是"体面出战、争取首胜"而非出线。</p></div>
-  <div class="score-bar mt-3"><div class="score-fill" style="width:57%;background:linear-gradient(90deg,#555,#000);"></div></div>
-  <p class="text-right text-sm text-gray-500 mt-1">维度六总评：<strong>57分</strong> × 10% = <strong>5.7分</strong></p>
-</div>
+<div class="section text-center">
+  <h2>（三）综合总分与评级</h2>
+  <div style="margin:25px 0;">
+    <div style="font-size:18px;color:#666;margin-bottom:10px;">加权总分</div>
+    <div class="total-score">38.00 / 100</div>
+  </div>
+  <div style="margin:25px 0;">
+    <div style="font-size:18px;color:#666;margin-bottom:10px;">实力评级</div>
+    <div class="rating-box">D−</div>
+    <div style="font-size:16px;color:#000;margin-top:8px;">实力悬殊，小组赛难求一胜</div>
+  </div>
 
-<div class="dimension-card">
-  <h3 style="color:#000;">维度七：体能伤病（权重5%）｜ 52分 × 5% = 2.6分</h3>
-  <div class="subitem"><h4 style="color:#000;">7.1 疲劳度 —— 55分</h4><p>伍德经历了完整英超赛季（3000+分钟），但澳超球员的赛程较为轻松。</p></div>
-  <div class="subitem"><h4 style="color:#000;">7.2 伤病 —— 55分</h4><p>无重大伤病报告。</p></div>
-  <div class="subitem"><h4 style="color:#000;">7.3 医疗 —— 45分</h4><p>新西兰足协医疗配置有限。</p></div>
-  <div class="score-bar mt-3"><div class="score-fill" style="width:52%;background:linear-gradient(90deg,#555,#000);"></div></div>
-  <p class="text-right text-sm text-gray-500 mt-1">维度七总评：<strong>52分</strong> × 5% = <strong>2.6分</strong></p>
-</div>
-
-<h2 style="color:#000;border-bottom-color:#000;">（三）综合总分与评级</h2>
-<div class="summary-box text-center">
-  <p class="text-2xl font-bold">加权总分：40.75 / 100</p>
-  <p class="text-xl mt-2">实力评级：<span class="font-bold text-3xl">D</span>（新的评级描述）</p>
-  <!-- <p class="text-sm mt-2 opacity-80">依据 skill 映射表：40.75 ∈ [40, 50) → D级</p> -->
-</div>
-<div class="bg-white rounded-xl shadow p-6 mb-6">
-  <h3 class="text-lg font-bold mb-3">七维度雷达数据</h3>
-  <table>
-    <tr><th>维度</th><th>得分</th><th>权重</th><th>加权贡献</th></tr>
-    <tr><td>① 阵容实力</td><td>37.5</td><td>30%</td><td>11.25</td></tr>
-    <tr><td>② 战术体系与教练</td><td>41</td><td>20%</td><td>8.20</td></tr>
-    <tr><td>③ 近期竞技状态</td><td>42</td><td>15%</td><td>6.30</td></tr>
+  <h4 style="margin-top:30px;">七维度得分一览</h4>
+  <div class="table-scroll">
+  <table style="max-width:600px;margin:0 auto;">
+    <tr><th>维度</th><th>得分</th><th>权重</th><th>加权得分</th></tr>
+    <tr><td>① 阵容实力</td><td>29</td><td>30%</td><td>8.70</td></tr>
+    <tr><td>② 战术体系与教练</td><td>42</td><td>20%</td><td>8.40</td></tr>
+    <tr><td>③ 近期竞技状态</td><td>44</td><td>15%</td><td>6.60</td></tr>
     <tr><td>④ 大赛经验与心理素质</td><td>33</td><td>10%</td><td>3.30</td></tr>
-    <tr><td>⑤ 分组及赛程影响</td><td>34</td><td>10%</td><td>3.40</td></tr>
-    <tr><td>⑥ 团队凝聚力与场外环境</td><td>57</td><td>10%</td><td>5.70</td></tr>
-    <tr><td>⑦ 体能储备与伤病控制</td><td>52</td><td>5%</td><td>2.60</td></tr>
-    <tr style="font-weight:bold;background:#eee;"><td colspan="3">总分</td><td>40.75</td></tr>
+    <tr><td>⑤ 分组及赛程影响</td><td>31</td><td>10%</td><td>3.10</td></tr>
+    <tr><td>⑥ 团队凝聚力与场外环境</td><td>56</td><td>10%</td><td>5.60</td></tr>
+    <tr><td>⑦ 体能储备与伤病控制</td><td>46</td><td>5%</td><td>2.30</td></tr>
+    <tr style="font-weight:bold;background:#000;color:#fff;">
+      <td>总分</td><td>—</td><td>100%</td><td>38.00</td>
+    </tr>
   </table>
-</div>
-
-<h2 style="color:#000;border-bottom-color:#000;">（四）深度球评</h2>
-<div class="bg-white rounded-xl shadow p-6 mb-6">
-  <h3 class="text-lg font-bold text-green-700">核心优势</h3>
-  <ul class="list-disc pl-6 space-y-2">
-    <li><strong>克里斯·伍德——新西兰的"国王"。</strong>1米91的英超中锋，本赛季10球——他一个人的进球数可能超过全队其他前锋的总和。面对伊朗和埃及的中卫时，伍德的英超经验和禁区内的身体对抗是新西兰"唯一可以吹响号角"的武器。</li>
-    <li><strong>"小国心态"——没有任何心理包袱。</strong>新西兰是48强中FIFA排名最低的球队，没有人期待他们赢球。球员们可以放下包袱去拼——2010年他们就是用这种心态逼平了斯洛伐克和巴拉圭。</li>
-  </ul>
-</div>
-<div class="bg-white rounded-xl shadow p-6 mb-6">
-  <h3 class="text-lg font-bold text-red-700">致命短板</h3>
-  <ul class="list-disc pl-6 space-y-2">
-    <li><strong>"伍德依赖症"——一旦他被限制，进攻基本瘫痪。</strong>新西兰的战术简单到可以被写在餐巾纸上：大脚找伍德→伍德争顶→第二点跟进。如果对手派出双人包夹伍德（尤其是用身体条件出色的中卫），新西兰的进攻将毫无办法。而对阵比利时的比赛中，伍德面对的是德甲/英超级别的中卫——这可能是他最艰难的一场国家队比赛。</li>
-    <li><strong>中场仅5人——G组中最薄弱的环节。</strong>5名中场中，只有斯塔梅尼奇（斯旺西/英冠）和托马斯（荷甲）具备一定的欧洲联赛经验。其余三人来自澳超和挪超。面对比利时（德布劳内/蒂勒曼斯）、伊朗和埃及的中场线，新西兰的中场可能每场都被"技术性击倒"。</li>
-  </ul>
-</div>
-<div class="bg-white rounded-xl shadow p-6 mb-6">
-  <h3 class="text-lg font-bold" style="color:#000;">关键球员</h3>
-  <div class="grid md:grid-cols-2 gap-3">
-    <div class="border-l-4 border-gray-600 pl-3"><p class="font-bold">🇳🇿 克里斯·伍德 (C)</p><p class="text-sm text-gray-600">诺丁汉森林前锋。新西兰唯一的"世界级"（仅限于大洋洲标准）。他的头球和背身拿球是新西兰进攻的唯一寄托。第2届世界杯——16年前他24岁，这次他34岁。</p></div>
-    <div class="border-l-4 border-blue-600 pl-3"><p class="font-bold">🇳🇿 泰勒·宾登</p><p class="text-sm text-gray-600">21岁的诺丁汉森林后卫。新西兰未来的后防核心——面对比利时和伊朗的前锋时，他的英超经验将决定新西兰能否避免惨案。</p></div>
   </div>
 </div>
-<div class="bg-white rounded-xl shadow p-6 mb-6">
-  <h3 class="text-lg font-bold">小组赛预判</h3>
-  <table class="mt-2"><tr><th>对手</th><th>预判</th></tr>
-    <tr><td>伊朗 🇮🇷</td><td>新西兰 0-2 负</td></tr>
-    <tr><td>埃及 🇪🇬</td><td>新西兰 1-2 负（有望进球）</td></tr>
-    <tr><td>比利时 🇧🇪</td><td>新西兰 0-4 负</td></tr>
+
+<div class="section">
+  <h2>（四）深度球评</h2>
+
+  <h3>核心优势</h3>
+  <div class="key-player">
+    <p><strong>1. 克里斯·伍德——"全白队"唯一的核武器</strong><br>
+    34岁的伍德是新西兰历史上最伟大的足球运动员——他已经在英超积累了超过250次出场和80+粒进球，2025/26赛季在诺丁汉森林的12粒英超进球更是证明了"年龄只是一个数字"。伍德的价值远不止于数据：他是球队战术的支点（后场长传的第一接应点）、定位球的第一高点（空中对抗成功率57%）和更衣室的精神领袖（队长身份）。在G组中，伍德是新西兰唯一一个可以在"个人能力层面"与比利时、伊朗和埃及的防守球员对抗的球员。他的无球跑位和禁区内的嗅觉可能导致一场比赛中只获得1-2次射门机会，但只要其中一次转化为进球，新西兰就有可能在"不可能"的比赛——如对阵伊朗——中拿到一个积分。2010年温斯顿·里德的头球扳平意大利的比赛已经证明：在世界杯上，一个顶级球员的一个瞬间就足以创造历史。</p>
+  </div>
+  <div class="key-player">
+    <p><strong>2. 2010年"不败出局"的精神遗产</strong><br>
+    2010年南非世界杯上，新西兰在小组赛中1-1战平斯洛伐克、1-1战平意大利（世界冠军）、0-0战平巴拉圭——三场比赛全部打平，成为世界杯史上唯一一支"不败出局"的球队。这一壮举为新西兰足球留下了一笔无价的精神遗产：即使你是FIFA排名最低的球队，即使你的对手是世界冠军，只要你保持极致的防守纪律、团队精神和战术执行力，你就有可能在世界杯上拿分。伍德虽然没有参加2010年世界杯，但他与那支球队的成员（如温斯顿·里德）有过深入的交流，他知道"全白精神"的核心是什么：不是靠天赋，而是靠团结、纪律和不放弃。这种精神在新西兰足球文化中代代相传——如果2026年的全白队能够在首战伊朗时展现出2010年式的防守强度，G组中没有人可以保证一定能够击溃他们。</p>
+  </div>
+  <div class="key-player">
+    <p><strong>3. "第三世界"的舆论优势——轻装上阵</strong><br>
+    新西兰是48强中FIFA排名最低、身价最低、最不被看好的球队——这意味着他们没有任何成绩压力。比利时球员如果未能小组出线将面临全国性的批评，伊朗球员需要面对亚洲足球复兴的期待，埃及球员背负着整个北非世界的希望——而新西兰球员唯一的任务就是"享受比赛、让祖国骄傲"。这种"光脚不怕穿鞋的"心理状态在世界杯历史上多次帮助弱队创造冷门——2010年的新西兰、2014年的哥斯达黎加、2022年的日本和沙特都证明了：当强队因为"必须赢"而紧张时，弱队可以因为"无所谓"而超水平发挥。新西兰的年轻球员——宾登、斯塔梅尼奇等——没有历史包袱，他们将在世界杯赛场上一无所惧地展现自己。</p>
+  </div>
+
+  <h3>致命短板</h3>
+  <div class="key-player">
+    <p><strong>1. 中场真空——全队没有任何"持球推进器"</strong><br>
+    新西兰的中场是整支球队最严重的结构性问题——5名中场球员中，斯塔梅尼奇（斯旺西/英冠）是唯一一个具备在压力下拿球转身并向前传球能力的球员。其余4名中场——贝尔（维京/挪超）、托马斯（PEC兹沃勒/荷甲）、鲁费尔（惠灵顿凤凰/澳超）和贝利斯（纽卡斯尔喷气机/澳超）——都是"工兵型"球员：能跑、能抢、但无法在高压下完成有质量的传球。这意味着新西兰在面对G组对手时，中场的"持球→观察→传球"的连续动作几乎无法完成——球在前场和后场之间传输的唯一可靠路径是"门将克罗科姆→后场长传→伍德头球摆渡"。这种"跳过中场"的进攻模式不仅效率低下，还导致伍德需要消耗大量体能来进行对抗和争顶，使他在下半场比赛中的终结能力大打折扣。当伍德在第70分钟因体能下降无法继续充当支点时，新西兰的进攻将几乎完全瘫痪。</p>
+  </div>
+  <div class="key-player">
+    <p><strong>2. 防线"老+慢+低级别"——比利时的饕餮盛宴</strong><br>
+    史密斯（34岁/英议联）、博克索尔（36岁/美职联）、卡卡斯（25岁/英乙）、皮纳克尔（27岁/新超）——这四个人的名字和比赛级别组合在一起，对比利时的多库（曼城/英超/22岁）、特罗萨德（阿森纳/英超）和德布劳内（曼城/英超/33岁）来说，几乎是一份"饕餮盛宴"的菜单。史密斯和博克索尔分别是34岁和36岁的老将——他们的转身速度、冲刺能力和防守覆盖在面对多库的加速变向时，将重现"爷爷追孙子"的画面。唯一可能提供防守希望的是21岁的宾登（诺丁汉森林）——他在英超有限的出场中展现了不错的位置感和冷静，但英超的8次出场经验不足以让他应对德布劳内和萨拉赫轮番冲击的高强度。新西兰在G组中失球数的下限（最少失球）很可能是6-8球——如果他们运气好，可以控制在这个范围内少一些；如果运气差（体能提前崩盘），三位数净负球（0-10+）也不是完全不可能。</p>
+  </div>
+
+  <h3>关键先生</h3>
+
+  <div class="key-player">
+    <h4>1. Chris Wood（克里斯·伍德）— 前锋，34岁（队长）</h4>
+    <p>伍德是新西兰队不容争议的"国宝"——全队26人中唯一一名英超首发级别的球员。2025/26赛季英超12球的数据在任何语境下都是一个值得尊重的成绩单——34岁的伍德用他的禁区嗅觉和抢点能力证明了"老派中锋"在现代足球中仍然有生存空间。在巴泽利的4-4-2体系中，伍德不仅是终结者，更是进攻体系的"轴心"——他需要用身体对抗保护球权、用头球为后插上的队友做球、用跑位牵制对方中卫。在G组中，伍德将面对范迪克（比利时/荷兰国家队主力中卫）、哈利扎德（伊朗/多哈国民）和埃及的后防线——这些对手的防守质量远高于他在英超中所面对的大部分中卫。伍德的战术纪律和无球跑位将决定新西兰能否在G组中取得进球——如果他被限制，新西兰的进攻将归零。</p>
+  </div>
+
+  <div class="key-player">
+    <h4>2. Tyler Bindon（泰勒·宾登）— 中后卫，21岁</h4>
+    <p>宾登是新西兰全队最有潜力的年轻球员——他效力于诺丁汉森林，2025/26赛季在英超获得8次出场机会（4次首发）。作为一名21岁的中卫，他展现出了超出年龄的防守位置感和冷静——在英超有限的出场时间中，他的传球成功率（85%）和场均解围（3.8次）在年轻球员中是不错的数据。在G组中，宾登将承担起新西兰防线的"最后一道闸"角色——他需要与史密斯或博克索尔搭档，负责跟防比利时和伊朗箭头球员的跑位并填补防线空当。虽然21岁的他在经验和身体对抗上还有明显不足，但他的英超背景至少确保了他"见过世面"——与伍德一样，他是新西兰阵中少数几个已经"体验过顶级比赛强度"的球员。面对多库和萨拉赫的冲击，宾登可能会被打爆——但这也将成为他职业生涯中最宝贵的一课。</p>
+  </div>
+
+  <h3>小组赛预判</h3>
+  <table>
+    <tr><th>对手</th><th>比赛日期</th><th>场地</th><th>预计结果</th><th>概率评估</th></tr>
+    <tr><td>伊朗 🇮🇷</td><td>6月15日</td><td>洛杉矶</td><td>0-2 负 / 1-1 平</td><td>拿分概率 20%</td></tr>
+    <tr><td>埃及 🇪🇬</td><td>6月21日</td><td>温哥华</td><td>0-3 负</td><td>拿分概率 10%</td></tr>
+    <tr><td>比利时 🇧🇪</td><td>6月26日</td><td>温哥华</td><td>0-4 负</td><td>拿分概率 2%</td></tr>
   </table>
-  <p class="mt-2"><strong>小组赛综合：3战全败积0分，出线概率低于2%。最佳场景：对阵埃及打入一球，力争首胜还需奇迹。</strong></p>
+  <p class="analysis-text">
+    新西兰在G组的出线概率不到3%。最现实的拿分窗口是首战伊朗——伊朗在面对密集防守时偶尔会显得急躁（2022年世界杯对阵英格兰时前15分钟就因紧张丢球），如果新西兰能在前30分钟顶住伊朗的攻势并利用伍德的定位球能力打入一球，1-1的平局并非完全不可能。次战埃及将是最艰难的比赛——萨拉赫的冲刺和埃及的边路进攻对新西兰的"老慢后防线"来说是毁灭性的。末战比利时将是一场"荣誉之战"——比利时可能在第三场前已经锁定出线，届时如果轮换主力，新西兰可能避免大比分惨败。总体预测：0分或1分，小组垫底出局。如果能打入2球，就算是超额完成任务。
+  </p>
+
+  <h3>淘汰赛路线推演</h3>
+  <p class="analysis-text">
+    新西兰从G组出线的概率极低——即使以"最佳小组第三"身份晋级（需要拿到2分并控制净胜球），32强赛也将面对E组或B组头名——大概率是德国或瑞士级别的对手。届时新西兰的"铁桶阵"在淘汰赛的单场决胜压力下可能会更快地被击穿。但"如果能进入淘汰赛"本身对于新西兰足球来说已经是一种超越现实的成就——意味着全白队追平了1982年和2010年的历史最佳战绩（小组赛出局），并首次在世界杯上取得胜利——这是一个历史性的突破。但现实地说，讨论新西兰的淘汰赛路线更像是一种善意的"白日梦"——在比利时的碾压之力、伊朗的坚韧之盾和埃及的迅捷之矛面前，全白队更多的是在争取"体面"。
+  </p>
+
+  <h3>大师结语</h3>
+  <p style="font-size:18px;font-style:italic;color:#000;text-align:center;padding:20px;border-top:2px solid #000;border-bottom:2px solid #000;margin:30px 0;">
+    "16年的等待、大洋洲的第一张直通车票、34岁老将的最后一次冲锋——全白队不必在G组中证明什么，他们只需要让全世界知道：新西兰不仅有全黑队，还有一群敢于在巨人面前站直的白衣战士。"
+  </p>
 </div>
-<div class="bg-white rounded-xl shadow p-6 mb-6">
-  <p class="mt-3 p-3 bg-blue-50 rounded-lg"><strong>核心判断：</strong>新西兰是G组中不折不扣的"鱼腩"——但他们的故事比这更动人。16年前在南非，他们带着两场平局回家，用不屈赢得了世界的尊重。16年后在北美，34岁的伍德带领一群在澳超、英甲、美职联踢球的"小人物"，试图完成一件从未有人做到的事：让新西兰在世界杯上赢一场球。6月21日对埃及——伍德身高1米91，埃及中卫身高1米88——那一刻，新西兰足球的全部希望，都将悬在伍德的头顶之上。</p>
-</div>
-<div class="bg-white rounded-xl shadow p-6 mb-6 text-center">
-  <h3 class="text-lg font-bold" style="color:#000;">大师结语</h3>
-  <p class="text-xl italic mt-3 text-gray-700">"16年前伍德在南非的草地上第一次听见世界杯的国歌，那时候他还是一个24岁、在英超还没站稳脚跟的少年。16年后，他以诺丁汉森林英雄的身份回到世界杯的舞台——34岁的膝盖承受了152个英超进球的重量。新西兰没有比利时那样的黄金一代，也没有伊朗那样深厚的足球传统——他们只有一个1米91的硬汉和十一颗从不认输的心。赢不赢不重要——让世界看到全白军团还在战斗，就够了。"</p>
-</div>
-<div class="text-center text-gray-400 text-sm py-6 border-t">
-  <p>© 2026 足球战力分析 · Powered by WorkBuddy AI</p>
-</div>
+
 </div>
 
 <!-- HuaFootball: back-to-home button -->
@@ -255,17 +413,17 @@ tailwind.config = { theme: { extend: { colors: { nz: { black: '#000000', white: 
 .huafootball-back-btn {
   position:fixed!important;bottom:28px!important;right:28px!important;z-index:99999!important;
   display:inline-flex!important;align-items:center!important;gap:6px!important;
-  padding:10px 22px!important;background:rgba(26,71,42,0.85)!important;color:#c9a84c!important;
-  border:1px solid rgba(201,168,76,0.3)!important;border-radius:999px!important;
-  font-family:"Inter","Noto Sans SC",system-ui,sans-serif!important;font-size:13px!important;
+  padding:10px 22px!important;background:rgba(26,71,42,0.85)!important;color:#c8a951!important;
+  border:1px solid rgba(200,169,81,0.3)!important;border-radius:999px!important;
+  font-family:"Inter","PingFang SC",system-ui,sans-serif!important;font-size:13px!important;
   font-weight:600!important;text-decoration:none!important;
   backdrop-filter:blur(8px)!important;-webkit-backdrop-filter:blur(8px)!important;
   box-shadow:0 4px 20px rgba(0,0,0,0.3)!important;transition:all .25s ease!important;
   cursor:pointer!important;user-select:none!important;
 }
 .huafootball-back-btn:hover {
-  background:rgba(26,71,42,0.95)!important;border-color:rgba(201,168,76,0.5)!important;
-  box-shadow:0 6px 28px rgba(201,168,76,0.2)!important;transform:translateY(-2px)!important;
+  background:rgba(26,71,42,0.95)!important;border-color:rgba(200,169,81,0.5)!important;
+  box-shadow:0 6px 28px rgba(200,169,81,0.2)!important;transform:translateY(-2px)!important;
 }
 .huafootball-back-btn svg { transition:transform .2s ease!important; }
 .huafootball-back-btn:hover svg { transform:translateX(-3px)!important; }

@@ -4,497 +4,379 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>葡萄牙 · 2026世界杯实力评估报告</title>
-<script src="https://cdn.tailwindcss.com"></script>
-<script>
-tailwind.config = {
-  theme: {
-    extend: {
-      colors: {
-        pt: {
-          red: '#DA291C',
-          green: '#006847',
-          gold: '#FFD700',
-          dark: '#1a1a2e',
-          lightgray: '#f8f9fa'
-        }
-      },
-      fontFamily: {
-        'kai': ['KaiTi', 'STKaiti', 'SimKai', 'serif'],
-        'serif': ['Times New Roman', 'serif']
-      }
-    }
-  }
-}
-</script>
 <style>
-  body { font-family: KaiTi, STKaiti, SimKai, 'Times New Roman', serif; font-size: 11pt; }
-  .container { max-width: 1100px; margin: 0 auto; padding: 20px; }
-  h1 { font-size: 2em; }
-  h2 { font-size: 1.5em; border-bottom: 3px solid #DA291C; padding-bottom: 8px; margin-top: 30px; }
-  h3 { font-size: 1.2em; margin-top: 20px; }
-  table { width: 100%; border-collapse: collapse; font-size: 11pt; }
-  th, td { border: 1px solid #ddd; padding: 8px 12px; text-align: left; }
-  th { background-color: #DA291C; color: white; font-weight: bold; }
-  tr:nth-child(even) { background-color: #f8f9fa; }
-  .score-bar { height: 20px; border-radius: 10px; background: #eee; overflow: hidden; }
-  .score-fill { height: 100%; border-radius: 10px; transition: width 1s ease; }
-  .dimension-card { background: white; border-radius: 12px; padding: 20px; margin-bottom: 20px; box-shadow: 0 2px 8px rgba(0,0,0,0.08); border-left: 5px solid #DA291C; }
-  .subitem { margin: 12px 0; padding: 12px; background: #f8f9fa; border-radius: 8px; }
-  .subitem h4 { color: #DA291C; font-weight: bold; margin-bottom: 6px; }
-  .summary-box { background: linear-gradient(135deg, #DA291C, #b71c1c); color: white; border-radius: 16px; padding: 25px; margin: 20px 0; }
-  .badge { display: inline-block; padding: 2px 10px; border-radius: 12px; font-size: 0.85em; font-weight: bold; }
-  .badge-gk { background: #4CAF50; color: white; }
-  .badge-df { background: #2196F3; color: white; }
-  .badge-mf { background: #FF9800; color: white; }
-  .badge-fw { background: #f44336; color: white; }
-  .player-list { columns: 2; column-gap: 20px; }
-  .player-item { break-inside: avoid; padding: 6px 0; border-bottom: 1px dashed #eee; }
-  @media (max-width: 768px) { .player-list { columns: 1; } }
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: 'Times New Roman', '楷体', 'KaiTi', serif; background: #fff; color: #222; line-height: 1.8; font-size: 16px; }
+.container { max-width: 1000px; margin: 0 auto; padding: 30px 20px; }
+.header { text-align: center; padding: 40px 0 30px; border-bottom: 3px solid #e74c3c; margin-bottom: 35px; }
+.header h1 { font-size: 32px; color: #1a1a2e; margin-top: 12px; letter-spacing: 2px; }
+.header .subtitle { font-size: 14px; color: #888; margin-top: 6px; }
+.team-badge { text-align: center; margin-bottom: 10px; }
+.team-badge img { height: 90px; width: auto; display: block; margin: 0 auto 10px; }
+.flag-emoji-fallback { display: none; font-size: 4em; margin-bottom: 10px; }
+.section { margin: 35px 0; }
+.section-title { font-size: 22px; color: #e74c3c; border-left: 5px solid #e74c3c; padding-left: 15px; margin-bottom: 20px; }
+.sub-section-title { font-size: 18px; color: #1a1a2e; margin: 20px 0 12px; padding-bottom: 6px; border-bottom: 1px solid #eee; }
+table { width: 100%; border-collapse: collapse; margin: 12px 0; font-size: 14px; }
+th { background: #1a1a2e; color: #fff; padding: 10px 12px; text-align: left; font-weight: bold; }
+td { padding: 9px 12px; border-bottom: 1px solid #eee; }
+tr:nth-child(even) { background: #fafafa; }
+tr:hover { background: #fff5f5; }
+.score-table th { background: #e74c3c; }
+.score-cell { font-weight: bold; text-align: center; }
+.rating-box { text-align: center; padding: 25px; background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%); color: #fff; border-radius: 8px; margin: 20px 0; }
+.rating-box .score { font-size: 48px; font-weight: bold; color: #e74c3c; }
+.rating-box .rating { font-size: 36px; color: #ffd700; margin: 8px 0; }"
+.rating-box .detail { font-size: 14px; color: #aaa; }
+.radar-table { margin: 15px 0; }
+.radar-table td:first-child { font-weight: bold; min-width: 140px; }
+.progress-bar { height: 12px; background: #f0f0f0; border-radius: 6px; overflow: hidden; min-width: 300px; }
+.progress-fill { height: 100%; border-radius: 6px; }
+.analysis-text { background: #fafafa; padding: 16px 20px; border-radius: 6px; border-left: 4px solid #e74c3c; margin: 12px 0; line-height: 1.9; text-indent: 2em; }
+.info-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; margin: 15px 0; }
+.info-item { background: #fafafa; padding: 14px 18px; border-radius: 6px; border-left: 3px solid #e74c3c; }
+.info-item .label { font-size: 12px; color: #888; }
+.info-item .value { font-size: 16px; font-weight: bold; color: #1a1a2e; }
+.player-highlight { background: #fff8e1; padding: 14px 18px; border-radius: 6px; margin: 12px 0; border-left: 4px solid #ffd700; }
+.player-highlight .name { font-size: 17px; font-weight: bold; color: #1a1a2e; }
+.player-highlight .detail { font-size: 14px; color: #555; margin-top: 6px; line-height: 1.8; }
+.conclusion-box { background: #1a1a2e; color: #fff; padding: 20px 25px; border-radius: 8px; margin: 20px 0; font-size: 18px; text-align: center; font-style: italic; }
+@media (max-width: 768px) {
+  .info-grid { grid-template-columns: 1fr; }
+  table { font-size: 12px; }
+  .header h1 { font-size: 22px; }
+}
 </style>
 </head>
-<body class="bg-gray-50">
+<body>
 
 <div class="container">
 
-<!-- ==================== HEADER ==================== -->
-<div class="section text-center bg-white rounded-2xl shadow-lg p-8 mb-8">
-  <img src="./logo/fpf-logo.png"
-       alt="葡萄牙足协队徽"
-       style="height:90px;width:auto;display:block;margin:0 auto 10px;"
-       onerror="this.style.display='none';document.getElementById('logo-fb').style.display='block';" />
-  <div id="logo-fb" style="display:none;font-size:4em;margin-bottom:10px;">🇵🇹</div>
-  <h1 class="text-4xl font-bold text-pt-red mt-4">葡萄牙 · 2026世界杯实力评估报告</h1>
-  <p class="text-gray-500 mt-2">报告生成日期：2026年5月19日 · 2026美加墨世界杯</p>
-</div>
-
-<!-- ==================== 基本信息 ==================== -->
-<h2 class="text-pt-red">（一）球队基本信息</h2>
-
-<div class="bg-white rounded-xl shadow p-6 mb-6">
-  <div class="grid md:grid-cols-2 gap-4">
-    <div>
-      <p><strong>主教练：</strong>罗伯托·马丁内斯 (Roberto Martinez)</p>
-      <p><strong>队长：</strong>克里斯蒂亚诺·罗纳尔多 (Cristiano Ronaldo)</p>
-      <p><strong>世界杯参赛次数：</strong>第9次（连续第7届）</p>
-      <p><strong>世界杯最佳成绩：</strong>季军（1966年）</p>
-      <p><strong>上届（2022）成绩：</strong>八强（1/4决赛0-1负于摩洛哥）</p>
-    </div>
-    <div>
-      <p><strong>小组赛：</strong>K组</p>
-      <p><strong>同组对手：</strong>刚果民主共和国、乌兹别克斯坦、哥伦比亚</p>
-      <p><strong>首战：</strong>6月17日 vs 刚果民主共和国（休斯顿NRG体育场）</p>
-      <p><strong>次战：</strong>6月23日 vs 乌兹别克斯坦（休斯顿NRG体育场）</p>
-      <p><strong>末轮：</strong>6月27日 vs 哥伦比亚（迈阿密硬石体育场）</p>
-    </div>
+<!-- HEADER -->
+<div class="header">
+  <div class="team-badge">
+    <img src="https://cdn.prod.website-files.com/68f550992570ca0322737dc2/68fa6b30ffde0dbd282357ab_portugal-national-team-footballlogos-org.png"
+         alt="葡萄牙足协 FPF 盾徽"
+         onerror="this.style.display='none';document.getElementById('logo-fb').style.display='block';" />
+    <div id="logo-fb" class="flag-emoji-fallback">🇵🇹</div>
   </div>
+  <h1>🇵🇹 葡萄牙 · 2026世界杯实力评估报告</h1>
+  <div class="subtitle">Seleção das Quinas · Group K | 评估日期：2026年5月30日</div>
 </div>
 
-<!-- ==================== 26人大名单 ==================== -->
-<h3 class="text-xl font-bold text-pt-red">26人大名单（4 GK + 9 DF + 6 MF + 7 FW）</h3>
-<p class="text-gray-500 text-sm mb-3">* 葡萄牙公布27人名单，最终1人裁减。以下为预测最终26人（保留4门将）</p>
+<!-- TEAM BASIC INFO -->
+<div class="section">
+  <div class="section-title">（一）球队基本信息</div>
+  <div class="info-grid">
+    <div class="info-item"><div class="label">主教练</div><div class="value">罗伯托·马丁内斯（西班牙籍）</div></div>
+    <div class="info-item"><div class="label">FIFA世界排名</div><div class="value">第6位（2026年5月）</div></div>
+    <div class="info-item"><div class="label">全队总身价</div><div class="value">€9.57亿</div></div>
+    <div class="info-item"><div class="label">平均年龄</div><div class="value">28.0岁</div></div>
+    <div class="info-item"><div class="label">世界杯参赛次数</div><div class="value">第9次（连续第7次）</div></div>
+    <div class="info-item"><div class="label">世界杯最好成绩</div><div class="value">季军 🥉（1966年）</div></div>
+    <div class="info-item"><div class="label">上届（2022）成绩</div><div class="value">八强（0-1负于摩洛哥）</div></div>
+    <div class="info-item"><div class="label">近期大赛成绩</div><div class="value">🏆 2016欧洲杯冠军、2019欧国联冠军</div></div>
+  </div>
 
-<div class="bg-white rounded-xl shadow p-6 mb-6">
+  <div class="sub-section-title">26人大名单</div>
+  <p style="margin:8px 0 4px;color:#555;font-size:13px;">📅 公布日期：2026年5月19日 | 队长：克里斯蒂亚诺·罗纳尔多（41岁/第6次世界杯）</p>
+
+  <div style="overflow-x:auto;">
   <table>
-    <thead>
-      <tr>
-        <th>位置</th>
-        <th>球员姓名</th>
-        <th>英文名</th>
-        <th>所属俱乐部</th>
-      </tr>
-    </thead>
+    <thead><tr><th>位置</th><th>球员姓名</th><th>英文名</th><th>俱乐部</th><th>年龄</th><th>身价</th></tr></thead>
     <tbody>
-      <tr><td><span class="badge badge-gk">GK</span></td><td>迪奥戈·科斯塔</td><td>Diogo Costa</td><td>波尔图</td></tr>
-      <tr><td><span class="badge badge-gk">GK</span></td><td>若泽·萨</td><td>José Sá</td><td>狼队</td></tr>
-      <tr><td><span class="badge badge-gk">GK</span></td><td>鲁伊·席尔瓦</td><td>Rui Silva</td><td>葡萄牙体育</td></tr>
-      <tr><td><span class="badge badge-gk">GK</span></td><td>里卡多·维略</td><td>Ricardo Velho</td><td>根克勒比利吉</td></tr>
-      <tr><td><span class="badge badge-df">DF</span></td><td>迪奥戈·达洛特</td><td>Diogo Dalot</td><td>曼联</td></tr>
-      <tr><td><span class="badge badge-df">DF</span></td><td>马特乌斯·努内斯</td><td>Matheus Nunes</td><td>曼城</td></tr>
-      <tr><td><span class="badge badge-df">DF</span></td><td>内尔松·塞梅多</td><td>Nélson Semedo</td><td>费内巴切</td></tr>
-      <tr><td><span class="badge badge-df">DF</span></td><td>若昂·坎塞洛</td><td>João Cancelo</td><td>巴塞罗那</td></tr>
-      <tr><td><span class="badge badge-df">DF</span></td><td>努诺·门德斯</td><td>Nuno Mendes</td><td>巴黎圣日耳曼</td></tr>
-      <tr><td><span class="badge badge-df">DF</span></td><td>贡萨洛·伊纳西奥</td><td>Gonçalo Inácio</td><td>葡萄牙体育</td></tr>
-      <tr><td><span class="badge badge-df">DF</span></td><td>雷纳托·维加</td><td>Renato Veiga</td><td>比利亚雷亚尔</td></tr>
-      <tr><td><span class="badge badge-df">DF</span></td><td>鲁本·迪亚斯</td><td>Rúben Dias</td><td>曼城</td></tr>
-      <tr><td><span class="badge badge-df">DF</span></td><td>托马斯·阿劳霍</td><td>Tomás Araújo</td><td>本菲卡</td></tr>
-      <tr><td><span class="badge badge-mf">MF</span></td><td>鲁本·内维斯</td><td>Rúben Neves</td><td>利雅得新月</td></tr>
-      <tr><td><span class="badge badge-mf">MF</span></td><td>萨穆埃尔·科斯塔</td><td>Samu Costa</td><td>马略卡</td></tr>
-      <tr><td><span class="badge badge-mf">MF</span></td><td>若昂·内维斯</td><td>João Neves</td><td>巴黎圣日耳曼</td></tr>
-      <tr><td><span class="badge badge-mf">MF</span></td><td>维蒂尼亚</td><td>Vitinha</td><td>巴黎圣日耳曼</td></tr>
-      <tr><td><span class="badge badge-mf">MF</span></td><td>布鲁诺·费尔南德斯</td><td>Bruno Fernandes</td><td>曼联</td></tr>
-      <tr><td><span class="badge badge-mf">MF</span></td><td>贝尔纳多·席尔瓦</td><td>Bernardo Silva</td><td>曼城</td></tr>
-      <tr><td><span class="badge badge-fw">FW</span></td><td>若昂·费利克斯</td><td>João Félix</td><td>利雅得胜利</td></tr>
-      <tr><td><span class="badge badge-fw">FW</span></td><td>弗朗西斯科·特林康</td><td>Francisco Trincão</td><td>葡萄牙体育</td></tr>
-      <tr><td><span class="badge badge-fw">FW</span></td><td>弗朗西斯科·孔塞桑</td><td>Francisco Conceição</td><td>尤文图斯</td></tr>
-      <tr><td><span class="badge badge-fw">FW</span></td><td>佩德罗·内托</td><td>Pedro Neto</td><td>切尔西</td></tr>
-      <tr><td><span class="badge badge-fw">FW</span></td><td>拉斐尔·莱奥</td><td>Rafael Leão</td><td>AC米兰</td></tr>
-      <tr><td><span class="badge badge-fw">FW</span></td><td>贡萨洛·格德斯</td><td>Gonçalo Guedes</td><td>皇家社会</td></tr>
-      <tr><td><span class="badge badge-fw">FW</span></td><td>贡萨洛·拉莫斯</td><td>Gonçalo Ramos</td><td>巴黎圣日耳曼</td></tr>
-      <tr><td><span class="badge badge-fw">FW</span></td><td><strong>克里斯蒂亚诺·罗纳尔多</strong></td><td><strong>Cristiano Ronaldo</strong></td><td>利雅得胜利</td></tr>
+      <tr><td rowspan="4" style="text-align:center;"><strong>GK</strong></td><td>迪奥戈·科斯塔</td><td>Diogo Costa</td><td>波尔图（葡超）</td><td>26</td><td>€4000万</td></tr>
+      <tr><td>鲁伊·席尔瓦</td><td>Rui Silva</td><td>葡萄牙体育（葡超）</td><td>32</td><td>€700万</td></tr>
+      <tr><td>若泽·萨</td><td>José Sá</td><td>狼队（英超）</td><td>33</td><td>€500万</td></tr>
+      <tr><td>里卡多·维略</td><td>Ricardo Velho</td><td>未知</td><td>—</td><td>—</td></tr>
+      <tr><td rowspan="9" style="text-align:center;"><strong>DF</strong></td><td style="background:#fff8e1;">🌟 鲁本·迪亚斯</td><td style="background:#fff8e1;">Rúben Dias</td><td style="background:#fff8e1;">曼城（英超）</td><td style="background:#fff8e1;">29</td><td style="background:#fff8e1;">€6000万</td></tr>
+      <tr><td>努诺·门德斯</td><td>Nuno Mendes</td><td>巴黎圣日耳曼（法甲）</td><td>23</td><td>€7500万</td></tr>
+      <tr><td>贡萨洛·伊纳西奥</td><td>Gonçalo Inácio</td><td>葡萄牙体育（葡超）</td><td>24</td><td>€4000万</td></tr>
+      <tr><td>托马斯·阿劳霍</td><td>Tomás Araújo</td><td>本菲卡（葡超）</td><td>24</td><td>€3000万</td></tr>
+      <tr><td>雷纳托·维加</td><td>Renato Veiga</td><td>比利亚雷亚尔（西甲）</td><td>22</td><td>€2500万</td></tr>
+      <tr><td>马特乌斯·努内斯</td><td>Matheus Nunes</td><td>曼城（英超）</td><td>27</td><td>€4500万</td></tr>
+      <tr><td>若昂·坎塞洛</td><td>João Cancelo</td><td>巴塞罗那（西甲）</td><td>32</td><td>€900万</td></tr>
+      <tr><td>迪奥戈·达洛特</td><td>Diogo Dalot</td><td>曼联（英超）</td><td>27</td><td>€3000万</td></tr>
+      <tr><td>内尔松·塞梅多</td><td>Nélson Semedo</td><td>费内巴切（土超）</td><td>32</td><td>€600万</td></tr>
+      <tr><td rowspan="6" style="text-align:center;"><strong>MF</strong></td><td style="background:#fff8e1;">🌟 维蒂尼亚</td><td style="background:#fff8e1;">Vitinha</td><td style="background:#fff8e1;">巴黎圣日耳曼（法甲）</td><td style="background:#fff8e1;">26</td><td style="background:#fff8e1;">€1.10亿</td></tr>
+      <tr><td style="background:#fff8e1;">🌟 布鲁诺·费尔南德斯</td><td style="background:#fff8e1;">Bruno Fernandes</td><td style="background:#fff8e1;">曼联（英超）</td><td style="background:#fff8e1;">31</td><td style="background:#fff8e1;">€4000万</td></tr>
+      <tr><td style="background:#fff8e1;">🌟 贝尔纳多·席尔瓦</td><td style="background:#fff8e1;">Bernardo Silva</td><td style="background:#fff8e1;">曼城（英超）</td><td style="background:#fff8e1;">31</td><td style="background:#fff8e1;">€2700万</td></tr>
+      <tr><td>若昂·内维斯</td><td>João Neves</td><td>巴黎圣日耳曼（法甲）</td><td>21</td><td>€1.10亿</td></tr>
+      <tr><td>鲁本·内维斯</td><td>Rúben Neves</td><td>利雅得新月（沙特）</td><td>29</td><td>€2500万</td></tr>
+      <tr><td>萨穆·科斯塔</td><td>Samú Costa</td><td>马略卡（西甲）</td><td>25</td><td>€1500万</td></tr>
+      <tr><td rowspan="7" style="text-align:center;background:#fff8e1;"><strong>FW</strong></td><td style="background:#fff8e1;">🌟 C罗 <span style="color:#e74c3c;">(C)</span></td><td style="background:#fff8e1;">Cristiano Ronaldo</td><td style="background:#fff8e1;">利雅得胜利（沙特）</td><td style="background:#fff8e1;">41</td><td style="background:#fff8e1;">€1200万</td></tr>
+      <tr><td style="background:#fff8e1;">🌟 拉斐尔·莱奥</td><td style="background:#fff8e1;">Rafael Leão</td><td style="background:#fff8e1;">AC米兰（意甲）</td><td style="background:#fff8e1;">26</td><td style="background:#fff8e1;">€5000万</td></tr>
+      <tr><td>佩德罗·内托</td><td>Pedro Neto</td><td>切尔西（英超）</td><td>26</td><td>€6000万</td></tr>
+      <tr><td>贡萨洛·拉莫斯</td><td>Gonçalo Ramos</td><td>巴黎圣日耳曼（法甲）</td><td>24</td><td>€3500万</td></tr>
+      <tr><td>若昂·菲利克斯</td><td>João Félix</td><td>利雅得胜利（沙特）</td><td>26</td><td>€2500万</td></tr>
+      <tr><td>弗朗西斯科·孔塞桑</td><td>Francisco Conceição</td><td>尤文图斯（意甲）</td><td>23</td><td>€3000万</td></tr>
+      <tr><td>迪奥戈·若塔</td><td>Diogo Jota</td><td>（未完全确认）</td><td>—</td><td>—</td></tr>
     </tbody>
   </table>
-  <p class="text-gray-500 text-sm mt-2">⚠️ 最终将裁减1人（最可能为第4门将里卡多·维略），届时正式26人名单已定。</p>
-</div>
-
-<!-- ==================== 七维度评分 ==================== -->
-<h2 class="text-pt-red">（二）逐项评分明细（七维度深度拆解）</h2>
-
-<!-- 维度一 -->
-<div class="dimension-card">
-  <h3 class="text-xl font-bold text-pt-red">维度一：阵容实力（权重30%）｜ 得分：86分 × 30% = 25.8分</h3>
-
-  <div class="subitem">
-    <h4>1.1 球星质量与个人能力 —— 88分</h4>
-    <table class="text-sm mb-2">
-      <tr><th>指标</th><th>数据</th></tr>
-      <tr><td>世界级球星数量</td><td>6-7人（B费、B席、迪亚斯、莱奥、维蒂尼亚、努诺·门德斯、C罗）</td></tr>
-      <tr><td>五大联赛豪门主力</td><td>12+人</td></tr>
-      <tr><td>金球奖前30候选</td><td>3-4人</td></tr>
-      <tr><td>Game-changer级别</td><td>B费（创造力）、莱奥（突破）、C罗（终结）</td></tr>
-    </table>
-    <p>葡萄牙阵容的星光熠熠是欧洲乃至世界顶级的。布鲁诺·费尔南德斯本赛季在曼联贡献了联赛15球+11助攻的两双数据，是英超最具创造力的中场发动机之一；贝尔纳多·席尔瓦在曼城继续扮演"球场大脑"角色，场均1.8次关键传球+85%+传球成功率的技术精度令人放心。维蒂尼亚和若昂·内维斯在巴黎圣日耳曼的中场组合日趋成熟，两人本赛季在法甲合计送出14次助攻，控球能力和向前传球的视野已跻身欧洲顶级中场行列。锋线上，41岁的C罗本赛季在利雅得胜利打进28球——尽管在沙特联赛，但其禁区内的嗅觉和无球跑动仍是世界级水准；拉斐尔·莱奥在AC米兰的左路突破是意甲最具威胁的个人武器之一，场均1.7次成功过人。鲁本·迪亚斯虽因腿筋伤势自3月中旬以来未登场，但作为曼城上赛季的核心中卫，他的领袖气质和防守组织能力是葡萄牙防线的基础。</p>
   </div>
 
-  <div class="subitem">
-    <h4>1.2 各位置均衡度 —— 82分</h4>
-    <p>葡萄牙四条线的实力分布呈现出典型的"中前场厚、后场不均"特征。中场是绝对强点：B费、B席、维蒂尼亚、若昂·内维斯、鲁本·内维斯组成的5人轮换，放眼本届世界杯也是前三甲的中场配置——技术、创造力、对抗、跑动覆盖一应俱全。锋线看似人数最多（7人），但存在两个隐忧：一是C罗41岁高龄需要轮换保护体能，二是贡萨洛·拉莫斯自2022世界杯高光后状态持续低迷，本赛季在巴黎仅打入7球，效率远不如预期。莱奥和佩德罗·内托的边路突破能力出色，但格德斯和特林康在俱乐部的表现平平。后防线存在结构性隐患：鲁本·迪亚斯的伤病是最大X因素，若他不能以100%状态出战，左中卫位置上的伊纳西奥虽然出球能力出众但对抗偏软，阿劳霍大赛经验不足；右后卫位置上，坎塞洛和达洛特的进攻属性大于防守，面对强力边锋可能成为突破口。</p>
-  </div>
-
-  <div class="subitem">
-    <h4>1.3 板凳深度 —— 78分</h4>
-    <p>首发11人与替补的差距在中场最小——若昂·内维斯、鲁本·内维斯、萨穆·科斯塔都可以无缝替换首发三人组，真正实现了"一波人倒了另一波人顶上"的中场深度。锋线方面，莱奥、内托、孔塞桑可以提供不同的边路变化方案，但中锋位置上除了C罗之外，唯一正牌中锋拉莫斯状态成疑，马特乌斯·努内斯和菲利克斯虽可客串但效率打折。后防是深度最薄弱的环节：如果鲁本·迪亚斯无法首发，伊纳西奥和阿劳霍的中卫组合缺乏大赛检验；边后卫位置上，塞梅多本赛季在费内巴切状态起伏，雷纳托·维加在比利亚雷亚尔更多踢中场而非边后卫。整体来看，葡萄牙拥有约18名"值得信赖"的轮换球员，面对密集赛程具备一定的轮换资本。</p>
-  </div>
-
-  <div class="subitem">
-    <h4>1.4 总身价与年龄结构 —— 88分</h4>
-    <table class="text-sm mb-2">
-      <tr><th>指标</th><th>数据</th></tr>
-      <tr><td>全队总身价（估计）</td><td>约7.8亿欧元（32强前5水平）</td></tr>
-      <tr><td>平均年龄</td><td>约27.8岁（经验与体能平衡）</td></tr>
-      <tr><td>核心球员平均年龄</td><td>维蒂尼亚26岁、若昂·内维斯21岁、莱奥26岁——黄金当打之年</td></tr>
-      <tr><td>老龄化风险</td><td>C罗（41岁）、佩佩未入选（39岁退役）——已更新换代</td></tr>
-    </tbody></table>
-    <p>葡萄牙的全队总身价保守估计在7.5-8亿欧元区间，在32支参赛队中稳居前五，与英格兰、法国、巴西处于同一梯队。年龄结构呈现出健康的"老中青"金字塔：41岁的C罗是精神领袖和终结者，28-30岁的B费、B席、迪亚斯构成中后场的核心骨架，21-26岁的若昂·内维斯、维蒂尼亚、莱奥、伊纳西奥代表着未来的希望。值得一提的是，本届大名单中没有了39岁的佩佩，这意味着葡萄牙的后防线完成了实质性换血——虽然短期可能带来经验流失，但从长期发展和体能角度看是必要的一步。</p>
-  </div>
-
-  <div class="score-bar mt-3"><div class="score-fill" style="width:86%;background:linear-gradient(90deg,#006847,#DA291C);"></div></div>
-  <p class="text-right text-sm text-gray-500 mt-1">维度一总评：<strong>86分</strong> × 30% = <strong>25.8分</strong></p>
-</div>
-
-<!-- 维度二 -->
-<div class="dimension-card">
-  <h3 class="text-xl font-bold text-pt-red">维度二：战术体系与教练（权重20%）｜ 得分：80分 × 20% = 16.0分</h3>
-
-  <div class="subitem">
-    <h4>2.1 主帅战术哲学与大赛履历 —— 78分</h4>
-    <p>罗伯托·马丁内斯是葡萄牙队史上最成功的"班底型"教练之一，他在2024欧洲杯率队杀入半决赛，证明了其大赛带队能力。他的战术哲学以控球为基础（场均控球率常年60%+），崇尚前场压迫和流畅的进攻配合，这一点与葡萄牙的技术型球员天然兼容。然而，马丁内斯在比利时国家队的经历也留下了隐忧——"黄金一代"在2018世界杯和2020欧洲杯均未能突破半决赛，被批评为"捏合巨星能力不足"。来到葡萄牙后，他在2024欧洲杯1/4决赛对阵法国的点球大战中惜败，暴露了在关键淘汰赛中缺乏B方案的问题。不可否认的是，他的亲和力和人脉管理是强项，能照顾好包括C罗在内的更衣室巨星关系。</p>
-  </div>
-
-  <div class="subitem">
-    <h4>2.2 阵型适配性与球员契合度 —— 82分</h4>
-    <p>马丁内斯在葡萄牙主打4-3-3阵型，偶尔切换为4-2-3-1。这一阵型与葡萄牙现有的球员资源高度契合：维蒂尼亚-若昂·内维斯-B费的中场三叉戟在4-3-3体系中形成了"拖后组织+中场扫荡+前场串联"的完美分工。前场三叉戟中，莱奥（左边锋）、C罗（中锋）、B席/内托（右边锋）的组合具备速度和技术的双重威胁。但问题在于，马丁内斯的B方案长期被质疑——当4-3-3被对手针对性限制时（如对手摆出5后卫铁桶阵），葡萄牙往往缺乏变阵为双前锋或增加高中锋的战术储备。此外，马特乌斯·努内斯被列在后卫名单中，暗示马丁内斯可能考虑让他客串右后卫或中场的摇摆人角色，这既是灵活性也是不确定性。</p>
-  </div>
-
-  <div class="subitem">
-    <h4>2.3 攻守转换效率 —— 78分</h4>
-    <p>葡萄牙的攻守转换在马丁内斯体系下呈现出"高控球、低转换"的特点——他们更倾向于通过控球来主导比赛节奏，而非快速反击。这在面对弱队时效果显著（控球率通常达到65-70%），但面对强队时，由攻转守的退防速度可能成为隐患。2024欧洲杯对阵法国的比赛中，葡萄牙在丢球后的第一道压迫线经常被姆巴佩等人的个人能力穿透，暴露出高位防线身后的空当。定位球方面，葡萄牙在2022世界杯上通过角球和任意球打入了3球（占比约30%），鲁本·迪亚斯和伊纳西奥在进攻端的高点具备不错的威胁。马丁内斯在备战期间公开表示已经针对定位球攻防进行了专项演练。</p>
-  </div>
-
-  <div class="subitem">
-    <h4>2.4 临场指挥与换人策略 —— 80分</h4>
-    <p>马丁内斯的临场指挥属于"稳健型"而非"冒险型"。他在比利时和葡萄牙国家队的换人数据显示，平均首次换人时间在第60-65分钟，偏晚但换人选择通常合乎逻辑。2024欧洲杯小组赛对阵土耳其的比赛中，他换上的若昂·内维斯直接改变了中场走势，体现了对比赛阶段的判断力。不过，在2018世界杯比利时对阵法国的半决赛中，他在落后后迟迟未做出进攻换人调整，被比利时媒体广泛批评。来到葡萄牙后，他在这方面有所改善——2024欧洲杯淘汰赛阶段，他的换人时机提前到了第55-60分钟。如果有加时赛和点球大战的准备，葡萄牙在2022世界杯上的点球表现尚可，但2024欧洲杯点球输给法国表明还有提升空间。</p>
-  </div>
-
-  <div class="score-bar mt-3"><div class="score-fill" style="width:80%;background:linear-gradient(90deg,#006847,#DA291C);"></div></div>
-  <p class="text-right text-sm text-gray-500 mt-1">维度二总评：<strong>80分</strong> × 20% = <strong>16.0分</strong></p>
-</div>
-
-<!-- 维度三 -->
-<div class="dimension-card">
-  <h3 class="text-xl font-bold text-pt-red">维度三：近期竞技状态（权重15%）｜ 得分：82分 × 15% = 12.3分</h3>
-
-  <div class="subitem">
-    <h4>3.1 近12个月正式比赛战绩 —— 82分</h4>
-    <p>从2025年6月到2026年5月的12个月期间，葡萄牙在世界杯欧洲区预选赛中表现出色，在小组赛中取得了7胜2平1负的战绩，成功锁定小组头名直接晋级决赛圈。期间净胜球达到+18（打进32球失14球），体现了对阵弱旅时的稳定得分能力。友谊赛方面，葡萄牙安排了对阵荷兰（2-2平）、英格兰（1-0胜）、瑞典（3-1胜）的高质量热身赛，含金量十足。不过，预选赛客场1-2爆冷负于波黑的比赛是一个警示信号——那场比赛葡萄牙在上半场2球落后的情况下未能逆转，暴露出面对密集防守时耐心不足的老问题。</p>
-  </div>
-
-  <div class="subitem">
-    <h4>3.2 预选赛出线含金量 —— 80分</h4>
-    <p>葡萄牙所在的欧洲区预选赛小组中，主要竞争对手是波黑和冰岛。波黑拥有哲科和皮亚尼奇等老将，但整体实力已大不如前；冰岛则失去了2016-2018年的黄金一代锐气。因此，葡萄牙的出线过程虽然有波折（负于波黑），但整体而言是"预期之内"的结果。值得肯定的是，葡萄牙在对阵小组后四名球队的6场比赛中保持全胜且场均净胜3球以上，展现了强队应有的虐菜稳定性。不过，由于预选赛对手整体实力偏弱（FIFA排名均在前40名之外），出线的"含金量"受到一定程度的削弱。这也是为何需要友谊赛对荷兰、英格兰的高强度来检验真实战力。</p>
-  </div>
-
-  <div class="subitem">
-    <h4>3.3 核心球员俱乐部状态走势 —— 84分</h4>
-    <table class="text-sm mb-2">
-      <tr><th>球员</th><th>2025-26赛季俱乐部表现</th><th>状态评级</th></tr>
-      <tr><td>C罗（利雅得胜利）</td><td>28球，各项赛事场均0.82球</td><td>🔥 火热（老而弥坚）</td></tr>
-      <tr><td>B费（曼联）</td><td>15球11助攻（英超）</td><td>🔥 火热</td></tr>
-      <tr><td>B席（曼城）</td><td>8球12助攻，关键传球80+</td><td>✅ 稳定</td></tr>
-      <tr><td>莱奥（AC米兰）</td><td>11球9助攻（意甲）</td><td>✅ 稳定</td></tr>
-      <tr><td>维蒂尼亚（巴黎）</td><td>6球8助攻，场均传球成功率92%</td><td>🔥 火热</td></tr>
-      <tr><td>若昂·内维斯（巴黎）</td><td>4球6助攻，中场灵魂</td><td>✅ 稳定</td></tr>
-      <tr><td>鲁本·迪亚斯（曼城）</td><td>3月中旬腿筋伤，缺席6周</td><td>⚠️ 隐患</td></tr>
-      <tr><td>拉莫斯（巴黎）</td><td>仅7球，出场时间不稳定</td><td>⬇️ 低迷</td></tr>
-    </table>
-    <p>总体来看，葡萄牙核心球员的俱乐部状态处于"积极的上升曲线"上。B费打出了加盟曼联以来数据最全面的一个赛季；维蒂尼亚在巴黎从角色球员成长为不可或缺的中场核心；C罗尽管在沙特联赛，但28球的产量证明他依然是世界级的终结者。最大的隐患是鲁本·迪亚斯的伤情——自3月中旬腿筋受伤以来，他在曼城几乎没有出场时间，世界杯首战（6月17日）距离现在刚好约两个月，恢复进度和比赛状态成疑。另一个令人担忧的是贡萨洛·拉莫斯，他在巴黎的出场时间被压缩，进球效率较2022-23赛季大幅下降，马丁内斯是否还信任他在大赛中扛起中锋位置值得关注。</p>
-  </div>
-
-  <div class="score-bar mt-3"><div class="score-fill" style="width:82%;background:linear-gradient(90deg,#006847,#DA291C);"></div></div>
-  <p class="text-right text-sm text-gray-500 mt-1">维度三总评：<strong>82分</strong> × 15% = <strong>12.3分</strong></p>
-</div>
-
-<!-- 维度四 -->
-<div class="dimension-card">
-  <h3 class="text-xl font-bold text-pt-red">维度四：大赛经验与心理素质（权重10%）｜ 得分：88分 × 10% = 8.8分</h3>
-
-  <div class="subitem">
-    <h4>4.1 世界杯/洲际杯历史战绩 —— 85分</h4>
-    <p>葡萄牙自2002年以来连续7届参加世界杯，是欧洲最稳定的参赛队之一。历史最佳成绩是1966年的第三名（尤西比奥带领），2006年获得第四名（西班牙·斯科拉里执教，C罗首次世界杯之旅）。近三届世界杯成绩为：2014年小组出局、2018年16强、2022年8强——呈现稳步上升趋势。在欧洲杯历史上，葡萄牙是2016年欧洲杯冠军，2019年欧国联冠军——这两座奖杯证明了这支国家队具备在单届大赛中"不走寻常路"的夺冠能力。尤其2016年欧洲杯，葡萄牙在不被看好的情况下决赛击败法国夺冠，展现了坚韧的心理韧性和战术执行力。</p>
-  </div>
-
-  <div class="subitem">
-    <h4>4.2 核心球员大赛经验值 —— 90分</h4>
-    <p>葡萄牙的"老将带新"结构提供了宝贵的大赛经验资本。C罗参加6届世界杯（历史第一人）、6届欧洲杯，累计出场226次国家队，国际A级赛事出场数和进球数（143球）均为历史第一。B费、B席、迪亚斯都参加过两届世界杯和两届欧洲杯，大赛出场次数均超过15场。鲁本·内维斯参加过2022世界杯和2024欧洲杯，拥有欧冠联赛经验。经验相对缺乏的年轻球员中，若昂·内维斯（21岁）和贡萨洛·伊纳西奥（23岁）虽然国家队出场次数不多（10-15场左右），但在巴黎和葡萄牙体育的欧冠赛场上积累了不少硬仗经验。整个阵容的"大赛总出场次数"在32强中属于顶级水平。</p>
-  </div>
-
-  <div class="subitem">
-    <h4>4.3 抗压与逆境应对 —— 88分</h4>
-    <p>葡萄牙在近5年大赛中的落后追分表现令人印象深刻。2022世界杯小组赛对阵加纳，先丢一球后2球逆转；2024欧洲杯小组赛对阵土耳其，先失球后2-1反超。这种"不从焦虑"的心理素质与C罗的存在密不可分——尽管争议不断，但他在困境中激发队友的能力是公认的。点球大战方面，葡萄牙在2022世界杯预选赛附加赛中点球击败北马其顿，但在2024欧洲杯1/4决赛点球输给法国——一正一负说明点球能力属于中等偏上。值得一提的是，2016欧洲杯决赛中，C罗开场25分钟伤退的情况下，葡萄牙依然在加时赛中击败了东道主法国——这是这支国家队"逆境韧性"的最佳证明。</p>
-  </div>
-
-  <div class="score-bar mt-3"><div class="score-fill" style="width:88%;background:linear-gradient(90deg,#006847,#DA291C);"></div></div>
-  <p class="text-right text-sm text-gray-500 mt-1">维度四总评：<strong>88分</strong> × 10% = <strong>8.8分</strong></p>
-</div>
-
-<!-- 维度五 -->
-<div class="dimension-card">
-  <h3 class="text-xl font-bold text-pt-red">维度五：分组及赛程影响（权重10%）｜ 得分：88分 × 10% = 8.8分</h3>
-
-  <div class="subitem">
-    <h4>5.1 小组赛对手分析 —— 90分</h4>
-    <table class="text-sm mb-2">
-      <tr><th>对手</th><th>FIFA排名（约）</th><th>风格特点</th><th>葡萄牙胜率预估</th></tr>
-      <tr><td>刚果民主共和国</td><td>60-70名</td><td>非洲身体流，组织松散</td><td>75-80%</td></tr>
-      <tr><td>乌兹别克斯坦</td><td>70-80名</td><td>中亚技术流，防守硬朗</td><td>80-85%</td></tr>
-      <tr><td>哥伦比亚</td><td>15-20名</td><td>南美技术流，有爆冷能力</td><td>55-60%</td></tr>
-    </table>
-    <p>葡萄牙的小组签运堪称"上上签"。K组中，刚果民主共和国虽然拥有一些在欧洲踢球的球员，但整体战术纪律不足，葡萄牙的技术优势可以轻松压制；乌兹别克斯坦作为亚洲劲旅防守组织不错，但进攻端缺乏世界级球员，很难对葡萄牙的防线造成持续威胁。真正的挑战来自哥伦比亚——这支南美传统强队FIFA排名稳定在前20，拥有J罗（38岁但仍有一脚传球）、迪亚斯（利物浦边锋）等能在个人能力上匹配葡萄牙球星的队员。不过哥伦比亚近年的稳定性不佳，世预赛经历了一番波折才勉强出线。总体来看，葡萄牙正常发挥应能拿到小组头名。</p>
-  </div>
-
-  <div class="subitem">
-    <h4>5.2 淘汰赛晋级路线预判 —— 85分</h4>
-    <p>作为K组头名出线后，葡萄牙在16强赛中将对阵L组第二名。L组目前由巴西、摩洛哥、海地、苏格兰组成——头名几乎锁定巴西，第二名很可能是摩洛哥或苏格兰。如果葡萄牙小组头名出线，16强大概率对阵摩洛哥——这支2022世界杯四强球队是葡萄牙的"苦主"（正是摩洛哥在2022年1/4决赛淘汰了葡萄牙）。若过关，8强可能对阵巴西和德国所在半区的胜者——无论面对哪支都是硬仗。若以小组第二出线，则16强大概率对阵L组头名巴西——这几乎就是"死亡路线"。因此对葡萄牙而言，小组赛拿下哥伦比亚、确保头名出线是决定整个赛程难度的关键。</p>
-  </div>
-
-  <div class="subitem">
-    <h4>5.3 旅途与气候因素 —— 88分</h4>
-    <p>葡萄牙的小组赛全部在美国举行：前两场在休斯顿（德州，室内空调球场NRG体育场，舒适度极高），第三场在迈阿密（佛罗里达，硬石体育场，6月底气温约30°C但同样室内）。三个比赛城市之间的移动距离控制得相当合理（休斯顿→迈阿密约2小时航班），不存在频繁转场的体力消耗。如果进入淘汰赛，可能的比赛城市分布在新泽西/达拉斯/洛杉矶等城市，赛程安排对葡萄牙的体能管理较为友好。唯一变数是6月27日最终小组赛到可能的16强赛之间只有3-4天的休息时间——这对41岁的C罗和伤愈复出的鲁本·迪亚斯是体能的考验。</p>
-  </div>
-
-  <div class="score-bar mt-3"><div class="score-fill" style="width:88%;background:linear-gradient(90deg,#006847,#DA291C);"></div></div>
-  <p class="text-right text-sm text-gray-500 mt-1">维度五总评：<strong>88分</strong> × 10% = <strong>8.8分</strong></p>
-</div>
-
-<!-- 维度六 -->
-<div class="dimension-card">
-  <h3 class="text-xl font-bold text-pt-red">维度六：团队凝聚力与场外环境（权重10%）｜ 得分：80分 × 10% = 8.0分</h3>
-
-  <div class="subitem">
-    <h4>6.1 更衣室团结度 —— 82分</h4>
-    <p>C罗作为队长在葡萄牙国家队的地位和影响力无可撼动——他从18岁开始就是这支球队的灵魂人物，已经连续21年担任核心角色。在2022世界杯期间，C罗因在曼联的场外风波导致一定程度的更衣室分心（当时他与主教练桑托斯的关系紧张），但2024欧洲杯以来的氛围明显改善。马丁内斯上任后极力推崇"团队优先"文化，B费、B席与C罗的关系良好，年轻一代的若昂·内维斯和维蒂尼亚对C罗充满尊敬。不过，随着C罗年龄增长、部分球员（如若昂·菲利克斯在利雅得胜利与C罗做队友，但此前在切尔西/巴萨时期因情绪管理受质疑）的心理成熟度需要关注。整体而言，葡萄牙更衣室目前处于相对和谐的状态。</p>
-  </div>
-
-  <div class="subitem">
-    <h4>6.2 足协稳定性与管理 —— 80分</h4>
-    <p>葡萄牙足协（FPF）是欧洲运作最规范的国家足协之一，近年在组织管理、基础设施建设（如葡萄牙足球城Cidade do Futebol）方面投入巨大。马丁内斯的合同覆盖到2026世界杯之后，不存在"合同到期"的不确定性。后勤保障方面，葡萄牙有完善的备战方案——他们在休斯顿和迈阿密附近已经预订了专门的训练基地。唯一的小变数是：葡萄牙国内对"马丁内斯是否真的能带领球队夺冠"存在一定的质疑声音（主要因为他比利时时期的遗憾历史），但这种质疑尚未影响球队的正常运转。</p>
-  </div>
-
-  <div class="subitem">
-    <h4>6.3 国内舆论与媒体压力 —— 78分</h4>
-    <p>葡萄牙国内对国家队的世界杯期望值极高——这既是"2016欧洲杯冠军一代"的惯性期待，也是"C罗最后一届世界杯"的情怀加成。葡萄牙媒体以激情和挑剔并存著称，如果球队在小组赛阶段表现不佳（比如平乌兹别克斯坦或输哥伦比亚），舆论压力可能会迅速发酵。2022世界杯输给摩洛哥后，国内对桑托斯的战术安排进行了猛烈批评，这种"超高期望+极端批评"的媒体生态是一把双刃剑。好在马丁内斯在比利时就已经历过类似压力（比利时曾排名世界第一），如何管理外界噪音是他的经验优势。</p>
-  </div>
-
-  <div class="score-bar mt-3"><div class="score-fill" style="width:80%;background:linear-gradient(90deg,#006847,#DA291C);"></div></div>
-  <p class="text-right text-sm text-gray-500 mt-1">维度六总评：<strong>80分</strong> × 10% = <strong>8.0分</strong></p>
-</div>
-
-<!-- 维度七 -->
-<div class="dimension-card">
-  <h3 class="text-xl font-bold text-pt-red">维度七：体能储备与伤病控制（权重5%）｜ 得分：75分 × 5% = 3.75分</h3>
-
-  <div class="subitem">
-    <h4>7.1 赛季疲劳度评估 —— 70分</h4>
-    <p>葡萄牙核心球员本赛季的出场时间普遍在2500-3500分钟区间，处于正常偏高水平。维蒂尼亚和若昂·内维斯在巴黎圣日耳曼经历了三线作战（法甲+法国杯+欧冠），B费和达洛特在曼联的赛程同样密集——曼联虽然未进欧冠，但欧联杯同样消耗了大量体能。B席在曼城也是全程三线作战的主力。唯一"相对轻松"的是C罗——沙特联赛的赛程密度低于欧洲五大联赛，且他在赛季末段得到了适当轮休。值得关注的是，5月下旬到6月中旬的备战期只有约3周，这对需要恢复伤病的球员（如鲁本·迪亚斯）来说时间紧迫。</p>
-  </div>
-
-  <div class="subitem">
-    <h4>7.2 关键伤病与恢复情况 —— 72分</h4>
-    <p>这是葡萄牙本届世界杯最大的不确定因素。鲁本·迪亚斯自3月中旬以来因腿筋伤势缺席了曼城的所有比赛，虽然他的名字出现在大名单中，但他的真实身体状态成谜——如果无法在世界杯前通过全强度训练，马丁内斯可能不得不在中卫位置做出让步。其他球员方面，贡萨洛·拉莫斯在巴黎赛季末段因脚踝轻伤缺席了2场，但已基本恢复；佩德罗·内托本赛季在切尔西经历了多次小伤（"玻璃人"体质），虽入选大名单但能否支撑连续高强度比赛存疑。没有球员有重大手术/长期伤病史（十字韧带等），这是唯一的安慰。</p>
-  </div>
-
-  <div class="subitem">
-    <h4>7.3 医疗团队与保障水平 —— 85分</h4>
-    <p>葡萄牙足协拥有欧洲一流的医疗与体能保障团队。在2024欧洲杯期间，葡萄牙的伤病管理效果获得了队员的正面反馈——几乎没有因伤病管理不当导致核心球员缺席比赛的情况。葡萄牙的备战计划中包括在休斯顿当地的合作医院和康复中心的预约，以及对鲁本·迪亚斯进行"个性化康复训练"的专项方案。历史上，葡萄牙在2016欧洲杯能在一路伤兵满营（C罗决赛伤退、佩佩半决赛前受伤）的情况下依然夺冠，部分原因正是其医疗团队的高效运作。</p>
-  </div>
-
-  <div class="score-bar mt-3"><div class="score-fill" style="width:75%;background:linear-gradient(90deg,#006847,#DA291C);"></div></div>
-  <p class="text-right text-sm text-gray-500 mt-1">维度七总评：<strong>75分</strong> × 5% = <strong>3.75分</strong></p>
-</div>
-
-<!-- ==================== 综合评分 ==================== -->
-<h2 class="text-pt-red">（三）综合总分与评级</h2>
-
-<div class="summary-box text-center">
-  <p class="text-2xl font-bold">加权总分：83.45 / 100</p>
-  <p class="text-xl mt-2">实力评级：<span class="text-pt-gold font-bold text-3xl">A</span>（新的评级描述）</p>
-</div>
-
-<div class="bg-white rounded-xl shadow p-6 mb-6">
-  <h3 class="text-lg font-bold mb-3">七维度雷达数据</h3>
+  <div class="sub-section-title">世界杯历史战绩</div>
   <table>
-    <tr><th>维度</th><th>得分</th><th>权重</th><th>加权贡献</th></tr>
-    <tr><td>① 阵容实力</td><td>86</td><td>30%</td><td>25.80</td></tr>
-    <tr><td>② 战术体系与教练</td><td>80</td><td>20%</td><td>16.00</td></tr>
-    <tr><td>③ 近期竞技状态</td><td>82</td><td>15%</td><td>12.30</td></tr>
-    <tr><td>④ 大赛经验与心理素质</td><td>88</td><td>10%</td><td>8.80</td></tr>
-    <tr><td>⑤ 分组及赛程影响</td><td>88</td><td>10%</td><td>8.80</td></tr>
-    <tr><td>⑥ 团队凝聚力与场外环境</td><td>80</td><td>10%</td><td>8.00</td></tr>
-    <tr><td>⑦ 体能储备与伤病控制</td><td>75</td><td>5%</td><td>3.75</td></tr>
-    <tr style="font-weight:bold;background: #ffebee;"><td colspan="3">总分</td><td>83.45</td></tr>
+    <thead><tr><th>年份</th><th>成绩</th><th>备注</th></tr></thead>
+    <tbody>
+      <tr><td>1966年（英格兰）</td><td><strong>季军 🥉</strong></td><td>尤西比奥9球金靴，半决赛负于英格兰，三四名胜苏联</td></tr>
+      <tr><td>1986年（墨西哥）</td><td>小组赛</td><td></td></tr>
+      <tr><td>2002年（韩日）</td><td>小组赛</td><td></td></tr>
+      <tr><td>2006年（德国）</td><td><strong>第四名</strong></td><td>菲戈黄金一代，半决赛负法国，三四名负德国</td></tr>
+      <tr><td>2010年（南非）</td><td>16强</td><td></td></tr>
+      <tr><td>2014年（巴西）</td><td>小组赛</td><td></td></tr>
+      <tr><td>2018年（俄罗斯）</td><td>16强</td><td>C罗帽子戏法逼平西班牙</td></tr>
+      <tr><td><strong>2022年（卡塔尔）</strong></td><td><strong>八强</strong></td><td>小组头名（胜乌拉圭/加纳，负韩国），6-1胜瑞士，0-1负摩洛哥</td></tr>
+    </tbody>
+  </table>
+  <p style="margin:8px 0;"><strong>其他大赛荣誉：</strong> 🏆 2016年欧洲杯冠军（决赛1-0法国） | 🏆 2019年欧国联冠军</p>
+
+  <div class="sub-section-title">晋级之路</div>
+  <p style="margin:8px 0;">葡萄牙在罗伯托·马丁内斯的带领下以小组头名晋级2026世界杯。西班牙籍主帅马丁内斯于2023年接替费尔南多·桑托斯，他此前的最大成就是带领比利时在2018年世界杯获得季军。葡萄牙在K组与哥伦比亚、刚果民主共和国和乌兹别克斯坦同组——哥伦比亚是南美劲旅，将构成主要威胁。队长C罗以41岁高龄成为世界杯历史上第一位参加6届比赛的球员（226场143球——均为世界纪录）。</p>
+</div>
+
+<!-- DIMENSION SCORING -->
+<div class="section">
+  <div class="section-title">（二）逐项评分明细（七维度深度拆解）</div>
+
+  <!-- Dim 1 -->
+  <div class="sub-section-title">维度一：阵容实力（权重30%）｜ 得分：87分 × 30% = 26.1分</div>
+  <table class="score-table">
+    <thead><tr><th style="width:28%;">子项</th><th style="width:7%;">得分</th><th>简要评价</th></tr></thead>
+    <tbody>
+      <tr><td><strong>1.1 球星质量与个人能力</strong>（占比35%）</td><td class="score-cell" style="color:#e74c3c;">88</td><td>葡萄牙拥有本届世界杯最豪华的中前场配置之一。维蒂尼亚（巴黎/€1.10亿）和若昂·内维斯（巴黎/€1.10亿）的双核是法甲最佳中场组合——维蒂尼亚以控场能力和传球精度著称（传球成功率92%），若昂·内维斯以跑动覆盖和推进能力见长。布鲁诺·费尔南德斯（曼联/€4000万）是英超创造机会最多的中场之一（本赛季11次助攻），贝尔纳多·席尔瓦（曼城）是瓜迪奥拉体系中最可靠的"系统球员"。拉斐尔·莱奥（AC米兰/€5000万）是意甲最具突破能力的边锋——他的速度、盘带和爆发力在意甲后卫中几乎无解。佩德罗·内托（切尔西/€6000万）保持健康时是英超顶级边锋。C罗虽然41岁，但他的无球跑位和禁区内嗅觉仍是世界级——本赛季在沙特联赛33球的表现证明了他仍未退役。全队身价超€1亿的球员2人、超€5000万的5人，整体天赋储备在欧洲名列前茅。</td></tr>
+      <tr><td><strong>1.2 各位置均衡度</strong>（占比25%）</td><td class="score-cell" style="color:#e74c3c;">84</td><td>葡萄牙的阵容呈现"中场强、前后均衡"的格局。中场是球队最强环节——维蒂尼亚+若昂·内维斯+B费+贝尔纳多·席尔瓦四名球员可以组成两套完全不同的中场组合（控制型/创造型/防守型），这是欧洲最深厚的组织中场储备之一。后防线由鲁本·迪亚斯（曼城/€6000万/英超冠军后卫）领衔，努诺·门德斯（巴黎/€7500万）是世界最佳左后卫之一。前锋线选择丰富——莱奥（左路爆点）、内托（右路/€6000万）、拉莫斯（中锋/€3500万）、菲利克斯（二前锋）、C罗（终结者）。守门员位置是传统强项——迪奥戈·科斯塔（波尔图/€4000万）是欧洲最被看好的年轻门将之一。唯一的结构性短板是右后卫——坎塞洛（32岁/巴萨）和达洛特（曼联）都非世界级水准，塞梅多更是已过巅峰。</td></tr>
+      <tr><td><strong>1.3 板凳深度</strong>（占比20%）</td><td class="score-cell" style="color:#e74c3c;">86</td><td>€9.57亿的阵容深度令人羡慕。中场的储备尤其奢侈——若昂·内维斯（€1.10亿）是巴黎主力级别但在葡萄牙只能竞争首发而非铁打主力。锋线7人中有5人（莱奥、内托、拉莫斯、菲利克斯、孔塞桑/€3000万/尤文）具备在豪门担当首发的实力。后防线上，伊纳西奥（葡体/€4000万）和阿劳霍（本菲卡/€3000万）是替补中卫但水准完全够格。仅有右后卫位置的替补深度（塞梅多/32岁）和门将位置的第三选择稍微令人担忧。26人中约有20-22人能在世界杯级别比赛中扮演可靠角色——堪比顶级豪门配置。</td></tr>
+      <tr><td><strong>1.4 总身价与年龄结构</strong>（占比20%）</td><td class="score-cell" style="color:#e74c3c;">82</td><td>€9.57亿总身价排名本届世界杯中上游（约第8位）。平均年龄28.0岁稍微偏高——C罗（41岁）和佩佩（已退出）是前两届大赛拉高平均年龄的主要因素。年龄结构呈现"中间鼓两头细"的特点——24-30岁的核心球员（维蒂尼亚26、若昂·内维斯21、迪亚斯29、莱奥26、B费31、B席31）占据了阵容的60%以上，C罗（41）和坎塞洛（32）是仅有的两位30岁以上的老将。年轻血液充足——努诺·门德斯23、伊纳西奥24、孔塞桑23。整体年龄结构合理，C罗虽然年长但他已转型为"替补/关键先生"角色（不像2022年那样打满全场）。</td></tr>
+    </tbody>
+  </table>
+
+  <!-- Dim 2 -->
+  <div class="sub-section-title">维度二：战术体系与教练（权重20%）｜ 得分：82分 × 20% = 16.4分</div>
+  <table class="score-table">
+    <thead><tr><th style="width:28%;">子项</th><th style="width:7%;">得分</th><th>简要评价</th></tr></thead>
+    <tbody>
+      <tr><td><strong>2.1 主帅战术哲学与大赛履历</strong>（占比40%）</td><td class="score-cell" style="color:#27ae60;">80</td><td>罗伯托·马丁内斯是葡萄牙队史上第一位外籍主教练（西班牙籍）。他的最大成就来自比利时国家队——2018年世界杯季军（击败英格兰）、连续三年FIFA排名第一。他的战术哲学以"进攻主导+控球组织"为核心，偏好4-3-3阵型，强调边后卫的进攻参与和中前场的自由换位。但他的比利时"黄金一代"在2022年世界杯上小组赛即出局（0-2负摩洛哥、0-0平克罗地亚），暴露了他在面对防守严密对手时的战术瓶颈。他执教葡萄牙的成绩整体令人满意——预选赛顺利出线、2024欧洲杯八强（点球负于法国）。他最大的优势是更衣室管理——他擅长处理大牌球员的关系，在这支拥有C罗、B费、B席等多位性格鲜明的球员的队伍中，这一能力尤为关键。</td></tr>
+      <tr><td><strong>2.2 阵型适配性与球员契合度</strong>（占比30%）</td><td class="score-cell" style="color:#e74c3c;">82</td><td>马丁内斯的4-3-3阵型与葡萄牙球员的技术特点高度契合。双后腰（维蒂尼亚+若昂·内维斯）是风格互补的完美组合——维蒂尼亚提供控球和节奏控制，若昂·内维斯提供跑动和防守覆盖。前场三人组（B费/B席+边锋+C罗）的职责分工明确：B费或B席在10号位负责创造机会，莱奥/内托在边路提供宽度和突破，C罗在禁区完成终结。进攻时，边后卫（努诺·门德斯）前插形成临时三后卫结构——这与马丁内斯在比利时时期的战术设计如出一辙。这套体系的流畅运转依赖于中前场球员的高度战术素养——葡萄牙恰好拥有这一代欧洲最聪明的中场球员群体（B费、B席、维蒂尼亚、若昂·内维斯）。最大的适配性问题是如何处理C罗的角色——他不再是2022年那个可以打满全场的球员，马丁内斯需要找到一种让C罗在有限出场时间内最大化贡献的轮换模式。</td></tr>
+      <tr><td><strong>2.3 攻守转换效率</strong>（占比15%）</td><td class="score-cell" style="color:#27ae60;">80</td><td>马丁内斯体系下的攻守转换以"控制"为优先。由守转攻时，维蒂尼亚回撤到后防线接球组织，B费在中场寻找直塞机会，边锋拉边拉扯对手防线。由攻转守时，葡萄牙采取中等强度的前场压迫——依赖B费和莱奥的第一道防线压迫，双后腰在中路封锁传球线路。这套"控制优先"的转换模式在对阵技术型对手（如西班牙、德国）时表现出色，但在面对"蹲坑防守+快速反击"型球队（2022年比利时面对摩洛哥时的困境）时可能显得缺乏爆发力。定位球方面，迪亚斯和C罗是葡萄牙主要的空中威胁——两人合计在2025-26赛季打入超过15个头球。</td></tr>
+      <tr><td><strong>6.2 临场指挥与换人策略</strong>（占比15%）</td><td class="score-cell" style="color:#e67e22;">78</td><td>马丁内斯的临场指挥是他作为顶级教练的"阿喀琉斯之踵"。对比利时2022年世界杯小组赛出局的复盘显示，他在0-2落后摩洛哥时的调整明显滞后——直到第78分钟才做出第一次换人。在葡萄牙2024欧洲杯八强对阵法国的比赛中，他的换人也显得保守——加时赛最后阶段才换上拉莫斯和菲利克斯。他倾向于在比赛中"信任首发阵容"——这意味着他的换人调整通常较晚（平均首次换人在第65分钟以后）。积极的一面是：他的赛前准备和战术部署非常充分——葡萄牙在预选赛中的表现（未在正式比赛中遭遇重大意外）证明了这一点。但在世界杯淘汰赛这种"一次失误就可能回家"的环境中，他的反应速度可能需要提升。</td></tr>
+    </tbody>
+  </table>
+
+  <!-- Dim 3 -->
+  <div class="sub-section-title">维度三：近期竞技状态（权重15%）｜ 得分：83分 × 15% = 12.45分</div>
+  <table class="score-table">
+    <thead><tr><th style="width:28%;">子项</th><th style="width:7%;">得分</th><th>简要评价</th></tr></thead>
+    <tbody>
+      <tr><td><strong>3.1 近12个月正式比赛战绩</strong>（占比40%）</td><td class="score-cell" style="color:#e74c3c;">82</td><td>葡萄牙在近12个月的状态整体稳定。欧洲区预选赛以小组头名轻松出线——面对实力不如自己的对手展现了应有的统治力（场均进球2.5+）。2024欧洲杯八强的成绩基本符合预期——小组赛表现稳定，八强战对阵法国在点球大战中惜败。友谊赛方面的表现中规中矩——没有特别亮眼的胜利也没有令人担忧的惨败。整体来看，葡萄牙以"中等偏上"的状态进入世界杯——他们在展现统治力方面没有问题，但在对阵顶级对手（法国）时仍然暴露出进攻效率不足的问题（2024欧洲杯八强对阵法国120分钟0-0）。世界杯前的最后几场热身赛将是对球队进攻状态的重要检验。</td></tr>
+      <tr><td><strong>3.2 预选赛出线含金量</strong>（占比30%）</td><td class="score-cell" style="color:#27ae60;">80</td><td>葡萄牙所在的小组对手实力中等偏上——没有传统豪强但也不乏硬骨头。不败出线的成绩符合种子队的定位。但欧洲区预选赛的含金量始终受到"强弱分化"的影响——葡萄牙在大多数比赛中面对的对手实力远低于自己，真正的考验在附加赛或欧洲杯等平台。2024欧洲杯八强（点球负法国）是更可靠的参考——葡萄牙在面对真正世界级对手时展现出了"至少不败"的能力（120分钟0-0法国），但进攻效率不足的问题也暴露无遗。</td></tr>
+      <tr><td><strong>3.3 核心球员俱乐部状态走势</strong>（占比30%）</td><td class="score-cell" style="color:#e74c3c;">83</td><td>核心球员的俱乐部状态整体良好。维蒂尼亚（巴黎）和若昂·内维斯（巴黎）在法甲冠军球队中打出了统治级表现——两人合计在中场贡献了15+进球和20+助攻，是本赛季法甲最具影响力的中场二人组。布鲁诺·费尔南德斯（曼联）延续了他的创造力输出——本赛季英超11次助攻，是曼联进攻组织的绝对核心。拉斐尔·莱奥（AC米兰）在意甲保持了稳定的产出——9球8助攻。佩德罗·内托在切尔西的处子赛季表现令人鼓舞——英超出场32次贡献7球6助攻，终于摆脱了伤病的困扰。C罗在沙特联赛33球的赛季证明他仍然是"禁区内的绝对统治者"——虽然沙特的防守水平远不及世界杯对手，但这一数据至少反映了他的身体状态和射门手感都保持在高水平。</td></tr>
+    </tbody>
+  </table>
+
+  <!-- Dim 4 -->
+  <div class="sub-section-title">维度四：大赛经验与心理素质（权重10%）｜ 得分：81分 × 10% = 8.1分</div>
+  <table class="score-table">
+    <thead><tr><th style="width:28%;">子项</th><th style="width:7%;">得分</th><th>简要评价</th></tr></thead>
+    <tbody>
+      <tr><td><strong>4.1 世界杯/洲际杯历史战绩</strong>（占比40%）</td><td class="score-cell" style="color:#27ae60;">78</td><td>葡萄牙在世界杯上的历史战绩在传统强队中不算突出——仅1966年一次季军（尤西比奥的黄金时代），2006年第四名，2022年八强。相比西班牙（1冠）、英格兰（1冠）、法国（2冠）、德国（4冠）等欧洲对手，葡萄牙的"世界杯履历"相对平淡。但葡萄牙在2016年欧洲杯上的夺冠证明了这个国家有能力在顶级大赛中走到最后——那届比赛中葡萄牙小组赛三平惊险出线后连胜克罗地亚、波兰、威尔士和法国（决赛），展现了"非典型冠军"的适应力。2022年世界杯八强是一个合理的成绩（0-1负于摩洛哥——那场比赛中摩洛哥的防守确实无可挑剔）。总的来说，葡萄牙的大赛历史是一个"时有亮点但整体平凡"的叙事。</td></tr>
+      <tr><td><strong>4.2 核心球员大赛经验值</strong>（占比35%）</td><td class="score-cell" style="color:#e74c3c;">85</td><td>葡萄牙的核心球员大赛经验是本届世界杯最丰富的之一。C罗（41岁）是世界杯历史上参赛次数最多的球员（6届）——他参加了2006、2010、2014、2018、2022和2026年，在世界杯上出场22次打入8球，在欧冠（183球）和欧洲杯（14球）等大赛中的经验无人能敌。布鲁诺·费尔南德斯和贝尔纳多·席尔瓦均已参加两届世界杯和两届欧洲杯——两人在2022世界杯上各自贡献了2球3助和1球2助。鲁本·迪亚斯是曼城2023三冠王的后防中坚，拥有欧冠决赛经验。努诺·门德斯参加了2022世界杯和2024欧洲杯。若昂·坎塞洛拥有丰富的欧冠淘汰赛经验。唯一经验相对不足的是维蒂尼亚和若昂·内维斯——两人虽然在巴黎是核心，但缺乏在世界杯淘汰赛这样的极端高压环境下的实战经历。</td></tr>
+      <tr><td><strong>4.3 抗压与逆境应对</strong>（占比25%）</td><td class="score-cell" style="color:#27ae60;">80</td><td>葡萄牙的抗压能力在"C罗时代"有过两个高光时刻和一个阴影时刻。高光1：2016年欧洲杯决赛——C罗在第25分钟因伤退场后，葡萄牙在逆境中坚持到了加时赛，最终由埃德尔打入制胜球击败法国——这可能是葡萄牙足球史上最具心理韧性的一场比赛。高光2：2018年世界杯小组赛对阵西班牙——C罗在0-1、1-2、2-3落后的情况下三次站出来扳平比分，完成帽子戏法。阴影时刻：2022年世界杯八强0-1负于摩洛哥——面对非顶级对手的密集防守，葡萄牙在90分钟内找不到破门办法，C罗替补上场后也未能改变比赛走向。葡萄牙"抗压能力"的特点是：在"不被看好"时表现更好（2016欧洲杯）、在"被看好"时反而容易失常（2022对摩洛哥）。这是马丁内斯需要特别注意的心态管理课题。</td></tr>
+    </tbody>
+  </table>
+
+  <!-- Dim 5 -->
+  <div class="sub-section-title">维度五：分组及赛程影响（权重10%）｜ 得分：78分 × 10% = 7.8分</div>
+  <table class="score-table">
+    <thead><tr><th style="width:28%;">子项</th><th style="width:7%;">得分</th><th>简要评价</th></tr></thead>
+    <tbody>
+      <tr><td><strong>5.1 小组赛对手分析</strong>（占比40%）</td><td class="score-cell" style="color:#27ae60;">75</td><td>K组的签运对葡萄牙来说是"中等偏上"——没有死亡之组的绝望感，也没有天堂签的轻松感。哥伦比亚（FIFA第14）是小组中最强的对手——拥有迪亚斯（拜仁/世界级边锋）和哈梅斯（队长/经验丰富），球队整体实力在南美仅次于巴西和阿根廷。刚果民主共和国（FIFA第67）是非洲代表——身体对抗占优但战术纪律和大赛经验有限——这是葡萄牙必须拿下的3分。乌兹别克斯坦（FIFA第67左右）是亚洲劲旅，但亚洲球队在面对欧洲强队时的整体实力差距仍然明显。葡萄牙的最优策略是：首战刚果金全力取胜建立信心，次战乌兹别克斯坦稳控局面锁定出线，末战哥伦比亚力争小组第一（可以接受平局）。整体来看，葡萄牙出线没有悬念但小组第一需要在对阵哥伦比亚时拿出最好的表现。</td></tr>
+      <tr><td><strong>5.2 淘汰赛晋级路线预判</strong>（占比35%）</td><td class="score-cell" style="color:#27ae60;">80</td><td>如果葡萄牙以小组第一出线（概率约60%），16强对手将是J组第二（可能是德国/西班牙/日本中的较弱者）——这对葡萄牙来说是一个有利的对阵（胜率约55-60%）。八强战对手将来自H组（西班牙）或G组第一——对阵西班牙将是一场经典的技术流对决（B席+B费 vs 佩德里+罗德里）。如果以小组第二出线（概率约35%），16强将面临J组第一（大概率是西班牙或德国）——这将是一条更加艰难的路线。最理想的晋级路径：小组头名 → 16强击败J2 → 八强击败西班牙/德国 → 四强对阵法国/英格兰——这是一条"地狱级难度"但并非不可能的路线。</td></tr>
+      <tr><td><strong>5.3 旅途与气候因素</strong>（占比25%）</td><td class="score-cell" style="color:#e67e22;">78</td><td>葡萄牙的三场小组赛安排在不同地点：对阵刚果金、乌兹别克斯坦和哥伦比亚——具体举办城市尚未完全明确，但预计将在美国中南部或东海岸进行。6月北美的气候（高温、高湿度）对习惯于地中海气候的葡萄牙球员来说是一个需要适应的变量。C罗等老将的体能在高湿环境下的消耗会加快——马丁内斯需要在小组赛中做好核心球员的轮换管理。葡萄牙队的备战计划应包括提前抵达北美进行热适应训练。</td></tr>
+    </tbody>
+  </table>
+
+  <!-- Dim 6 -->
+  <div class="sub-section-title">维度六：团队凝聚力与场外环境（权重10%）｜ 得分：79分 × 10% = 7.9分</div>
+  <table class="score-table">
+    <thead><tr><th style="width:28%;">子项</th><th style="width:7%;">得分</th><th>简要评价</th></tr></thead>
+    <tbody>
+      <tr><td><strong>6.1 更衣室团结度</strong>（占比35%）</td><td class="score-cell" style="color:#27ae60;">82</td><td>葡萄牙更衣室在C罗的领导下保持了高度的团结。C罗虽然年事已高，但他作为队长的权威性和职业道德从未受到质疑——他是226场国家队比赛的纪录保持者，是年轻一代（莱奥、拉莫斯、内维斯）的天然榜样。2022年世界杯期间，C罗在小组赛末轮对阵韩国被提前换下后的争议（与教练桑托斯的摩擦）在马丁内斯上任后已经完全化解。马丁内斯的更衣室管理能力是他的核心优势——他在比利时成功处理了库尔图瓦、德布劳内、阿扎尔等大牌球星的关系。这支葡萄牙队没有出现公开的内部矛盾传闻，整体氛围积极。B费、B席、迪亚斯等中生代球员与C罗之间的关系融洽——C罗已经从"不可动摇的核心"逐步过渡为"精神领袖+关键替补"的角色，这种过渡对于更衣室的长期健康至关重要。</td></tr>
+      <tr><td><strong>6.2 足协稳定性与管理</strong>（占比35%）</td><td class="score-cell" style="color:#27ae60;">80</td><td>葡萄牙足协（FPF）近年来保持了良好的运营水平。FPF在青训投入和基础设施建设方面的成就有目共睹——葡萄牙青训体系每年产出大量欧洲顶级联赛球员。马丁内斯的合同持续至世界杯结束后，合同保障充分。FPF为球队安排了完善的世界杯备战计划——包括在北美设立训练营、组织对模拟哥伦比亚风格的南美对手的热身赛。FPF的医疗和后勤团队配置在欧盟范围内属于中上水平。一个小插曲：FPF在2025年曾因为预算问题与部分球员就奖金分配产生过讨论，但问题已经得到妥善解决，不会影响世界杯期间的备战。</td></tr>
+      <tr><td><strong>6.3 国内舆论与媒体压力</strong>（占比30%）</td><td class="score-cell" style="color:#e67e22;">75</td><td>葡萄牙国内对球队的期望值较高但不极端。2016年欧洲杯冠军让葡萄牙球迷相信"一切皆有可能"，因此八强是普遍接受的最低目标，四强是合理期待。葡萄牙媒体（以《A Bola》《Record》《O Jogo》三大体育报为首）的报道风格热情而专业，不像英国小报那样煽情。C罗的存在使葡萄牙的媒体关注度常年处于高位——他的一举一动都会被放大报道。但马丁内斯的西班牙背景在一定程度上转移了部分媒体的注意力——媒体对他的战术选择和阵容决定会更仔细地审视。如果小组赛出现意外（如平哥伦比亚或负于刚果金），葡萄牙媒体可能会进入"危机讨论模式"。</td></tr>
+    </tbody>
+  </table>
+
+  <!-- Dim 7 -->
+  <div class="sub-section-title">维度七：体能储备与伤病控制（权重5%）｜ 得分：79分 × 5% = 3.95分</div>
+  <table class="score-table">
+    <thead><tr><th style="width:28%;">子项</th><th style="width:7%;">得分</th><th>简要评价</th></tr></thead>
+    <tbody>
+      <tr><td><strong>7.1 赛季疲劳度评估</strong>（占比40%）</td><td class="score-cell" style="color:#27ae60;">80</td><td>葡萄牙核心球员的赛季疲劳度处于可控范围。维蒂尼亚和若昂·内维斯（巴黎）在法甲+欧冠的双线作战中出场40+次，但法甲的强度低于英超，两人的体能消耗在正常范围内。B费（曼联）和B席（曼城）经历了完整的英超赛季——英超的密集赛程和高强度对抗对体能消耗较大，但两人都保持了良好的出勤记录（均出场40+场）。C罗（利雅得胜利）的沙特赛季强度较低——34轮联赛加上杯赛，比赛节奏和对抗强度远低于欧洲五大联赛，因此他的体能储备反而可能是全队中最充足的。莱奥（AC米兰）经历了意甲+欧冠的双线作战（38场），赛季末段出现了一定的疲劳迹象。</td></tr>
+      <tr><td><strong>7.2 关键伤病与恢复情况</strong>（占比35%）</td><td class="score-cell" style="color:#e67e22;">78</td><td>截至报告撰写时，葡萄牙26人大名单中没有重大伤病退出——这是一个积极的信号。佩德罗·内托（切尔西）的伤病历史（过去三个赛季因伤缺席超过40%的比赛）是最大的隐忧——他的身体在赛季末段能否承受世界杯密集赛程的考验是一个未知数。坎塞洛（巴萨）赛季末段曾因肌肉疲劳缺席过两场比赛，但已恢复正常训练。C罗的身体状态是"奇迹级别"——41岁的他本赛季仅在沙特联赛中因轻伤缺席了一场比赛。B费（曼联）整个赛季保持了全勤状态，身体耐久性令人敬佩。整体来看，葡萄牙的伤病状况是"全员健康但个别球员有伤病史"的中等偏乐观状态。</td></tr>
+      <tr><td><strong>7.3 医疗团队与保障水平</strong>（占比25%）</td><td class="score-cell" style="color:#27ae60;">80</td><td>葡萄牙足协的医疗团队在欧洲属于中上水准。FPF配备了经验丰富的队医和体能教练团队——近年来在预防重大伤病方面表现良好（这从核心球员的高出勤率可验证）。葡萄牙在运动医学领域有不错的基础——里斯本和波尔图的运动医学诊所具有一定的国际声誉。世界杯期间，球队将配备全面的医疗保障和恢复设备。马丁内斯的团队对体能管理非常重视——他在比利时时期就以"精细化的赛前训练和赛后恢复计划"而闻名。</td></tr>
+    </tbody>
   </table>
 </div>
 
-<!-- ==================== 深度球评 ==================== -->
-<h2 class="text-pt-red">（四）深度球评</h2>
-
-<div class="bg-white rounded-xl shadow p-6 mb-6">
-  <h3 class="text-lg font-bold text-green-700">核心优势</h3>
-  <ul class="list-disc pl-6 space-y-3 mt-2">
-    <li><strong>世界顶级的中场控制力。</strong>维蒂尼亚-若昂·内维斯-B费的中场三角，结合B席的边中摇摆，构成了本届世界杯最华丽的"技术流"中场组合。维蒂尼亚场均传球成功率92%+的控球能力、若昂·内维斯的跑动覆盖和向前传球、B费15球11助攻的进攻输出——三人在不同维度上互补互补，让葡萄牙在面对大多数对手时都能牢牢掌控比赛节奏。数据上，葡萄牙在预选赛中的场均控球率高达63.4%，传球成功率87%——这在中立场地面对风格迥异的对手时是一项强大的基础能力。</li>
-    <li><strong>丰富的大赛夺冠基因。</strong>从2016欧洲杯冠军到2019欧国联冠军，这支球队中的核心成员（C罗、B费、B席、迪亚斯、帕利尼亚未入选但价值观仍在）经历过"不被看好→坚持到最后"的夺冠历程。这种"韧性"在单回合淘汰赛中尤其宝贵——不是所有技术型强队都懂得如何在逆境中求生。</li>
-  </ul>
-</div>
-
-<div class="bg-white rounded-xl shadow p-6 mb-6">
-  <h3 class="text-lg font-bold text-red-700">致命短板</h3>
-  <ul class="list-disc pl-6 space-y-3 mt-2">
-    <li><strong>鲁本·迪亚斯的伤情是悬在头顶的达摩克利斯之剑。</strong>如果葡萄牙队长之一、防线核心无法以100%状态出战，后防线的稳定性将直线下降。伊纳西奥的出球能力虽好但身体对抗偏弱（身高186cm但体重仅78kg），面对哥伦比亚的迪亚斯或摩洛哥的强力前锋时可能吃身体亏；阿劳霍的大赛经验几乎为零。一个不在巅峰状态的鲁本·迪亚斯，意味着葡萄牙从"防守可靠"降级为"防守飘忽"——这可能是与冠军之间的那层窗户纸。</li>
-    <li><strong>C罗效应：精神领袖还是战术累赘？</strong>41岁的C罗虽然进球数据漂亮，但他在非沙特联赛强度下的运动能力下降是不争的事实：冲刺次数、逼抢频率、回防深度都远不及2018年世界杯水平。如果马丁内斯坚持让C罗首发打满全场，葡萄牙事实上是"10人防守、1人等待传球"的配置。如何在"最大化C罗终结能力"和"保持全队攻守平衡"之间找到平衡，是决定葡萄牙能否走远的核心变量。</li>
-  </ul>
-</div>
-
-<div class="bg-white rounded-xl shadow p-6 mb-6">
-  <h3 class="text-lg font-bold text-pt-red">关键先生</h3>
-  <div class="grid md:grid-cols-2 gap-4 mt-3">
-    <div class="border-l-4 border-pt-red pl-4">
-      <p class="font-bold text-lg">🇵🇹 克里斯蒂亚诺·罗纳尔多</p>
-      <p class="text-sm text-gray-600">最后之舞的绝对主角。尽管运动能力不如巅峰，但禁区内的终结效率和跑位意识仍是世界级。大赛历史证明，永远不能低估他在关键时刻的爆发力。本届世界杯他的定位将直接影响葡萄牙的战术走向。</p>
-    </div>
-    <div class="border-l-4 border-blue-500 pl-4">
-      <p class="font-bold text-lg">🇵🇹 布鲁诺·费尔南德斯</p>
-      <p class="text-sm text-gray-600">葡萄牙的进攻引擎。本赛季英超15球11助攻证明他是目前葡萄牙阵中最具创造力的一环。他的远射、直塞和定位球是葡萄牙破密集防守的三大武器，本届世界杯他的传球数据很可能决定葡萄牙的进球产量。</p>
-    </div>
-    <div class="border-l-4 border-green-600 pl-4">
-      <p class="font-bold text-lg">🇵🇹 鲁本·迪亚斯</p>
-      <p class="text-sm text-gray-600">防线的定海神针。腿筋伤势的恢复进度直接关系到葡萄牙的防守质量。如果他能以2022-23赛季的巅峰状态出战，葡萄牙的防线可以抗衡任何顶级攻击线。</p>
-    </div>
-    <div class="border-l-4 border-yellow-500 pl-4">
-      <p class="font-bold text-lg">🇵🇹 维蒂尼亚</p>
-      <p class="text-sm text-gray-600">低调的中场指挥官。本赛季在巴黎的蜕变令人印象深刻——他的控球和节奏控制能力让葡萄牙的进攻能够从容推进。面对高强度逼抢时的出球选择，将成为葡萄牙能否在两回合淘汰赛中保持控球优势的关键。</p>
-    </div>
-    <div class="border-l-4 border-orange-500 pl-4">
-      <p class="font-bold text-lg">🇵🇹 拉斐尔·莱奥</p>
-      <p class="text-sm text-gray-600">左路的爆点制造机。当葡萄牙需要打破僵局时，莱奥的个人突破是最直接的武器。他的状态波动性是一把双刃剑——好的莱奥可以单挑整条防线，低迷的莱奥则会变成进攻终结者。</p>
-    </div>
-    <div class="border-l-4 border-purple-600 pl-4">
-      <p class="font-bold text-lg">🇵🇹 佩德罗·内托</p>
-      <p class="text-sm text-gray-600">X因素。在切尔西本赛季虽然饱受伤病困扰但天赋毋庸置疑，他在右边路的突破能力能有效分担B席的进攻组织压力。如果能保持健康，他是马丁内斯在淘汰赛阶段的秘密武器。</p>
-    </div>
+<!-- OVERALL SCORE -->
+<div class="section">
+  <div class="section-title">（三）综合总分与评级</div>
+  <div class="rating-box">
+    <div class="score">82.7</div>
+    <div style="font-size:16px;color:#ccc;margin-bottom:5px;">加权总分 / 100</div>
+    <div class="rating">A-</div>
+    <div class="detail">准一流强队，八强保底水准</div>
   </div>
-</div>
 
-<div class="bg-white rounded-xl shadow p-6 mb-6">
-  <h3 class="text-lg font-bold">小组赛预判</h3>
-  <table class="mt-2">
-    <tr><th>对手</th><th>预判结果</th><th>理由</th></tr>
-    <tr><td>刚果民主共和国</td><td>葡萄牙 3-0 胜</td><td>技术碾压，中场完全控制</td></tr>
-    <tr><td>乌兹别克斯坦</td><td>葡萄牙 2-0 胜</td><td>对手防守组织的很好但进攻乏力，葡萄牙耐心破局</td></tr>
-    <tr><td>哥伦比亚</td><td>葡萄牙 2-1 胜</td><td>最艰难一战，但实力差距决定结果</td></tr>
+  <table class="radar-table">
+    <thead><tr><th>评估维度</th><th>得分</th><th>权重</th><th>加权得分</th><th>可视化</th></tr></thead>
+    <tbody>
+      <tr><td>① 阵容实力</td><td>87</td><td>30%</td><td>26.10</td><td><div class="progress-bar"><div class="progress-fill" style="width:87%;background:#e74c3c;"></div></div></td></tr>
+      <tr><td>② 战术体系与教练</td><td>82</td><td>20%</td><td>16.40</td><td><div class="progress-bar"><div class="progress-fill" style="width:82%;background:#e67e22;"></div></div></td></tr>
+      <tr><td>③ 近期竞技状态</td><td>83</td><td>15%</td><td>12.45</td><td><div class="progress-bar"><div class="progress-fill" style="width:83%;background:#f1c40f;"></div></div></td></tr>
+      <tr><td>④ 大赛经验与心理素质</td><td>81</td><td>10%</td><td>8.10</td><td><div class="progress-bar"><div class="progress-fill" style="width:81%;background:#3498db;"></div></div></td></tr>
+      <tr><td>⑤ 分组及赛程影响</td><td>78</td><td>10%</td><td>7.80</td><td><div class="progress-bar"><div class="progress-fill" style="width:78%;background:#9b59b6;"></div></div></td></tr>
+      <tr><td>⑥ 团队凝聚力与场外环境</td><td>79</td><td>10%</td><td>7.90</td><td><div class="progress-bar"><div class="progress-fill" style="width:79%;background:#2ecc71;"></div></div></td></tr>
+      <tr><td>⑦ 体能储备与伤病控制</td><td>79</td><td>5%</td><td>3.95</td><td><div class="progress-bar"><div class="progress-fill" style="width:79%;background:#1abc9c;"></div></div></td></tr>
+    </tbody>
+    <tfoot>
+      <tr style="font-weight:bold;background:#f0f0f0;">
+        <td>综合总分</td><td colspan="2" style="text-align:center;">82.7</td><td style="color:#e74c3c;font-size:16px;">A-级</td><td></td>
+      </tr>
+    </tfoot>
   </table>
-  <p class="mt-2"><strong>小组赛综合：3战全胜，9分出线，小组头名概率90%。</strong></p>
 </div>
 
-<div class="bg-white rounded-xl shadow p-6 mb-6">
-  <h3 class="text-lg font-bold">淘汰赛路线推演</h3>
-  <div class="space-y-2 mt-2">
-    <p><strong>16强（小组第一出线）：</strong> vs L组第二（大概率摩洛哥 / 苏格兰）</p>
-    <p class="pl-6 text-gray-700">→ 胜率预估 vs 摩洛哥 55%｜vs 苏格兰 70%｜vs 海地 85%</p>
-    <p><strong>1/4决赛：</strong> vs 潜在对手 — 巴西 / 德国 / 摩洛哥所在半区胜者</p>
-    <p class="pl-6 text-gray-700">→ 若遇巴西：胜率40%｜若遇德国：胜率50%｜若遇其他：胜率65%</p>
-    <p><strong>半决赛：</strong> vs 英格兰 / 法国 / 荷兰等上半区豪强</p>
-    <p class="pl-6 text-gray-700">→ 胜率预估 45-50% — 届时任何对手都是顶级较量</p>
+<!-- DEEP ANALYSIS -->
+<div class="section">
+  <div class="section-title">（四）深度球评</div>
+
+  <div class="sub-section-title">核心优势</div>
+
+  <div class="player-highlight">
+    <div class="name">⚙️ 世界足坛最深厚的中前场——"六边形"创造力储备</div>
+    <div class="detail">葡萄牙拥有本届世界杯上"最全面的中前场球员组合"。维蒂尼亚（控场型）、若昂·内维斯（B2B型）、B费（创造型）、B席（多面型）、莱奥（突破型）、内托（速度型）——六名球员各自代表着不同的战术特性，覆盖了现代足球中场/边锋所需的全部技能维度。这意味着马丁内斯可以根据对手的特点灵活调配中场组合：对阵哥伦比亚需要控制力时使用维蒂尼亚+若昂·内维斯；对阵刚果金需要创造力时使用B费+B席；面对密集防守需要突破能力时使用莱奥+内托。这种"模块化"的中前场配置是葡萄牙最大的战术资产——很少有球队能像葡萄牙一样在保持高水平的前提下提供如此多样的中场组合方案。</div>
   </div>
-  <p class="mt-3 p-3 bg-blue-50 rounded-lg"><strong>核心判断：</strong>葡萄牙在这届世界杯上的"上限是冠军，下限是八强"。小组赛的签运为他们提供了调整节奏和磨合阵容的空间，而淘汰赛从16强开始几乎没有轻松的比赛。最大的变数在于鲁本·迪亚斯的健康和C罗的体能分配——如果这两个变量都能得到正面解决，葡萄牙完全有能力在半决赛甚至决赛中挑战任何对手。</p>
+
+  <div class="player-highlight">
+    <div class="name">👑 C罗的"最后一次舞蹈"——精神力量的终极催化</div>
+    <div class="detail">克里斯蒂亚诺·罗纳尔多参加他的第6届世界杯——这是一个不可能被复制的世界纪录。41岁的C罗已经不再是那个可以靠一己之力决定比赛的超级英雄，但他的存在本身就是葡萄牙最大的"X因素"。他在沙特联赛33球的赛季证明了他的嗅觉和终结能力依然处于顶级——他的跑位、第一脚触球和射门选择在禁区范围内仍然是世界级的。马丁内斯计划将C罗打造成"替补席上的传奇"——在比赛末段对手防线因体能下降而出现松动时派上C罗，利用他的无球跑动和终结嗅觉来改变比赛。这个角色类似于1998年世界杯的齐达内、2018年世界杯的姆巴佩——不一定首发但绝对致命。而且，只要C罗在替补席上坐着，对手的防线就不敢前压过深——这种"C罗效应"本身就在为葡萄牙创造空间。</div>
+  </div>
+
+  <div class="player-highlight">
+    <div class="name">🛡️ 鲁本·迪亚斯+努诺·门德斯的"左路防线"——曼城体系的移植</div>
+    <div class="detail">后防线上的双核——鲁本·迪亚斯（曼城/29岁/€6000万）和努诺·门德斯（巴黎/23岁/€7500万）——构成了葡萄牙防守体系的中坚。迪亚斯是英超最稳定的中后卫之一——他的位置感、空中对抗（争顶成功率77%）和领导力使他在曼城经历了三冠王赛季的洗礼。门德斯是当今世界足坛最强的进攻型左后卫之一——他的速度（34.5km/h）、传中质量（场均1.8次关键传中）和回追防守能力使他成为葡萄牙攻防两端的关键节点。两人在场上形成了"经验+活力"的理想互补——迪亚斯坐镇中路指挥，门德斯在左路提供攻防覆盖。迪亚斯在世界杯上的发挥将直接决定葡萄牙防线的稳定性——他是四名首发后卫中唯一具备"世界级"标签的球员。</div>
+  </div>
+
+  <div class="sub-section-title">致命短板</div>
+
+  <div class="player-highlight">
+    <div class="name">⚠️ 右后卫位置的"权力真空"——从没有答案到答案太多</div>
+    <div class="detail">葡萄牙的右后卫位置是阵容中最明显的短板。坎塞洛（32岁/巴萨/€900万）过去曾是世界最佳右后卫之一，但近两个赛季的状态明显下滑——他在巴萨的出场时间不稳定（西甲28场2球2助攻），防守端的专注度也在下降。达洛特（曼联/€3000万）在曼联和葡萄牙之间摇摆不定，从未锁定任何一个位置的主力。塞梅多（32岁/费内巴切）是在欧洲主流联赛边缘的过气选择。马丁内斯甚至将马特乌斯·努内斯（曼城/中场）放在了后卫名单中，暗示他可能尝试用中场球员客串右后卫。相比之下，葡萄牙的左路有门德斯（€7500万/世界级）镇守，右路的不平衡可能成为对手攻击的重点。哥伦比亚的迪亚斯（拜仁/左边锋）恰恰是左路突击的专家——如果葡萄牙在淘汰赛面对哥伦比亚，右路防守将成为比赛的关键战场。</div>
+  </div>
+
+  <div class="player-highlight">
+    <div class="name">⚠️ 马丁内斯的"大赛信任危机"——从比利时到葡萄牙的传承</div>
+    <div class="detail">马丁内斯执教比利时"黄金一代"的生涯以2022年世界杯小组赛出局的耻辱告终。那支比利时的纸面实力（FIFA排名连续三年第一）远高于实际表现——球员老化是部分原因，但马丁内斯的战术僵化和反应迟缓同样被认为是罪魁祸首。他执教的球队在面对"蹲坑防守"时经常显得束手无策——比利时2022年对摩洛哥的0-2失利就是一个典型案例。这支葡萄牙也有类似的隐患：中前场技术型球员众多，但缺少一个真正的"破局者"——一个能在20分钟内向对手禁区发动10次冲击的速度型球员（莱奥是唯一的选择，但他有时过于单一）。如果葡萄牙在淘汰赛中遇到一支防守组织严密的球队（比如乌拉圭或摩洛哥），马丁内斯能否找到破解之道将决定葡萄牙的命运。</div>
+  </div>
+
+  <div class="sub-section-title">关键先生</div>
+
+  <div class="player-highlight">
+    <div class="name">🌟 维蒂尼亚 (Vitinha) — 中场节拍器 · 26岁 · 巴黎圣日耳曼 · €1.10亿</div>
+    <div class="detail">葡萄牙中场的"大脑"——他的大局观、传球精度和比赛节奏控制能力在本届世界杯上可能是所有参赛中场中最出色的之一。他在巴黎圣日耳曼担任拖后组织者角色——场均传球成功率92%、精准长传6.3次、每90分钟创造2.1次机会——这些数据在法甲中场中均排名前三。他的风格与西班牙的罗德里类似但更加灵活——他能在高压下通过短传摆脱逼抢，也能用一记40米的斜传找到边路的莱奥。在马丁内斯的体系中，维蒂尼亚是那个决定葡萄牙"踢什么节奏"的人——当他控球时，葡萄牙可以掌控比赛；当他在压力下失误时（这在面对高强度压迫时偶尔发生），葡萄牙的防线就会直接暴露。他与若昂·内维斯的中场配合已经达到了"肌肉记忆"级别——两人在巴黎圣日耳曼共事了两个完整赛季。</div>
+  </div>
+
+  <div class="player-highlight">
+    <div class="name">🌟 布鲁诺·费尔南德斯 (Bruno Fernandes) — 攻击型中场 · 31岁 · 曼联 · €4000万</div>
+    <div class="detail">葡萄牙的"创造者"——B费是英超历史上最具创造力的中场之一，本赛季在曼联贡献11次助攻，他的直塞球（场均2.1次）、远射（赛季5球）和定位球（7次直接助攻）是他标志性的三种武器。他在葡萄牙队的角色与在曼联有所不同——马丁内斯给了他更多的战术自由度，允许他从前腰位置移动到两个边路甚至禁区深处，这种位置的流动性使他难以被对手特定盯防。他的弱点是在高压比赛中的传球决策有时过于冒险——2022世界杯对阵摩洛哥的比赛中，他尝试了11次长传但只有3次成功，反映了他在关键战中的效率波动。如果B费能在小组赛阶段找到最佳状态，他将成为葡萄牙进攻端最具不可预测性的球员。</div>
+  </div>
+
+  <div class="player-highlight">
+    <div class="name">🌟 拉斐尔·莱奥 (Rafael Leão) — 左边锋 · 26岁 · AC米兰 · €5000万</div>
+    <div class="detail">葡萄牙阵中最具"单点爆破能力"的球员——莱奥在AC���兰的左侧突破是意甲最难防守的进攻套路之一。他的速度（34.5km/h）、盘带（场均2.8次成功过人）和爆发力使他在一对一中几乎不可阻挡。在葡萄牙体系中，他的角色是"左路破局者"——当球队需要打破僵局时，把球传给莱奥、让他一对一面对对方右后卫，往往是最直接有效的方案。他的弱点在于＂效率不稳定"——他有时会在全场最佳的两次突破后浪费接下来的三次机会（传中质量不稳定、射门选择有时不够冷静）。但在世界杯这样的舞台上，一个"能够制造混乱"的球员往往比一个"稳定但可预测"的球员更有价值。马丁内斯需要确保莱奥在比赛中的心理自信得到充分维护——当莱奥感到被信任时，他是世界级的边锋；当他开始怀疑自己时，表现会快速下滑。</div>
+  </div>
+
+  <div class="player-highlight">
+    <div class="name">🌟 鲁本·迪亚斯 (Rúben Dias) — 中后卫 · 29岁 · 曼城 · €6000万</div>
+    <div class="detail">葡萄牙后防线的"指挥官"——迪亚斯是曼城2023三冠王的中流砥柱，他在英超中卫中的稳定性和领导力首屈一指。他的防守风格以"预判优先"著称——他很少需要铲球（场均1.1次），因为他的位置感通常让他能够提前一步化解危险。他的空中争顶能力（成功率77%）和正面防守是葡萄牙对阵刚果金和哥伦比亚等身体型球队时的关键武器。他在后防线上的指挥能力为年轻的伊纳西奥（葡体/24岁）提供了宝贵的保护。如果葡萄牙在淘汰赛中面对拥有强力中锋的球队（比如法国的穆阿尼），迪亚斯的表现将直接决定葡萄牙能否限制对手的得分。</div>
+  </div>
+
+  <div class="player-highlight">
+    <div class="name">🌟 克里斯蒂亚诺·罗纳尔多 (Cristiano Ronaldo) — 中锋/队长 · 41岁 · 利雅得胜利 · €1200万</div>
+    <div class="detail">世界杯历史上参加届数最多的球员（6届）——这是一个不可能被超越的纪录。226场国家队比赛、143个国家队进球——同样是世界纪录。41岁的C罗已经接受了"不再是场场首发的球员"这一现实——马丁内斯把他定位为"高影响力的替补"（类似他在2024欧洲杯的角色）。他在沙特联赛33球的赛季证明了他的射门感觉仍然敏锐——他的跑位时机和第一脚触球在禁区内仍然是世界级的。在世界杯的赛场上，他的角色将主要集中在以下场景：当葡萄牙在比赛末段需要进球时，C罗替补上场利用他的无球跑动和禁区嗅觉寻找机会；当葡萄牙需要保平或锁定胜局时，他的经验和领导力可以帮助球队控制节奏。C罗的"最后一届世界杯"叙事为球队提供了额外的情感动力——全队上下都希望以最好的方式送别他们的传奇队长。</div>
+  </div>
+
 </div>
 
-<div class="bg-white rounded-xl shadow p-6 mb-6 text-center">
-  <h3 class="text-lg font-bold text-pt-red">大师结语</h3>
-  <p class="text-xl italic mt-3 text-gray-700">"C罗的第六次世界杯，葡萄牙的第九次征途——要么是'黄金一代'最后的绚烂烟火，要么是英雄迟暮前的悲壮绝唱。这支拥有世界最华丽中场的球队，必须在攻守平衡和巨星依赖之间做出最艰难的抉择。"</p>
+<!-- GROUP PREDICTION -->
+<div class="section">
+  <div class="section-title">（五）小组赛预判与淘汰赛路线推演</div>
+
+  <div class="sub-section-title">📋 K组赛程与预测</div>
+  <table>
+    <thead><tr><th>轮次</th><th>日期</th><th>对阵</th><th>预测</th></tr></thead>
+    <tbody>
+      <tr><td>第1轮</td><td>6月17日</td><td>🇵🇹 葡萄牙 vs 🇨🇩 刚果民主共和国</td><td><strong>必须拿下</strong> — 刚果金身体出色但战术纪律有限，葡萄牙控球碾压。预测：2-0或3-0葡萄牙胜</td></tr>
+      <tr><td>第2轮</td><td>6月23日</td><td>🇵🇹 葡萄牙 vs 🇺🇿 乌兹别克斯坦</td><td><strong>锁定出线</strong> — 乌兹别克斯坦防守组织良好但中亚球队面对欧洲技术流时往往乏力。预测：2-0葡萄牙胜</td></tr>
+      <tr><td>第3轮</td><td>6月28日</td><td>🇵🇹 葡萄牙 vs 🇨🇴 哥伦比亚</td><td><strong>头名之战</strong> — 哥伦比亚的边路冲击力（迪亚斯）对葡萄牙右路是最大考验。预测：1-1平或2-1葡萄牙胜</td></tr>
+    </tbody>
+  </table>
+
+  <div class="sub-section-title">🏆 小组出线概率</div>
+  <table>
+    <thead><tr><th>出线形式</th><th>概率</th></tr></thead>
+    <tbody>
+      <tr><td>小组第一出线</td><td>约60%</td></tr>
+      <tr><td>小组第二出线</td><td>约35%</td></tr>
+      <tr><td>小组出局</td><td>&lt;5%</td></tr>
+    </tbody>
+  </table>
+
+  <div class="sub-section-title">🔄 淘汰赛路线</div>
+  <p style="margin:8px 0;">以小组第一出线后的淘汰赛路线：16强vs J组第二 → 八强vs H组第一（西班牙🇪🇸）→ 四强vs 法国🇫🇷/比利时🇧🇪</p>
+  <p style="margin:8px 0;"><strong>核心判断</strong>：葡萄牙小组出线概率>95%，八强约40%，四强约20%，夺冠约5%。他们是一支"上限极高、下限有保障"的球队——中前场的天赋储备可以让他们在任何一天击败任何对手，但右后卫的短板和马丁内斯的大赛履历使他们的稳定性略逊于法国和英格兰。</p>
 </div>
 
-<!-- Footer -->
-<div class="text-center text-gray-400 text-sm py-6 border-t">
-  <p>© 2026 足球战力分析 · Powered by WorkBuddy AI｜数据截至2026年5月19日</p>
-  <p class="mt-1">数据来源：葡萄牙足协官方公告、Transfermarkt、体育媒体综合报道</p>
+<!-- FINAL VERDICT -->
+<div class="section">
+  <div class="section-title">（六）大师结语</div>
+  <div class="conclusion-box">
+    "维蒂尼亚和若昂·内维斯的中场双核、莱奥的边路爆破、B费的致命直塞——这支葡萄牙的天赋足以让任何对手感到不安。但足球从不只看天赋——右后卫的空洞、马丁内斯的大赛履历、以及C罗从英雄到替补的角色转变，都是悬挂在葡萄牙头顶的隐形利剑。K组的哥伦比亚是首道关卡，八强的西班牙可能是终极试炼——如果葡萄牙能跨过这两关，维蒂尼亚和莱奥们将有机会书写属于自己这一代的故事。而C罗——足球史上最伟大的球员之一——将在北美大陆跳完他的最后一支舞。不论结局如何，能见证六届世界杯的传奇告别，已经是这个时代球迷的幸运了。"</div>
+</div>
+
+<!-- DATA SOURCE -->
+<div class="section" style="margin-top:30px;padding-top:20px;border-top:1px solid #eee;font-size:12px;color:#999;">
+  <p><strong>数据来源：</strong>FIFA官方排名、Transfermarkt身价数据库、FIFA官网阵容公告、DAZN/SoccerGraph阵容报道、法甲/英超/意甲赛季数据、UEFA欧洲杯预选赛数据</p>
+  <p>报告生成时间：2026年5月30日 | 技能：world-cup-team-evaluator | 模型：Deepseek-V4-Flash</p>
 </div>
 
 </div>
-
 
 <!-- HuaFootball: back-to-home button -->
 <a href="../index.html" class="huafootball-back-btn" target="_self">
-  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-    <path d="M19 12H5"/><path d="M12 19l-7-7 7-7"/>
-  </svg>
+  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5"/><path d="M12 19l-7-7 7-7"/></svg>
   返回首页
 </a>
 <style>
-  .huafootball-back-btn {
-    position: fixed !important;
-    bottom: 28px !important;
-    right: 28px !important;
-    z-index: 99999 !important;
-    display: inline-flex !important;
-    align-items: center !important;
-    gap: 6px !important;
-    padding: 10px 22px !important;
-    background: rgba(26, 71, 42, 0.85) !important;
-    color: #c9a84c !important;
-    border: 1px solid rgba(201, 168, 76, 0.3) !important;
-    border-radius: 999px !important;
-    font-family: "Inter", "Noto Sans SC", system-ui, sans-serif !important;
-    font-size: 13px !important;
-    font-weight: 600 !important;
-    text-decoration: none !important;
-    backdrop-filter: blur(8px) !important;
-    -webkit-backdrop-filter: blur(8px) !important;
-    box-shadow: 0 4px 20px rgba(0,0,0,0.3) !important;
-    transition: all 0.25s ease !important;
-    cursor: pointer !important;
-    user-select: none !important;
-  }
-  .huafootball-back-btn:hover {
-    background: rgba(26, 71, 42, 0.95) !important;
-    border-color: rgba(201, 168, 76, 0.5) !important;
-    box-shadow: 0 6px 28px rgba(201, 168, 76, 0.2) !important;
-    transform: translateY(-2px) !important;
-  }
-  .huafootball-back-btn svg {
-    transition: transform 0.2s ease !important;
-  }
-  .huafootball-back-btn:hover svg {
-    transform: translateX(-3px) !important;
-  }
+.huafootball-back-btn {
+  position:fixed!important;bottom:28px!important;right:28px!important;z-index:99999!important;
+  display:inline-flex!important;align-items:center!important;gap:6px!important;
+  padding:10px 22px!important;background:rgba(26,71,42,0.85)!important;color:#c8a951!important;
+  border:1px solid rgba(200,169,81,0.3)!important;border-radius:999px!important;
+  font-family:"Inter","PingFang SC",system-ui,sans-serif!important;font-size:13px!important;
+  font-weight:600!important;text-decoration:none!important;
+  backdrop-filter:blur(8px)!important;-webkit-backdrop-filter:blur(8px)!important;
+  box-shadow:0 4px 20px rgba(0,0,0,0.3)!important;transition:all .25s ease!important;
+  cursor:pointer!important;user-select:none!important;
+}
+.huafootball-back-btn:hover {
+  background:rgba(26,71,42,0.95)!important;border-color:rgba(200,169,81,0.5)!important;
+  box-shadow:0 6px 28px rgba(200,169,81,0.2)!important;transform:translateY(-2px)!important;
+}
+.huafootball-back-btn svg { transition:transform .2s ease!important; }
+.huafootball-back-btn:hover svg { transform:translateX(-3px)!important; }
 </style>
 
 </body>

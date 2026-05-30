@@ -48,6 +48,8 @@ tailwind.config = {
   .badge-df { background: #2196F3; color: white; }
   .badge-mf { background: #FF9800; color: white; }
   .badge-fw { background: #f44336; color: white; }
+
+  .overflow-x-auto { overflow-x: auto; -webkit-overflow-scrolling: touch; }
 </style>
 </head>
 <body class="bg-gray-50">
@@ -96,7 +98,8 @@ tailwind.config = {
 <p class="text-gray-500 text-sm mb-3">* 5月18日公布 · 中场人数惊人的10人 · 莫德里奇戴防护面罩备战</p>
 
 <div class="bg-white rounded-xl shadow p-6 mb-6">
-  <table>
+  <div style="overflow-x:auto;">
+<table>
     <thead>
       <tr>
         <th>位置</th>
@@ -275,12 +278,14 @@ tailwind.config = {
 
   <div class="subitem">
     <h4>5.1 小组赛对手分析 —— 78分</h4>
-    <table class="text-sm mb-2">
+    <div class="overflow-x-auto">
+<table class="text-sm mb-2">
       <tr><th>对手</th><th>FIFA排名（约）</th><th>风格特点</th><th>克罗地亚胜率预估</th></tr>
       <tr><td>英格兰 🏴󠁧󠁢󠁥󠁮󠁧󠁿</td><td>4-5名</td><td>青春风暴，速度冲击，中场升级（贝林厄姆等）</td><td>35-40%</td></tr>
       <tr><td>巴拿马 🇵🇦</td><td>45-50名</td><td>中北美粗犷派，身体对抗强</td><td>65-70%</td></tr>
       <tr><td>加纳 🇬🇭</td><td>55-65名</td><td>非洲身体流，球员个人能力突出</td><td>55-60%</td></tr>
     </table>
+</div>
     <p>L组的竞争格局相对清晰：英格兰是纸面实力最强的队伍，克罗地亚和加纳争夺小组第二，巴拿马力争搅局。首战对阵英格兰是决定性的——如果克罗地亚能拿分（平局或胜），则出线前景光明；如果输球，后面的两场比赛不容有失。英格兰的风格与克罗地亚存在有趣的对比：英格兰的体能和冲击力更强（贝林厄姆、萨卡、福登），但克罗地亚的中场控制力和大赛经验占优。巴拿马和加纳是两种不同风格的挑战——巴拿马的粗犷防守可能让克罗地亚的中场传导受阻，而加纳的个人天赋和身体素质可能给克罗地亚老化的防线带来麻烦。好在克罗地亚对非洲球队的交战历史不俗（2018曾2-0击败尼日利亚）。</p>
   </div>
 
@@ -417,13 +422,17 @@ tailwind.config = {
 </div>
 
 <div class="bg-white rounded-xl shadow p-6 mb-6">
-  <h3 class="text-lg font-bold">小组赛预判</h3>
-  <table class="mt-2">
+  <h3 class="text-lg font-bold"><h3 class="text-lg font-bold">小组赛预判</h3>
+  <div class="overflow-x-auto">
+<div class="overflow-x-auto">
+<table class="mt-2">
     <tr><th>对手</th><th>预判结果</th><th>理由</th></tr>
     <tr><td>英格兰 🏴󠁧󠁢󠁥󠁮󠁧󠁿</td><td>克罗地亚 1-1 平 或 1-2 负</td><td>英格兰体能和冲击力占优，克罗地亚中场控制力可拼平局</td></tr>
     <tr><td>巴拿马 🇵🇦</td><td>克罗地亚 2-0 胜</td><td>技术碾压，中场控制确保胜利</td></tr>
     <tr><td>加纳 🇬🇭</td><td>克罗地亚 2-1 胜</td><td>最艰难一战但克罗地亚大赛经验占优</td></tr>
   </table>
+</div>
+</div>
   <p class="mt-2"><strong>小组赛综合：2胜1平或2胜1负，积5-7分，小组出线概率75%。</strong></p>
 </div>
 
@@ -447,7 +456,7 @@ tailwind.config = {
 
 <!-- Footer -->
 <div class="text-center text-gray-400 text-sm py-6 border-t">
-  <p>© 2026 足球战力分析 · Powered by WorkBuddy AI｜数据截至2026年5月21日</p>
+  <p>© 2026 足球战力分析 · Powered by HuaZongNiuBi AI｜数据截至2026年5月21日</p>
   <p class="mt-1">数据来源：Olympics.com、USA Today、SPORTbible、FIFA官网等综合报道</p>
 </div>
 
@@ -498,6 +507,7 @@ tailwind.config = {
   .huafootball-back-btn:hover svg {
     transform: translateX(-3px) !important;
   }
+.deep-analysis { background: #f0f7ff; border-left: 4px solid #D42027; padding: 16px 20px; margin: 16px 0; border-radius: 8px; font-size: 11pt; line-height: 1.8; }
 </style>
 
 </body>

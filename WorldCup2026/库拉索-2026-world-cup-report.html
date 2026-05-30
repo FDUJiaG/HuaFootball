@@ -4,269 +4,446 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>库拉索 · 2026世界杯实力评估报告</title>
-<script src="https://cdn.tailwindcss.com"></script>
-<script>
-tailwind.config = {
-  theme: {
-    extend: {
-      colors: {
-        cur: { blue: '#002B7F', yellow: '#FCDD09', white: '#FFFFFF', gold: '#FFD700', dark: '#1a1a2e', lightgray: '#f8f9fa' }
-      },
-      fontFamily: { 'kai': ['KaiTi', 'STKaiti', 'SimKai', 'serif'], 'serif': ['Times New Roman', 'serif'] }
-    }
-  }
-}
-</script>
 <style>
-  body { font-family: KaiTi, STKaiti, SimKai, 'Times New Roman', serif; font-size: 11pt; }
-  .container { max-width: 1100px; margin: 0 auto; padding: 20px; }
-  h1 { font-size: 2em; } h2 { font-size: 1.5em; border-bottom: 3px solid #002B7F; padding-bottom: 8px; margin-top: 30px; }
-  h3 { font-size: 1.2em; margin-top: 20px; }
-  table { width: 100%; border-collapse: collapse; font-size: 11pt; }
-  th, td { border: 1px solid #ddd; padding: 8px 12px; text-align: left; }
-  th { background-color: #002B7F; color: white; font-weight: bold; }
-  tr:nth-child(even) { background-color: #f8f9fa; }
-  .score-bar { height: 20px; border-radius: 10px; background: #eee; overflow: hidden; }
-  .score-fill { height: 100%; border-radius: 10px; }
-  .dimension-card { background: white; border-radius: 12px; padding: 20px; margin-bottom: 20px; box-shadow: 0 2px 8px rgba(0,0,0,0.08); border-left: 5px solid #FCDD09; }
-  .subitem { margin: 12px 0; padding: 12px; background: #f8f9fa; border-radius: 8px; }
-  .subitem h4 { color: #002B7F; font-weight: bold; margin-bottom: 6px; }
-  .summary-box { background: linear-gradient(135deg, #002B7F, #FCDD09); border-radius: 16px; padding: 25px; margin: 20px 0; color: white; }
-  .badge { display: inline-block; padding: 2px 10px; border-radius: 12px; font-size: 0.85em; font-weight: bold; }
-  .badge-gk { background: #4CAF50; color: white; } .badge-df { background: #2196F3; color: white; }
-  .badge-mf { background: #FF9800; color: white; } .badge-fw { background: #f44336; color: white; }
-  .debut-badge { display: inline-block; padding: 4px 14px; background: linear-gradient(135deg, #FCDD09, #FFA500); color: #333; border-radius: 20px; font-weight: bold; }
-  .stat-number { font-size: 1.8em; font-weight: bold; color: #002B7F; }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: 'Times New Roman', 'KaiTi', '楷体', serif; background: #fff; color: #222; padding: 40px 20px; }
+  .container { max-width: 1000px; margin: 0 auto; }
+  .section { margin-bottom: 40px; }
+  .text-center { text-align: center; }
+  h1 { font-size: 32px; color: #1a5276; margin: 15px 0 5px; }
+  h2 { font-size: 24px; color: #1a5276; border-bottom: 3px solid #1a5276; padding-bottom: 8px; margin: 35px 0 20px; }
+  h3 { font-size: 20px; color: #1a5276; margin: 25px 0 15px; }
+  h4 { font-size: 17px; color: #333; margin: 18px 0 10px; }
+  .subtitle { color: #666; font-size: 14px; margin-bottom: 20px; }
+  table { width: 100%; border-collapse: collapse; margin: 15px 0; font-size: 14px; }
+  th, td { border: 1px solid #ddd; padding: 8px 10px; text-align: left; }
+  th { background: #1a5276; color: #fff; font-weight: bold; }
+  tr:nth-child(even) { background: #f0f8ff; }
+  .badge { display: inline-block; background: #1a5276; color: #fff; padding: 6px 16px; border-radius: 4px; font-size: 14px; font-weight: bold; margin: 3px; }
+  .rating-box { display: inline-block; font-size: 48px; font-weight: bold; color: #1a5276; padding: 10px 30px; border: 4px solid #1a5276; border-radius: 8px; margin: 10px 0; }
+  .total-score { font-size: 36px; font-weight: bold; color: #1a5276; }
+  .sub-item { margin: 12px 0; padding: 10px 14px; background: #eaf2f8; border-left: 4px solid #1a5276; border-radius: 3px; }
+  .sub-item-title { font-weight: bold; color: #1a5276; }
+  .sub-item-score { float: right; font-weight: bold; }
+  .analysis-text { line-height: 1.8; text-indent: 2em; margin: 12px 0; font-size: 15px; color: #333; }
+  .highlight-blue { color: #1a5276; font-weight: bold; }
+  .divider { height: 1px; background: #eee; margin: 30px 0; }
+  ul { margin: 10px 0 10px 20px; line-height: 1.8; }
+  li { margin: 6px 0; }
+  .key-player { margin: 15px 0; padding: 12px 16px; background: #f0f8ff; border-left: 4px solid #1a5276; border-radius: 3px; }
+  .key-player h4 { color: #1a5276; margin: 0 0 6px; }
+  .key-player p { line-height: 1.7; font-size: 14px; }
+  .table-scroll { overflow-x: auto; }
+  @media print { body { padding: 20px; } }
 </style>
 </head>
-<body class="bg-gray-50">
+<body>
 <div class="container">
-<div class="section text-center bg-white rounded-2xl shadow-lg p-8 mb-8">
-  <img src="https://cdn.prod.website-files.com/68f550992570ca0322737dc2/690b58788ae9e26e532abfdf_curacao-national-team-footballlogos-org.png" alt="库拉索足协队徽" style="height:90px;width:auto;display:block;margin:0 auto 10px;" onerror="this.style.display='none';document.getElementById('logo-fb').style.display='block';" />
+
+<!-- ===== HEADER ===== -->
+<div class="section text-center">
+  <img src="https://upload.wikimedia.org/wikipedia/en/thumb/1/1c/Curacao_Football_Federation.svg/250px-Curacao_Football_Federation.svg.png"
+       alt="库拉索国家队队徽"
+       style="height:90px;width:auto;display:block;margin:0 auto 10px;"
+       onerror="this.style.display='none';document.getElementById('logo-fb').style.display='block';" />
   <div id="logo-fb" style="display:none;font-size:4em;margin-bottom:10px;">🇨🇼</div>
-  <h1 class="text-4xl font-bold text-cur-blue mt-4">库拉索 · 2026世界杯实力评估报告</h1>
-  <p class="text-gray-500 mt-2">报告生成日期：2026年5月22日 · 2026美加墨世界杯</p>
-  <div class="mt-3"><span class="debut-badge">🏆 史上最小参赛国 · 首次亮相世界杯</span></div>
+  <h1>库拉索 · 2026世界杯实力评估报告</h1>
+  <p class="subtitle">Blauw-witte Strijders（蓝白斗牛犬）· 世界杯史上人口最小的参赛国</p>
 </div>
 
-<div class="grid md:grid-cols-4 gap-4 mb-6">
-  <div class="bg-white rounded-xl shadow text-center p-4"><p class="stat-number">~15万</p><p class="text-sm text-gray-600">人口</p></div>
-  <div class="bg-white rounded-xl shadow text-center p-4"><p class="stat-number">444 km²</p><p class="text-sm text-gray-600">国土面积</p></div>
-  <div class="bg-white rounded-xl shadow text-center p-4"><p class="stat-number">1次</p><p class="text-sm text-gray-600">世界杯参赛</p></div>
-  <div class="bg-white rounded-xl shadow text-center p-4"><p class="stat-number">#76</p><p class="text-sm text-gray-600">FIFA排名</p></div>
-</div>
-
-<h2 class="text-cur-blue">（一）球队基本信息</h2>
-<div class="bg-white rounded-xl shadow p-6 mb-6">
-  <div class="grid md:grid-cols-2 gap-4">
-    <div>
-      <p><strong>国名：</strong>库拉索（Curaçao）— 荷兰王国构成国</p>
-      <p><strong>绰号：</strong>蓝色浪潮（The Blue Wave）</p>
-      <p><strong>主教练：</strong>迪克·艾德沃卡特（Dick Advocaat）— 荷兰名帅，78岁</p>
-      <p><strong>队长：</strong>莱昂德罗·巴库纳（Leandro Bacuna）</p>
-      <p><strong>FIFA排名：</strong>约第76位</p>
-      <p><strong>世界杯历史：</strong>首次参赛</p>
-      <p><strong>上届（2022）：</strong>未晋级</p>
-    </div>
-    <div>
-      <p><strong>小组赛：</strong>E组</p>
-      <p><strong>对手：</strong>德国 🇩🇪、厄瓜多尔 🇪🇨、科特迪瓦 🇨🇮</p>
-      <p><strong>首战：</strong>6月14日 vs 德国（休斯顿）</p>
-      <p><strong>次战：</strong>6月20日 vs 厄瓜多尔（堪萨斯城）</p>
-      <p><strong>末轮：</strong>6月25日 vs 科特迪瓦（费城）</p>
-      <div class="mt-2 p-2 bg-yellow-50 rounded-lg border border-yellow-300">
-        <p class="text-sm"><strong>🏝️ 史上最小参赛国：</strong>打破特立尼达和多巴哥（140万）的纪录</p>
-      </div>
-    </div>
-  </div>
-</div>
-
-<h3 class="text-xl font-bold text-cur-blue">26人大名单（3 GK + 8 DF + 7 MF + 8 FW）</h3>
-<p class="text-gray-500 text-sm mb-3">* 5月18日公布 · 荷兰血脉占比超70% · 艾德沃卡特执教</p>
-
-<div class="bg-white rounded-xl shadow p-6 mb-6">
+<!-- ===== SECTION 1: BASIC INFO ===== -->
+<div class="section">
+  <h2>（一）球队基本信息</h2>
   <table>
-    <thead><tr><th>位置</th><th>球员姓名</th><th>英文名</th><th>俱乐部</th><th>联赛</th></tr></thead>
-    <tbody>
-      <tr><td><span class="badge badge-gk">GK</span></td><td>泰里克·博达克</td><td>Tyrick Bodak</td><td>Telstar</td><td>荷乙</td></tr>
-      <tr><td><span class="badge badge-gk">GK</span></td><td>特雷弗·多恩布什</td><td>Trevor Doornbusch</td><td>VVV芬洛</td><td>荷乙</td></tr>
-      <tr><td><span class="badge badge-gk">GK</span></td><td>埃洛伊·鲁姆</td><td>Eloy Room</td><td>迈阿密FC</td><td>美冠联</td></tr>
-      <tr><td><span class="badge badge-df">DF</span></td><td>里切德利·巴佐尔</td><td>Riechedly Bazoer</td><td>科尼亚体育</td><td>土超</td></tr>
-      <tr><td><span class="badge badge-df">DF</span></td><td>乔舒亚·布雷内特</td><td>Joshua Brenet</td><td>开塞利体育</td><td>土超</td></tr>
-      <tr><td><span class="badge badge-df">DF</span></td><td>罗雄·范·艾马</td><td>Roshon Van Eijma</td><td>RKC瓦尔韦克</td><td>荷甲</td></tr>
-      <tr><td><span class="badge badge-df">DF</span></td><td>舍雷尔·弗洛拉努斯</td><td>Sherel Floranus</td><td>PEC兹沃勒</td><td>荷甲</td></tr>
-      <tr><td><span class="badge badge-df">DF</span></td><td>德韦隆·方维尔</td><td>Deveron Fonville</td><td>NEC奈梅亨</td><td>荷甲</td></tr>
-      <tr><td><span class="badge badge-df">DF</span></td><td>尤里恩·加里</td><td>Jurien Gaari</td><td>阿卜哈</td><td>沙特联</td></tr>
-      <tr><td><span class="badge badge-df">DF</span></td><td><strong>阿曼多·奥比斯波</strong></td><td><strong>Armando Obispo</strong></td><td><strong>PSV埃因霍温</strong></td><td>荷甲 ⭐</td></tr>
-      <tr><td><span class="badge badge-df">DF</span></td><td>舒兰迪·桑博</td><td>Shurandy Sambo</td><td>鹿特丹斯巴达</td><td>荷甲</td></tr>
-      <tr><td><span class="badge badge-mf">MF</span></td><td>朱尼尼奥·巴库纳</td><td>Juninho Bacuna</td><td>FC福伦丹</td><td>荷乙</td></tr>
-      <tr><td><span class="badge badge-mf">MF</span></td><td><strong>⭐ 莱昂德罗·巴库纳 (C)</strong></td><td><strong>Leandro Bacuna</strong></td><td>伊迪尔</td><td>土甲</td></tr>
-      <tr><td><span class="badge badge-mf">MF</span></td><td>利瓦诺·科梅南西亚</td><td>Livano Comenencia</td><td>苏黎世</td><td>瑞士超</td></tr>
-      <tr><td><span class="badge badge-mf">MF</span></td><td>凯文·费利达</td><td>Kevin Felida</td><td>登博斯</td><td>荷乙</td></tr>
-      <tr><td><span class="badge badge-mf">MF</span></td><td>阿尔詹尼·玛莎</td><td>Ar'Jany Martha</td><td>罗瑟汉姆</td><td>英甲</td></tr>
-      <tr><td><span class="badge badge-mf">MF</span></td><td>泰雷塞·诺斯林</td><td>Tyrese Noslin</td><td>Telstar</td><td>荷乙</td></tr>
-      <tr><td><span class="badge badge-mf">MF</span></td><td>戈德弗里德·鲁默拉托</td><td>Godfried Roemeratoe</td><td>RKC瓦尔韦克</td><td>荷甲</td></tr>
-      <tr><td><span class="badge badge-fw">FW</span></td><td>杰里米·安东尼斯</td><td>Jeremy Antonisse</td><td>AE基菲萨</td><td>希超</td></tr>
-      <tr><td><span class="badge badge-fw">FW</span></td><td><strong>塔希斯·钟</strong></td><td><strong>Tahith Chong</strong></td><td><strong>谢菲尔德联</strong></td><td>英冠</td></tr>
-      <tr><td><span class="badge badge-fw">FW</span></td><td>肯吉·戈雷</td><td>Kenji Gorre</td><td>海法马卡比</td><td>以超</td></tr>
-      <tr><td><span class="badge badge-fw">FW</span></td><td><strong>松特耶·汉森</strong></td><td><strong>Sontje Hansen</strong></td><td><strong>米德尔斯堡</strong></td><td>英冠</td></tr>
-      <tr><td><span class="badge badge-fw">FW</span></td><td>热瓦内·卡斯塔内尔</td><td>Gervane Kastaneer</td><td>登嘉楼FC</td><td>马来超</td></tr>
-      <tr><td><span class="badge badge-fw">FW</span></td><td>布兰德利·库瓦斯</td><td>Brandley Kuwas</td><td>FC福伦丹</td><td>荷乙</td></tr>
-      <tr><td><span class="badge badge-fw">FW</span></td><td>于尔根·洛卡迪亚</td><td>Jurgen Locadia</td><td>迈阿密FC</td><td>美冠联</td></tr>
-      <tr><td><span class="badge badge-fw">FW</span></td><td>杰拉尔·玛格丽塔</td><td>Jearl Margaritha</td><td>SK贝弗伦</td><td>比乙</td></tr>
-    </tbody>
+    <tr><th style="width:140px;">项目</th><th>内容</th></tr>
+    <tr><td>主教练</td><td>迪克·艾德沃卡特（Dick Advocaat），78岁，荷兰传奇教练，世界杯历史上年龄最大的主帅</td></tr>
+    <tr><td>队长</td><td>莱安德罗·巴库纳（Leandro Bacuna），34岁，中场</td></tr>
+    <tr><td>FIFA排名</td><td>第82位（2026年4月）</td></tr>
+    <tr><td>全队总身价</td><td><strong>€2,603万（约€26.03M）</strong>，48强中倒数前五</td></tr>
+    <tr><td>平均年龄</td><td>28.0岁</td></tr>
+    <tr><td>国家人口</td><td>约15万人——世界杯史上最小的参赛国</td></tr>
+    <tr><td>世界杯历史</td><td><strong>首次参赛！</strong>此前从未晋级世界杯决赛圈</td></tr>
+    <tr><td>最佳战绩</td><td>2026年首次参赛即创造历史</td></tr>
+    <tr><td>上届世界杯</td><td>未参赛（未晋级）</td></tr>
+    <tr><td>晋级方式</td><td>CONCACAF预选赛B组头名，不败战绩直接出线</td></tr>
+    <tr><td>2026小组</td><td><strong>E组</strong>：德国 🇩🇪、厄瓜多尔 🇪🇨、科特迪瓦 🇨🇮、库拉索 🇨🇼</td></tr>
+    <tr><td>首场比赛</td><td>2026年6月14日 vs 德国（休斯顿）</td></tr>
   </table>
-  <div class="mt-3 p-3 bg-yellow-50 rounded-lg border border-yellow-200">
-    <p class="text-sm"><strong>🇳🇱 荷兰基因：</strong>19人出生或成长于荷兰 | 艾德沃卡特（前荷兰队主帅、4届世界杯教练）是最大亮点</p>
-  </div>
 </div>
 
-<h2 class="text-cur-blue">（二）逐项评分明细</h2>
+<!-- ===== 26-MAN SQUAD ===== -->
+<div class="section">
+  <h3>26人大名单</h3>
+  <p><em>大名单于2026年5月18日公布。全队26人几乎全部来自荷兰足球体系——球员多在荷甲、荷乙、英冠效力，或拥有荷兰青训背景。78岁的荷兰老帅迪克·艾德沃卡特开赛前数周临危受命。</em></p>
 
-<div class="dimension-card">
-  <h3 class="text-xl font-bold text-cur-blue">维度一：阵容实力（权重30%）｜ 25分 × 30% = 7.5分</h3>
-  <div class="subitem"><h4>1.1 球星质量与个人能力 —— 25分</h4>
-    <table class="text-sm mb-2"><tr><th>指标</th><th>数据</th></tr>
-      <tr><td>五大联赛球员</td><td>0人</td></tr>
-      <tr><td>世界级球员</td><td>0人</td></tr>
-      <tr><td>Game-changer</td><td>无</td></tr>
-    </table>
-    <p>库拉索没有任何五大联赛球员。全队身价最高的奥比斯波（PSV）仅约200万欧。钟（英冠谢菲联）和汉森（英冠米堡）是仅有的知名进攻球员，但都未能在英超立足。队长巴库纳34岁，曾在英超阿斯顿维拉效力但那是5年前的事，如今在土甲踢球。全队总身价约300-500万欧，可能不及穆西亚拉的1/30。整体天赋在32强中垫底。</p>
-  </div>
-  <div class="subitem"><h4>1.2 各位置均衡度 —— 35分</h4><p>三条线"弱得均匀"。后防有奥比斯波（PSV）和巴佐尔（前阿贾克斯青训/土超），是相对最强的一环。中场依赖巴库纳兄弟的经验。锋线问题最大：8人中仅2人在英冠踢球，其余遍布希超、以超、马来超、美冠联、荷乙、比乙。没有一个稳定的得分点。</p></div>
-  <div class="subitem"><h4>1.3 板凳深度 —— 22分</h4><p>首发11人勉强拼凑，替补席来自荷乙、比乙、英甲、马来超。一旦主力受伤，替代者实力断崖式下滑。全队可信赖轮换不超过10-11人，在密集赛程中几乎没有轮换资本。</p></div>
-  <div class="subitem"><h4>1.4 总身价与年龄结构 —— 20分</h4><p>全队总身价300-500万欧，32强倒数第一。平均年龄27.8岁，核心球员老化（巴库纳34、洛卡迪亚32、鲁姆34），年轻球员缺乏高质量成长环境。</p></div>
-  <div class="score-bar mt-3"><div class="score-fill" style="width:25%;background:linear-gradient(90deg,#FCDD09,#002B7F);"></div></div>
-  <p class="text-right text-sm text-gray-500 mt-1">维度一总评：<strong>25分</strong> × 30% = <strong>7.5分</strong></p>
-</div>
-
-<div class="dimension-card">
-  <h3 class="text-xl font-bold text-cur-blue">维度二：战术体系与教练（权重20%）｜ 48分 × 20% = 9.6分</h3>
-  <div class="subitem"><h4>2.1 主帅战术哲学与大赛履历 —— 55分</h4><p>迪克·艾德沃卡特是本届世界杯上"执教队伍最弱但个人履历最硬"的教练。78岁荷兰名帅，执教生涯40年，带过荷兰（1994/1998世界杯）、韩国（2014世界杯）、俄罗斯、PSV、格拉斯哥流浪者、费内巴切等。战术务实、重防守、擅管理"以弱搏强"的比赛，是库拉索唯一的"战术缓冲垫"。</p></div>
-  <div class="subitem"><h4>2.2 阵型适配性 —— 48分</h4><p>5-4-1"大巴阵"是面对德国的唯一选择。球员有基本战术纪律，但面对穆西亚拉的盘带和维尔茨的传球能否撑90分钟存疑。</p></div>
-  <div class="subitem"><h4>2.3 攻守转换效率 —— 38分</h4><p>由守转攻缺乏稳定的出球点。可能全场控球率不到25%。定位球是唯一得分机会。</p></div>
-  <div class="subitem"><h4>2.4 临场指挥 —— 50分</h4><p>艾德沃卡特经验丰富但"牌面有限"。他需要决策何时放弃抵抗（对德国）何时全力一搏（对科特迪瓦）。</p></div>
-  <div class="score-bar mt-3"><div class="score-fill" style="width:48%;background:linear-gradient(90deg,#FCDD09,#002B7F);"></div></div>
-  <p class="text-right text-sm text-gray-500 mt-1">维度二总评：<strong>48分</strong> × 20% = <strong>9.6分</strong></p>
-</div>
-
-<div class="dimension-card">
-  <h3 class="text-xl font-bold text-cur-blue">维度三：近期竞技状态（权重15%）｜ 44分 × 15% = 6.6分</h3>
-  <div class="subitem"><h4>3.1 近12个月正式比赛战绩 —— 48分</h4><p>CONCACAF预选赛历史性晋级，但未击败过FIFA排名前40的球队。金杯赛小组出局。整体表现"专注于该赢的比赛"但缺乏"爆冷基因"。</p></div>
-  <div class="subitem"><h4>3.2 预选赛出线含金量 —— 45分</h4><p>中北美扩军（6.5个名额）降低了难度，小组对手危地马拉/伯利兹/尼加拉瓜偏弱。出线是"历史性但非超常"成就。</p></div>
-  <div class="subitem"><h4>3.3 核心球员俱乐部状态 —— 40分</h4><p>奥比斯波（PSV轮换）、钟（英冠4球）、汉森（英冠5球）状态"稳但不亮"。洛卡迪亚已降至美冠联，状态明显下滑。</p></div>
-  <div class="score-bar mt-3"><div class="score-fill" style="width:44%;background:linear-gradient(90deg,#FCDD09,#002B7F);"></div></div>
-  <p class="text-right text-sm text-gray-500 mt-1">维度三总评：<strong>44分</strong> × 15% = <strong>6.6分</strong></p>
-</div>
-
-<div class="dimension-card">
-  <h3 class="text-xl font-bold text-cur-blue">维度四：大赛经验与心理素质（权重10%）｜ 23分 × 10% = 2.3分</h3>
-  <div class="subitem"><h4>4.1 世界杯历史战绩 —— 10分</h4><p>首次参赛，全队零世界杯经验。金杯赛最好成绩仅八强（2019）。</p></div>
-  <div class="subitem"><h4>4.2 核心球员大赛经验 —— 25分</h4><p>无一人参加过世界杯。巴库纳和洛卡迪亚的金杯赛经验是队内"天花板"，与德国（诺伊尔4届/基米希2届）差距悬殊。</p></div>
-  <div class="subitem"><h4>4.3 抗压与逆境应对 —— 35分</h4><p>预选赛逆转危地马拉展现了韧性，但"德国级别的逆境"完全不同。艾德沃卡特的赛前心理建设是关键。</p></div>
-  <div class="score-bar mt-3"><div class="score-fill" style="width:23%;background:linear-gradient(90deg,#FCDD09,#002B7F);"></div></div>
-  <p class="text-right text-sm text-gray-500 mt-1">维度四总评：<strong>23分</strong> × 10% = <strong>2.3分</strong></p>
-</div>
-
-<div class="dimension-card">
-  <h3 class="text-xl font-bold text-cur-blue">维度五：分组及赛程影响（权重10%）｜ 26分 × 10% = 2.6分</h3>
-  <div class="subitem"><h4>5.1 小组赛对手分析 —— 20分</h4>
-    <table class="text-sm mb-2"><tr><th>对手</th><th>库拉索胜率预估</th></tr>
-      <tr><td>德国 🇩🇪</td><td>1-2%</td></tr>
-      <tr><td>厄瓜多尔 🇪🇨</td><td>5-8%</td></tr>
-      <tr><td>科特迪瓦 🇨🇮</td><td>8-12%</td></tr>
-    </table>
-    <p>E组对库拉索是"无情"的。唯一"可能拿分"的机会是对阵科特迪瓦的末轮。出线概率低于0.5%。</p>
-  </div>
-  <div class="subitem"><h4>5.2 淘汰赛晋级路线 —— 10分</h4><p>不存在——现实目标是：①避免0-5+惨案；②打入世界杯首球；③体面离开。</p></div>
-  <div class="subitem"><h4>5.3 旅途与气候因素 —— 48分</h4><p>加勒比热带气候适应力是唯一"环境优势"——休斯顿湿热对库拉索球员犹如家乡，对德国可能是个小考验。</p></div>
-  <div class="score-bar mt-3"><div class="score-fill" style="width:26%;background:linear-gradient(90deg,#FCDD09,#002B7F);"></div></div>
-  <p class="text-right text-sm text-gray-500 mt-1">维度五总评：<strong>26分</strong> × 10% = <strong>2.6分</strong></p>
-</div>
-
-<div class="dimension-card">
-  <h3 class="text-xl font-bold text-cur-blue">维度六：团队凝聚力（权重10%）｜ 55分 × 10% = 5.5分</h3>
-  <div class="subitem"><h4>6.1 更衣室团结度 —— 55分</h4><p>荷兰归化+本土球员混合，集体荣誉感强烈。艾德沃卡特是"更衣室政治家"。</p></div>
-  <div class="subitem"><h4>6.2 足协稳定性 —— 45分</h4><p>FFK是小国足协，预算有限但利用与荷兰足协的合作获取资源。</p></div>
-  <div class="subitem"><h4>6.3 国内舆论与媒体压力 —— 65分</h4><p><strong>全无压力——可能是最大"武器"。</strong>全国庆祝氛围、无人苛求出线。球员带着"玩得开心"的心态踢球，反而是最危险的下狗。</p></div>
-  <div class="score-bar mt-3"><div class="score-fill" style="width:55%;background:linear-gradient(90deg,#FCDD09,#002B7F);"></div></div>
-  <p class="text-right text-sm text-gray-500 mt-1">维度六总评：<strong>55分</strong> × 10% = <strong>5.5分</strong></p>
-</div>
-
-<div class="dimension-card">
-  <h3 class="text-xl font-bold text-cur-blue">维度七：体能储备与伤病控制（权重5%）｜ 48分 × 5% = 2.4分</h3>
-  <div class="subitem"><h4>7.1 赛季疲劳度评估 —— 55分</h4><p>低级别联赛赛程强度较低，体能储备可能比德国球员更充足。</p></div>
-  <div class="subitem"><h4>7.2 关键伤病情况 —— 50分</h4><p>无重大伤病报告，但医疗恢复条件有限。</p></div>
-  <div class="subitem"><h4>7.3 医疗团队保障 —— 35分</h4><p>2名队医+1名理疗师——32强中最简陋的医疗配置之一。</p></div>
-  <div class="score-bar mt-3"><div class="score-fill" style="width:48%;background:linear-gradient(90deg,#FCDD09,#002B7F);"></div></div>
-  <p class="text-right text-sm text-gray-500 mt-1">维度七总评：<strong>48分</strong> × 5% = <strong>2.4分</strong></p>
-</div>
-
-<h2 class="text-cur-blue">（三）综合总分与评级</h2>
-<div class="summary-box text-center">
-  <p class="text-2xl font-bold">加权总分：36.5 / 100</p>
-  <p class="text-xl mt-2">实力评级：<span class="font-bold text-3xl">E</span>（鱼腩球队 / 重在参与）</p>
-</div>
-<div class="bg-white rounded-xl shadow p-6 mb-6">
-  <h3 class="text-lg font-bold mb-3">七维度雷达数据</h3>
+  <h4>🧤 守门员（3人）</h4>
+  <div class="table-scroll">
   <table>
-    <tr><th>维度</th><th>得分</th><th>权重</th><th>加权贡献</th></tr>
-    <tr><td>① 阵容实力</td><td>25</td><td>30%</td><td>7.50</td></tr>
-    <tr><td>② 战术体系与教练</td><td>48</td><td>20%</td><td>9.60</td></tr>
-    <tr><td>③ 近期竞技状态</td><td>44</td><td>15%</td><td>6.60</td></tr>
-    <tr><td>④ 大赛经验与心理素质</td><td>23</td><td>10%</td><td>2.30</td></tr>
-    <tr><td>⑤ 分组及赛程影响</td><td>26</td><td>10%</td><td>2.60</td></tr>
-    <tr><td>⑥ 团队凝聚力与场外环境</td><td>55</td><td>10%</td><td>5.50</td></tr>
-    <tr><td>⑦ 体能储备与伤病控制</td><td>48</td><td>5%</td><td>2.40</td></tr>
-    <tr style="font-weight:bold;background:#fff8e1;"><td colspan="3">总分</td><td>36.50</td></tr>
+    <tr><th>球员姓名</th><th>位置</th><th>年龄</th><th>所属俱乐部</th><th>身价</th></tr>
+    <tr><td>Eloy Room</td><td>GK</td><td>37</td><td>Miami FC（美乙）</td><td>€15万</td></tr>
+    <tr><td>Trevor Doornbusch</td><td>GK</td><td>26</td><td>VVV-Venlo（荷乙）</td><td>€5万</td></tr>
+    <tr><td>Tyrick Bodak</td><td>GK</td><td>24</td><td>SC Telstar（荷乙）</td><td>€2.5万</td></tr>
   </table>
+  </div>
+
+  <h4>🛡️ 后卫（9人）</h4>
+  <div class="table-scroll">
+  <table>
+    <tr><th>球员姓名</th><th>位置</th><th>年龄</th><th>所属俱乐部</th><th>身价</th></tr>
+    <tr><td>Armando Obispo</td><td>CB</td><td>27</td><td>PSV Eindhoven（荷甲）</td><td><strong>€400万</strong></td></tr>
+    <tr><td>Riechedly Bazoer</td><td>CB</td><td>29</td><td>Konyaspor（土超）</td><td>€150万</td></tr>
+    <tr><td>Deveron Fonville</td><td>CB</td><td>23</td><td>NEC Nijmegen（荷甲）</td><td>€150万</td></tr>
+    <tr><td>Roshon van Eijma</td><td>CB</td><td>27</td><td>RKC Waalwijk（荷甲）</td><td>€37.5万</td></tr>
+    <tr><td>Juriën Gaari</td><td>CB</td><td>32</td><td>Abha Club（沙特联）</td><td>€40万</td></tr>
+    <tr><td>Sherel Floranus</td><td>LB</td><td>27</td><td>PEC Zwolle（荷甲）</td><td>€80万</td></tr>
+    <tr><td>Shurandy Sambo</td><td>RB</td><td>24</td><td>Sparta Rotterdam（荷甲）</td><td>€130万</td></tr>
+    <tr><td>Joshua Brenet</td><td>RB</td><td>32</td><td>Kayserispor（土超）</td><td>€100万</td></tr>
+    <tr><td>Livano Comenencia</td><td>RB</td><td>22</td><td>FC Zürich（瑞士超）</td><td>€70万</td></tr>
+  </table>
+  </div>
+
+  <h4>🎯 中场（5人）</h4>
+  <div class="table-scroll">
+  <table>
+    <tr><th>球员姓名</th><th>位置</th><th>年龄</th><th>所属俱乐部</th><th>身价</th></tr>
+    <tr><td>Juninho Bacuna</td><td>CM</td><td>28</td><td>FC Volendam（荷乙）</td><td>€170万</td></tr>
+    <tr><td>Leandro Bacuna <strong>(C)</strong></td><td>CM</td><td>34</td><td>Igdır FK（土甲）</td><td>€25万</td></tr>
+    <tr><td>Kevin Felida</td><td>DM</td><td>26</td><td>FC Den Bosch（荷乙）</td><td>€40万</td></tr>
+    <tr><td>Godfried Roemeratoe</td><td>DM</td><td>26</td><td>RKC Waalwijk（荷甲）</td><td>€35万</td></tr>
+    <tr><td>Tyrese Noslin</td><td>RW</td><td>23</td><td>SC Telstar（荷乙）</td><td>€75万</td></tr>
+  </table>
+  </div>
+
+  <h4>⚽ 前锋（9人）</h4>
+  <div class="table-scroll">
+  <table>
+    <tr><th>球员姓名</th><th>位置</th><th>年龄</th><th>所属俱乐部</th><th>身价</th></tr>
+    <tr><td>Tahith Chong</td><td>AM/RW</td><td>26</td><td>Sheffield United（英冠）</td><td><strong>€350万</strong></td></tr>
+    <tr><td>Sontje Hansen</td><td>RW</td><td>24</td><td>Middlesbrough（英冠）</td><td><strong>€350万</strong></td></tr>
+    <tr><td>Jearl Margaritha</td><td>LW</td><td>26</td><td>SK Beveren（比甲）</td><td>€100万</td></tr>
+    <tr><td>Jeremy Antonisse</td><td>LW</td><td>24</td><td>AE Kifisia（希腊甲）</td><td>€80万</td></tr>
+    <tr><td>Ar'jany Martha</td><td>RW</td><td>22</td><td>Rotherham United（英甲）</td><td>€70万</td></tr>
+    <tr><td>Kenji Gorré</td><td>LW</td><td>31</td><td>Maccabi Haifa（以超）</td><td>€65万</td></tr>
+    <tr><td>Brandley Kuwas</td><td>RW</td><td>33</td><td>FC Volendam（荷乙）</td><td>€25万</td></tr>
+    <tr><td>Jürgen Locadia</td><td>ST</td><td>32</td><td>Miami FC（美乙）</td><td>€20万</td></tr>
+    <tr><td>Gervane Kastaneer</td><td>ST</td><td>29</td><td>Terengganu FC（马来超）</td><td>€17.5万</td></tr>
+  </table>
+  </div>
+  <p style="font-size:13px;color:#666;margin-top:5px;">* 数据来源：Transfermarkt 2026年5月。身价单位：欧元。</p>
 </div>
 
-<h2 class="text-cur-blue">（四）深度球评</h2>
-<div class="bg-white rounded-xl shadow p-6 mb-6">
-  <h3 class="text-lg font-bold text-green-700">核心优势</h3>
-  <ul class="list-disc pl-6 space-y-2">
-    <li><strong>艾德沃卡特——78岁荷兰名帅的"护身符"效应。</strong>4届世界杯经验、知道如何避免惨案。2006年带韩国面对法国只输1球——这种"以弱搏强"的门道是库拉索防线的"第七人"。</li>
-    <li><strong>全无压力的"自由人"心态。</strong>库拉索是唯一一支"体面出战即是胜利"的球队。2022沙特2-1阿根廷的世纪冷门证明——"输了正常赢了赚到"的心态有时能创造奇迹。</li>
-  </ul>
+<!-- ===== SECTION 2: SCORING ===== -->
+<div class="section">
+  <h2>（二）逐项评分明细</h2>
+
+  <!-- DIMENSION 1 -->
+  <h3>维度一：阵容实力（权重30%）｜ 得分：27分 × 30% = 8.10分</h3>
+
+  <div class="sub-item">
+    <span class="sub-item-title">1.1 球星质量与个人能力</span><span class="sub-item-score">28分</span>
+    <p style="margin-top:8px;line-height:1.7;font-size:14px;">
+      库拉索阵中无任何世界级或准世界级球员。身价最高的阿曼多·奥比斯波（€400万）在PSV埃因霍温担任中卫轮换球员，2025/26赛季荷甲出场仅14次（其中9次首发），远非PSV的防线核心。塔希斯·钟（€350万，谢菲尔德联）是前曼联青训球员，2025/26赛季英冠20场3球2助攻——数据尚可但距离"球星"标准差距明显。松特耶·汉森（€350万，米德尔斯堡）同为英冠边锋，赛季24场4球3助攻，以速度和盘带见长。三人合计身价€1,100万，已占全队总值的42%，这说明球队的天赋高度集中——且这个"天赋天花板"在世界杯舞台上最多只能达到"偶有闪光"的水平。其余球员大部分效力于荷乙、土甲、美乙等低级别联赛，个人能力上限远低于欧洲顶级联赛的同位置球员。
+    </p>
+  </div>
+  <div class="sub-item">
+    <span class="sub-item-title">1.2 各位置均衡度</span><span class="sub-item-score">32分</span>
+    <p style="margin-top:8px;line-height:1.7;font-size:14px;">
+      库拉索的四条线中，后卫线是相对最强的一环。中卫位置有奥比斯波（PSV）、巴佐尔（科尼亚体育/土超）、丰维尔（NEC奈梅亨/荷甲）三人具备荷甲或土超级别的竞争力。边后卫弗洛拉努斯（PEC兹沃勒/荷甲）和桑博（鹿特丹斯巴达/荷甲）也有一定的荷甲出场经验。中场是最大的隐患——巴库纳兄弟中，莱安德罗已34岁且在土耳其甲级联赛效力，朱尼尼奥在荷乙福伦丹踢球。防守型中场费利达（荷乙登博斯）和罗梅拉托（RKC瓦尔韦克/荷甲）的比赛级别在面对德国和科特迪瓦的中场时将全面处于下风。前锋线看似人数充足（9人），但除了钟和汉森具备英冠级别能力外，其余前锋分别效力于美乙、希甲、马来超等低级别联赛——洛卡迪亚（迈阿密FC/美乙）曾是布莱顿的英超球员，但已32岁且远离欧洲主流联赛多年。
+    </p>
+  </div>
+  <div class="sub-item">
+    <span class="sub-item-title">1.3 板凳深度</span><span class="sub-item-score">25分</span>
+    <p style="margin-top:8px;line-height:1.7;font-size:14px;">
+      库拉索的替补席几乎不具备改变比赛走势的能力。首发11人中，钟、汉森和奥比斯波是仅有的三名具备世界杯级别比赛经验的球员。一旦换人，替补球员的比赛级别迅速跌至荷乙、土甲甚至美乙水平——这些联赛的对抗强度和战术复杂度与世界杯小组赛（面对德国、科特迪瓦）完全不在同一维度。中锋位置的替补尤其薄弱：洛卡迪亚（迈阿密FC/美乙）和卡斯塔内尔（登嘉楼FC/马来超）的对战级别和进球效率在世界杯上几乎可以忽略不计。中场方面，如果巴库纳兄弟中有一人因伤或停赛无法出场，替代者将是荷乙级别的费利达或诺斯林。唯一值得庆幸的是：后防线的替补选择相对较多（9名后卫可轮换），但这更多是因为边后卫和中卫的储备数量多而非质量高。
+    </p>
+  </div>
+  <div class="sub-item">
+    <span class="sub-item-title">1.4 总身价与年龄结构</span><span class="sub-item-score">22分</span>
+    <p style="margin-top:8px;line-height:1.7;font-size:14px;">
+      库拉索全队总身价仅€2,603万，在48支参赛队中排名倒数——作为对比，同组的科特迪瓦身价是其20倍（€5.169亿），德国的身价约是其30倍（超过€8亿）。就连上一轮分析的海地队（€5,588万）总身价也是库拉索的两倍多。全队仅有2名球员身价超过€300万，身价€100万以上的球员仅有7人——这在一个拥有26人的大名单中是极为罕见的低水平。平均年龄28.0岁属于偏大，关键球员中洛卡迪亚（32岁）、莱安德罗·巴库纳（34岁）、布伦内特（32岁）、罗姆（37岁）都已过巅峰期。值得注意的积极因素是：球队最贵的四名球员（奥比斯波27岁、钟26岁、汉森24岁、朱尼尼奥·巴库纳28岁）正处于或接近黄金年龄，至少保证了核心框架在年龄上并非"养老院"。
+    </p>
+  </div>
+
+  <h4 style="text-align:right;margin-top:10px;">均分：27分</h4>
+
+  <p class="analysis-text">
+    库拉索的阵容实力在所有48支参赛队中处于垫底水平，与海地、巴拿马等队属于同一梯队甚至更弱。这支球队的"骨架"是由荷兰青训体系中未能跻身顶级联赛的球员组成的——他们的技术基础和战术理解力得益于荷兰足球的全面训练体系，但个人天赋和比赛级别的上限决定了他们在世界杯舞台上难有作为。全队最大的结构性问题是：没有一个能够在高强度对抗中稳定持球推进的球员——钟和汉森速度不错，但他们的背身拿球、对抗下的技术完成度在面对德国和科特迪瓦的防守球员时几乎没有优势。后防线虽然有奥比斯波（PSV）这块招牌，但他在埃因霍温仅是一名轮换球员，对位德国队的穆西亚拉或菲尔克鲁格时将被全面压制。门将罗姆（37岁，迈阿密FC）的经验是唯一可用的后防财富，但他的反应速度已明显下滑。最值得注意的是：这支球队虽然是世界杯新军，但其球员的荷兰足球背景至少保证了基本的战术纪律和位置感，不会像某些纯业余球队那样出现战术混乱——这可能是他们在面对强敌时唯一能拿得出手的"软实力"。
+  </p>
+
+  <!-- DIMENSION 2 -->
+  <div class="divider"></div>
+  <h3>维度二：战术体系与教练（权重20%）｜ 得分：69分 × 20% = 13.80分</h3>
+
+  <div class="sub-item">
+    <span class="sub-item-title">2.1 主帅战术哲学与大赛履历</span><span class="sub-item-score">78分</span>
+    <p style="margin-top:8px;line-height:1.7;font-size:14px;">
+      迪克·艾德沃卡特（78岁）是世界杯48强中年龄最大、执教经验最丰富的主教练——没有之一。他的执教生涯横跨50余年，曾先后执教荷兰国家队（1994-1998、2002-2004、2012-2017）、韩国国家队（2006-2007）、比利时国家队（2009-2010）、俄罗斯国家队（2010-2012）、塞尔维亚国家队（2014）以及PSV埃因霍温、阿贾克斯、格拉斯哥流浪者、圣彼得堡泽尼特、费内巴切等欧洲名门。2008年他带领泽尼特夺得欧联杯冠军，2004年带领荷兰打入欧洲杯四强。艾德沃卡特的足球哲学以"实用主义和防守组织"为核心——他不追求华丽的控球，而是要求球队形成紧凑的防守阵型、利用对手失误发动快速反击。他的大赛经验在本届世界杯所有教练中仅次于少数几位顶级名帅，这对一支首次参赛的小国球队来说是千金不换的资产。
+    </p>
+  </div>
+  <div class="sub-item">
+    <span class="sub-item-title">2.2 阵型适配性与球员契合度</span><span class="sub-item-score">62分</span>
+    <p style="margin-top:8px;line-height:1.7;font-size:14px;">
+      艾德沃卡特最常使用的阵型是4-3-3和4-2-3-1，这两种阵型都适合库拉索的球员构成——几乎所有球员都在荷兰足球体系中成长，对4-3-3的站位和移动路线有天然的肌肉记忆。荷兰足球的"全能足球"哲学强调球员的战术执行力和位置轮换，因此库拉索球员在理解艾德沃卡特的战术要求时不会有沟通障碍。在预选赛中，艾德沃卡特（或前任主帅鲁滕）通常采用4-3-3阵型，双后腰保护防线，前场三人组（钟、汉森、戈雷/洛卡迪亚）快速转换。但问题在于：奥比斯波在PSV踢的是三中卫体系而非四后卫，他是否能适应纯四后卫阵型中的双中卫配合，是一个值得关注的战术细节。此外，库拉索的边锋防守参与度不足——钟在谢菲尔德联场均回防次数（1.8次）低于同位置英冠平均水平，这在高强度比赛中会成为左后卫的防守压力来源。
+    </p>
+  </div>
+  <div class="sub-item">
+    <span class="sub-item-title">2.3 攻守转换效率</span><span class="sub-item-score">55分</span>
+    <p style="margin-top:8px;line-height:1.7;font-size:14px;">
+      库拉索在预选赛中的进攻模式以防守反击为主——利用钟和汉森的速度在边路获得1对1机会，然后传中找中锋或后插上的中场球员。这种模式在CONCACAF预选赛（对阵百慕大7-0等）中非常有效，因为对手的防守组织能力有限。但在世界杯上，德国队的防守球员在个人能力上完全碾压库拉索的攻击手——基米希/劳姆的防守覆盖将大幅压缩钟和汉森的活动空间。定位球可能是库拉索最具威胁的进攻手段——奥比斯波在PSV有时会上抢角球，巴佐尔也有一定的空中能力。由攻转守方面，库拉索的问题在于中场的回追速度——巴库纳兄弟和费利达都不是以速度见长的球员，面对德国和科特迪瓦的快速转换进攻，中场的覆盖能力将承受巨大考验。
+    </p>
+  </div>
+  <div class="sub-item">
+    <span class="sub-item-title">2.4 临场指挥与换人策略</span><span class="sub-item-score">72分</span>
+    <p style="margin-top:8px;line-height:1.7;font-size:14px;">
+      艾德沃卡特在此方面的评分远远超出球队的实力水平——50年的执教生涯意味着他几乎遇到过所有可能出现的比赛局面。他执教韩国队参加2006年世界杯时，在小组赛对阵法国（1-1）和多哥（2-1）的比赛中展现了出色的临场调整能力。2012年欧洲杯预选赛附加赛带领荷兰逆转瑞典（3-2）同样显示了他在关键时刻的战术胆识。库拉索的替补牌虽然有限，但艾德沃卡特的经验可以帮助他最大化这些有限资源的价值——比如在60分钟后换上速度型边锋冲击对手疲劳防线、或提前换下体力消耗大的老将保存战斗力。不过需要注意的是：艾德沃卡特已经78岁，其精力和对现代足球最新战术趋势的跟进速度可能不如年轻教练——2022年他在伊拉克国家队的执教成绩（仅2胜）就是一个警示信号。
+    </p>
+  </div>
+
+  <h4 style="text-align:right;margin-top:10px;">均分：69分</h4>
+
+  <p class="analysis-text">
+    库拉索在"战术体系与教练"维度拿到了与其阵容实力极不相称的高分——这完全归功于艾德沃卡特。如果说库拉索在本届世界杯上有一张"可打的牌"，那就是这位78岁的荷兰老帅。艾德沃卡特在世界杯开幕前数周才接手球队（前任鲁滕辞职），但他此前已通过CONCACAF预选赛的一部分带队工作熟悉了球员（他是在预选赛后期才接手还是全程带队？实际上艾德沃卡特是在预选赛结束后、世界杯开赛前不久才接替鲁滕的，所以他对球队的熟悉程度可能有限）。但艾德沃卡特的战术风格（紧凑防守+快速反击）是所有小国球队对抗强队时的标准模板，而他是这一模板的"教父"级人物。他在俄罗斯和韩国的带队经历证明了他擅长组织防守纪律性强的球队去"磨死"强队——2004年欧洲杯他带领荷兰在1/4决赛点球淘汰瑞典就是他的代表作。库拉索的球员大多接受荷兰青训教育，艾德沃卡特在战术沟通上不存在语言障碍。可以说，艾德沃卡特是库拉索有史以来能请到的最佳教练——但再好的将军也难为无米之炊。
+  </p>
+
+  <!-- DIMENSION 3 -->
+  <div class="divider"></div>
+  <h3>维度三：近期竞技状态（权重15%）｜ 得分：41分 × 15% = 6.15分</h3>
+
+  <div class="sub-item">
+    <span class="sub-item-title">3.1 近12个月正式比赛战绩</span><span class="sub-item-score">42分</span>
+    <p style="margin-top:8px;line-height:1.7;font-size:14px;">
+      库拉索在CONCACAF预选赛中保持了不败战绩——包括对百慕大的7-0大胜、对特立尼达和多巴哥的0-0平局等关键比赛，最终以B组头名身份直接晋级。这支球队的预选赛战绩含金量需要辩证看待：不败证明他们在CONCACAF第二梯队（非种子队）中具备竞争力，但对手的实力有限——百慕大FIFA排名第175位、特立尼达和多巴哥第108位。库拉索近12个月中没有与FIFA排名前50的球队进行过任何正式比赛，这也就意味着球队"未经世界级强队检验"。艾德沃卡特在接手后安排了1-2场热身赛（对手待确认），但有限的备战时间和对手质量使得球队的整体竞技状态评估存在较大不确定性。
+    </p>
+  </div>
+  <div class="sub-item">
+    <span class="sub-item-title">3.2 预选赛出线含金量</span><span class="sub-item-score">40分</span>
+    <p style="margin-top:8px;line-height:1.7;font-size:14px;">
+      库拉索所在的CONCACAF B组由特立尼达和多巴哥、百慕大、库拉索等队组成，出线难度在CONCACAF体系中属于中低水平。库拉索以不败战绩出线（包括一场0-0平特立尼达和多巴哥），说明他们在该组中实力确实占据优势。但需要指出的是，库拉索预选赛中的所有对手均不是区域强队——真正的CONCACAF强队如美国、墨西哥、哥斯达黎加、加拿大等均已在更早的轮次中直接晋级或以种子队身份参赛。因此，库拉索的不败出线更多反映的是"最弱的参赛队之一在预选赛中幸运地避开了区域强队"——如果库拉索与海地、巴拿马等同档球队同组，竞争可能激烈得多。
+    </p>
+  </div>
+  <div class="sub-item">
+    <span class="sub-item-title">3.3 核心球员俱乐部状态走势</span><span class="sub-item-score">40分</span>
+    <p style="margin-top:8px;line-height:1.7;font-size:14px;">
+      库拉索核心球员的俱乐部状态参差不齐。钟（谢菲尔德联）在英冠2025/26赛季出场20次（其中16次首发），3球2助攻，状态中规中矩但未达到预期的高度——他曾被寄予厚望成长为曼联一线队常规球员，但近年来发展不如预期。汉森（米德尔斯堡）24场4球3助攻，在英冠展现了一定的边路突破能力，但距离稳定主力还有差距。奥比斯波在PSV的处境更为尴尬——2025/26赛季荷甲仅14次出场（9次首发），在球队中卫顺位上排名第三甚至第四，这种比赛时间不足的状况可能影响他的比赛状态。朱尼尼奥·巴库纳在荷乙福伦丹是绝对主力（28场5球4助攻），但荷乙联赛的竞争力已经远低于世界杯水平。洛卡迪亚（迈阿密FC/美乙）的赛季表现（14场6球）在美乙这个级别的联赛中还算不错，但参考意义有限。
+    </p>
+  </div>
+
+  <h4 style="text-align:right;margin-top:10px;">均分：41分</h4>
+
+  <p class="analysis-text">
+    库拉索的竞技状态评估的核心困境在于：缺乏高质量对手的参照物。这支球队在CONCACAF预选赛中以不败战绩出线是真实的成就，但对手的FIFA排名（百慕大175、特立尼达和多巴哥108）使得这些胜利的含金量大打折扣。全队核心球员在各自俱乐部的状态呈现"刚刚及格"的水平——无人爆发、无人低迷，全都处于平庸但稳定的区间。一个积极的信号是：库拉索在预选赛中的防守表现相当稳固，多场比赛零封对手，这说明球队在低级别对抗中的防守纪律性已经建立。但问题在于：当对手从百慕大升级为德国和科特迪瓦时，防守强度和节奏将完全变化——库拉索需要至少2-3场高水平热身赛才能初步适应这种跨度，但备战时间可能不允许。
+  </p>
+
+  <!-- DIMENSION 4 -->
+  <div class="divider"></div>
+  <h3>维度四：大赛经验与心理素质（权重10%）｜ 得分：20分 × 10% = 2.00分</h3>
+
+  <div class="sub-item">
+    <span class="sub-item-title">4.1 世界杯/洲际杯历史战绩</span><span class="sub-item-score">10分</span>
+    <p style="margin-top:8px;line-height:1.7;font-size:14px;">
+      库拉索此前从未参加过世界杯决赛圈——2026年是他们的历史首秀。在洲际杯层面，库拉索在CONCACAF金杯赛上的最佳战绩是2019年打入八强（负于美国）。此外，库拉索曾在2017年赢过一场加勒比海杯（Caribbean Cup）的预选赛冠军（具体：2017年加勒比海杯亚军）。整体来看，库拉索的大赛积淀几乎为零——无论是国家队层面还是球员个人层面，这支球队都将在2026年世界杯上面临"从零开始"的挑战。对一支人口仅15万的小岛国来说，能站上世界杯舞台本身已经是一个奇迹——正如他们的绰号"蓝白斗牛犬"所象征的，勇气远大于经验。
+    </p>
+  </div>
+  <div class="sub-item">
+    <span class="sub-item-title">4.2 核心球员大赛经验值</span><span class="sub-item-score">20分</span>
+    <p style="margin-top:8px;line-height:1.7;font-size:14px;">
+      全队26名球员无一人有过世界杯正赛出场经历。这是库拉索所有短板中最难弥补的一项。与同组的德国队（大量球员拥有世界杯和欧洲杯经验）相比，库拉索的球员可能在比赛的前20分钟出现"环境适应期"——面对数万名球迷的呐喊、全球直播的压力、对手的压迫强度，球员的决策速度和动作精准度都可能出现明显下降。队内唯一接近世界杯经验的是几名参加过欧战（欧冠/欧联预选赛）的球员——钟在曼联踢过欧冠小组赛（2019/20赛季，2次出场），奥比斯波在PSV踢过欧联杯，但这些零星的高水平赛事经验与世界杯正赛的压力环境仍有显著差距。艾德沃卡特本人丰富的世界杯经验（作为教练参加1994、2006年世界杯）是球队在这方面最大的资源——但这只能通过赛前准备和临场指导间接发挥作用。
+    </p>
+  </div>
+  <div class="sub-item">
+    <span class="sub-item-title">4.3 抗压与逆境应对</span><span class="sub-item-score">35分</span>
+    <p style="margin-top:8px;line-height:1.7;font-size:14px;">
+      库拉索在预选赛中展现了不错的抗压能力——在不败出线的过程中，球队曾经历过0-0的胶着战（对特立尼达和多巴哥）和先丢球后的逆转（对百慕大7-0中对手未能进球，实际上库拉索从未在预选赛落后）。但真正的逆境——比如在面对德国时开场15分钟就0-2落后——库拉索从未经历过。艾德沃卡特的心理调节能力是球队应对逆境的最大依靠——他在2006年世界杯带领韩国队时，曾在小组赛首战0-2落后多哥的情况下最终2-1逆转取胜（不过在2010年他执教俄罗斯时曾在预选赛附加赛0-2失利未能晋级）。库拉索作为世界杯新军，"光脚不怕穿鞋"的心态反而可能帮到他们——没有任何外界压力，每个进球和每个积分都是历史性的成就。
+    </p>
+  </div>
+
+  <h4 style="text-align:right;margin-top:10px;">均分：20分</h4>
+
+  <p class="analysis-text">
+    大赛经验是库拉索的致命短板，这与海地队面临的情况类似——全队无人经历过世界杯正赛，甚至连洲际杯淘汰赛的经验也极为有限。但库拉索比海地稍好的一点是：球队中多名球员在荷甲、英冠等欧洲联赛有相对稳定的出场时间，这些联赛的日常比赛强度——虽然不是世界杯级别的——但至少让球员具备了"在高水平竞争中生存"的基本经验。不过，从英冠/荷甲到世界杯的压力跨越仍是巨大的。历史上，首次参赛的小国球队往往会在首战中因紧张和适应问题而迅速崩盘（如2002年的中国0-4负巴西、2010年的朝鲜0-3负葡萄牙后溃败）。库拉索能否避免这种"首秀崩盘症"，很大程度上取决于艾德沃卡特对球员心理状态的调节能力和赛前的针对性准备。
+  </p>
+
+  <!-- DIMENSION 5 -->
+  <div class="divider"></div>
+  <h3>维度五：分组及赛程影响（权重10%）｜ 得分：21分 × 10% = 2.10分</h3>
+
+  <div class="sub-item">
+    <span class="sub-item-title">5.1 小组赛对手分析</span><span class="sub-item-score">15分</span>
+    <p style="margin-top:8px;line-height:1.7;font-size:14px;">
+      库拉索所在的E组包括了四届世界杯冠军德国、南美劲旅厄瓜多尔和新科非洲冠军科特迪瓦——对于一支首次参赛、FIFA排名第82位的球队来说，这个分组几乎是"最坏的情况"。德国（FIFA第9位）虽然连续两届小组赛出局（2018、2022），但实力仍是顶级——穆西亚拉、维尔茨、哈弗茨的攻击线足以摧毁任何低级别防守体系。厄瓜多尔（FIFA第31位）以防守硬朗著称，2022年揭幕战2-0击败东道主卡塔尔的经历证明了他们在"客场"作战时的抗压能力。科特迪瓦（FIFA第34位，€5.169亿）则可能是库拉索最"可与之周旋"的对手——但科特迪瓦的边锋群在个人能力上碾压库拉索的边后卫。三场比赛，库拉索都是被碾压的一方，没有任何一场比赛可以称之为"有机会取胜"。
+    </p>
+  </div>
+  <div class="sub-item">
+    <span class="sub-item-title">5.2 淘汰赛晋级路线预判</span><span class="sub-item-score">10分</span>
+    <p style="margin-top:8px;line-height:1.7;font-size:14px;">
+      库拉索从E组出线的概率不到1%。即使发生了不可思议的奇迹（比如逼平德国、击败厄瓜多尔、大胜科特迪瓦），以小组第二名出线后将面对F组头名——那很可能是另一支世界级强队。在48队赛制下，最好的四个小组第三也能晋级32强，这或许为库拉索提供了一个"模糊的希望"——理论上可以靠1-2场平局拿到2分，通过与其他小组第三的净胜球比拼争取晋级。但现实是：库拉索要想从E组拿到2分（比如逼平厄瓜多尔和科特迪瓦）已经需要超水平发挥，而即便拿到2分，同组有德国这样的强队意味着净胜球几乎一定是负数——这将使库拉索在所有小组第三的排名中处于极不利的位置。
+    </p>
+  </div>
+  <div class="sub-item">
+    <span class="sub-item-title">5.3 旅途与气候因素</span><span class="sub-item-score">45分</span>
+    <p style="margin-top:8px;line-height:1.7;font-size:14px;">
+      库拉索的首场比赛在休斯顿（6月14日）对阵德国——休斯顿6月的平均气温约28-35°C，湿度较高。这对来自加勒比海地区的库拉索球员来说反而可能是一个优势——他们习惯于热带气候，而德国球员可能对炎热潮湿的环境不太适应。后续比赛场地和对手尚未完全确定，但库拉索球员对长途旅行并不陌生（预选赛期间他们已在中北美地区频繁往返）。库拉索作为荷兰王国的组成部分，其球员往返欧洲和加勒比海的经历也为应对时差积累了经验。总体而言，气候和旅途因素可能是库拉索在本届世界杯上唯一"不吃亏"的环节——但这不足以弥补其他方面的巨大差距。
+    </p>
+  </div>
+
+  <h4 style="text-align:right;margin-top:10px;">均分：21分</h4>
+
+  <p class="analysis-text">
+    E组对库拉索来说是"死亡之组"——三个对手无一不是硬骨头。德国队的实力碾压、厄瓜多尔的防守韧性、科特迪瓦的华丽攻击线，三者风格各异但都对库拉索形成了绝对的优势。库拉索最现实的目标是：在对阵厄瓜多尔和科特迪瓦的比赛中力争一个平局（或至少一个进球），以确保自己的世界杯首秀不至于以"三战全败零进球"收场。首战对德国是最危险的——如果库拉索在前30分钟就被打花（比如0-3落后），整支球队的信心可能在剩余两场比赛中难以恢复。艾德沃卡特的战术布置可能会在三场比赛中有所侧重：对德国全力防守争取少输当赢、对厄瓜多尔伺机反击、对科特迪瓦是理论上最可能拿分的比赛。
+  </p>
+
+  <!-- DIMENSION 6 -->
+  <div class="divider"></div>
+  <h3>维度六：团队凝聚力与场外环境（权重10%）｜ 得分：51分 × 10% = 5.10分</h3>
+
+  <div class="sub-item">
+    <span class="sub-item-title">6.1 更衣室团结度</span><span class="sub-item-score">55分</span>
+    <p style="margin-top:8px;line-height:1.7;font-size:14px;">
+      库拉索的球队文化与其说是"国家队"，不如说是一群在荷兰长大的库拉索裔球员组成的大家庭。大部分球员从青少年时期就在荷兰各级青训营中成长，彼此之间要么曾是队友、要么在荷兰联赛中有过交手经历。队长莱安德罗·巴库纳（34岁）在队内资历最深——他曾效力加的夫城、格拉斯哥流浪者等队，是更衣室内的稳定力量。库拉索队内没有公开的派系矛盾，球员们对"代表祖国参加世界杯"有一种纯粹的自豪感——对一个人口仅15万的小岛上来说，能有一支代表队站在世界杯舞台上本身就是全岛的荣耀。不过，艾德沃卡特在世界杯前才仓促接手的一个潜在风险是：球员们与前任主帅鲁滕之间可能建立了信任关系，新帅上任后能否在短时间内建立同样的情感共鸣尚是未知数。
+    </p>
+  </div>
+  <div class="sub-item">
+    <span class="sub-item-title">6.2 足协稳定性与管理</span><span class="sub-item-score">40分</span>
+    <p style="margin-top:8px;line-height:1.7;font-size:14px;">
+      库拉索足协（FFK）是一个规模极小的足球管理机构，其运营能力和资源无法与任何传统足球强国相比。世界杯开赛前教练更迭（鲁滕辞职，艾德沃卡特接任）反映出管理层在备战组织上的不稳定性——虽然艾德沃卡特的资历远胜前任，但临时换帅通常意味着战术体系的切换和球员适应成本的增加。库拉索足协的整体备战预算有限，球队的旅行、住宿、训练设施等条件与同组对手存在显著差距。但积极的一面是：作为荷兰王国的自治领土，库拉索在足球层面的管理可以借助荷兰足协（KNVB）的经验和资源——库拉索队能在短时间内请到艾德沃卡特，本身就说明了FFK与荷兰足球界之间的紧密联系。
+    </p>
+  </div>
+  <div class="sub-item">
+    <span class="sub-item-title">6.3 国内舆论与媒体压力</span><span class="sub-item-score">60分</span>
+    <p style="margin-top:8px;line-height:1.7;font-size:14px;">
+      库拉索国内的舆论环境对球队极为有利。作为世界杯新军，国内球迷和媒体对球队的实力有清醒的认识——没有人期待库拉索能从E组出线，每一个进球和每一分积分都将被视为历史性成就。这种"零期望、高支持"的氛围有助于球员放下包袱、轻装上阵。库拉索岛内的15万居民对国家队的热烈支持将转化为球员在场上拼搏的精神动力——预选赛期间，库拉索队在主场比赛时得到了热烈的球迷支持，球队也以不败战绩回报了这份热情。在国际媒体层面，库拉索作为"世界杯史上最小参赛国"的故事性叙事为主，媒体关注度较高但不会产生负面压力——球队更多地被视为一个"励志故事"而非"竞技竞争主体"。
+    </p>
+  </div>
+
+  <h4 style="text-align:right;margin-top:10px;">均分：51分</h4>
+
+  <p class="analysis-text">
+    库拉索的"软环境"在某种程度上比同组其他三支球队都要轻松——没有出线压力、没有舆论审判、没有历史包袱。全队上下可以带着"享受世界杯"的心态去比赛，而这种放松的状态有时能激发球员超水平发挥。队长巴库纳和老将洛卡迪亚的经验有助于管理更衣室氛围，艾德沃卡特的权威性也能确保球队纪律。但在硬币的另一面：足协临时换帅的决策可能反映了管理层对备战节奏的掌控能力不足——如果备战期间再出现任何后勤保障上的失误（如机票、酒店、训练场地的安排问题），都可能影响球员的备战心态。整体而言，库拉索的团队环境是"因祸得福"——因为没有任何人会苛责他们，所以压力管理的难度反而远低于那些必须出线的传统强队。
+  </p>
+
+  <!-- DIMENSION 7 -->
+  <div class="divider"></div>
+  <h3>维度七：体能储备与伤病控制（权重5%）｜ 得分：43分 × 5% = 2.15分</h3>
+
+  <div class="sub-item">
+    <span class="sub-item-title">7.1 赛季疲劳度评估</span><span class="sub-item-score">45分</span>
+    <p style="margin-top:8px;line-height:1.7;font-size:14px;">
+      库拉索球员大多在欧洲（荷兰、英格兰、土耳其等）联赛效力，已在5月底结束了各自的赛季。钟（谢菲尔德联）在英冠的赛季在5月初结束，汉森（米德尔斯堡）同样完成了英冠全部46轮赛事——英冠的赛程密度（46轮联赛+杯赛）对体能要求极高，两人的赛季负荷属于偏高水平。奥比斯波（PSV）在荷甲的赛季因欧冠附加赛延长至5月底。荷乙球员（巴库纳、费利达、博达克等）的赛季结束较早（约4月底），他们的体能储备较为充分但比赛强度级别较低。总体上，库拉索球员的赛季负荷属于正常范围，但由于多数球员效力于低级别联赛或非五大联赛，世界杯比赛强度带来的体能需求将对他们的身体适应能力构成挑战——在英冠踢满46轮的球员和荷乙球员之间，也有明显的体能储备差异。
+    </p>
+  </div>
+  <div class="sub-item">
+    <span class="sub-item-title">7.2 关键伤病与恢复情况</span><span class="sub-item-score">50分</span>
+    <p style="margin-top:8px;line-height:1.7;font-size:14px;">
+      截至大名单公布（2026年5月18日），库拉索队没有重大伤病报告。全部26名球员均以健康状态入选——这对一支小国球队来说已经是相当理想的情况。钟在英冠赛季末段曾因大腿肌肉轻微不适休息了一周，但已完全康复并正常参加了训练营。奥比斯波在PSV赛季中段有过一次脚踝伤势，但恢复良好且在赛季末段重新获得了出场机会。唯一的年龄隐患是门将罗姆（37岁）——他虽然没有结构性伤病，但高龄门将的身体恢复速度和冒风险能力明显不如年轻时期。整体来看，库拉索的伤病管理做得中规中矩，没有核心球员因伤缺阵已是最大利好。
+    </p>
+  </div>
+  <div class="sub-item">
+    <span class="sub-item-title">7.3 医疗团队与保障水平</span><span class="sub-item-score">30分</span>
+    <p style="margin-top:8px;line-height:1.7;font-size:14px;">
+      库拉索队的医疗和体能保障水平在48支参赛队中处于最低一档——这是由足协的预算规模和基础设施决定的。球队的医疗团队规模有限，主要依靠艾德沃卡特组建的教练组中包含的体能教练和队医进行日常管理。训练和恢复设备方面，库拉索队可能在世界杯期间使用国际足联提供的通用设施，或依赖在休斯顿/费城等比赛地的当地医疗资源进行补充保障。与欧洲豪门标配的运动科学团队（营养师、理疗师、运动心理学家）相比，库拉索的保障条件存在显著差距。不过，库拉索队的球员多来自荷兰俱乐部的青训体系，普遍具备较好的体能基础和身体管理意识——这意味着即使保障条件有限，球员的个人职业素养也能在一定程度上弥补团队保障的不足。
+    </p>
+  </div>
+
+  <h4 style="text-align:right;margin-top:10px;">均分：43分</h4>
+
+  <p class="analysis-text">
+    库拉索在体能和伤病方面没有特别突出的问题——全员健康是最重要的好消息。球队的平均年龄28.0岁属正常偏大，但老将如巴库纳（34岁）和洛卡迪亚（32岁）的比赛经验在关键时刻可能比体能更重要。真正值得关注的是：库拉索的大部分球员从未经历过"7天3赛"的世界杯小组赛节奏，而且每场比赛的对抗强度远超他们在荷甲/英冠中的日常水平——第三场小组赛时，球队的体能瓶颈可能会全面显现。面对德国队反复的边路冲击和科特迪瓦的速度型边锋，库拉索的边后卫（尤其是年过30的布伦内特等）能否在连续高强度比赛中保持防守位置和速度，将是法埃在战术布置时必须考虑的因素。
+  </p>
 </div>
-<div class="bg-white rounded-xl shadow p-6 mb-6">
-  <h3 class="text-lg font-bold text-red-700">致命短板</h3>
-  <ul class="list-disc pl-6 space-y-2">
-    <li><strong>天赋差距是"跨物种"的。</strong>库拉索全队总身价≈300-500万欧，德国队约7亿欧。穆西亚拉一个人的身价≈40支库拉索全队。这个数字差距不会在90分钟内消失。</li>
-    <li><strong>零世界杯经验+死亡之组。</strong>全队无人踢过世界杯，首战就是面对4届冠军德国，再战厄瓜多尔（南美劲旅），末战科特迪瓦（非洲冠军）。三连败概率极高。</li>
-  </ul>
-</div>
-<div class="bg-white rounded-xl shadow p-6 mb-6">
-  <h3 class="text-lg font-bold text-cur-blue">关键先生</h3>
-  <div class="grid md:grid-cols-2 gap-3">
-    <div class="border-l-4 border-cur-yellow pl-3"><p class="font-bold">🇨🇼 莱昂德罗·巴库纳 (C)</p><p class="text-sm text-gray-600">队长+前英超球员，唯一的"见过世面"的球员。他的传球和比赛阅读是库拉索进攻端唯一的"核心处理器"。</p></div>
-    <div class="border-l-4 border-orange-500 pl-3"><p class="font-bold">🇨🇼 塔希斯·钟</p><p class="text-sm text-gray-600">曼联青训出品，谢菲尔德联边锋。库拉索阵中"最有能力制造冷门"的球员——如果他能用速度冲出一个单刀，库拉索离世界杯历史首球就不远了。</p></div>
+
+<!-- ===== SECTION 3: TOTAL SCORE ===== -->
+<div class="section text-center">
+  <h2>（三）综合总分与评级</h2>
+  <div style="margin:25px 0;">
+    <div style="font-size:18px;color:#666;margin-bottom:10px;">加权总分</div>
+    <div class="total-score">39.40 / 100</div>
+  </div>
+  <div style="margin:25px 0;">
+    <div style="font-size:18px;color:#666;margin-bottom:10px;">实力评级</div>
+    <div class="rating-box">D−</div>
+    <div style="font-size:16px;color:#1a5276;margin-top:8px;">实力悬殊，小组赛难求一胜</div>
+  </div>
+
+  <h4 style="margin-top:30px;">七维度得分一览</h4>
+  <div class="table-scroll">
+  <table style="max-width:600px;margin:0 auto;">
+    <tr><th>维度</th><th>得分</th><th>权重</th><th>加权得分</th></tr>
+    <tr><td>① 阵容实力</td><td>27</td><td>30%</td><td>8.10</td></tr>
+    <tr><td>② 战术体系与教练</td><td>69</td><td>20%</td><td>13.80</td></tr>
+    <tr><td>③ 近期竞技状态</td><td>41</td><td>15%</td><td>6.15</td></tr>
+    <tr><td>④ 大赛经验与心理素质</td><td>20</td><td>10%</td><td>2.00</td></tr>
+    <tr><td>⑤ 分组及赛程影响</td><td>21</td><td>10%</td><td>2.10</td></tr>
+    <tr><td>⑥ 团队凝聚力与场外环境</td><td>51</td><td>10%</td><td>5.10</td></tr>
+    <tr><td>⑦ 体能储备与伤病控制</td><td>43</td><td>5%</td><td>2.15</td></tr>
+    <tr style="font-weight:bold;background:#1a5276;color:#fff;">
+      <td>总分</td><td>—</td><td>100%</td><td>39.40</td>
+    </tr>
+  </table>
   </div>
 </div>
-<div class="bg-white rounded-xl shadow p-6 mb-6">
-  <h3 class="text-lg font-bold">小组赛预判</h3>
-  <table class="mt-2">
-    <tr><th>对手</th><th>预判</th></tr>
-    <tr><td>德国 🇩🇪</td><td>库拉索 0-6 负</td></tr>
-    <tr><td>厄瓜多尔 🇪🇨</td><td>库拉索 0-3 负</td></tr>
-    <tr><td>科特迪瓦 🇨🇮</td><td>库拉索 1-3 负（有希望进球）</td></tr>
+
+<!-- ===== SECTION 4: DEEP REVIEW ===== -->
+<div class="section">
+  <h2>（四）深度球评</h2>
+
+  <h3>核心优势</h3>
+  <div class="key-player">
+    <p><strong>1. 荷兰足球体系的战术底蕴</strong><br>
+    库拉索几乎全队的球员都出生或成长于荷兰足球的各级青训体系——从阿贾克斯、PSV、费耶诺德的青年队到荷甲/荷乙各俱乐部的一线队。这意味着球员们在战术理解力和位置感方面拥有统一的语言基础：他们都熟悉4-3-3阵型的基本移动路线、压迫时机和空间利用原则。这种"战术同源性"放在世界杯48强的背景下是一个常常被低估的资产——许多非洲和亚洲球队虽然拥有个人能力更强的球员，但在团队战术配合上常常出现不协调。而库拉索球员之间的默契度——尽管他们来自不同的荷兰俱乐部——比对大多数世界杯新军要高出不少。艾德沃卡特的战术要求（防守紧凑+快速转换）对荷兰青训出身的球员来说几乎不需要重新学习——他们从U15开始就接受的训练内容与老帅的战术理念高度重合。</p>
+  </div>
+  <div class="key-player">
+    <p><strong>2. "蓝白斗牛犬"的精神气质</strong><br>
+    库拉索队以"永不放弃"著称，这在他们的绰号"蓝白斗牛犬"中得到了体现。这支球队代表了人口仅15万的小岛的骄傲——每一个踏上世界杯赛场的库拉索球员都将自己视为"全岛人民的希望寄托"。预选赛中，库拉索展现了令人印象深刻的团队战斗精神——在面对特立尼达和多巴哥的客场比赛中，球队在高压环境下守住了0-0的平局确保出线。这种"为了彼此而战"的团队精神是小型球队在面对超级强队时最可靠的武器——它不能弥补天赋的差距，但可以确保球队在0-3落后时不至于溃不成军。艾德沃卡特的执教风格也以激发球员的斗志和纪律性见长——他曾说过"我的球队可能踢得不好看，但他们一定踢得硬"。</p>
+  </div>
+  <div class="key-player">
+    <p><strong>3. 78岁的"战术大脑"——艾德沃卡特</strong><br>
+    迪克·艾德沃卡特是库拉索在本届世界杯上最不可替代的"核武器"。50年执教生涯中，他几乎经历了足球世界的一切——世界杯（1994/2006）、欧洲杯（2004/2012）、欧联杯冠军（2008）、多国联赛冠军。——他比任何一个库拉索球员都更了解如何在世界杯的舞台上"活下去"。他的战术布置可以精确到每一个场景：面对德国时该采取何种防线高度、对厄瓜多尔时中场如何封锁对手的出球路线、对科特迪瓦时如何利用边路的快速转换制造威胁。更关键的是，艾德沃卡特在激励小球队对抗强队方面有着丰富的实践经验——2004年欧洲杯他带领荷兰在1/4决赛中点球淘汰了当时如日中天的瑞典，靠的就是严密的防守组织和针对性的反击战术。这种"老狐狸"般的智慧，是库拉索这个级别的球队在世界杯上最大的变量。</p>
+  </div>
+
+  <h3>致命短板</h3>
+  <div class="key-player">
+    <p><strong>1. 天赋与比赛级别的天堑鸿沟</strong><br>
+    库拉索全队总身价€2,603万，仅为同组德国队（约€8亿+）的三十分之一、科特迪瓦（€5.169亿）的二十分之一。这不是一个可以用"团队努力"来弥补的差距——当德国的穆西亚拉（身价约€1.2亿）面对库拉索的左后卫弗洛拉努斯（€80万，荷甲PEC兹沃勒）时，这对位在速度、技术、力量、经验、比赛阅读等所有维度上的差距都是数量级的。库拉索首发11人中，除了钟和汉森在英冠踢球、奥比斯波在PSV踢轮换外，其余8名球员的比赛级别均在荷甲中下游及以下——而荷甲的整体水平在欧洲只排第6-7位，远不及德国和科特迪瓦主力球员所在的英超/德甲/意甲。这意味着库拉索在每一条线每一个位置都可能被对手碾压。简单来说：这是一支由"荷兰足球体系中的二流球员"组成的球队，对阵的是"欧洲和非洲的顶级天赋"。</p>
+  </div>
+  <div class="key-player">
+    <p><strong>2. 世界杯首秀的"未知恐惧"</strong><br>
+    全队26人无一人有过世界杯经验，这是一个无法通过模拟训练来弥补的短板。世界杯比赛特有的节奏——开场阶段的试探、犯规尺度的把握、裁判施加的压力、VAR介入时的等待——都是库拉索球员从未经历过的。历史上，首次参赛的小国球队往往在首场比赛中呈现"不适应症"：球员跑位犹豫、传球失误增加、防守漏人频繁。库拉索首战即面对四届冠军德国队，如果在前20分钟就因紧张导致失误而丢球，比赛的走向将迅速从"争取体面"滑向"避免惨案"。艾德沃卡特的压力管理能力是破解这一困境的关键——他曾在赛前告诉记者"不要让球员觉得他们在与巨人作战，而要让他们觉得这是一场正常的足球比赛"。</p>
+  </div>
+
+  <h3>关键先生</h3>
+
+  <div class="key-player">
+    <h4>1. Tahith Chong（塔希斯·钟）— 边锋/攻击型中场，26岁</h4>
+    <p>钟是库拉索队在进攻端最有威胁的球员。这位前曼联青训产品2025/26赛季在谢菲尔德联（英冠）踢了20场比赛（16次首发），贡献3球2助攻。他的左脚技术和一对一突破能力是库拉索在反击中从后场推进到前场的关键手段——在CONCACAF预选赛中，钟多次利用个人盘带制造定位球或射门机会。钟在曼联青年队时期以"下一个小小罗"的绰号闻名，虽然后来的发展没有达到预期的高度，但他在英冠的实战经验至少确保了他的对抗能力可以勉强应对世界杯级别的边路防守。库拉索在世界杯上的进球目标，大概率需要通过钟的个人能力来实现——他能否在德国队的左路（可能由劳姆或戈森斯防守）找到突破空间，将决定库拉索能否在小组赛中取得进球。</p>
+  </div>
+
+  <div class="key-player">
+    <h4>2. Armando Obispo（阿曼多·奥比斯波）— 中后卫，27岁</h4>
+    <p>奥比斯波是库拉索后防线上唯一具备欧洲顶级联赛经验的球员。作为PSV埃因霍温的中卫轮换，他2025/26赛季在荷甲出场14次，随队参加了欧冠附加赛。奥比斯波的身高（185cm）和定位球争顶能力是库拉索在防守德国和科特迪瓦的高空球时有价值的存在。他的出球能力也是库拉索从后场组织进攻的重要环节——面对德国队的高位逼抢，奥比斯波能否在压力下准确地将球输送到中场或边路，将决定库拉索是否能打出有效的反击。但需要指出的是：他在PSV并非绝对主力，2025/26赛季缺乏连续出场的比赛节奏可能影响他的竞技状态。作为后防线身价最高的球员（€400万），奥比斯波需要在三场小组赛中承担起领袖责任——指挥防线站位、补位协防、在门将与后卫线之间建立沟通桥梁。</p>
+  </div>
+
+  <h3>小组赛预判</h3>
+  <table>
+    <tr><th>对手</th><th>比赛日期</th><th>场地</th><th>预计结果</th><th>概率评估</th></tr>
+    <tr><td>德国 🇩🇪</td><td>6月14日</td><td>休斯顿</td><td>0-4 负</td><td>拿分概率 2%</td></tr>
+    <tr><td>厄瓜多尔 🇪🇨</td><td>6月19日</td><td>TBD</td><td>0-2 负</td><td>拿分概率 10%</td></tr>
+    <tr><td>科特迪瓦 🇨🇮</td><td>6月25日</td><td>费城</td><td>1-3 负 / 1-1 平</td><td>拿分概率 15%</td></tr>
   </table>
-  <p class="mt-2"><strong>小组赛综合：3战全败，0分出局概率95%。最佳场景：对阵科特迪瓦打入世界杯首球。</strong></p>
+  <p class="analysis-text">
+    库拉索最现实的拿分目标是第三场对阵科特迪瓦——届时科特迪瓦可能已经提前出线或需要轮换球员，库拉索可以利用对手战略保留的机会争取一个平局甚至偷一个进球。首战对德国很难避免惨败——德国队的高压迫和快速传切会让库拉索的防守体系在60分钟内就全面崩溃。次战对厄瓜多尔是库拉索"防守反击的最优场景"——厄瓜多尔的进攻方式相对直接（依托边路传中和身体对抗），库拉索可以依靠密集防守和钟的反击速度与之周旋。综合预估：0-1分，小组垫底出局。如果能打入1-2个进球，就是巨大的成功。
+  </p>
+
+  <h3>淘汰赛路线推演</h3>
+  <p class="analysis-text">
+    库拉索从E组出线的概率理论上存在，但在现实中可以忽略不计。48队赛制提供的"最佳小组第三晋级名额"给了库拉索微弱的理论希望——如果能拿到2分（即两场平局）且有不错的净胜球，有可能以小组第三晋级32强。但考虑到库拉索的净胜球几乎一定会在大比分负于德国后变为显著的负数，这条路基本已被堵死。因此，库拉索的2026世界杯之旅最可能在三场小组赛后就画上句号。对于一个人口仅15万的岛国来说，能站在世界杯舞台上本身就已经是胜利——他们可以高昂着头离开，带着"世界杯史上最小参赛国"的传奇头衔，激励未来更多的小国在足球的世界里追逐梦想。
+  </p>
+
+  <h3>大师结语</h3>
+  <p style="font-size:18px;font-style:italic;color:#1a5276;text-align:center;padding:20px;border-top:2px solid #1a5276;border-bottom:2px solid #1a5276;margin:30px 0;">
+    "十五万人的小岛，五十年的梦想——库拉索不必以成败论英雄，他们的每一脚触球都已写入历史。"
+  </p>
 </div>
-<div class="bg-white rounded-xl shadow p-6 mb-6">
-  <h3 class="text-lg font-bold">淘汰赛路线推演</h3>
-  <p class="p-3 bg-red-50 rounded-lg">不存在。库拉索出线概率低于0.5%。</p>
-  <p class="mt-3 p-3 bg-blue-50 rounded-lg"><strong>核心判断：</strong>库拉索的参赛本身就是胜利——他们打破了"世界杯只在人口大国之间举行"的刻板印象。一个人口15万、面积444平方公里的加勒比小岛，在世界足球的最高舞台上拥有一席之地。他们的目标不是出线，而是在三场比赛中证明"我们配得上这个舞台"——尤其是对阵科特迪瓦的最后一战，如果能在世界杯进球榜上留下一个名字（"库拉索，首球，某某某"），这个国家的足球历史就被永久地改写了。</p>
-</div>
-<div class="bg-white rounded-xl shadow p-6 mb-6 text-center">
-  <h3 class="text-lg font-bold text-cur-blue">大师结语</h3>
-  <p class="text-xl italic mt-3 text-gray-700">"15万人的岛屿，444平方公里的土地，26个加勒比海的孩子和1位78岁的荷兰老人——库拉索的故事不是关于胜利，而是关于存在。当他们在休斯顿的夜空下对阵四星德国时，比分不重要——重要的是，那个曾在荷兰殖民地图上几乎被遗忘的小点，终于在世界足球的星图上亮了起来。如果上帝想让库拉索进一个球，他们会在费城对着科特迪瓦的大门，用一脚漂亮的射门为这个国度写下永恒。"</p>
-</div>
-<div class="text-center text-gray-400 text-sm py-6 border-t">
-  <p>© 2026 足球战力分析 · Powered by WorkBuddy AI｜数据截至2026年5月22日</p>
-  <p class="mt-1">数据来源：Olympics.com、SoccerGraph、FIFA官网等综合报道</p>
-</div>
+
 </div>
 
 <!-- HuaFootball: back-to-home button -->
@@ -278,17 +455,17 @@ tailwind.config = {
 .huafootball-back-btn {
   position:fixed!important;bottom:28px!important;right:28px!important;z-index:99999!important;
   display:inline-flex!important;align-items:center!important;gap:6px!important;
-  padding:10px 22px!important;background:rgba(26,71,42,0.85)!important;color:#c9a84c!important;
-  border:1px solid rgba(201,168,76,0.3)!important;border-radius:999px!important;
-  font-family:"Inter","Noto Sans SC",system-ui,sans-serif!important;font-size:13px!important;
+  padding:10px 22px!important;background:rgba(26,71,42,0.85)!important;color:#c8a951!important;
+  border:1px solid rgba(200,169,81,0.3)!important;border-radius:999px!important;
+  font-family:"Inter","PingFang SC",system-ui,sans-serif!important;font-size:13px!important;
   font-weight:600!important;text-decoration:none!important;
   backdrop-filter:blur(8px)!important;-webkit-backdrop-filter:blur(8px)!important;
   box-shadow:0 4px 20px rgba(0,0,0,0.3)!important;transition:all .25s ease!important;
   cursor:pointer!important;user-select:none!important;
 }
 .huafootball-back-btn:hover {
-  background:rgba(26,71,42,0.95)!important;border-color:rgba(201,168,76,0.5)!important;
-  box-shadow:0 6px 28px rgba(201,168,76,0.2)!important;transform:translateY(-2px)!important;
+  background:rgba(26,71,42,0.95)!important;border-color:rgba(200,169,81,0.5)!important;
+  box-shadow:0 6px 28px rgba(200,169,81,0.2)!important;transform:translateY(-2px)!important;
 }
 .huafootball-back-btn svg { transition:transform .2s ease!important; }
 .huafootball-back-btn:hover svg { transform:translateX(-3px)!important; }

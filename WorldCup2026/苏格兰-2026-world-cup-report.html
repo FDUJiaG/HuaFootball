@@ -4,257 +4,404 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>苏格兰 · 2026世界杯实力评估报告</title>
-<script src="https://cdn.tailwindcss.com"></script>
-<script>
-tailwind.config = { theme: { extend: { colors: { sc: { blue: '#005EB8', white: '#FFFFFF', red: '#CF142B', gold: '#FFD700' } }, fontFamily: { 'kai': ['KaiTi','STKaiti','SimKai','serif'], 'serif': ['Times New Roman','serif'] } } } }
-</script>
 <style>
-  body { font-family: KaiTi, STKaiti, SimKai, 'Times New Roman', serif; font-size: 11pt; }
-  .container { max-width: 1100px; margin: 0 auto; padding: 20px; }
-  h1 { font-size: 2em; } h2 { font-size: 1.5em; border-bottom: 3px solid #005EB8; padding-bottom: 8px; margin-top: 30px; }
-  h3 { font-size: 1.2em; margin-top: 20px; }
-  table { width: 100%; border-collapse: collapse; font-size: 11pt; }
-  th, td { border: 1px solid #ddd; padding: 8px 12px; text-align: left; }
-  th { background-color: #005EB8; color: white; font-weight: bold; }
-  tr:nth-child(even) { background-color: #f8f9fa; }
-  .score-bar { height: 20px; border-radius: 10px; background: #eee; overflow: hidden; }
-  .score-fill { height: 100%; border-radius: 10px; }
-  .dimension-card { background: white; border-radius: 12px; padding: 20px; margin-bottom: 20px; box-shadow: 0 2px 8px rgba(0,0,0,0.08); border-left: 5px solid #CF142B; }
-  .subitem { margin: 12px 0; padding: 12px; background: #f8f9fa; border-radius: 8px; }
-  .subitem h4 { color: #005EB8; font-weight: bold; margin-bottom: 6px; }
-  .summary-box { background: linear-gradient(135deg, #005EB8, #CF142B); border-radius: 16px; padding: 25px; margin: 20px 0; color: white; }
-  .badge { display: inline-block; padding: 2px 10px; border-radius: 12px; font-size: 0.85em; font-weight: bold; }
-  .badge-gk { background: #4CAF50; color: white; } .badge-df { background: #2196F3; color: white; }
-  .badge-mf { background: #FF9800; color: white; } .badge-fw { background: #f44336; color: white; }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: 'Times New Roman', 'KaiTi', '楷体', serif; background: #fff; color: #222; padding: 40px 20px; }
+  .container { max-width: 1000px; margin: 0 auto; }
+  .section { margin-bottom: 40px; }
+  .text-center { text-align: center; }
+  h1 { font-size: 32px; color: #003d88; margin: 15px 0 5px; }
+  h2 { font-size: 24px; color: #003d88; border-bottom: 3px solid #003d88; padding-bottom: 8px; margin: 35px 0 20px; }
+  h3 { font-size: 20px; color: #003d88; margin: 25px 0 15px; }
+  h4 { font-size: 17px; color: #333; margin: 18px 0 10px; }
+  .subtitle { color: #666; font-size: 14px; margin-bottom: 20px; }
+  table { width: 100%; border-collapse: collapse; margin: 15px 0; font-size: 14px; }
+  th, td { border: 1px solid #ddd; padding: 8px 10px; text-align: left; }
+  th { background: #003d88; color: #fff; font-weight: bold; }
+  tr:nth-child(even) { background: #e3f0ff; }
+  .rating-box { display: inline-block; font-size: 48px; font-weight: bold; color: #003d88; padding: 10px 30px; border: 4px solid #003d88; border-radius: 8px; margin: 10px 0; }
+  .total-score { font-size: 36px; font-weight: bold; color: #003d88; }
+  .sub-item { margin: 12px 0; padding: 10px 14px; background: #e3f0ff; border-left: 4px solid #003d88; border-radius: 3px; }
+  .sub-item-title { font-weight: bold; color: #003d88; }
+  .sub-item-score { float: right; font-weight: bold; }
+  .analysis-text { line-height: 1.8; text-indent: 2em; margin: 12px 0; font-size: 15px; color: #333; }
+  .divider { height: 1px; background: #eee; margin: 30px 0; }
+  .key-player { margin: 15px 0; padding: 12px 16px; background: #e3f0ff; border-left: 4px solid #003d88; border-radius: 3px; }
+  .key-player h4 { color: #003d88; margin: 0 0 6px; }
+  .key-player p { line-height: 1.7; font-size: 14px; }
+  .table-scroll { overflow-x: auto; }
+  @media print { body { padding: 20px; } }
 </style>
 </head>
-<body class="bg-gray-50">
+<body>
 <div class="container">
 
-<div class="section text-center bg-white rounded-2xl shadow-lg p-8 mb-8">
-  <img src="./logo/Scotland-logo.png" alt="苏格兰足协队徽" style="height:90px;width:auto;display:block;margin:0 auto 10px;" onerror="this.style.display='none';document.getElementById('logo-fb').style.display='block';" />
+<div class="section text-center">
+  <img src="https://upload.wikimedia.org/wikipedia/en/thumb/5/50/Scotland_national_football_team_logo_2014.svg/250px-Scotland_national_football_team_logo_2014.svg.png"
+       alt="苏格兰国家队队徽"
+       style="height:90px;width:auto;display:block;margin:0 auto 10px;"
+       onerror="this.style.display='none';document.getElementById('logo-fb').style.display='block';" />
   <div id="logo-fb" style="display:none;font-size:4em;margin-bottom:10px;">🏴󠁧󠁢󠁳󠁣󠁴󠁿</div>
-  <h1 class="text-4xl font-bold text-sc-blue mt-4">苏格兰 · 2026世界杯实力评估报告</h1>
-  <p class="text-gray-500 mt-2">报告生成日期：2026年5月24日 · 2026美加墨世界杯</p>
-  <div class="mt-3 p-2 inline-block bg-blue-50 rounded-lg border border-blue-200"><p class="text-sm"><strong>🏴󠁧󠁢󠁳󠁣󠁴󠁿 28年回归：</strong>自1998年法国世界杯后首次参赛 · C组· 与巴西+摩洛哥+海地同组</p></div>
+  <h1>苏格兰 · 2026世界杯实力评估报告</h1>
+  <p class="subtitle">Tartan Army（格子军团）· 28年后重返世界杯</p>
 </div>
 
-<h2 class="text-sc-blue">（一）球队基本信息</h2>
-<div class="bg-white rounded-xl shadow p-6 mb-6">
-  <div class="grid md:grid-cols-2 gap-4">
-    <div>
-      <p><strong>主教练：</strong>史蒂夫·克拉克（Steve Clarke）— 苏格兰人，2019年上任</p>
-      <p><strong>队长：</strong>安迪·罗伯逊（Andy Robertson）— 利物浦左后卫</p>
-      <p><strong>FIFA排名：</strong>约第30位</p>
-      <p><strong>世界杯参赛次数：</strong>第9次</p>
-      <p><strong>世界杯最佳成绩：</strong>小组赛（8次参赛全部小组出局😱）</p>
-      <p><strong>上届（2022）成绩：</strong>未晋级（上次参赛1998年）</p>
-    </div>
-    <div>
-      <p><strong>小组赛：</strong>C组</p>
-      <p><strong>同组对手：</strong>巴西 🇧🇷、摩洛哥 🇲🇦、海地 🇭🇹</p>
-      <p><strong>首战：</strong>6月13日 vs 海地（福克斯堡）— ⚠️ 必须赢</p>
-      <p><strong>次战：</strong>6月19日 vs 摩洛哥（福克斯堡）</p>
-      <p><strong>末轮：</strong>6月24日 vs 巴西（迈阿密花园）</p>
-      <div class="mt-2 p-2 bg-red-50 rounded"><p class="text-sm"><strong>📜 世界杯魔咒：</strong>8次参赛8次小组出局——世界杯历史上"参赛次数最多却从未小组出线"的球队</p></div>
-    </div>
-  </div>
-</div>
-
-<h3 class="text-xl font-bold text-sc-red">26人大名单（3 GK + 10 DF + 8 MF + 5 FW）</h3>
-<p class="text-gray-500 text-sm mb-3">* 5月19日公布 · 10后卫32强最多 · 罗伯逊+麦克托米奈+麦金领衔 · 戈登43岁最年长球员</p>
-
-<div class="bg-white rounded-xl shadow p-6 mb-6">
+<div class="section">
+  <h2>（一）球队基本信息</h2>
   <table>
-    <thead><tr><th>位置</th><th>球员姓名</th><th>英文名</th><th>俱乐部</th><th>联赛</th></tr></thead>
-    <tbody>
-      <tr><td><span class="badge badge-gk">GK</span></td><td><strong>⭐ 克雷格·戈登</strong></td><td><strong>Craig Gordon</strong></td><td><strong>哈茨</strong></td><td>苏超 · 43岁</td></tr>
-      <tr><td><span class="badge badge-gk">GK</span></td><td>安格斯·冈恩</td><td>Angus Gunn</td><td>诺丁汉森林</td><td>英超</td></tr>
-      <tr><td><span class="badge badge-gk">GK</span></td><td>利亚姆·凯利</td><td>Liam Kelly</td><td>流浪者</td><td>苏超</td></tr>
-      <tr><td><span class="badge badge-df">DF</span></td><td>格兰特·汉利</td><td>Grant Hanley</td><td>希伯尼安</td><td>苏超</td></tr>
-      <tr><td><span class="badge badge-df">DF</span></td><td>杰克·亨德利</td><td>Jack Hendry</td><td>阿尔埃蒂法克</td><td>沙特联</td></tr>
-      <tr><td><span class="badge badge-df">DF</span></td><td><strong>阿隆·希基</strong></td><td><strong>Aaron Hickey</strong></td><td><strong>布伦特福德</strong></td><td>英超</td></tr>
-      <tr><td><span class="badge badge-df">DF</span></td><td>多姆·海亚姆</td><td>Dom Hyam</td><td>雷克瑟姆</td><td>英甲</td></tr>
-      <tr><td><span class="badge badge-df">DF</span></td><td>斯科特·麦克纳</td><td>Scott McKenna</td><td>萨格勒布迪纳摩</td><td>克甲</td></tr>
-      <tr><td><span class="badge badge-df">DF</span></td><td><strong>内森·帕特森</strong></td><td><strong>Nathan Patterson</strong></td><td><strong>埃弗顿</strong></td><td>英超</td></tr>
-      <tr><td><span class="badge badge-df">DF</span></td><td>安东尼·拉尔斯顿</td><td>Anthony Ralston</td><td>凯尔特人</td><td>苏超</td></tr>
-      <tr><td><span class="badge badge-df">DF</span></td><td><strong>⭐ 安迪·罗伯逊 (C)</strong></td><td><strong>Andy Robertson</strong></td><td><strong>利物浦</strong></td><td>英超</td></tr>
-      <tr><td><span class="badge badge-df">DF</span></td><td>约翰·苏塔</td><td>John Souttar</td><td>流浪者</td><td>苏超</td></tr>
-      <tr><td><span class="badge badge-df">DF</span></td><td><strong>基兰·蒂尔尼</strong></td><td><strong>Kieran Tierney</strong></td><td><strong>凯尔特人</strong></td><td>苏超</td></tr>
-      <tr><td><span class="badge badge-mf">MF</span></td><td>瑞安·克里斯蒂</td><td>Ryan Christie</td><td>伯恩茅斯</td><td>英超</td></tr>
-      <tr><td><span class="badge badge-mf">MF</span></td><td>芬德利·柯蒂斯</td><td>Findlay Curtis</td><td>基尔马诺克</td><td>苏超</td></tr>
-      <tr><td><span class="badge badge-mf">MF</span></td><td><strong>刘易斯·弗格森</strong></td><td><strong>Lewis Ferguson</strong></td><td><strong>博洛尼亚</strong></td><td>意甲</td></tr>
-      <tr><td><span class="badge badge-mf">MF</span></td><td>本·甘农-多克</td><td>Ben Gannon-Doak</td><td>伯恩茅斯</td><td>英超</td></tr>
-      <tr><td><span class="badge badge-mf">MF</span></td><td><strong>比利·吉尔摩</strong></td><td><strong>Billy Gilmour</strong></td><td><strong>那不勒斯</strong></td><td>意甲</td></tr>
-      <tr><td><span class="badge badge-mf">MF</span></td><td><strong>⭐ 约翰·麦金</strong></td><td><strong>John McGinn</strong></td><td><strong>阿斯顿维拉</strong></td><td>英超</td></tr>
-      <tr><td><span class="badge badge-mf">MF</span></td><td>肯尼·麦克莱恩</td><td>Kenny McLean</td><td>诺维奇城</td><td>英冠</td></tr>
-      <tr><td><span class="badge badge-mf">MF</span></td><td><strong>⭐ 斯科特·麦克托米奈</strong></td><td><strong>Scott McTominay</strong></td><td><strong>那不勒斯</strong></td><td>意甲</td></tr>
-      <tr><td><span class="badge badge-fw">FW</span></td><td>切·亚当斯</td><td>Ché Adams</td><td>都灵</td><td>意甲</td></tr>
-      <tr><td><span class="badge badge-fw">FW</span></td><td>林登·戴克斯</td><td>Lyndon Dykes</td><td>查尔顿</td><td>英甲</td></tr>
-      <tr><td><span class="badge badge-fw">FW</span></td><td>乔治·赫斯特</td><td>George Hirst</td><td>伊普斯维奇</td><td>英超</td></tr>
-      <tr><td><span class="badge badge-fw">FW</span></td><td>劳伦斯·尚克兰</td><td>Lawrence Shankland</td><td>哈茨</td><td>苏超</td></tr>
-      <tr><td><span class="badge badge-fw">FW</span></td><td>罗斯·斯图尔特</td><td>Ross Stewart</td><td>南安普顿</td><td>英冠</td></tr>
-    </tbody>
+    <tr><th style="width:140px;">项目</th><th>内容</th></tr>
+    <tr><td>主教练</td><td>史蒂夫·克拉克（Steve Clarke），62岁，苏格兰籍，执教自2019年</td></tr>
+    <tr><td>队长</td><td>安迪·罗伯逊（Andy Robertson），32岁，左后卫</td></tr>
+    <tr><td>FIFA排名</td><td>第36位（2026年4月）</td></tr>
+    <tr><td>全队总身价</td><td><strong>€1.9623亿（约€196.23M）</strong></td></tr>
+    <tr><td>平均年龄</td><td>29.4岁（48强中最年长之一）</td></tr>
+    <tr><td>世界杯历史</td><td>第9次参赛，此前8次均止步小组赛——从未出线</td></tr>
+    <tr><td>最佳战绩</td><td>小组赛（从未进入淘汰赛）</td></tr>
+    <tr><td>上届世界杯</td><td>未晋级——上次参赛是1998年（28年前）</td></tr>
+    <tr><td>晋级方式</td><td>欧洲区预选赛——最后时刻4-2逆转丹麦，补时连入两球锁定门票</td></tr>
+    <tr><td>2026小组</td><td><strong>C组</strong>：巴西 🇧🇷、摩洛哥 🇲🇦、苏格兰 🏴󠁧󠁢󠁳󠁣󠁴󠁿、海地 🇭🇹</td></tr>
+    <tr><td>首场比赛</td><td>2026年6月13日 vs 海地（福克斯堡/波士顿）</td></tr>
   </table>
-  <div class="mt-3 p-3 bg-yellow-50 rounded-lg border border-yellow-200">
-    <p class="text-sm"><strong>🏴󠁧󠁢󠁳󠁣󠁴󠁿 核心六人组：</strong>罗伯逊（利物浦队长🏆）| 麦克托米奈（那不勒斯/意甲冠军）| 麦金（维拉队长）| 吉尔摩（那不勒斯）| 弗格森（博洛尼亚）| 蒂尔尼（凯尔特人/前阿森纳）— 英超+意甲骨干</p>
+</div>
+
+<div class="section">
+  <h3>26人大名单</h3>
+  <p><em>大名单于2026年5月19日公布，由主帅克拉克执掌。28年后首次参赛，阵容以2024欧洲杯班底为主。<strong>平均年龄29.4岁</strong>——48强中仅次于墨西哥。门将戈登（43岁）是本届世界杯最年长的球员之一。</em></p>
+
+  <div class="table-scroll"><table>
+    <tr><th>位置</th><th>球员姓名</th><th>年龄</th><th>所属俱乐部</th></tr>
+    <tr><td rowspan="3">GK</td><td>Craig Gordon</td><td>43</td><td>哈茨（苏超）</td></tr>
+    <tr><td>Angus Gunn</td><td>30</td><td>诺丁汉森林（英超）</td></tr>
+    <tr><td>Liam Kelly</td><td>30</td><td>流浪者（苏超）</td></tr>
+    <tr><td rowspan="10">DF</td><td>Andy Robertson <strong>(C)</strong></td><td>32</td><td>利物浦（英超）</td></tr>
+    <tr><td>Kieran Tierney</td><td>29</td><td>凯尔特人（苏超）</td></tr>
+    <tr><td>Grant Hanley</td><td>33</td><td>希伯尼安（苏超）</td></tr>
+    <tr><td>Jack Hendry</td><td>31</td><td>阿尔埃蒂法克（沙特）</td></tr>
+    <tr><td>John Souttar</td><td>29</td><td>流浪者（苏超）</td></tr>
+    <tr><td>Scott McKenna</td><td>28</td><td>萨格勒布迪纳摩（克甲）</td></tr>
+    <tr><td>Aaron Hickey</td><td>24</td><td>布伦特福德（英超）</td></tr>
+    <tr><td>Nathan Patterson</td><td>24</td><td>埃弗顿（英超）</td></tr>
+    <tr><td>Anthony Ralston</td><td>27</td><td>凯尔特人（苏超）</td></tr>
+    <tr><td>Dom Hyam</td><td>30</td><td>雷克瑟姆（英甲）</td></tr>
+    <tr><td rowspan="8">MF</td><td>John McGinn</td><td>31</td><td>阿斯顿维拉（英超）</td></tr>
+    <tr><td>Scott McTominay</td><td>29</td><td>那不勒斯（意甲）</td></tr>
+    <tr><td>Billy Gilmour</td><td>25</td><td>那不勒斯（意甲）</td></tr>
+    <tr><td>Lewis Ferguson</td><td>26</td><td>博洛尼亚（意甲）</td></tr>
+    <tr><td>Ryan Christie</td><td>31</td><td>伯恩茅斯（英超）</td></tr>
+    <tr><td>Kenny McLean</td><td>33</td><td>诺维奇城（英冠）</td></tr>
+    <tr><td>Findlay Curtis</td><td>23</td><td>流浪者（苏超）</td></tr>
+    <tr><td>Ben Gannon-Doak</td><td>22</td><td>伯恩茅斯（英超）</td></tr>
+    <tr><td rowspan="5">FW</td><td>Che Adams</td><td>29</td><td>都灵（意甲）</td></tr>
+    <tr><td>Lyndon Dykes</td><td>30</td><td>查尔顿竞技（英甲）</td></tr>
+    <tr><td>Lawrence Shankland</td><td>30</td><td>哈茨（苏超）</td></tr>
+    <tr><td>George Hirst</td><td>27</td><td>伊普斯维奇（英超）</td></tr>
+    <tr><td>Ross Stewart</td><td>29</td><td>南安普顿（英超）</td></tr>
+  </table></div>
+  <p style="font-size:13px;color:#666;margin-top:5px;">* 来源：苏格兰足协2026年5月19日公布。身价：约€1.96亿。28年后首返世界杯。</p>
+</div>
+
+<div class="section">
+  <h2>（二）逐项评分明细</h2>
+
+  <h3>维度一：阵容实力（权重30%）｜ 得分：59分 × 30% = 17.70分</h3>
+
+  <div class="sub-item">
+    <span class="sub-item-title">1.1 球星质量与个人能力</span><span class="sub-item-score">62分</span>
+    <p style="margin-top:8px;line-height:1.7;font-size:14px;">
+      苏格兰阵中最知名的球员是安迪·罗伯逊（利物浦队长之一）——他曾是英超最顶级的左后卫之一，但32岁的他已不再处于巅峰：2025/26赛季在利物浦英超仅出场22次（其中18次首发），场均跑动10.2km，助攻3次——数据较巅峰期（2020/21赛季11次助攻）明显下滑。约翰·麦金（阿斯顿维拉）是这支球队的"能量源泉"——31岁的他在2025/26赛季英超31场7球5助攻，是维拉中场的绝对主力。斯科特·麦克托米奈在那不勒斯打出了职业生涯最佳赛季——意甲32场8球3助攻，作为中场后插上得分手的效率惊人。基兰·蒂尔尼从阿森纳回归凯尔特人后状态有所回升，苏超赛季贡献4次助攻。比利·吉尔摩在那不勒斯获得了稳定的轮换出场时间（意甲22场），展现了不错的技术和控制力。前锋线是最大的短板——亚当斯在都灵意甲12球是队内最佳射手，但其他前锋如戴克斯（英甲查尔顿）和尚克兰（苏超哈茨）的进球产出在世界杯级别几乎可以忽略不计。
+    </p>
+  </div>
+  <div class="sub-item">
+    <span class="sub-item-title">1.2 各位置均衡度</span><span class="sub-item-score">58分</span>
+    <p style="margin-top:8px;line-height:1.7;font-size:14px;">
+      苏格兰的阵容呈现"左强右弱、中强锋弱"的显著偏科。左路拥有全队最强的两名球员——罗伯逊（利物浦）和蒂尔尼（凯尔特人）都是英超/苏超级别的左路球员，罗伯逊擅长传中和前插助攻，蒂尔尼在3-4-3体系中可以担任左中卫或左翼卫。右路则相对薄弱——帕特森（埃弗顿）出勤率不高（英超仅10次出场），拉尔斯顿（凯尔特人）是苏超级别，希基（布伦特福德）可以踢两边但更偏左路。中场是绝对的强点——麦金、麦克托米奈、吉尔摩和弗格森四人的组合在欧洲二流国家队中属于顶级配置：麦金提供能量和进球，麦克托米奈提供力量和后排插上，吉尔摩提供控制和组织，弗格森提供活力和前插。前锋线则是致命的短板——5名前锋全部不是英超/意甲常规主力级别的得分手。中后卫同样令人担忧——汉利（33岁/希伯尼安）、亨德利（31岁/沙特联赛）、苏塔（流浪者）的对抗能力和速度面对巴西的维尼修斯和摩洛哥的齐耶赫时将承受巨大的压力。
+    </p>
+  </div>
+  <div class="sub-item">
+    <span class="sub-item-title">1.3 板凳深度</span><span class="sub-item-score">60分</span>
+    <p style="margin-top:8px;line-height:1.7;font-size:14px;">
+      苏格兰的板凳深度在C组中位列第三（优于海地、远逊于巴西和摩洛哥）。中场的轮换选择最为充足——8名中场涵盖了不同的风格类型，克拉克可以根据比赛需要选择防守型（吉尔摩）、冲击型（麦克托米奈）、组织型（弗格森）或边路型（克里斯蒂）。后防线有10名球员，但真正的顶级水平仅限于罗伯逊和蒂尔尼两人，其余中卫和边卫选项在世界杯级别的对抗中可能存在不足。前锋线是深度最差的环节——5名前锋中几乎没有一个人可以在世界杯级别的比赛中担任"超级替补"的角色，亚当斯是唯一值得信赖的终结者。总体而言，苏格兰的16-17名球员具备一定的世界杯轮换能力，但替补席上缺乏能够改变比赛走势的球员。
+    </p>
+  </div>
+  <div class="sub-item">
+    <span class="sub-item-title">1.4 总身价与年龄结构</span><span class="sub-item-score">55分</span>
+    <p style="margin-top:8px;line-height:1.7;font-size:14px;">
+      苏格兰全队总身价€1.96亿在48强中排名第28-32位区间，在欧洲区中处于中下游水平。平均年龄29.4岁在所有参赛队中属于最年长梯队之一——这一方面说明了"经验驱动型"建队思路，另一方面也暴露了人才更新换代的滞后。门将戈登（43岁）如果出场，将成为世界杯历史上最年长的出场球员之一。中场麦金（31岁）、克里斯蒂（31岁）、麦克莱恩（33岁）和后防汉利（33岁）的年龄都已超过30。积极信号是：年轻的希基（24岁）、帕特森（24岁）、吉尔摩（25岁）和弗格森（26岁）代表着苏格兰足球的未来——但在本届世界杯上，他们还不足以完全承担起核心角色。苏格兰的年龄结构决定了：本届世界杯很可能是罗伯逊、麦金、麦克托米奈这一代球员的"唯一一届世界杯"——因为他们等待了28年才重返这个舞台，下次机会不知何时才会再来。
+    </p>
+  </div>
+
+  <h4 style="text-align:right;margin-top:10px;">均分：59分</h4>
+
+  <p class="analysis-text">
+    苏格兰的阵容实力在C组四队中排第三——明显强于海地，但远不如巴西和摩洛哥。这支球队的核心竞争力在于中场——麦金、麦克托米奈、吉尔摩和弗格森的组合在48强所有球队中至少可以排进中游偏上，他们能跑、能抢、能进球、能控球——四种不同类型的球员形成了良好的互补。麦金和麦克托米奈的后插上得分能力（两人2025/26赛季合计15球）是苏格兰进攻端最可靠的武器。然而，其他三条线的问题同样显著：前锋线缺乏一个能在世界杯级别的防守下稳定进球的终结者（亚当斯是都灵中锋意甲12球，是最接近这个标准的选项）；中后卫面对巴西和摩洛哥的顶级攻击手时将承受毁灭性压力；门将戈登43岁的年龄意味着爆发力和反应速度已不可靠。简而言之：苏格兰的中场可以在一定程度上与摩洛哥抗衡，但其他位置的硬件差距决定了他们在C组的天花板。
+  </p>
+
+  <div class="divider"></div>
+  <h3>维度二：战术体系与教练（权重20%）｜ 得分：63分 × 20% = 12.60分</h3>
+
+  <div class="sub-item">
+    <span class="sub-item-title">2.1 主帅战术哲学与大赛履历</span><span class="sub-item-score">65分</span>
+    <p style="margin-top:8px;line-height:1.7;font-size:14px;">
+      史蒂夫·克拉克（62岁）是苏格兰足球的"复兴建筑师"——他于2019年接手球队，带领苏格兰结束了连续22年无缘大赛的空白期（2020年欧洲杯），接着又历史性地重返世界杯（28年后）。他的执教风格以务实、保守著称：3-4-3是首选阵型，强调防守组织和中场的跑动覆盖，进攻端依赖边翼卫的前插和中场球员的后插上得分。克拉克的执教履历包括在切尔西担任助教（随队赢得多次英超冠军）、在利物浦担任助教以及在西布罗姆维奇、基尔马诺克和雷丁担任主教练。他的大赛经验：2020年欧洲杯——小组赛1平2负出局（0-2捷克、0-0英格兰、1-3克罗地亚）；2024年欧洲杯——小组赛1平2负出局（1-3德国、1-1瑞士、0-1匈牙利）。两届欧洲杯均为小组赛出局，但考虑到苏格兰的整体实力，这一结果并不令人意外。
+    </p>
+  </div>
+  <div class="sub-item">
+    <span class="sub-item-title">2.2 阵型适配性与球员契合度</span><span class="sub-item-score">65分</span>
+    <p style="margin-top:8px;line-height:1.7;font-size:14px;">
+      克拉克的3-4-3体系充分利用了苏格兰的人才储备特点。三中卫体系让罗伯逊和蒂尔尼可以同时上场——罗伯逊担任左翼卫（前插传中）、蒂尔尼担任左中卫（提供额外的防守覆盖和出球能力），这一配置曾被称为苏格兰的"左路黄金走廊"。双后腰配置中，吉尔摩担任组织型后腰（负责分球和节奏控制），麦克托米奈或麦金担任B2B角色（负责前插得分和对抗）。三前锋体系中，两名边锋（克里斯蒂和麦金/弗格森）内切，中锋（亚当斯）顶在最前。这一体系在预选赛中证明了有效性——尤其是对阵丹麦补时连入两球的逆转中，3-4-3在最后时刻变阵为3-3-4（撤下后卫增加前锋）取得了奇效。但问题在于：面对巴西和摩洛哥时，苏格兰的三中卫体系将面临巨大的边路防守压力——罗伯逊在利物浦习惯的四后卫体系中被要求更多参与进攻，但在苏格兰的三中卫体系中他需要承担更多的防守责任，这可能导致他无法充分发挥进攻端的优势。
+    </p>
+  </div>
+  <div class="sub-item">
+    <span class="sub-item-title">2.3 攻守转换效率</span><span class="sub-item-score">60分</span>
+    <p style="margin-top:8px;line-height:1.7;font-size:14px;">
+      苏格兰的进攻模式以"后场发动→找边翼卫（罗伯逊/蒂尔尼）传中→中锋抢点或中场后插上射门"为主。这种模式在对阵实力相近的对手时效率不错——预选赛中对阵丹麦时，罗伯逊两次精准的传中助攻。定位球进攻是苏格兰的重要武器——麦金和麦克托米奈的中场后插上在定位球战术中极具威胁（两人在五大联赛中都定位球数据出色）。但由攻转守的效率存在结构性隐患：三中卫体系中，当罗伯逊前插助攻后，左路的防守空当可能被对手的快速反击利用——面对摩洛哥的齐耶赫和阿什拉夫组合（右路二人组在巴黎圣日耳曼时就以反击速度著称），苏格兰的防线回追速度（中卫平均年龄31.5岁）将面临严酷考验。这一隐患在2024年欧洲杯的比赛中已经多次暴露——德国队正是通过快速转换在左边路打穿了苏格兰的防线。
+    </p>
+  </div>
+  <div class="sub-item">
+    <span class="sub-item-title">2.4 临场指挥与换人策略</span><span class="sub-item-score">58分</span>
+    <p style="margin-top:8px;line-height:1.7;font-size:14px;">
+      克拉克的临场指挥在预选赛对阵丹麦的比赛中展现了最佳状态——球队在1-2落后且进入补时阶段的情况下，他果断撤下一名中卫换上第三名前锋，最终球队在补时阶段连入两球逆转。但在欧洲杯的比赛中，克拉克的临场调整有时显得过于保守——2024年欧洲杯对阵匈牙利时，球队在0-0的僵局中直到第76分钟才做出第一个换人调整（换下体力下降的麦金），结果匈牙利在第82分钟打入制胜球。在世界杯C组中，克拉克面临的最大挑战是：对阵巴西和摩洛哥时如果早早落后，他是否有勇气在比赛初期就做出激进的换人调整？以他的性格，他可能更倾向于"保持阵型、等待机会"的保守策略，但这在面对强队时可能意味着"温水煮青蛙"式的慢性死亡。
+    </p>
+  </div>
+
+  <h4 style="text-align:right;margin-top:10px;">均分：63分</h4>
+
+  <p class="analysis-text">
+    克拉克是苏格兰足球的"国宝级教练"——不是因为他的战术多么惊艳，而是因为他将一支连续28年无缘世界杯的球队重新带回了世界舞台。他的3-4-3体系在资源有限的情况下最大化地利用了苏格兰的人才储备（尤其是左路的罗伯逊+蒂尔尼组合）。但客观地说，克拉克的战术水平在面对顶级强队时存在明显的天花板——两届欧洲杯小组赛出局（2020/2024）说明他的体系在面对欧洲强队时缺乏破局手段。在C组中，他的战术智慧将在对阵巴西和摩洛哥时受到终极检验：苏格兰几乎不可能在控球率上与巴西或摩洛哥抗衡，因此克拉克需要设计出一套"极端实用的防反体系"——后场密集防守、中场积极绞杀、前场速度快攻。如果他能复制2020年欧洲杯0-0逼平英格兰时的那种防守纪律性，苏格兰或许能够在巴西或摩洛哥身上偷到一个积分。
+  </p>
+
+  <div class="divider"></div>
+  <h3>维度三：近期竞技状态（权重15%）｜ 得分：59分 × 15% = 8.85分</h3>
+
+  <div class="sub-item">
+    <span class="sub-item-title">3.1 近12个月正式比赛战绩</span><span class="sub-item-score">58分</span>
+    <p style="margin-top:8px;line-height:1.7;font-size:14px;">
+      苏格兰在过去12个月的战绩可以概括为"预选赛高光、欧国联平庸"。预选赛对阵丹麦的4-2逆转是近年来苏格兰国家队最令人激动的时刻——补时阶段连入两球的戏剧性场面让整个苏格兰为之疯狂。但除此之外，苏格兰在其他比赛中的表现并不突出：2024年欧洲杯（实际在2024年6-7月）小组赛1平2负出局——1-3负于东道主德国、1-1战平瑞士（这是唯一的亮点）、0-1负于匈牙利。2025/26赛季欧国联B级联赛中，苏格兰与威尔士、冰岛等同组，战绩为2胜2平2负——排名小组第三，未能升入A级。整体来看，苏格兰在面对欧洲中下游球队时能够保持较强的竞争力（预选赛表现稳定），但在面对欧洲一流球队时几乎无法取得积极结果——这一模式在世界杯C组中可能被复制：击败海地大概率，但对阵巴西和摩洛哥难求一胜。
+    </p>
+  </div>
+  <div class="sub-item">
+    <span class="sub-item-title">3.2 预选赛出线含金量</span><span class="sub-item-score">60分</span>
+    <p style="margin-top:8px;line-height:1.7;font-size:14px;">
+      苏格兰通过欧洲区预选赛晋级，预选赛小组对手包括丹麦、克罗地亚等（具体小组对手因信息来源不同可能存在差异）。苏格兰最终以小组第二或通过附加赛晋级的方式锁定门票——考虑到他们28年无缘世界杯的历史，能够从竞争激烈的欧洲区突围本身就是一个值得肯定的成就。苏格兰在预选赛中展现了不错的客场战斗力（对阵强队时能够守住平局、对阵弱旅时能够稳定拿分）。但客观而言，欧洲区预选赛中苏格兰并未击败过真正的顶级强队——他们击败的对手中FIFA排名最高的是丹麦（第21位）——而世界杯C组中的巴西（第5位）和摩洛哥（第13位）的实力等级远超任何预选赛对手。
+    </p>
+  </div>
+  <div class="sub-item">
+    <span class="sub-item-title">3.3 核心球员俱乐部状态走势</span><span class="sub-item-score">60分</span>
+    <p style="margin-top:8px;line-height:1.7;font-size:14px;">
+      苏格兰核心球员的俱乐部状态整体稳定但亮点有限。麦金在阿斯顿维拉2025/26赛季英超31场7球5助攻——作为中场核心发挥稳定，是维拉最终排名英超第7的重要功臣之一。麦克托米奈在那不勒斯打出了个人最佳赛季——意甲32场8球3助攻，成为意甲中场进球数排名前三的球员，他的后插上得分能力已经引起了多家豪门关注。吉尔摩在那不勒斯获得了稳定的机会（意甲22场），在技术型中场角色中展现了出色的控球和传球能力。罗伯逊在利物浦的赛季表现（英超22场3助攻）令人担忧——他的出场次数（22次）是近五年来的最低值，助攻数（3次）也是自2017年以来的最差数据，这可能意味着32岁的他正在经历自然状态下滑。亚当斯在都灵意甲12球——这是苏格兰前锋中唯一一个在五大联赛中达到两位数进球的球员。整体来看，苏格兰核心球员的俱乐部状态处于"平均值"——没有大爆发，也没有大滑坡。
+    </p>
+  </div>
+
+  <h4 style="text-align:right;margin-top:10px;">均分：59分</h4>
+
+  <p class="analysis-text">
+    苏格兰的竞技状态评估核心词是"预选赛英雄、正赛平凡"。戏剧性逆转丹麦的晋级过程为球队注入了强大的团队信念和"永不言弃"的精神气质——这种气质在对阵海地的比赛中可能发挥关键作用（海地的实力在苏格兰之下，但主场球迷的支持可能使比赛变得艰难）。但欧洲杯连续两届小组赛出局（各1平5负）的战绩表明，苏格兰的正赛表现与预选赛之间存在明显的"差距"。麦克托米奈在那不勒斯的爆发是苏格兰最大的进攻利好——他的8个意甲进球中至少有4个是禁区外的远射，这种"不讲理的远射得分"在世界杯上可能是苏格兰破解密集防守（对海地）或偷得进球（对巴西/摩洛哥）的最重要武器。
+  </p>
+
+  <div class="divider"></div>
+  <h3>维度四：大赛经验与心理素质（权重10%）｜ 得分：42分 × 10% = 4.20分</h3>
+
+  <div class="sub-item">
+    <span class="sub-item-title">4.1 世界杯/洲际杯历史战绩</span><span class="sub-item-score">35分</span>
+    <p style="margin-top:8px;line-height:1.7;font-size:14px;">
+      苏格兰在世界杯历史上有一个最尴尬的纪录：参赛8次，8次小组赛出局——没有一次进入过淘汰赛。这一纪录在世界杯历史上极为罕见：苏格兰是参赛次数超过5次却从未出线的球队中最"资深"的代表。1954年（0-7负乌拉圭）、1958年（1-2负荷兰/1-1南斯拉夫）、1974年（1胜2平不败但因净胜球出局——这是最接近的一次）、1978年（3-2荷兰但小组出局）、1982年（击败新西兰但出局）、1986年（2-1胜瑞典但出局）、1990年（2-1瑞典但仍出局）、1998年（1-1挪威/1-2摩洛哥/0-3巴西）。1974年苏格兰以1胜2平的不败战绩因净胜球劣势被淘汰，堪称"最光荣的出局"。这一"屡战屡败"的历史是苏格兰球员无法回避的心理负担——他们每个人都深知"苏格兰从未小组出线"，这种历史叙事可能在高压力比赛的最后时刻转化为焦虑。
+    </p>
+  </div>
+  <div class="sub-item">
+    <span class="sub-item-title">4.2 核心球员大赛经验值</span><span class="sub-item-score">45分</span>
+    <p style="margin-top:8px;line-height:1.7;font-size:14px;">
+      苏格兰全队26人中没有任何球员有过世界杯正赛的出场经历——28年的缺席意味着整个国家的"世界杯记忆"对于球员来说只是童年回忆或历史资料。罗伯逊（利物浦）虽然拥有欧冠决赛经验（2019年冠军、2022年亚军）和英超冠军经验，但世界杯对他来说也是全新的领域。麦金（维拉）参加过欧联杯半决赛，麦克托米奈（那不勒斯）踢过欧冠——但这些欧战经验无法完全替代世界杯的独特压力环境。吉尔摩和弗格森等年轻球员甚至连欧战淘汰赛的经验都比较有限。苏格兰队中大赛经验最丰富的几名球员都是通过2020年和2024年欧洲杯积累的——两届欧洲杯合计6场比赛，战绩为1胜2平9负（唯一胜利是2020年欧洲杯2-0击败克罗地亚）。总体评价：苏格兰的核心球员拥有丰富的英超/意甲高端俱乐部赛事经验，但国家队顶级赛事的经验（尤其是世界杯）接近空白。
+    </p>
+  </div>
+  <div class="sub-item">
+    <span class="sub-item-title">4.3 抗压与逆境应对</span><span class="sub-item-score">50分</span>
+    <p style="margin-top:8px;line-height:1.7;font-size:14px;">
+      苏格兰的抗压表现可以用"补时之王"和"正赛崩盘"来概括其两面性。"补时之王"的一面：预选赛对阵丹麦补时连入两球逆转晋级——这是苏格兰近年抗压能力的最高体现。"正赛崩盘"的一面：2024欧洲杯对阵匈牙利在0-0僵局下第82分钟被绝杀——这暴露了球队在"必须赢"的高压比赛中缺乏足够的心理韧性。在C组中，苏格兰需要在首战对阵海地时顶住"28年首场世界杯"的紧张感和"必须取胜"的压力。2020年欧洲杯揭幕战对阵捷克的0-2失利可以作为前车之鉴——那场比赛中苏格兰在主场球迷面前表现紧张，上半场就因防守失误丢球。克拉克需要在赛前心理训练中帮助球员解决"首秀焦虑"的问题。
+    </p>
+  </div>
+
+  <h4 style="text-align:right;margin-top:10px;">均分：42分</h4>
+
+  <p class="analysis-text">
+    大赛经验是苏格兰最难以量化的"隐性短板"。8次参赛8次小组出局的尴尬纪录是这支球队无法回避的历史包袱——每一代苏格兰球员都在试图打破这个"小组赛魔咒"，但至今无人成功。本届的这批球员可能是最有希望的一代吗？从实力角度看，麦金、麦克托米奈、罗伯逊都是英超/意甲的核心级别球员，他们的个人能力可能已经超过了1974年和1998年的前辈。但从心态角度看，他们从未在世界杯舞台上证明过自己——而历史上那些苏格兰前辈们同样在淘汰赛前止步。首战对阵海地（C组最弱的对手）对于苏格兰来说是一场"必须赢"的心理战役——如果输了，28年的等待将以灾难收场；如果赢了，球队将带着"历史首胜"的信心去挑战摩洛哥。
+  </p>
+
+  <div class="divider"></div>
+  <h3>维度五：分组及赛程影响（权重10%）｜ 得分：44分 × 10% = 4.40分</h3>
+
+  <div class="sub-item">
+    <span class="sub-item-title">5.1 小组赛对手分析</span><span class="sub-item-score">42分</span>
+    <p style="margin-top:8px;line-height:1.7;font-size:14px;">
+      苏格兰的C组签运可以形容为"一场美梦+两场噩梦"。美梦：同组有海地（FIFA第90位）——这是C组中苏格兰唯一具备实力优势的对手，也是小组出线的必要条件。噩梦：巴西（FIFA第5位）是五届世界杯冠军，锋线拥有维尼修斯（皇马）、罗德里戈（皇马）和恩德里克（皇马/巴萨）等世界级攻击手——苏格兰的防线面对这种级别的攻击手时将处于全面劣势。摩洛哥（FIFA第13位）是2022年世界杯四强球队，拥有阿什拉夫（巴黎）、齐耶赫（切尔西/加拉塔萨雷）和阿姆拉巴特等顶级球员——其防守反击体系（2022年淘汰比利时、西班牙、葡萄牙）对苏格兰这种崇尚身体对抗但技术细腻度不足的球队来说是天敌级对手。三场比赛中，对海地的首战是苏格兰"最可能也最必须"赢的比赛；对摩洛哥的次战是"理论拿分窗口"（摩洛哥如果首战巴西消耗巨大，可能轮换）；对巴西的末战是"荣誉之战"。
+    </p>
+  </div>
+  <div class="sub-item">
+    <span class="sub-item-title">5.2 淘汰赛晋级路线预判</span><span class="sub-item-score">35分</span>
+    <p style="margin-top:8px;line-height:1.7;font-size:14px;">
+      如果苏格兰以小组第二出线（需要击败海地、逼平摩洛哥——这是最现实的出线路径），32强赛将对阵D组头名。D组是美国（东道主+波切蒂诺执教）、巴拉圭、澳大利亚和土耳其——无论对手是谁，苏格兰都将面对一支与自身体力相近的球队。如果苏格兰以小组第三出线（作为8个最佳小组第三之一），将对阵E组或F组头名——那将是德国或荷兰级别的对手，苏格兰几乎不可能过关。如果苏格兰奇迹般以小组头名出线（需要击败或逼平巴西——概率极低），32强赛将面对D组或另一组的小组第三——晋级路线将变得极为有利。总体来看，苏格兰最现实的出线剧本是：胜海地（3分）、平摩洛哥（4分）、负巴西（4分）——以小组第二或最佳第三出线。出线概率约25-30%。
+    </p>
+  </div>
+  <div class="sub-item">
+    <span class="sub-item-title">5.3 旅途与气候因素</span><span class="sub-item-score">60分</span>
+    <p style="margin-top:8px;line-height:1.7;font-size:14px;">
+      苏格兰的三场小组赛全部在美国进行——福克斯堡/波士顿（6月13日vs海地、6月19日vs摩洛哥）和迈阿密花园（6月24日vs巴西）。波士顿6月气温约18-25°C——对苏格兰球员来说非常舒适（苏格兰夏季气温通常为15-20°C）。迈阿密6月气温约25-32°C，湿度较高——对北欧球员来说可能是一种考验，但巴西球员同样受到炎热天气的影响（甚至更敏感）。波士顿和迈阿密之间的旅行距离约2,500公里（约3小时航程），对体能消耗可控。相比去东亚或中东比赛（时差、长途飞行、饮食不适应），苏格兰在北美比赛的条件已经是非常理想的——尤其是与28年前法国世界杯（1998年）时的欧洲内部旅行相比，本届的条件要轻松得多。
+    </p>
+  </div>
+
+  <h4 style="text-align:right;margin-top:10px;">均分：44分</h4>
+
+  <p class="analysis-text">
+    C组对苏格兰来说是一个"高风险高回报"的签位。好消息是海地在小组中——这是苏格兰打破"世界杯小组赛零胜纪录"的最佳机会。坏消息是巴西和摩洛哥的实力都是碾压级的——苏格兰必须在两场比赛中拿到至少1分才有出线机会。从赛程看，首战对海地是苏格兰"最有利"的比赛——如果赢球，球队带着3分的士气去挑战摩洛哥；如果不胜，出线希望将几乎彻底熄灭。次战摩洛哥是苏格兰"偷分"的最佳窗口——摩洛哥在首战巴西后可能遭遇体能消耗和可能的伤病，而苏格兰以逸待劳（中间休息6天），可以利用体能优势在下半场冲击摩洛哥。末战巴西大概率是荣誉之战——巴西可能在第三场前已经锁定出线，但即使巴西轮换，其替补阵容（如马丁内利、热苏斯等）仍然远强于苏格兰的前锋线。
+  </p>
+
+  <div class="divider"></div>
+  <h3>维度六：团队凝聚力与场外环境（权重10%）｜ 得分：68分 × 10% = 6.80分</h3>
+
+  <div class="sub-item">
+    <span class="sub-item-title">6.1 更衣室团结度</span><span class="sub-item-score">70分</span>
+    <p style="margin-top:8px;line-height:1.7;font-size:14px;">
+      苏格兰队的更衣室氛围是这支球队最大的无形财富。克拉克上任以来，在球队中建立了强大的"兄弟情谊"文化——球员们将彼此称为"Tartan Army的战士"，将代表苏格兰出战视为一种荣誉而非负担。罗伯逊作为队长性格谦逊、敬业，深受队友尊重——他在利物浦的队长经验（与亨德森共同领导更衣室）使他具备了"串联更衣室"的领导力。麦金是球队的"气氛组组长"——他以乐天派性格和永不停歇的奔跑感染着身边的每个人。苏格兰队内没有任何公开的派系矛盾或不和传闻——这与苏格兰足球文化中"团结大于个人"的传统一致。28年未能参加世界杯的"饥渴感"将整个团队凝聚在一起——球员们知道这可能是一代人中的唯一一次机会，不想留下任何遗憾。
+    </p>
+  </div>
+  <div class="sub-item">
+    <span class="sub-item-title">6.2 足协稳定性与管理</span><span class="sub-item-score">65分</span>
+    <p style="margin-top:8px;line-height:1.7;font-size:14px;">
+      苏格兰足协（SFA）在克拉克的领导下保持了长期的稳定——克拉克自2019年上任以来未受到任何下课威胁，这在现代足球中并不常见。SFA为本届世界杯备战提供了充分的资源保障——包括在美国设立集训营、安排热身赛（对手包括奥地利、比利时等）等。苏格兰足协在预算和管理水平上虽然无法与英格兰、德国等超级强队相比，但在欧洲中等规模足协中属于运营良好的典范。克拉克的教练组结构完整（包括助教、体能教练、守门员教练和表现分析师），团队之间的协作关系成熟。总体而言，苏格兰的管理层环境"平稳、有序、专注"——没有内耗和政策变动干扰球队的备战。
+    </p>
+  </div>
+  <div class="sub-item">
+    <span class="sub-item-title">6.3 国内舆论与媒体压力</span><span class="sub-item-score">68分</span>
+    <p style="margin-top:8px;line-height:1.7;font-size:14px;">
+      苏格兰国内对于球队重返世界杯的舆论氛围是"狂喜中混杂着清醒的期待"。28年的等待让全国上下对"Tartan Army"的出征充满热情——预计将有超过2万名苏格兰球迷奔赴北美支持球队。媒体方面，苏格兰的体育媒体（如《苏格兰太阳报》、《每日纪事报》等）的报道基调以鼓舞士气和积极正面的故事为主，批评声相对克制。期望值的设定比较合理：大多数评论认为"小组出线是值得庆祝的突破，小组出局并非失败"——这种理性的预期有助于球员在没有过度压力的情况下发挥。但苏格兰球迷的热情也可能转化为焦虑——如果首战对阵海地的比赛中球队久攻不下，看台上的2万名苏格兰球迷的焦虑情绪可能传导到场上，影响球员的决策质量。
+    </p>
+  </div>
+
+  <h4 style="text-align:right;margin-top:10px;">均分：68分</h4>
+
+  <p class="analysis-text">
+    苏格兰的团队"软实力"在所有维度中评分最高——这是克拉克执教六年最重要的成果。他不仅打造了一支战术上成熟的球队，更重要的是建立了一种"为彼此而战"的团队文化。"Tartan Army"（格子军团）的球迷文化是全球足球迷中最著名、最热情的文化之一——预计约2万名苏格兰球迷将跨越重洋来到北美，他们的歌声和支持将为球队提供额外的动力。罗伯逊和麦金的领导力分工明确——罗伯逊在场上冷静指挥，麦金在更衣室调动情绪。28年的等待让这批球员充满了"证明自己"的渴望——这种渴望如果转化为专注和纪律，将成为他们对抗巴西和摩洛哥时最可靠的精神武器。
+  </p>
+
+  <div class="divider"></div>
+  <h3>维度七：体能储备与伤病控制（权重5%）｜ 得分：53分 × 5% = 2.65分</h3>
+
+  <div class="sub-item">
+    <span class="sub-item-title">7.1 赛季疲劳度评估</span><span class="sub-item-score">52分</span>
+    <p style="margin-top:8px;line-height:1.7;font-size:14px;">
+      苏格兰队大部分球员刚结束了完整的2025/26赛季。麦金（维拉）在英超踢了31场，赛季出场约2,600分钟——作为中场核心属于正常负荷。麦克托米奈在那不勒斯踢了32场意甲+欧冠约6场，合计约2,800分钟——这是他在欧洲顶级联赛中出场最多的一季。罗伯逊在利物浦出场22次（约1,800分钟）——因伤病和状态下滑导致出场时间下降，但对于世界杯来说，较低的赛季负荷可能意味着更好的体能储备。吉尔摩（那不勒斯出场22次，约1,200分钟）和蒂尔尼（凯尔特人出场25次）的出场时间都在可控范围内。戈登（43岁/哈茨）在苏超出场28次——对于门将来说属于正常负荷，但43岁的身体恢复速度与年轻球员无法相提并论。整体来看，苏格兰核心球员的赛季负荷处于正常偏低的水平——这可能在体能维度对小组赛末战巴西有利。
+    </p>
+  </div>
+  <div class="sub-item">
+    <span class="sub-item-title">7.2 关键伤病与恢复情况</span><span class="sub-item-score">50分</span>
+    <p style="margin-top:8px;line-height:1.7;font-size:14px;">
+      苏格兰队在大名单公布时没有重大伤病报告——这是一个积极信号。但罗伯特森和蒂尔尼的伤病史是需要关注的风险因素：罗伯逊在2024/25赛季曾因肩伤缺席了2个月，2025/26赛季也因小腿问题错过了4场比赛——32岁的他身体脆性正在增加。帕特森（埃弗顿）的职业生涯一直被伤病困扰——2025/26赛季因大腿伤缺席了3个月。戈登（43岁）虽然没有结构性伤病，但高龄带来的肌肉恢复能力下降和受伤风险是客观存在的。积极的一面是：麦金（维拉）和麦克托米奈（那不勒斯）都保持了全勤或接近全勤的出勤率——两人近年来几乎不受伤病困扰，是苏格兰队最"耐用"的核心球员。
+    </p>
+  </div>
+  <div class="sub-item">
+    <span class="sub-item-title">7.3 医疗团队与保障水平</span><span class="sub-item-score">58分</span>
+    <p style="margin-top:8px;line-height:1.7;font-size:14px;">
+      苏格兰足协配备的医疗和体能保障团队在英国本土属于中等水平。苏格兰队在世界杯前于美国设立了训练营，可以使用当地的先进训练设施。但苏格兰的医疗保障资源与英格兰、德国等顶级足球强国相比存在差距——在运动科学、营养管理和数据分析方面的投入有限。克拉克的教练团队中包含经验丰富的体能教练，在球员的身体状态管理方面应该不会出现严重问题。总体而言，苏格兰的医疗保障水平可以满足世界杯的基本需求——虽然不是最优配置，但不太可能成为球队表现的拖累。
+    </p>
+  </div>
+
+  <h4 style="text-align:right;margin-top:10px;">均分：53分</h4>
+
+  <p class="analysis-text">
+    苏格兰体能维度的最大利好是"核心球员赛季负荷偏低"——罗伯逊、蒂尔尼、吉尔摩出场时间都控制在相对较低的范围内，这意味着他们在世界杯上可能具备比预期更好的体能储备。但最大的隐患是"老龄化"——平均年龄29.4岁且门将戈登43岁的配置意味着球队在高强度比赛末段的体能下降速度可能快于年轻化的对手（尤其是摩洛哥）。面对摩洛哥的比赛中，苏格兰需要在75分钟后仍然保持防守专注——而摩洛哥2022年世界杯多场淘汰赛加时的经历证明他们是体能管理最好的非洲球队之一。这是一个潜在的不利因素。
+  </p>
+</div>
+
+<div class="section text-center">
+  <h2>（三）综合总分与评级</h2>
+  <div style="margin:25px 0;">
+    <div style="font-size:18px;color:#666;margin-bottom:10px;">加权总分</div>
+    <div class="total-score">57.20 / 100</div>
+  </div>
+  <div style="margin:25px 0;">
+    <div style="font-size:18px;color:#666;margin-bottom:10px;">实力评级</div>
+    <div class="rating-box">D+</div>
+    <div style="font-size:16px;color:#003d88;margin-top:8px;">实力有限，争取扮演搅局者</div>
+  </div>
+
+  <h4 style="margin-top:30px;">七维度得分一览</h4>
+  <div class="table-scroll">
+  <table style="max-width:600px;margin:0 auto;">
+    <tr><th>维度</th><th>得分</th><th>权重</th><th>加权得分</th></tr>
+    <tr><td>① 阵容实力</td><td>59</td><td>30%</td><td>17.70</td></tr>
+    <tr><td>② 战术体系与教练</td><td>63</td><td>20%</td><td>12.60</td></tr>
+    <tr><td>③ 近期竞技状态</td><td>59</td><td>15%</td><td>8.85</td></tr>
+    <tr><td>④ 大赛经验与心理素质</td><td>42</td><td>10%</td><td>4.20</td></tr>
+    <tr><td>⑤ 分组及赛程影响</td><td>44</td><td>10%</td><td>4.40</td></tr>
+    <tr><td>⑥ 团队凝聚力与场外环境</td><td>68</td><td>10%</td><td>6.80</td></tr>
+    <tr><td>⑦ 体能储备与伤病控制</td><td>53</td><td>5%</td><td>2.65</td></tr>
+    <tr style="font-weight:bold;background:#003d88;color:#fff;">
+      <td>总分</td><td>—</td><td>100%</td><td>57.20</td>
+    </tr>
+  </table>
   </div>
 </div>
 
-<h2 class="text-sc-blue">（二）逐项评分明细</h2>
+<div class="section">
+  <h2>（四）深度球评</h2>
 
-<div class="dimension-card">
-  <h3 class="text-xl font-bold text-sc-red">维度一：阵容实力（权重30%）｜ 52分 × 30% = 15.6分</h3>
-  <div class="subitem"><h4>1.1 球星质量 —— 55分</h4>
-    <table class="text-sm mb-2"><tr><th>指标</th><th>数据</th></tr>
-      <tr><td>英超球员</td><td>8人（罗伯逊/利物浦、麦金/维拉、吉尔摩/那不勒斯意甲、希基/布伦特福德等）</td></tr>
-      <tr><td>意甲球员</td><td>3人（麦克托米奈+吉尔摩/那不勒斯、弗格森/博洛尼亚）</td></tr>
-      <tr><td>利物浦队长</td><td>罗伯逊——世界前三左后卫，欧冠+英超冠军得主</td></tr>
-    </table>
-    <p>苏格兰的阵容质量在C组中仅次于巴西，与摩洛哥旗鼓相当。安迪·罗伯逊是英超历史上最成功的左后卫之一——他在利物浦赢得过欧冠和英超冠军，他的传中和前插是苏格兰进攻端最重要的"武器发射器"。约翰·麦金在阿斯顿维拉是绝对核心——他的后插上得分、跑动覆盖和领袖气质使他成为苏格兰中场最不可替代的球员。斯科特·麦克托米奈在那不勒斯锻炼了一个出色的赛季——他的后排插上远射和禁区争顶是苏格兰定位球战术中最有效的得分手段。比利·吉尔摩在那不勒斯逐步成长——他的控球和短传能力为苏格兰中场增添了稀缺的技术元素。刘易斯·弗格森在博洛尼亚是意甲最受关注的中场之一——他的全面性使他成为"苏格兰下一个顶级球员"的热门候选。后防线上除了罗伯逊，蒂尔尼（凯尔特人/前阿森纳）在左路的竞争力提供了奢侈的轮换深度——苏格兰拥有两名"英超/欧冠级别"的左后卫。</p>
+  <h3>核心优势</h3>
+  <div class="key-player">
+    <p><strong>1. "麦金+麦克托米奈"的中场双核推进器</strong><br>
+    约翰·麦金和斯科特·麦克托米奈是苏格兰足球历史上最强大的中场组合之一。麦金（维拉）2025/26赛季英超7球5助攻——他的无球跑动、对抗能力和后插上得分能力使他成为苏格兰创造射门机会的最重要来源。麦克托米奈在那不勒斯打出了意甲8球3助攻——他从后场插入禁区的得分模式与麦金形成了完美的互补：当麦金拉边创造空间时，麦克托米奈可以从中路插入完成射门。两人合计在英超+意甲贡献了15球——这一数据在所有参赛队的中场组合中排名前列。更重要的是，两人的风格互补——麦金以跑动和对抗见长，麦克托米奈以力量和射门见长——让对手难以同时限制两人。在对阵海地的比赛中，这对"双核"将是苏格兰攻破铁桶阵的最可靠武器。</p>
   </div>
-  <div class="subitem"><h4>1.2 各位置均衡度 —— 62分</h4><p>10名后卫的配置是32强中最多的——这反映了克拉克的"先守再攻"哲学。三中卫或五后卫体系中，罗伯逊和蒂尔尼担任翼卫将使苏格兰的边路进攻极具威胁。中场8人的配置也是32强中最深厚的之一——麦金+麦克托米奈+吉尔摩+弗格森的组合在技术完整性和战术多样性上可媲美不少欧洲强队。锋线5人是最薄弱的环节——切·亚当斯（都灵/意甲）是唯一在五大联赛踢球的前锋，戴克斯（英甲）、赫斯特（英超伊普斯维奇轮换）、尚克兰（苏超）和斯图尔特（英冠）的进球效率在世界杯级别上令人担忧。</p></div>
-  <div class="subitem"><h4>1.3 板凳深度 —— 58分</h4><p>中后场的深度相当可观——10名后卫+8名中场意味着克拉克有充足的轮换选择。但锋线深度不足——如果亚当斯状态不佳或受伤，替补前锋来自英甲/苏超级别，进球能力将断崖式下降。</p></div>
-  <div class="subitem"><h4>1.4 身价与年龄 —— 60分</h4><p>全队总身价约2亿欧元（32强中游）。核心球员年龄合理（麦金31岁、罗伯逊32岁、麦克托米奈29岁、弗格森26岁、吉尔摩24岁）。戈登（43岁）是年龄隐患但他是第三门将。</p></div>
-  <div class="score-bar mt-3"><div class="score-fill" style="width:62%;background:linear-gradient(90deg,#CF142B,#005EB8);"></div></div>
-  <p class="text-right text-sm text-gray-500 mt-1">维度一总评：<strong>62分</strong> × 30% = <strong>18.6分</strong></p>
-</div>
-
-<div class="dimension-card">
-  <h3 class="text-xl font-bold text-sc-red">维度二：战术体系与教练（权重20%）｜ 67.5分 × 20% = 13.5分</h3>
-  <div class="subitem"><h4>2.1 主帅哲学 —— 72分</h4><p>史蒂夫·克拉克自2019年起执教苏格兰，是队史最成功的教练之一——率队连续参加2020和2024两届欧洲杯（2020年小组出线、2024年小组赛但表现出色），并历史性时隔28年重返世界杯。他的战术以"务实防守+高效定位球"为核心——苏格兰在2024欧洲杯上通过定位球打入3球（占比50%）。</p></div>
-  <div class="subitem"><h4>2.2 阵型适配 —— 68分</h4><p>克拉克的招牌阵型是3-4-2-1或5-4-1——三中卫（汉利+亨德利+麦克纳/苏塔）提供防守深度，翼卫（罗伯逊+希基/帕特森）是进攻发起点，双前腰（麦金+麦克托米奈）后插上冲击。</p></div>
-  <div class="subitem"><h4>2.3 转换效率 —— 62分</h4><p>苏格兰的攻守转换并不以速度见长——他们更依赖定位球和边路传中。麦金的后插上是转换中最大的威胁点。</p></div>
-  <div class="subitem"><h4>2.4 临场指挥 —— 68分</h4><p>克拉克在欧洲杯上的换人决策总体稳健——他懂得在领先时巩固防守、在落后时增加进攻人数。2024欧洲杯对阵匈牙利时他在第86分钟换上进攻球员搏命（虽然最终被绝杀），展现了他的勇气。</p></div>
-  <div class="score-bar mt-3"><div class="score-fill" style="width:67%;background:linear-gradient(90deg,#CF142B,#005EB8);"></div></div>
-  <p class="text-right text-sm text-gray-500 mt-1">维度二总评：<strong>67.5分</strong> × 20% = <strong>13.5分</strong></p>
-</div>
-
-<div class="dimension-card">
-  <h3 class="text-xl font-bold text-sc-red">维度三：竞技状态（权重15%）｜ 67分 × 15% = 10.05分</h3>
-  <div class="subitem"><h4>3.1 近12个月战绩 —— 68分</h4><p>苏格兰在欧洲区预选赛中表现出色——以小组第二身份直接晋级（击败了挪威、以色列等队）。2024欧洲杯上虽然小组出局但表现值得尊重（1-1平瑞士、1-5负德国、0-1负匈牙利）。</p></div>
-  <div class="subitem"><h4>3.2 含金量 —— 65分</h4><p>欧洲区预选赛的竞争力不容置疑——苏格兰在关键战中展现了抗压能力。</p></div>
-  <div class="subitem"><h4>3.3 核心球员状态 —— 68分</h4>
-    <table class="text-sm mb-2"><tr><th>球员</th><th>本赛季表现</th><th>状态</th></tr>
-      <tr><td>罗伯逊（利物浦）</td><td>英超28场，助攻6次，左路发动机</td><td>✅ 稳定</td></tr>
-      <tr><td>麦金（维拉）</td><td>英超32场7球8助攻，核心</td><td>🔥 火热</td></tr>
-      <tr><td>麦克托米奈（那不勒斯）</td><td>意甲26场6球，后插上利器</td><td>🔥 火热</td></tr>
-      <tr><td>吉尔摩（那不勒斯）</td><td>意甲22场，中场节拍器</td><td>✅ 稳定</td></tr>
-      <tr><td>弗格森（博洛尼亚）</td><td>意甲24场5球，全能中场</td><td>✅ 稳定</td></tr>
-      <tr><td>亚当斯（都灵）</td><td>意甲20场4球，锋线首选</td><td>⬇️ 一般</td></tr>
-    </table>
-    <p>苏格兰中场的俱乐部状态是近年来最好的——麦金在维拉迎来了职业生涯巅峰，麦克托米奈在那不勒斯成为关键球员，弗格森在博洛尼亚持续进化。</p>
+  <div class="key-player">
+    <p><strong>2. "Tartan Army"——世界杯最狂热的球迷军团</strong><br>
+    苏格兰球迷文化在全球足球迷文化中独树一帜——热情但不暴力、忠诚但不偏激。预计将有超过2万名苏格兰球迷前往北美观看小组赛——在波士顿（福克斯堡）对阵海地的首战中，他们将成为场上的"第12人"。苏格兰球迷的歌声（如《Flower of Scotland》）是球队最强大的精神动力——2020年欧洲杯上，苏格兰球迷在汉普顿公园营造的氛围令对手窒息。当苏格兰在世界杯赛场上感到疲惫或紧张时，看台上"Tartan Army"的歌声将是最好的"能量补给"。这种独特的球迷文化是苏格兰足球最大的无形资产——也是海地这种首次参赛的球队所无法比拟的"主场氛围"。</p>
   </div>
-  <div class="score-bar mt-3"><div class="score-fill" style="width:67%;background:linear-gradient(90deg,#CF142B,#005EB8);"></div></div>
-  <p class="text-right text-sm text-gray-500 mt-1">维度三总评：<strong>67分</strong> × 15% = <strong>10.05分</strong></p>
-</div>
-
-<div class="dimension-card">
-  <h3 class="text-xl font-bold text-sc-red">维度四：大赛经验（权重10%）｜ 55分 × 10% = 5.5分</h3>
-  <div class="subitem"><h4>4.1 世界杯历史 —— 45分</h4><p>苏格兰是世界杯历史上最大的"小组赛专业户"——8次参赛8次小组出局，这个纪录既尴尬又独特。1998年是最近一次，当时1-2巴西、1-1挪威、0-3摩洛哥——小组垫底出局。</p></div>
-  <div class="subitem"><h4>4.2 核心经验 —— 55分</h4><p>罗伯逊参加过2020和2024欧洲杯，麦金、麦克托米奈、吉尔摩也有欧洲杯经验。但世界杯是全新的体验——福克斯堡首战海地时的紧张感和压力可能与欧洲杯完全不同。</p></div>
-  <div class="subitem"><h4>4.3 抗压能力 —— 65分</h4><p>苏格兰以"战斗精神"著称——"格子军团从不轻易认输"这句话在苏格兰身上同样适用。对阵海地的首战是"必须赢"的比赛——苏格兰需要证明自己配得上28年后的回归。</p></div>
-  <div class="score-bar mt-3"><div class="score-fill" style="width:55%;background:linear-gradient(90deg,#CF142B,#005EB8);"></div></div>
-  <p class="text-right text-sm text-gray-500 mt-1">维度四总评：<strong>55分</strong> × 10% = <strong>5.5分</strong></p>
-</div>
-
-<div class="dimension-card">
-  <h3 class="text-xl font-bold text-sc-red">维度五：分组赛程（权重10%）｜ 50分 × 10% = 5.0分</h3>
-  <div class="subitem"><h4>5.1 小组对手 —— 48分</h4>
-    <table class="text-sm mb-2"><tr><th>对手</th><th>苏格兰胜率</th></tr>
-      <tr><td>海地 🇭🇹</td><td>65-70% ✅ 必须赢</td></tr>
-      <tr><td>摩洛哥 🇲🇦</td><td>40-45% ⚔️ 关键战</td></tr>
-      <tr><td>巴西 🇧🇷</td><td>15-20% 💪 少输当赢</td></tr>
-    </table>
-    <p>C组出线形势：巴西锁定第一（95%），摩洛哥和苏格兰争夺小组第二——这意味着6月19日苏格兰vs摩洛哥将是一场"谁赢谁出线"的生死战。</p>
+  <div class="key-player">
+    <p><strong>3. 团队的兄弟情谊和28年的"饥渴感"</strong><br>
+    克拉克在过去六年中构建了一支团结如兄弟的球队——球员们多次在采访中提到"为了彼此而战"的信念。预选赛补时逆转丹麦的戏剧性胜利让这支球队的凝聚力达到了顶峰——球员们在终场哨响后抱在一起哭泣的画面感动了整个苏格兰。28年的等待给了这批球员一种"这是我们的机会"的紧迫感——罗伯逊、麦金、麦克托米奈这批球员正处于或接近职业生涯巅峰，他们清楚地知道本届世界杯很可能是他们唯一一次参加世界杯的机会。这种"孤注一掷"的心态在杯赛中有时比纸面实力更重要——当球员愿意为了每一个球权拼尽最后一丝体能时，他们可以在某些时刻超越自己的天赋限制。</p>
   </div>
-  <div class="subitem"><h4>5.2 晋级路线 —— 45分</h4><p>如果小组第二出线，16强将对阵D组第一（可能法国/荷兰/英格兰），胜率不高。但进入16强本身就将打破苏格兰"8次小组出局"的魔咒——这已经是历史性突破。</p></div>
-  <div class="subitem"><h4>5.3 旅途气候 —— 58分</h4><p>前两场在福克斯堡（马萨诸塞州/新英格兰地区，气候温和），末战在迈阿密（湿热）。福克斯堡→迈阿密的移动合理。</p></div>
-  <div class="score-bar mt-3"><div class="score-fill" style="width:50%;background:linear-gradient(90deg,#CF142B,#005EB8);"></div></div>
-  <p class="text-right text-sm text-gray-500 mt-1">维度五总评：<strong>50分</strong> × 10% = <strong>5.0分</strong></p>
-</div>
 
-<div class="dimension-card">
-  <h3 class="text-xl font-bold text-sc-red">维度六：团队凝聚力（权重10%）｜ 65分 × 10% = 6.5分</h3>
-  <div class="subitem"><h4>6.1 更衣室 —— 70分</h4><p>罗伯逊是足球界最受尊敬的队长之一——他的领导风格以"谦逊但坚定"著称。克拉克与球员的关系非常融洽，苏格兰的团队氛围以团结和斗志闻名。</p></div>
-  <div class="subitem"><h4>6.2 足协 —— 68分</h4><p>苏格兰足协（SFA）管理规范，为世界杯备战提供了良好的后勤保障。</p></div>
-  <div class="subitem"><h4>6.3 舆论压力 —— 58分</h4><p>苏格兰国内对世界杯的期待是"复杂"的——既有28年回归的狂喜，也有"8次小组出局"的历史阴影。媒体和球迷的共识是：至少赢一场（海地），争取赢两场（出线）。</p></div>
-  <div class="score-bar mt-3"><div class="score-fill" style="width:65%;background:linear-gradient(90deg,#CF142B,#005EB8);"></div></div>
-  <p class="text-right text-sm text-gray-500 mt-1">维度六总评：<strong>65分</strong> × 10% = <strong>6.5分</strong></p>
-</div>
+  <h3>致命短板</h3>
+  <div class="key-player">
+    <p><strong>1. "锋无力"——缺少能终结比赛的射手</strong><br>
+    这是苏格兰足球持续了数十年的结构性问题——从1998年的约翰·柯林斯到2026年的切·亚当斯，苏格兰从来没有培养出一名世界级中锋。亚当斯（都灵/意甲12球）是现有阵容中最接近"合格"的射手——但他的意甲12球中有4个是点球，运动战进球效率（场均0.28球）在五大联赛中锋中属于中下游水平。戴克斯（查尔顿/英甲）和尚克兰（哈茨/苏超）的进球产量在英甲和苏超环境中看起来不错，但世界杯级别的对手的防线远非英甲可比。苏格兰在预选赛中的进球主要来自中场球员（麦金、麦克托米奈）而非前锋——这在对阵海地时可能仍然有效，但面对巴西和摩洛哥时，中场球员的前插空间将被大幅压缩，届时苏格兰将严重缺乏一名能够"一个人在禁区内完成任务"的射手。这个问题在2024年欧洲杯上已经充分暴露：苏格兰三场小组赛仅打入2球——两个进球来自中场（麦金和麦克托米奈），前锋线零进球。</p>
+  </div>
+  <div class="key-player">
+    <p><strong>2. 大赛经验空心化——全队无人踢过世界杯</strong><br>
+    28年的世界杯缺席意味着苏格兰全队26人没有任何世界杯比赛经验——当苏格兰球员在6月13日踏上福克斯堡的草皮时，他们中的每一个人都将成为世界杯"新兵"。这种感觉与2020年欧洲杯时不同——欧洲杯虽然也是大赛，但参赛队规模和历史底蕴与世界杯不可同日而语。苏格兰将面对的海地同样是世界杯新军（双方都没有世界杯经验，这反而可能成为一场"公平"的首秀对决），但摩洛哥的球员们拥有2022年世界杯四强的丰富经验——阿什拉夫、齐耶赫、阿姆拉巴特都经历过世界杯半决赛的洗礼。这种经验差距在比赛的关键时刻（如1-0领先后的最后15分钟）可能转化为致命的判断失误。苏格兰唯一的"大赛经验"来源是2020年和2024年欧洲杯——两届共6场小组赛（1胜1平4负）——这一经验积累在大赛维度上实在太薄了。</p>
+  </div>
 
-<div class="dimension-card">
-  <h3 class="text-xl font-bold text-sc-red">维度七：体能伤病（权重5%）｜ 60分 × 5% = 3.0分</h3>
-  <div class="subitem"><h4>7.1 疲劳度 —— 60分</h4><p>英超+意甲的球员刚结束漫长赛季。戈登43岁需要特别管理。</p></div>
-  <div class="subitem"><h4>7.2 伤病 —— 55分</h4><p>蒂尔尼的伤病史是最大隐患。其他核心球员健康。</p></div>
-  <div class="subitem"><h4>7.3 医疗 —— 65分</h4><p>SFA提供了英国标准的医疗保障。</p></div>
-  <div class="score-bar mt-3"><div class="score-fill" style="width:60%;background:linear-gradient(90deg,#CF142B,#005EB8);"></div></div>
-  <p class="text-right text-sm text-gray-500 mt-1">维度七总评：<strong>60分</strong> × 5% = <strong>3.0分</strong></p>
-</div>
+  <h3>关键先生</h3>
 
-<h2 class="text-sc-blue">（三）综合总分与评级</h2>
-<div class="summary-box text-center">
-  <p class="text-2xl font-bold">加权总分：62.15 / 100</p>
-  <p class="text-xl mt-2">实力评级：<span class="font-bold text-3xl">C-</span>（新的评级描述）</p>
-</div>
-<div class="bg-white rounded-xl shadow p-6 mb-6">
-  <h3 class="text-lg font-bold mb-3">七维度雷达数据</h3>
+  <div class="key-player">
+    <h4>1. John McGinn（约翰·麦金）— 中场，31岁</h4>
+    <p>麦金是苏格兰队最不可替代的球员——他的能量、斗志和永不枯竭的跑动是苏格兰中场的发动机。2025/26赛季在阿斯顿维拉英超31场7球5助攻，他的前插得分能力和禁区内的嗅觉在中场球员中属顶级。麦金在苏格兰的3-4-3体系中担任左中场/左内锋——他不断从左侧切入禁区寻找射门机会，同时利用强壮的身体（身高178cm但体重82kg）在对抗中保护球权。他在预选赛补时逆转丹麦的比赛中打入关键进球——证明了自己是一个"大场面球员"。麦金在更衣室中也扮演着不可替代的角色——他是球队的"能量源"，他的热情和斗志具有感染力。在对阵海地的比赛中，麦金的前插和远射将是苏格兰破密集防守的最重要武器。</p>
+  </div>
+
+  <div class="key-player">
+    <h4>2. Scott McTominay（斯科特·麦克托米奈）— 中场，29岁</h4>
+    <p>麦克托米奈在那不勒斯2025/26赛季意甲32场8球3助攻——作为中场后插上得分手，他的进球效率已经达到了欧洲顶级中场射手的水平。身高193cm的他在禁区内的空中优势和远射能力是苏格兰进攻战术中的B方案：当苏格兰的边路传中被解围至禁区外时，麦克托米奈是那个从后排插上迎球怒射的人。他在2024年欧洲杯对阵瑞士的比赛中打入远射——这粒进球展现了他的射门力量和技术。在3-4-3体系中，麦克托米奈通常与吉尔摩搭档双后腰——吉尔摩负责组织，他负责前插。在对阵摩洛哥的比赛中，麦克托米奈的远射可能是苏格兰在面对摩洛哥5-4-1铁桶阵时唯一的破局手段。</p>
+  </div>
+
+  <h3>小组赛预判</h3>
   <table>
-    <tr><th>维度</th><th>得分</th><th>权重</th><th>加权贡献</th></tr>
-    <tr><td>① 阵容实力</td><td>62</td><td>30%</td><td>18.60</td></tr>
-    <tr><td>② 战术体系与教练</td><td>67.5</td><td>20%</td><td>13.50</td></tr>
-    <tr><td>③ 近期竞技状态</td><td>67</td><td>15%</td><td>10.05</td></tr>
-    <tr><td>④ 大赛经验与心理素质</td><td>55</td><td>10%</td><td>5.50</td></tr>
-    <tr><td>⑤ 分组及赛程影响</td><td>50</td><td>10%</td><td>5.00</td></tr>
-    <tr><td>⑥ 团队凝聚力与场外环境</td><td>65</td><td>10%</td><td>6.50</td></tr>
-    <tr><td>⑦ 体能储备与伤病控制</td><td>60</td><td>5%</td><td>3.00</td></tr>
-    <tr style="font-weight:bold;background:#fff3e0;"><td colspan="3">总分</td><td>62.15</td></tr>
+    <tr><th>对手</th><th>比赛日期</th><th>场地</th><th>预计结果</th><th>概率评估</th></tr>
+    <tr><td>海地 🇭🇹</td><td>6月13日</td><td>福克斯堡</td><td>2-0 胜</td><td>胜率 75%，不败 90%</td></tr>
+    <tr><td>摩洛哥 🇲🇦</td><td>6月19日</td><td>福克斯堡</td><td>0-1 负 / 1-1 平</td><td>拿分概率 30%</td></tr>
+    <tr><td>巴西 🇧🇷</td><td>6月24日</td><td>迈阿密花园</td><td>0-3 负</td><td>拿分概率 10%</td></tr>
   </table>
+  <p class="analysis-text">
+    苏格兰的出线概率约为25-30%。最可能的出线路径：击败海地（3分）、逼平摩洛哥（4分）、负于巴西（4分）——以小组第二（或最佳第三）身份晋级。关键战是首战对海地——如果取胜，苏格兰将带着28年来的世界杯首胜进入与摩洛哥的关键战；如果海地爆冷逼平甚至击败苏格兰，苏格兰的出线希望将几乎彻底熄灭。次战对摩洛哥是苏格兰"偷分"的最佳机会——摩洛哥首战巴西后可能消耗巨大，苏格兰可以利用体能优势在下半场冲击摩洛哥的防线。末战对巴西大概率是一场"少输当赢"的比赛——巴西可能已经提前出线并轮换主力，这是苏格兰理论上唯一可以"偷到"分数的窗口。如果苏格兰能在三场比赛中拿到4分并进入32强赛，他们将打破"8次参赛8次小组出局"的历史魔咒——这将成为苏格兰足球史上最伟大的成就之一。
+  </p>
+
+  <h3>淘汰赛路线推演</h3>
+  <p class="analysis-text">
+    如果苏格兰以小组第二出线（最可能的出线剧本），32强赛将对阵D组头名——美国（东道主/波切蒂诺执教）或同组的强劲对手。这将是一场"五五开"的比赛——苏格兰的中场（麦金+麦克托米奈）与美国的麦肯尼+亚当斯相比并不落下风。如果苏格兰能以最佳小组第三身份出线，将对阵E组头名——大概率是德国队——这是苏格兰几乎不可能跨过的障碍。在淘汰赛中，苏格兰的"经验空白"和"锋无力"问题将进一步暴露——淘汰赛的防守强度远高于小组赛，而亚当斯和苏格兰的前锋群在淘汰赛中的进球产出几乎可以忽略。但"足球之所以美丽，正是因为它不可预测"——2016年欧洲杯上的冰岛和2022年的摩洛哥已经证明，一支团结、纪律、充满激情的球队可以走得很远。
+  </p>
+
+  <h3>大师结语</h3>
+  <p style="font-size:18px;font-style:italic;color:#003d88;text-align:center;padding:20px;border-top:2px solid #003d88;border-bottom:2px solid #003d88;margin:30px 0;">
+    "二十八年磨一剑，格子军团终重返——不再只是短裙与风笛的传说，这一次，麦金与麦克托米奈要让全世界听见Flower of Scotland的怒吼。"
+  </p>
 </div>
 
-<h2 class="text-sc-blue">（四）深度球评</h2>
-<div class="bg-white rounded-xl shadow p-6 mb-6">
-  <h3 class="text-lg font-bold text-green-700">核心优势</h3>
-  <ul class="list-disc pl-6 space-y-2">
-    <li><strong>世界级的左路——罗伯逊+蒂尔尼的"奢侈"。</strong>32强中几乎没有第二支球队拥有两位英超/欧冠级别的左后卫。罗伯逊（利物浦）的传中精准度和冲刺能力是苏格兰进攻端的"第一武器"——他对阵海地时可能一个人就创造3-4次绝佳机会。蒂尔尼（凯尔特人/前阿森纳）在罗伯逊轮换或改打三中卫时可以提供同样高质量的边路输出。苏格兰的进攻可能就靠左路——"把球给罗伯逊，传中找麦克托米奈"。</li>
-    <li><strong>麦金+麦克托米奈的后插上能力——"中场进球"。</strong>苏格兰的进球不一定来自前锋——麦金在维拉本赛季7球8助攻，麦克托米奈在那不勒斯6球——两人的后排插上是苏格兰最稳定的得分来源。</li>
-  </ul>
-</div>
-<div class="bg-white rounded-xl shadow p-6 mb-6">
-  <h3 class="text-lg font-bold text-red-700">致命短板</h3>
-  <ul class="list-disc pl-6 space-y-2">
-    <li><strong>锋线无力——5名前锋缺少"一锤定音"的射手。</strong>亚当斯（都灵）意甲4球——对于一个世界杯参赛队的主力前锋来说，这个产量是不够的。如果苏格兰在对阵摩洛哥的生死战中占据场面优势但无法进球——这可能是他们出局的方式。</li>
-    <li><strong>"8次小组出局"的心理魔咒。</strong>虽然球员们嘴上说"我们不关心历史"，但8次参赛0次出线的纪录不会轻易被忽视——尤其是在对阵摩洛哥的第80分钟，如果比分还是0-0、而另一场巴西正在大胜海地——球员们心里会想"又是这样吗？"</li>
-  </ul>
-</div>
-<div class="bg-white rounded-xl shadow p-6 mb-6">
-  <h3 class="text-lg font-bold text-sc-blue">关键先生</h3>
-  <div class="grid md:grid-cols-2 gap-3">
-    <div class="border-l-4 border-red-600 pl-3"><p class="font-bold">🏴󠁧󠁢󠁳󠁣󠁴󠁿 约翰·麦金</p><p class="text-sm text-gray-600">阿斯顿维拉核心，本赛季7球8助攻。苏格兰的"灵魂人物"——他的斗志、后插上和关键传球是苏格兰进攻端最可靠的引擎。</p></div>
-    <div class="border-l-4 border-blue-600 pl-3"><p class="font-bold">🏴󠁧󠁢󠁳󠁣󠁴󠁿 安迪·罗伯逊 (C)</p><p class="text-sm text-gray-600">利物浦队长，世界顶级左后卫。他的传中是苏格兰"唯一的常规进攻手段"——对阵海地时的助攻数据将直接决定比赛走向。</p></div>
-    <div class="border-l-4 border-green-700 pl-3"><p class="font-bold">🏴󠁧󠁢󠁳󠁣󠁴󠁿 斯科特·麦克托米奈</p><p class="text-sm text-gray-600">那不勒斯中场，意甲6球。1米93的身高+后排插上是苏格兰定位球战术中的"核武器"——对阵摩洛哥的关键战，很可能要靠他的头球打破僵局。</p></div>
-    <div class="border-l-4 border-amber-600 pl-3"><p class="font-bold">🏴󠁧󠁢󠁳󠁣󠁴󠁿 刘易斯·弗格森</p><p class="text-sm text-gray-600">博洛尼亚中场，意甲24场5球——被誉为"苏格兰的杰拉德"。他的全面性和大心脏是克拉克在生死战中最信任的"X因素"。</p></div>
-  </div>
-</div>
-<div class="bg-white rounded-xl shadow p-6 mb-6">
-  <h3 class="text-lg font-bold">小组赛预判</h3>
-  <table class="mt-2"><tr><th>对手</th><th>预判</th></tr>
-    <tr><td>海地 🇭🇹</td><td>苏格兰 2-0 胜 — 开局至关重要</td></tr>
-    <tr><td>摩洛哥 🇲🇦</td><td>苏格兰 1-1 平 — 生死战五五开</td></tr>
-    <tr><td>巴西 🇧🇷</td><td>苏格兰 0-3 负 — 少输当赢</td></tr>
-  </table>
-  <p class="mt-2"><strong>小组赛综合：1胜1平1负积4分，出线概率约40-45%。</strong></p>
-</div>
-<div class="bg-white rounded-xl shadow p-6 mb-6">
-  <p class="mt-3 p-3 bg-blue-50 rounded-lg"><strong>核心判断：</strong>苏格兰是C组中最"不确定"的变量。他们的中场实力（麦金+麦克托米奈+吉尔摩+弗格森）在32强中属于中上游，罗伯逊的传中是世界级武器。但锋无力和8次小组出局的历史包袱是两座难以逾越的大山。出线公式简单明了：首战赢海地（3分）→ 次战拼摩洛哥（保平争胜=1或3分）→ 末战壮烈输巴西（0分）→ 4分为小组第二出线。如果苏格兰能击败海地，然后在对阵摩洛哥的生死战中发挥出"永不放弃"的战斗精神——28年的等待终于可以在福克斯堡的夜空下找到一个圆满的句号。</p>
-</div>
-<div class="bg-white rounded-xl shadow p-6 mb-6 text-center">
-  <h3 class="text-lg font-bold text-sc-blue">大师结语</h3>
-  <p class="text-xl italic mt-3 text-gray-700">"28年——一代苏格兰人从出生到成年的时间。1998年风笛在法兰西响起的时候，麦金还是个三岁的孩子，罗伯逊才四岁，戈登刚在哈茨踏上职业生涯的第一班岗。如今罗伯逊是利物浦的传奇、麦金是维拉的英雄、戈登43岁仍然站在球门前。C组的巴西是天空、摩洛哥是山、海地是必须跨过的第一道坎——而苏格兰要证明的，不是他们能走多远，而是他们终于来了。"</p>
-</div>
-<div class="text-center text-gray-400 text-sm py-6 border-t">
-  <p>© 2026 足球战力分析 · Powered by WorkBuddy AI</p>
-</div>
 </div>
 
 <!-- HuaFootball: back-to-home button -->
@@ -266,17 +413,17 @@ tailwind.config = { theme: { extend: { colors: { sc: { blue: '#005EB8', white: '
 .huafootball-back-btn {
   position:fixed!important;bottom:28px!important;right:28px!important;z-index:99999!important;
   display:inline-flex!important;align-items:center!important;gap:6px!important;
-  padding:10px 22px!important;background:rgba(26,71,42,0.85)!important;color:#c9a84c!important;
-  border:1px solid rgba(201,168,76,0.3)!important;border-radius:999px!important;
-  font-family:"Inter","Noto Sans SC",system-ui,sans-serif!important;font-size:13px!important;
+  padding:10px 22px!important;background:rgba(26,71,42,0.85)!important;color:#c8a951!important;
+  border:1px solid rgba(200,169,81,0.3)!important;border-radius:999px!important;
+  font-family:"Inter","PingFang SC",system-ui,sans-serif!important;font-size:13px!important;
   font-weight:600!important;text-decoration:none!important;
   backdrop-filter:blur(8px)!important;-webkit-backdrop-filter:blur(8px)!important;
   box-shadow:0 4px 20px rgba(0,0,0,0.3)!important;transition:all .25s ease!important;
   cursor:pointer!important;user-select:none!important;
 }
 .huafootball-back-btn:hover {
-  background:rgba(26,71,42,0.95)!important;border-color:rgba(201,168,76,0.5)!important;
-  box-shadow:0 6px 28px rgba(201,168,76,0.2)!important;transform:translateY(-2px)!important;
+  background:rgba(26,71,42,0.95)!important;border-color:rgba(200,169,81,0.5)!important;
+  box-shadow:0 6px 28px rgba(200,169,81,0.2)!important;transform:translateY(-2px)!important;
 }
 .huafootball-back-btn svg { transition:transform .2s ease!important; }
 .huafootball-back-btn:hover svg { transform:translateX(-3px)!important; }

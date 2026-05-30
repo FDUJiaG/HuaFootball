@@ -4,246 +4,444 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>海地 · 2026世界杯实力评估报告</title>
-<script src="https://cdn.tailwindcss.com"></script>
-<script>
-tailwind.config = { theme: { extend: { colors: { ht: { blue: '#00209F', red: '#D21034', black: '#000000', gold: '#FFD700' } }, fontFamily: { 'kai': ['KaiTi','STKaiti','SimKai','serif'], 'serif': ['Times New Roman','serif'] } } } }
-</script>
 <style>
-  body { font-family: KaiTi, STKaiti, SimKai, 'Times New Roman', serif; font-size: 11pt; }
-  .container { max-width: 1100px; margin: 0 auto; padding: 20px; }
-  h1 { font-size: 2em; } h2 { font-size: 1.5em; border-bottom: 3px solid #D21034; padding-bottom: 8px; margin-top: 30px; }
-  h3 { font-size: 1.2em; margin-top: 20px; }
-  table { width: 100%; border-collapse: collapse; font-size: 11pt; }
-  th, td { border: 1px solid #ddd; padding: 8px 12px; text-align: left; }
-  th { background-color: #00209F; color: white; font-weight: bold; }
-  tr:nth-child(even) { background-color: #f8f9fa; }
-  .score-bar { height: 20px; border-radius: 10px; background: #eee; overflow: hidden; }
-  .score-fill { height: 100%; border-radius: 10px; }
-  .dimension-card { background: white; border-radius: 12px; padding: 20px; margin-bottom: 20px; box-shadow: 0 2px 8px rgba(0,0,0,0.08); border-left: 5px solid #D21034; }
-  .subitem { margin: 12px 0; padding: 12px; background: #f8f9fa; border-radius: 8px; }
-  .subitem h4 { color: #00209F; font-weight: bold; margin-bottom: 6px; }
-  .summary-box { background: linear-gradient(135deg, #00209F, #D21034); border-radius: 16px; padding: 25px; margin: 20px 0; color: white; }
-  .badge { display: inline-block; padding: 2px 10px; border-radius: 12px; font-size: 0.85em; font-weight: bold; }
-  .badge-gk { background: #4CAF50; color: white; } .badge-df { background: #2196F3; color: white; }
-  .badge-mf { background: #FF9800; color: white; } .badge-fw { background: #f44336; color: white; }
-  .debut-badge { display: inline-block; padding: 4px 14px; background: linear-gradient(135deg, #D21034, #00209F); color: white; border-radius: 20px; font-weight: bold; }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: 'Times New Roman', 'KaiTi', '楷体', serif; background: #fff; color: #222; padding: 40px 20px; }
+  .container { max-width: 1000px; margin: 0 auto; }
+  .section { margin-bottom: 40px; }
+  .text-center { text-align: center; }
+  h1 { font-size: 32px; color: #c0392b; margin: 15px 0 5px; }
+  h2 { font-size: 24px; color: #c0392b; border-bottom: 3px solid #c0392b; padding-bottom: 8px; margin: 35px 0 20px; }
+  h3 { font-size: 20px; color: #c0392b; margin: 25px 0 15px; }
+  h4 { font-size: 17px; color: #333; margin: 18px 0 10px; }
+  .subtitle { color: #666; font-size: 14px; margin-bottom: 20px; }
+  table { width: 100%; border-collapse: collapse; margin: 15px 0; font-size: 14px; }
+  th, td { border: 1px solid #ddd; padding: 8px 10px; text-align: left; }
+  th { background: #c0392b; color: #fff; font-weight: bold; }
+  tr:nth-child(even) { background: #fafafa; }
+  .badge { display: inline-block; background: #c0392b; color: #fff; padding: 6px 16px; border-radius: 4px; font-size: 14px; font-weight: bold; margin: 3px; }
+  .rating-box { display: inline-block; font-size: 48px; font-weight: bold; color: #c0392b; padding: 10px 30px; border: 4px solid #c0392b; border-radius: 8px; margin: 10px 0; }
+  .total-score { font-size: 36px; font-weight: bold; color: #c0392b; }
+  .sub-item { margin: 12px 0; padding: 10px 14px; background: #fdf2f2; border-left: 4px solid #c0392b; border-radius: 3px; }
+  .sub-item-title { font-weight: bold; color: #c0392b; }
+  .sub-item-score { float: right; font-weight: bold; }
+  .analysis-text { line-height: 1.8; text-indent: 2em; margin: 12px 0; font-size: 15px; color: #333; }
+  .highlight-red { color: #c0392b; font-weight: bold; }
+  .divider { height: 1px; background: #eee; margin: 30px 0; }
+  ul { margin: 10px 0 10px 20px; line-height: 1.8; }
+  li { margin: 6px 0; }
+  .key-player { margin: 15px 0; padding: 12px 16px; background: #f9f9f9; border-left: 4px solid #c0392b; border-radius: 3px; }
+  .key-player h4 { color: #c0392b; margin: 0 0 6px; }
+  .key-player p { line-height: 1.7; font-size: 14px; }
+  .table-scroll { overflow-x: auto; }
+  @media print { body { padding: 20px; } }
 </style>
 </head>
-<body class="bg-gray-50">
+<body>
 <div class="container">
 
-<div class="section text-center bg-white rounded-2xl shadow-lg p-8 mb-8">
-  <img src="https://cdn.prod.website-files.com/68f550992570ca0322737dc2/692869cd3f30b984d69b7f75_haiti-national-team-footylogos.png" alt="海地足协队徽" style="height:90px;width:auto;display:block;margin:0 auto 10px;" onerror="this.style.display='none';document.getElementById('logo-fb').style.display='block';" />
+<!-- ===== HEADER ===== -->
+<div class="section text-center">
+  <img src="https://upload.wikimedia.org/wikipedia/en/thumb/e/e7/Federation_Haitienne_de_Football.png/250px-Federation_Haitienne_de_Football.png"
+       alt="海地国家队队徽"
+       style="height:90px;width:auto;display:block;margin:0 auto 10px;"
+       onerror="this.style.display='none';document.getElementById('logo-fb').style.display='block';" />
   <div id="logo-fb" style="display:none;font-size:4em;margin-bottom:10px;">🇭🇹</div>
-  <h1 class="text-4xl font-bold text-ht-blue mt-4">海地 · 2026世界杯实力评估报告</h1>
-  <p class="text-gray-500 mt-2">报告生成日期：2026年5月22日 · 2026美加墨世界杯</p>
-  <div class="mt-3"><span class="debut-badge">🏆 时隔52年重返世界杯 · 史上第2次参赛</span></div>
+  <h1>海地 · 2026世界杯实力评估报告</h1>
+  <p class="subtitle">Les Grenadiers · 时隔52年重返世界杯舞台</p>
 </div>
 
-<h2 class="text-ht-red">（一）球队基本信息</h2>
-<div class="bg-white rounded-xl shadow p-6 mb-6">
-  <div class="grid md:grid-cols-2 gap-4">
-    <div>
-      <p><strong>主教练：</strong>塞巴斯蒂安·米涅（Sébastien Migné）— 法国人，前肯尼亚/刚果主帅</p>
-      <p><strong>队长：</strong>约翰尼·普拉西德（Johnny Placide）— SC巴斯蒂亚门将</p>
-      <p><strong>FIFA排名：</strong>约第80位</p>
-      <p><strong>世界杯参赛次数：</strong>第2次（1974年首次）</p>
-      <p><strong>世界杯最佳成绩：</strong>小组赛（1974年3战全败）</p>
-      <p><strong>上届（2022）成绩：</strong>未晋级</p>
-    </div>
-    <div>
-      <p><strong>小组赛：</strong>C组</p>
-      <p><strong>同组对手：</strong>巴西 🇧🇷（5届冠军）、摩洛哥 🇲🇦（2022四强）、苏格兰 🇬🇧</p>
-      <p><strong>首战：</strong>6月13日 vs 巴西（新泽西）</p>
-      <p><strong>次战：</strong>6月19日 vs 摩洛哥（费城）</p>
-      <p><strong>末轮：</strong>6月24日 vs 苏格兰（迈阿密花园）</p>
-      <div class="mt-2 p-2 bg-red-50 rounded"><p class="text-sm"><strong>🐉 历史回眸：</strong>海地球上一次参加世界杯是1974年——小组赛1-3意大利、0-7波兰、1-4阿根廷，三战全败</p></div>
-    </div>
-  </div>
-</div>
-
-<h3 class="text-xl font-bold text-ht-red">26人大名单（3 GK + 8 DF + 6 MF + 9 FW）</h3>
-<p class="text-gray-500 text-sm mb-3">* 5月15日公布 · 几乎全由海外侨民组成 · 狼队中场贝勒加德是头号球星</p>
-
-<div class="bg-white rounded-xl shadow p-6 mb-6">
+<!-- ===== SECTION 1: BASIC INFO ===== -->
+<div class="section">
+  <h2>（一）球队基本信息</h2>
   <table>
-    <thead><tr><th>位置</th><th>球员姓名</th><th>英文名</th><th>俱乐部</th><th>联赛</th></tr></thead>
-    <tbody>
-      <tr><td><span class="badge badge-gk">GK</span></td><td><strong>约翰尼·普拉西德 (C)</strong></td><td><strong>Johnny Placide</strong></td><td><strong>SC巴斯蒂亚</strong></td><td>法乙</td></tr>
-      <tr><td><span class="badge badge-gk">GK</span></td><td>亚历山大·皮埃尔</td><td>Alexandre Pierre</td><td>索肖</td><td>法乙</td></tr>
-      <tr><td><span class="badge badge-gk">GK</span></td><td>若苏埃·杜韦尔热</td><td>Josué Duverger</td><td>科布伦茨</td><td>德地区</td></tr>
-      <tr><td><span class="badge badge-df">DF</span></td><td>卡伦斯·阿库斯</td><td>Carlens Arcus</td><td>昂热</td><td>法甲</td></tr>
-      <tr><td><span class="badge badge-df">DF</span></td><td>威尔冈斯·波甘</td><td>Wilguens Paugain</td><td>聚尔特瓦雷赫姆</td><td>比甲</td></tr>
-      <tr><td><span class="badge badge-df">DF</span></td><td>杜克·拉克鲁瓦</td><td>Duke Lacroix</td><td>科罗拉多斯普林斯</td><td>美冠联</td></tr>
-      <tr><td><span class="badge badge-df">DF</span></td><td>马丁·埃克斯佩里恩斯</td><td>Martin Experience</td><td>南锡</td><td>法乙</td></tr>
-      <tr><td><span class="badge badge-df">DF</span></td><td>JK·杜韦尔内</td><td>JK Duverne</td><td>根特</td><td>比甲</td></tr>
-      <tr><td><span class="badge badge-df">DF</span></td><td>里卡多·阿德</td><td>Ricardo Ade</td><td>基多大学</td><td>厄甲</td></tr>
-      <tr><td><span class="badge badge-df">DF</span></td><td>汉内斯·德尔克鲁瓦</td><td>Hannes Delcroix</td><td>卢加诺</td><td>瑞士超</td></tr>
-      <tr><td><span class="badge badge-df">DF</span></td><td>基托·瑟蒙西</td><td>Keeto Thermoncy</td><td>年轻人二队</td><td>瑞士乙</td></tr>
-      <tr><td><span class="badge badge-mf">MF</span></td><td>莱弗顿·皮埃尔</td><td>Leverton Pierre</td><td>维泽拉</td><td>葡超</td></tr>
-      <tr><td><span class="badge badge-mf">MF</span></td><td>卡尔-弗雷德·圣特</td><td>Carl-Fred Sainthe</td><td>埃尔帕索机车</td><td>美冠联</td></tr>
-      <tr><td><span class="badge badge-mf">MF</span></td><td>让-雅克·丹利</td><td>Jean-Jacques Danley</td><td>费城联合</td><td>美职联</td></tr>
-      <tr><td><span class="badge badge-mf">MF</span></td><td><strong>⭐ 让里克尔·贝勒加德</strong></td><td><strong>Jeanricner Bellegarde</strong></td><td><strong>狼队</strong></td><td>英超</td></tr>
-      <tr><td><span class="badge badge-mf">MF</span></td><td>皮埃尔·伍登斯基</td><td>Pierre Woodenski</td><td>紫罗兰AC</td><td>海地超</td></tr>
-      <tr><td><span class="badge badge-mf">MF</span></td><td>多米尼克·西蒙</td><td>Dominique Simon</td><td>普雷绍夫</td><td>斯洛伐克乙</td></tr>
-      <tr><td><span class="badge badge-fw">FW</span></td><td>卢伊修斯·迪德森</td><td>Louicius Deedson</td><td>达拉斯FC</td><td>美职联</td></tr>
-      <tr><td><span class="badge badge-fw">FW</span></td><td>鲁本·普罗维登斯</td><td>Ruben Providence</td><td>阿尔梅勒城</td><td>荷甲</td></tr>
-      <tr><td><span class="badge badge-fw">FW</span></td><td>若苏埃·卡西米尔</td><td>Josué Casimir</td><td>欧塞尔</td><td>法甲</td></tr>
-      <tr><td><span class="badge badge-fw">FW</span></td><td>德里克·艾蒂安</td><td>Derrick Etienne</td><td>多伦多FC</td><td>美职联</td></tr>
-      <tr><td><span class="badge badge-fw">FW</span></td><td><strong>威尔逊·伊西多尔</strong></td><td><strong>Wilson Isidor</strong></td><td><strong>桑德兰</strong></td><td>英冠</td></tr>
-      <tr><td><span class="badge badge-fw">FW</span></td><td>达肯斯·纳宗</td><td>Duckens Nazon</td><td>埃斯特格拉尔</td><td>伊朗超</td></tr>
-      <tr><td><span class="badge badge-fw">FW</span></td><td>弗兰茨迪·皮埃罗</td><td>Frantzdy Pierrot</td><td>里泽体育</td><td>土超</td></tr>
-      <tr><td><span class="badge badge-fw">FW</span></td><td>亚辛·福琼</td><td>Yassin Fortune</td><td>维泽拉</td><td>葡超</td></tr>
-      <tr><td><span class="badge badge-fw">FW</span></td><td>莱尼·约瑟夫</td><td>Lenny Joseph</td><td>费伦茨瓦罗斯</td><td>匈甲</td></tr>
-    </tbody>
+    <tr><th style="width:140px;">项目</th><th>内容</th></tr>
+    <tr><td>主教练</td><td>塞巴斯蒂安·米涅（Sébastien Migné），法国籍，2024年3月上任</td></tr>
+    <tr><td>队长</td><td>约翰尼·普拉西德（Johny Placide），38岁，门将</td></tr>
+    <tr><td>FIFA排名</td><td>第90位（2026年4月），历史最高第72位</td></tr>
+    <tr><td>全队总身价</td><td>€5,588万（约€55.88M），在48支参赛队中排名下游</td></tr>
+    <tr><td>平均年龄</td><td>27.6岁</td></tr>
+    <tr><td>世界杯冠军历史</td><td>0次夺冠。历史最好成绩：1974年西德世界杯小组赛（0胜0平3负）</td></tr>
+    <tr><td>上届世界杯成绩</td><td>未晋级（2022年卡塔尔世界杯未参赛）</td></tr>
+    <tr><td>2026晋级方式</td><td>中北美及加勒比海（CONCACAF）预选赛C组头名出线，2025年11月18日2-0击败尼加拉瓜锁定席位</td></tr>
+    <tr><td>2026世界杯小组</td><td><strong>C组</strong>：巴西 🇧🇷、摩洛哥 🇲🇦、苏格兰 🏴󠁧󠁢󠁳󠁣󠁴󠁿、海地 🇭🇹</td></tr>
+    <tr><td>首场比赛</td><td>2026年6月13日 vs 苏格兰（波士顿）</td></tr>
   </table>
-  <div class="mt-3 p-3 bg-yellow-50 rounded-lg border border-yellow-200">
-    <p class="text-sm"><strong>🌍 海外军团：</strong>全队26人中25人出生于海外（法国/美国/加拿大），仅1人在海地本土踢球——典型的"侨民国家队" | 狼队中场贝勒加德是唯一效力英超的球员</p>
-  </div>
 </div>
 
-<h2 class="text-ht-red">（二）逐项评分明细</h2>
+<!-- ===== 26-MAN SQUAD ===== -->
+<div class="section">
+  <h3>26人大名单</h3>
+  <p><em>大名单于2026年5月15日正式公布，全队仅1名球员来自海地本土联赛，其余25人均为海外侨民（diaspora）球员。</em></p>
 
-<div class="dimension-card">
-  <h3 class="text-xl font-bold text-ht-blue">维度一：阵容实力（权重30%）｜ 31.5分 × 30% = 9.45分</h3>
-  <div class="subitem"><h4>1.1 球星质量 —— 32分</h4>
-    <table class="text-sm mb-2"><tr><th>指标</th><th>数据</th></tr>
-      <tr><td>五大联赛球员</td><td>3-4人（贝勒加德/英超狼队、阿库斯/法甲昂热、卡西米尔/法甲欧塞尔）</td></tr>
-      <tr><td>英超球员</td><td>1人（贝勒加德/狼队）</td></tr>
-      <tr><td>Game-changer</td><td>贝勒加德（中场推力）、伊西多尔（速度反击）</td></tr>
-    </table>
-    <p>海地的阵容实力在32强中属于下游。让里克尔·贝勒加德（狼队/英超）是唯一具备五大联赛主力级别的球员——他在狼队的控球和推进能力是海地中场的"单核发动机"。威尔逊·伊西多尔（桑德兰/英冠）是前锋线上最有潜力的攻击手——他的速度和反击意识是海地最有可能制造冷门的武器。卡伦斯·阿库斯（昂热/法甲）是后防线上的亮点。但整体而言，海地球员大多来自法乙、美冠联、瑞士乙等低级别联赛——"零五大联赛豪门血统"的阵容在面对巴西（维尼修斯/内马尔）和摩洛哥（2022四强）时几乎不具备"单点较量"的资本。</p>
-  </div>
-  <div class="subitem"><h4>1.2 各位置均衡度 —— 38分</h4><p>9前锋配置（与巴西/德国并列32强最多）反映了海地的"赌进攻"心态——反正守不住，不如多带前锋博一把。但后防8人的深度和质量堪忧。中场6人中贝勒加德一枝独秀。</p></div>
-  <div class="subitem"><h4>1.3 板凳深度 —— 28分</h4><p>首发11人拼凑的阵容已属不易，替补席上多是海地本土联赛或更低级别联赛的球员，实力极薄。</p></div>
-  <div class="subitem"><h4>1.4 身价与年龄 —— 28分</h4><p>全队总身价约1500万欧（32强倒数）。平均年龄约26岁但缺乏高质量比赛积累。</p></div>
-  <div class="score-bar mt-3"><div class="score-fill" style="width:31%;background:linear-gradient(90deg,#D21034,#00209F);"></div></div>
-  <p class="text-right text-sm text-gray-500 mt-1">维度一总评：<strong>31.5分</strong> × 30% = <strong>9.45分</strong></p>
-</div>
-
-<div class="dimension-card">
-  <h3 class="text-xl font-bold text-ht-blue">维度二：战术体系与教练（权重20%）｜ 45分 × 20% = 9.0分</h3>
-  <div class="subitem"><h4>2.1 主帅履历 —— 48分</h4><p>塞巴斯蒂安·米涅是法国籍教练，曾执教肯尼亚和刚果国家队，对非洲/加勒比足球有深入了解。在2026世预赛中率队历史性晋级。</p></div>
-  <div class="subitem"><h4>2.2 阵型适配 —— 48分</h4><p>4-4-2防守阵型是面对巴西时的唯一选择——压缩后场空间、依靠贝勒加德和伊西多尔的反击速度。进攻端依赖定位球。</p></div>
-  <div class="subitem"><h4>2.3 转换效率 —— 40分</h4><p>由守转攻的出球能力薄弱——贝勒加德是唯一能稳定持球推进的球员。一旦他被限制，海地的进攻几乎瘫痪。</p></div>
-  <div class="subitem"><h4>2.4 临场指挥 —— 45分</h4><p>米涅在预选赛中的换人决策经受了考验，但世界杯层面是全新的挑战。</p></div>
-  <div class="score-bar mt-3"><div class="score-fill" style="width:45%;background:linear-gradient(90deg,#D21034,#00209F);"></div></div>
-  <p class="text-right text-sm text-gray-500 mt-1">维度二总评：<strong>45分</strong> × 20% = <strong>9.0分</strong></p>
-</div>
-
-<div class="dimension-card">
-  <h3 class="text-xl font-bold text-ht-blue">维度三：竞技状态（权重15%）｜ 47分 × 15% = 7.05分</h3>
-  <div class="subitem"><h4>3.1 近12个月战绩 —— 50分</h4><p>中北美预选赛历史性晋级，击败了牙买加、特立尼达和多巴哥等加勒比劲敌。但从未与南美/欧洲顶级强队交手过。</p></div>
-  <div class="subitem"><h4>3.2 含金量 —— 48分</h4><p>中北美6.5个名额降低了门槛。海地把握住了机会，但出线路上没有击败过FIFA排名前40的球队。</p></div>
-  <div class="subitem"><h4>3.3 核心球员状态 —— 42分</h4><p>贝勒加德在狼队英超20场2球，状态尚可。伊西多尔在桑德兰26场6球，英冠中上水平。</p></div>
-  <div class="score-bar mt-3"><div class="score-fill" style="width:47%;background:linear-gradient(90deg,#D21034,#00209F);"></div></div>
-  <p class="text-right text-sm text-gray-500 mt-1">维度三总评：<strong>47分</strong> × 15% = <strong>7.05分</strong></p>
-</div>
-
-<div class="dimension-card">
-  <h3 class="text-xl font-bold text-ht-blue">维度四：大赛经验（权重10%）｜ 27分 × 10% = 2.7分</h3>
-  <div class="subitem"><h4>4.1 世界杯历史 —— 15分</h4><p>1974年唯一一次参赛——3战全败、丢14球。52年的空白意味着全队没有一人拥有世界杯经验。</p></div>
-  <div class="subitem"><h4>4.2 核心大赛经验 —— 30分</h4><p>贝勒加德有英超比赛经验，普拉西德在法乙踢了多年——但这些都是俱乐部经验，与世界杯正赛的压力完全不同。</p></div>
-  <div class="subitem"><h4>4.3 抗压能力 —— 35分</h4><p>中北美预选赛的关键战表现不错，但面对巴西的首战——开场10分钟就可能0-2落后——能否保持心态不崩是关键。</p></div>
-  <div class="score-bar mt-3"><div class="score-fill" style="width:27%;background:linear-gradient(90deg,#D21034,#00209F);"></div></div>
-  <p class="text-right text-sm text-gray-500 mt-1">维度四总评：<strong>27分</strong> × 10% = <strong>2.7分</strong></p>
-</div>
-
-<div class="dimension-card">
-  <h3 class="text-xl font-bold text-ht-blue">维度五：分组赛程（权重10%）｜ 27分 × 10% = 2.7分</h3>
-  <div class="subitem"><h4>5.1 小组对手 —— 22分</h4>
-    <table class="text-sm mb-2"><tr><th>对手</th><th>海地胜率</th></tr>
-      <tr><td>巴西 🇧🇷</td><td>1-2%</td></tr>
-      <tr><td>摩洛哥 🇲🇦</td><td>5-8%</td></tr>
-      <tr><td>苏格兰 🇬🇧</td><td>10-15%</td></tr>
-    </table>
-    <p>C组是本届世界杯"实力跨度最大"的小组——巴西是夺冠大热门、摩洛哥是2022四强、苏格兰欧洲杯常客。</p>
-  </div>
-  <div class="subitem"><h4>5.2 晋级可能 —— 12分</h4><p>出线概率低于1%。唯一现实的比赛目标是——攻入世界杯历史第2球（1974年进过2球）。</p></div>
-  <div class="subitem"><h4>5.3 旅途气候 —— 48分</h4><p>新泽西→费城→迈阿密，美国东海岸短途移动，加勒比球员适应湿热天气。</p></div>
-  <div class="score-bar mt-3"><div class="score-fill" style="width:27%;background:linear-gradient(90deg,#D21034,#00209F);"></div></div>
-  <p class="text-right text-sm text-gray-500 mt-1">维度五总评：<strong>27分</strong> × 10% = <strong>2.7分</strong></p>
-</div>
-
-<div class="dimension-card">
-  <h3 class="text-xl font-bold text-ht-blue">维度六：团队凝聚力（权重10%）｜ 52分 × 10% = 5.2分</h3>
-  <div class="subitem"><h4>6.1 更衣室 —— 52分</h4><p>侨民国家队通常"为祖先而战"的使命感很强。队长普拉西德经验丰富，但语言和文化差异可能是个小问题。</p></div>
-  <div class="subitem"><h4>6.2 足协 —— 45分</h4><p>海地足协的资源非常有限，世界杯备战主要依赖侨民球员的自我管理。</p></div>
-  <div class="subitem"><h4>6.3 舆论压力 —— 60分</h4><p>国内饱受政治动荡和社会危机困扰，国家队的世界杯之旅是全国人民的"欢乐源泉"——无人苛求出线。</p></div>
-  <div class="score-bar mt-3"><div class="score-fill" style="width:52%;background:linear-gradient(90deg,#D21034,#00209F);"></div></div>
-  <p class="text-right text-sm text-gray-500 mt-1">维度六总评：<strong>52分</strong> × 10% = <strong>5.2分</strong></p>
-</div>
-
-<div class="dimension-card">
-  <h3 class="text-xl font-bold text-ht-blue">维度七：体能伤病（权重5%）｜ 47分 × 5% = 2.35分</h3>
-  <div class="subitem"><h4>7.1 疲劳度 —— 50分</h4><p>低级别联赛的赛程强度较低，体能相对充沛。</p></div>
-  <div class="subitem"><h4>7.2 伤病 —— 50分</h4><p>无重大伤病报告。</p></div>
-  <div class="subitem"><h4>7.3 医疗 —— 40分</h4><p>海地的医疗保障条件在32强中属于最差之一。</p></div>
-  <div class="score-bar mt-3"><div class="score-fill" style="width:47%;background:linear-gradient(90deg,#D21034,#00209F);"></div></div>
-  <p class="text-right text-sm text-gray-500 mt-1">维度七总评：<strong>47分</strong> × 5% = <strong>2.35分</strong></p>
-</div>
-
-<h2 class="text-ht-red">（三）综合总分与评级</h2>
-<div class="summary-box text-center">
-  <p class="text-2xl font-bold">加权总分：38.45 / 100</p>
-  <p class="text-xl mt-2">实力评级：<span class="font-bold text-3xl">E+</span>（加勒比新军 / 重在参与）</p>
-</div>
-<div class="bg-white rounded-xl shadow p-6 mb-6">
-  <h3 class="text-lg font-bold mb-3">七维度雷达数据</h3>
+  <h4>🧤 守门员（3人）</h4>
+  <div class="table-scroll">
   <table>
-    <tr><th>维度</th><th>得分</th><th>权重</th><th>加权贡献</th></tr>
-    <tr><td>① 阵容实力</td><td>31.5</td><td>30%</td><td>9.45</td></tr>
-    <tr><td>② 战术体系与教练</td><td>45</td><td>20%</td><td>9.00</td></tr>
-    <tr><td>③ 近期竞技状态</td><td>47</td><td>15%</td><td>7.05</td></tr>
-    <tr><td>④ 大赛经验与心理素质</td><td>27</td><td>10%</td><td>2.70</td></tr>
-    <tr><td>⑤ 分组及赛程影响</td><td>27</td><td>10%</td><td>2.70</td></tr>
-    <tr><td>⑥ 团队凝聚力与场外环境</td><td>52</td><td>10%</td><td>5.20</td></tr>
-    <tr><td>⑦ 体能储备与伤病控制</td><td>47</td><td>5%</td><td>2.35</td></tr>
-    <tr style="font-weight:bold;background:#fff3e0;"><td colspan="3">总分</td><td>38.45</td></tr>
+    <tr><th>球员姓名</th><th>位置</th><th>年龄</th><th>所属俱乐部</th><th>身价</th></tr>
+    <tr><td>Johny Placide <strong>(C)</strong></td><td>GK</td><td>38</td><td>SC Bastia（法乙）</td><td>€15万</td></tr>
+    <tr><td>Alexandre Pierre</td><td>GK</td><td>25</td><td>FC Sochaux（法乙）</td><td>€70万</td></tr>
+    <tr><td>Josué Duverger</td><td>GK</td><td>26</td><td>FC Cosmos Koblenz（德地区）</td><td>—</td></tr>
   </table>
+  </div>
+
+  <h4>🛡️ 后卫（8人）</h4>
+  <div class="table-scroll">
+  <table>
+    <tr><th>球员姓名</th><th>位置</th><th>年龄</th><th>所属俱乐部</th><th>身价</th></tr>
+    <tr><td>Carlens Arcus</td><td>RB</td><td>29</td><td>Angers SCO（法甲）</td><td>€180万</td></tr>
+    <tr><td>Jean-Kévin Duverne</td><td>CB</td><td>28</td><td>KAA Gent（比甲）</td><td>€200万</td></tr>
+    <tr><td>Hannes Delcroix</td><td>CB</td><td>27</td><td>FC Lugano（瑞超）</td><td>€200万</td></tr>
+    <tr><td>Ricardo Adé</td><td>CB</td><td>36</td><td>LDU Quito（厄甲）</td><td>€30万</td></tr>
+    <tr><td>Martin Expérience</td><td>LB</td><td>27</td><td>AS Nancy-Lorraine（法乙）</td><td>€35万</td></tr>
+    <tr><td>Duke Lacroix</td><td>LB</td><td>32</td><td>Colorado Springs Switchbacks（美冠）</td><td>€12.5万</td></tr>
+    <tr><td>Wilguens Paugain</td><td>RB</td><td>24</td><td>Zulte Waregem（比乙）</td><td>€60万</td></tr>
+    <tr><td>Keeto Thermoncy</td><td>CB</td><td>20</td><td>BSC Young Boys U21（瑞士）</td><td>€2.5万</td></tr>
+  </table>
+  </div>
+
+  <h4>🎯 中场（7人）</h4>
+  <div class="table-scroll">
+  <table>
+    <tr><th>球员姓名</th><th>位置</th><th>年龄</th><th>所属俱乐部</th><th>身价</th></tr>
+    <tr><td>Jean-Ricner Bellegarde</td><td>CM</td><td>27</td><td>Wolverhampton Wanderers（英超）</td><td><strong>€1,600万</strong></td></tr>
+    <tr><td>Danley Jean-Jacques</td><td>DM</td><td>26</td><td>Philadelphia Union（美职联）</td><td>€300万</td></tr>
+    <tr><td>Leverton Pierre</td><td>DM</td><td>28</td><td>FC Vizela（葡甲）</td><td>€20万</td></tr>
+    <tr><td>Dominique Simon</td><td>DM</td><td>25</td><td>FC Tatran Prešov（斯伐超）</td><td>€20万</td></tr>
+    <tr><td>Carl Sainte</td><td>DM</td><td>23</td><td>El Paso Locomotive（美冠）</td><td>€12.5万</td></tr>
+    <tr><td>Woodensky Pierre</td><td>DM</td><td>21</td><td>Violette AC（海地超）</td><td>—</td></tr>
+  </table>
+  </div>
+
+  <h4>⚽ 前锋（8人）</h4>
+  <div class="table-scroll">
+  <table>
+    <tr><th>球员姓名</th><th>位置</th><th>年龄</th><th>所属俱乐部</th><th>身价</th></tr>
+    <tr><td>Wilson Isidor</td><td>ST</td><td>25</td><td>Sunderland AFC（英冠）</td><td><strong>€1,800万</strong></td></tr>
+    <tr><td>Josué Casimir</td><td>RW</td><td>24</td><td>AJ Auxerre（法甲）</td><td>€350万</td></tr>
+    <tr><td>Lenny Joseph</td><td>ST</td><td>25</td><td>Ferencvárosi TC（匈甲）</td><td>€200万</td></tr>
+    <tr><td>Frantzdy Pierrot</td><td>ST</td><td>31</td><td>Çaykur Rizespor（土超）</td><td>€150万</td></tr>
+    <tr><td>Louicius Deedson</td><td>RW</td><td>25</td><td>FC Dallas（美职联）</td><td>€120万</td></tr>
+    <tr><td>Derrick Etienne Jr.</td><td>LW</td><td>29</td><td>Toronto FC（美职联）</td><td>€80万</td></tr>
+    <tr><td>Duckens Nazon</td><td>ST</td><td>32</td><td>Esteghlal FC（伊朗超）</td><td>€80万</td></tr>
+    <tr><td>Ruben Providence</td><td>LW</td><td>24</td><td>Almere City FC（荷甲）</td><td>€30万</td></tr>
+    <tr><td>Yassin Fortune</td><td>ST</td><td>27</td><td>FC Vizela（葡甲）</td><td>€20万</td></tr>
+  </table>
+  </div>
+  <p style="font-size:13px;color:#666;margin-top:5px;">* 数据来源：Transfermarkt 2026年5月。身价单位：欧元。</p>
 </div>
 
-<h2 class="text-ht-red">（四）深度球评</h2>
-<div class="bg-white rounded-xl shadow p-6 mb-6">
-  <h3 class="text-lg font-bold text-green-700">核心优势</h3>
-  <ul class="list-disc pl-6 space-y-2">
-    <li><strong>加勒比海的"团结之心"。</strong>52年后重新站在世界舞台上——海地球员的动力不是奖金和声望，而是"让全世界知道海地不只有地震和动荡，还有足球"的使命。贝勒加德说："我们踢球是为了那些在海地街头赤脚踢球的孩子。"</li>
-    <li><strong>苏格兰一役——唯一的机会。</strong>如果说海地在三场小组赛中有一场比赛"可能不输"，那就是6月24日对苏格兰。苏格兰虽然实力更强，但他们的身体流风格可能被加勒比球队的灵活性和热带气候适应力所克制。</li>
-  </ul>
+<!-- ===== SECTION 2: SCORING ===== -->
+<div class="section">
+  <h2>（二）逐项评分明细</h2>
+
+  <!-- DIMENSION 1 -->
+  <h3>维度一：阵容实力（权重30%）｜ 得分：30分 × 30% = 9.00分</h3>
+
+  <div class="sub-item">
+    <span class="sub-item-title">1.1 球星质量与个人能力</span><span class="sub-item-score">30分</span>
+    <p style="margin-top:8px;line-height:1.7;font-size:14px;">
+      海地队阵中无任何世界级或准世界级球员。最高身价球员威尔逊·伊西多尔（€1,800万）效力于英冠桑德兰，上赛季在英冠打入12球，具备一定的禁区终结能力，但距离"改变比赛"的game-changer级别仍有较大差距。中前卫贝勒加德（€1,600万）在狼队担任轮换角色，2025/26赛季英超出场24次（其中仅12次首发），贡献2球3助攻，属于英超中下游球队的常规轮换水平。全队没有任何球员曾入选FIFA FIFPRO年度最佳阵容、金球奖候选名单或欧冠淘汰赛阶段的常客。两名核心球员相加的身价（€3,400万）占全队总值的61%，反映出天赋高度集中的同时，也意味着其余球员的个人能力上限极为有限。
+    </p>
+  </div>
+  <div class="sub-item">
+    <span class="sub-item-title">1.2 各位置均衡度</span><span class="sub-item-score">35分</span>
+    <p style="margin-top:8px;line-height:1.7;font-size:14px;">
+      门将位置由38岁老将普拉西德镇守，经验丰富但爆发力与覆盖范围已明显下滑，替补皮埃尔在法乙索肖出场不多。后卫线8人分别效力于法甲昂热（阿库斯）、比甲根特（杜韦尔纳）、瑞超卢加诺（德尔克鲁瓦）等次级欧洲联赛，整体对抗能力尚可但面对顶级边锋时速度与意识均显不足——例如左后卫埃斯佩里昂斯所在的南锡仅列法乙中游，面对摩洛哥的齐耶赫或苏格兰的边路突击手将承受巨大压力。中场7人中仅贝勒加德一人具备五大联赛主力水平，防守型中场让-雅克在费城联合有稳定出场（MLS 2025赛季28场2球），但其他中场球员均效力于葡甲、美冠、斯伐超等低级别联赛。前锋线看似人数充足（8人），但伊西多尔之外的其他前锋进球效率普遍偏低：纳宗在伊朗超12场4球，皮埃罗在土超26场7球，无一人达到欧洲五大联赛稳定的进球率。
+    </p>
+  </div>
+  <div class="sub-item">
+    <span class="sub-item-title">1.3 板凳深度</span><span class="sub-item-score">28分</span>
+    <p style="margin-top:8px;line-height:1.7;font-size:14px;">
+      海地的主力与替补之间存在明显的实力鸿沟。首发11人尚能排出法甲/英冠/比甲级别的阵容，但一旦进入轮换，替代者的比赛级别迅速降为法乙、葡甲、美冠甚至海地本土联赛。关键位置上，若贝勒加德受伤或停赛，中场将完全失去创造力来源，替代者如莱弗顿·皮埃尔（葡甲维泽拉）或卡尔·圣特（美冠埃尔帕索）在进攻组织和向前传球方面与贝勒加德相差数个级别。锋线上，伊西多尔之后可供信赖的射手储备不足：纳宗已32岁且在亚洲联赛效力，皮埃罗在土超得分率平庸。全队真正具备世界杯级别竞争力的球员不超过12-13人，替补席几乎无法提供战术变招。
+    </p>
+  </div>
+  <div class="sub-item">
+    <span class="sub-item-title">1.4 总身价与年龄结构</span><span class="sub-item-score">25分</span>
+    <p style="margin-top:8px;line-height:1.7;font-size:14px;">
+      海地全队总身价€5,588万，在48支参赛队中排名倒数。作为对比，同组巴西队的总身价超过€10亿，摩洛哥约€3.5亿，苏格兰约€2亿，海地全队身价不到巴西的二十分之一。两名核心球员伊西多尔和贝勒加德合计贡献了61%的总身价，身价分布极不均衡。平均年龄27.6岁处于合理区间，但年龄结构呈现两极分化：后防线有36岁的中卫阿代和38岁门将普拉西德，经验有余但运动能力下滑；年轻球员中20岁的瑟蒙西（伯尔尼年轻人U21）和21岁的伍登斯基·皮埃尔（海地本土）则缺乏高水平比赛历练。核心年龄段（25-29岁）球员占全队约50%，正处于职业生涯黄金期，但整体天赋上限不高。
+    </p>
+  </div>
+
+  <h4 style="text-align:right;margin-top:10px;">均分：30分</h4>
+
+  <p class="analysis-text">
+    综合来看，海地队的阵容实力在所有48支参赛队中属于垫底梯队，与新西兰、巴拿马等队处于同一档次。全队最大的结构性问题是"无顶级联赛核心球员"——唯一在英超踢球的贝勒加德也只是狼队的轮换球员，而非真正意义上的核心主力。伊西多尔虽然在英冠打出了不错的赛季（12球），但英冠与世界杯顶级对抗之间的差距不容忽视。后卫线和门将位置的比赛经验集中在法乙、比甲等次级联赛，这在面对巴西锋线（维尼修斯、罗德里戈等）和摩洛哥的攻击群时将承受毁灭性压力。更为致命的是：两个核心球员身价占全队61%，一旦其中一个状态不佳或被针对性限制，整支球队的进攻能力将坍塌大半。海地球员的个人基本技术与战术执行力在CONCACAF预选赛中尚能应付，但放在世界杯赛场，对手的技战术压迫强度将使这些缺陷被急剧放大。总体而言，这是一支由海外侨民拼凑而成、依靠团队纪律和拼搏精神来弥补天赋不足的球队，阵容层面的硬实力决定了其在本届世界杯上的上限极低。
+  </p>
+
+  <!-- DIMENSION 2 -->
+  <div class="divider"></div>
+  <h3>维度二：战术体系与教练（权重20%）｜ 得分：42分 × 20% = 8.40分</h3>
+
+  <div class="sub-item">
+    <span class="sub-item-title">2.1 主帅战术哲学与大赛履历</span><span class="sub-item-score">45分</span>
+    <p style="margin-top:8px;line-height:1.7;font-size:14px;">
+      塞巴斯蒂安·米涅（51岁）是一位典型的法国学院派教练，执教履历覆盖非洲与加勒比地区。他曾先后执教刚果(布)国家队（2015-2017）、肯尼亚国家队（2018-2020）和赤道几内亚国家队（2022-2023），并在喀麦隆国家队担任过助理教练（随队参加2022年卡塔尔世界杯，在小组赛1-0击败巴西一役中参与战术制定）。米涅的战术核心理念是"结构化的防守组织+快速纵向转换"，他将法国足协的体系化训练方法与加勒比球员的即兴创造力相结合。在2024年3月接手海地后，他带队取得了9胜4平4负的战绩（胜率53%），成功将球队带进世界杯。但其大赛履历仅限于非洲杯（2017年带队刚果进入8强）和作为助理教练的2022世界杯，真正以主教练身份征战世界杯尚属首次。
+    </p>
+  </div>
+  <div class="sub-item">
+    <span class="sub-item-title">2.2 阵型适配性与球员契合度</span><span class="sub-item-score">40分</span>
+    <p style="margin-top:8px;line-height:1.7;font-size:14px;">
+      米涅在海地主打4-4-2紧凑阵型，强调两条防线之间的压缩距离（压缩至约35米），迫使对手在中路难以渗透。这一阵型契合海地球员的身体特点——他们普遍具备不错的对抗能力和跑动能力，但在技术细腻度和战术理解力上与顶级球队存在差距。4-4-2的菱形中场布置让贝勒加德在前腰位置有较大自由度，同时双前锋配置为反击提供了两个接应点。但问题在于：该阵型极度依赖边后卫的上下能力，而海地的边后卫阿库斯（法甲）和埃斯佩里昂斯（法乙）在面对巴西、摩洛哥的顶级边锋时需要频繁回防，很难在进攻端提供支援。此外，米涅的B方案（变阵5-4-1或4-5-1）在预选赛中仅使用过2次，球员对新阵型的熟悉程度存疑。
+    </p>
+  </div>
+  <div class="sub-item">
+    <span class="sub-item-title">2.3 攻守转换效率</span><span class="sub-item-score">42分</span>
+    <p style="margin-top:8px;line-height:1.7;font-size:14px;">
+      海地队的进攻核心逻辑在于"前场高压→抢断→快速纵向推进"。米涅要求前场4名球员（双前锋+双中场）在对手后场出球时实施层层压迫，迫使对手失误后第一时间将球送入进攻三区。这一策略在CONCACAF预选赛中效果显著——对阵尼加拉瓜的关键战中，海地正是通过前场逼抢制造的角球机会打破僵局。然而，定位球攻防是海地为数不多的"可预期得分手段"：中卫杜韦尔纳（根特）和德尔克鲁瓦（卢加诺）身高分别达到186cm和185cm，具备一定的空中威胁。不足之处在于：由攻转守时的回位速度偏慢，尤其是边后卫前插后的空当容易被顶级球队利用。米涅的应对策略是让双后腰（让-雅克和莱弗顿·皮埃尔）在边后卫前插时向两侧补位，但这要求极高的战术纪律。
+    </p>
+  </div>
+  <div class="sub-item">
+    <span class="sub-item-title">2.4 临场指挥与换人策略</span><span class="sub-item-score">38分</span>
+    <p style="margin-top:8px;line-height:1.7;font-size:14px;">
+      米涅在预选赛中的临场表现可圈可点——对阵哥斯达黎加的两回合比赛中，他在下半场通过换上速度型边锋迪德森改变比赛节奏，最终取得1胜1平的关键战绩。但需要指出的是，米涅执教的国家队此前从未经历过世界杯正赛的环境。小组赛面对巴西、摩洛哥和苏格兰三支风格各异的球队，他的临场调整将面临前所未有的考验。海地替补席的可用变招极为有限：进攻端可换上纳宗或皮埃罗增加禁区高度，防守端可换下边后卫增加中卫人数变阵5后卫，但这些都是"被动应对"而非"主动求变"。米涅在落后局面下更倾向于加强进攻（换上前锋），但这可能进一步暴露后防空当。点球大战方面，海地近年没有相关的重大比赛经验。
+    </p>
+  </div>
+
+  <h4 style="text-align:right;margin-top:10px;">均分：42分</h4>
+
+  <p class="analysis-text">
+    米涅是一位务实的体系型教练，他的最大成就是在极端困难的条件下（国内暴力危机导致所有主场移师库拉索、球员分散在全球各地）通过远程管理和视频备战成功将海地带入世界杯。他的4-4-2紧缩防守+快速反击体系在CONCACAF层面行之有效，但放在世界杯舞台上，这一战术模板的局限性将暴露无遗：首先，海地的球员个人防守能力无法支撑90分钟的高强度低位防守——巴西和摩洛哥的攻击群具备短时间内多次撕破防线的手段；其次，米涅的远程管理模式虽然在预选赛中奏效，但在世界杯正赛的高压环境下，球员之间的默契度和战术执行力需要更高频率的面对面磨合，而这恰恰是海地队集训时间不足的短板。另一个隐藏风险是：米涅的助教团队中有多名成员缺乏世界杯级别比赛的临场经验，教练组的整体大赛阅历可能成为关键时刻的盲点。
+  </p>
+
+  <!-- DIMENSION 3 -->
+  <div class="divider"></div>
+  <h3>维度三：近期竞技状态（权重15%）｜ 得分：42分 × 15% = 6.30分</h3>
+
+  <div class="sub-item">
+    <span class="sub-item-title">3.1 近12个月正式比赛战绩</span><span class="sub-item-score">40分</span>
+    <p style="margin-top:8px;line-height:1.7;font-size:14px;">
+      海地在2025年6月至2026年5月期间的17场国际比赛中取得8胜5平4负的战绩，胜率47%，净胜球+2。近5场比赛3胜1平1负，状态保持平稳。具体战绩包括CONCACAF预选赛中对阵哥斯达黎加（1胜1平）、洪都拉斯（1胜）、尼加拉瓜（1胜）以及一系列热身赛。但需要注意的是，这些对手的实力普遍偏弱——哥斯达黎加FIFA排名第52、洪都拉斯第76、尼加拉瓜第131，海地面对这些球队的胜利并不能直接反映其与世界杯对手抗衡的能力。面对排名较高的球队（如2025年金杯赛对阵墨西哥），海地以0-2完败，显示出与区域强队之间的明显差距。
+    </p>
+  </div>
+  <div class="sub-item">
+    <span class="sub-item-title">3.2 预选赛出线含金量</span><span class="sub-item-score">48分</span>
+    <p style="margin-top:8px;line-height:1.7;font-size:14px;">
+      海地通过CONCACAF第三阶段小组赛（C组）头名直接晋级——该组包括哥斯达黎加（52）、洪都拉斯（76）、尼加拉瓜（131）和海地（90）。海地以4胜2平的不败战绩出线，其中主客场双杀洪都拉斯、客场2-0击败尼加拉瓜锁定席位的一战尤为关键。考虑到海地因国内安全局势无法在主场作战（所有"主场"均在库拉索进行），这个不败出线战绩的含金量值得肯定。但CONCACAF的整体竞争力远低于UEFA和CONMEBOL——海地在预选赛中对阵的球队中无任何一支排名世界前50。与同组的巴西、摩洛哥、苏格兰相比，海地的预选赛对手质量和比赛强度完全不在同一层次，这意味着球员将面临巨大的"比赛强度适应"挑战。
+    </p>
+  </div>
+  <div class="sub-item">
+    <span class="sub-item-title">3.3 核心球员俱乐部状态走势</span><span class="sub-item-score">38分</span>
+    <p style="margin-top:8px;line-height:1.7;font-size:14px;">
+      贝勒加德在2025/26赛季英超为狼队出战24场（12次首发），场均出场时间约52分钟，贡献2球3助攻，整体处于轮换球员的定位——状态稳定但缺乏爆发期。伊西多尔在英冠桑德兰则打出了职业生涯最佳赛季，各项赛事38场12球5助攻，是队内射手王，状态火热。卡西米尔在欧塞尔（法甲）获得16次出场（其中10次首发），贡献4球2助攻，作为边路攻击手展现了不错的速度冲击力。让-雅克在MLS费城联合赛季28场2球3助攻，是球队的中场屏障。但需要警惕的是：伊西多尔从未在顶级联赛证明自己，英冠的节奏和对抗强度与世界杯小组赛差距巨大；而贝勒加德的出场时间不足也可能导致其体能储备和比赛感觉存在隐患。其他前锋如纳宗（伊朗超12场4球）和皮埃罗（土超26场7球）的进球效率在各自联赛中只是中规中矩。
+    </p>
+  </div>
+
+  <h4 style="text-align:right;margin-top:10px;">均分：42分</h4>
+
+  <p class="analysis-text">
+    海地在CONCACAF预选赛中展现出了一支成熟球队应有的稳定性——8胜5平4负的总战绩和不败出线的表现证明米涅的体系在中北美地区确实行之有效。但竞技状态评估必须置于"对手强度"的坐标下审视：海地的17场比赛中，没有任何一场的对手排名高于世界前50，也就是说，这支球队在过去一年中没有经历过任何一场"世界杯级别的比赛"。这带来了一个严峻的隐患——球员对高强度比赛的适应能力和心理承受力完全没有经过检验。伊西多尔虽然状态出色，但他能否在巴西的马尔基尼奥斯和米利唐面前拿到射门机会？贝勒加德在英超的轮换经验是宝贵的，但他身边是否能有同样水平的队友来帮他分担压力？这些都是巨大的未知数。唯一值得欣慰的是，全队没有重大伤病报告——米涅完整保留了预选赛的22人核心班底，并在5月补充了4名新球员，阵容架构的延续性有助于保持战术默契。
+  </p>
+
+  <!-- DIMENSION 4 -->
+  <div class="divider"></div>
+  <h3>维度四：大赛经验与心理素质（权重10%）｜ 得分：25分 × 10% = 2.50分</h3>
+
+  <div class="sub-item">
+    <span class="sub-item-title">4.1 世界杯/洲际杯历史战绩</span><span class="sub-item-score">15分</span>
+    <p style="margin-top:8px;line-height:1.7;font-size:14px;">
+      海地历史上仅参加过1次世界杯决赛圈——1974年西德世界杯，三场小组赛分别以1-3负于意大利、0-7负于波兰、1-4负于阿根廷，进2球失14球，三战全败出局。其中埃马纽埃尔·萨农在对阵意大利的比赛中打入一球，终结了意大利在世界杯上连续不失球的纪录（1142分钟），这也是海地世界杯历史上的唯一亮点。此后51年间，海地再未踏上世界杯舞台。洲际杯层面，海地在中北美及加勒比海金杯赛的最佳成绩是2019年打入四强（半决赛0-2负于墨西哥），此外还曾在1973年、2007年和2015年进入过八强。整体而言，海地的大赛积淀极为薄弱，本届世界杯全队没有任何球员拥有世界杯正赛经历。
+    </p>
+  </div>
+  <div class="sub-item">
+    <span class="sub-item-title">4.2 核心球员大赛经验值</span><span class="sub-item-score">25分</span>
+    <p style="margin-top:8px;line-height:1.7;font-size:14px;">
+      海地全队26人中，没有任何球员参加过世界杯正赛。大赛经验最丰富的当属贝勒加德——他参加了2024年美洲杯（受邀参赛），对阵阿根廷和智利均有出场，这是海地队中唯一在洲际顶级赛事有过亮相的球员。此外，队长普拉西德（38岁）职业生涯大部分时间在法乙度过，代表海地出场超过80次，是队内资历最老的球员，但他的大赛经验也仅限于金杯赛和CONCACAF预选赛。中卫阿代（36岁）在厄瓜多尔联赛踢过南美解放者杯，算是队内为数不多的洲际俱乐部赛事经历者。其余球员中，大部分人的最高水平赛事经验局限于本国联赛或欧洲次级联赛，面对世界杯舞台上数万名观众的呐喊声和全球直播的压力，年轻球员的心理承载能力将受到严峻考验。
+    </p>
+  </div>
+  <div class="sub-item">
+    <span class="sub-item-title">4.3 抗压与逆境应对</span><span class="sub-item-score">40分</span>
+    <p style="margin-top:8px;line-height:1.7;font-size:14px;">
+      海地在预选赛中展现出了值得肯定的逆境承受力——由于国内帮派暴力导致无法在正常主场比赛，全队必须前往库拉索进行所有"主场"比赛，这对球队的心理状态是一种长期的消耗。然而，海地队没有被这一困境击垮，反而以此为契机凝聚了团队意志。从具体比赛看，在对阵哥斯达黎加的首回合中，海地在先丢一球的情况下连扳两球逆转取胜，展现了不错的逆风球能力。但需要客观看待的是：CONCACAF预选赛的压力环境与世界杯正赛完全不在一个量级。当海地在波士顿的揭幕战中面对苏格兰前15分钟就被压制在半场时，球员是否还能保持战术纪律？当0-2落后巴西时，全队是否会陷入心理崩溃？这些问题没有历史数据可以回答，只能基于球员的俱乐部履历和个人性格进行推断——而这恰恰是最大的不确定性。
+    </p>
+  </div>
+
+  <h4 style="text-align:right;margin-top:10px;">均分：25分</h4>
+
+  <p class="analysis-text">
+    大赛经验是海地队最薄弱的环节之一。全队无人参加过世界杯正赛的事实意味着，从第一分钟踏上球场开始，海地球员就在"进入未知领域"。世界杯比赛的节奏、对抗强度、裁判尺度和心理压力与任何预选赛或友谊赛都截然不同——这种"考试难度差的冲击"往往是新军被快速击溃的根本原因。1974年的海地队三场小组赛丢了14球，2026年的这支海地队能否做得更好？从阵容结构和对手强度来看，答案并不乐观。积极的一面是：米涅作为助理教练参加了2022年世界杯，他可以将直接的备战经验传递给球队；贝勒加德在英超和美洲杯的经历也是宝贵的心理资产。但整体而言，缺乏大赛洗礼意味着海地队在最需要冷静和纪律的时刻，很可能做出错误的选择——无论是防守中的注意力失散、还是进攻中的仓促决策。
+  </p>
+
+  <!-- DIMENSION 5 -->
+  <div class="divider"></div>
+  <h3>维度五：分组及赛程影响（权重10%）｜ 得分：23分 × 10% = 2.30分</h3>
+
+  <div class="sub-item">
+    <span class="sub-item-title">5.1 小组赛对手分析</span><span class="sub-item-score">20分</span>
+    <p style="margin-top:8px;line-height:1.7;font-size:14px;">
+      海地落入了2026世界杯的"死亡之组"C组，同组三个对手对于海地而言均是难以逾越的高墙。巴西（FIFA第5位）是五届世界杯冠军，锋线拥有维尼修斯、罗德里戈、恩德里克等世界级攻击手，即便在过渡期也保持着对任何中北美球队的绝对统治力——两队历史无交锋记录，但实力鸿沟不可逾越。摩洛哥（FIFA第13位）是2022年卡塔尔世界杯的四强球队，拥有非洲最严密的防守体系和齐耶赫、阿什拉夫等顶级球星，其防守反击风格恰好克制海地可能采取的同类型战术。苏格兰（FIFA第36位）在2024年欧洲杯表现出色，拥有罗伯逊（利物浦）、麦金（阿斯顿维拉）、麦克托米奈（那不勒斯）等英超核心球员，整体实力远超海地。三场比赛，海地都是被绝对看衰的一方。
+    </p>
+  </div>
+  <div class="sub-item">
+    <span class="sub-item-title">5.2 淘汰赛晋级路线预判</span><span class="sub-item-score">15分</span>
+    <p style="margin-top:8px;line-height:1.7;font-size:14px;">
+      以海地的实力，从C组出线的概率微乎其微。但如果极端情况发生（比如以小组第二出线），16强赛将对阵D组头名——D组的种子队可能是法国或荷兰等欧洲顶级强队。即使以小组头名出线（理论概率接近零），16强赛对阵D组第二名也将面对至少是世界排名前20的对手。简而言之，哪怕海地创造了C组出线的奇迹，淘汰赛首轮也会遭遇一支争冠级别的球队。所以对于海地来说，讨论淘汰赛路线更像是一种理论推演：现实的目标是在小组赛中尽量缩小比分差距，争取一个进球或一个积分。正如米涅本人所言："我们的目标是赢下一场比赛或至少拿到一个积分。"
+    </p>
+  </div>
+  <div class="sub-item">
+    <span class="sub-item-title">5.3 旅途与气候因素</span><span class="sub-item-score">40分</span>
+    <p style="margin-top:8px;line-height:1.7;font-size:14px;">
+      2026世界杯由美国、加拿大、墨西哥三国联合主办。海地的首场比赛在波士顿（美国东北部）进行，6月的波士顿气温较为温和（约15-25°C），对来自加勒比的海地球员来说可能需要一定适应——但相比酷热天气，这反而是一个利好。后续两个对手的比赛场地尚未最终确定，但值得注意的是，海地预选赛期间所有"主场"均在库拉索（加勒比海岛）进行，球员对长途旅行和场地变化有一定的适应经验。此外，海地队选择在赛前于南佛罗里达进行集训（5月24日开始），并安排了对阵新西兰（6月2日）和秘鲁（6月13日前）的两场热身赛，这有助于球员逐步进入比赛节奏。总体来说，旅途和气候不会成为海地的重大不利因素，但也算不上优势。
+    </p>
+  </div>
+
+  <h4 style="text-align:right;margin-top:10px;">均分：23分</h4>
+
+  <p class="analysis-text">
+    海地的签运极差——C组不仅拥有五冠王巴西和2022年四强摩洛哥，就连同组最"弱"的苏格兰也拥有多位英超主力球员。对于一支FIFA排名第90位、时隔52年重返世界杯的球队来说，这样的分组几乎等同于"死刑判决"。但正因如此，海地球员反而可以轻装上阵：没有任何人期待他们在C组有所作为，所有舆论压力都在对手一边。历史经验表明，世界杯上的"无压力球队"有时能创造惊喜——比如2010年的新西兰（三场平局全部拿分）、2014年的哥斯达黎加（死亡之组头名出线）。海地要复制这样的奇迹需要的条件极为苛刻：首先必须在揭幕战中顶住苏格兰的进攻至少60分钟，然后利用定位球或反击偷一个进球；其次要祈祷巴西和摩洛哥在提前出线的情况下对末轮比赛有所保留。综合看，海地最现实的目标是"体面地离开"而不是"从小组突围"。
+  </p>
+
+  <!-- DIMENSION 6 -->
+  <div class="divider"></div>
+  <h3>维度六：团队凝聚力与场外环境（权重10%）｜ 得分：46分 × 10% = 4.60分</h3>
+
+  <div class="sub-item">
+    <span class="sub-item-title">6.1 更衣室团结度</span><span class="sub-item-score">55分</span>
+    <p style="margin-top:8px;line-height:1.7;font-size:14px;">
+      海地队的更衣室氛围可以概括为"逆境中的团结"。全队除了伍登斯基·皮埃尔外都是海外侨民球员，他们生长在法国、加拿大、美国等不同国家，但因为对海地的血缘认同和"代表国家"的使命感而凝聚在一起。队长普拉西德（38岁）是更衣室的绝对精神领袖，他在海地队已效力超过15年，见证了球队从低谷到重返世界杯的全过程。在预选赛期间，海地国内爆发严重帮派暴力，球员的家属在国内面临安全威胁，全队反而以此为契机喊出了"为海地而战"的口号。据媒体报道，球员之间关系融洽，没有派系传闻——这种团结在CONCACAF预选赛中发挥了重要作用。但需要注意：当球队在世界杯上遭遇大比分失利时，这种团结是否还能维持不败心态，是一个未知数。
+    </p>
+  </div>
+  <div class="sub-item">
+    <span class="sub-item-title">6.2 足协稳定性与管理</span><span class="sub-item-score">38分</span>
+    <p style="margin-top:8px;line-height:1.7;font-size:14px;">
+      海地足协（FHF）长期面临资源匮乏和管理不稳定的困境。由于国内安全局势持续恶化，足协的日常运营和球队备战受到严重影响——所有预选赛主场均迁移至库拉索进行，赛前集训也只能在海外（南佛罗里达）组织。但米涅于2024年3月上任后，海地足协给予了其比较充分的执教自主权，包括引入法国的教练团队、建立海外球探网络、实施远程视频备战系统等。米涅的合同在世界杯后到期，但目前没有续约纷争的公开报道——这至少保证了球队在世界杯期间不会受到教练去留问题的干扰。后勤保障方面，海地队的训练设施、医疗保障和住宿条件与巴西、英格兰等强队不可同日而语，但就球队的预算水平而言，已算是做出了最大努力。
+    </p>
+  </div>
+  <div class="sub-item">
+    <span class="sub-item-title">6.3 国内舆论与媒体压力</span><span class="sub-item-score">45分</span>
+    <p style="margin-top:8px;line-height:1.7;font-size:14px;">
+      海地国内正处于严重的社会经济危机之中，帮派暴力、通货膨胀和政治动荡让国民生活举步维艰。在这样的背景下，海地队历史性地重返世界杯成为了举国上下难得的"精神共鸣点"。国内媒体的报道以正面激励为主，对球队的期望值普遍合理——"只要拼尽全力，结果不重要"是主流舆论基调。这种低期望值、高情感支持的氛围对球队是利好的：球员不必背负沉重的成绩压力，可以专注于比赛本身。但硬币的另一面是：如果球队在小组赛中遭遇惨败（比如0-5以上的失利），国内本已脆弱的民族情绪可能迅速转为失望甚至批评，届时的舆论逆转可能对球员心理造成二次打击。但总体而言，截至开赛前，海地队的舆论环境是积极正面的。
+    </p>
+  </div>
+
+  <h4 style="text-align:right;margin-top:10px;">均分：46分</h4>
+
+  <p class="analysis-text">
+    团队凝聚力是海地队在本届世界杯中最值得信赖的"软实力"。这支球队的历史故事——在海地国内最黑暗的时刻挺身而出、在海外侨民的支持下凝聚成军、用足球为国家带来片刻的希望——本身就具有极强的叙事感染力。球员们为国效力的意愿和团队荣誉感是真实的，预选赛期间在库拉索"主场"作战时，看台上海地侨民的热情支持就证明了这一点。但团队精神终究是比赛的一部分而非全部。当面对巴西的狂轰滥炸、当落后三球而比赛还剩60分钟时，精神力量能支撑多久？这是留给所有人的悬念。海地足协的管理能力虽然有限，但米涅的远程管理模式在一定程度上弥补了资源短板——通过视频分析、海外球探和分散集训等方式，米涅在有限的条件下最大化地发挥了球队的潜力。
+  </p>
+
+  <!-- DIMENSION 7 -->
+  <div class="divider"></div>
+  <h3>维度七：体能储备与伤病控制（权重5%）｜ 得分：41分 × 5% = 2.05分</h3>
+
+  <div class="sub-item">
+    <span class="sub-item-title">7.1 赛季疲劳度评估</span><span class="sub-item-score">40分</span>
+    <p style="margin-top:8px;line-height:1.7;font-size:14px;">
+      海地队中大部分在欧洲效力的球员刚刚结束了2025/26赛季。伊西多尔（桑德兰）参加了英冠46轮常规赛及附加赛——桑德兰打入升级附加赛，这意味着他比普通球队多踢了2-3场高强度比赛。贝勒加德（狼队）的英超赛季在5月中旬结束，共出场24次。丹利·让-雅克（费城联合）所在的MLS赛季是跨年度赛制（2025年2月-12月），他在2025年底休赛期后于2026年初才重新开始训练，身体疲劳度相对较低。卡西米尔（欧塞尔）在法甲经历了完整的38轮赛季。整体来看，海地球员的赛季长度和比赛密度都属于正常范围——没有球员经历了超过50场的密集赛季。但核心问题是：大部分球员效力的联赛级别较低，比赛中的高强度跑动距离和冲刺次数可能不如世界杯所需的水平。米涅安排了两场热身赛（新西兰和秘鲁），有助于提升球员的比赛强度应对能力。
+    </p>
+  </div>
+  <div class="sub-item">
+    <span class="sub-item-title">7.2 关键伤病与恢复情况</span><span class="sub-item-score">50分</span>
+    <p style="margin-top:8px;line-height:1.7;font-size:14px;">
+      截至大名单公布（2026年5月15日），海地队没有重大伤病报告。全部26名球员均以健康状态入选，这是主教练米涅在赛前新闻发布会上的明确表述。伊西多尔在英冠附加赛中脚踝轻微扭伤，但随后确认已完全康复并在热身赛中出场。贝勒加德在赛季末段因小腿肌肉疲劳休息了两场，但休息调整后已恢复训练。整体而言，海地队的伤病控制做得相当不错——考虑到球队中大部分球员在赛季末段多有轻微伤病困扰，能够在世界杯前保持全员健康出战，本身就是医疗和训练团队工作成效的体现。唯一的隐患是38岁门将普拉西德的身体机能衰减问题，虽然无具体伤病，但高龄门将的爆发力、反应速度和恢复能力与巅峰时期相比已明显下滑。
+    </p>
+  </div>
+  <div class="sub-item">
+    <span class="sub-item-title">7.3 医疗团队与保障水平</span><span class="sub-item-score">30分</span>
+    <p style="margin-top:8px;line-height:1.7;font-size:14px;">
+      海地队的医疗和体能保障团队由体能教练Victorien Claudien和守门员教练Vincentin Beaudiere等组成，总人数和配置在48支参赛队中属于较低水平。海地足协的预算有限，无法像巴西、英格兰等强队那样配备完整的运动科学团队（包括营养师、理疗师、运动心理学家等）。球队在赛前的备战训练营设在南佛罗里达，当地的医疗资源可以借助外部设施补充，但这与拥有专属医疗团队的一流球队相比仍有差距。积极的一面是：米涅的团队中包含表现分析师Mickaël Flavien，他在比赛数据跟踪和球员负荷管理方面可以提供一定支持。但整体而言，海地队的医疗保障水平在世界杯参赛队中处于末流，如果核心球员在比赛期间出现伤病，能否得到及时、高质量的恢复治疗，是一个不容忽视的风险点。
+    </p>
+  </div>
+
+  <h4 style="text-align:right;margin-top:10px;">均分：41分</h4>
+
+  <p class="analysis-text">
+    体能和伤病方面，海地最值得肯定的消息是全员健康——没有核心球员因伤缺阵，这为米涅提供了完整的战术选择空间。预选赛22人核心班底的延续性也意味着球队在体能训练和战术磨合上不需要从零开始。但隐患在于：球队的运动科学支持能力有限，世界杯正赛的高强度对抗——尤其是7天内可能踢完3场小组赛的密集赛程——对球员的身体恢复能力提出了高要求。海地球员对世界杯比赛强度的身体适应是未知的：当面对巴西锋线的反复冲刺时，后卫线的体能能否维持到第80分钟？海地在季前赛阶段（南佛罗里达的备战营）的体能储备质量将直接决定球队在三场小组赛中的竞争力曲线。
+  </p>
 </div>
-<div class="bg-white rounded-xl shadow p-6 mb-6">
-  <h3 class="text-lg font-bold text-red-700">致命短板</h3>
-  <ul class="list-disc pl-6 space-y-2">
-    <li><strong>C组"地狱难度"——2026年实力跨度最大的小组。</strong>巴西（夺冠热门）+ 摩洛哥（2022四强）+ 苏格兰（欧洲中上游）——海地在这三场比赛中&#30340;"预期控球率"可能都在30%以下。面对巴西时，维尼修斯的盘带、内马尔的创造力、拉菲尼亚的跑位——海地的后防线可能需要面对"每秒都被攻击"的90分钟。</li>
-    <li><strong>0五大联赛豪门背景。</strong>全队最高级别球员是狼队的贝勒加德——狼队在英超属于中游。其余球员分布在法乙、英冠、美职联、土超等联赛。面对巴西（全队身价8.5亿欧）时，这种"天赋落差"是全方位的——速度、力量、技术、战术理解都不在一个等级。</li>
-  </ul>
-</div>
-<div class="bg-white rounded-xl shadow p-6 mb-6">
-  <h3 class="text-lg font-bold text-ht-blue">关键球员</h3>
-  <div class="grid md:grid-cols-2 gap-3">
-    <div class="border-l-4 border-orange-600 pl-3"><p class="font-bold">🇭🇹 让里克尔·贝勒加德</p><p class="text-sm text-gray-600">狼队中场，海地唯一的英超球员。他需要用每一次拿球来证明海地"不是来旅游的"——他的控球和推进是海地中场唯一的"生命线"。</p></div>
-    <div class="border-l-4 border-yellow-600 pl-3"><p class="font-bold">🇭🇹 威尔逊·伊西多尔</p><p class="text-sm text-gray-600">桑德兰前锋，24岁。海地在反击中最快的"箭"——如果海地有进球的希望，那大概率来自伊西多尔的一次单刀或抢点。</p></div>
+
+<!-- ===== SECTION 3: TOTAL SCORE ===== -->
+<div class="section text-center">
+  <h2>（三）综合总分与评级</h2>
+  <div style="margin:25px 0;">
+    <div style="font-size:18px;color:#666;margin-bottom:10px;">加权总分</div>
+    <div class="total-score">35.15 / 100</div>
+  </div>
+  <div style="margin:25px 0;">
+    <div style="font-size:18px;color:#666;margin-bottom:10px;">实力评级</div>
+    <div class="rating-box">D−</div>
+    <div style="font-size:16px;color:#c0392b;margin-top:8px;">实力悬殊，小组赛难求一胜</div>
+  </div>
+
+  <h4 style="margin-top:30px;">七维度得分一览</h4>
+  <div class="table-scroll">
+  <table style="max-width:600px;margin:0 auto;">
+    <tr><th>维度</th><th>得分</th><th>权重</th><th>加权得分</th></tr>
+    <tr><td>① 阵容实力</td><td>30</td><td>30%</td><td>9.00</td></tr>
+    <tr><td>② 战术体系与教练</td><td>42</td><td>20%</td><td>8.40</td></tr>
+    <tr><td>③ 近期竞技状态</td><td>42</td><td>15%</td><td>6.30</td></tr>
+    <tr><td>④ 大赛经验与心理素质</td><td>25</td><td>10%</td><td>2.50</td></tr>
+    <tr><td>⑤ 分组及赛程影响</td><td>23</td><td>10%</td><td>2.30</td></tr>
+    <tr><td>⑥ 团队凝聚力与场外环境</td><td>46</td><td>10%</td><td>4.60</td></tr>
+    <tr><td>⑦ 体能储备与伤病控制</td><td>41</td><td>5%</td><td>2.05</td></tr>
+    <tr style="font-weight:bold;background:#c0392b;color:#fff;">
+      <td>总分</td><td>—</td><td>100%</td><td>35.15</td>
+    </tr>
+  </table>
   </div>
 </div>
-<div class="bg-white rounded-xl shadow p-6 mb-6">
-  <h3 class="text-lg font-bold">小组赛预判</h3>
-  <table class="mt-2"><tr><th>对手</th><th>预判</th></tr>
-    <tr><td>巴西 🇧🇷</td><td>海地 0-5 负</td></tr>
-    <tr><td>摩洛哥 🇲🇦</td><td>海地 0-3 负</td></tr>
-    <tr><td>苏格兰 🇬🇧</td><td>海地 1-2 负（有望进球）</td></tr>
+
+<!-- ===== SECTION 4: DEEP REVIEW ===== -->
+<div class="section">
+  <h2>（四）深度球评</h2>
+
+  <h3>核心优势</h3>
+  <div class="key-player">
+    <p><strong>1. 团队凝聚力与精神力量</strong><br>
+    海地队最宝贵的资产不是某个球员的技术能力，而是全队上下在极端逆境中凝聚起来的战斗意志。在预选赛期间，因国内帮派暴力导致球队无法在本土进行任何一场正式比赛，所有"主场"都移师库拉索，球员的家人在国内面临安全威胁。但海地球员没有被打垮，反而以4胜2平的不败战绩夺得小组头名出线——这是一种不可量化的精神力量。队长普拉西德和主帅米涅共同营造的更衣室氛围以团结和奉献为核心，没有个人英雄主义或派系内耗，全队以"国家荣誉"为共同信仰。这种精神属性在面对实力远超自己的对手时，可能成为球队在逆境中保持尊严的关键——至少，海地不会轻易在精神层面崩盘。</p>
+  </div>
+  <div class="key-player">
+    <p><strong>2. 反击速度与定位球威胁</strong><br>
+    米涅的战术体系建立在"防守→快速纵向推进"的基础之上。海地阵中拥有多名具备速度优势的攻击手——伊西多尔（桑德兰）在英冠展现出了出色的冲刺能力和单刀把握（12球），迪德森（达拉斯FC）在美职联场均冲刺次数位列全队前茅，卡西米尔（欧塞尔）在法甲同样以边路爆发力见长。当海地收缩防守后发动快速反击时，这三人的速度可以对任何对手的防线形成一定的威胁。此外，海地的定位球进攻是得分的最大指望——中卫杜韦尔纳和德尔克鲁瓦身高均超过185cm，在角球和任意球战术中具备抢点能力。预选赛中海地有接近30%的进球来自定位球，证明了这一套路在实战中的有效性。</p>
+  </div>
+  <div class="key-player">
+    <p><strong>3. "光脚不怕穿鞋"的心理优势</strong><br>
+    海地是48支参赛队中FIFA排名最低的球队之一（第90位），身处拥有巴西、摩洛哥、苏格兰的"死亡之组"。全世界没有一家媒体、预测机构或博彩公司看好海地能从C组出线——这也意味着海地全队上下没有任何成绩包袱。米涅公开表示"目标是赢一场或拿一分"，球员们也清楚自己代表着国家的希望而非一定要取得什么成绩。这种低期望值下往往能激发超水平发挥——历史上世界杯上的"黑马"球队（如2014年哥斯达黎加、2018年日本、2022年摩洛哥）都有一个共同特征：赛前不被看好，但全队轻装上阵、敢打敢拼。海地完全具备这种心理条件。</p>
+  </div>
+
+  <h3>致命短板</h3>
+  <div class="key-player">
+    <p><strong>1. 天赋天花板极低，与同组对手差距呈数量级</strong><br>
+    海地全队总身价€5,588万，不到同组巴西的5%（巴西总身价超过€10亿）、摩洛哥的15%（约€3.5亿）、苏格兰的25%（约€2亿）。全队身价最高的伊西多尔（€1,800万）放在巴西队连前25名都可能排不进去。更关键的是，海地没有一名球员能在五大联赛的顶级豪门立足——而巴西的锋线全部是皇马、巴萨、阿森纳级别的球星。这种个人能力的数量级差距意味着：海地在每一条线上、每一个位置上都被对手形成压制，没有任何对位优势可以用来做文章。米涅的战术纪律再严密，也无法弥补球员个人在技术、速度、力量三个维度上的全面劣势。具体而言，海地的边后卫将面对维尼修斯（皇马）或齐耶赫（切尔西/加拉塔萨雷）级别的边锋——这种对位的防守缺口几乎是不可弥补的。</p>
+  </div>
+  <div class="key-player">
+    <p><strong>2. 大赛经验为零，面临"未知恐惧"</strong><br>
+    全队26名球员无一人参加过世界杯正赛，这是一个无法回避的"硬伤"。世界杯的比赛节奏、判罚尺度、媒体曝光度、球迷数量级都与任何预选赛或友谊赛截然不同。绝大多数海地球员职业生涯中从未在超过5万名观众的球场中踢球，而C组比赛将在波士顿的吉列球场（容量65,878人）等地举行。这种"环境冲击"可能导致球员在开场阶段出现注意力分散、动作变形、决策失误等状况，而在面对巴西、摩洛哥这样的强队时，这些失误几乎必然会转化为失球。此外，球队在落后情况下缺乏"逆风翻盘"的经验参照——预选赛中海地虽然有过逆转哥斯达黎加的表现，但那是CONCACAF级别的比赛，与世界杯的逆境完全不可同日而语。</p>
+  </div>
+
+  <h3>关键先生</h3>
+
+  <div class="key-player">
+    <h4>1. Wilson Isidor（威尔逊·伊西多尔）— 前锋，25岁</h4>
+    <p>伊西多尔是海地全队身价最高的球员（€1,800万），也是进攻端最重要的火力点。2025/26赛季在英冠桑德兰打出了职业生涯最佳数据——各项赛事38次出场12球5助攻，是桑德兰晋级升级附加赛的重要功臣。作为一名身高183cm的中锋，伊西多尔集速度、力量和禁区嗅觉于一身，擅长在反击中利用身体优势护球并寻找射门角度。他在海地队的作用远超数据所体现：预选赛4球2助攻，米涅的反击战术80%的终结环节都需要他来完成。伊西多尔的单刀把握能力和禁区内的抢点意识是海地队最可信赖的得分手段。对他的限制将直接决定海地进攻威胁的宽度。</p>
+  </div>
+
+  <div class="key-player">
+    <h4>2. Jean-Ricner Bellegarde（让-里内尔·贝勒加德）— 中场，27岁</h4>
+    <p>贝勒加德是全队唯一在英超效力的球员（狼队），也是海地中场的绝对核心和技术天花板。2025/26赛季英超出场24次（12次首发），贡献2球3助攻，展现了不错的推进能力和传球视野。贝勒加德在米涅的4-4-2体系中担任前腰/中前卫角色，负责衔接防守与进攻——他既是由守转攻的第一传球点，也是前场压迫的启动者。他在美洲杯对阵阿根廷时的出场经验是全队最接近世界杯级别的比赛经历。在对阵苏格兰的比赛中，贝勒加德能否在中场有效拿球并找到前插的伊西多尔，将直接决定海地能否制造出真正的得分机会。他在防守端的回防意识和对抗能力同样关键——如果他被对手压制在中后场无法前插，海地的进攻将彻底瘫痪。</p>
+  </div>
+
+  <h3>小组赛预判</h3>
+  <table>
+    <tr><th>对手</th><th>比赛日期</th><th>场地</th><th>预计结果</th><th>概率评估</th></tr>
+    <tr><td>苏格兰 🏴󠁧󠁢󠁳󠁣󠁴󠁿</td><td>6月13日</td><td>波士顿</td><td>0-2 负</td><td>拿分概率 15%</td></tr>
+    <tr><td>摩洛哥 🇲🇦</td><td>6月18日</td><td>TBD</td><td>0-3 负</td><td>拿分概率 5%</td></tr>
+    <tr><td>巴西 🇧🇷</td><td>6月23日</td><td>TBD</td><td>0-5 负</td><td>拿分概率 2%</td></tr>
   </table>
-  <p class="mt-2"><strong>小组赛综合：3战全败，0分出局概率99%。最佳场景：对苏格兰攻入1球，带着进球告别世界杯。</strong></p>
+  <p class="analysis-text">
+    海地最现实的拿分窗口是揭幕战对阵苏格兰。苏格兰虽有罗伯逊、麦金等英超球员压阵，但大赛首秀的紧张感是共通的——苏格兰队自身也承受着28年后重返世界杯的压力。如果海地能在前60分钟保持0-0的僵局，利用定位球或反击偷一个进球，并非没有拿分的可能。但摩洛哥和巴西的防守体系极为成熟，海地面对这两支球队时连获得射门机会都将极为困难。综合预估：0分，小组垫底出局。如果海地能在三场比赛中打入1球，已经可以作为"胜利"来庆祝。
+  </p>
+
+  <h3>淘汰赛路线推演</h3>
+  <p class="analysis-text">
+    如果——这是一个概率低于1%的"如果"——海地奇迹般地以小组第二出线（比如逼平苏格兰+摩洛哥意外翻车+巴西末轮放水等等），它们将对阵D组头名。D组（基于当前种子队分布）可能由法国或荷兰等欧洲顶尖强队领衔。届时海地将遭遇一支争冠热门的全力进攻，体面的比分差距（2球以内）就是巨大的成功。以小组头名出线的概率可以忽略不计。因此，淘汰赛路线的推演更像是一种"理论想象力"的练习——海地的世界杯之旅将在三场小组赛后画上句号，关键不在于结果，而在于球队能否在52年后重返世界杯的舞台上，展现出配得上"国家荣耀"的表现。
+  </p>
+
+  <h3>大师结语</h3>
+  <p style="font-size:18px;font-style:italic;color:#c0392b;text-align:center;padding:20px;border-top:2px solid #c0392b;border-bottom:2px solid #c0392b;margin:30px 0;">
+    "52年的等待，每一次拼抢都是对苦难祖国的致敬——海地可能赢不了比赛，但已经赢回了尊严。"
+  </p>
 </div>
-<div class="bg-white rounded-xl shadow p-6 mb-6">
-  <p class="mt-3 p-3 bg-blue-50 rounded-lg"><strong>核心判断：</strong>海地是C组中不折不扣的"鱼腩"——但这并不重要。对于这个加勒比岛国而言，出现在2026世界杯的赛场上本身就是一个奇迹——一个从政治动荡、自然灾害和经济困境中顽强走出来的国家的足球故事。他们的目标不是出线（概率低于1%），而是：在迈阿密对阵苏格兰的那天晚上，让贝勒加德在中场完成一次漂亮的过人、让伊西多尔在禁区边缘起脚射门、让普拉西德扑出一粒必进球——让全世界看到海地的名字在世界杯的记分牌上亮起。</p>
-</div>
-<div class="bg-white rounded-xl shadow p-6 mb-6 text-center">
-  <h3 class="text-lg font-bold text-ht-red">大师结语</h3>
-  <p class="text-xl italic mt-3 text-gray-700">"从太子港的废墟到新泽西的草坪——52年，海地走过了比任何国家队都更艰难的路。他们没有维尼修斯，没有内马尔，只有一个在狼队努力站稳脚跟的贝勒加德和一颗跳动了两个半世纪仍然不屈的心。当海地的蓝红两色旗在迈阿密的夜空中升起，那不只是足球的胜利，是一个国家对自己说：我们还在这里。"</p>
-</div>
-<div class="text-center text-gray-400 text-sm py-6 border-t">
-  <p>© 2026 足球战力分析 · Powered by WorkBuddy AI</p>
-</div>
+
 </div>
 
 <!-- HuaFootball: back-to-home button -->
@@ -255,17 +453,17 @@ tailwind.config = { theme: { extend: { colors: { ht: { blue: '#00209F', red: '#D
 .huafootball-back-btn {
   position:fixed!important;bottom:28px!important;right:28px!important;z-index:99999!important;
   display:inline-flex!important;align-items:center!important;gap:6px!important;
-  padding:10px 22px!important;background:rgba(26,71,42,0.85)!important;color:#c9a84c!important;
-  border:1px solid rgba(201,168,76,0.3)!important;border-radius:999px!important;
-  font-family:"Inter","Noto Sans SC",system-ui,sans-serif!important;font-size:13px!important;
+  padding:10px 22px!important;background:rgba(26,71,42,0.85)!important;color:#c8a951!important;
+  border:1px solid rgba(200,169,81,0.3)!important;border-radius:999px!important;
+  font-family:"Inter","PingFang SC",system-ui,sans-serif!important;font-size:13px!important;
   font-weight:600!important;text-decoration:none!important;
   backdrop-filter:blur(8px)!important;-webkit-backdrop-filter:blur(8px)!important;
   box-shadow:0 4px 20px rgba(0,0,0,0.3)!important;transition:all .25s ease!important;
   cursor:pointer!important;user-select:none!important;
 }
 .huafootball-back-btn:hover {
-  background:rgba(26,71,42,0.95)!important;border-color:rgba(201,168,76,0.5)!important;
-  box-shadow:0 6px 28px rgba(201,168,76,0.2)!important;transform:translateY(-2px)!important;
+  background:rgba(26,71,42,0.95)!important;border-color:rgba(200,169,81,0.5)!important;
+  box-shadow:0 6px 28px rgba(200,169,81,0.2)!important;transform:translateY(-2px)!important;
 }
 .huafootball-back-btn svg { transition:transform .2s ease!important; }
 .huafootball-back-btn:hover svg { transform:translateX(-3px)!important; }

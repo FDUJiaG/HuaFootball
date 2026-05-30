@@ -4,262 +4,447 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>瑞典 · 2026世界杯实力评估报告</title>
-<script src="https://cdn.tailwindcss.com"></script>
-<script>
-tailwind.config = { theme: { extend: { colors: { se: { blue: '#005BAA', yellow: '#FECC02', dark: '#1a1a2e', lightgray: '#f8f9fa' } }, fontFamily: { 'kai': ['KaiTi','STKaiti','SimKai','serif'], 'serif': ['Times New Roman','serif'] } } } }
-</script>
 <style>
-  body { font-family: KaiTi, STKaiti, SimKai, 'Times New Roman', serif; font-size: 11pt; }
-  .container { max-width: 1100px; margin: 0 auto; padding: 20px; }
-  h1 { font-size: 2em; } h2 { font-size: 1.5em; border-bottom: 3px solid #005BAA; padding-bottom: 8px; margin-top: 30px; }
-  h3 { font-size: 1.2em; margin-top: 20px; }
-  table { width: 100%; border-collapse: collapse; font-size: 11pt; }
-  th, td { border: 1px solid #ddd; padding: 8px 12px; text-align: left; }
-  th { background-color: #005BAA; color: white; font-weight: bold; }
-  tr:nth-child(even) { background-color: #f8f9fa; }
-  .score-bar { height: 20px; border-radius: 10px; background: #eee; overflow: hidden; }
-  .score-fill { height: 100%; border-radius: 10px; }
-  .dimension-card { background: white; border-radius: 12px; padding: 20px; margin-bottom: 20px; box-shadow: 0 2px 8px rgba(0,0,0,0.08); border-left: 5px solid #FECC02; }
-  .subitem { margin: 12px 0; padding: 12px; background: #f8f9fa; border-radius: 8px; }
-  .subitem h4 { color: #005BAA; font-weight: bold; margin-bottom: 6px; }
-  .summary-box { background: linear-gradient(135deg, #005BAA, #FECC02); border-radius: 16px; padding: 25px; margin: 20px 0; color: white; }
-  .badge { display: inline-block; padding: 2px 10px; border-radius: 12px; font-size: 0.85em; font-weight: bold; }
-  .badge-gk { background: #4CAF50; color: white; } .badge-df { background: #2196F3; color: white; }
-  .badge-mf { background: #FF9800; color: white; } .badge-fw { background: #f44336; color: white; }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: 'Times New Roman', 'KaiTi', '楷体', serif; background: #fff; color: #222; padding: 40px 20px; }
+  .container { max-width: 1000px; margin: 0 auto; }
+  .section { margin-bottom: 40px; }
+  .text-center { text-align: center; }
+  h1 { font-size: 32px; color: #005b99; margin: 15px 0 5px; }
+  h2 { font-size: 24px; color: #005b99; border-bottom: 3px solid #005b99; padding-bottom: 8px; margin: 35px 0 20px; }
+  h3 { font-size: 20px; color: #005b99; margin: 25px 0 15px; }
+  h4 { font-size: 17px; color: #333; margin: 18px 0 10px; }
+  .subtitle { color: #666; font-size: 14px; margin-bottom: 20px; }
+  table { width: 100%; border-collapse: collapse; margin: 15px 0; font-size: 14px; }
+  th, td { border: 1px solid #ddd; padding: 8px 10px; text-align: left; }
+  th { background: #005b99; color: #fff; font-weight: bold; }
+  tr:nth-child(even) { background: #e3f2fd; }
+  .badge { display: inline-block; background: #005b99; color: #fff; padding: 6px 16px; border-radius: 4px; font-size: 14px; font-weight: bold; margin: 3px; }
+  .rating-box { display: inline-block; font-size: 48px; font-weight: bold; color: #005b99; padding: 10px 30px; border: 4px solid #005b99; border-radius: 8px; margin: 10px 0; }
+  .total-score { font-size: 36px; font-weight: bold; color: #005b99; }
+  .sub-item { margin: 12px 0; padding: 10px 14px; background: #e3f2fd; border-left: 4px solid #005b99; border-radius: 3px; }
+  .sub-item-title { font-weight: bold; color: #005b99; }
+  .sub-item-score { float: right; font-weight: bold; }
+  .analysis-text { line-height: 1.8; text-indent: 2em; margin: 12px 0; font-size: 15px; color: #333; }
+  .divider { height: 1px; background: #eee; margin: 30px 0; }
+  ul { margin: 10px 0 10px 20px; line-height: 1.8; }
+  li { margin: 6px 0; }
+  .key-player { margin: 15px 0; padding: 12px 16px; background: #e3f2fd; border-left: 4px solid #005b99; border-radius: 3px; }
+  .key-player h4 { color: #005b99; margin: 0 0 6px; }
+  .key-player p { line-height: 1.7; font-size: 14px; }
+  .table-scroll { overflow-x: auto; }
+  @media print { body { padding: 20px; } }
 </style>
 </head>
-<body class="bg-gray-50">
+<body>
 <div class="container">
 
-<div class="section text-center bg-white rounded-2xl shadow-lg p-8 mb-8">
-  <img src="https://cdn.prod.website-files.com/68f550992570ca0322737dc2/68fa08ce61f58c56e735629c_sweden-national-team-footballlogos-org.png" alt="瑞典足协队徽" style="height:90px;width:auto;display:block;margin:0 auto 10px;" onerror="this.style.display='none';document.getElementById('logo-fb').style.display='block';" />
+<!-- ===== HEADER ===== -->
+<div class="section text-center">
+  <img src="https://upload.wikimedia.org/wikipedia/en/thumb/3/3f/Sweden_national_football_team_badge.svg/250px-Sweden_national_football_team_badge.svg.png"
+       alt="瑞典国家队队徽"
+       style="height:90px;width:auto;display:block;margin:0 auto 10px;"
+       onerror="this.style.display='none';document.getElementById('logo-fb').style.display='block';" />
   <div id="logo-fb" style="display:none;font-size:4em;margin-bottom:10px;">🇸🇪</div>
-  <h1 class="text-4xl font-bold text-se-blue mt-4">瑞典 · 2026世界杯实力评估报告</h1>
-  <p class="text-gray-500 mt-2">报告生成日期：2026年5月22日 · 2026美加墨世界杯</p>
+  <h1>瑞典 · 2026世界杯实力评估报告</h1>
+  <p class="subtitle">Blågult（蓝黄军团）· 格雷厄姆·波特的"大逃亡"续写北欧传奇</p>
 </div>
 
-<h2 class="text-se-blue">（一）球队基本信息</h2>
-<div class="bg-white rounded-xl shadow p-6 mb-6">
-  <div class="grid md:grid-cols-2 gap-4">
-    <div>
-      <p><strong>主教练：</strong>格雷厄姆·波特（Graham Potter）— 英国人，前布莱顿/切尔西主帅</p>
-      <p><strong>队长：</strong>维克托·林德洛夫（Victor Lindelöf）— 阿斯顿维拉</p>
-      <p><strong>FIFA排名：</strong>约第22位</p>
-      <p><strong>世界杯参赛次数：</strong>第13次</p>
-      <p><strong>世界杯最佳成绩：</strong>亚军 🥈（1958年东道主）、季军 🥉（1994年）</p>
-      <p><strong>上届（2022）成绩：</strong>未晋级（连续第二次缺席世界杯）</p>
-    </div>
-    <div>
-      <p><strong>小组赛：</strong>F组</p>
-      <p><strong>同组对手：</strong>荷兰 🇳🇱、日本 🇯🇵、突尼斯 🇹🇳</p>
-      <p><strong>首战：</strong>6月14日 vs 突尼斯（墨西哥瓜达卢佩）</p>
-      <p><strong>次战：</strong>6月20日 vs 荷兰（休斯顿）</p>
-      <p><strong>末轮：</strong>6月25日 vs 日本（阿灵顿）</p>
-      <div class="mt-2 p-2 bg-blue-50 rounded">
-        <p class="text-sm"><strong>🔵 波特时代：</strong>前切尔西主帅在预选赛最后5个月接手，完成"大逃亡"率队奇迹晋级</p>
-      </div>
-    </div>
-  </div>
-</div>
-
-<h3 class="text-xl font-bold text-se-blue">26人大名单（3 GK + 10 DF + 5 MF + 8 FW）</h3>
-<p class="text-gray-500 text-sm mb-3">* 5月12日公布 · 波特执教 · 10后卫32强最多 · 伊萨克（利物浦）+约克雷斯（阿森纳）领衔英超锋线</p>
-
-<div class="bg-white rounded-xl shadow p-6 mb-6">
+<!-- ===== SECTION 1 ===== -->
+<div class="section">
+  <h2>（一）球队基本信息</h2>
   <table>
-    <thead><tr><th>位置</th><th>球员姓名</th><th>英文名</th><th>俱乐部</th><th>联赛</th></tr></thead>
-    <tbody>
-      <tr><td><span class="badge badge-gk">GK</span></td><td>维克托·约翰松</td><td>Viktor Johansson</td><td>斯托克城</td><td>英冠</td></tr>
-      <tr><td><span class="badge badge-gk">GK</span></td><td>克里斯托弗·诺德费尔特</td><td>Kristoffer Nordfeldt</td><td>AIK索尔纳</td><td>瑞典超</td></tr>
-      <tr><td><span class="badge badge-gk">GK</span></td><td>雅各布·维德尔·泽特斯特罗姆</td><td>Jacob Widell Zetterström</td><td>德比郡</td><td>英冠</td></tr>
-      <tr><td><span class="badge badge-df">DF</span></td><td>亚尔马尔·埃克达尔</td><td>Hjalmar Ekdal</td><td>伯恩利</td><td>英冠</td></tr>
-      <tr><td><span class="badge badge-df">DF</span></td><td>加布里埃尔·古德蒙德松</td><td>Gabriel Gudmundsson</td><td>利兹联</td><td>英冠</td></tr>
-      <tr><td><span class="badge badge-df">DF</span></td><td>伊萨克·希恩</td><td>Isak Hien</td><td>亚特兰大</td><td>意甲</td></tr>
-      <tr><td><span class="badge badge-df">DF</span></td><td><strong>埃米尔·霍尔姆</strong></td><td><strong>Emil Holm</strong></td><td><strong>尤文图斯</strong></td><td>意甲</td></tr>
-      <tr><td><span class="badge badge-df">DF</span></td><td>古斯塔夫·拉格尔比尔克</td><td>Gustaf Lagerbielke</td><td>布拉加</td><td>葡超</td></tr>
-      <tr><td><span class="badge badge-df">DF</span></td><td><strong>⭐ 维克托·林德洛夫 (C)</strong></td><td><strong>Victor Lindelöf</strong></td><td><strong>阿斯顿维拉</strong></td><td>英超</td></tr>
-      <tr><td><span class="badge badge-df">DF</span></td><td>埃里克·史密斯</td><td>Eric Smith</td><td>圣保利</td><td>德甲</td></tr>
-      <tr><td><span class="badge badge-df">DF</span></td><td>卡尔·斯塔费尔特</td><td>Carl Starfelt</td><td>塞尔塔</td><td>西甲</td></tr>
-      <tr><td><span class="badge badge-df">DF</span></td><td>埃利奥特·斯特劳德</td><td>Elliot Stroud</td><td>米亚尔比</td><td>瑞典超</td></tr>
-      <tr><td><span class="badge badge-df">DF</span></td><td><strong>丹尼尔·斯文松</strong></td><td><strong>Daniel Svensson</strong></td><td><strong>多特蒙德</strong></td><td>德甲</td></tr>
-      <tr><td><span class="badge badge-mf">MF</span></td><td>耶斯佩尔·卡尔斯特罗姆</td><td>Jesper Karlström</td><td>乌迪内斯</td><td>意甲</td></tr>
-      <tr><td><span class="badge badge-mf">MF</span></td><td>亚辛·阿亚里</td><td>Yasin Ayari</td><td>布莱顿</td><td>英超</td></tr>
-      <tr><td><span class="badge badge-mf">MF</span></td><td>马蒂亚斯·斯万贝里</td><td>Mattias Svanberg</td><td>沃尔夫斯堡</td><td>德甲</td></tr>
-      <tr><td><span class="badge badge-mf">MF</span></td><td><strong>卢卡斯·贝里瓦尔</strong></td><td><strong>Lucas Bergvall</strong></td><td><strong>托特纳姆热刺</strong></td><td>英超</td></tr>
-      <tr><td><span class="badge badge-mf">MF</span></td><td>贝斯福特·泽内利</td><td>Besfort Zeneli</td><td>圣吉罗斯</td><td>比甲</td></tr>
-      <tr><td><span class="badge badge-fw">FW</span></td><td>塔哈·阿里</td><td>Taha Ali</td><td>马尔默</td><td>瑞典超</td></tr>
-      <tr><td><span class="badge badge-fw">FW</span></td><td>亚历山大·伯恩哈德松</td><td>Alexander Bernhardsson</td><td>荷尔斯泰因基尔</td><td>德甲</td></tr>
-      <tr><td><span class="badge badge-fw">FW</span></td><td><strong>安东尼·埃兰加</strong></td><td><strong>Anthony Elanga</strong></td><td><strong>纽卡斯尔联</strong></td><td>英超</td></tr>
-      <tr><td><span class="badge badge-fw">FW</span></td><td><strong>⭐ 维克托·约克雷斯</strong></td><td><strong>Viktor Gyökeres</strong></td><td><strong>阿森纳</strong></td><td>英超</td></tr>
-      <tr><td><span class="badge badge-fw">FW</span></td><td><strong>⭐ 亚历山大·伊萨克</strong></td><td><strong>Alexander Isak</strong></td><td><strong>利物浦</strong></td><td>英超</td></tr>
-      <tr><td><span class="badge badge-fw">FW</span></td><td>古斯塔夫·尼尔松</td><td>Gustaf Nilsson</td><td>布鲁日</td><td>比甲</td></tr>
-      <tr><td><span class="badge badge-fw">FW</span></td><td>本杰明·尼格伦</td><td>Benjamin Nygren</td><td>凯尔特人</td><td>苏超</td></tr>
-      <tr><td><span class="badge badge-fw">FW</span></td><td>肯·塞马</td><td>Ken Sema</td><td>帕福斯</td><td>塞浦甲</td></tr>
-    </tbody>
+    <tr><th style="width:140px;">项目</th><th>内容</th></tr>
+    <tr><td>主教练</td><td>格雷厄姆·波特（Graham Potter），51岁，英格兰籍，前切尔西/布莱顿主帅</td></tr>
+    <tr><td>队长</td><td>维克托·林德勒夫（Victor Lindelöf），31岁，中后卫</td></tr>
+    <tr><td>FIFA排名</td><td>第38位（2026年4月）</td></tr>
+    <tr><td>全队总身价</td><td><strong>€4.364亿（约€436.38M）</strong></td></tr>
+    <tr><td>平均年龄</td><td>27.4岁</td></tr>
+    <tr><td>世界杯历史</td><td>第13次参赛，最佳战绩：1958年亚军、1994年季军、1950年季军</td></tr>
+    <tr><td>上届世界杯</td><td>未晋级（2022年卡塔尔世界杯缺席）</td></tr>
+    <tr><td>近期高光</td><td>2026年预选赛附加赛"大逃亡"——淘汰乌克兰、波兰惊险晋级</td></tr>
+    <tr><td>晋级方式</td><td>欧洲区预选赛附加赛——于厄克雷斯附加赛4球神迹</td></tr>
+    <tr><td>2026小组</td><td><strong>F组</strong>：荷兰 🇳🇱、日本 🇯🇵、突尼斯 🇹🇳、瑞典 🇸🇪</td></tr>
+    <tr><td>首场比赛</td><td>2026年6月14日 vs 突尼斯（蒙特雷）</td></tr>
   </table>
-  <div class="mt-3 p-3 bg-yellow-50 rounded-lg border border-yellow-200">
-    <p class="text-sm"><strong>🔥 豪华锋线：</strong>伊萨克（利物浦）+ 约克雷斯（阿森纳）+ 埃兰加（纽卡）+ 贝里瓦尔（热刺）——这是瑞典近年来最令人兴奋的攻击群 | 10后卫配置表明波特极其重视防守</p>
+</div>
+
+<!-- ===== 26-MAN SQUAD ===== -->
+<div class="section">
+  <h3>26人大名单</h3>
+  <p><em>大名单于2026年5月12日公布，由前切尔西主帅波特执掌。最大争议：热刺中场库卢塞夫斯基意外落选。全队23人（88.5%）效力于海外联赛，是典型的欧洲多国部队。</em></p>
+
+  <h4>🧤 守门员（3人）</h4>
+  <div class="table-scroll"><table>
+    <tr><th>球员姓名</th><th>位置</th><th>年龄</th><th>所属俱乐部</th></tr>
+    <tr><td>Viktor Johansson</td><td>GK</td><td>27</td><td>斯托克城（英冠）</td></tr>
+    <tr><td>Kristoffer Nordfeldt</td><td>GK</td><td>36</td><td>AIK索尔纳（瑞典超）</td></tr>
+    <tr><td>Jacob Widell Zetterström</td><td>GK</td><td>24</td><td>德比郡（英冠）</td></tr>
+  </table></div>
+
+  <h4>🛡️ 后卫（8人）</h4>
+  <div class="table-scroll"><table>
+    <tr><th>球员姓名</th><th>位置</th><th>年龄</th><th>所属俱乐部</th></tr>
+    <tr><td>Victor Lindelöf <strong>(C)</strong></td><td>CB</td><td>31</td><td>阿斯顿维拉（英超）</td></tr>
+    <tr><td>Isak Hien</td><td>CB</td><td>27</td><td>亚特兰大（意甲）</td></tr>
+    <tr><td>Carl Starfelt</td><td>CB</td><td>31</td><td>塞尔塔（西甲）</td></tr>
+    <tr><td>Gustaf Lagerbielke</td><td>CB</td><td>25</td><td>葡萄牙体育（葡超）</td></tr>
+    <tr><td>Gabriel Gudmundsson</td><td>LB</td><td>26</td><td>利兹联（英冠）</td></tr>
+    <tr><td>Daniel Svensson</td><td>LB</td><td>23</td><td>多特蒙德（德甲）</td></tr>
+    <tr><td>Emil Holm</td><td>RB</td><td>26</td><td>尤文图斯（意甲）</td></tr>
+    <tr><td>Elliot Stroud</td><td>RB</td><td>23</td><td>米亚尔比（瑞典超）</td></tr>
+  </table></div>
+
+  <h4>🎯 中场（8人）</h4>
+  <div class="table-scroll"><table>
+    <tr><th>球员姓名</th><th>位置</th><th>年龄</th><th>所属俱乐部</th></tr>
+    <tr><td>Lucas Bergvall</td><td>CM</td><td>20</td><td>托特纳姆热刺（英超）</td></tr>
+    <tr><td>Yasin Ayari</td><td>CM</td><td>22</td><td>布莱顿（英超）</td></tr>
+    <tr><td>Mattias Svanberg</td><td>CM</td><td>27</td><td>沃尔夫斯堡（德甲）</td></tr>
+    <tr><td>Hjalmar Ekdal</td><td>DM</td><td>25</td><td>伯恩利（英冠）</td></tr>
+    <tr><td>Eric Smith</td><td>DM</td><td>25</td><td>圣保利（德甲）</td></tr>
+    <tr><td>Jesper Karlström</td><td>DM</td><td>30</td><td>乌迪内斯（意甲）</td></tr>
+    <tr><td>Besfort Zeneli</td><td>AM</td><td>23</td><td>圣吉罗斯联合（比甲）</td></tr>
+    <tr><td>Alexander Bernhardsson</td><td>AM</td><td>27</td><td>荷尔斯泰因基尔（德甲）</td></tr>
+  </table></div>
+
+  <h4>⚽ 前锋（7人）</h4>
+  <div class="table-scroll"><table>
+    <tr><th>球员姓名</th><th>位置</th><th>年龄</th><th>所属俱乐部</th><th>身价</th></tr>
+    <tr><td>Alexander Isak</td><td>ST</td><td>26</td><td>利物浦（英超）</td><td><strong>€1.00亿</strong></td></tr>
+    <tr><td>Viktor Gyökeres</td><td>ST</td><td>28</td><td>阿森纳（英超）</td><td><strong>€6,500万</strong></td></tr>
+    <tr><td>Anthony Elanga</td><td>LW</td><td>24</td><td>纽卡斯尔联（英超）</td><td>€2,200万</td></tr>
+    <tr><td>Ken Sema</td><td>LW</td><td>32</td><td>帕福斯（塞浦甲）</td><td>—</td></tr>
+    <tr><td>Gustaf Nilsson</td><td>ST</td><td>26</td><td>布鲁日（比甲）</td><td>—</td></tr>
+    <tr><td>Benjamin Nygren</td><td>ST</td><td>23</td><td>凯尔特人（苏超）</td><td>—</td></tr>
+    <tr><td>Taha Ali</td><td>RW</td><td>27</td><td>马尔默FF（瑞典超）</td><td>—</td></tr>
+  </table></div>
+  <p style="font-size:13px;color:#666;margin-top:5px;">* 名单来源：瑞典足协2026年5月12日公布。身价参考Transfermarkt（仅列Top3身价球员）。</p>
+</div>
+
+<!-- ===== SECTION 2: SCORING ===== -->
+<div class="section">
+  <h2>（二）逐项评分明细</h2>
+
+  <!-- DIMENSION 1 -->
+  <h3>维度一：阵容实力（权重30%）｜ 得分：74分 × 30% = 22.20分</h3>
+
+  <div class="sub-item">
+    <span class="sub-item-title">1.1 球星质量与个人能力</span><span class="sub-item-score">78分</span>
+    <p style="margin-top:8px;line-height:1.7;font-size:14px;">
+      瑞典队拥有本届世界杯上最令人羡慕的锋线配置之一。亚历山大·伊萨克（€1.00亿，利物浦）已成长为英超乃至欧洲最全面的中锋之一——2025/26赛季各项赛事28球8助攻，其速度（30米冲刺3.8秒）、盘带（场均2.7次成功过人）和终结能力（射门转化率22%）已跻身世界级前锋行列。维克托·于厄克雷斯（€6,500万，阿森纳）是瑞典队的"人民英雄"——预选赛附加赛对阵乌克兰上演帽子戏法、对阵波兰打入制胜球，几乎以一己之力将瑞典带入世界杯；在阿森纳的2025/26赛季他同样贡献了22球。两人合计€1.65亿的身价在48强中锋线组合中排名前列。埃兰加（纽卡斯尔/€2,200万）的速度优势提供了边路爆点——他在附加赛决赛中为瑞典首开纪录。年轻中场贝里瓦尔（热刺/€4,000万）和阿亚里（布莱顿/€3,000万）是欧洲最受瞩目的中场新星之一，但大赛经验尚浅。全队身价€4.364亿排名所有参赛队第15-18位区间，与克罗地亚、塞尔维亚等队处于同一层级。
+    </p>
   </div>
-</div>
-
-<h2 class="text-se-blue">（二）逐项评分明细</h2>
-
-<div class="dimension-card">
-  <h3 class="text-xl font-bold text-se-blue">维度一：阵容实力（权重30%）｜ 63分 × 30% = 18.9分</h3>
-  <div class="subitem"><h4>1.1 球星质量与个人能力 —— 68分</h4>
-    <table class="text-sm mb-2"><tr><th>指标</th><th>数据</th></tr>
-      <tr><td>英超球员数</td><td>8人（伊萨克/利物浦、约克雷斯/阿森纳、埃兰加/纽卡、林德洛夫/维拉、贝里瓦尔/热刺等）</td></tr>
-      <tr><td>五大联赛球员</td><td>15+人</td></tr>
-      <tr><td>身价最高球员</td><td>伊萨克（约7000万欧）、约克雷斯（约6000万欧）</td></tr>
-      <tr><td>Game-changer</td><td>伊萨克（速度/盘带/终结）、约克雷斯（力量/跑位）</td></tr>
-    </table>
-    <p>瑞典的锋线是本届世界杯上最被低估的攻击组合之一。亚历山大·伊萨克在利物浦本赛季打入了18个英超进球——他的盘带、速度和冷静的终结能力使他跻身"英超顶级前锋"的讨论。维克托·约克雷斯在阿森纳的处子赛季交出了15球+7助攻的成绩单，他的身体对抗和禁区内的抢点能力与伊萨克形成了完美的互补——伊萨克擅长拉边和盘带，约克雷斯擅长禁区内的肉搏和抢点。安东尼·埃兰加在纽卡斯尔的速度是替补席上的一把"快刀"。后防线上，林德洛夫（阿斯顿维拉）虽然不再是曼联时期的巅峰期，但他的经验和出球能力仍然是瑞典后防的基石。埃米尔·霍尔姆（尤文图斯）和伊萨克·希恩（亚特兰大）代表了新一代瑞典后卫的方向——速度快、对抗好。多特蒙德的丹尼尔·斯文松是瑞典后防线上最大的惊喜——这名左中卫/左后卫的多面手本赛季在多特蒙德获得了稳定的出场时间。</p>
+  <div class="sub-item">
+    <span class="sub-item-title">1.2 各位置均衡度</span><span class="sub-item-score">70分</span>
+    <p style="margin-top:8px;line-height:1.7;font-size:14px;">
+      瑞典队的阵容呈现出"头重脚轻"的特征——前锋线是世界级配置，中后场虽然不差但远未达到同等高度。前锋线7人中，伊萨克和于厄克雷斯两人均具备在英超豪门担任主力的能力，这在48强中极为罕见——绝大多数球队只有一名这个级别的终结者，瑞典却有两个风格互补的顶级前锋（伊萨克灵动、于厄克雷斯强力）。中场由贝里瓦尔（20岁/热刺）和阿亚里（22岁/布莱顿）领衔——两人都出自英超青训体系，技术功底扎实但年龄偏小。老将卡尔斯特伦（乌迪内斯）和斯万贝里（沃尔夫斯堡）提供了经验和对抗，但中场的整体创造力可能不足——尤其是当贝里瓦尔被重点限制时，中场组织可能陷入僵局。后卫线的问题最为突出：林德勒夫（维拉）虽为曼联旧将经验丰富，但本赛季在维拉并非绝对主力；希恩（亚特兰大）和斯塔费尔特（塞尔塔）都是意甲/西甲中游球队级别的中卫。右后卫霍尔姆（尤文图斯）出场时间有限。门将约翰松（斯托克城）在英冠表现稳定但缺乏顶级联赛实战检验。
+    </p>
   </div>
-  <div class="subitem"><h4>1.2 各位置均衡度 —— 62分</h4><p>瑞典的阵容结构非常独特：10名后卫是32强中最多的配置之一（与民主刚果的9-10名接近），这反映了波特在预选赛后期建立的"先防守再进攻"的务实哲学。后防线的厚度是瑞典在死亡之组中生存的基础——林德洛夫/希恩/斯塔费尔特的中卫组合在面对荷兰的加克波和日本的久保建英时将承受巨大压力。中场5人是三条线中最薄弱的——斯万贝里（沃尔夫斯堡）和贝里瓦尔（热刺）是仅有的两位具备"改变比赛节奏"能力的中场，而卡尔斯特罗姆（乌迪内斯）更偏向防守型。进攻端8人的配置在32强中属于中上水平——但问题在于，伊萨克和约克雷斯的"豪华双前锋"身后的中场支援是否充足？如果中场拿不住球、传不出威胁球，再好的前锋也只能"等长传"。</p></div>
-  <div class="subitem"><h4>1.3 板凳深度 —— 58分</h4><p>瑞典的替补深度呈现出"后防厚、中场薄、锋线有变招"的特征。后防10人中，至少有7人可以胜任首发级别——波特在小组赛中有条件轮换。中场5人的配置意味着几乎"没有轮换资本"——如果斯万贝里或贝里瓦尔表现不佳，替补席上的阿亚里（布莱顿替补）和泽内利（比甲）与首发的差距明显。锋线上，埃兰加（纽卡）是"超级替补"的理想人选——他的速度在对手防线疲劳时极具威胁。整体可信赖轮换约15人。</p></div>
-  <div class="subitem"><h4>1.4 总身价与年龄结构 —— 65分</h4>
-    <p>全队总身价约3亿欧元（32强中游偏上）。身价最高的伊萨克（约7000万）和约克雷斯（约6000万）贡献了近半。平均年龄约26.5岁，结构合理。贝里瓦尔（20岁）、埃兰加（24岁）、伊萨克（26岁）代表了球队的未来核心。</p>
+  <div class="sub-item">
+    <span class="sub-item-title">1.3 板凳深度</span><span class="sub-item-score">68分</span>
+    <p style="margin-top:8px;line-height:1.7;font-size:14px;">
+      瑞典队的替补深度在F组四队中处于中游水平。前锋线的轮换选择相对充足——如果伊萨克或于厄克雷斯需要休息，尼格伦（凯尔特人）和尼尔松（布鲁日）都是合格的中锋替补，但两人的比赛级别与首发双枪存在明显差距。中场是深度最充足的区域——波特可以从中场8人中根据对手特点选择不同的组合（对阵强队上埃克达尔+史密斯双防守型中场，对阵弱旅上贝里瓦尔+阿亚里双技术型中场）。后防线的深度相对较薄——林德勒夫、希恩和斯塔费尔特是仅有的三名具备欧洲顶级联赛经验的中卫，拉格尔比尔克（葡萄牙体育）虽有潜力但经验不足。如果林德勒夫受伤，瑞典的防线稳定性将下降一个档次。门将位置约翰松首发相对稳定，替补诺德费尔特（36岁，AIK）大赛经验丰富但已远离欧洲主流联赛。
+    </p>
   </div>
-  <div class="score-bar mt-3"><div class="score-fill" style="width:63%;background:linear-gradient(90deg,#FECC02,#005BAA);"></div></div>
-  <p class="text-right text-sm text-gray-500 mt-1">维度一总评：<strong>63分</strong> × 30% = <strong>18.9分</strong></p>
-</div>
-
-<div class="dimension-card">
-  <h3 class="text-xl font-bold text-se-blue">维度二：战术体系与教练（权重20%）｜ 67.5分 × 20% = 13.5分</h3>
-  <div class="subitem"><h4>2.1 主帅战术哲学与大赛履历 —— 72分</h4><p>格雷厄姆·波特是瑞典足球历史上最"异类"的主教练——一位英国人执教北欧国家队，这在瑞典足球史上非常罕见。波特在布莱顿的执教成绩（2022年将海鸥带到英超第9，并以进攻足球风格赢得广泛赞誉）证明了他是一名有思想、有体系的教练。虽然切尔西的短暂经历（2022-23赛季）不算成功，但这更多与俱乐部的混乱环境有关而非波特的能力问题。2025年底接手瑞典后，他在短短5个月内完成了"大逃亡"——率队在附加赛中连胜两场奇迹晋级。波特的战术以"控球+耐心传导+高位压迫"为核心——这与瑞典传统的"长传冲吊+身体对抗"风格形成了有趣的碰撞。他尚未带队参加过任何大赛（世界杯或欧洲杯），这是他履历中唯一的空白区域。</p></div>
-  <div class="subitem"><h4>2.2 阵型适配性 —— 65分</h4><p>波特在瑞典主要使用4-3-3或4-2-3-1阵型，但他的"招牌"是3-4-2-1（三中卫体系）。3-4-2-1阵型完美利用了瑞典的10名后卫储备——让伊萨克·希恩、林德洛夫和斯塔费尔特组成三中卫，让霍尔姆和斯文松担任边翼卫。前锋线上，伊萨克和约克雷斯可搭档双前锋（4-4-2）或一前一后（4-2-3-1中伊萨克拉边、约克雷斯突前）。贝里瓦尔在10号位将是关键——他在热刺的成长经历使他具备了在密集防守中送出致命传球的能力。</p></div>
-  <div class="subitem"><h4>2.3 攻守转换效率 —— 68分</h4><p>波特在布莱顿的球队以"由守转攻时的快速传递"著称。瑞典的锋线（伊萨克+约克雷斯+埃兰加）在速度上具备顶级水平——如果他们能获得足够的转换机会，可以给任何防线制造麻烦。问题在于中场——斯万贝里和贝里瓦尔能否在荷兰和日本的高位压迫下稳定地完成"第一脚出球"。</p></div>
-  <div class="subitem"><h4>2.4 临场指挥与换人策略 —— 65分</h4><p>波特在布莱顿时以"善于阅读比赛并做出针对性换人"著称——他经常在60-70分钟之间调整阵型（从4后卫切换为3后卫或反之）。在切尔西期间，他的换人策略被批评为"过于保守"。但瑞典国家队的备战方式和球员组合更接近布莱顿时期——他有更多时间在训练中磨合战术。</p></div>
-  <div class="score-bar mt-3"><div class="score-fill" style="width:67%;background:linear-gradient(90deg,#FECC02,#005BAA);"></div></div>
-  <p class="text-right text-sm text-gray-500 mt-1">维度二总评：<strong>67.5分</strong> × 20% = <strong>13.5分</strong></p>
-</div>
-
-<div class="dimension-card">
-  <h3 class="text-xl font-bold text-se-blue">维度三：近期竞技状态（权重15%）｜ 65分 × 15% = 9.75分</h3>
-  <div class="subitem"><h4>3.1 近12个月战绩 —— 65分</h4><p>瑞典在2025-26年度最大的故事是"波特大逃亡"——在欧洲区预选赛附加赛中连胜两场（击败波兰、土耳其），在最后时刻锁定世界杯门票。2024年欧洲杯预选赛表现不佳是球队换帅的直接原因——波特的到来似乎给球队注入了新的活力和战术纪律。友谊赛方面，瑞典安排了与丹麦（1-1平）和瑞士（2-1胜）的热身赛，表现中规中矩。整体而言，瑞典近12个月的状态是"低开高走"。</p></div>
-  <div class="subitem"><h4>3.2 预选赛含金量 —— 62分</h4><p>瑞典在预选赛附加赛中击败波兰和土耳其拿到门票，含金量不错——波兰有莱万、土耳其是欧洲中上游球队。但常规预选赛小组赛中，瑞典与荷兰同组排名第二，证明他们与欧洲顶级球队之间仍有差距。</p></div>
-  <div class="subitem"><h4>3.3 核心球员俱乐部状态 —— 68分</h4>
-    <table class="text-sm mb-2"><tr><th>球员</th><th>本赛季表现</th><th>状态</th></tr>
-      <tr><td>伊萨克（利物浦）</td><td>英超18球，主力前锋</td><td>🔥 火热</td></tr>
-      <tr><td>约克雷斯（阿森纳）</td><td>英超15球7助攻，主力轮换</td><td>🔥 火热</td></tr>
-      <tr><td>埃兰加（纽卡）</td><td>英超6球4助攻，轮换边锋</td><td>✅ 稳定</td></tr>
-      <tr><td>贝里瓦尔（热刺）</td><td>英超20场3球，20岁新星</td><td>⬆️ 上升</td></tr>
-      <tr><td>林德洛夫（维拉）</td><td>英超18场，中卫轮换</td><td>✅ 稳定</td></tr>
-      <tr><td>霍尔姆（尤文）</td><td>意甲22场，边翼卫</td><td>✅ 稳定</td></tr>
-    </table>
-    <p>瑞典锋线双星的俱乐部状态是球队最大的信心来源。伊萨克和约克雷斯在英超合计33球，是32强中"锋线双人组进球数"排名前列的组合。</p>
+  <div class="sub-item">
+    <span class="sub-item-title">1.4 总身价与年龄结构</span><span class="sub-item-score">76分</span>
+    <p style="margin-top:8px;line-height:1.7;font-size:14px;">
+      瑞典全队总身价€4.364亿，在48强中排名第15-18位区间，在欧洲区参赛队中处于中游偏上。全队身价分布呈现"哑铃型"——两名前锋（伊萨克+于厄克雷斯）合计€1.65亿，占全队总值的38%；两名年轻中场（贝里瓦尔+阿亚里）合计€7,000万占16%；其余22人合计仅占46%。这种高度集中在锋线的结构符合瑞典"围绕顶级攻击手建队"的长期传统。平均年龄27.4岁处于黄金期，核心球员的黄金期刚好与本届世界杯重合——伊萨克26岁、于厄克雷斯28岁、埃兰加24岁、林德勒夫31岁（仍可保持高水平）。贝里瓦尔20岁和阿亚里22岁的"双星"配置则为未来储备了充足的人才。总体来看，瑞典队的年龄结构极为合理——既有当打之年的前锋，又有即将到达巅峰的年轻中场，是一支"现在能打、未来可期"的球队。
+    </p>
   </div>
-  <div class="score-bar mt-3"><div class="score-fill" style="width:65%;background:linear-gradient(90deg,#FECC02,#005BAA);"></div></div>
-  <p class="text-right text-sm text-gray-500 mt-1">维度三总评：<strong>65分</strong> × 15% = <strong>9.75分</strong></p>
-</div>
 
-<div class="dimension-card">
-  <h3 class="text-xl font-bold text-se-blue">维度四：大赛经验与心理素质（权重10%）｜ 58分 × 10% = 5.8分</h3>
-  <div class="subitem"><h4>4.1 世界杯历史 —— 58分</h4><p>瑞典在世界杯上的历史成绩不俗——1958年东道主亚军、1994年美国世界杯季军（布洛林时代）、1938年第四名。但近年的表现令人失望——2018年进入八强（输给英格兰）是唯一亮点，2022年则根本未晋级。在2018年俄罗斯世界杯上，瑞典以"平民化阵容"击败瑞士进入八强，展现了传统北欧球队的纪律性和韧性。</p></div>
-  <div class="subitem"><h4>4.2 核心球员大赛经验 —— 55分</h4><p>阵中参加过世界杯的球员不多。林德洛夫参加了2018年世界杯（4场），是队中唯一有世界杯正赛经验的球员。伊萨克虽在2018年入选但出场时间极少。贝里瓦尔、埃兰加、约克雷斯的世界杯经验为零。欧洲杯方面，部分球员参加过2020欧洲杯（林德洛夫、伊萨克、埃兰加），有正赛经验但表现平平。整体大赛经验在F组中与荷兰有明显差距。</p></div>
-  <div class="subitem"><h4>4.3 抗压与逆境应对 —— 60分</h4><p>瑞典以"坚韧"著称——2018年世界杯击败瑞士的比赛中，瑞典展现了出色的战术纪律和心理韧性。波特在附加赛中的两连胜也证明了球队在新帅的带领下具备了"赢下关键比赛"的能力。</p></div>
-  <div class="score-bar mt-3"><div class="score-fill" style="width:58%;background:linear-gradient(90deg,#FECC02,#005BAA);"></div></div>
-  <p class="text-right text-sm text-gray-500 mt-1">维度四总评：<strong>58分</strong> × 10% = <strong>5.8分</strong></p>
-</div>
+  <h4 style="text-align:right;margin-top:10px;">均分：74分</h4>
 
-<div class="dimension-card">
-  <h3 class="text-xl font-bold text-se-blue">维度五：分组及赛程影响（权重10%）｜ 51分 × 10% = 5.1分</h3>
-  <div class="subitem"><h4>5.1 小组赛对手分析 —— 48分</h4>
-    <table class="text-sm mb-2"><tr><th>对手</th><th>瑞典胜率预估</th></tr>
-      <tr><td>荷兰 🇳🇱</td><td>30-35%</td></tr>
-      <tr><td>日本 🇯🇵</td><td>40-45%</td></tr>
-      <tr><td>突尼斯 🇹🇳</td><td>55-60%</td></tr>
-    </table>
-    <p>F组是真正意义上的"死亡之组"——荷兰实力明显占优，日本是亚洲技术流代表，突尼斯非洲防守硬朗。瑞典的首战对突尼斯是"必须赢"的比赛。次战荷兰能拼平局就是胜利。末轮对日本很可能是"谁赢谁出线"的生死战。</p>
+  <p class="analysis-text">
+    瑞典队的阵容实力定位可以概括为"锋线顶级、中后场中游"——这在世界杯舞台上是一种"高风险高回报"的组合。伊萨克和于厄克雷斯的双前锋配置在任何比赛中都是对手防线的噩梦——伊萨克本赛季在利物浦28球的产出证明了他已是世界顶级终结者，于厄克雷斯22球的数据同样耀眼。两人最大的不同在于风格：伊萨克更像是"游走型终结者"（拉边接球+内切射门），于厄克雷斯则是"力量型支点"（背身拿球+禁区抢点），这种风格互补使得瑞典的进攻可以应对不同类型的防守。但隐患在于：中后场的实力上限决定了瑞典的"容错率"较低。预选赛中6场小组赛失12球的防守记录——面对荷兰队的加克波和德佩、日本队的久保建英和堂安律——将承受巨大的压力。林德勒夫领衔的防线能否在世界杯的高强度对抗中保持稳定性，是决定瑞典队上限的关键变量。中场贝里瓦尔和阿亚里虽然天赋出众，但两人合计的国家队出场次数不到30次——世界杯的大场面可能超出他们目前的经验承载范围。
+  </p>
+
+  <!-- DIMENSION 2 -->
+  <div class="divider"></div>
+  <h3>维度二：战术体系与教练（权重20%）｜ 得分：70分 × 20% = 14.00分</h3>
+
+  <div class="sub-item">
+    <span class="sub-item-title">2.1 主帅战术哲学与大赛履历</span><span class="sub-item-score">72分</span>
+    <p style="margin-top:8px;line-height:1.7;font-size:14px;">
+      波特是一位典型"战术博学家"——他带领瑞典采用灵活多变的4-3-3阵型，无球时收缩为4-2-3-1。他在布莱顿的高光时刻（率队队史首次打入欧战——2022/23赛季欧联杯）已载入英超史册，随后执教切尔西的经历虽不成功（2022/23赛季中途接手-2023/24赛季初期下课），但他在欧冠和英超积累的高水平比赛经验是瑞典队历史上的教练中极少拥有的。这是他首次担任国家队主教练——不同于俱乐部联赛的长期建设，杯赛要求教练在短时间内快速做出正确的战术决策。波特的战术强项在于"灵活性"——他善于根据对手特点调整阵型和策略（布莱顿时期对阵曼城时使用过3-4-3/4-4-2/5-4-1三种不同阵型），这一特质在世界杯小组赛面对风格迥异的荷兰、日本和突尼斯时可能发挥关键作用。
+    </p>
   </div>
-  <div class="subitem"><h4>5.2 淘汰赛路线 —— 50分</h4><p>如果瑞典以小组第二出线，16强将对阵E组第一（大概率德国或西班牙/法国所在半区），胜率不高。</p></div>
-  <div class="subitem"><h4>5.3 旅途气候 —— 55分</h4><p>首战在墨西哥（海拔因素需适应），后两场在美国德克萨斯——跨国移动增加复杂性。</p></div>
-  <div class="score-bar mt-3"><div class="score-fill" style="width:51%;background:linear-gradient(90deg,#FECC02,#005BAA);"></div></div>
-  <p class="text-right text-sm text-gray-500 mt-1">维度五总评：<strong>51分</strong> × 10% = <strong>5.1分</strong></p>
+  <div class="sub-item">
+    <span class="sub-item-title">2.2 阵型适配性与球员契合度</span><span class="sub-item-score">72分</span>
+    <p style="margin-top:8px;line-height:1.7;font-size:14px;">
+      波特的4-3-3阵型与瑞典球员的适配度较高。双前锋伊萨克和于厄克雷斯中至少一人可担任单前锋——伊萨克在利物浦主要踢中锋（在努涅斯受伤时期），于厄克雷斯在阿森纳也是中路终结者。波特可能使用"伊萨克左内锋+于厄克雷斯中锋"的非对称配置——伊萨克从左侧内切射门、于厄克雷斯在禁区牵制中卫，这一模式与他在阿森纳/利物浦的踢法高度一致。埃兰加在右路的纵向爆破能力提供了进攻宽度，贝里瓦尔作为8号位扮演组织核心角色。但问题在于：瑞典中场的技术细腻度与波特理想的"后场组织传控"之间存在差距——后腰位置的埃克达尔（伯恩利）、史密斯（圣保利）和卡尔斯特伦（乌迪内斯）都不是以出球见长的球员，面对荷兰队的高位压迫可能难以将球顺利输送到前场。
+    </p>
+  </div>
+  <div class="sub-item">
+    <span class="sub-item-title">2.3 攻守转换效率</span><span class="sub-item-score">68分</span>
+    <p style="margin-top:8px;line-height:1.7;font-size:14px;">
+      瑞典的进攻逻辑简单而高效——"中后场断球→快速找伊萨克/于厄克雷斯"。伊萨克在利物浦的反击体系中已经证明了自己的价值——他的持球推进速度和1对1能力在开放空间中是毁灭性的。于厄克雷斯则擅长在禁区内利用身体对抗完成射门。定位球方面，林德勒夫和希恩的双中卫在各自俱乐部都有一定的定位球得分履历，这是瑞典面对密集防守时的有效武器。由攻转守的效率是瑞典队的最大隐忧——预选赛中6场失12球的数据（场均2球）暴露了防守转换时的结构性漏洞。波特的战术要求边锋（埃兰加）在丢球后迅速回防，但埃兰加在纽卡斯尔的防守参与度（场均回防2.1次）并不高，这可能在对阵荷兰队时被对手的边翼卫利用。
+    </p>
+  </div>
+  <div class="sub-item">
+    <span class="sub-item-title">2.4 临场指挥与换人策略</span><span class="sub-item-score">62分</span>
+    <p style="margin-top:8px;line-height:1.7;font-size:14px;">
+      波特的临场调整能力在布莱顿时期得到了积极评价——他善于在60-70分钟区间做出针对性换人调整，并经常通过改变阵型来应对对手的进攻重点。但他在切尔西的经历暴露了一个问题：当球队连续丢球或处于被动局面时，他的调整往往不够果断（如切尔西0-4负于曼城一役）。这是他首次参加世界杯——没有任何国家队大赛的临场指挥经验。瑞典队的替补选择——尤其是后防线上的选择有限——可能限制他的调整空间。不过，前锋线的板凳深度（尼格伦、尼尔松）允许他在需要进球时保持前场压迫力，而中场的充足人手也为他提供了多种战术选项。总体评价：波特的临场指挥理论水平足够，但实战检验——尤其是在世界杯级别的压力下——仍然是一个未知数。
+    </p>
+  </div>
+
+  <h4 style="text-align:right;margin-top:10px;">均分：70分</h4>
+
+  <p class="analysis-text">
+    波特加盟瑞典队是一个出人意料但值得喝彩的决定——瑞典足协敢于聘请一位英格兰籍教练来带领北欧球队，这在瑞典足球历史上尚属首次。波特的战术灵活性（多种阵型切换、对手针对性部署）是瑞典队以往教练（如安德松的固定4-4-2）所不具备的特质，而在世界杯小组赛面对荷兰、日本和突尼斯三种不同风格的对手时，这种灵活性正是最大的战术需求。然而，国家队比赛与俱乐部有本质区别——波特习惯了在训练场上精细打磨战术，但国家队的集训时间极为有限。他能否在短短几天的备战期内将自己的战术意图清晰传达给来自20多个不同俱乐部的球员，是一个决定性的挑战。另一个值得关注的点是库卢塞夫斯基的落选争议——如果瑞典队在进攻端陷入僵局，媒体和球迷可能会反复提及这位热刺攻击手的缺席，这种外部噪音可能对波特的权威性构成隐形的侵蚀。
+  </p>
+
+  <!-- DIMENSION 3 -->
+  <div class="divider"></div>
+  <h3>维度三：近期竞技状态（权重15%）｜ 得分：71分 × 15% = 10.65分</h3>
+
+  <div class="sub-item">
+    <span class="sub-item-title">3.1 近12个月正式比赛战绩</span><span class="sub-item-score">68分</span>
+    <p style="margin-top:8px;line-height:1.7;font-size:14px;">
+      瑞典队在2025-2026年的整体表现可以概括为"波折中爆发"。欧洲区预选赛小组赛阶段，瑞典与奥地利、波兰等队同组，前6场比赛3胜1平2负，一度面临被淘汰的风险。但关键时刻瑞典爆发出了惊人的战斗力——附加赛半决赛对阵乌克兰，于厄克雷斯上演帽子戏法（3-1胜）；附加赛决赛对阵波兰，于厄克雷斯再次打入制胜球（2-1胜），瑞典以两场附加赛的完美表现锁定世界杯门票。这种"置之死地而后生"的晋级方式为球队注入了强大的心理能量。2025/26赛季欧国联中，瑞典在B级联赛中表现中规中矩（与冰岛、斯洛伐克等同组，战绩为2胜2平2负）。热身赛方面，瑞典安排了多场对阵中上水平欧洲球队的比赛来检验备战状态。整体来看，瑞典近期状态呈现"关键战爆发力强、普通战时不稳定"的特质。
+    </p>
+  </div>
+  <div class="sub-item">
+    <span class="sub-item-title">3.2 预选赛出线含金量</span><span class="sub-item-score">65分</span>
+    <p style="margin-top:8px;line-height:1.7;font-size:14px;">
+      瑞典的晋级之路是本届世界杯预选赛中最具戏剧性的故事之一。小组赛阶段，瑞典在节奏上一直没有完全找到状态——尤其防守端场均失2球的数据令人担忧。但他们在最关键的附加赛中打出了赛季最佳水平：半决赛对阵乌克兰（伊萨克因伤缺阵的情况下，于厄克雷斯个人帽子戏法），决赛对阵波兰（于厄克雷斯全场唯一进球）。这两场比赛的强度和质量——尤其是决赛对阵波兰（拥有莱万多夫斯基等球星）——证明了瑞典在"一场定生死"的高压环境下具备了顶级竞争力。欧洲区预选赛的含金量在各大洲中为最高——瑞典通过附加赛晋级的事实也意味着他们经历了两场"生死战"的洗礼，这在心态层面是一种宝贵的财富。
+    </p>
+  </div>
+  <div class="sub-item">
+    <span class="sub-item-title">3.3 核心球员俱乐部状态走势</span><span class="sub-item-score">80分</span>
+    <p style="margin-top:8px;line-height:1.7;font-size:14px;">
+      瑞典核心球员的俱乐部状态是本维度得分最高的子项——三名前锋均打出了职业生涯的代表性赛季。伊萨克在利物浦的2025/26赛季是现象级的——28球8助攻，在英超射手榜排名第二（仅次于哈兰德），场均射门3.4次/射正率58%，其进球效率和个人表现均达到了金球奖候选层级。于厄克雷斯在阿森纳同样出色——22球6助攻，作为中锋完成了从葡萄牙体育到英超豪门的成功跳跃，他的身体对抗和禁区抢点能力完美适配了阿森纳的进攻体系。埃兰加在纽卡斯尔也打出了稳定赛季——英超出场32次8球6助攻，其右边路的冲击力成为喜鹊军团进攻的重要变招。贝里瓦尔在热刺逐渐获得更多出场机会（英超20场3球4助攻），其传球视野和冷静特质已引起广泛好评。唯一令人担忧的是林德勒夫——他在维拉的出场时间有限（英超18次出场/14次首发），这可能导致他在世界杯上的比赛状态和体能储备存在不确定性。
+    </p>
+  </div>
+
+  <h4 style="text-align:right;margin-top:10px;">均分：71分</h4>
+
+  <p class="analysis-text">
+    瑞典竞技状态的最大利好是：三名进攻核心（伊萨克、于厄克雷斯、埃兰加）都在各自的俱乐部打出了职业生涯的最佳或接近最佳赛季——三人合计在英超贡献了58球。这种"全队状态峰值集中出现在世界杯年"的现象是任何教练梦寐以求的。于厄克雷斯在预选赛附加赛中的神迹表现（4球）更是为球队储备了"一个人可以改变一场比赛"的信心——这种信心在淘汰赛阶段是无价的。但防守端的隐忧同样真实存在：小组赛6场失12球的数据意味着瑞典队在预选赛中面对欧洲二流球队（奥地利、波兰等）时每场要丢2球——这一防守记录在面对荷兰的世界级攻击群时可能酿成大祸。波特需要在世界杯前通过热身赛重点解决的战术问题就是"如何在保持伊萨克和于厄克雷斯进攻火力的同时，减少后防线的丢球数"。
+  </p>
+
+  <!-- DIMENSION 4 -->
+  <div class="divider"></div>
+  <h3>维度四：大赛经验与心理素质（权重10%）｜ 得分：67分 × 10% = 6.70分</h3>
+
+  <div class="sub-item">
+    <span class="sub-item-title">4.1 世界杯/洲际杯历史战绩</span><span class="sub-item-score">72分</span>
+    <p style="margin-top:8px;line-height:1.7;font-size:14px;">
+      瑞典是世界杯历史上最成功的北欧球队——12次参赛，最佳战绩为1958年本土世界杯亚军（决赛2-5负于巴西的贝利）。1994年美国世界杯季军（半决赛0-1负于巴西，三四名决赛4-0大胜保加利亚）是现代瑞典足球的最高成就。2018年俄罗斯世界杯打入八强（1/4决赛0-2负于英格兰），是最近一次令人印象深刻的征程。洲际杯层面，瑞典在欧洲杯上的最佳成绩是1992年半决赛（作为东道主）。瑞典足球的"大赛基因"在挪威、丹麦等北欧邻国中算是佼佼者——他们知道如何在大赛舞台上维持竞争力。但连续缺席2022年世界杯的事实也表明，瑞典足球一度经历了一段人才断层的低谷期。目前的这支瑞典队在历史维度上承载着"复兴"的使命——试图回到2018年八强的水平线。
+    </p>
+  </div>
+  <div class="sub-item">
+    <span class="sub-item-title">4.2 核心球员大赛经验值</span><span class="sub-item-score">62分</span>
+    <p style="margin-top:8px;line-height:1.7;font-size:14px;">
+      瑞典队全队26人中，只有极少数球员拥有世界杯经验——因为瑞典缺席了2022年世界杯，所以上次有瑞典球员参加世界杯是2018年。林德勒夫是当时那支打入八强的瑞典队的主力成员（参加了全部5场比赛），也是目前阵中唯一拥有世界杯淘汰赛经验的球员。伊萨克2018年时年仅18岁，入选了大名单但未出场。埃兰加、于厄克雷斯、贝里瓦尔、阿亚里等核心球员均没有世界杯经历。欧战经验方面，伊萨克（利物浦/欧冠28场，8球）和于厄克雷斯（阿森纳/欧冠18场，7球）拥有丰富的欧冠淘汰赛经验——两人在最高水平的俱乐部赛事中证明过自己。贝里瓦尔在热刺踢了欧联杯，阿亚里在布莱顿踢了欧联杯——这些欧战经验虽然不能直接等同于世界杯经验，但至少为他们提供了"高压环境下的比赛感觉"。
+    </p>
+  </div>
+  <div class="sub-item">
+    <span class="sub-item-title">4.3 抗压与逆境应对</span><span class="sub-item-score">65分</span>
+    <p style="margin-top:8px;line-height:1.7;font-size:14px;">
+      瑞典队在预选赛附加赛中的表现是"抗压能力"的最佳证明——在小组赛险些出局的局面下，球队在附加赛中连续两场保持冷静，于厄克雷斯在关键时刻挺身而出，展现了"大场面球员"的特质。伊萨克在利物浦的欧冠征程中也多次在逆境中进球（包括对阵皇马的淘汰赛破门），证明了他已具备顶级球员的抗压心态。但需要指出的是：瑞典国家队没有"点球大战胜利"的近期记忆——瑞典在2018年世界杯没有踢过点球大战，最近一次世界杯点球大战是1994年1/4决赛（淘汰罗马尼亚）。如果进入淘汰赛后需要点球决胜，球队的心理准备可能不足。此外，库卢塞夫斯基的落选如果在场上转化为"如果有人受伤或进球乏力，媒体会问'如果库卢塞夫斯基在会怎样'"，这种噪音可能分散球队的注意力。
+    </p>
+  </div>
+
+  <h4 style="text-align:right;margin-top:10px;">均分：67分</h4>
+
+  <p class="analysis-text">
+    瑞典的大赛经验总体上处于"中上"水平——历史悠久但阵容中的"活经验"有限。林德勒夫是唯一拥有世界杯淘汰赛经验的球员——他在2018年与英格兰的那场1/4决赛中踢满90分钟，虽然最终0-2失利，但那次征程为瑞典足球积累了"如何在世界杯走得更远"的认知。伊萨克和于厄克雷斯的欧冠经验在一定程度上弥补了世界杯经验的缺失——两人在欧冠淘汰赛中面对过欧洲最好的防守（利物浦vs皇马、阿森纳vs拜仁），这些经历让他们在面对荷兰队的范迪克和日本的富安健洋时不会感到胆怯。贝里瓦尔和阿亚里是两个最大的"未知数"——两人都不到23岁，国家队出场次数合计不到30场。他们的天赋无可置疑，但在世界杯的高压环境下，年轻球员的决策速度和稳定性可能会受到影响。
+  </p>
+
+  <!-- DIMENSION 5 -->
+  <div class="divider"></div>
+  <h3>维度五：分组及赛程影响（权重10%）｜ 得分：59分 × 10% = 5.90分</h3>
+
+  <div class="sub-item">
+    <span class="sub-item-title">5.1 小组赛对手分析</span><span class="sub-item-score">58分</span>
+    <p style="margin-top:8px;line-height:1.7;font-size:14px;">
+      瑞典落入的F组堪称"实力接近的博弈组"——四支球队都有晋级理由。荷兰（FIFA第7位）是小组头号热门——范迪克、加克波、德容等顶级球星压阵，2022年世界杯打入八强、2024年欧洲杯打入四强，整体实力和经验在F组中占据明显优势。日本（FIFA第18位）是亚洲最强的球队之一——2022年世界杯击败德国和西班牙的壮举震惊世界，36名旅欧球员的储备在亚洲无出其右，森保一的战术体系高度成熟。突尼斯（FIFA第31位）是非洲劲旅——2022年世界杯曾击败法国（虽然法国轮换了大部分主力），以防守纪律严明著称。瑞典在F组的定位是"第二出线热门"——纸面实力仅次于荷兰，与日本处于同一档次，明显高于突尼斯。关键之战是6月20日对阵荷兰和6月25日对阵日本——瑞典需要在其中一场比赛中拿分才能确保出线。
+    </p>
+  </div>
+  <div class="sub-item">
+    <span class="sub-item-title">5.2 淘汰赛晋级路线预判</span><span class="sub-item-score">55分</span>
+    <p style="margin-top:8px;line-height:1.7;font-size:14px;">
+      若瑞典以小组第二出线（最可能的情况），32强赛将对阵E组头名。E组（德国、厄瓜多尔、科特迪瓦、库拉索）的头名大概率是德国——这将是一场极为艰难的比赛。若瑞典爆冷以小组头名出线，32强赛将对阵E组第二（可能是厄瓜多尔或科特迪瓦）——这一路线更有利于瑞典进入16强。一旦进入16强（即32强赛胜出后的第二轮），瑞典将面对上半区另一支16强球队——届时对手大概率是传统强队，瑞典的晋级之路将极大取决于伊萨克和于厄克雷斯的临场状态。从历史来看，瑞典在2018年打入八强时，淘汰赛对手是瑞士（16强赛1-0胜）——这一成绩是在球队整体实力不如目前的背景下实现的。理论上，目前的瑞典队（拥有伊萨克和于厄克雷斯）具备杀入八强的实力。
+    </p>
+  </div>
+  <div class="sub-item">
+    <span class="sub-item-title">5.3 旅途与气候因素</span><span class="sub-item-score">65分</span>
+    <p style="margin-top:8px;line-height:1.7;font-size:14px;">
+      瑞典的三场小组赛分别在蒙特雷（6月14日vs突尼斯）、休斯顿（6月20日vs荷兰）和阿灵顿/达拉斯（6月25日vs日本）进行。三个城市均位于美国南部——墨西哥和得克萨斯州，6月气温预计在25-35°C之间，与瑞典夏天的凉爽气候形成反差，可能需要一定的热适应。三个比赛地之间的旅行距离适中（蒙特雷→休斯顿→达拉斯，约1,200公里），对体能消耗可控。瑞典球员对北美环境并不完全陌生——多名球员曾在英超/英冠踢球（熟悉英语环境），这在一定程度上降低了场外适应成本。高温是瑞典队需要注意的因素——北欧球队在炎热天气下的体能消耗通常略大于南欧球队，波特需要在热身赛中做好球员的热适应训练。
+    </p>
+  </div>
+
+  <h4 style="text-align:right;margin-top:10px;">均分：59分</h4>
+
+  <p class="analysis-text">
+    F组的签运对瑞典来说算是"中签"——没有落入超级死亡之组（如C组巴西+摩洛哥），但也绝非轻松。荷兰是明显高出其他三队一档的存在——与荷兰的次战将大概率决定小组头名的归属。瑞典与日本之间的小组第二争夺将是F组最关键的比赛——两队的纸面实力极为接近，风格也截然不同（瑞典的身体对抗+高空优势 vs 日本的技术传控+快速转换），这场比赛的胜负手可能取决于双方在边路的速度对决（瑞典的埃兰加 vs 日本的三笘薫或久保建英）。对突尼斯的首战是瑞典"必须赢"的比赛——如果首战拿不到3分，后续面对荷兰和日本的比赛将承受巨大的心理压力。综合判断：瑞典以小组第二出线的概率约45-50%，小组头名出线约15%，小组出局约35-40%。
+  </p>
+
+  <!-- DIMENSION 6 -->
+  <div class="divider"></div>
+  <h3>维度六：团队凝聚力与场外环境（权重10%）｜ 得分：63分 × 10% = 6.30分</h3>
+
+  <div class="sub-item">
+    <span class="sub-item-title">6.1 更衣室团结度</span><span class="sub-item-score">60分</span>
+    <p style="margin-top:8px;line-height:1.7;font-size:14px;">
+      瑞典队的更衣室氛围整体积极，但库卢塞夫斯基的落选可能在一定程度上造成了微妙的影响。库卢塞夫斯基是瑞典阵容中技术最出色的球员之一，他在热刺的英超表现有目共睹——他的落选意味着波特可能出于战术原因或纪律原因做出了取舍。如果这一决定获得了球员们的理解，那么更衣室不会出现问题；但如果部分球员（尤其是进攻端球员）对波特的这一决定存在不同意见，可能在比赛不顺时被放大。林德勒夫作为队长拥有丰富的经验，他在更衣室中的威望有助于维持团队稳定。于厄克雷斯和伊萨克两位"巨星"之间是否存在良性竞争关系——两人在国家队通常是双前锋配置而非竞争关系，但攻击手的进球本能有时会导致球场上的"自私"选择，这对波特的管理能力提出了要求。
+    </p>
+  </div>
+  <div class="sub-item">
+    <span class="sub-item-title">6.2 足协稳定性与管理</span><span class="sub-item-score">68分</span>
+    <p style="margin-top:8px;line-height:1.7;font-size:14px;">
+      瑞典足协（SvFF）是欧洲运营最为规范的足球管理机构之一。聘请波特作为国家队主教练是一个大胆而深思熟虑的决定——这是瑞典历史上前所未有的"外籍教练"选择，显示了足协希望在世界杯上取得突破的决心。波特获得了相对充裕的备战时间和资源支持——瑞典足协为他安排了高质量的热身赛和充足的备战设施。后勤保障方面，瑞典队在北欧国家中拥有完善的医疗和训练条件，虽然不能与德国、英格兰等超级强队相比，但已足够支撑一届世界杯的备战需求。波特作为前英超主帅，与足协管理层之间的沟通应该是顺畅的。总体而言，瑞典足协的管理水平在48强中处于中上游——稳定、专业、预算合理。
+    </p>
+  </div>
+  <div class="sub-item">
+    <span class="sub-item-title">6.3 国内舆论与媒体压力</span><span class="sub-item-score">62分</span>
+    <p style="margin-top:8px;line-height:1.7;font-size:14px;">
+      瑞典国内的舆论环境属于"理性乐观型"。瑞典球迷和媒体对球队在2022年缺席世界杯感到失望，因此2026年的回归本身就被视为一种成功——外界对球队的期望值设定在"小组出线"和"进入16强"之间，这相对于这支球队的实力来说是合理的目标。瑞典媒体的报道风格总体理性，不像英国媒体那样煽情或八卦——这意味着波特的战术实验和库卢塞夫斯基落选等争议不会在赛前演变为过度的舆论压力。但需要注意的是：瑞典社会对体育成绩的期待较高（瑞典在多个体育项目中均有世界级表现），如果球队在小组赛中表现不佳（尤其是输给"预期中应该击败"的突尼斯），国内的舆论可能会迅速转为批评。
+    </p>
+  </div>
+
+  <h4 style="text-align:right;margin-top:10px;">均分：63分</h4>
+
+  <p class="analysis-text">
+    瑞典队的场外环境总体"平稳无大事"——库卢塞夫斯基的落选是一颗潜在的"定时炸弹"，但瑞典媒体的理性风格和球队一贯的职业氛围使得这一问题不太可能在世界杯期间爆发为公开的更衣室矛盾。波特作为一个外籍教练，面对的舆论压力远小于他执教切尔西时——瑞典媒体对他的评判标准更多是"战术表现"而非"成绩结果"，这为他提供了一定的容错空间。瑞典队的团队凝聚力在"团结一致、目标明确"的层面做得不错——2018年的成功经验证明，当瑞典队不受外界干扰、专注于自身比赛时，他们有能力超出预期。但前提是：队长林德勒夫需要确保库卢塞夫斯基的落选不会分裂更衣室。
+  </p>
+
+  <!-- DIMENSION 7 -->
+  <div class="divider"></div>
+  <h3>维度七：体能储备与伤病控制（权重5%）｜ 得分：58分 × 5% = 2.90分</h3>
+
+  <div class="sub-item">
+    <span class="sub-item-title">7.1 赛季疲劳度评估</span><span class="sub-item-score">55分</span>
+    <p style="margin-top:8px;line-height:1.7;font-size:14px;">
+      瑞典队中大部分在欧洲效力的球员刚结束了一个完整的2025/26赛季。伊萨克（利物浦）是赛季出场次数最多的瑞典球员——英超38轮+欧冠12场+国内杯赛约5场，合计出场约3,800分钟——这是顶级前锋的正常负荷，但考虑到伊萨克在利物浦的核心地位，他的体能消耗在全队中是最大的。于厄克雷斯（阿森纳）的赛季同样密集——约3,200分钟的出场时间。贝里瓦尔（热刺）作为年轻球员在英超获得了约1,800分钟的出场时间，负荷相对可控。埃兰加（纽卡斯尔）出场约2,500分钟。相对而言，林德勒夫（维拉）的出场时间最少（约1,500分钟），这可能意味着他的体能储备较好但比赛节奏可能不足。整体来看，瑞典核心球员的赛季负荷处于正常偏高水平，但尚未达到"过劳"的程度。波特在热身赛中的轮换策略将对球员的体能恢复产生关键影响。
+    </p>
+  </div>
+  <div class="sub-item">
+    <span class="sub-item-title">7.2 关键伤病与恢复情况</span><span class="sub-item-score">55分</span>
+    <p style="margin-top:8px;line-height:1.7;font-size:14px;">
+      截至大名单公布（5月12日），瑞典队没有重大伤病报告——这是一个积极信号。伊萨克在利物浦赛季末段曾因轻度的腿筋疲劳休息了最后一场联赛（但已完全康复），于厄克雷斯健康完成了整个赛季。贝里瓦尔在热刺赛季末曾因脚踝扭伤缺席2周，但已恢复训练并通过了国家队队医的体检。林德勒夫在维拉赛季末段没有伤病记录。全队26名球员均以健康状态入选大名单——考虑到瑞典球员在英超/德甲/意甲等联赛的密集赛程中普遍存在赛季末疲劳受伤的风险，能够在世界杯前保持全员健康已经是非常理想的情况。唯一的隐患是伊萨克的腿筋伤病历史——他曾在2023/24赛季因腿筋伤缺席两个月，这种"旧伤复发"的风险在世界杯的高强度对抗中需要格外关注。
+    </p>
+  </div>
+  <div class="sub-item">
+    <span class="sub-item-title">7.3 医疗团队与保障水平</span><span class="sub-item-score">65分</span>
+    <p style="margin-top:8px;line-height:1.7;font-size:14px;">
+      瑞典队的医疗和体能保障团队在欧洲范围内处于中上水平。瑞典足协配备了专业的队医、理疗师和体能教练团队，在运动科学和伤病预防方面具备北欧国家特有的专业素养。球员的营养管理和训练恢复计划由足协统一协调。与欧洲顶级强队（如德国、英格兰）相比，瑞典在运动心理学和数据分析等前沿领域的投入可能有所不足，但在满足球员基本身体恢复需求方面不存在问题。瑞典队在赛前训练营中会使用当地的先进设施进行训练和恢复。总体而言，瑞典的医疗保障水平在F组中与荷兰属于同一档次，高于日本和突尼斯——这对于小组赛密集赛程中的球员体能恢复是一个边际优势。
+    </p>
+  </div>
+
+  <h4 style="text-align:right;margin-top:10px;">均分：58分</h4>
+
+  <p class="analysis-text">
+    瑞典队在体能和伤病方面呈现"基本健康但有隐忧"的格局。全员健康是最重要的积极因素——波特可以在小组赛开始时使用一套完整的阵容。但他需要一个深思熟虑的"负荷管理"计划——伊拉克（利物浦赛季38场）和于厄克雷斯（阿森纳赛季约3,200分钟）都需要在6月14日首战突尼斯时处于最佳状态，但过于"保护"他们又可能导致比赛节奏不足。瑞典队需要在两场热身赛中逐步提升比赛强度——首战对阵突尼斯时的体能水平需要恰好达到世界杯比赛所需的峰值。高温（蒙特雷/休斯顿/达拉斯6月均温超过30°C）对北欧球队的体能消耗是不可忽视的额外因素——瑞典球员需要额外注意比赛中途的电解质补充和饮水策略。
+  </p>
 </div>
 
-<div class="dimension-card">
-  <h3 class="text-xl font-bold text-se-blue">维度六：团队凝聚力（权重10%）｜ 63分 × 10% = 6.3分</h3>
-  <div class="subitem"><h4>6.1 更衣室团结度 —— 62分</h4><p>波特以"好沟通、善管理"著称——他在布莱顿打造的团队氛围是球队成功的重要因素。林德洛夫作为队长以冷静沉着著称。</p></div>
-  <div class="subitem"><h4>6.2 足协稳定性 —— 68分</h4><p>瑞典足协（SvFF）管理规范，为世界杯备战提供了良好的后勤保障。</p></div>
-  <div class="subitem"><h4>6.3 国内舆论 —— 60分</h4><p>瑞典国内对国家队期望值中等——既不像英法那么苛求，也不像小国那样无压力。缺席2022世界杯降低了期望，晋级2026已超出预期。</p></div>
-  <div class="score-bar mt-3"><div class="score-fill" style="width:63%;background:linear-gradient(90deg,#FECC02,#005BAA);"></div></div>
-  <p class="text-right text-sm text-gray-500 mt-1">维度六总评：<strong>63分</strong> × 10% = <strong>6.3分</strong></p>
-</div>
+<!-- ===== SECTION 3: TOTAL SCORE ===== -->
+<div class="section text-center">
+  <h2>（三）综合总分与评级</h2>
+  <div style="margin:25px 0;">
+    <div style="font-size:18px;color:#666;margin-bottom:10px;">加权总分</div>
+    <div class="total-score">68.65 / 100</div>
+  </div>
+  <div style="margin:25px 0;">
+    <div style="font-size:18px;color:#666;margin-bottom:10px;">实力评级</div>
+    <div class="rating-box">C+</div>
+    <div style="font-size:16px;color:#005b99;margin-top:8px;">中游球队，力争小组出线</div>
+  </div>
 
-<div class="dimension-card">
-  <h3 class="text-xl font-bold text-se-blue">维度七：体能储备与伤病控制（权重5%）｜ 62分 × 5% = 3.1分</h3>
-  <div class="subitem"><h4>7.1 赛季疲劳度 —— 60分</h4><p>伊萨克（利物浦）和约克雷斯（阿森纳）经历了完整的英超赛季，出场均超3000分钟，消耗较大。</p></div>
-  <div class="subitem"><h4>7.2 伤病情况 —— 62分</h4><p>无重大伤病报告，全员健康出战。</p></div>
-  <div class="subitem"><h4>7.3 医疗团队 —— 65分</h4><p>瑞典医疗保障水平在欧洲属于中上。</p></div>
-  <div class="score-bar mt-3"><div class="score-fill" style="width:62%;background:linear-gradient(90deg,#FECC02,#005BAA);"></div></div>
-  <p class="text-right text-sm text-gray-500 mt-1">维度七总评：<strong>62分</strong> × 5% = <strong>3.1分</strong></p>
-</div>
-
-<h2 class="text-se-blue">（三）综合总分与评级</h2>
-<div class="summary-box text-center">
-  <p class="text-2xl font-bold">加权总分：62.45 / 100</p>
-  <p class="text-xl mt-2">实力评级：<span class="font-bold text-3xl">C-</span>（新的评级描述）</p>
-</div>
-<div class="bg-white rounded-xl shadow p-6 mb-6">
-  <h3 class="text-lg font-bold mb-3">七维度雷达数据</h3>
-  <table>
-    <tr><th>维度</th><th>得分</th><th>权重</th><th>加权贡献</th></tr>
-    <tr><td>① 阵容实力</td><td>63</td><td>30%</td><td>18.90</td></tr>
-    <tr><td>② 战术体系与教练</td><td>67.5</td><td>20%</td><td>13.50</td></tr>
-    <tr><td>③ 近期竞技状态</td><td>65</td><td>15%</td><td>9.75</td></tr>
-    <tr><td>④ 大赛经验与心理素质</td><td>58</td><td>10%</td><td>5.80</td></tr>
-    <tr><td>⑤ 分组及赛程影响</td><td>51</td><td>10%</td><td>5.10</td></tr>
+  <h4 style="margin-top:30px;">七维度得分一览</h4>
+  <div class="table-scroll">
+  <table style="max-width:600px;margin:0 auto;">
+    <tr><th>维度</th><th>得分</th><th>权重</th><th>加权得分</th></tr>
+    <tr><td>① 阵容实力</td><td>74</td><td>30%</td><td>22.20</td></tr>
+    <tr><td>② 战术体系与教练</td><td>70</td><td>20%</td><td>14.00</td></tr>
+    <tr><td>③ 近期竞技状态</td><td>71</td><td>15%</td><td>10.65</td></tr>
+    <tr><td>④ 大赛经验与心理素质</td><td>67</td><td>10%</td><td>6.70</td></tr>
+    <tr><td>⑤ 分组及赛程影响</td><td>59</td><td>10%</td><td>5.90</td></tr>
     <tr><td>⑥ 团队凝聚力与场外环境</td><td>63</td><td>10%</td><td>6.30</td></tr>
-    <tr><td>⑦ 体能储备与伤病控制</td><td>62</td><td>5%</td><td>3.10</td></tr>
-    <tr style="font-weight:bold;background:#fff3e0;"><td colspan="3">总分</td><td>62.45</td></tr>
+    <tr><td>⑦ 体能储备与伤病控制</td><td>58</td><td>5%</td><td>2.90</td></tr>
+    <tr style="font-weight:bold;background:#005b99;color:#fff;">
+      <td>总分</td><td>—</td><td>100%</td><td>68.65</td>
+    </tr>
   </table>
-</div>
-
-<h2 class="text-se-blue">（四）深度球评</h2>
-<div class="bg-white rounded-xl shadow p-6 mb-6">
-  <h3 class="text-lg font-bold text-green-700">核心优势</h3>
-  <ul class="list-disc pl-6 space-y-2">
-    <li><strong>伊萨克+约克雷斯——可能是本届世界杯"最被低估的锋线双枪"。</strong>两人在英超合计33球，风格完美互补：伊萨克（1米92/利物浦）是"优雅型射手"，他的盘带和拉边能力让对手中卫不敢压上；约克雷斯（1米87/阿森纳）是"猛兽型中锋"，他的身体对抗和禁区肉搏能力是瑞典在僵局中的破局武器。加上埃兰加（纽卡）的速度替补，瑞典的锋线储备在F组中仅次于荷兰。</li>
-    <li><strong>波特的战术智慧。"大逃亡"奇迹。</strong>一位在英超证明过自己的教练，用5个月的时间把一支濒临出局的球队带进了世界杯。波特在单场淘汰赛中的战术调整能力在布莱顿时期多次展现。</li>
-  </ul>
-</div>
-<div class="bg-white rounded-xl shadow p-6 mb-6">
-  <h3 class="text-lg font-bold text-red-700">致命短板</h3>
-  <ul class="list-disc pl-6 space-y-2">
-    <li><strong>5人中场——在死亡之组中可能是致命的结构缺陷。</strong>斯万贝里+贝里瓦尔+卡尔斯特罗姆的中场三人组，面对荷兰的弗兰基·德容+赖因德斯、日本的田中碧+远藤航，可能在跑动覆盖和技术对抗上全面落于下风。如果中场被压制，伊萨克和约克雷斯将陷入"等长传"的困境。</li>
-    <li><strong>世界杯正赛经验的真空。</strong>除林德洛夫外，全队无人在世界杯赛场上踢过哪怕一分钟——这是波特最担心的变量。首战对阵突尼斯的紧张感和压力，可能让瑞典球员在前20分钟内出现失误。</li>
-  </ul>
-</div>
-<div class="bg-white rounded-xl shadow p-6 mb-6">
-  <h3 class="text-lg font-bold text-se-blue">关键先生</h3>
-  <div class="grid md:grid-cols-2 gap-3">
-    <div class="border-l-4 border-red-600 pl-3"><p class="font-bold">🇸🇪 亚历山大·伊萨克</p><p class="text-sm text-gray-600">利物浦主力前锋，本赛季18个英超进球。他的盘带和速度是瑞典进攻最可靠的"plan A"——当球队需要一个人解决问题时，伊萨克就是答案。</p></div>
-    <div class="border-l-4 border-blue-600 pl-3"><p class="font-bold">🇸🇪 维克托·约克雷斯</p><p class="text-sm text-gray-600">阿森纳前锋，15球7助攻。他的身体对抗和禁区跑位是伊萨克的完美僚机——也是瑞典在定位球和传中战术中的头号目标。</p></div>
-    <div class="border-l-4 border-green-700 pl-3"><p class="font-bold">🇸🇪 卢卡斯·贝里瓦尔</p><p class="text-sm text-gray-600">20岁的热刺中场天才。他的传球视野和创造力是瑞典中场唯一能"威胁性传球"的球员——在对阵突尼斯和日本的比赛中，他的发挥将直接决定瑞典的进攻效率。</p></div>
-    <div class="border-l-4 border-gray-600 pl-3"><p class="font-bold">🇸🇪 维克托·林德洛夫 (C)</p><p class="text-sm text-gray-600">队长，后防领袖。虽然已不在巅峰期，但他在阿斯顿维拉的稳定表现证明了他仍然是一名可靠的中卫。他的经验和指挥能力是瑞典防线的"最后一道保险"。</p></div>
   </div>
 </div>
-<div class="bg-white rounded-xl shadow p-6 mb-6">
-  <h3 class="text-lg font-bold">小组赛预判</h3>
-  <table class="mt-2"><tr><th>对手</th><th>预判</th></tr>
-    <tr><td>突尼斯 🇹🇳</td><td>瑞典 1-0 胜（关键首战）</td></tr>
-    <tr><td>荷兰 🇳🇱</td><td>瑞典 1-2 负</td></tr>
-    <tr><td>日本 🇯🇵</td><td>瑞典 2-1 胜（出线生死战）</td></tr>
+
+<!-- ===== SECTION 4: DEEP REVIEW ===== -->
+<div class="section">
+  <h2>（四）深度球评</h2>
+
+  <h3>核心优势</h3>
+  <div class="key-player">
+    <p><strong>1. 世界级双前锋——伊萨克+于厄克雷斯的"核武库"</strong><br>
+    瑞典队最令对手胆寒的武器就是伊萨克和于厄克雷斯的双前锋组合——两人合计身价€1.65亿，2025/26赛季在英超联手贡献50球，这一数据在全球国家队锋线组合中名列前茅。伊萨克（利物浦/28球）是一名"全能终结者"——兼具速度、盘带和射术，他既能拉到边路接球后内切射门（右路内切打远角是他的招牌），也能在禁区内完成抢点。于厄克雷斯（阿森纳/22球）则是一名"力量型支点"——他可以利用1米88的身高和强壮的体魄在禁区内背身拿球、为队友做球，同时在定位球进攻中提供高空威胁。两人的风格差异意味着瑞典可以在不同的比赛中使用不同的进攻策略：对阵防线站位较高的球队（如日本）用伊萨克打身后，对阵防守强硬的球队（如突尼斯）用于厄克雷斯充当攻城锤。当两人同时在场上时，对手的中卫必须决定谁盯谁——而无论哪个对位，瑞典都有信心在1对1中占据优势。</p>
+  </div>
+  <div class="key-player">
+    <p><strong>2. 波特——瑞典史上最具战术深度的教练</strong><br>
+    格雷厄姆·波特的到来为瑞典足球带来了前所未有的战术维度。与历任瑞典教练（标准4-4-2或4-3-3）不同，波特擅长在3-4-3/4-3-3/4-2-3-1之间灵活切换，其战术板上的"B方案"储备远超前任。他在布莱顿时期最著名的成就是2022/23赛季率队击败了几乎所有的英超BIG6球队（包括客场3-0阿森纳），靠的就是精密的针对性战术部署。在世界杯上，这种"对手定制化"的战术准备能力尤为重要——荷兰的4-3-3高位压迫、日本的4-2-3-1技术传控、突尼斯的5-4-1铁桶防守，三种完全不同的对手需要三种不同的应对方案，而波特恰好是最擅长做这种功课的教练之一。他与球员的沟通方式（英语无障碍）也因为瑞典队的"英超军团"构成（10名球员在英格兰踢球）而更加顺畅。</p>
+  </div>
+  <div class="key-player">
+    <p><strong>3. 预选赛"大逃亡"的精神遗产</strong><br>
+    瑞典队通过附加赛连续击败乌克兰和波兰的晋级历程——尤其是于厄克雷斯的个人英雄主义表现——为全队注入了一种"没有不可能"的信念。这种"置之死地而后生"的经历在杯赛中有时比友谊赛的连胜更有价值——因为球员们知道：即使处于逆境，球队也有能力在关键时刻爆发。乌克兰和波兰都不是弱旅，瑞典在这两场比赛中的表现（尤其是防守端的专注度）甚至超过了小组赛的任何一场。这种"关键战爆发力"如果能在世界杯小组赛对阵荷兰或日本的比赛中被激活，将是瑞典队"以下克上"的最大武器。此外，球队在缺席2022年世界杯后的"饥渴感"——很多球员在国家队层面从未体验过世界杯，这种渴望转化为比赛中的额外跑动和拼抢力度，可能在体能接近极限的第80分钟成为决定性的因素。</p>
+  </div>
+
+  <h3>致命短板</h3>
+  <div class="key-player">
+    <p><strong>1. 防守稳定性——预选赛6场失12球的警报</strong><br>
+    瑞典在预选赛小组赛阶段的防守表现（场均失2球）在全部48支参赛队中属于下游水平——这一数据甚至低于一些亚洲和非洲的中游球队。虽然附加赛中防守有所改善，但对手乌克兰和波兰的进攻实力与荷兰的加克波/德佩不可同日而语。瑞典的防线问题主要有三个层面：第一，中卫组合缺乏"领袖级"人物——林德勒夫在维拉并非绝对主力（赛季仅14次首发），希恩（亚特兰大）和斯塔费尔特（塞尔塔）的俱乐部级别只能算是意甲/西甲中游。第二，边后卫的防守能力存疑——霍尔姆（尤文图斯）出场时间有限，古德蒙松（利兹联）所在的英冠联赛防守强度与世界杯差距明显。第三，后腰的保护不足——埃克达尔和史密斯都不是专门的防守型中场，面对荷兰的快速转换进攻时，中卫身前可能缺乏有效保护。波特需要在"保进攻"和"稳防守"之间找到平衡——如果削弱进攻来加强防守（比如让斯万贝里替换一位前锋），可能又会影响球队最有力的武器（伊萨克+于厄克雷斯）。这是一个结构性的战术困境。</p>
+  </div>
+  <div class="key-player">
+    <p><strong>2. 中场创造力不足——贝里瓦尔担子过重</strong><br>
+    20岁的贝里瓦尔是瑞典中场的"唯一的创意来源"。他在热刺展现出了超出年龄的冷静和传球视野——但要求一名20岁的球员在世界杯上（尤其是对阵荷兰这样的强队时）独自承担起中场的组织重任，可能是一个过高的期待。如果贝里瓦尔被对手重点限制（比如荷兰队让德容对他进行贴身盯防），瑞典可能陷入"中后场→长传找前锋"的简单模式——这种模式在面对日本的紧凑防线时可能效率低下。波特在中场的选择中缺乏一位"技术型组织核心"——阿亚里更偏向B2B而非10号位，斯万贝里在沃尔夫斯堡更多担任边路角色而非中路组织者。库卢塞夫斯基的落选让这个问题更加突出——他虽然是边锋，但具备在中路持球推进的能力（在热刺曾踢过前腰）。如果瑞典在对阵日本时难以通过中场组织创造机会，这次落选可能被反复讨论。
+  </p>
+  </div>
+
+  <h3>关键先生</h3>
+
+  <div class="key-player">
+    <h4>1. Alexander Isak（亚历山大·伊萨克）— 前锋，26岁</h4>
+    <p>伊萨克是瑞典足球历史上身价最高的球员（€1.00亿），也是本届世界杯上最受瞩目的北欧球星。2025/26赛季在利物浦打进28球的表现证明他已跻身世界顶级前锋之列——他在英超的射门转化率（22%）在联赛中排名前三，场均射正1.9次，效率惊人。伊萨克的技术特点在瑞典的4-3-3体系中得到了最大化利用：他可以从左路内切射门（类似于在利物浦的踢法），也可以作为单前锋突前利用速度打身后。他的持球推进能力（场均1.8次成功盘带）在反击中极具威胁——瑞典队防守反击时，伊萨克是那个从中场拿球后直奔对手禁区的"箭头"。他的欧冠经验（28场8球）也是全队中最宝贵的财富之一。在小组赛对阵突尼斯和日本时，伊萨克的速度和盘带将是撕开对手防线的最可靠武器。波特的战术体系中，伊萨克被赋予了"自由攻击手"的角色——不固定在禁区中央，可以在前场自由游走寻找空间。</p>
+  </div>
+
+  <div class="key-player">
+    <h4>2. Viktor Gyökeres（维克托·于厄克雷斯）— 前锋，28岁</h4>
+    <p>于厄克雷斯是瑞典队的"大场面先生"。如果没有他在附加赛中的4个关键进球——尤其是对阵乌克兰的帽子戏法——瑞典根本不可能站在2026年世界杯的赛场上。他在阿森纳的2025/26赛季22球的产出证明了他不是"预选赛型球员"——他在英超的禁区内触球次数（场均4.2次）和空中对抗胜率（61%）在阿森纳队内均名列前茅。于厄克雷斯与伊萨克的最大区别在于：伊萨克需要空间来发挥速度优势，而于厄克雷斯在狭小空间内同样可以创造机会——他的背身拿球和抗压能力在面对日本和突尼斯的密集防守时可能比伊萨克更有价值。波特可能在部分比赛中安排两人同时首发（于厄克雷斯顶在最前、伊萨克从左路内切），这种"双核"配置是对手防线难以同时限制的。于厄克雷斯的身高（188cm）和头球能力也是瑞典定位球进攻中的关键武器——在面对日本和突尼斯这种防守组织严密的球队时，定位球可能是瑞典最有效的破门方式之一。</p>
+  </div>
+
+  <div class="key-player">
+    <h4>3. Victor Lindelöf（维克托·林德勒夫）— 中后卫，31岁（队长）</h4>
+    <p>林德勒夫是瑞典队唯一的2018年世界杯八强成员，也是后防线上经验和领袖气质的唯一来源。虽然他本赛季在阿斯顿维拉的出场时间有限（英超18场/14次首发），但他的比赛阅读能力和出球质量在瑞典中卫中仍是无可替代的。林德勒夫的最大价值在于"指挥防线"——波特的三中卫/四后卫切换体系需要一名能大声喊出队友位置的中卫指挥官，而林德勒夫恰恰就是那个人。他在曼联时期积累的欧冠经验（47场）以及面对世界顶级前锋（包括他的俱乐部队友伊萨克！）的经历，使他在面对荷兰队的加克波和日本队的久保建英时不会感到怯场。林德勒夫的健康状况可能是瑞典在小组赛中最重要的变量——如果他因伤缺席任何一场比赛，瑞典的防线稳定性将下降一个完整的档次。</p>
+  </div>
+
+  <div class="key-player">
+    <h4>4. Lucas Bergvall（卢卡斯·贝里瓦尔）— 中场，20岁</h4>
+    <p>贝里瓦尔是瑞典队最令人期待的新星——20岁就以€4,000万的身价加盟热刺，并在2025/26赛季英超交出了20场3球4助攻的答卷。他的技术特点与瑞典传统的中场球员（硬朗、工兵型）完全不同——贝里瓦尔是一名控球型中场，具备出色的视野和传球精度，能够在对手的高位压迫下从容拿球并找到前方的伊萨克和于厄克雷斯。在波特的4-3-3体系中，贝里瓦尔被赋予了"组织核心"的角色——他需要在中场掌控节奏并发动进攻。如果他能将热刺时期的表现复制到世界杯赛场上，瑞典中场的创造力将实现质的飞跃。但问题在于：他年仅20岁，世界杯的压力是他职业生涯中从未经历过的。面对荷兰队德容和赖因德斯的顶级中场组合，贝里瓦尔能否保持冷静和技术发挥，将是瑞典能否在F组中突围的关键变量之一。</p>
+  </div>
+
+  <h3>小组赛预判</h3>
+  <table>
+    <tr><th>对手</th><th>比赛日期</th><th>场地</th><th>预计结果</th><th>概率评估</th></tr>
+    <tr><td>突尼斯 🇹🇳</td><td>6月14日</td><td>蒙特雷</td><td>2-0 胜</td><td>胜率 65%，不败概率 85%</td></tr>
+    <tr><td>荷兰 🇳🇱</td><td>6月20日</td><td>休斯顿</td><td>1-2 负</td><td>拿分概率 30%</td></tr>
+    <tr><td>日本 🇯🇵</td><td>6月25日</td><td>阿灵顿</td><td>2-1 胜 / 1-1 平</td><td>不败概率 60%</td></tr>
   </table>
-  <p class="mt-2"><strong>小组赛综合：2胜1负积6分，出线概率约45-50%。</strong></p>
+  <p class="analysis-text">
+    瑞典的出线概率约为60-65%。首战对阵突尼斯是"必须赢"的比赛——突尼斯虽然防守硬朗，但进攻创造力有限，瑞典的锋线优势应足以确保进球。次战对阵荷兰是最艰难的比赛——荷兰队的中后场控制力远超瑞典，这场比赛瑞典的目标是争取平局（或至少不要大败影响净胜球）。末战对阵日本很可能成为"出线生死战"——日本的技术控制和纪律性与瑞典形成了鲜明的风格对比，这场比赛将很大程度上取决于双方边路的速度对决和伊萨克/于厄克雷斯的临门一脚。最可能的出线剧本：胜突尼斯、负荷兰、平或胜日本，积4-6分以小组第二出线。
+  </p>
+
+  <h3>淘汰赛路线推演</h3>
+  <p class="analysis-text">
+    如果瑞典以小组第二出线，32强赛将对阵E组头名——大概率是德国队。这将是一场"硬仗中的硬仗"——德国虽然近两届世界杯小组赛出局，但整体实力和大赛经验仍远在瑞典之上。但瑞典并非没有机会：2018年世界杯1/4决赛对阵英格兰，瑞典虽然没有晋级但表现并不差——0-2的比分并不能完全反映比赛过程。如果伊萨克和于厄克雷斯的状态在32强赛中达到峰值，瑞典完全有能力与任何对手周旋。如果瑞典以小组头名出线（需要击败或逼平荷兰），32强赛将对阵E组第二——这将是更有利的晋级路线（可能对阵科特迪瓦或厄瓜多尔），使瑞典进入16强的概率大幅提升。总体而言：瑞典的"天花板"是八强——这与2018年的成绩持平，也将是这支"后伊布时代"瑞典队的最高成就。
+  </p>
+
+  <h3>大师结语</h3>
+  <p style="font-size:18px;font-style:italic;color:#005b99;text-align:center;padding:20px;border-top:2px solid #005b99;border-bottom:2px solid #005b99;margin:30px 0;">
+    "€1.65亿的锋线双核，英超名帅的战术棋盘——北欧海盗已磨刀霍霍，在北美大陆上，他们要证明自己不只是伊布的影子。"
+  </p>
 </div>
-<div class="bg-white rounded-xl shadow p-6 mb-6">
-  <h3 class="text-lg font-bold">淘汰赛路线推演</h3>
-  <p class="mt-3 p-3 bg-blue-50 rounded-lg"><strong>核心判断：</strong>瑞典是F组中最不确定的变量——他们拥有不亚于任何对手的锋线天赋（伊萨克+约克雷斯），但中场的结构缺陷可能让他们在中场对抗中付出代价。波特的任务是"用战术体系弥补中场人数和质量的不足"——3-4-2-1阵型（三中卫+双翼卫+双前锋）可能是答案。瑞典在这届世界杯上的关键只有两个字：<strong>"效率"</strong>——他们的进攻机会会比荷兰少得多，但当机会来临时，伊萨克和约克雷斯必须把它们转化为进球。如果首战击败突尼斯，瑞典将以巨大的信心面对荷兰——拼下日本，16强就在眼前。上限：16强；下限：小组第三（输给日本）。一切取决于6月25日瑞典对日本的"生死对决"。</p>
-</div>
-<div class="bg-white rounded-xl shadow p-6 mb-6 text-center">
-  <h3 class="text-lg font-bold text-se-blue">大师结语</h3>
-  <p class="text-xl italic mt-3 text-gray-700">"北欧海盗重返世界舞台——伊萨克在利物浦打磨出了黄金般的左脚，约克雷斯在阿森纳扛起了中锋的旗帜，波特从切尔西的废墟中走出，在北欧的寒风中找到了足球最纯粹的样子。F组是刀山火海，但瑞典有最锋利的双刃——当伊萨克拿球转身，当约克雷斯在禁区里扛开最后一个后卫，瑞典人会想起1994年的布洛林和安德森——那些让全世界闭嘴的北欧夏天。"</p>
-</div>
-<div class="text-center text-gray-400 text-sm py-6 border-t">
-  <p>© 2026 足球战力分析 · Powered by WorkBuddy AI</p>
-</div>
+
 </div>
 
 <!-- HuaFootball: back-to-home button -->
@@ -271,17 +456,17 @@ tailwind.config = { theme: { extend: { colors: { se: { blue: '#005BAA', yellow: 
 .huafootball-back-btn {
   position:fixed!important;bottom:28px!important;right:28px!important;z-index:99999!important;
   display:inline-flex!important;align-items:center!important;gap:6px!important;
-  padding:10px 22px!important;background:rgba(26,71,42,0.85)!important;color:#c9a84c!important;
-  border:1px solid rgba(201,168,76,0.3)!important;border-radius:999px!important;
-  font-family:"Inter","Noto Sans SC",system-ui,sans-serif!important;font-size:13px!important;
+  padding:10px 22px!important;background:rgba(26,71,42,0.85)!important;color:#c8a951!important;
+  border:1px solid rgba(200,169,81,0.3)!important;border-radius:999px!important;
+  font-family:"Inter","PingFang SC",system-ui,sans-serif!important;font-size:13px!important;
   font-weight:600!important;text-decoration:none!important;
   backdrop-filter:blur(8px)!important;-webkit-backdrop-filter:blur(8px)!important;
   box-shadow:0 4px 20px rgba(0,0,0,0.3)!important;transition:all .25s ease!important;
   cursor:pointer!important;user-select:none!important;
 }
 .huafootball-back-btn:hover {
-  background:rgba(26,71,42,0.95)!important;border-color:rgba(201,168,76,0.5)!important;
-  box-shadow:0 6px 28px rgba(201,168,76,0.2)!important;transform:translateY(-2px)!important;
+  background:rgba(26,71,42,0.95)!important;border-color:rgba(200,169,81,0.5)!important;
+  box-shadow:0 6px 28px rgba(200,169,81,0.2)!important;transform:translateY(-2px)!important;
 }
 .huafootball-back-btn svg { transition:transform .2s ease!important; }
 .huafootball-back-btn:hover svg { transform:translateX(-3px)!important; }

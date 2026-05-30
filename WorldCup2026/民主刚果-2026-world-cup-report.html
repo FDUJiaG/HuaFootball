@@ -48,6 +48,8 @@ tailwind.config = {
   .badge-df { background: #2196F3; color: white; }
   .badge-mf { background: #FF9800; color: white; }
   .badge-fw { background: #f44336; color: white; }
+
+  .overflow-x-auto { overflow-x: auto; -webkit-overflow-scrolling: touch; }
 </style>
 </head>
 <body class="bg-gray-50">
@@ -99,7 +101,8 @@ tailwind.config = {
 <p class="text-gray-500 text-sm mb-3">* 5月18日公布 · 10人中场堪称"非洲版中场大队" · 英超元素：万-比萨卡+维萨+图安泽贝</p>
 
 <div class="bg-white rounded-xl shadow p-6 mb-6">
-  <table>
+  <div style="overflow-x:auto;">
+<table>
     <thead>
       <tr>
         <th>位置</th>
@@ -278,12 +281,14 @@ tailwind.config = {
 
   <div class="subitem">
     <h4>5.1 小组赛对手分析 —— 35分</h4>
-    <table class="text-sm mb-2">
+    <div class="overflow-x-auto">
+<table class="text-sm mb-2">
       <tr><th>对手</th><th>FIFA排名（约）</th><th>风格特点</th><th>民主刚果胜率预估</th></tr>
       <tr><td>葡萄牙 🇵🇹</td><td>5-8名</td><td>技术型传控，中场世界级</td><td>8-12%</td></tr>
       <tr><td>哥伦比亚 🇨🇴</td><td>15-20名</td><td>南美技术流，个人能力强</td><td>15-20%</td></tr>
       <tr><td>乌兹别克斯坦 🇺🇿</td><td>70-80名</td><td>亚洲技术派，防守硬朗</td><td>35-40%</td></tr>
     </table>
+</div>
     <p>K组的实力梯度非常清晰：葡萄牙是毫无疑问的小组头号热门，哥伦比亚是第二档有出线实力的强队，民主刚果和乌兹别克斯坦将争夺"搅局者"角色。民主刚果的关键赛事是对阵乌兹别克斯坦的最后一轮——这场比赛几乎将决定两队谁能在K组中"带着荣誉回家"。面对葡萄牙和哥伦比亚，民主刚果的目标应是"少输当赢"——如果能在这两场比赛中拿到一场平局（理想）或只输1球（可接受），就已经是超常发挥了。葡萄牙的中场控制力（维蒂尼亚+B费）将给民主刚果的中场带来巨大压力，而哥伦比亚的路易斯·迪亚斯（利物浦边锋）的突破能力将是万-比萨卡在本届世界杯上最严峻的一对一考验。</p>
   </div>
 
@@ -412,13 +417,17 @@ tailwind.config = {
 </div>
 
 <div class="bg-white rounded-xl shadow p-6 mb-6">
-  <h3 class="text-lg font-bold">小组赛预判</h3>
-  <table class="mt-2">
+  <h3 class="text-lg font-bold"><h3 class="text-lg font-bold">小组赛预判</h3>
+  <div class="overflow-x-auto">
+<div class="overflow-x-auto">
+<table class="mt-2">
     <tr><th>对手</th><th>预判结果</th><th>理由</th></tr>
     <tr><td>葡萄牙 🇵🇹</td><td>民主刚果 0-3 负</td><td>技术和经验全方位碾压，少输当赢</td></tr>
     <tr><td>哥伦比亚 🇨🇴</td><td>民主刚果 1-2 负</td><td>南美技术流稍占上风，民主刚果可能进球但输球</td></tr>
     <tr><td>乌兹别克斯坦 🇺🇿</td><td>民主刚果 2-1 胜</td><td>身体对抗优势+反击效率决定胜负</td></tr>
   </table>
+</div>
+</div>
   <p class="mt-2"><strong>小组赛综合：1胜2负，积3分，小组第三概率75%。如果击败乌兹别克斯坦，将创造民主刚果世界杯首胜的历史。</strong></p>
 </div>
 
@@ -437,7 +446,7 @@ tailwind.config = {
 
 <!-- Footer -->
 <div class="text-center text-gray-400 text-sm py-6 border-t">
-  <p>© 2026 足球战力分析 · Powered by WorkBuddy AI｜数据截至2026年5月21日</p>
+  <p>© 2026 足球战力分析 · Powered by HuaZongNiuBi AI｜数据截至2026年5月21日</p>
   <p class="mt-1">数据来源：SoccerGraph、Kawowo、CAF官网、 Olympics.com等综合报道</p>
 </div>
 
@@ -488,6 +497,7 @@ tailwind.config = {
   .huafootball-back-btn:hover svg {
     transform: translateX(-3px) !important;
   }
+.deep-analysis { background: #f0f7ff; border-left: 4px solid #CE1021; padding: 16px 20px; margin: 16px 0; border-radius: 8px; font-size: 11pt; line-height: 1.8; }
 </style>
 
 </body>
