@@ -68,6 +68,10 @@ function extractScore(content) {
   m = content.match(/加权总分[^<]*<td[^>]*>[^<]*<strong>([\d.]+)\s*\/\s*100/);
   if (m) return parseFloat(m[1]);
 
+  // 7. <div class="score">83.6</div> ... 加权总分 (rating-box 格式，数字后无"分")
+  m = content.match(/<div\s+class="[^"]*\bscore\b[^"]*"[^>]*>\s*([\d.]+)\s*<\/div>(?:.|\n){0,500}?加权总分/);
+  if (m) return parseFloat(m[1]);
+
   return null;
 }
 
