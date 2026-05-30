@@ -34,11 +34,11 @@
       "瑞典": "🇸🇪",
       "瑞士": "🇨🇭",
       "南非": "🇿🇦",
-      "苏格兰": "🇬🇧",
+      "苏格兰": "🏴󠁧󠁢󠁳󠁣󠁴󠁿",
       "突尼斯": "🇹🇳",
       "西班牙": "🇪🇸",
       "新西兰": "🇳🇿",
-      "英格兰": "🇬🇧",
+      "英格兰": "🏴󠁧󠁢󠁥󠁮󠁧󠁿",
       "海地": "🇭🇹"
     },
     "teamColors": {
@@ -102,11 +102,11 @@
       "瑞典": "https://flagcdn.com/24x18/se.png",
       "瑞士": "https://flagcdn.com/24x18/ch.png",
       "南非": "https://flagcdn.com/24x18/za.png",
-      "苏格兰": "https://flagcdn.com/24x18/gb.png",
+      "苏格兰": "https://flagcdn.com/24x18/gb-sct.png",
       "突尼斯": "https://flagcdn.com/24x18/tn.png",
       "西班牙": "https://flagcdn.com/24x18/es.png",
       "新西兰": "https://flagcdn.com/24x18/nz.png",
-      "英格兰": "https://flagcdn.com/24x18/gb.png",
+      "英格兰": "https://flagcdn.com/24x18/gb-eng.png",
       "海地": "https://flagcdn.com/24x18/ht.png"
     }
   }
