@@ -36,6 +36,12 @@ body { font-family: 'Noto Serif SC', 'Times New Roman', serif; background: #ffff
 @media print { body { font-size: 12pt; } .section-title { page-break-after: avoid; } }
 
   .overflow-x-auto { overflow-x: auto; -webkit-overflow-scrolling: touch; }
+
+/* Flags emoji font compatibility */
+.flag-emoji-fallback, .team-flag, .card-flag, .hero-flag {
+  font-family: "Apple Color Emoji", "Segoe UI Emoji", "Noto Color Emoji", "Twemoji Mozilla", sans-serif !important;
+}
+
 </style>
 </head>
 <body class="p-6 md:p-10 max-w-5xl mx-auto">

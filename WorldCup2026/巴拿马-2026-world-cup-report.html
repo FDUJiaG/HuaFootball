@@ -28,6 +28,12 @@ tailwind.config = { theme: { extend: { colors: { pa: { blue: '#0055A4', red: '#D
   .badge-mf { background: #FF9800; color: white; } .badge-fw { background: #f44336; color: white; }
   .deep-analysis { background: #f0f7ff; border-left: 4px solid #0055A4; padding: 16px 20px; margin: 16px 0; border-radius: 8px; font-size: 11pt; line-height: 1.8; }
   .overflow-x-auto { overflow-x: auto; -webkit-overflow-scrolling: touch; }
+
+/* Flags emoji font compatibility */
+.flag-emoji-fallback, .team-flag, .card-flag, .hero-flag {
+  font-family: "Apple Color Emoji", "Segoe UI Emoji", "Noto Color Emoji", "Twemoji Mozilla", sans-serif !important;
+}
+
 </style>
 </head>
 <body class="bg-gray-50">

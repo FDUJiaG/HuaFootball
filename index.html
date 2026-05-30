@@ -336,6 +336,12 @@
     .score-table tbody td .flag-icon-table { font-size: 0.72rem; margin-right: 2px; }
     .score-table tbody td .rating-badge-td { min-width: 26px; height: 20px; font-size: 0.65rem; padding: 0 2px; }
   }
+
+/* 国旗Emoji跨平台渲染兼容 */
+.card-flag, .hero-flag, .flag-emoji-fallback, img[alt*="国旗"] {
+  font-family: "Apple Color Emoji", "Segoe UI Emoji", "Noto Color Emoji", "Twemoji Mozilla", sans-serif !important;
+}
+
 </style>
 </head>
 <body>

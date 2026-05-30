@@ -51,6 +51,12 @@ tailwind.config = {
   .debut-badge { display: inline-block; padding: 4px 14px; background: linear-gradient(135deg, #FFD700, #FFA500); color: #333; border-radius: 20px; font-weight: bold; font-size: 0.9em; }
 
   .overflow-x-auto { overflow-x: auto; -webkit-overflow-scrolling: touch; }
+
+/* Flags emoji font compatibility */
+.flag-emoji-fallback, .team-flag, .card-flag, .hero-flag {
+  font-family: "Apple Color Emoji", "Segoe UI Emoji", "Noto Color Emoji", "Twemoji Mozilla", sans-serif !important;
+}
+
 </style>
 </head>
 <body class="bg-gray-50">
