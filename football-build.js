@@ -37,6 +37,7 @@ try {
 const FC = config.football || {};
 const TEAM_FLAGS = FC.teamFlags || {};
 const TEAM_COLORS = FC.teamColors || {};
+const TEAM_FLAG_IMAGES = FC.flagImages || {};
 
 // ─── Extract score from report HTML ───────────────────────────────
 function extractScore(content) {
@@ -69,7 +70,7 @@ function extractScore(content) {
   if (m) return parseFloat(m[1]);
 
   // 7. <div class="score">83.6</div> ... 加权总分 (rating-box 格式，数字后无"分")
-  m = content.match(/<div\s+class="[^"]*\bscore\b[^"]*"[^>]*>\s*([\d.]+)\s*<\/div>(?:.|\n){0,500}?加权总分/);
+  m = content.match(/<div\s+class="[^"]*\bscore\b[^"]*"[^>]*>\s*([\d.]+)\s*<\/div>[\s\S]{0,500}?加权总分/);
   if (m) return parseFloat(m[1]);
 
   return null;
@@ -251,13 +252,14 @@ function scanTeams() {
     }
 
     const flag = TEAM_FLAGS[name] || FLAG_FALLBACK;
+    const flagImg = TEAM_FLAG_IMAGES[name] || '';
     const accent = TEAM_COLORS[name] || COLOR_FALLBACK;
 
     if (!TEAM_FLAGS[name]) {
       console.warn(`   ⚠️  未知球队 "${name}"，请在 config.json 的 football.teamFlags 中添加`);
     }
 
-    teams.push({ name, flag, file: relPath, score, rating: computedRating, accent, rawRating, dims });
+    teams.push({ name, flag, flagImg, file: relPath, score, rating: computedRating, accent, rawRating, dims });
     const scoreStr = score != null ? `${score}分` : '??分';
     const logOld = rawRating ? ` (原:${rawRating})` : '';
     console.log(`   ${flag} ${name}: ${scoreStr} [${computedRating}]${logOld}`);
@@ -279,6 +281,7 @@ function updateIndexData(teams) {
   const teamsData = teams.map(t => ({
     name: t.name,
     flag: t.flag,
+    flagImg: t.flagImg,
     file: t.file,
     score: t.score,
     rating: t.rating,
