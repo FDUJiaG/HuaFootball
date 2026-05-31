@@ -176,44 +176,58 @@ function computeRating(score) {
   return 'E';
 }
 
+// ─── Rating description mapping ──────────────────────────────────
+const RATING_DESC = {
+  'A+': '争冠最大热门，直指冠军',
+  'A':  '一流强队，四强有力竞争者',
+  'A-': '准一流强队，八强有力竞争者',
+  'B+': '二线劲旅，十六强水准，具备冲击八强潜力',
+  'B':  '二线中坚，小组出线无忧，力争十六强',
+  'B-': '准二线，小组出线是合理目标',
+  'C+': '中游球队，出线权需激烈竞争',
+  'C':  '中游偏下，具备一定出线希望',
+  'C-': '中下游，出线难度较大',
+  'D+': '实力有限，争取小组赛取胜',
+  'D':  '鱼腩球队，重在参与',
+  'D-': '实力悬殊，小组赛难求一胜',
+  'E':  '陪跑角色，避免大比分惨案',
+};
+
 // ─── Update rating display in report HTML ─────────────────────────
 function updateReportRating(absPath, oldContent, newRating) {
   let content = oldContent;
   let changed = false;
+  const desc = RATING_DESC[newRating] || '';
 
-  // Pattern 1: 实力评级：<span class="...">OLD</span>（旧描述）
-  let m = content.match(/(实力评级[：:][^<]*<[^>]*>)[A-D][+-]?(E)?(<\/[^>]*>)([^<]*)/);
+  // Pattern 1: <div class="detail">DESC</div> inside rating-box (class="detail" after class="rating")
+  let m = content.match(/(<div class="rating">[A-E][+-]?<\/div>\n\s*<div class="detail">)[^<]+(<\/div>)/);
   if (m && !changed) {
-    content = content.replace(m[0], m[1] + newRating + m[3] + '（新的评级描述）');
+    content = content.replace(m[0], m[1] + desc + m[2]);
     changed = true;
   }
 
-  // Pattern 2: 评级：OLD — 旧描述
+  // Pattern 2: <div style="font-size:16px;color:...;margin-top:8px;">DESC</div>
   if (!changed) {
-    m = content.match(/(评级[：:]\s*)[A-D][+-]?(E)?(\s*[—–].*)/);
-    if (m) { content = content.replace(m[0], m[1] + newRating + m[3]); changed = true; }
+    m = content.match(/(<div style="font-size:16px;color:[^;]+;margin-top:8px;">)[^<]+(<\/div>)/);
+    if (m) { content = content.replace(m[0], m[1] + desc + m[2]); changed = true; }
   }
 
-  // Pattern 3: <div class="rating-X ...">X 级</div>
+  // Pattern 3: 实力评级：<span class="...">OLD</span>（旧描述）
   if (!changed) {
-    m = content.match(/(class="[^"]*rating-)[A-D]([^"]*"[^>]*>\s*)[A-D](\s*级<\/div>)/);
-    if (m) {
-      const base = newRating[0];
-      content = content.replace(m[0], m[1] + base + m[2] + newRating + m[3]);
-      changed = true;
-    }
+    m = content.match(/(实力评级[：:][^<]*<[^>]*>)[A-D][+-]?(E)?(<\/[^>]*>)[^<]*/);
+    if (m) { content = content.replace(m[0], m[1] + newRating + m[3] + '（' + desc + '）'); changed = true; }
   }
 
-  // Pattern 4: <strong>OLD级（日本格式）
+  // Pattern 4: rating-badge">OLD级 — 描述</span>
   if (!changed) {
-    m = content.match(/(<strong>)[A-D][+-]?(E)?(\s*级[^<]*<\/strong>)/);
-    if (m) { content = content.replace(m[0], m[1] + newRating + m[3]); changed = true; }
+    m = content.match(/(rating-badge[^>]*>)[A-D][+-]?(E)?(\s*级\s*[—–]\s*)[^<]*(<\/span>)/);
+    if (m) { content = content.replace(m[0], m[1] + newRating + '级 - ' + desc + m[4]); changed = true; }
   }
 
-  // Pattern 5: rating-badge">OLD级 — 描述</span>
+  // Pattern 5: 评级：OLD — 旧描述 (韩国格式)
   if (!changed) {
-    m = content.match(/(rating-badge[^>]*>)[A-D][+-]?(E)?(\s*级\s*[—–]\s*[^<]*<\/span>)/);
-    if (m) { content = content.replace(m[0], m[1] + newRating + m[3]); changed = true; }
+    m = content.match(/(评级[：:]\s*)[A-D][+-]?(E)?(\s*[—–]\s*)[^<]+/);
+    if (m) { content = content.replace(m[0], m[1] + newRating + m[3] + desc); changed = true; }
   }
 
   if (changed) {
