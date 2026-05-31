@@ -736,7 +736,15 @@
   // ── Parse teams data
   const teams = JSON.parse(document.getElementById('teams-data').textContent);
 
-  // ── DOM refs
+  // ── Search aliases ──
+  const SEARCH_ALIASES = {
+    '唐颖': '阿根廷',
+    '臧敏捷': '阿根廷',
+    '段鹏飞': '阿根廷',
+    '何裕嘉': '葡萄牙',
+    '张垂范': '葡萄牙',
+    '林叙希': '葡萄牙',
+  };
   const grid = document.getElementById('teams-grid');
   const emptyState = document.getElementById('empty-state');
   const totalCountEl = document.getElementById('total-count');
@@ -826,7 +834,12 @@
     if (currentFilter !== 'all') filtered = filtered.filter(t => (t.rating||'').startsWith(currentFilter));
     if (currentSearch.trim()) {
       const q = currentSearch.trim().toLowerCase();
-      filtered = filtered.filter(t => t.name.toLowerCase().includes(q) || (t.rating||'').toLowerCase().includes(q));
+      filtered = filtered.filter(t => {
+        if (t.name.toLowerCase().includes(q) || (t.rating||'').toLowerCase().includes(q)) return true;
+        // Check search aliases
+        const aliasTarget = SEARCH_ALIASES[currentSearch.trim()];
+        return aliasTarget && t.name === aliasTarget;
+      });
     }
     filtered.sort((a, b) => sortOrder === 'desc' ? (b.score||0) - (a.score||0) : (a.score||0) - (b.score||0));
     updateStats(filtered);
