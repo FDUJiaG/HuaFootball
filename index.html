@@ -536,16 +536,14 @@
 <section id="teams" class="py-24 relative">
   <div class="absolute inset-0 bg-gradient-to-b from-transparent via-pitch-800/30 to-transparent pointer-events-none"></div>
   <div class="max-w-[1400px] mx-auto px-6 relative">
-    <div class="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-4 scroll-reveal">
-      <div>
-        <div class="inline-flex items-center gap-2 px-4 py-1.5 bg-white/3 border border-white/5 rounded-full text-white/50 text-sm mb-6">
-          战力榜单
-        </div>
-        <h2 class="text-4xl md:text-5xl font-black tracking-tighter">
-          <span class="gold-text">20 支国家队</span> 战力排行
-        </h2>
-        <p class="text-white/40 mt-2 max-w-md">基于 OPR 七维度深度评估，自动生成排名与评级。</p>
+    <div class="text-center mb-16 scroll-reveal">
+      <div class="inline-flex items-center gap-2 px-4 py-1.5 bg-white/3 border border-white/5 rounded-full text-white/50 text-sm mb-6">
+        战力榜单
       </div>
+      <h2 class="text-4xl md:text-5xl font-black tracking-tighter">
+        <span class="gold-text" id="team-count-header">32 支国家队</span> 战力排行
+      </h2>
+      <p class="text-white/40 mt-2">基于 OPR 七维度深度评估，自动生成排名与评级。</p>
     </div>
 
     <!-- Stats bar -->
@@ -753,6 +751,7 @@
   const heroPreview = document.getElementById('hero-preview');
   const heroCount = document.getElementById('hero-count');
   const heroRating = document.getElementById('hero-rating');
+  const teamCountHeader = document.getElementById('team-count-header');
 
   let sortOrder = 'desc';
   let currentFilter = 'all';
@@ -1032,6 +1031,7 @@
   renderTable();
   updateHeaderArrows();
   renderGrid();
+  if (teamCountHeader) teamCountHeader.textContent = teams.length + ' 支国家队';
 
   console.log('HuaFootball | 2026 World Cup Power Rankings | OPR v2.0');
 })();

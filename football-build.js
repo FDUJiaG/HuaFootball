@@ -310,6 +310,8 @@ function updateIndexData(teams) {
 
   if (oldMatch) {
     html = html.replace(pattern, '$1' + teamsJSON + '$3');
+    // Update team count header
+    html = html.replace(/(id="team-count-header">)[^<]+(<\/span>)/, '$1' + teams.length + ' 支国家队$2');
     fs.writeFileSync(INDEX_PATH, html, 'utf-8');
     return true;
   }
